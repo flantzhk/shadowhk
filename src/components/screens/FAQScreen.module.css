@@ -1,0 +1,87 @@
+/* FAQScreen.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  background: var(--color-bg);
+}
+
+.backBtn {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: 12px 22px;
+  min-height: 44px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark-text);
+  padding: 8px 22px 4px;
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  padding: 0 22px 20px;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--color-border);
+}
+
+.faqItem {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  gap: 12px;
+}
+
+.chevron {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  transition: transform 200ms;
+  flex-shrink: 0;
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.answer {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding: 0 22px 16px;
+}
+
+.footer {
+  text-align: center;
+  padding: 32px 22px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.contactLink {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+  margin-top: 8px;
+  text-decoration: underline;
+}

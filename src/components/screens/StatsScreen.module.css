@@ -1,0 +1,596 @@
+/* StatsScreen.module.css — Encouraging progress dashboard */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--content-padding);
+  padding-bottom: var(--space-3xl);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+/* ── Streak Hero ── */
+.streakHero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px;
+  background: linear-gradient(140deg, #2A1A08 0%, var(--color-brand-dark) 55%, #1A2A12 100%);
+  border-radius: 20px;
+  margin-bottom: var(--space-base);
+  overflow: hidden;
+  position: relative;
+}
+
+.streakHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(232, 112, 58, 0.14) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.streakLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.flame {
+  animation: flameFloat 2.2s ease-in-out infinite;
+}
+
+@keyframes flameFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-3px) scale(1.04); }
+}
+
+.streakNums {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.streakNum {
+  font-size: 2.625rem;
+  font-weight: var(--font-weight-bold);
+  color: white;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.streakUnit {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.streakRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.streakHeadline {
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  line-height: 1.3;
+}
+
+.streakSub {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
+
+.bestStreak {
+  font-size: 0.6875rem;
+  color: var(--color-brand-lime);
+  margin-top: 4px;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ── Today + Week Row ── */
+.todayWeekRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: var(--space-base);
+}
+
+.cardLabel {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Today card */
+.todayCard {
+  flex: 0 0 120px;
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ringWrap {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.ringSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 5;
+}
+
+.ringFill {
+  fill: none;
+  stroke: var(--color-brand-lime);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ringInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.todayGoalLabel {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.todayTime {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+  text-align: center;
+}
+
+/* Week card */
+.weekCard {
+  flex: 1;
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 16px;
+  padding: 14px 12px;
+}
+
+.weekTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.weekCount {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-green);
+}
+
+.weekRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.weekDot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.weekDotActive {
+  background: var(--color-brand-lime);
+  border-color: var(--color-brand-green);
+  color: var(--color-brand-dark);
+}
+
+.weekDotToday {
+  border-color: var(--color-text-secondary);
+}
+
+.weekLabel {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+.weekLabelToday {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ── Stats Grid ── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: var(--space-base);
+}
+
+.statTile {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 14px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNum {
+  font-size: 1.625rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.statNumGreen {
+  color: var(--color-brand-green);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ── Level Card ── */
+.levelCard {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: var(--space-base);
+}
+
+.levelTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.levelBadgeLarge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--color-brand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.levelBadgeNum {
+  font-size: 1.375rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-lime);
+  line-height: 1;
+}
+
+.levelInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.levelTitle {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.levelDesc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.xpChip {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-green);
+  background: var(--color-mastered-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.levelProgress {
+  margin-bottom: 16px;
+}
+
+.xpBar {
+  height: 6px;
+  background: var(--color-bg);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.xpFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-brand-green), var(--color-brand-lime));
+  border-radius: var(--radius-pill);
+  min-width: 4px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.levelProgressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.levelProgressLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.xpRemaining {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* XP Rules */
+.xpRules {
+  padding-top: 14px;
+  border-top: 0.5px solid var(--color-border);
+}
+
+.xpRulesTitle {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.xpRuleRow {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.xpAmount {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-green);
+  min-width: 30px;
+}
+
+/* ── Achievements ── */
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.sectionCount {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.achieveSub {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+/* Earned — grid */
+.achieveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.achieveCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 8px 12px;
+  background: var(--color-mastered-bg);
+  border: 0.5px solid var(--color-brand-lime);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.achieveEmoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.achieveLabel {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.achieveDesc {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+/* In-progress — list */
+.achieveList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.achieveRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.achieveRowEmoji {
+  font-size: 1.375rem;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.achieveRowText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.achieveRowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.achieveRowLabel {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.achieveRowCount {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+}
+
+.achieveRowDesc {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.achieveRowBar {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.achieveRowFill {
+  height: 100%;
+  background: var(--color-brand-lime);
+  border-radius: 2px;
+  min-width: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Show more */
+.showMoreBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.showMoreBtn:active {
+  opacity: 0.7;
+}

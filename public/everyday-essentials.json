@@ -1,0 +1,1068 @@
+[
+  {
+    "id": "building-lobby",
+    "category": "everyday-essentials",
+    "name": "Building Lobby",
+    "description": "Security guards, visitors, packages, and building life",
+    "phraseCount": 15,
+    "imageGradient": "linear-gradient(135deg, #1A1A2A 0%, #2A3A5A 50%, #5A7AAA 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "lobby-001",
+        "romanization": "Ngo⁵ hai⁶ sap⁶ baat³ lau⁴ ge³ gei¹ min⁴",
+        "jyutping": "ngo5 hai6 sap6 baat3 lau4 ge3 gei1 min4",
+        "chinese": "我係十八樓嘅居民",
+        "english": "I'm a resident on the 18th floor",
+        "context": "Identify yourself to the security guard — use your own floor number",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am" },
+          { "chinese": "十八樓", "jyutping": "sap6 baat3 lau4", "english": "18th floor" },
+          { "chinese": "嘅居民", "jyutping": "ge3 gei1 min4", "english": "the resident of" }
+        ]
+      },
+      {
+        "id": "lobby-002",
+        "romanization": "Ngo⁵ jau⁵ pang⁴ jau⁵ lei⁴",
+        "jyutping": "ngo5 jau5 pang4 jau5 lei4",
+        "chinese": "我有朋友嚟",
+        "english": "I have a friend coming",
+        "context": "Tell the security guard to expect a visitor for your flat",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我有", "jyutping": "ngo5 jau5", "english": "I have" },
+          { "chinese": "朋友", "jyutping": "pang4 jau5", "english": "friend" },
+          { "chinese": "嚟", "jyutping": "lei4", "english": "coming / arriving" }
+        ]
+      },
+      {
+        "id": "lobby-003",
+        "romanization": "Keo⁵ giu³ ...",
+        "jyutping": "keoi5 giu3",
+        "chinese": "佢叫...",
+        "english": "His/her name is...",
+        "context": "Give the guard your visitor's name — follow with the name",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "佢叫", "jyutping": "keoi5 giu3", "english": "his/her name is" }
+        ]
+      },
+      {
+        "id": "lobby-004",
+        "romanization": "Jau⁵ mou⁵ je⁵ lau⁴ dai² bei² ngo⁵?",
+        "jyutping": "jau5 mou5 je5 lau4 dai2 bei2 ngo5",
+        "chinese": "有冇嘢留低俾我？",
+        "english": "Is there anything left for me?",
+        "context": "Ask the security desk if there are packages or messages held for you",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇嘢", "jyutping": "jau5 mou5 je5", "english": "is there anything" },
+          { "chinese": "留低", "jyutping": "lau4 dai2", "english": "left / held" },
+          { "chinese": "俾我", "jyutping": "bei2 ngo5", "english": "for me" }
+        ]
+      },
+      {
+        "id": "lobby-005",
+        "romanization": "Jau⁵ mou⁵ faai³ dei⁶ bei² ngo⁵?",
+        "jyutping": "jau5 mou5 faai3 dei6 bei2 ngo5",
+        "chinese": "有冇快遞俾我？",
+        "english": "Any deliveries for me?",
+        "context": "Check if a parcel arrived while you were out",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "is there / do you have" },
+          { "chinese": "快遞", "jyutping": "faai3 dei6", "english": "delivery / courier" },
+          { "chinese": "俾我", "jyutping": "bei2 ngo5", "english": "for me" }
+        ]
+      },
+      {
+        "id": "lobby-006",
+        "romanization": "M⁴ goi¹ bong¹ ngo⁵ cim¹ sau¹",
+        "jyutping": "m4 goi1 bong1 ngo5 cim1 sau1",
+        "chinese": "唔該幫我簽收",
+        "english": "Please sign for it on my behalf",
+        "context": "Ask the security desk to sign for a delivery when you're not home",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
+          { "chinese": "簽收", "jyutping": "cim1 sau1", "english": "sign for / accept on signature" }
+        ]
+      },
+      {
+        "id": "lobby-007",
+        "romanization": "M⁴ goi¹ bong¹ ngo⁵ daa² soeng⁶ heoi³",
+        "jyutping": "m4 goi1 bong1 ngo5 da2 soeng6 heoi3",
+        "chinese": "唔該幫我打上去",
+        "english": "Could you call up to my flat?",
+        "context": "Ask the guard to buzz your flat — useful when your intercom is broken or you're expecting guests",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
+          { "chinese": "打上去", "jyutping": "da2 soeng6 heoi3", "english": "call up / ring upstairs" }
+        ]
+      },
+      {
+        "id": "lobby-008",
+        "romanization": "Ngo⁵ m⁴ gei³ dak¹ daai³ so² si⁴",
+        "jyutping": "ngo5 m4 gei3 dak1 daai3 so2 si4",
+        "chinese": "我唔記得帶鎖匙",
+        "english": "I forgot my key",
+        "context": "Tell the security guard you've been locked out",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "唔記得", "jyutping": "m4 gei3 dak1", "english": "forgot to" },
+          { "chinese": "帶鎖匙", "jyutping": "daai3 so2 si4", "english": "bring my key" }
+        ]
+      },
+      {
+        "id": "lobby-009",
+        "romanization": "Ho² m⁴ ho² ji³ bong¹ ngo⁵ hoi¹ mun⁴?",
+        "jyutping": "ho2 m4 ho2 ji3 bong1 ngo5 hoi1 mun4",
+        "chinese": "可唔可以幫我開門？",
+        "english": "Could you open the door for me?",
+        "context": "Ask the guard to let you in — they'll check your ID",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "could you / is it possible" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
+          { "chinese": "開門", "jyutping": "hoi1 mun4", "english": "open the door" }
+        ]
+      },
+      {
+        "id": "lobby-010",
+        "romanization": "Jau⁵ jan⁴ paak³ zo² ngo⁵ go³ wai²",
+        "jyutping": "jau5 jan4 paak3 zo2 ngo5 go3 wai2",
+        "chinese": "有人泊咗我個位",
+        "english": "Someone has parked in my space",
+        "context": "Report a parking dispute to the security desk",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "有人", "jyutping": "jau5 jan4", "english": "someone" },
+          { "chinese": "泊咗", "jyutping": "paak3 zo2", "english": "has parked" },
+          { "chinese": "我個位", "jyutping": "ngo5 go3 wai2", "english": "my space / spot" }
+        ]
+      },
+      {
+        "id": "lobby-011",
+        "romanization": "Gam¹ jat⁶ jau⁵ fong² haak³ lei⁴",
+        "jyutping": "gam1 jat6 jau5 fong2 haak3 lei4",
+        "chinese": "今日有訪客嚟",
+        "english": "I'm expecting a visitor today",
+        "context": "Inform the security desk in advance of a visitor — some buildings require pre-registration",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
+          { "chinese": "有訪客", "jyutping": "jau5 fong2 haak3", "english": "have a visitor" },
+          { "chinese": "嚟", "jyutping": "lei4", "english": "coming" }
+        ]
+      },
+      {
+        "id": "lobby-012",
+        "romanization": "Din⁶ tai¹ waai⁶ zo², hai⁶ m⁴ hai⁶?",
+        "jyutping": "din6 tai1 waai6 zo2, hai6 m4 hai6",
+        "chinese": "電梯壞咗，係唔係？",
+        "english": "The lift is broken, right?",
+        "context": "Confirm with the security guard whether the lift is out of order",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "電梯", "jyutping": "din6 tai1", "english": "lift / elevator" },
+          { "chinese": "壞咗", "jyutping": "waai6 zo2", "english": "broken / out of order" },
+          { "chinese": "係唔係", "jyutping": "hai6 m4 hai6", "english": "right? / is that so?" }
+        ]
+      },
+      {
+        "id": "lobby-013",
+        "romanization": "Fong³ hai² dou³ dak¹ laa³",
+        "jyutping": "fong3 hai2 dou3 dak1 laa3",
+        "chinese": "放喺度得喇",
+        "english": "Leave it here is fine",
+        "context": "Tell the guard where to put something — a package, a message, anything",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "放喺度", "jyutping": "fong3 hai2 dou3", "english": "put / leave it here" },
+          { "chinese": "得喇", "jyutping": "dak1 laa3", "english": "that's fine / okay" }
+        ]
+      },
+      {
+        "id": "lobby-014",
+        "romanization": "Jau⁵ mou⁵ CCTV pai³ dou³?",
+        "jyutping": "jau5 mou5 CCTV pai3 dou3",
+        "chinese": "有冇CCTV拍到？",
+        "english": "Does the CCTV cover that area?",
+        "context": "Ask if surveillance cameras captured an incident",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "is there / do you have" },
+          { "chinese": "CCTV拍到", "jyutping": "CCTV pai3 dou3", "english": "CCTV captured / recorded" }
+        ]
+      },
+      {
+        "id": "lobby-015",
+        "romanization": "Do¹ ze⁶ suk¹ suk¹",
+        "jyutping": "do1 ze6 suk1 suk1",
+        "chinese": "多謝叔叔",
+        "english": "Thank you (to the security guard)",
+        "context": "叔叔 (uncle) is the respectful term for an older male security guard — auntie is 姐姐 or 阿姨",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" },
+          { "chinese": "叔叔", "jyutping": "suk1 suk1", "english": "uncle (respectful address for older men)" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "lobby-scene-1",
+        "title": "Signing in a visitor",
+        "description": "Your friend arrives at your building and you need to let them up",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Guard",
+            "phraseId": null,
+            "chinese": "你好，搵邊位？",
+            "jyutping": "nei5 hou2, wan2 bin1 wai2?",
+            "romanization": "Nei⁵ hou², wan² bin¹ wai²?",
+            "english": "Hello, who are you here to see?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "lobby-001",
+            "chinese": "我係十八樓嘅居民。我有朋友嚟。",
+            "jyutping": "ngo5 hai6 sap6 baat3 lau4 ge3 gei1 min4. ngo5 jau5 pang4 jau5 lei4.",
+            "romanization": "Ngo⁵ hai⁶ sap⁶ baat³ lau⁴ ge³ gei¹ min⁴. Ngo⁵ jau⁵ pang⁴ jau⁵ lei⁴.",
+            "english": "I'm a resident on floor 18. I have a friend coming.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Guard",
+            "phraseId": null,
+            "chinese": "佢叫咩名？",
+            "jyutping": "keoi5 giu3 me1 meng2?",
+            "romanization": "Keo⁵ giu³ me¹ meng²?",
+            "english": "What's their name?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "lobby-003",
+            "chinese": "佢叫Sarah。",
+            "jyutping": "keoi5 giu3 Sarah.",
+            "romanization": "Keo⁵ giu³ Sarah.",
+            "english": "Her name is Sarah.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Guard",
+            "phraseId": null,
+            "chinese": "好，我打上去話你知。",
+            "jyutping": "hou2, ngo5 da2 soeng6 heoi3 waa6 nei5 zi1.",
+            "romanization": "Hou², ngo⁵ da² soeng⁶ heoi³ waa⁶ nei⁵ zi¹.",
+            "english": "Okay, I'll call up to let you know.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "lobby-015",
+            "chinese": "多謝叔叔！",
+            "jyutping": "do1 ze6 suk1 suk1!",
+            "romanization": "Do¹ ze⁶ suk¹ suk¹!",
+            "english": "Thank you!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "lobby-scene-2",
+        "title": "Collecting a package",
+        "description": "You come home and ask if any deliveries arrived",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "lobby-005",
+            "chinese": "唔該，有冇快遞俾我？我係B座二十二樓。",
+            "jyutping": "m4 goi1, jau5 mou5 faai3 dei6 bei2 ngo5? ngo5 hai6 B zo6 ji6 sap6 ji6 lau4.",
+            "romanization": "M⁴ goi¹, jau⁵ mou⁵ faai³ dei⁶ bei² ngo⁵? Ngo⁵ hai⁶ B zo⁶ ji⁶ sap⁶ ji⁶ lau⁴.",
+            "english": "Excuse me, any deliveries for me? I'm in Block B, floor 22.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Guard",
+            "phraseId": null,
+            "chinese": "有，係呢個。要簽名。",
+            "jyutping": "jau5, hai6 ni1 go3. jiu3 cim1 meng2.",
+            "romanization": "Jau⁵, hai⁶ ni¹ go³. Jiu³ cim¹ meng².",
+            "english": "Yes, it's this one. You need to sign.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "lobby-004",
+            "chinese": "好，我簽。多謝留低俾我。",
+            "jyutping": "hou2, ngo5 cim1. do1 ze6 lau4 dai2 bei2 ngo5.",
+            "romanization": "Hou², ngo⁵ cim¹. Do¹ ze⁶ lau⁴ dai² bei² ngo⁵.",
+            "english": "Okay, I'll sign. Thanks for keeping it for me.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Guard",
+            "phraseId": null,
+            "chinese": "唔使客氣。",
+            "jyutping": "m4 sai2 haak3 hei3.",
+            "romanization": "M⁴ sai² haak³ hei³.",
+            "english": "You're welcome.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "convenience-store",
+    "category": "everyday-essentials",
+    "name": "Convenience Store",
+    "description": "7-Eleven, Circle K — heating food, Octopus top-up, and everyday essentials",
+    "phraseCount": 15,
+    "imageGradient": "linear-gradient(135deg, #1A3A1A 0%, #2A6A2A 50%, #70C870 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "cvs-001",
+        "romanization": "Bong¹ ngo⁵ ding¹ jat¹ ding¹, m⁴ goi¹",
+        "jyutping": "bong1 ngo5 ding1 jat1 ding1, m4 goi1",
+        "chinese": "幫我叮一叮，唔該",
+        "english": "Could you microwave this for me please",
+        "context": "叮 is the onomatopoeia for the microwave ping — the most uniquely HK convenience store phrase",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me / help me" },
+          { "chinese": "叮一叮", "jyutping": "ding1 jat1 ding1", "english": "microwave it (from the ping sound)" }
+        ]
+      },
+      {
+        "id": "cvs-002",
+        "romanization": "Ding¹ jat¹ fan¹ jung¹ dak¹ laa³",
+        "jyutping": "ding1 jat1 fan1 jung1 dak1 laa3",
+        "chinese": "叮一分鐘得喇",
+        "english": "One minute in the microwave is fine",
+        "context": "Tell the staff how long to heat your food",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "叮", "jyutping": "ding1", "english": "microwave" },
+          { "chinese": "一分鐘", "jyutping": "jat1 fan1 jung1", "english": "one minute" },
+          { "chinese": "得喇", "jyutping": "dak1 laa3", "english": "that's enough / will do" }
+        ]
+      },
+      {
+        "id": "cvs-003",
+        "romanization": "Ding¹ dou³ jit⁶ dak¹ laa³",
+        "jyutping": "ding1 dou3 jit6 dak1 laa3",
+        "chinese": "叮到熱得喇",
+        "english": "Just heat it until it's warm",
+        "context": "Specify you just want it warm, not piping hot",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "叮到熱", "jyutping": "ding1 dou3 jit6", "english": "heat until warm" },
+          { "chinese": "得喇", "jyutping": "dak1 laa3", "english": "that's fine" }
+        ]
+      },
+      {
+        "id": "cvs-004",
+        "romanization": "Jau⁵ mou⁵ caa¹?",
+        "jyutping": "jau5 mou5 caa1",
+        "chinese": "有冇叉？",
+        "english": "Do you have a fork?",
+        "context": "Ask for a plastic fork with your convenience store meal",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "叉", "jyutping": "caa1", "english": "fork" }
+        ]
+      },
+      {
+        "id": "cvs-005",
+        "romanization": "Jau⁵ mou⁵ jam² gun²?",
+        "jyutping": "jau5 mou5 jam2 gun2",
+        "chinese": "有冇飲管？",
+        "english": "Do you have a straw?",
+        "context": "Ask for a straw with your drink",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "飲管", "jyutping": "jam2 gun2", "english": "straw (drinking tube)" }
+        ]
+      },
+      {
+        "id": "cvs-006",
+        "romanization": "Bong¹ ngo⁵ baat³ daat⁶ tung¹ jap⁶ ng⁵ sap⁶ man¹",
+        "jyutping": "bong1 ngo5 baat3 daat6 tung1 jap6 ng5 sap6 man1",
+        "chinese": "幫我八達通入五十蚊",
+        "english": "Add $50 to my Octopus card",
+        "context": "Top up your Octopus at the convenience store counter — change the amount as needed",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
+          { "chinese": "八達通", "jyutping": "baat3 daat6 tung1", "english": "Octopus card" },
+          { "chinese": "入五十蚊", "jyutping": "jap6 ng5 sap6 man1", "english": "add $50 / top up fifty dollars" }
+        ]
+      },
+      {
+        "id": "cvs-007",
+        "romanization": "Ngo⁵ soeng² gaau¹ din⁶ fai³",
+        "jyutping": "ngo5 soeng2 gaau1 din6 fai3",
+        "chinese": "我想交電費",
+        "english": "I want to pay my electricity bill",
+        "context": "Pay utility bills at 7-Eleven — electricity (電費), water (水費), gas (煤氣費)",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I want to" },
+          { "chinese": "交", "jyutping": "gaau1", "english": "pay / submit" },
+          { "chinese": "電費", "jyutping": "din6 fai3", "english": "electricity bill" }
+        ]
+      },
+      {
+        "id": "cvs-008",
+        "romanization": "Ho² m⁴ ho² ji³ daa² jan³?",
+        "jyutping": "ho2 m4 ho2 ji3 da2 jan3",
+        "chinese": "可唔可以打印？",
+        "english": "Can I print here?",
+        "context": "Many 7-Elevens have printing services — useful for boarding passes, documents",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible" },
+          { "chinese": "打印", "jyutping": "da2 jan3", "english": "print" }
+        ]
+      },
+      {
+        "id": "cvs-009",
+        "romanization": "ATM hai⁶ bin¹ dou⁶?",
+        "jyutping": "ATM hai6 bin1 dou6",
+        "chinese": "ATM喺邊度？",
+        "english": "Where's the ATM?",
+        "context": "Most HK convenience stores have an ATM inside or nearby",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "ATM", "jyutping": "ATM", "english": "ATM / cash machine" },
+          { "chinese": "喺邊度", "jyutping": "hai6 bin1 dou6", "english": "where is it" }
+        ]
+      },
+      {
+        "id": "cvs-010",
+        "romanization": "Jau⁵ mou⁵ jo⁵ wai²?",
+        "jyutping": "jau5 mou5 zo5 wai2",
+        "chinese": "有冇座位？",
+        "english": "Are there any seats?",
+        "context": "Some 7-Elevens have seating areas — ask before standing awkwardly with your noodles",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "are there / do you have" },
+          { "chinese": "座位", "jyutping": "zo5 wai2", "english": "seats / seating" }
+        ]
+      },
+      {
+        "id": "cvs-011",
+        "romanization": "Ngo⁵ maai⁵ ni¹ di¹",
+        "jyutping": "ngo5 maai5 ni1 di1",
+        "chinese": "我買呢啲",
+        "english": "I'll take these",
+        "context": "Tell the cashier what you're buying",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我買", "jyutping": "ngo5 maai5", "english": "I'll buy / take" },
+          { "chinese": "呢啲", "jyutping": "ni1 di1", "english": "these (items)" }
+        ]
+      },
+      {
+        "id": "cvs-012",
+        "romanization": "Jat¹ gung⁶ gei² do¹?",
+        "jyutping": "jat1 gung6 gei2 do1",
+        "chinese": "一共幾多？",
+        "english": "How much in total?",
+        "context": "Ask the total before paying — especially useful if the screen isn't facing you",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total" },
+          { "chinese": "幾多", "jyutping": "gei2 do1", "english": "how much" }
+        ]
+      },
+      {
+        "id": "cvs-013",
+        "romanization": "M⁴ sai² doi², m⁴ goi¹",
+        "jyutping": "m4 sai2 doi2, m4 goi1",
+        "chinese": "唔使袋，唔該",
+        "english": "No bag needed, thanks",
+        "context": "Decline the plastic bag — HK charges for them",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔使袋", "jyutping": "m4 sai2 doi2", "english": "no bag needed" },
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "thank you / please" }
+        ]
+      },
+      {
+        "id": "cvs-014",
+        "romanization": "Jau⁵ mou⁵ zit³ kau³ aa³?",
+        "jyutping": "jau5 mou5 zit3 kau3 aa3",
+        "chinese": "有冇折扣呀？",
+        "english": "Is there a discount on this?",
+        "context": "Ask if there's a promotion running — convenience stores often have buy-one-get-one deals",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇折扣", "jyutping": "jau5 mou5 zit3 kau3", "english": "any discount / promotion" },
+          { "chinese": "呀", "jyutping": "aa3", "english": "question particle" }
+        ]
+      },
+      {
+        "id": "cvs-015",
+        "romanization": "Ni¹ bui¹ gaa¹ jit⁶ m⁴ goi¹",
+        "jyutping": "ni1 bui1 gaa1 jit6 m4 goi1",
+        "chinese": "呢杯加熱唔該",
+        "english": "Heat this cup up please",
+        "context": "Ask staff to heat a cup drink or soup — very common for soy milk or instant soup",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢杯", "jyutping": "ni1 bui1", "english": "this cup" },
+          { "chinese": "加熱", "jyutping": "gaa1 jit6", "english": "heat up / warm up" },
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "cvs-scene-1",
+        "title": "Heating up lunch at 7-Eleven",
+        "description": "You've grabbed a bento box and need it microwaved",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-001",
+            "chinese": "唔該，幫我叮一叮。",
+            "jyutping": "m4 goi1, bong1 ngo5 ding1 jat1 ding1.",
+            "romanization": "M⁴ goi¹, bong¹ ngo⁵ ding¹ jat¹ ding¹.",
+            "english": "Excuse me, could you microwave this?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "叮幾耐？",
+            "jyutping": "ding1 gei2 noi6?",
+            "romanization": "Ding¹ gei² noi⁶?",
+            "english": "How long?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-002",
+            "chinese": "叮一分鐘得喇。",
+            "jyutping": "ding1 jat1 fan1 jung1 dak1 laa3.",
+            "romanization": "Ding¹ jat¹ fan¹ jung¹ dak¹ laa³.",
+            "english": "One minute is fine.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，叮好喇。",
+            "jyutping": "hou2, ding1 hou2 laa3.",
+            "romanization": "Hou², ding¹ hou² laa³.",
+            "english": "Okay, it's done.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-004",
+            "chinese": "多謝。有冇叉？",
+            "jyutping": "do1 ze6. jau5 mou5 caa1?",
+            "romanization": "Do¹ ze⁶. Jau⁵ mou⁵ caa¹?",
+            "english": "Thanks. Do you have a fork?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "喺度，自己攞。",
+            "jyutping": "hai2 dou6, zi6 gei2 lo2.",
+            "romanization": "Hai² dou⁶, zi⁶ gei² lo².",
+            "english": "Over there — help yourself.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "cvs-scene-2",
+        "title": "Topping up Octopus and paying a bill",
+        "description": "Quick errands at the convenience store counter",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-006",
+            "chinese": "唔該，幫我八達通入一百蚊。",
+            "jyutping": "m4 goi1, bong1 ngo5 baat3 daat6 tung1 jap6 jat1 baak3 man1.",
+            "romanization": "M⁴ goi¹, bong¹ ngo⁵ baat³ daat⁶ tung¹ jap⁶ jat¹ baak³ man¹.",
+            "english": "Excuse me, could you add $100 to my Octopus?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，嘟一嘟。入咗喇，係一百蚊。",
+            "jyutping": "hou2, duk1 jat1 duk1. jap6 zo2 laa3, hai6 jat1 baak3 man1.",
+            "romanization": "Hou², duk¹ jat¹ duk¹. Jap⁶ zo² laa³, hai⁶ jat¹ baak³ man¹.",
+            "english": "Okay, tap here. Done — that's $100.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-007",
+            "chinese": "多謝。我想交電費。",
+            "jyutping": "do1 ze6. ngo5 soeng2 gaau1 din6 fai3.",
+            "romanization": "Do¹ ze⁶. Ngo⁵ soeng² gaau¹ din⁶ fai³.",
+            "english": "Thank you. I'd also like to pay my electricity bill.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，俾單我睇。",
+            "jyutping": "hou2, bei2 daan1 ngo5 tai2.",
+            "romanization": "Hou², bei² daan¹ ngo⁵ tai².",
+            "english": "Sure, let me see the bill.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "cvs-012",
+            "chinese": "好，一共幾多？",
+            "jyutping": "hou2, jat1 gung6 gei2 do1?",
+            "romanization": "Hou², jat¹ gung⁶ gei² do¹?",
+            "english": "Sure. How much in total?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "making-reservations",
+    "category": "everyday-essentials",
+    "name": "Making Reservations",
+    "description": "Booking restaurants, salons, and appointments by phone",
+    "phraseCount": 15,
+    "imageGradient": "linear-gradient(135deg, #3A1A4A 0%, #7A4A9A 50%, #C8A0E0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "res-001",
+        "romanization": "Ngo⁵ soeng² deng⁶ wai²",
+        "jyutping": "ngo5 soeng2 deng6 wai2",
+        "chinese": "我想訂位",
+        "english": "I'd like to make a reservation",
+        "context": "Start any booking call with this — for restaurants, salons, clinics",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
+          { "chinese": "訂位", "jyutping": "deng6 wai2", "english": "reserve a seat / make a booking" }
+        ]
+      },
+      {
+        "id": "res-002",
+        "romanization": "Deng⁶ gei² do¹ wai²?",
+        "jyutping": "deng6 gei2 do1 wai2",
+        "chinese": "訂幾多位？",
+        "english": "How many people?",
+        "context": "The first question they'll ask you — have your number ready",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "訂幾多", "jyutping": "deng6 gei2 do1", "english": "booking for how many" },
+          { "chinese": "位", "jyutping": "wai2", "english": "people / seats" }
+        ]
+      },
+      {
+        "id": "res-003",
+        "romanization": "Sei³ wai², gei² dim²?",
+        "jyutping": "sei3 wai2, gei2 dim2",
+        "chinese": "四位，幾點？",
+        "english": "Four people — what time?",
+        "context": "State your party size and ask what times are available",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "四位", "jyutping": "sei3 wai2", "english": "four people" },
+          { "chinese": "幾點", "jyutping": "gei2 dim2", "english": "what time" }
+        ]
+      },
+      {
+        "id": "res-004",
+        "romanization": "Hai⁶ bin¹ go³ meng²?",
+        "jyutping": "hai6 bin1 go3 meng2",
+        "chinese": "係邊個名？",
+        "english": "What name is it under?",
+        "context": "They'll ask for your name to put the booking under",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "係邊個名", "jyutping": "hai6 bin1 go3 meng2", "english": "under what name / whose name" }
+        ]
+      },
+      {
+        "id": "res-005",
+        "romanization": "Ngo⁵ sing³ ...",
+        "jyutping": "ngo5 sing3",
+        "chinese": "我姓...",
+        "english": "My surname is...",
+        "context": "Give your surname for the booking — in HK they usually use surnames",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我姓", "jyutping": "ngo5 sing3", "english": "my surname is" }
+        ]
+      },
+      {
+        "id": "res-006",
+        "romanization": "Jau⁵ mou⁵ hoi³ oi³ wai²?",
+        "jyutping": "jau5 mou5 hoi3 oi3 wai2",
+        "chinese": "有冇戶外座位？",
+        "english": "Do you have outdoor seating?",
+        "context": "Ask for al fresco seating — pleasant in HK's cooler months",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "戶外座位", "jyutping": "hoi3 oi3 wai2", "english": "outdoor seating" }
+        ]
+      },
+      {
+        "id": "res-007",
+        "romanization": "Jau⁵ mou⁵ kaau³ ceoeng¹ wai²?",
+        "jyutping": "jau5 mou5 kaau3 ceong1 wai2",
+        "chinese": "有冇靠窗嘅位？",
+        "english": "Do you have window seats?",
+        "context": "Request a window table for a better view",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "靠窗嘅位", "jyutping": "kaau3 ceong1 ge3 wai2", "english": "window seats" }
+        ]
+      },
+      {
+        "id": "res-008",
+        "romanization": "Zeoi³ faai³ gei² si⁴ jau⁵ wai²?",
+        "jyutping": "zeoi3 faai3 gei2 si4 jau5 wai2",
+        "chinese": "最快幾時有位？",
+        "english": "What's the earliest available?",
+        "context": "Ask for the soonest opening when your preferred time is taken",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "最快", "jyutping": "zeoi3 faai3", "english": "soonest / earliest" },
+          { "chinese": "幾時有位", "jyutping": "gei2 si4 jau5 wai2", "english": "when is there availability" }
+        ]
+      },
+      {
+        "id": "res-009",
+        "romanization": "Ngo⁵ soeng² goi² kei⁴",
+        "jyutping": "ngo5 soeng2 goi2 kei4",
+        "chinese": "我想改期",
+        "english": "I'd like to reschedule",
+        "context": "Change your booking to a different date or time",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
+          { "chinese": "改期", "jyutping": "goi2 kei4", "english": "reschedule / change the date" }
+        ]
+      },
+      {
+        "id": "res-010",
+        "romanization": "Ngo⁵ soeng² ceoi¹ siu¹ deng⁶ wai²",
+        "jyutping": "ngo5 soeng2 ceoi1 siu1 deng6 wai2",
+        "chinese": "我想取消訂位",
+        "english": "I'd like to cancel my reservation",
+        "context": "Cancel a booking — always do this in advance, it's considerate",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
+          { "chinese": "取消", "jyutping": "ceoi1 siu1", "english": "cancel" },
+          { "chinese": "訂位", "jyutping": "deng6 wai2", "english": "the reservation" }
+        ]
+      },
+      {
+        "id": "res-011",
+        "romanization": "Ji⁴ gaa¹ hai⁶ m⁴ hai⁶ haak³ mun⁵?",
+        "jyutping": "ji4 gaa1 hai6 m4 hai6 haak3 mun5",
+        "chinese": "而家係唔係客滿？",
+        "english": "Are you fully booked right now?",
+        "context": "Ask if a restaurant is full before travelling there",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "而家", "jyutping": "ji4 gaa1", "english": "right now / currently" },
+          { "chinese": "係唔係", "jyutping": "hai6 m4 hai6", "english": "is it" },
+          { "chinese": "客滿", "jyutping": "haak3 mun5", "english": "fully booked / full house" }
+        ]
+      },
+      {
+        "id": "res-012",
+        "romanization": "Jau⁵ mou⁵ dang² wai²?",
+        "jyutping": "jau5 mou5 dang2 wai2",
+        "chinese": "有冇等位？",
+        "english": "Is there a waitlist?",
+        "context": "Ask if you can be added to the waiting list",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "is there" },
+          { "chinese": "等位", "jyutping": "dang2 wai2", "english": "waitlist / wait for a table" }
+        ]
+      },
+      {
+        "id": "res-013",
+        "romanization": "Nei⁵ dei⁶ gei² dim² hoi¹ mun⁴?",
+        "jyutping": "nei5 dei6 gei2 dim2 hoi1 mun4",
+        "chinese": "你哋幾點開門？",
+        "english": "What time do you open?",
+        "context": "Confirm opening hours before heading out",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "你哋", "jyutping": "nei5 dei6", "english": "you (plural) / your place" },
+          { "chinese": "幾點開門", "jyutping": "gei2 dim2 hoi1 mun4", "english": "what time do you open" }
+        ]
+      },
+      {
+        "id": "res-014",
+        "romanization": "Ngo⁵ soeng² jyu⁶ joek³ ...",
+        "jyutping": "ngo5 soeng2 jyu6 joek3",
+        "chinese": "我想預約...",
+        "english": "I'd like to make an appointment for...",
+        "context": "Book a hair appointment, doctor, dentist — follow with the service",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
+          { "chinese": "預約", "jyutping": "jyu6 joek3", "english": "make an appointment / book" }
+        ]
+      },
+      {
+        "id": "res-015",
+        "romanization": "Zi⁶ gei² gei³ dak¹ gei³ lok³ ngo⁵ maa³?",
+        "jyutping": "zi6 gei2 gei3 dak1 gei3 lok3 ngo5 maa3",
+        "chinese": "你自己記得記落我嗎？",
+        "english": "Will you note that down for me?",
+        "context": "Confirm that the staff has recorded your booking details",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "你自己", "jyutping": "zi6 gei2", "english": "you / yourself" },
+          { "chinese": "記得", "jyutping": "gei3 dak1", "english": "remember to" },
+          { "chinese": "記落我", "jyutping": "gei3 lok3 ngo5", "english": "note me down / record my details" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "res-scene-1",
+        "title": "Booking a restaurant by phone",
+        "description": "You call a restaurant to reserve a table for Saturday",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-001",
+            "chinese": "你好，我想訂位。",
+            "jyutping": "nei5 hou2, ngo5 soeng2 deng6 wai2.",
+            "romanization": "Nei⁵ hou², ngo⁵ soeng² deng⁶ wai².",
+            "english": "Hello, I'd like to make a reservation.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，幾多位？幾時？",
+            "jyutping": "hou2, gei2 do1 wai2? gei2 si4?",
+            "romanization": "Hou², gei² do¹ wai²? Gei² si⁴?",
+            "english": "Sure, how many people? When?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-003",
+            "chinese": "四位，今個星期六晚上七點半。",
+            "jyutping": "sei3 wai2, gam1 go3 sing1 kei4 luk6 maan5 soeng6 cat1 dim2 bun3.",
+            "romanization": "Sei³ wai², gam¹ go³ sing¹ kei⁴ luk⁶ maan⁵ soeng⁶ cat¹ dim² bun³.",
+            "english": "Four people, this Saturday evening at 7:30.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "七點半冇位，八點得唔得？",
+            "jyutping": "cat1 dim2 bun3 mou5 wai2, baat3 dim2 dak1 m4 dak1?",
+            "romanization": "Cat¹ dim² bun³ mou⁵ wai², baat³ dim² dak¹ m⁴ dak¹?",
+            "english": "7:30 is unavailable — would 8pm work?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-005",
+            "chinese": "得，八點好。我姓Smith。",
+            "jyutping": "dak1, baat3 dim2 hou2. ngo5 sing3 Smith.",
+            "romanization": "Dak¹, baat³ dim² hou². Ngo⁵ sing³ Smith.",
+            "english": "That works — 8pm is fine. My surname is Smith.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，Smith四位，星期六晚八點。記落喇。",
+            "jyutping": "hou2, Smith sei3 wai2, sing1 kei4 luk6 maan5 baat3 dim2. gei3 lok3 laa3.",
+            "romanization": "Hou², Smith sei³ wai², sing¹ kei⁴ luk⁶ maan⁵ baat³ dim². Gei³ lok³ laa³.",
+            "english": "Got it — Smith, four people, Saturday evening at 8. All noted.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-006",
+            "chinese": "多謝。有冇戶外座位？",
+            "jyutping": "do1 ze6. jau5 mou5 hoi3 oi3 wai2?",
+            "romanization": "Do¹ ze⁶. Jau⁵ mou⁵ hoi³ oi³ wai²?",
+            "english": "Thank you. Do you have outdoor seating?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "有，我幫你安排。",
+            "jyutping": "jau5, ngo5 bong1 nei5 on1 paai4.",
+            "romanization": "Jau⁵, ngo⁵ bong¹ nei⁵ on¹ paai⁴.",
+            "english": "Yes, I'll arrange it for you.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "res-scene-2",
+        "title": "Booking a hair appointment",
+        "description": "You call a salon to book a haircut",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-014",
+            "chinese": "你好，我想預約剪頭髮。",
+            "jyutping": "nei5 hou2, ngo5 soeng2 jyu6 joek3 zin2 tau4 faat3.",
+            "romanization": "Nei⁵ hou², ngo⁵ soeng² jyu⁶ joek³ zin² tau⁴ faat³.",
+            "english": "Hello, I'd like to book a haircut.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Salon",
+            "phraseId": null,
+            "chinese": "好，你想幾時嚟？",
+            "jyutping": "hou2, nei5 soeng2 gei2 si4 lei4?",
+            "romanization": "Hou², nei⁵ soeng² gei² si⁴ lei⁴?",
+            "english": "Sure, when would you like to come?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-008",
+            "chinese": "聽日下午，最快幾時有位？",
+            "jyutping": "ting1 jat6 haa6 zau3, zeoi3 faai3 gei2 si4 jau5 wai2?",
+            "romanization": "Ting¹ jat⁶ haa⁶ zau³, zeoi³ faai³ gei² si⁴ jau⁵ wai²?",
+            "english": "Tomorrow afternoon — what's the earliest available?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Salon",
+            "phraseId": null,
+            "chinese": "聽日下午三點有位，得唔得？",
+            "jyutping": "ting1 jat6 haa6 zau3 saam1 dim2 jau5 wai2, dak1 m4 dak1?",
+            "romanization": "Ting¹ jat⁶ haa⁶ zau³ saam¹ dim² jau⁵ wai², dak¹ m⁴ dak¹?",
+            "english": "Tomorrow at 3pm is available — does that work?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "res-005",
+            "chinese": "得！我姓Jones。",
+            "jyutping": "dak1! ngo5 sing3 Jones.",
+            "romanization": "Dak¹! Ngo⁵ sing³ Jones.",
+            "english": "Perfect! My surname is Jones.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Salon",
+            "phraseId": null,
+            "chinese": "好，Jones，聽日三點見！",
+            "jyutping": "hou2, Jones, ting1 jat6 saam1 dim2 gin3!",
+            "romanization": "Hou², Jones, ting¹ jat⁶ saam¹ dim² gin³!",
+            "english": "Great, Jones — see you tomorrow at 3!",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  }
+]

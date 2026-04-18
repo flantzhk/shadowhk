@@ -1,0 +1,151 @@
+/* SpeedRun.module.css — Practice Mode 3: Speed Run */
+
+.screen {
+  flex: 1; display: flex; flex-direction: column;
+  background: var(--color-bg);
+  padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
+}
+
+.loading { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); }
+
+/* === Header === */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; flex-shrink: 0;
+}
+
+.closeBtn {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; color: var(--color-text-secondary);
+  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+}
+
+.timer {
+  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.timerUrgent {
+  color: var(--color-error);
+  animation: recordPulse 1s infinite;
+}
+
+.score {
+  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+}
+
+/* === Circular timer === */
+.circularTimer {
+  width: 80px; height: 80px; margin: 24px auto;
+  position: relative;
+}
+
+.circularTimerSvg {
+  width: 80px; height: 80px; transform: rotate(-90deg);
+}
+
+.circularTimerTrack {
+  fill: none; stroke: rgba(0,0,0,0.08); stroke-width: 4;
+}
+
+.circularTimerFill {
+  fill: none; stroke: var(--color-brand-lime); stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.circularTimerNum {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(18px, 2rem, 32px); font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+/* === Prompt === */
+.promptArea {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: var(--space-md); padding: var(--space-xl) 0;
+}
+
+.label { font-size: 0.8125rem; color: var(--color-text-muted); }
+
+.english {
+  font-size: clamp(22px, 2rem, 44px); font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary); text-align: center;
+  padding: 0 32px; margin-top: 24px;
+}
+
+/* === Speak button === */
+.speakBtn {
+  width: calc(100% - 40px); margin: 0 20px;
+  background: var(--color-brand-dark); color: white;
+  border-radius: 14px; padding: 18px;
+  font-size: 1rem; font-weight: var(--font-weight-semibold);
+  text-align: center; min-height: 52px;
+}
+
+.speakBtn:active { transform: scale(0.98); }
+
+/* === Feedback banner (inline, not fixed overlay) === */
+.feedback {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  border-radius: 16px;
+  margin: var(--space-md) 0;
+  animation: scorePop 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.correct { background: var(--color-mastered-bg); }
+.wrong { background: #FFE0E0; }
+
+.feedbackAnswer {
+  font-size: 1.25rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* === Stats footer === */
+.statsFooter {
+  flex-shrink: 0; text-align: center;
+  padding: 16px; font-size: 0.75rem; color: var(--color-text-muted);
+}
+
+/* === Options grid (for tap-based speed run) === */
+.optionsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); flex: 1; align-content: start; }
+
+.optionBtn {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);
+  padding: var(--space-lg); background: var(--color-surface);
+  border-radius: 14px; border: 0.5px solid var(--color-border);
+  min-height: 80px; transition: all var(--transition-fast);
+}
+
+.optionBtn:active:not(:disabled) { transform: scale(0.97); }
+.optionBtn:disabled { opacity: 0.6; }
+
+.optRoman { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--color-jyutping); }
+.optChinese { font-size: var(--font-size-md); color: var(--color-text-primary); }
+
+.roundCount { font-size: 0.8125rem; color: var(--color-text-muted); }
+
+/* === Done/Summary === */
+.doneCard {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: var(--space-xl);
+}
+
+.doneTitle { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
+.doneScore { font-size: 3rem; font-weight: var(--font-weight-bold); color: var(--color-brand-green); }
+.doneBest { font-size: var(--font-size-base); color: var(--color-text-muted); }
+
+.doneBtn {
+  padding: var(--space-base) var(--space-2xl); background: var(--color-brand-lime);
+  color: var(--color-brand-dark-text); border-radius: 10px;
+  font-weight: var(--font-weight-semibold); min-height: 44px;
+}
+
+.nextBtn { composes: doneBtn; }
+
+.timerBar { height: 3px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; margin-bottom: var(--space-lg); }
+.timerFill { height: 100%; background: var(--color-brand-lime); transition: width 1s linear; }

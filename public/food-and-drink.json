@@ -1,0 +1,1917 @@
+[
+  {
+    "id": "ordering-coffee",
+    "category": "food-and-drink",
+    "name": "Ordering Coffee",
+    "description": "Cha chaan teng, milk tea, iced drinks",
+    "phraseCount": 35,
+    "imageGradient": "linear-gradient(135deg, #6F4E37 0%, #A0785D 50%, #E8D4B8 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "coffee-001",
+        "romanization": "Ngo⁵ seung² jiu³ jat¹ bui¹ naai⁵ caa⁴",
+        "jyutping": "ngo5 seung2 jiu3 jat1 bui1 naai5 caa4",
+        "chinese": "我想要一杯奶茶",
+        "english": "I'd like a milk tea",
+        "context": "Ordering at a cha chaan teng",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I / me" },
+          { "chinese": "想要", "jyutping": "seung2 jiu3", "english": "would like" },
+          { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
+          { "chinese": "奶茶", "jyutping": "naai5 caa4", "english": "milk tea" }
+        ]
+      },
+      {
+        "id": "coffee-002",
+        "romanization": "Dung³ naai⁵ caa⁴, siu² tim⁴",
+        "jyutping": "dung3 naai5 caa4, siu2 tim4",
+        "chinese": "凍奶茶，少甜",
+        "english": "Iced milk tea, less sweet",
+        "context": "Specifying your drink preferences — this is a very common order",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
+          { "chinese": "奶茶", "jyutping": "naai5 caa4", "english": "milk tea" },
+          { "chinese": "少甜", "jyutping": "siu2 tim4", "english": "less sweet" }
+        ]
+      },
+      {
+        "id": "coffee-003",
+        "romanization": "Jit⁶ naai⁵ caa⁴",
+        "jyutping": "jit6 naai5 caa4",
+        "chinese": "熱奶茶",
+        "english": "Hot milk tea",
+        "context": "Ordering a hot milk tea — preferred on rainy days",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "熱", "jyutping": "jit6", "english": "hot" },
+          { "chinese": "奶茶", "jyutping": "naai5 caa4", "english": "milk tea" }
+        ]
+      },
+      {
+        "id": "coffee-004",
+        "romanization": "Dung³ ning⁴ caa⁴",
+        "jyutping": "dung3 ning4 caa4",
+        "chinese": "凍檸茶",
+        "english": "Iced lemon tea",
+        "context": "A classic HK drink — lemon tea over ice",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
+          { "chinese": "檸", "jyutping": "ning4", "english": "lemon" },
+          { "chinese": "茶", "jyutping": "caa4", "english": "tea" }
+        ]
+      },
+      {
+        "id": "coffee-005",
+        "romanization": "Jyun¹ joeng¹",
+        "jyutping": "jyun1 joeng1",
+        "chinese": "鴛鴦",
+        "english": "Yuanyang (coffee mixed with milk tea)",
+        "context": "A uniquely HK drink — half coffee, half milk tea. Always order this here.",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "鴛鴦", "jyutping": "jyun1 joeng1", "english": "yuanyang — mandarin duck (symbolises pairs)" }
+        ]
+      },
+      {
+        "id": "coffee-006",
+        "romanization": "Zaai¹ fe¹",
+        "jyutping": "zaai1 fe1",
+        "chinese": "齋啡",
+        "english": "Black coffee",
+        "context": "Literally 'plain coffee' — no milk, no sugar",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "齋", "jyutping": "zaai1", "english": "plain / without extras" },
+          { "chinese": "啡", "jyutping": "fe1", "english": "coffee" }
+        ]
+      },
+      {
+        "id": "coffee-007",
+        "romanization": "Siu² tim⁴",
+        "jyutping": "siu2 tim4",
+        "chinese": "少甜",
+        "english": "Less sweet",
+        "context": "Reduce the sugar in your drink — say this with any order",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "少", "jyutping": "siu2", "english": "less / a little" },
+          { "chinese": "甜", "jyutping": "tim4", "english": "sweet" }
+        ]
+      },
+      {
+        "id": "coffee-008",
+        "romanization": "Zau² tim⁴",
+        "jyutping": "zau2 tim4",
+        "chinese": "走甜",
+        "english": "No sugar",
+        "context": "走 in food orders means 'remove' — 走甜 = remove the sweetness",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "走", "jyutping": "zau2", "english": "remove / go without (in food orders)" },
+          { "chinese": "甜", "jyutping": "tim4", "english": "sweet / sugar" }
+        ]
+      },
+      {
+        "id": "coffee-009",
+        "romanization": "Siu² bing¹",
+        "jyutping": "siu2 bing1",
+        "chinese": "少冰",
+        "english": "Less ice",
+        "context": "Ask for less ice in your cold drink",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "少", "jyutping": "siu2", "english": "less" },
+          { "chinese": "冰", "jyutping": "bing1", "english": "ice" }
+        ]
+      },
+      {
+        "id": "coffee-010",
+        "romanization": "Zau² bing¹",
+        "jyutping": "zau2 bing1",
+        "chinese": "走冰",
+        "english": "No ice",
+        "context": "Remove ice completely from a cold drink",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "走", "jyutping": "zau2", "english": "remove (in food orders)" },
+          { "chinese": "冰", "jyutping": "bing1", "english": "ice" }
+        ]
+      },
+      {
+        "id": "coffee-011",
+        "romanization": "Jat¹ go³ bo¹ lo⁴ baau¹",
+        "jyutping": "jat1 go3 bo1 lo4 baau1",
+        "chinese": "一個菠蘿包",
+        "english": "A pineapple bun",
+        "context": "The iconic HK bun — no pineapple inside, named for its crusty top",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一個", "jyutping": "jat1 go3", "english": "one (of)" },
+          { "chinese": "菠蘿包", "jyutping": "bo1 lo4 baau1", "english": "pineapple bun" }
+        ]
+      },
+      {
+        "id": "coffee-012",
+        "romanization": "Jat¹ go³ daan⁶ taat³",
+        "jyutping": "jat1 go3 daan6 taat3",
+        "chinese": "一個蛋撻",
+        "english": "An egg tart",
+        "context": "A HK classic — order fresh from the oven at any cha chaan teng",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一個", "jyutping": "jat1 go3", "english": "one (of)" },
+          { "chinese": "蛋撻", "jyutping": "daan6 taat3", "english": "egg tart" }
+        ]
+      },
+      {
+        "id": "coffee-013",
+        "romanization": "Sai¹ do¹ si²",
+        "jyutping": "sai1 do1 si2",
+        "chinese": "西多士",
+        "english": "French toast (HK style)",
+        "context": "Deep-fried French toast with butter and syrup — a HK cha chaan teng staple",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "西多士", "jyutping": "sai1 do1 si2", "english": "French toast (from English 'toast')" }
+        ]
+      },
+      {
+        "id": "coffee-014",
+        "romanization": "Tong⁴ sik⁶",
+        "jyutping": "tong4 sik6",
+        "chinese": "堂食",
+        "english": "Eat in",
+        "context": "Tell them you're eating in, not taking away",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "堂", "jyutping": "tong4", "english": "hall / dining room" },
+          { "chinese": "食", "jyutping": "sik6", "english": "to eat" }
+        ]
+      },
+      {
+        "id": "coffee-015",
+        "romanization": "Ngoi⁶ maai⁶",
+        "jyutping": "ngoi6 maai6",
+        "chinese": "外賣",
+        "english": "Takeaway",
+        "context": "Tell them you want it to go",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "外", "jyutping": "ngoi6", "english": "outside" },
+          { "chinese": "賣", "jyutping": "maai6", "english": "to sell" }
+        ]
+      },
+      {
+        "id": "coffee-016",
+        "romanization": "Maai⁴ daan¹",
+        "jyutping": "maai4 daan1",
+        "chinese": "埋單",
+        "english": "The bill, please",
+        "context": "Ask for the bill — say this loudly across the room, it's normal",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "埋", "jyutping": "maai4", "english": "to close / wrap up" },
+          { "chinese": "單", "jyutping": "daan1", "english": "bill / receipt" }
+        ]
+      },
+      {
+        "id": "coffee-017",
+        "romanization": "Ho² m⁴ ho² ji³ jung⁶ baat³ daat⁶ tung¹?",
+        "jyutping": "ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1",
+        "chinese": "可唔可以用八達通？",
+        "english": "Can I use my Octopus card?",
+        "context": "HK's tap-and-go payment card — accepted nearly everywhere",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible to" },
+          { "chinese": "用", "jyutping": "jung6", "english": "to use" },
+          { "chinese": "八達通", "jyutping": "baat3 daat6 tung1", "english": "Octopus card" }
+        ]
+      },
+      {
+        "id": "coffee-018",
+        "romanization": "Sau¹ m⁴ sau¹ kaat¹?",
+        "jyutping": "sau1 m4 sau1 kaat1",
+        "chinese": "收唔收卡？",
+        "english": "Do you take cards?",
+        "context": "Check before ordering if payment by card is accepted",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "收", "jyutping": "sau1", "english": "to accept / receive" },
+          { "chinese": "唔收", "jyutping": "m4 sau1", "english": "don't accept" },
+          { "chinese": "卡", "jyutping": "kaat1", "english": "card" }
+        ]
+      },
+      {
+        "id": "coffee-019",
+        "romanization": "Dung³ ding⁶ jit⁶?",
+        "jyutping": "dung3 ding6 jit6",
+        "chinese": "凍定熱？",
+        "english": "Iced or hot?",
+        "context": "The most common question you'll hear at any HK drinks counter",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
+          { "chinese": "定", "jyutping": "ding6", "english": "or (in questions)" },
+          { "chinese": "熱", "jyutping": "jit6", "english": "hot" }
+        ]
+      },
+      {
+        "id": "coffee-020",
+        "romanization": "Jiu³ m⁴ jiu³ sik⁶ je⁵?",
+        "jyutping": "jiu3 m4 jiu3 sik6 je5",
+        "chinese": "要唔要食嘢？",
+        "english": "Would you like something to eat?",
+        "context": "Staff will ask this after you order a drink",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "do you want / would you like" },
+          { "chinese": "食", "jyutping": "sik6", "english": "to eat" },
+          { "chinese": "嘢", "jyutping": "je5", "english": "thing / stuff" }
+        ]
+      },
+      {
+        "id": "coffee-021",
+        "romanization": "Tong⁴ sik⁶ ding⁶ ngoi⁶ maai⁶?",
+        "jyutping": "tong4 sik6 ding6 ngoi6 maai6",
+        "chinese": "堂食定外賣？",
+        "english": "Eat in or takeaway?",
+        "context": "Staff will ask this for every order",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "堂食", "jyutping": "tong4 sik6", "english": "eat in" },
+          { "chinese": "定", "jyutping": "ding6", "english": "or (in questions)" },
+          { "chinese": "外賣", "jyutping": "ngoi6 maai6", "english": "takeaway" }
+        ]
+      },
+      {
+        "id": "coffee-022",
+        "romanization": "Jat¹ gung⁶ gei² do¹ cin²?",
+        "jyutping": "jat1 gung6 gei2 do1 cin2",
+        "chinese": "一共幾多錢？",
+        "english": "How much is that in total?",
+        "context": "Ask the total before you pay",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total / altogether" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much money" }
+        ]
+      },
+      {
+        "id": "coffee-023",
+        "romanization": "Ngo⁵ seung² goi² jat¹ goi²",
+        "jyutping": "ngo5 seung2 goi2 jat1 goi2",
+        "chinese": "我想改一改",
+        "english": "I'd like to change my order",
+        "context": "Politely ask to modify what you just ordered",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "想", "jyutping": "seung2", "english": "want / would like" },
+          { "chinese": "改", "jyutping": "goi2", "english": "to change / modify" },
+          { "chinese": "一改", "jyutping": "jat1 goi2", "english": "a little" }
+        ]
+      },
+      {
+        "id": "coffee-024",
+        "romanization": "Dung³ naai⁵ caa⁴ goi² zou⁶ jit⁶",
+        "jyutping": "dung3 naai5 caa4 goi2 zou6 jit6",
+        "chinese": "凍奶茶改做熱",
+        "english": "Change the iced milk tea to hot",
+        "context": "Swap your iced order for hot",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "凍奶茶", "jyutping": "dung3 naai5 caa4", "english": "iced milk tea" },
+          { "chinese": "改做", "jyutping": "goi2 zou6", "english": "change to / swap to" },
+          { "chinese": "熱", "jyutping": "jit6", "english": "hot" }
+        ]
+      },
+      {
+        "id": "coffee-025",
+        "romanization": "Dang² jat¹ dang²",
+        "jyutping": "dang2 jat1 dang2",
+        "chinese": "等一等",
+        "english": "Wait a moment",
+        "context": "Staff say this when they need a moment — or you can say it too",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "等", "jyutping": "dang2", "english": "to wait" },
+          { "chinese": "一等", "jyutping": "jat1 dang2", "english": "a moment" }
+        ]
+      },
+      {
+        "id": "coffee-026",
+        "romanization": "Hou² lap⁶ hak¹",
+        "jyutping": "hou2 lap6 hak1",
+        "chinese": "好立克",
+        "english": "Horlicks",
+        "context": "A classic HK drink — hot malted milk. Very popular at cha chaan tengs.",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好立克", "jyutping": "hou2 lap6 hak1", "english": "Horlicks (transliteration)" }
+        ]
+      },
+      {
+        "id": "coffee-027",
+        "romanization": "Jit⁶ zyu¹ gu¹ lik¹",
+        "jyutping": "jit6 zyu1 gu1 lik1",
+        "chinese": "熱朱古力",
+        "english": "Hot chocolate",
+        "context": "Hot chocolate at a cha chaan teng — richer than you'd expect",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "熱", "jyutping": "jit6", "english": "hot" },
+          { "chinese": "朱古力", "jyutping": "zyu1 gu1 lik1", "english": "chocolate" }
+        ]
+      },
+      {
+        "id": "coffee-028",
+        "romanization": "Gaa¹ do¹ jat¹ bui¹",
+        "jyutping": "gaa1 do1 jat1 bui1",
+        "chinese": "加多一杯",
+        "english": "One more cup",
+        "context": "Order another drink — common for refills of hot drinks",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "加多", "jyutping": "gaa1 do1", "english": "one more / add another" },
+          { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" }
+        ]
+      },
+      {
+        "id": "coffee-029",
+        "romanization": "Gau³ laa³, m⁴ sai² laa³",
+        "jyutping": "gau3 laa3, m4 sai2 laa3",
+        "chinese": "夠喇，唔使喇",
+        "english": "That's enough, no more",
+        "context": "Stop someone from giving you more food or filling your cup",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "夠喇", "jyutping": "gau3 laa3", "english": "that's enough" },
+          { "chinese": "唔使喇", "jyutping": "m4 sai2 laa3", "english": "no need / don't bother" }
+        ]
+      },
+      {
+        "id": "coffee-030",
+        "romanization": "Hou² mei⁶!",
+        "jyutping": "hou2 mei6",
+        "chinese": "好味！",
+        "english": "Delicious!",
+        "context": "Tell staff the food is delicious — they genuinely love to hear this",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "good / very" },
+          { "chinese": "味", "jyutping": "mei6", "english": "taste / flavour" }
+        ]
+      },
+      {
+        "id": "coffee-031",
+        "romanization": "Ngo⁵ jiu³ zau² bui¹",
+        "jyutping": "ngo5 jiu3 zau2 bui1",
+        "chinese": "我要走杯",
+        "english": "I want a takeaway cup",
+        "context": "Ask for your drink to be put in a takeaway cup",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want" },
+          { "chinese": "走杯", "jyutping": "zau2 bui1", "english": "takeaway cup" }
+        ]
+      },
+      {
+        "id": "coffee-032",
+        "romanization": "M⁴ goi¹, bong¹ ngo⁵ daa² baau¹",
+        "jyutping": "m4 goi1, bong1 ngo5 daa2 baau1",
+        "chinese": "唔該，幫我打包",
+        "english": "Could you pack this up for me?",
+        "context": "Ask to have leftover food packed to take home",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "help me / for me" },
+          { "chinese": "打包", "jyutping": "daa2 baau1", "english": "pack up / doggy bag" }
+        ]
+      },
+      {
+        "id": "coffee-033",
+        "romanization": "M⁴ goi¹, do¹ jat¹ seung⁶ faai³ ji⁴",
+        "jyutping": "m4 goi1, do1 jat1 seung6 faai3 ji4",
+        "chinese": "唔該，多一雙筷子",
+        "english": "Excuse me, another pair of chopsticks please",
+        "context": "Ask for extra chopsticks for sharing dishes",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
+          { "chinese": "多一雙", "jyutping": "do1 jat1 seung6", "english": "one more pair" },
+          { "chinese": "筷子", "jyutping": "faai3 ji4", "english": "chopsticks" }
+        ]
+      },
+      {
+        "id": "coffee-034",
+        "romanization": "Ho² m⁴ ho² ji³ wun⁶?",
+        "jyutping": "ho2 m4 ho2 ji3 wun6",
+        "chinese": "可唔可以換？",
+        "english": "Can I swap this?",
+        "context": "Ask to change an item in a set meal",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it okay" },
+          { "chinese": "換", "jyutping": "wun6", "english": "to swap / exchange" }
+        ]
+      },
+      {
+        "id": "coffee-035",
+        "romanization": "M⁴ goi¹, gaa¹ tong⁴",
+        "jyutping": "m4 goi1, gaa1 tong4",
+        "chinese": "唔該，加糖",
+        "english": "Excuse me, can I get some sugar?",
+        "context": "Ask for sugar on the side",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
+          { "chinese": "加", "jyutping": "gaa1", "english": "add / more" },
+          { "chinese": "糖", "jyutping": "tong4", "english": "sugar" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "coffee-scene-1",
+        "title": "Ordering milk tea at a cha chaan teng",
+        "description": "You walk in and order a drink and a snack",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "飲咩？",
+            "jyutping": "jam2 me1?",
+            "romanization": "Jam² me¹?",
+            "english": "What would you like to drink?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-002",
+            "chinese": "凍奶茶，少甜。",
+            "jyutping": "dung3 naai5 caa4, siu2 tim4.",
+            "romanization": "Dung³ naai⁵ caa⁴, siu² tim⁴.",
+            "english": "Iced milk tea, less sweet.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "要唔要食嘢？",
+            "jyutping": "jiu3 m4 jiu3 sik6 je5?",
+            "romanization": "Jiu³ m⁴ jiu³ sik⁶ je⁵?",
+            "english": "Would you like something to eat?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-011",
+            "chinese": "要一個菠蘿包。",
+            "jyutping": "jiu3 jat1 go3 bo1 lo4 baau1.",
+            "romanization": "Jiu³ jat¹ go³ bo¹ lo⁴ baau¹.",
+            "english": "A pineapple bun please.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "堂食定外賣？",
+            "jyutping": "tong4 sik6 ding6 ngoi6 maai6?",
+            "romanization": "Tong⁴ sik⁶ ding⁶ ngoi⁶ maai⁶?",
+            "english": "Eat in or takeaway?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-014",
+            "chinese": "堂食，唔該。",
+            "jyutping": "tong4 sik6, m4 goi1.",
+            "romanization": "Tong⁴ sik⁶, m⁴ goi¹.",
+            "english": "Eat in, thanks.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      },
+      {
+        "id": "coffee-scene-2",
+        "title": "Asking for the bill and paying",
+        "description": "You've finished and want to pay",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-016",
+            "chinese": "唔該，埋單。",
+            "jyutping": "m4 goi1, maai4 daan1.",
+            "romanization": "M⁴ goi¹, maai⁴ daan¹.",
+            "english": "Excuse me, the bill please.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "一共四十五蚊。",
+            "jyutping": "jat1 gung6 sei3 sap6 ng5 man1.",
+            "romanization": "Jat¹ gung⁶ sei³ sap⁶ ng⁵ man¹.",
+            "english": "That's 45 dollars in total.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-017",
+            "chinese": "可唔可以用八達通？",
+            "jyutping": "ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1?",
+            "romanization": "Ho² m⁴ ho² ji³ jung⁶ baat³ daat⁶ tung¹?",
+            "english": "Can I use my Octopus card?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "得。嘟一嘟。",
+            "jyutping": "dak1. duk1 jat1 duk1.",
+            "romanization": "Dak¹. Duk¹ jat¹ duk¹.",
+            "english": "Yes. Tap here.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-030",
+            "chinese": "多謝。好味！",
+            "jyutping": "do1 ze6. hou2 mei6!",
+            "romanization": "Do¹ ze⁶. Hou² mei⁶!",
+            "english": "Thank you. Delicious!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      },
+      {
+        "id": "coffee-scene-3",
+        "title": "Changing your order",
+        "description": "You realise you want something different after ordering",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-023",
+            "chinese": "唔好意思，我想改一改。",
+            "jyutping": "m4 hou2 ji3 si3, ngo5 seung2 goi2 jat1 goi2.",
+            "romanization": "M⁴ hou² ji³ si³, ngo⁵ seung² goi² jat¹ goi².",
+            "english": "Sorry, I'd like to change my order.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "咩事？",
+            "jyutping": "me1 si6?",
+            "romanization": "Me¹ si⁶?",
+            "english": "What is it?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "coffee-024",
+            "chinese": "凍奶茶改做熱奶茶。",
+            "jyutping": "dung3 naai5 caa4 goi2 zou6 jit6 naai5 caa4.",
+            "romanization": "Dung³ naai⁵ caa⁴ goi² zou⁶ jit⁶ naai⁵ caa⁴.",
+            "english": "Change the iced milk tea to hot milk tea.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，冇問題。",
+            "jyutping": "hou2, mou5 man6 tai4.",
+            "romanization": "Hou², mou⁵ man⁶ tai⁴.",
+            "english": "Okay, no problem.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "at-a-restaurant",
+    "category": "food-and-drink",
+    "name": "At a Restaurant",
+    "description": "Full restaurant experience from arrival to leaving",
+    "phraseCount": 28,
+    "imageGradient": "linear-gradient(135deg, #7A1A1A 0%, #C44040 50%, #FFB0A0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "rest-001",
+        "romanization": "Gei² do¹ wai²?",
+        "jyutping": "gei2 do1 wai2",
+        "chinese": "幾多位？",
+        "english": "How many people?",
+        "context": "Staff will ask this the moment you walk in",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾多", "jyutping": "gei2 do1", "english": "how many" },
+          { "chinese": "位", "jyutping": "wai2", "english": "seat / person (formal counter)" }
+        ]
+      },
+      {
+        "id": "rest-002",
+        "romanization": "Sei³ wai²",
+        "jyutping": "sei3 wai2",
+        "chinese": "四位",
+        "english": "Four people",
+        "context": "Tell them how many are in your group",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "四", "jyutping": "sei3", "english": "four" },
+          { "chinese": "位", "jyutping": "wai2", "english": "person (formal counter)" }
+        ]
+      },
+      {
+        "id": "rest-003",
+        "romanization": "Jau⁵ mou⁵ wai²?",
+        "jyutping": "jau5 mou5 wai2",
+        "chinese": "有冇位？",
+        "english": "Any tables available?",
+        "context": "Ask if there's space, especially at busy restaurants",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "is there / do you have" },
+          { "chinese": "位", "jyutping": "wai2", "english": "seat / space" }
+        ]
+      },
+      {
+        "id": "rest-004",
+        "romanization": "Jiu³ dang² gei² noi⁶?",
+        "jyutping": "jiu3 dang2 gei2 noi6",
+        "chinese": "要等幾耐？",
+        "english": "How long's the wait?",
+        "context": "Ask the wait time before deciding to stay or go",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "要等", "jyutping": "jiu3 dang2", "english": "need to wait" },
+          { "chinese": "幾耐", "jyutping": "gei2 noi6", "english": "how long" }
+        ]
+      },
+      {
+        "id": "rest-005",
+        "romanization": "Jau⁵ mou⁵ caan¹ paai⁴?",
+        "jyutping": "jau5 mou5 caan1 paai4",
+        "chinese": "有冇餐牌？",
+        "english": "Do you have a menu?",
+        "context": "Ask for a physical menu — many places in HK use QR codes now",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "餐牌", "jyutping": "caan1 paai4", "english": "menu" }
+        ]
+      },
+      {
+        "id": "rest-006",
+        "romanization": "Ngo⁵ jiu³...",
+        "jyutping": "ngo5 jiu3",
+        "chinese": "我要...",
+        "english": "I'll have...",
+        "context": "Start your order with this — follow with the dish name",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "要", "jyutping": "jiu3", "english": "want / will have" }
+        ]
+      },
+      {
+        "id": "rest-007",
+        "romanization": "Jau⁵ mou⁵ teoi¹ gaai³?",
+        "jyutping": "jau5 mou5 teoi1 gaai3",
+        "chinese": "有冇推介？",
+        "english": "Any recommendations?",
+        "context": "Ask staff what they recommend — they always have an opinion",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have / is there" },
+          { "chinese": "推介", "jyutping": "teoi1 gaai3", "english": "recommendation" }
+        ]
+      },
+      {
+        "id": "rest-008",
+        "romanization": "Ni¹ go³ hai⁶ me¹ je⁵?",
+        "jyutping": "ni1 go3 hai6 me1 je5",
+        "chinese": "呢個係咩嘢？",
+        "english": "What is this?",
+        "context": "Point at something on the menu you don't recognise",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this (one)" },
+          { "chinese": "係", "jyutping": "hai6", "english": "is" },
+          { "chinese": "咩嘢", "jyutping": "me1 je5", "english": "what thing" }
+        ]
+      },
+      {
+        "id": "rest-009",
+        "romanization": "Ngo⁵ m⁴ sik⁶ ngau⁴",
+        "jyutping": "ngo5 m4 sik6 ngau4",
+        "chinese": "我唔食牛",
+        "english": "I don't eat beef",
+        "context": "Tell them your dietary restriction — swap 牛 for 豬 (pork), 雞 (chicken) etc.",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "唔食", "jyutping": "m4 sik6", "english": "don't eat" },
+          { "chinese": "牛", "jyutping": "ngau4", "english": "beef / cow" }
+        ]
+      },
+      {
+        "id": "rest-010",
+        "romanization": "Ngo⁵ sik⁶ sou³ sik⁶",
+        "jyutping": "ngo5 sik6 sou3 sik6",
+        "chinese": "我食素食",
+        "english": "I'm vegetarian",
+        "context": "Tell them you eat vegetarian — be prepared for follow-up questions in HK",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我食", "jyutping": "ngo5 sik6", "english": "I eat" },
+          { "chinese": "素食", "jyutping": "sou3 sik6", "english": "vegetarian food" }
+        ]
+      },
+      {
+        "id": "rest-011",
+        "romanization": "Ngo⁵ deoi³ haa¹ man⁵ gam²",
+        "jyutping": "ngo5 deoi3 haa1 man5 gam2",
+        "chinese": "我對蝦敏感",
+        "english": "I'm allergic to shrimp",
+        "context": "Swap 蝦 for your allergen: 花生 (peanuts), 奶 (dairy), 麩質 (gluten)",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "我對", "jyutping": "ngo5 deoi3", "english": "I am allergic to" },
+          { "chinese": "蝦", "jyutping": "haa1", "english": "shrimp / prawn" },
+          { "chinese": "敏感", "jyutping": "man5 gam2", "english": "allergic / sensitive" }
+        ]
+      },
+      {
+        "id": "rest-012",
+        "romanization": "M⁴ goi¹ gaa¹ seoi²",
+        "jyutping": "m4 goi1 gaa1 seoi2",
+        "chinese": "唔該加水",
+        "english": "More water please",
+        "context": "Ask for a refill of water or tea",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
+          { "chinese": "加水", "jyutping": "gaa1 seoi2", "english": "add water / refill" }
+        ]
+      },
+      {
+        "id": "rest-013",
+        "romanization": "Do¹ di¹ faan⁶",
+        "jyutping": "do1 di1 faan6",
+        "chinese": "多啲飯",
+        "english": "More rice please",
+        "context": "Ask for extra rice — usually free or very cheap",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "多啲", "jyutping": "do1 di1", "english": "more / a bit more" },
+          { "chinese": "飯", "jyutping": "faan6", "english": "cooked rice" }
+        ]
+      },
+      {
+        "id": "rest-014",
+        "romanization": "Taai³ laat⁶ laa³",
+        "jyutping": "taai3 laat6 laa3",
+        "chinese": "太辣喇",
+        "english": "This is too spicy",
+        "context": "Tell staff something is too hot for you",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "太", "jyutping": "taai3", "english": "too / excessively" },
+          { "chinese": "辣", "jyutping": "laat6", "english": "spicy / hot" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      },
+      {
+        "id": "rest-015",
+        "romanization": "Hou² mei⁶!",
+        "jyutping": "hou2 mei6",
+        "chinese": "好味！",
+        "english": "Delicious!",
+        "context": "Compliment the food — this always gets a warm response",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "very / good" },
+          { "chinese": "味", "jyutping": "mei6", "english": "flavour / taste" }
+        ]
+      },
+      {
+        "id": "rest-016",
+        "romanization": "M⁴ goi¹ maai⁴ daan¹",
+        "jyutping": "m4 goi1 maai4 daan1",
+        "chinese": "唔該埋單",
+        "english": "Excuse me, the bill please",
+        "context": "Catch a staff member's eye and say this — no need to wave",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
+          { "chinese": "埋單", "jyutping": "maai4 daan1", "english": "the bill" }
+        ]
+      },
+      {
+        "id": "rest-017",
+        "romanization": "Fan¹ hoi¹ bei²",
+        "jyutping": "fan1 hoi1 bei2",
+        "chinese": "分開俾",
+        "english": "Split the bill",
+        "context": "Ask to pay separately",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "分開", "jyutping": "fan1 hoi1", "english": "separately / split" },
+          { "chinese": "俾", "jyutping": "bei2", "english": "to give / to pay" }
+        ]
+      },
+      {
+        "id": "rest-018",
+        "romanization": "Jat¹ gung⁶ gei² do¹ cin²?",
+        "jyutping": "jat1 gung6 gei2 do1 cin2",
+        "chinese": "一共幾多錢？",
+        "english": "How much in total?",
+        "context": "Confirm the total before paying",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much money" }
+        ]
+      },
+      {
+        "id": "rest-019",
+        "romanization": "Sau¹ m⁴ sau¹ kaat¹?",
+        "jyutping": "sau1 m4 sau1 kaat1",
+        "chinese": "收唔收卡？",
+        "english": "Do you take cards?",
+        "context": "Check before you sit down at smaller restaurants",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "收唔收", "jyutping": "sau1 m4 sau1", "english": "do you accept / take" },
+          { "chinese": "卡", "jyutping": "kaat1", "english": "card" }
+        ]
+      },
+      {
+        "id": "rest-020",
+        "romanization": "Ni¹ go³ m⁴ ngaam¹",
+        "jyutping": "ni1 go3 m4 ngaam1",
+        "chinese": "呢個唔啱",
+        "english": "This isn't right",
+        "context": "Politely flag a wrong order",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "唔啱", "jyutping": "m4 ngaam1", "english": "not right / incorrect" }
+        ]
+      },
+      {
+        "id": "rest-021",
+        "romanization": "Ngo⁵ mou⁵ giu³ ni¹ go³",
+        "jyutping": "ngo5 mou5 giu3 ni1 go3",
+        "chinese": "我冇叫呢個",
+        "english": "I didn't order this",
+        "context": "Tell the waiter there's been a mix-up with your order",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我冇叫", "jyutping": "ngo5 mou5 giu3", "english": "I didn't order" },
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" }
+        ]
+      },
+      {
+        "id": "rest-022",
+        "romanization": "Ho² m⁴ ho² ji³ wun⁶?",
+        "jyutping": "ho2 m4 ho2 ji3 wun6",
+        "chinese": "可唔可以換？",
+        "english": "Can I swap / exchange this?",
+        "context": "Ask to return something and get the right dish",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible to" },
+          { "chinese": "換", "jyutping": "wun6", "english": "to swap / exchange" }
+        ]
+      },
+      {
+        "id": "rest-023",
+        "romanization": "M⁴ goi¹ wun⁶ jat¹ go³",
+        "jyutping": "m4 goi1 wun6 jat1 go3",
+        "chinese": "唔該換一個",
+        "english": "Could I get a new one please",
+        "context": "Ask for a replacement — clean glass, new bowl, etc.",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please / excuse me" },
+          { "chinese": "換", "jyutping": "wun6", "english": "swap / replace" },
+          { "chinese": "一個", "jyutping": "jat1 go3", "english": "one (of)" }
+        ]
+      },
+      {
+        "id": "rest-024",
+        "romanization": "Ni¹ go³ mou⁵ zyu² suk⁶",
+        "jyutping": "ni1 go3 mou5 zyu2 suk6",
+        "chinese": "呢個冇煮熟",
+        "english": "This isn't cooked through",
+        "context": "Alert staff if food seems undercooked — important for safety",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "冇煮熟", "jyutping": "mou5 zyu2 suk6", "english": "not fully cooked" }
+        ]
+      },
+      {
+        "id": "rest-025",
+        "romanization": "M⁴ goi¹ bong¹ ngo⁵ daa² baau¹",
+        "jyutping": "m4 goi1 bong1 ngo5 daa2 baau1",
+        "chinese": "唔該幫我打包",
+        "english": "Could you pack this up for me?",
+        "context": "Ask for a doggy bag for leftovers",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me / help me" },
+          { "chinese": "打包", "jyutping": "daa2 baau1", "english": "pack up / to go" }
+        ]
+      },
+      {
+        "id": "rest-026",
+        "romanization": "Jap⁶ lai⁴ co⁵",
+        "jyutping": "jap6 lai4 co5",
+        "chinese": "入嚟坐",
+        "english": "Come in and sit down",
+        "context": "Staff will say this when your table is ready",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "入嚟", "jyutping": "jap6 lai4", "english": "come in / enter" },
+          { "chinese": "坐", "jyutping": "co5", "english": "sit / sit down" }
+        ]
+      },
+      {
+        "id": "rest-027",
+        "romanization": "Dang² sap⁶ fan¹ jung¹, dak¹ m⁴ dak¹?",
+        "jyutping": "dang2 sap6 fan1 jung1, dak1 m4 dak1",
+        "chinese": "等十分鐘，得唔得？",
+        "english": "Wait ten minutes, is that okay?",
+        "context": "Staff will say this when there's a short wait for a table",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "等", "jyutping": "dang2", "english": "wait" },
+          { "chinese": "十分鐘", "jyutping": "sap6 fan1 jung1", "english": "ten minutes" },
+          { "chinese": "得唔得", "jyutping": "dak1 m4 dak1", "english": "is that okay" }
+        ]
+      },
+      {
+        "id": "rest-028",
+        "romanization": "M⁴ goi¹ do¹ jat¹ deoi³ faai³ ji⁴",
+        "jyutping": "m4 goi1 do1 jat1 deoi3 faai3 ji4",
+        "chinese": "唔該多一對筷子",
+        "english": "One more pair of chopsticks please",
+        "context": "Ask for extra chopsticks when sharing dishes",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "多一對", "jyutping": "do1 jat1 deoi3", "english": "one more pair" },
+          { "chinese": "筷子", "jyutping": "faai3 ji4", "english": "chopsticks" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "rest-scene-1",
+        "title": "Arriving at a restaurant",
+        "description": "You arrive for dinner and get seated",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "幾多位？",
+            "jyutping": "gei2 do1 wai2?",
+            "romanization": "Gei² do¹ wai²?",
+            "english": "How many people?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-002",
+            "chinese": "四位。",
+            "jyutping": "sei3 wai2.",
+            "romanization": "Sei³ wai².",
+            "english": "Four.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "等十分鐘，得唔得？",
+            "jyutping": "dang2 sap6 fan1 jung1, dak1 m4 dak1?",
+            "romanization": "Dang² sap⁶ fan¹ jung¹, dak¹ m⁴ dak¹?",
+            "english": "Wait ten minutes, okay?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-003",
+            "chinese": "好呀。",
+            "jyutping": "hou2 aa3.",
+            "romanization": "Hou² aa³.",
+            "english": "Sure.",
+            "voiceId": null,
+            "pauseAfterMs": 2500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "入嚟坐。呢度。有冇餐牌？",
+            "jyutping": "jap6 lai4 co5. ni1 dou6. jau5 mou5 caan1 paai4?",
+            "romanization": "Jap⁶ lai⁴ co⁵. Ni¹ dou⁶. Jau⁵ mou⁵ caan¹ paai⁴?",
+            "english": "Come in. Here. Would you like a menu?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-005",
+            "chinese": "有冇餐牌？多謝。",
+            "jyutping": "jau5 mou5 caan1 paai4? do1 ze6.",
+            "romanization": "Jau⁵ mou⁵ caan¹ paai⁴? Do¹ ze⁶.",
+            "english": "Yes please. Thank you.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      },
+      {
+        "id": "rest-scene-2",
+        "title": "Explaining a food allergy",
+        "description": "You ask about ingredients before ordering",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-011",
+            "chinese": "我想問，呢個有冇蝦？",
+            "jyutping": "ngo5 seung2 man6, ni1 go3 jau5 mou5 haa1?",
+            "romanization": "Ngo⁵ seung² man⁶, ni¹ go³ jau⁵ mou⁵ haa¹?",
+            "english": "Can I ask — does this have shrimp?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "有蝦。",
+            "jyutping": "jau5 haa1.",
+            "romanization": "Jau⁵ haa¹.",
+            "english": "Yes, it has shrimp.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-011",
+            "chinese": "我對蝦敏感。有冇其他推介？",
+            "jyutping": "ngo5 deoi3 haa1 man5 gam2. jau5 mou5 ke4 taa1 teoi1 gaai3?",
+            "romanization": "Ngo⁵ deoi³ haa¹ man⁵ gam². Jau⁵ mou⁵ ke⁴ taa¹ teoi¹ gaai³?",
+            "english": "I'm allergic to shrimp. Any other recommendations?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "呢個雞煲冇海鮮，好推介。",
+            "jyutping": "ni1 go3 gai1 bo1 mou5 hoi2 sin1, hou2 teoi1 gaai3.",
+            "romanization": "Ni¹ go³ gai¹ bo¹ mou⁵ hoi² sin¹, hou² teoi¹ gaai³.",
+            "english": "This chicken hotpot has no seafood — highly recommended.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "rest-006",
+            "chinese": "好，我要呢個。多謝。",
+            "jyutping": "hou2, ngo5 jiu3 ni1 go3. do1 ze6.",
+            "romanization": "Hou², ngo⁵ jiu³ ni¹ go³. Do¹ ze⁶.",
+            "english": "Great, I'll have this one. Thank you.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wet-market",
+    "category": "food-and-drink",
+    "name": "Wet Market",
+    "description": "Buying fresh produce at a HK wet market",
+    "phraseCount": 22,
+    "imageGradient": "linear-gradient(135deg, #1A4A1A 0%, #3A8A3A 50%, #90C878 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "market-001",
+        "romanization": "Lou⁵ baan²!",
+        "jyutping": "lou5 baan2",
+        "chinese": "老闆！",
+        "english": "Excuse me! (to get a vendor's attention)",
+        "context": "Call out 老闆 to address any market vendor — it's respectful and expected",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "老闆", "jyutping": "lou5 baan2", "english": "boss / owner" }
+        ]
+      },
+      {
+        "id": "market-002",
+        "romanization": "Ni¹ go³ gei² do¹ cin² jat¹ gan¹?",
+        "jyutping": "ni1 go3 gei2 do1 cin2 jat1 gan1",
+        "chinese": "呢個幾多錢一斤？",
+        "english": "How much per catty for this?",
+        "context": "A catty (斤) is 600g in HK — the standard unit at wet markets",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much" },
+          { "chinese": "一斤", "jyutping": "jat1 gan1", "english": "one catty (600g)" }
+        ]
+      },
+      {
+        "id": "market-003",
+        "romanization": "Ngo⁵ jiu³ jat¹ gan¹",
+        "jyutping": "ngo5 jiu3 jat1 gan1",
+        "chinese": "我要一斤",
+        "english": "I'll take one catty",
+        "context": "Order by the catty — change the number to suit: 兩斤 (two catties)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want / I'll take" },
+          { "chinese": "一斤", "jyutping": "jat1 gan1", "english": "one catty (600g)" }
+        ]
+      },
+      {
+        "id": "market-004",
+        "romanization": "Bun³ gan¹",
+        "jyutping": "bun3 gan1",
+        "chinese": "半斤",
+        "english": "Half a catty (300g)",
+        "context": "Order half a catty — useful for expensive items or small households",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "半", "jyutping": "bun3", "english": "half" },
+          { "chinese": "斤", "jyutping": "gan1", "english": "catty (600g)" }
+        ]
+      },
+      {
+        "id": "market-005",
+        "romanization": "San¹ m⁴ san¹ sin¹?",
+        "jyutping": "san1 m4 san1 sin1",
+        "chinese": "新唔新鮮？",
+        "english": "Is it fresh?",
+        "context": "Always worth asking — the vendor will tell you proudly if it's just arrived",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "新鮮", "jyutping": "san1 sin1", "english": "fresh" },
+          { "chinese": "唔", "jyutping": "m4", "english": "not (negation in A-not-A question)" }
+        ]
+      },
+      {
+        "id": "market-006",
+        "romanization": "Gam¹ ziu¹ faan¹ ge³, hou² san¹ sin¹",
+        "jyutping": "gam1 ziu1 faan1 ge3, hou2 san1 sin1",
+        "chinese": "今朝返嘅，好新鮮",
+        "english": "Came in this morning, very fresh",
+        "context": "Vendors say this all the time — listen for it",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "今朝", "jyutping": "gam1 ziu1", "english": "this morning" },
+          { "chinese": "返嘅", "jyutping": "faan1 ge3", "english": "just arrived / came in" },
+          { "chinese": "好新鮮", "jyutping": "hou2 san1 sin1", "english": "very fresh" }
+        ]
+      },
+      {
+        "id": "market-007",
+        "romanization": "Ngo⁵ jiu³ ni¹ go³",
+        "jyutping": "ngo5 jiu3 ni1 go3",
+        "chinese": "我要呢個",
+        "english": "I want this one",
+        "context": "Point and say this — useful when you can't name what you're pointing at",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want" },
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this one" }
+        ]
+      },
+      {
+        "id": "market-008",
+        "romanization": "Go² go³",
+        "jyutping": "go2 go3",
+        "chinese": "嗰個",
+        "english": "That one",
+        "context": "Point at something further away",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "嗰個", "jyutping": "go2 go3", "english": "that one" }
+        ]
+      },
+      {
+        "id": "market-009",
+        "romanization": "Daai⁶ di¹",
+        "jyutping": "daai6 di1",
+        "chinese": "大啲",
+        "english": "A bigger one",
+        "context": "Ask for a larger piece or item",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "大", "jyutping": "daai6", "english": "big / large" },
+          { "chinese": "啲", "jyutping": "di1", "english": "a bit / slightly" }
+        ]
+      },
+      {
+        "id": "market-010",
+        "romanization": "Sai³ di¹",
+        "jyutping": "sai3 di1",
+        "chinese": "細啲",
+        "english": "A smaller one",
+        "context": "Ask for a smaller piece",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "細", "jyutping": "sai3", "english": "small / little" },
+          { "chinese": "啲", "jyutping": "di1", "english": "a bit" }
+        ]
+      },
+      {
+        "id": "market-011",
+        "romanization": "Peng⁴ di¹ dak¹ m⁴ dak¹?",
+        "jyutping": "peng4 di1 dak1 m4 dak1",
+        "chinese": "平啲得唔得？",
+        "english": "Can you go a bit cheaper?",
+        "context": "Negotiate at market stalls — especially effective when buying larger quantities",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "平啲", "jyutping": "peng4 di1", "english": "a bit cheaper" },
+          { "chinese": "得唔得", "jyutping": "dak1 m4 dak1", "english": "is that okay / can you?" }
+        ]
+      },
+      {
+        "id": "market-012",
+        "romanization": "Sang¹ gwo²",
+        "jyutping": "sang1 gwo2",
+        "chinese": "生果",
+        "english": "Fruit",
+        "context": "The general word for fruit at markets",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "生果", "jyutping": "sang1 gwo2", "english": "fruit" }
+        ]
+      },
+      {
+        "id": "market-013",
+        "romanization": "Coi³",
+        "jyutping": "coi3",
+        "chinese": "菜",
+        "english": "Vegetables",
+        "context": "The general word for vegetables",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "菜", "jyutping": "coi3", "english": "vegetables" }
+        ]
+      },
+      {
+        "id": "market-014",
+        "romanization": "Jyu⁴",
+        "jyutping": "jyu4",
+        "chinese": "魚",
+        "english": "Fish",
+        "context": "Fresh fish is sold live at many HK wet markets",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "魚", "jyutping": "jyu4", "english": "fish" }
+        ]
+      },
+      {
+        "id": "market-015",
+        "romanization": "Juk⁶",
+        "jyutping": "juk6",
+        "chinese": "肉",
+        "english": "Meat",
+        "context": "The general word for meat — 豬肉 (pork), 雞肉 (chicken), 牛肉 (beef)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "肉", "jyutping": "juk6", "english": "meat" }
+        ]
+      },
+      {
+        "id": "market-016",
+        "romanization": "Hoi² sin¹",
+        "jyutping": "hoi2 sin1",
+        "chinese": "海鮮",
+        "english": "Seafood",
+        "context": "HK has incredible fresh seafood at wet markets",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "海", "jyutping": "hoi2", "english": "sea / ocean" },
+          { "chinese": "鮮", "jyutping": "sin1", "english": "fresh" }
+        ]
+      },
+      {
+        "id": "market-017",
+        "romanization": "Zung⁶ jiu³ m⁴ jiu³?",
+        "jyutping": "zung6 jiu3 m4 jiu3",
+        "chinese": "仲要唔要？",
+        "english": "Anything else?",
+        "context": "Vendors will ask this — say 夠喇 if you're done",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "仲", "jyutping": "zung6", "english": "still / more" },
+          { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "do you want / need" }
+        ]
+      },
+      {
+        "id": "market-018",
+        "romanization": "Gau³ laa³",
+        "jyutping": "gau3 laa3",
+        "chinese": "夠喇",
+        "english": "That's enough",
+        "context": "Tell the vendor you're done — also works when they're piling up your bag",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "夠", "jyutping": "gau3", "english": "enough" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      },
+      {
+        "id": "market-019",
+        "romanization": "M⁴ goi¹ zaap⁶ leng³ di¹",
+        "jyutping": "m4 goi1 zaap6 leng3 di1",
+        "chinese": "唔該執靚啲",
+        "english": "Could you pick out nice ones for me?",
+        "context": "Ask the vendor to handpick good quality items for you",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "執靚啲", "jyutping": "zaap6 leng3 di1", "english": "pick out the nice / good ones" }
+        ]
+      },
+      {
+        "id": "market-020",
+        "romanization": "Bong¹ ngo⁵ hei² gwat¹",
+        "jyutping": "bong1 ngo5 hei2 gwat1",
+        "chinese": "幫我起骨",
+        "english": "Can you debone it for me?",
+        "context": "Ask the fishmonger or butcher to remove the bones",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me / help me" },
+          { "chinese": "起骨", "jyutping": "hei2 gwat1", "english": "debone / remove the bones" }
+        ]
+      },
+      {
+        "id": "market-021",
+        "romanization": "Jat¹ gung⁶ gei² do¹ cin²?",
+        "jyutping": "jat1 gung6 gei2 do1 cin2",
+        "chinese": "一共幾多錢？",
+        "english": "How much in total?",
+        "context": "Ask the total when buying multiple items",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total / all together" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much money" }
+        ]
+      },
+      {
+        "id": "market-022",
+        "romanization": "Leng³ neoi⁵, bong¹ ngo⁵...",
+        "jyutping": "leng3 neoi5, bong1 ngo5",
+        "chinese": "靚女，幫我...",
+        "english": "Excuse me, could you... (to a young woman)",
+        "context": "A polite way to address and get help from a young female vendor",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "靚女", "jyutping": "leng3 neoi5", "english": "miss / young woman (polite address)" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "help me / could you" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "market-scene-1",
+        "title": "Buying fruit at a market stall",
+        "description": "You want apples and oranges — and a good deal",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "market-001",
+            "chinese": "老闆，蘋果幾多錢一斤？",
+            "jyutping": "lou5 baan2, ping4 gwo2 gei2 do1 cin2 jat1 gan1?",
+            "romanization": "Lou⁵ baan², ping⁴ gwo² gei² do¹ cin² jat¹ gan¹?",
+            "english": "Excuse me, how much per catty for the apples?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "十五蚊一斤。",
+            "jyutping": "sap6 ng5 man1 jat1 gan1.",
+            "romanization": "Sap⁶ ng⁵ man¹ jat¹ gan¹.",
+            "english": "Fifteen dollars a catty.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "market-003",
+            "chinese": "我要兩斤。",
+            "jyutping": "ngo5 jiu3 loeng5 gan1.",
+            "romanization": "Ngo⁵ jiu³ loeng⁵ gan¹.",
+            "english": "I'll take two catties.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "仲要唔要其他？",
+            "jyutping": "zung6 jiu3 m4 jiu3 ke4 taa1?",
+            "romanization": "Zung⁶ jiu³ m⁴ jiu³ ke⁴ taa¹?",
+            "english": "Anything else?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "market-005",
+            "chinese": "橙新唔新鮮？",
+            "jyutping": "caang2 san1 m4 san1 sin1?",
+            "romanization": "Caang² san¹ m⁴ san¹ sin¹?",
+            "english": "Are the oranges fresh?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "今朝返嘅，好新鮮！",
+            "jyutping": "gam1 ziu1 faan1 ge3, hou2 san1 sin1!",
+            "romanization": "Gam¹ ziu¹ faan¹ ge³, hou² san¹ sin¹!",
+            "english": "Came in this morning, very fresh!",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "market-003",
+            "chinese": "好，一斤橙。一共幾多錢？",
+            "jyutping": "hou2, jat1 gan1 caang2. jat1 gung6 gei2 do1 cin2?",
+            "romanization": "Hou², jat¹ gan¹ caang². Jat¹ gung⁶ gei² do¹ cin²?",
+            "english": "Okay, one catty of oranges. How much total?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "一共四十五蚊。",
+            "jyutping": "jat1 gung6 sei3 sap6 ng5 man1.",
+            "romanization": "Jat¹ gung⁶ sei³ sap⁶ ng⁵ man¹.",
+            "english": "Forty-five dollars in total.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dim-sum",
+    "category": "food-and-drink",
+    "name": "Dim Sum",
+    "description": "The quintessential HK dining experience",
+    "phraseCount": 18,
+    "imageGradient": "linear-gradient(135deg, #8A1A1A 0%, #C43030 50%, #FFD0A0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "dimsum-001",
+        "romanization": "Jam² me¹ caa⁴?",
+        "jyutping": "jam2 me1 caa4",
+        "chinese": "飲咩茶？",
+        "english": "What tea would you like?",
+        "context": "The first thing staff ask at any dim sum restaurant",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "飲", "jyutping": "jam2", "english": "to drink" },
+          { "chinese": "咩", "jyutping": "me1", "english": "what" },
+          { "chinese": "茶", "jyutping": "caa4", "english": "tea" }
+        ]
+      },
+      {
+        "id": "dimsum-002",
+        "romanization": "Pou² nei⁵",
+        "jyutping": "pou2 nei5",
+        "chinese": "普洱",
+        "english": "Pu'er tea",
+        "context": "The most popular dim sum tea — dark, earthy, great with rich food",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "普洱", "jyutping": "pou2 nei5", "english": "pu'er tea" }
+        ]
+      },
+      {
+        "id": "dimsum-003",
+        "romanization": "Hoeng¹ pin³",
+        "jyutping": "hoeng1 pin3",
+        "chinese": "香片",
+        "english": "Jasmine tea",
+        "context": "Fragrant jasmine tea — lighter and more floral than pu'er",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "香片", "jyutping": "hoeng1 pin3", "english": "jasmine tea (lit. fragrant slices)" }
+        ]
+      },
+      {
+        "id": "dimsum-004",
+        "romanization": "Gaa¹ seoi²",
+        "jyutping": "gaa1 seoi2",
+        "chinese": "加水",
+        "english": "More water (refill the teapot)",
+        "context": "Tap the table twice with two fingers to silently signal for a refill — very HK",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "加", "jyutping": "gaa1", "english": "add / more" },
+          { "chinese": "水", "jyutping": "seoi2", "english": "water" }
+        ]
+      },
+      {
+        "id": "dimsum-005",
+        "romanization": "Haa¹ gaau²",
+        "jyutping": "haa1 gaau2",
+        "chinese": "蝦餃",
+        "english": "Har gow (shrimp dumplings)",
+        "context": "The gold standard dim sum — how you judge a dim sum restaurant",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "蝦", "jyutping": "haa1", "english": "shrimp / prawn" },
+          { "chinese": "餃", "jyutping": "gaau2", "english": "dumpling" }
+        ]
+      },
+      {
+        "id": "dimsum-006",
+        "romanization": "Siu¹ maai²",
+        "jyutping": "siu1 maai2",
+        "chinese": "燒賣",
+        "english": "Siu mai (pork and prawn dumplings)",
+        "context": "Open-topped dumplings — pork and prawn, often topped with orange roe",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "燒賣", "jyutping": "siu1 maai2", "english": "siu mai dumplings" }
+        ]
+      },
+      {
+        "id": "dimsum-007",
+        "romanization": "Caa¹ siu¹ baau¹",
+        "jyutping": "caa1 siu1 baau1",
+        "chinese": "叉燒包",
+        "english": "Char siu bao (BBQ pork bun)",
+        "context": "Fluffy steamed buns filled with sweet BBQ pork — a dim sum classic",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "叉燒", "jyutping": "caa1 siu1", "english": "char siu (BBQ pork)" },
+          { "chinese": "包", "jyutping": "baau1", "english": "bun" }
+        ]
+      },
+      {
+        "id": "dimsum-008",
+        "romanization": "Coeng⁴ fan²",
+        "jyutping": "coeng4 fan2",
+        "chinese": "腸粉",
+        "english": "Cheung fun (rice noodle rolls)",
+        "context": "Silky rice noodle rolls filled with shrimp, beef, or char siu",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "腸", "jyutping": "coeng4", "english": "intestine (named for its tubular shape)" },
+          { "chinese": "粉", "jyutping": "fan2", "english": "rice noodle" }
+        ]
+      },
+      {
+        "id": "dimsum-009",
+        "romanization": "Lo⁴ baak⁶ gou¹",
+        "jyutping": "lo4 baak6 gou1",
+        "chinese": "蘿蔔糕",
+        "english": "Turnip cake (radish cake)",
+        "context": "Pan-fried cake made with daikon radish — crispy outside, soft inside",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "蘿蔔", "jyutping": "lo4 baak6", "english": "daikon radish / turnip" },
+          { "chinese": "糕", "jyutping": "gou1", "english": "cake / pastry" }
+        ]
+      },
+      {
+        "id": "dimsum-010",
+        "romanization": "Jat¹ lung⁴",
+        "jyutping": "jat1 lung4",
+        "chinese": "一籠",
+        "english": "One basket",
+        "context": "Dumplings come in bamboo steamers — order by the basket",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一", "jyutping": "jat1", "english": "one" },
+          { "chinese": "籠", "jyutping": "lung4", "english": "bamboo steamer basket" }
+        ]
+      },
+      {
+        "id": "dimsum-011",
+        "romanization": "Zoi³ lai⁴ jat¹ lung⁴",
+        "jyutping": "zoi3 lai4 jat1 lung4",
+        "chinese": "再嚟一籠",
+        "english": "One more basket please",
+        "context": "Order another round of your favourite — you'll definitely want to",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "再嚟", "jyutping": "zoi3 lai4", "english": "bring again / one more" },
+          { "chinese": "一籠", "jyutping": "jat1 lung4", "english": "one basket" }
+        ]
+      },
+      {
+        "id": "dimsum-012",
+        "romanization": "Gau³ laa³",
+        "jyutping": "gau3 laa3",
+        "chinese": "夠喇",
+        "english": "That's enough",
+        "context": "Stop ordering — you're full. Say this when the trolley lady comes around",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "夠", "jyutping": "gau3", "english": "enough" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      },
+      {
+        "id": "dimsum-013",
+        "romanization": "Jiu³",
+        "jyutping": "jiu3",
+        "chinese": "要",
+        "english": "I'll have that",
+        "context": "Say this when the trolley comes past with something you want",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "要", "jyutping": "jiu3", "english": "want / will have" }
+        ]
+      },
+      {
+        "id": "dimsum-014",
+        "romanization": "Ni¹ go³ hai⁶ me¹?",
+        "jyutping": "ni1 go3 hai6 me1",
+        "chinese": "呢個係咩？",
+        "english": "What is this?",
+        "context": "Ask about an unfamiliar dish on the trolley",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "係咩", "jyutping": "hai6 me1", "english": "what is (it)" }
+        ]
+      },
+      {
+        "id": "dimsum-015",
+        "romanization": "Jau⁵ mou⁵ fung¹ zaau²?",
+        "jyutping": "jau5 mou5 fung1 zaau2",
+        "chinese": "有冇鳳爪？",
+        "english": "Do you have chicken feet?",
+        "context": "Steamed chicken feet in black bean sauce — a dim sum must-try",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "鳳爪", "jyutping": "fung1 zaau2", "english": "chicken feet (phoenix claws)" }
+        ]
+      },
+      {
+        "id": "dimsum-016",
+        "romanization": "M⁴ goi¹ maai⁴ daan¹",
+        "jyutping": "m4 goi1 maai4 daan1",
+        "chinese": "唔該埋單",
+        "english": "The bill please",
+        "context": "Ask for the bill — at dim sum they count your empty steamers to add it up",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "埋單", "jyutping": "maai4 daan1", "english": "the bill" }
+        ]
+      },
+      {
+        "id": "dimsum-017",
+        "romanization": "Sik⁶ jyun⁴ laa³",
+        "jyutping": "sik6 jyun4 laa3",
+        "chinese": "食完喇",
+        "english": "We're done eating",
+        "context": "Tell staff you're finished so they can bring the bill",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "食完", "jyutping": "sik6 jyun4", "english": "finished eating / done" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle (change of state)" }
+        ]
+      },
+      {
+        "id": "dimsum-018",
+        "romanization": "Hao²! Hou² mei⁶!",
+        "jyutping": "hao2! hou2 mei6!",
+        "chinese": "好！好味！",
+        "english": "Great! So delicious!",
+        "context": "Dim sum staff love hearing this — say it with genuine enthusiasm",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "good / great" },
+          { "chinese": "好味", "jyutping": "hou2 mei6", "english": "delicious" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "dimsum-scene-1",
+        "title": "Ordering dim sum",
+        "description": "Sunday dim sum — the full experience",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "飲咩茶？",
+            "jyutping": "jam2 me1 caa4?",
+            "romanization": "Jam² me¹ caa⁴?",
+            "english": "What tea?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dimsum-002",
+            "chinese": "普洱，唔該。",
+            "jyutping": "pou2 nei5, m4 goi1.",
+            "romanization": "Pou² nei⁵, m⁴ goi¹.",
+            "english": "Pu'er please.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "點心要咩？",
+            "jyutping": "dim2 sam1 jiu3 me1?",
+            "romanization": "Dim² sam¹ jiu³ me¹?",
+            "english": "What dim sum would you like?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dimsum-005",
+            "chinese": "蝦餃同燒賣。",
+            "jyutping": "haa1 gaau2 tung4 siu1 maai2.",
+            "romanization": "Haa¹ gaau² tung⁴ siu¹ maai².",
+            "english": "Har gow and siu mai.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "要唔要叉燒包？",
+            "jyutping": "jiu3 m4 jiu3 caa1 siu1 baau1?",
+            "romanization": "Jiu³ m⁴ jiu³ caa¹ siu¹ baau¹?",
+            "english": "Would you like char siu bao?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dimsum-010",
+            "chinese": "好呀，一籠。",
+            "jyutping": "hou2 aa3, jat1 lung4.",
+            "romanization": "Hou² aa³, jat¹ lung⁴.",
+            "english": "Sure, one basket.",
+            "voiceId": null,
+            "pauseAfterMs": 2500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dimsum-011",
+            "chinese": "唔該，再嚟一籠蝦餃。",
+            "jyutping": "m4 goi1, zoi3 lai4 jat1 lung4 haa1 gaau2.",
+            "romanization": "M⁴ goi¹, zoi³ lai⁴ jat¹ lung⁴ haa¹ gaau².",
+            "english": "Excuse me, one more basket of har gow please.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好。",
+            "jyutping": "hou2.",
+            "romanization": "Hou².",
+            "english": "Sure.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  }
+]

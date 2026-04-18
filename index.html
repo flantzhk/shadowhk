@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#1A2A18" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" type="image/png" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+    <title>ShadowSpeak</title>
+    <script>
+      // Scale root font-size to match the user's iOS Dynamic Type preference.
+      // -apple-system-body is a CSS font keyword that resolves to the iOS
+      // "Body" Dynamic Type size (default 17px, larger when the user has
+      // bumped up text size in Settings > Accessibility > Larger Text).
+      // Reading its computed value and applying it to <html> makes every
+      // rem unit in the app honour the user's system text-size setting.
+      // Runs synchronously before any paint — no layout flash.
+      (function () {
+        try {
+          var el = document.createElement('span');
+          el.setAttribute('style',
+            'font:-apple-system-body;position:absolute;left:-9999px;' +
+            'top:-9999px;visibility:hidden;pointer-events:none');
+          document.documentElement.appendChild(el);
+          var dynamicPx = parseFloat(window.getComputedStyle(el).fontSize);
+          document.documentElement.removeChild(el);
+          if (dynamicPx && dynamicPx > 0) {
+            // Keep our +10% design scale on top of the Dynamic Type base.
+            // Default iOS body = 17px → 17 × 1.1 = 18.7px (≈ our 110% target).
+            // Large Text iOS body = 23px → 23 × 1.1 = 25.3px (scales up).
+            document.documentElement.style.fontSize = (dynamicPx * 1.1) + 'px';
+          }
+        } catch (e) { /* non-iOS or JS disabled — CSS 110% fallback applies */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

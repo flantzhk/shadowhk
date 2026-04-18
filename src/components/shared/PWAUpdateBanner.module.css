@@ -1,0 +1,44 @@
+/* PWAUpdateBanner.module.css */
+
+.banner {
+  position: fixed;
+  top: env(safe-area-inset-top, 0);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  background: var(--color-brand-dark);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.text {
+  flex: 1;
+}
+
+.reloadBtn {
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: var(--color-brand-lime);
+  color: var(--color-brand-dark);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.reloadBtn:active {
+  transform: scale(0.97);
+}

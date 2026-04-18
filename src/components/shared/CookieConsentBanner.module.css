@@ -1,0 +1,184 @@
+/* CookieConsentBanner.module.css */
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 16px 20px calc(16px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  animation: slideUp 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  max-width: 428px;
+  margin: 0 auto;
+}
+
+/* On desktop the max-width clipping is handled by #root; let the banner
+   sit within the content column rather than spanning the full viewport. */
+@media (min-width: 900px) {
+  .banner {
+    /* sidebar is 260px wide */
+    left: 260px;
+    max-width: 428px;
+  }
+}
+
+.text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.link {
+  color: var(--color-brand-green);
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.manageBtn {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border-strong, rgba(0,0,0,0.15));
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.manageBtn:active {
+  opacity: 0.7;
+}
+
+.acceptBtn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--color-brand-dark);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.acceptBtn:active {
+  transform: scale(0.97);
+}
+
+/* Preferences panel */
+
+.prefsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.prefsTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toggleLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.toggleSub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.alwaysOn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-brand-green);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Toggle switch */
+
+.toggle {
+  width: 44px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--color-border-strong, rgba(0,0,0,0.15));
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 200ms ease;
+  flex-shrink: 0;
+  min-height: 44px; /* expand hit area while keeping visual size via pseudo */
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+}
+
+.toggleActive {
+  background: var(--color-brand-green);
+}
+
+.toggleThumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 200ms ease;
+}
+
+.toggleActive .toggleThumb {
+  transform: translateX(18px);
+}
+
+.prefsActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.backBtn {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border-strong, rgba(0,0,0,0.15));
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.backBtn:active {
+  opacity: 0.7;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}

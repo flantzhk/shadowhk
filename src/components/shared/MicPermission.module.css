@@ -1,0 +1,161 @@
+/* MicPermission.module.css */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
+  overflow-y: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: calc(var(--safe-area-top) + 22px);
+  left: 22px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* === Icon === */
+.iconContainer {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  background: var(--color-brand-lime-muted);
+  margin: 80px auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconContainerDenied {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  background: #FFE8E8;
+  margin: 80px auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.deniedBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-error);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Text === */
+.title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark-text);
+  text-align: center;
+}
+
+.body {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.6;
+  margin: 16px 32px 32px;
+  max-width: 320px;
+}
+
+/* === Bullet list === */
+.bullets {
+  margin: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.bulletDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand-green);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* === Steps (denied state) === */
+.sectionLabel {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 32px 22px 12px;
+  align-self: flex-start;
+}
+
+.steps {
+  width: calc(100% - 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepCard {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+/* === Buttons === */
+.primaryBtn {
+  width: calc(100% - 44px);
+  margin: 40px 22px 12px;
+  background: var(--color-brand-lime);
+  color: var(--color-brand-dark-text);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  min-height: 52px;
+}
+
+.primaryBtn:active { opacity: 0.9; }
+.primaryBtn:disabled { opacity: 0.5; }
+
+.secondaryBtn {
+  margin: 0 22px 32px;
+  background: transparent;
+  color: var(--color-text-muted);
+  padding: 12px;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}

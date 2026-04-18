@@ -1,0 +1,35 @@
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 32px;
+}
+
+.bar {
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-text-muted);
+  transition: height 0.12s ease;
+}
+
+.active .bar {
+  background: var(--color-brand-lime);
+  animation: pulse 0.6s ease-in-out infinite alternate;
+}
+
+.active .bar:nth-child(2)  { animation-delay: 0.08s; }
+.active .bar:nth-child(3)  { animation-delay: 0.16s; }
+.active .bar:nth-child(4)  { animation-delay: 0.24s; }
+.active .bar:nth-child(5)  { animation-delay: 0.32s; }
+.active .bar:nth-child(6)  { animation-delay: 0.24s; }
+.active .bar:nth-child(7)  { animation-delay: 0.16s; }
+.active .bar:nth-child(8)  { animation-delay: 0.08s; }
+.active .bar:nth-child(9)  { animation-delay: 0s; }
+.active .bar:nth-child(10) { animation-delay: 0.08s; }
+.active .bar:nth-child(11) { animation-delay: 0.16s; }
+.active .bar:nth-child(12) { animation-delay: 0.24s; }
+
+@keyframes pulse {
+  from { height: 4px; }
+  to   { height: 24px; }
+}

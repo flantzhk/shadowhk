@@ -1,0 +1,1625 @@
+[
+  {
+    "id": "managing-home",
+    "category": "home-and-family",
+    "name": "Managing Home",
+    "description": "Helper instructions, deliveries, and building management",
+    "phraseCount": 28,
+    "imageGradient": "linear-gradient(135deg, #3A2A1A 0%, #7A5A3A 50%, #C8A878 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "home-001",
+        "romanization": "Gam¹ jat⁶ m⁴ goi¹ nei⁵ zyu² faan⁶",
+        "jyutping": "gam1 jat6 m4 goi1 nei5 zyu2 faan6",
+        "chinese": "今日唔該你煮飯",
+        "english": "Could you cook dinner today",
+        "context": "Ask your helper to cook — a daily phrase in many HK households",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
+          { "chinese": "唔該你", "jyutping": "m4 goi1 nei5", "english": "please (asking you)" },
+          { "chinese": "煮飯", "jyutping": "zyu2 faan6", "english": "cook food / make dinner" }
+        ]
+      },
+      {
+        "id": "home-002",
+        "romanization": "Gam¹ jat⁶ m⁴ sai² zyu² faan⁶",
+        "jyutping": "gam1 jat6 m4 sai2 zyu2 faan6",
+        "chinese": "今日唔使煮飯",
+        "english": "No need to cook today",
+        "context": "Let your helper know when you're eating out — saves grocery shopping",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need to" },
+          { "chinese": "煮飯", "jyutping": "zyu2 faan6", "english": "cook" }
+        ]
+      },
+      {
+        "id": "home-003",
+        "romanization": "Gam¹ jat⁶ heoi³ maai⁵ sung³",
+        "jyutping": "gam1 jat6 heoi3 maai5 sung3",
+        "chinese": "今日去買餸",
+        "english": "Go buy groceries today",
+        "context": "Instruct your helper to go to the wet market or supermarket",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
+          { "chinese": "去買餸", "jyutping": "heoi3 maai5 sung3", "english": "go buy groceries / ingredients" }
+        ]
+      },
+      {
+        "id": "home-004",
+        "romanization": "M⁴ goi¹ bong¹ ngo⁵ sai² saam¹",
+        "jyutping": "m4 goi1 bong1 ngo5 sai2 saam1",
+        "chinese": "唔該幫我洗衫",
+        "english": "Please do the laundry",
+        "context": "Ask your helper to wash clothes",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
+          { "chinese": "洗衫", "jyutping": "sai2 saam1", "english": "wash clothes / do laundry" }
+        ]
+      },
+      {
+        "id": "home-005",
+        "romanization": "M⁴ goi¹ tok³ dei²",
+        "jyutping": "m4 goi1 tok3 dei2",
+        "chinese": "唔該拖地",
+        "english": "Please mop the floor",
+        "context": "Ask your helper to mop the floors",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "拖地", "jyutping": "tok3 dei2", "english": "mop the floor" }
+        ]
+      },
+      {
+        "id": "home-006",
+        "romanization": "M⁴ goi¹ mat³ can⁴",
+        "jyutping": "m4 goi1 mat3 can4",
+        "chinese": "唔該抹塵",
+        "english": "Please dust the furniture",
+        "context": "Ask your helper to dust — HK air can be dusty",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "抹塵", "jyutping": "mat3 can4", "english": "dust / wipe dust" }
+        ]
+      },
+      {
+        "id": "home-007",
+        "romanization": "Gei³ dak¹ on³ si⁴ zip³ siu² pang⁴ jau⁵",
+        "jyutping": "gei3 dak1 on3 si4 zip3 siu2 pang4 jau5",
+        "chinese": "記得按時接小朋友",
+        "english": "Remember to pick up the kids on time",
+        "context": "Remind your helper about school pick-up",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "記得", "jyutping": "gei3 dak1", "english": "remember to" },
+          { "chinese": "按時", "jyutping": "on3 si4", "english": "on time" },
+          { "chinese": "接小朋友", "jyutping": "zip3 siu2 pang4 jau5", "english": "pick up the children" }
+        ]
+      },
+      {
+        "id": "home-008",
+        "romanization": "Jyu⁴ gwo² jau⁵ man⁶ tai⁴ da² ngo⁵ din⁶ waa²",
+        "jyutping": "jyu4 gwo2 jau5 man6 tai4 da2 ngo5 din6 waa2",
+        "chinese": "如果有問題打我電話",
+        "english": "If there's a problem, call me",
+        "context": "Leave instructions for your helper when you're out",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "如果", "jyutping": "jyu4 gwo2", "english": "if" },
+          { "chinese": "有問題", "jyutping": "jau5 man6 tai4", "english": "there's a problem" },
+          { "chinese": "打我電話", "jyutping": "da2 ngo5 din6 waa2", "english": "call my phone" }
+        ]
+      },
+      {
+        "id": "home-009",
+        "romanization": "Gam¹ jat⁶ jau⁵ faai³ dei⁶, m⁴ goi¹ bong¹ ngo⁵ sau¹",
+        "jyutping": "gam1 jat6 jau5 faai3 dei6, m4 goi1 bong1 ngo5 sau1",
+        "chinese": "今日有快遞，唔該幫我收",
+        "english": "There's a delivery today — please accept it for me",
+        "context": "Let your helper know to accept a parcel when you're at work",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "有快遞", "jyutping": "jau5 faai3 dei6", "english": "there's a delivery / courier" },
+          { "chinese": "幫我收", "jyutping": "bong1 ngo5 sau1", "english": "accept it for me" }
+        ]
+      },
+      {
+        "id": "home-010",
+        "romanization": "M⁴ hou² bei² jan⁴ jap⁶ lei⁴",
+        "jyutping": "m4 hou2 bei2 jan4 jap6 lei4",
+        "chinese": "唔好俾人入嚟",
+        "english": "Don't let anyone in",
+        "context": "A safety instruction for your helper when you're not home",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔好", "jyutping": "m4 hou2", "english": "don't" },
+          { "chinese": "俾人", "jyutping": "bei2 jan4", "english": "let people / allow someone" },
+          { "chinese": "入嚟", "jyutping": "jap6 lei4", "english": "come in / enter" }
+        ]
+      },
+      {
+        "id": "home-011",
+        "romanization": "Cing² man⁶ hai⁶ m⁴ hai⁶ mat⁶ jip⁶ gun² lei⁵?",
+        "jyutping": "cing2 man6 hai6 m4 hai6 mat6 jip6 gun2 lei5",
+        "chinese": "請問係唔係物業管理？",
+        "english": "Is this building management?",
+        "context": "How to start a call to your building's management office",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "請問", "jyutping": "cing2 man6", "english": "may I ask / excuse me" },
+          { "chinese": "係唔係", "jyutping": "hai6 m4 hai6", "english": "is this / are you" },
+          { "chinese": "物業管理", "jyutping": "mat6 jip6 gun2 lei5", "english": "building / property management" }
+        ]
+      },
+      {
+        "id": "home-012",
+        "romanization": "Ngo⁵ hai⁶ X joh⁶ Y sat¹",
+        "jyutping": "ngo5 hai6 X zo6 Y sat1",
+        "chinese": "我係X座Y室",
+        "english": "I'm in Block X, Flat Y",
+        "context": "Identify your flat when reporting a problem to management",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am in / I'm from" },
+          { "chinese": "座", "jyutping": "zo6", "english": "block / tower" },
+          { "chinese": "室", "jyutping": "sat1", "english": "flat / unit" }
+        ]
+      },
+      {
+        "id": "home-013",
+        "romanization": "Ngo⁵ uk¹ kei² lau⁶ seoi²",
+        "jyutping": "ngo5 uk1 kei2 lau6 seoi2",
+        "chinese": "我屋企漏水",
+        "english": "My flat has a water leak",
+        "context": "Report a water leak to building management — unfortunately common in HK",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我屋企", "jyutping": "ngo5 uk1 kei2", "english": "my home / my flat" },
+          { "chinese": "漏水", "jyutping": "lau6 seoi2", "english": "water leak / leaking water" }
+        ]
+      },
+      {
+        "id": "home-014",
+        "romanization": "Laang⁵ hei³ waai⁶ zo²",
+        "jyutping": "laang5 hei3 waai6 zo2",
+        "chinese": "冷氣壞咗",
+        "english": "The AC is broken",
+        "context": "A critical report in HK's humid heat — report this immediately",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "冷氣", "jyutping": "laang5 hei3", "english": "air conditioning" },
+          { "chinese": "壞咗", "jyutping": "waai6 zo2", "english": "broken / out of order" }
+        ]
+      },
+      {
+        "id": "home-015",
+        "romanization": "Chi³ so² sak¹ zo²",
+        "jyutping": "ci3 so2 sak1 zo2",
+        "chinese": "廁所塞咗",
+        "english": "The toilet is blocked",
+        "context": "Report a blocked toilet to management or call a plumber",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "廁所", "jyutping": "ci3 so2", "english": "toilet" },
+          { "chinese": "塞咗", "jyutping": "sak1 zo2", "english": "blocked / clogged" }
+        ]
+      },
+      {
+        "id": "home-016",
+        "romanization": "Gei² si⁴ ho² ji³ lei⁴ tai²?",
+        "jyutping": "gei2 si4 ho2 ji3 lei4 tai2",
+        "chinese": "幾時可以嚟睇？",
+        "english": "When can someone come to look at it?",
+        "context": "Ask when a repair person can come — follow up if they say 'later'",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when" },
+          { "chinese": "可以嚟睇", "jyutping": "ho2 ji3 lei4 tai2", "english": "can come to look / check" }
+        ]
+      },
+      {
+        "id": "home-017",
+        "romanization": "Cing² man⁶ jiu³ m⁴ jiu³ cim¹ meng²?",
+        "jyutping": "cing2 man6 jiu3 m4 jiu3 cim1 meng2",
+        "chinese": "請問要唔要簽名？",
+        "english": "Do I need to sign?",
+        "context": "Ask the delivery person if a signature is required",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "請問", "jyutping": "cing2 man6", "english": "may I ask" },
+          { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "do I need to" },
+          { "chinese": "簽名", "jyutping": "cim1 meng2", "english": "sign / signature" }
+        ]
+      },
+      {
+        "id": "home-018",
+        "romanization": "Fong³ hai² mun⁴ hau² zau⁶ hou²",
+        "jyutping": "fong3 hai2 mun4 hau2 zau6 hou2",
+        "chinese": "放喺門口就好",
+        "english": "Leaving it at the door is fine",
+        "context": "Tell a delivery person to leave the parcel outside your door",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "放喺", "jyutping": "fong3 hai2", "english": "leave at / put at" },
+          { "chinese": "門口", "jyutping": "mun4 hau2", "english": "doorway / entrance" },
+          { "chinese": "就好", "jyutping": "zau6 hou2", "english": "that's fine / that will do" }
+        ]
+      },
+      {
+        "id": "home-019",
+        "romanization": "Cing² man⁶ jau⁵ mou⁵ wai⁴ sau¹ fuk⁶ mou⁶?",
+        "jyutping": "cing2 man6 jau5 mou5 wai4 sau1 fuk6 mou6",
+        "chinese": "請問有冇維修服務？",
+        "english": "Do you have a repair service?",
+        "context": "Ask building management if they can send someone to fix something",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "請問", "jyutping": "cing2 man6", "english": "may I ask" },
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "維修服務", "jyutping": "wai4 sau1 fuk6 mou6", "english": "repair service" }
+        ]
+      },
+      {
+        "id": "home-020",
+        "romanization": "Dang¹ baau¹ waai⁶ zo²",
+        "jyutping": "dang1 baau1 waai6 zo2",
+        "chinese": "燈泡壞咗",
+        "english": "A lightbulb has blown",
+        "context": "Report a burned-out lightbulb",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "燈泡", "jyutping": "dang1 baau1", "english": "lightbulb" },
+          { "chinese": "壞咗", "jyutping": "waai6 zo2", "english": "broken / blown" }
+        ]
+      },
+      {
+        "id": "home-021",
+        "romanization": "Mun⁴ so² waai⁶ zo²",
+        "jyutping": "mun4 so2 waai6 zo2",
+        "chinese": "門鎖壞咗",
+        "english": "The door lock is broken",
+        "context": "Report a broken lock — a security priority",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "門鎖", "jyutping": "mun4 so2", "english": "door lock" },
+          { "chinese": "壞咗", "jyutping": "waai6 zo2", "english": "broken" }
+        ]
+      },
+      {
+        "id": "home-022",
+        "romanization": "Dian⁶ tai¹ waai⁶ zo²",
+        "jyutping": "din6 tai1 waai6 zo2",
+        "chinese": "電梯壞咗",
+        "english": "The lift is broken",
+        "context": "Report a broken elevator to building management",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "電梯", "jyutping": "din6 tai1", "english": "elevator / lift" },
+          { "chinese": "壞咗", "jyutping": "waai6 zo2", "english": "broken / out of order" }
+        ]
+      },
+      {
+        "id": "home-023",
+        "romanization": "M⁴ goi¹ gam¹ jat⁶ zyu² ...",
+        "jyutping": "m4 goi1 gam1 jat6 zyu2",
+        "chinese": "唔該今日煮...",
+        "english": "Please cook... today",
+        "context": "Specify what dish you'd like for dinner — follow with the dish name",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "今日煮", "jyutping": "gam1 jat6 zyu2", "english": "cook today" }
+        ]
+      },
+      {
+        "id": "home-024",
+        "romanization": "Soeng² sik⁶ siu¹ gai¹",
+        "jyutping": "soeng2 sik6 siu1 gai1",
+        "chinese": "想食燒雞",
+        "english": "I'd like roast chicken",
+        "context": "Tell your helper what you'd like to eat — swap for your preference",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "想食", "jyutping": "soeng2 sik6", "english": "would like to eat" },
+          { "chinese": "燒雞", "jyutping": "siu1 gai1", "english": "roast chicken" }
+        ]
+      },
+      {
+        "id": "home-025",
+        "romanization": "M⁴ sai² fong³ gaau¹",
+        "jyutping": "m4 sai2 fong3 gaau1",
+        "chinese": "唔使放醬",
+        "english": "No sauce please",
+        "context": "Specify cooking preferences for your helper",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need / don't" },
+          { "chinese": "放醬", "jyutping": "fong3 gaau1", "english": "add sauce" }
+        ]
+      },
+      {
+        "id": "home-026",
+        "romanization": "Gam¹ jat⁶ mou⁵ je⁵ zou⁶, fong³ gaa³ laa³",
+        "jyutping": "gam1 jat6 mou5 je5 zou6, fong3 gaa3 laa3",
+        "chinese": "今日冇嘢做，放假喇",
+        "english": "Nothing to do today — you have the day off",
+        "context": "Give your helper a day off — a very appreciated thing to say",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "今日冇嘢做", "jyutping": "gam1 jat6 mou5 je5 zou6", "english": "nothing to do today" },
+          { "chinese": "放假喇", "jyutping": "fong3 gaa3 laa3", "english": "day off / holiday" }
+        ]
+      },
+      {
+        "id": "home-027",
+        "romanization": "Nei⁵ gam¹ jat⁶ zou⁶ dak¹ hou² hou²",
+        "jyutping": "nei5 gam1 jat6 zou6 dak1 hou2 hou2",
+        "chinese": "你今日做得好好",
+        "english": "You did a great job today",
+        "context": "Praise your helper — positive feedback goes a long way",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "你今日", "jyutping": "nei5 gam1 jat6", "english": "you today" },
+          { "chinese": "做得好好", "jyutping": "zou6 dak1 hou2 hou2", "english": "did very well / great job" }
+        ]
+      },
+      {
+        "id": "home-028",
+        "romanization": "Do¹ ze⁶ nei⁵ gam¹ jat⁶",
+        "jyutping": "do1 ze6 nei5 gam1 jat6",
+        "chinese": "多謝你今日",
+        "english": "Thank you for today",
+        "context": "A warm thank you to your helper at the end of the day",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "多謝你", "jyutping": "do1 ze6 nei5", "english": "thank you" },
+          { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "home-scene-1",
+        "title": "Giving instructions to your helper",
+        "description": "You're heading to work and telling your helper the plan for the day",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-001",
+            "chinese": "今日唔該你煮飯，我想食燒雞。",
+            "jyutping": "gam1 jat6 m4 goi1 nei5 zyu2 faan6, ngo5 soeng2 sik6 siu1 gai1.",
+            "romanization": "Gam¹ jat⁶ m⁴ goi¹ nei⁵ zyu² faan⁶, ngo⁵ soeng² sik⁶ siu¹ gai¹.",
+            "english": "Could you cook dinner today — I'd like roast chicken.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Helper",
+            "phraseId": null,
+            "chinese": "好，得。仲有咩？",
+            "jyutping": "hou2, dak1. zung6 jau5 me1?",
+            "romanization": "Hou², dak¹. Zung⁶ jau⁵ me¹?",
+            "english": "Okay, sure. Anything else?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-003",
+            "chinese": "今日去買餸先。記得接小朋友放學。",
+            "jyutping": "gam1 jat6 heoi3 maai5 sung3 sin1. gei3 dak1 zip3 siu2 pang4 jau5 fong3 hok6.",
+            "romanization": "Gam¹ jat⁶ heoi³ maai⁵ sung³ sin¹. Gei³ dak¹ zip³ siu² pang⁴ jau⁵ fong³ hok⁶.",
+            "english": "Go buy groceries first. Remember to pick up the kids from school.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Helper",
+            "phraseId": null,
+            "chinese": "好，我知喇。放學幾點？",
+            "jyutping": "hou2, ngo5 zi1 laa3. fong3 hok6 gei2 dim2?",
+            "romanization": "Hou², ngo⁵ zi¹ laa³. Fong³ hok⁶ gei² dim²?",
+            "english": "Okay, I understand. What time does school finish?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-008",
+            "chinese": "三點半。如果有問題打我電話。",
+            "jyutping": "saam1 dim2 bun3. jyu4 gwo2 jau5 man6 tai4 da2 ngo5 din6 waa2.",
+            "romanization": "Saam¹ dim² bun³. Jyu⁴ gwo² jau⁵ man⁶ tai⁴ da² ngo⁵ din⁶ waa².",
+            "english": "Three thirty. If there's a problem, call me.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      },
+      {
+        "id": "home-scene-2",
+        "title": "Calling building management about a repair",
+        "description": "Your AC has broken down and you need to report it",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-011",
+            "chinese": "請問係唔係物業管理？",
+            "jyutping": "cing2 man6 hai6 m4 hai6 mat6 jip6 gun2 lei5?",
+            "romanization": "Cing² man⁶ hai⁶ m⁴ hai⁶ mat⁶ jip⁶ gun² lei⁵?",
+            "english": "Is this building management?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "係，請問係邊位？",
+            "jyutping": "hai6, cing2 man6 hai6 bin1 wai2?",
+            "romanization": "Hai⁶, cing² man⁶ hai⁶ bin¹ wai²?",
+            "english": "Yes, may I ask who's calling?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-012",
+            "chinese": "我係A座十八樓B室。我屋企冷氣壞咗。",
+            "jyutping": "ngo5 hai6 A zo6 sap6 baat3 lau4 B sat1. ngo5 uk1 kei2 laang5 hei3 waai6 zo2.",
+            "romanization": "Ngo⁵ hai⁶ A zo⁶ sap⁶ baat³ lau⁴ B sat¹. Ngo⁵ uk¹ kei² laang⁵ hei³ waai⁶ zo².",
+            "english": "I'm in Block A, Floor 18, Flat B. My AC is broken.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "好，我哋安排維修員，下午嚟睇。",
+            "jyutping": "hou2, ngo5 dei6 on1 paai4 wai4 sau1 jyun4, haa6 zau3 lei4 tai2.",
+            "romanization": "Hou², ngo⁵ dei⁶ on¹ paai⁴ wai⁴ sau¹ jyun⁴, haa⁶ zau³ lei⁴ tai².",
+            "english": "Okay, we'll arrange a repair person to come this afternoon.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "home-016",
+            "chinese": "幾時可以嚟睇？",
+            "jyutping": "gei2 si4 ho2 ji3 lei4 tai2?",
+            "romanization": "Gei² si⁴ ho² ji³ lei⁴ tai²?",
+            "english": "What time can they come?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "下午兩點左右。",
+            "jyutping": "haa6 zau3 loeng5 dim2 zo2 jau6.",
+            "romanization": "Haa⁶ zau³ loeng⁵ dim² zo² jau⁶.",
+            "english": "Around 2pm.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "talking-to-kids",
+    "category": "home-and-family",
+    "name": "Talking to Kids",
+    "description": "Morning routines, praise, meals, and bedtime",
+    "phraseCount": 20,
+    "imageGradient": "linear-gradient(135deg, #1A4A6A 0%, #4A8ABA 50%, #A0D0FF 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "kids-001",
+        "romanization": "Hei² san¹ laa³!",
+        "jyutping": "hei2 san1 laa3",
+        "chinese": "起身喇！",
+        "english": "Wake up! / Time to get up!",
+        "context": "The morning battle cry in every HK household",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "起身", "jyutping": "hei2 san1", "english": "get up / wake up" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final (change of state)" }
+        ]
+      },
+      {
+        "id": "kids-002",
+        "romanization": "Sik⁶ zou² caan¹",
+        "jyutping": "sik6 zou2 caan1",
+        "chinese": "食早餐",
+        "english": "Eat your breakfast",
+        "context": "Tell the kids to eat their breakfast before school",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "食", "jyutping": "sik6", "english": "eat" },
+          { "chinese": "早餐", "jyutping": "zou2 caan1", "english": "breakfast" }
+        ]
+      },
+      {
+        "id": "kids-003",
+        "romanization": "Faai³ di¹!",
+        "jyutping": "faai3 di1",
+        "chinese": "快啲！",
+        "english": "Hurry up!",
+        "context": "The most-used parenting phrase — works on all ages",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "快啲", "jyutping": "faai3 di1", "english": "faster / hurry up" }
+        ]
+      },
+      {
+        "id": "kids-004",
+        "romanization": "Zeon² bei⁶ faan¹ hok⁶",
+        "jyutping": "zeon2 bei6 faan1 hok6",
+        "chinese": "準備返學",
+        "english": "Get ready for school",
+        "context": "The morning routine command",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "準備", "jyutping": "zeon2 bei6", "english": "get ready / prepare" },
+          { "chinese": "返學", "jyutping": "faan1 hok6", "english": "go to school" }
+        ]
+      },
+      {
+        "id": "kids-005",
+        "romanization": "Caat³ ngaa⁴",
+        "jyutping": "caat3 ngaa4",
+        "chinese": "刷牙",
+        "english": "Brush your teeth",
+        "context": "Morning and bedtime essential",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "刷", "jyutping": "caat3", "english": "brush" },
+          { "chinese": "牙", "jyutping": "ngaa4", "english": "teeth" }
+        ]
+      },
+      {
+        "id": "kids-006",
+        "romanization": "Zoek³ saam¹",
+        "jyutping": "zoek3 saam1",
+        "chinese": "著衫",
+        "english": "Get dressed",
+        "context": "Tell the kids to put their clothes on",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "著", "jyutping": "zoek3", "english": "put on / wear" },
+          { "chinese": "衫", "jyutping": "saam1", "english": "clothes / shirt" }
+        ]
+      },
+      {
+        "id": "kids-007",
+        "romanization": "Bui³ syu¹ baau¹",
+        "jyutping": "bui3 syu1 baau1",
+        "chinese": "揹書包",
+        "english": "Put on your school bag",
+        "context": "Get the kids ready to leave — the final step before the door",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "揹", "jyutping": "bui3", "english": "carry on your back" },
+          { "chinese": "書包", "jyutping": "syu1 baau1", "english": "school bag" }
+        ]
+      },
+      {
+        "id": "kids-008",
+        "romanization": "Sik⁶ saai³",
+        "jyutping": "sik6 saai3",
+        "chinese": "食晒",
+        "english": "Finish your food / Eat it all up",
+        "context": "Tell children to finish their plate — said at every meal",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "食", "jyutping": "sik6", "english": "eat" },
+          { "chinese": "晒", "jyutping": "saai3", "english": "all / completely" }
+        ]
+      },
+      {
+        "id": "kids-009",
+        "romanization": "M⁴ hou² waan² je⁵ sik⁶",
+        "jyutping": "m4 hou2 waan2 je5 sik6",
+        "chinese": "唔好玩嘢食",
+        "english": "Don't play with your food",
+        "context": "The universal mealtime correction",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔好", "jyutping": "m4 hou2", "english": "don't" },
+          { "chinese": "玩", "jyutping": "waan2", "english": "play" },
+          { "chinese": "嘢食", "jyutping": "je5 sik6", "english": "food" }
+        ]
+      },
+      {
+        "id": "kids-010",
+        "romanization": "Co⁵ ding⁶ ding⁶",
+        "jyutping": "co5 ding6 ding6",
+        "chinese": "坐定定",
+        "english": "Sit still / Sit properly",
+        "context": "The classic HK parent phrase — said at meals, in the car, everywhere",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "坐", "jyutping": "co5", "english": "sit" },
+          { "chinese": "定定", "jyutping": "ding6 ding6", "english": "still / properly / without moving" }
+        ]
+      },
+      {
+        "id": "kids-011",
+        "romanization": "Sau¹ sap¹ waan⁴ geoi⁶",
+        "jyutping": "sau1 sap1 waan4 geoi6",
+        "chinese": "收拾玩具",
+        "english": "Put away your toys",
+        "context": "Tidy-up time — a daily after-play routine",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "收拾", "jyutping": "sau1 sap1", "english": "tidy up / put away" },
+          { "chinese": "玩具", "jyutping": "waan4 geoi6", "english": "toys" }
+        ]
+      },
+      {
+        "id": "kids-012",
+        "romanization": "Cung¹ loeng⁴",
+        "jyutping": "cung1 loeng4",
+        "chinese": "沖涼",
+        "english": "Have a shower / bath",
+        "context": "沖涼 is the uniquely Cantonese word for bathing — don't say 洗澡 which is more Mandarin",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "沖涼", "jyutping": "cung1 loeng4", "english": "shower / bathe (uniquely Cantonese)" }
+        ]
+      },
+      {
+        "id": "kids-013",
+        "romanization": "Caat³ ngaa⁴ fan³ gaau³",
+        "jyutping": "caat3 ngaa4 fan3 gaau3",
+        "chinese": "刷牙瞓覺",
+        "english": "Brush teeth and go to sleep",
+        "context": "The bedtime double command — said together as one phrase",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "刷牙", "jyutping": "caat3 ngaa4", "english": "brush teeth" },
+          { "chinese": "瞓覺", "jyutping": "fan3 gaau3", "english": "sleep / go to bed" }
+        ]
+      },
+      {
+        "id": "kids-014",
+        "romanization": "Nei⁵ hou² leng³ zai²!",
+        "jyutping": "nei5 hou2 leng3 zai2",
+        "chinese": "你好叻仔！",
+        "english": "You're so clever! / Well done!",
+        "context": "Praise a child — 叻仔 for boys, 叻女 for girls, or just 好叻 for either",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "你好", "jyutping": "nei5 hou2", "english": "you are so" },
+          { "chinese": "叻仔", "jyutping": "leng3 zai2", "english": "clever / smart (boy)" }
+        ]
+      },
+      {
+        "id": "kids-015",
+        "romanization": "Zou⁶ dak¹ hou²!",
+        "jyutping": "zou6 dak1 hou2",
+        "chinese": "做得好！",
+        "english": "Well done! / Good job!",
+        "context": "Encourage children for any achievement or good behaviour",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "做得好", "jyutping": "zou6 dak1 hou2", "english": "well done / did well" }
+        ]
+      },
+      {
+        "id": "kids-016",
+        "romanization": "M⁴ hou² haam³",
+        "jyutping": "m4 hou2 haam3",
+        "chinese": "唔好喊",
+        "english": "Don't cry",
+        "context": "Comfort a crying child",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔好", "jyutping": "m4 hou2", "english": "don't" },
+          { "chinese": "喊", "jyutping": "haam3", "english": "cry" }
+        ]
+      },
+      {
+        "id": "kids-017",
+        "romanization": "Mou⁵ si⁶ ge³",
+        "jyutping": "mou5 si6 ge3",
+        "chinese": "冇事㗎",
+        "english": "It's okay / You're fine",
+        "context": "Reassure a child after a fall or fright",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "冇事", "jyutping": "mou5 si6", "english": "nothing wrong / it's fine" },
+          { "chinese": "㗎", "jyutping": "ge3", "english": "reassuring particle" }
+        ]
+      },
+      {
+        "id": "kids-018",
+        "romanization": "Deoi³ m⁴ zyu⁶",
+        "jyutping": "deoi3 m4 zyu6",
+        "chinese": "對唔住",
+        "english": "I'm sorry",
+        "context": "Teach children to apologise — a very important phrase for kids to learn",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "對唔住", "jyutping": "deoi3 m4 zyu6", "english": "I'm sorry / I apologise" }
+        ]
+      },
+      {
+        "id": "kids-019",
+        "romanization": "M⁴ goi¹ cing² nei⁵",
+        "jyutping": "m4 goi1 cing2 nei5",
+        "chinese": "唔該請你",
+        "english": "Please (asking for something politely)",
+        "context": "Teach children to say please — use when asking for something",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please / thank you" },
+          { "chinese": "請你", "jyutping": "cing2 nei5", "english": "please (asking)" }
+        ]
+      },
+      {
+        "id": "kids-020",
+        "romanization": "Ngo⁵ oi³ nei⁵",
+        "jyutping": "ngo5 oi3 nei5",
+        "chinese": "我愛你",
+        "english": "I love you",
+        "context": "Tell your child you love them — increasingly said in HK families",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "愛", "jyutping": "oi3", "english": "love" },
+          { "chinese": "你", "jyutping": "nei5", "english": "you" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "kids-scene-1",
+        "title": "The morning rush",
+        "description": "Getting the kids ready for school on a typical morning",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-001",
+            "chinese": "起身喇！快啲！",
+            "jyutping": "hei2 san1 laa3! faai3 di1!",
+            "romanization": "Hei² san¹ laa³! Faai³ di¹!",
+            "english": "Wake up! Hurry!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Child",
+            "phraseId": null,
+            "chinese": "仲未係時間呀。",
+            "jyutping": "zung6 mei6 hai6 si4 gaan3 aa3.",
+            "romanization": "Zung⁶ mei⁶ hai⁶ si⁴ gaan³ aa³.",
+            "english": "It's not time yet.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-004",
+            "chinese": "準備返學啦！刷牙，著衫！",
+            "jyutping": "zeon2 bei6 faan1 hok6 laa1! caat3 ngaa4, zoek3 saam1!",
+            "romanization": "Zeon² bei⁶ faan¹ hok⁶ laa¹! Caat³ ngaa⁴, zoek³ saam¹!",
+            "english": "Get ready for school! Brush teeth, get dressed!",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Child",
+            "phraseId": null,
+            "chinese": "好喇好喇。",
+            "jyutping": "hou2 laa3 hou2 laa3.",
+            "romanization": "Hou² laa³ hou² laa³.",
+            "english": "Okay okay.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-008",
+            "chinese": "食早餐先！食晒先走。",
+            "jyutping": "sik6 zou2 caan1 sin1! sik6 saai3 sin1 zau2.",
+            "romanization": "Sik⁶ zou² caan¹ sin¹! Sik⁶ saai³ sin¹ zau².",
+            "english": "Eat breakfast first! Finish it before we go.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      },
+      {
+        "id": "kids-scene-2",
+        "title": "Bedtime routine",
+        "description": "Getting the kids to bed",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-011",
+            "chinese": "瞓覺時間喇！收拾玩具先。",
+            "jyutping": "fan3 gaau3 si4 gaan3 laa3! sau1 sap1 waan4 geoi6 sin1.",
+            "romanization": "Fan³ gaau³ si⁴ gaan³ laa³! Sau¹ sap¹ waan⁴ geoi⁶ sin¹.",
+            "english": "Bedtime! Put your toys away first.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Child",
+            "phraseId": null,
+            "chinese": "我唔想瞓。",
+            "jyutping": "ngo5 m4 soeng2 fan3.",
+            "romanization": "Ngo⁵ m⁴ soeng² fan³.",
+            "english": "I don't want to sleep.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-012",
+            "chinese": "沖涼，然後刷牙瞓覺。",
+            "jyutping": "cung1 loeng4, jin4 hau6 caat3 ngaa4 fan3 gaau3.",
+            "romanization": "Cung¹ loeng⁴, jin⁴ hau⁶ caat³ ngaa⁴ fan³ gaau³.",
+            "english": "Shower, then brush teeth and sleep.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Child",
+            "phraseId": null,
+            "chinese": "好喇。晚安。",
+            "jyutping": "hou2 laa3. maan5 on1.",
+            "romanization": "Hou² laa³. Maan⁵ on¹.",
+            "english": "Okay. Good night.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "kids-020",
+            "chinese": "晚安。我愛你。",
+            "jyutping": "maan5 on1. ngo5 oi3 nei5.",
+            "romanization": "Maan⁵ on¹. Ngo⁵ oi³ nei⁵.",
+            "english": "Good night. I love you.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "doctor-and-pharmacy",
+    "category": "home-and-family",
+    "name": "Doctor and Pharmacy",
+    "description": "Symptoms, pain, medicine, and instructions",
+    "phraseCount": 18,
+    "imageGradient": "linear-gradient(135deg, #1A3A5A 0%, #2A6A8A 50%, #70C0D0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "doc-001",
+        "romanization": "Ngo⁵ m⁴ syu¹ fuk⁶",
+        "jyutping": "ngo5 m4 syu1 fuk6",
+        "chinese": "我唔舒服",
+        "english": "I'm not feeling well",
+        "context": "Tell the doctor or pharmacist you're unwell — a good starting phrase",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "唔舒服", "jyutping": "m4 syu1 fuk6", "english": "not well / unwell / uncomfortable" }
+        ]
+      },
+      {
+        "id": "doc-002",
+        "romanization": "Ngo⁵ tau⁴ tung³",
+        "jyutping": "ngo5 tau4 tung3",
+        "chinese": "我頭痛",
+        "english": "I have a headache",
+        "context": "Report a headache — 頭 (head) + 痛 (pain) for any head pain",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "頭痛", "jyutping": "tau4 tung3", "english": "headache" }
+        ]
+      },
+      {
+        "id": "doc-003",
+        "romanization": "Ngo⁵ tou⁵ tung³",
+        "jyutping": "ngo5 tou5 tung3",
+        "chinese": "我肚痛",
+        "english": "I have a stomach ache",
+        "context": "Report stomach pain — 肚 is the Cantonese word for stomach",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "肚痛", "jyutping": "tou5 tung3", "english": "stomach ache / belly pain" }
+        ]
+      },
+      {
+        "id": "doc-004",
+        "romanization": "Ngo⁵ faat³ siu¹",
+        "jyutping": "ngo5 faat3 siu1",
+        "chinese": "我發燒",
+        "english": "I have a fever",
+        "context": "Report a fever — the doctor will take your temperature",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "發燒", "jyutping": "faat3 siu1", "english": "fever (lit. emit heat)" }
+        ]
+      },
+      {
+        "id": "doc-005",
+        "romanization": "Ngo⁵ kat¹ sau³",
+        "jyutping": "ngo5 kat1 sau3",
+        "chinese": "我咳嗽",
+        "english": "I have a cough",
+        "context": "Report a cough — very common in HK",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "咳嗽", "jyutping": "kat1 sau3", "english": "cough" }
+        ]
+      },
+      {
+        "id": "doc-006",
+        "romanization": "Ngo⁵ lau⁴ pei⁵ seoi²",
+        "jyutping": "ngo5 lau4 pei5 seoi2",
+        "chinese": "我流鼻水",
+        "english": "I have a runny nose",
+        "context": "Report nasal symptoms",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "流鼻水", "jyutping": "lau4 pei5 seoi2", "english": "runny nose (lit. flowing nose water)" }
+        ]
+      },
+      {
+        "id": "doc-007",
+        "romanization": "Ngo⁵ zok³ ngau²",
+        "jyutping": "ngo5 zok3 ngau2",
+        "chinese": "我作嘔",
+        "english": "I feel nauseous",
+        "context": "Report nausea — also useful for seasickness or motion sickness",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "作嘔", "jyutping": "zok3 ngau2", "english": "nauseous / feel like vomiting" }
+        ]
+      },
+      {
+        "id": "doc-008",
+        "romanization": "Ni¹ dou⁶ tung³",
+        "jyutping": "ni1 dou6 tung3",
+        "chinese": "呢度痛",
+        "english": "It hurts here",
+        "context": "Point to where it hurts — essential when you can't name the body part",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢度", "jyutping": "ni1 dou6", "english": "here / this place" },
+          { "chinese": "痛", "jyutping": "tung3", "english": "pain / hurts" }
+        ]
+      },
+      {
+        "id": "doc-009",
+        "romanization": "Hou² tung³",
+        "jyutping": "hou2 tung3",
+        "chinese": "好痛",
+        "english": "It really hurts / Very painful",
+        "context": "Communicate severity of pain",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "very" },
+          { "chinese": "痛", "jyutping": "tung3", "english": "pain / hurts" }
+        ]
+      },
+      {
+        "id": "doc-010",
+        "romanization": "Tung³ zo² gei² noi⁶?",
+        "jyutping": "tung3 zo2 gei2 noi6",
+        "chinese": "痛咗幾耐？",
+        "english": "How long has it been hurting?",
+        "context": "The doctor will ask you this — know the answer",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "痛咗", "jyutping": "tung3 zo2", "english": "been hurting / in pain" },
+          { "chinese": "幾耐", "jyutping": "gei2 noi6", "english": "how long" }
+        ]
+      },
+      {
+        "id": "doc-011",
+        "romanization": "Ngo⁵ dit³ can¹",
+        "jyutping": "ngo5 dit3 can1",
+        "chinese": "我跌親",
+        "english": "I fell / I hurt myself",
+        "context": "Report a fall or injury",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "跌親", "jyutping": "dit3 can1", "english": "fell / hurt myself in a fall" }
+        ]
+      },
+      {
+        "id": "doc-012",
+        "romanization": "Jau⁵ mou⁵ joek⁶ bei² ngo⁵?",
+        "jyutping": "jau5 mou5 joek6 bei2 ngo5",
+        "chinese": "有冇藥俾我？",
+        "english": "Can you give me some medicine?",
+        "context": "Ask the doctor or pharmacist for medication",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇藥", "jyutping": "jau5 mou5 joek6", "english": "do you have medicine" },
+          { "chinese": "俾我", "jyutping": "bei2 ngo5", "english": "give me / for me" }
+        ]
+      },
+      {
+        "id": "doc-013",
+        "romanization": "Sik⁶ gei² do¹?",
+        "jyutping": "sik6 gei2 do1",
+        "chinese": "食幾多？",
+        "english": "How much should I take?",
+        "context": "Ask about the dosage",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "食", "jyutping": "sik6", "english": "take / eat (medicine)" },
+          { "chinese": "幾多", "jyutping": "gei2 do1", "english": "how much" }
+        ]
+      },
+      {
+        "id": "doc-014",
+        "romanization": "Gei² si⁴ sik⁶?",
+        "jyutping": "gei2 si4 sik6",
+        "chinese": "幾時食？",
+        "english": "When should I take it?",
+        "context": "Ask when to take the medication",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when" },
+          { "chinese": "食", "jyutping": "sik6", "english": "take (medicine)" }
+        ]
+      },
+      {
+        "id": "doc-015",
+        "romanization": "Jat¹ jat⁶ sik⁶ saam¹ ci³",
+        "jyutping": "jat1 jat6 sik6 saam1 ci3",
+        "chinese": "一日食三次",
+        "english": "Three times a day",
+        "context": "The most common dosage instruction you'll hear",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "一日", "jyutping": "jat1 jat6", "english": "one day / per day" },
+          { "chinese": "食三次", "jyutping": "sik6 saam1 ci3", "english": "take three times" }
+        ]
+      },
+      {
+        "id": "doc-016",
+        "romanization": "Sik⁶ zo² faan⁶ sin¹ sik⁶",
+        "jyutping": "sik6 zo2 faan6 sin1 sik6",
+        "chinese": "食咗飯先食",
+        "english": "Take after meals",
+        "context": "Instruction to take medicine after eating",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "食咗飯先", "jyutping": "sik6 zo2 faan6 sin1", "english": "after eating" },
+          { "chinese": "食", "jyutping": "sik6", "english": "take (medicine)" }
+        ]
+      },
+      {
+        "id": "doc-017",
+        "romanization": "Jyu⁴ gwo² m⁴ hou² zyun³ faan¹ lei⁴",
+        "jyutping": "jyu4 gwo2 m4 hou2 zyun3 faan1 lei4",
+        "chinese": "如果唔好，轉番嚟",
+        "english": "If it doesn't get better, come back",
+        "context": "What the doctor says at the end of every appointment — be ready to hear this",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "如果唔好", "jyutping": "jyu4 gwo2 m4 hou2", "english": "if it doesn't improve" },
+          { "chinese": "轉番嚟", "jyutping": "zyun3 faan1 lei4", "english": "come back again" }
+        ]
+      },
+      {
+        "id": "doc-018",
+        "romanization": "Ngo⁵ jau⁵ gwok³ joek⁶ gwo³ man⁵",
+        "jyutping": "ngo5 jau5 gwok3 joek6 gwo3 man5",
+        "chinese": "我有藥物過敏",
+        "english": "I have a drug allergy",
+        "context": "Critical information to tell any doctor or pharmacist",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "我有", "jyutping": "ngo5 jau5", "english": "I have" },
+          { "chinese": "藥物過敏", "jyutping": "gwok3 joek6 gwo3 man5", "english": "drug / medication allergy" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "doc-scene-1",
+        "title": "Describing symptoms to a doctor",
+        "description": "You visit a clinic and explain what's wrong",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Doctor",
+            "phraseId": null,
+            "chinese": "你唔舒服呀？有咩問題？",
+            "jyutping": "nei5 m4 syu1 fuk6 aa3? jau5 me1 man6 tai4?",
+            "romanization": "Nei⁵ m⁴ syu¹ fuk⁶ aa³? Jau⁵ me¹ man⁶ tai⁴?",
+            "english": "You're not feeling well? What's the problem?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-001",
+            "chinese": "我唔舒服。我頭痛，又發燒。",
+            "jyutping": "ngo5 m4 syu1 fuk6. ngo5 tau4 tung3, jau6 faat3 siu1.",
+            "romanization": "Ngo⁵ m⁴ syu¹ fuk⁶. Ngo⁵ tau⁴ tung³, jau⁶ faat³ siu¹.",
+            "english": "I'm not feeling well. I have a headache and a fever.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Doctor",
+            "phraseId": null,
+            "chinese": "痛咗幾耐？",
+            "jyutping": "tung3 zo2 gei2 noi6?",
+            "romanization": "Tung³ zo² gei² noi⁶?",
+            "english": "How long has it been hurting?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-010",
+            "chinese": "痛咗兩日。",
+            "jyutping": "tung3 zo2 loeng5 jat6.",
+            "romanization": "Tung³ zo² loeng⁵ jat⁶.",
+            "english": "For two days.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Doctor",
+            "phraseId": null,
+            "chinese": "我俾藥你，一日食三次，食完飯先食。如果唔好，轉番嚟。",
+            "jyutping": "ngo5 bei2 joek6 nei5, jat1 jat6 sik6 saam1 ci3, sik6 zo2 faan6 sin1 sik6. jyu4 gwo2 m4 hou2, zyun3 faan1 lei4.",
+            "romanization": "Ngo⁵ bei² joek⁶ nei⁵, jat¹ jat⁶ sik⁶ saam¹ ci³, sik⁶ zo² faan⁶ sin¹ sik⁶. Jyu⁴ gwo² m⁴ hou², zyun³ faan¹ lei⁴.",
+            "english": "I'll give you medicine — three times a day, after meals. If you don't improve, come back.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-015",
+            "chinese": "明白。一日三次。多謝醫生。",
+            "jyutping": "ming4 baak6. jat1 jat6 saam1 ci3. do1 ze6 ji1 sang1.",
+            "romanization": "Ming⁴ baak⁶. Jat¹ jat⁶ saam¹ ci³. Do¹ ze⁶ ji¹ sang¹.",
+            "english": "I understand. Three times a day. Thank you doctor.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "doc-scene-2",
+        "title": "At the pharmacy",
+        "description": "You need medicine from the chemist",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-001",
+            "chinese": "唔該，我唔舒服。我咳嗽，流鼻水。",
+            "jyutping": "m4 goi1, ngo5 m4 syu1 fuk6. ngo5 kat1 sau3, lau4 pei5 seoi2.",
+            "romanization": "M⁴ goi¹, ngo⁵ m⁴ syu¹ fuk⁶. Ngo⁵ kat¹ sau³, lau⁴ pei⁵ seoi².",
+            "english": "Excuse me, I'm not feeling well. I have a cough and a runny nose.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Pharmacist",
+            "phraseId": null,
+            "chinese": "你有冇藥物過敏？",
+            "jyutping": "nei5 jau5 mou5 joek6 mat6 gwo3 man5?",
+            "romanization": "Nei⁵ jau⁵ mou⁵ joek⁶ mat⁶ gwo³ man⁵?",
+            "english": "Do you have any drug allergies?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-018",
+            "chinese": "冇藥物過敏。",
+            "jyutping": "mou5 joek6 mat6 gwo3 man5.",
+            "romanization": "Mou⁵ joek⁶ mat⁶ gwo³ man⁵.",
+            "english": "No drug allergies.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Pharmacist",
+            "phraseId": null,
+            "chinese": "好，呢個咳藥，一日食三次，食完飯先食。",
+            "jyutping": "hou2, ni1 go3 kat1 joek6, jat1 jat6 sik6 saam1 ci3, sik6 zo2 faan6 sin1 sik6.",
+            "romanization": "Hou², ni¹ go³ kat¹ joek⁶, jat¹ jat⁶ sik⁶ saam¹ ci³, sik⁶ zo² faan⁶ sin¹ sik⁶.",
+            "english": "Okay, here's cough medicine — three times a day, after meals.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "doc-013",
+            "chinese": "食幾多粒？",
+            "jyutping": "sik6 gei2 do1 nap1?",
+            "romanization": "Sik⁶ gei² do¹ nap¹?",
+            "english": "How many tablets each time?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Pharmacist",
+            "phraseId": null,
+            "chinese": "每次食兩粒。多喝水，好快好㗎。",
+            "jyutping": "mui5 ci3 sik6 loeng5 nap1. do1 hot3 seoi2, hou2 faai3 hou2 gaa3.",
+            "romanization": "Mui⁵ ci³ sik⁶ loeng⁵ nap¹. Do¹ hot³ seoi², hou² faai³ hou² gaa³.",
+            "english": "Two tablets each time. Drink plenty of water — you'll feel better soon.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "groceries",
+    "category": "home-and-family",
+    "name": "Groceries",
+    "description": "Supermarket basics, finding items, and checkout",
+    "phraseCount": 14,
+    "imageGradient": "linear-gradient(135deg, #2A5A2A 0%, #50A050 50%, #A0D8A0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "groc-001",
+        "romanization": "M⁴ goi¹, ... hai⁶ bin¹ dou⁶?",
+        "jyutping": "m4 goi1, ... hai6 bin1 dou6",
+        "chinese": "唔該，...喺邊度？",
+        "english": "Excuse me, where is the...?",
+        "context": "Ask a staff member where to find an item — follow with the item name",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me" },
+          { "chinese": "喺邊度", "jyutping": "hai6 bin1 dou6", "english": "where is it" }
+        ]
+      },
+      {
+        "id": "groc-002",
+        "romanization": "Hai⁶ X paai⁴",
+        "jyutping": "hai6 X paai4",
+        "chinese": "喺X排",
+        "english": "It's in aisle X",
+        "context": "The answer you'll get when asking where something is",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai6", "english": "it's at / in" },
+          { "chinese": "排", "jyutping": "paai4", "english": "aisle / row" }
+        ]
+      },
+      {
+        "id": "groc-003",
+        "romanization": "Ni¹ go³ gei² si⁴ dou³ kei⁴?",
+        "jyutping": "ni1 go3 gei2 si4 dou3 kei4",
+        "chinese": "呢個幾時到期？",
+        "english": "When does this expire?",
+        "context": "Check the expiry date — important for fresh products",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "幾時到期", "jyutping": "gei2 si4 dou3 kei4", "english": "when does it expire" }
+        ]
+      },
+      {
+        "id": "groc-004",
+        "romanization": "Jau⁵ mou⁵ jau¹ gei¹ sou³ coi³?",
+        "jyutping": "jau5 mou5 jau1 gei1 sou3 coi3",
+        "chinese": "有冇有機蔬菜？",
+        "english": "Do you have organic vegetables?",
+        "context": "Ask for organic produce — increasingly available in HK supermarkets",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "有機", "jyutping": "jau1 gei1", "english": "organic" },
+          { "chinese": "蔬菜", "jyutping": "sou3 coi3", "english": "vegetables" }
+        ]
+      },
+      {
+        "id": "groc-005",
+        "romanization": "Jau⁵ mou⁵ san¹ sin¹ di¹?",
+        "jyutping": "jau5 mou5 san1 sin1 di1",
+        "chinese": "有冇新鮮啲？",
+        "english": "Do you have fresher ones?",
+        "context": "Ask for fresher produce when what's on display looks tired",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "新鮮啲", "jyutping": "san1 sin1 di1", "english": "fresher / more fresh" }
+        ]
+      },
+      {
+        "id": "groc-006",
+        "romanization": "Ni¹ go³ jau⁵ mou⁵ zit³ kau³?",
+        "jyutping": "ni1 go3 jau5 mou5 zit3 kau3",
+        "chinese": "呢個有冇折扣？",
+        "english": "Is this on sale?",
+        "context": "Ask if an item has a discount",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "有冇折扣", "jyutping": "jau5 mou5 zit3 kau3", "english": "any discount / on sale" }
+        ]
+      },
+      {
+        "id": "groc-007",
+        "romanization": "Ngo⁵ jau⁵ jau¹ wai⁶ hyun³",
+        "jyutping": "ngo5 jau5 jau1 wai6 hyun3",
+        "chinese": "我有優惠券",
+        "english": "I have a coupon",
+        "context": "Present your coupon at the checkout",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我有", "jyutping": "ngo5 jau5", "english": "I have" },
+          { "chinese": "優惠券", "jyutping": "jau1 wai6 hyun3", "english": "coupon / voucher" }
+        ]
+      },
+      {
+        "id": "groc-008",
+        "romanization": "Jat¹ gung⁶ gei² do¹ cin²?",
+        "jyutping": "jat1 gung6 gei2 do1 cin2",
+        "chinese": "一共幾多錢？",
+        "english": "How much in total?",
+        "context": "Ask the total at checkout",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much" }
+        ]
+      },
+      {
+        "id": "groc-009",
+        "romanization": "Ho² m⁴ ho² ji³ jung⁶ baat³ daat⁶ tung¹?",
+        "jyutping": "ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1",
+        "chinese": "可唔可以用八達通？",
+        "english": "Can I use Octopus?",
+        "context": "Octopus is widely accepted at supermarkets in HK",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I" },
+          { "chinese": "用八達通", "jyutping": "jung6 baat3 daat6 tung1", "english": "use Octopus card" }
+        ]
+      },
+      {
+        "id": "groc-010",
+        "romanization": "Jau⁵ mou⁵ zik¹ fan¹?",
+        "jyutping": "jau5 mou5 zik1 fan1",
+        "chinese": "有冇積分？",
+        "english": "Can I earn points?",
+        "context": "Ask about loyalty points — most HK supermarkets have schemes",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "can I / is there" },
+          { "chinese": "積分", "jyutping": "zik1 fan1", "english": "loyalty points" }
+        ]
+      },
+      {
+        "id": "groc-011",
+        "romanization": "M⁴ sai² doi², do¹ ze⁶",
+        "jyutping": "m4 sai2 doi2, do1 ze6",
+        "chinese": "唔使袋，多謝",
+        "english": "No bag needed, thanks",
+        "context": "Decline the plastic bag — HK charges for plastic bags",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔使袋", "jyutping": "m4 sai2 doi2", "english": "no bag needed" },
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" }
+        ]
+      },
+      {
+        "id": "groc-012",
+        "romanization": "Ngo⁵ soeng² teoi³ ni¹ go³",
+        "jyutping": "ngo5 soeng2 teoi3 ni1 go3",
+        "chinese": "我想退呢個",
+        "english": "I'd like to return this",
+        "context": "Ask to return an item — have your receipt ready",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
+          { "chinese": "退", "jyutping": "teoi3", "english": "return / refund" },
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" }
+        ]
+      },
+      {
+        "id": "groc-013",
+        "romanization": "M⁴ goi¹, mai⁴ gaa³ loeng⁵ go³",
+        "jyutping": "m4 goi1 mai4 gaa3 loeng5 go3",
+        "chinese": "唔該，埋架兩個",
+        "english": "Could you ring these two up together?",
+        "context": "Ask the cashier to put two items in the same transaction",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "埋架", "jyutping": "mai4 gaa3", "english": "together / combine" },
+          { "chinese": "兩個", "jyutping": "loeng5 go3", "english": "these two" }
+        ]
+      },
+      {
+        "id": "groc-014",
+        "romanization": "Cing² man⁶, ji¹ san¹ jyun⁴ hai⁶ bin¹ dou⁶?",
+        "jyutping": "cing2 man6, ji1 san1 jyun4 hai6 bin1 dou6",
+        "chinese": "請問，嬰身院喺邊度？",
+        "english": "Excuse me, where is the baby section?",
+        "context": "Find baby products in a large supermarket",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "請問", "jyutping": "cing2 man6", "english": "may I ask" },
+          { "chinese": "嬰身院", "jyutping": "ji1 san1 jyun4", "english": "baby section / infant products" },
+          { "chinese": "喺邊度", "jyutping": "hai6 bin1 dou6", "english": "where is" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "groc-scene-1",
+        "title": "Finding an item in the supermarket",
+        "description": "You can't find what you're looking for",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "groc-001",
+            "chinese": "唔該，橄欖油喺邊度？",
+            "jyutping": "m4 goi1, gam3 lam4 jau4 hai6 bin1 dou6?",
+            "romanization": "M⁴ goi¹, gam³ lam⁴ jau⁴ hai⁶ bin¹ dou⁶?",
+            "english": "Excuse me, where is the olive oil?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "喺五排，右手邊。",
+            "jyutping": "hai6 ng5 paai4, jau6 sau2 bin1.",
+            "romanization": "Hai⁶ ng⁵ paai⁴, jau⁶ sau² bin¹.",
+            "english": "Aisle 5, on the right side.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "groc-002",
+            "chinese": "五排，右手邊。明白，多謝！",
+            "jyutping": "ng5 paai4, jau6 sau2 bin1. ming4 baak6, do1 ze6!",
+            "romanization": "Ng⁵ paai⁴, jau⁶ sau² bin¹. Ming⁴ baak⁶, do¹ ze⁶!",
+            "english": "Aisle 5, right side. Got it, thank you!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "groc-scene-2",
+        "title": "At the checkout",
+        "description": "Paying for your groceries",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Cashier",
+            "phraseId": null,
+            "chinese": "要唔要袋？",
+            "jyutping": "jiu3 m4 jiu3 doi2?",
+            "romanization": "Jiu³ m⁴ jiu³ doi²?",
+            "english": "Would you like a bag?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "groc-011",
+            "chinese": "唔使袋，多謝。可唔可以用八達通？",
+            "jyutping": "m4 sai2 doi2, do1 ze6. ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1?",
+            "romanization": "M⁴ sai² doi², do¹ ze⁶. Ho² m⁴ ho² ji³ jung⁶ baat³ daat⁶ tung¹?",
+            "english": "No bag thanks. Can I use Octopus?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Cashier",
+            "phraseId": null,
+            "chinese": "得。一共一百四十二蚊。",
+            "jyutping": "dak1. jat1 gung6 jat1 baak3 sei3 sap6 ji6 man1.",
+            "romanization": "Dak¹. Jat¹ gung⁶ jat¹ baak³ sei³ sap⁶ ji⁶ man¹.",
+            "english": "Sure. That's $142 in total.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "groc-007",
+            "chinese": "等等，我有優惠券。",
+            "jyutping": "dang2 dang2, ngo5 jau5 jau1 wai6 hyun3.",
+            "romanization": "Dang² dang², ngo⁵ jau⁵ jau¹ wai⁶ hyun³.",
+            "english": "Wait, I have a coupon.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Cashier",
+            "phraseId": null,
+            "chinese": "好，減咗二十蚊，一共一百二十二蚊。",
+            "jyutping": "hou2, gaam2 zo2 ji6 sap6 man1, jat1 gung6 jat1 baak3 ji6 sap6 ji6 man1.",
+            "romanization": "Hou², gaam² zo² ji⁶ sap⁶ man¹, jat¹ gung⁶ jat¹ baak³ ji⁶ sap⁶ ji⁶ man¹.",
+            "english": "Okay, minus $20, that's $122 in total.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "groc-008",
+            "chinese": "好，多謝。",
+            "jyutping": "hou2, do1 ze6.",
+            "romanization": "Hou², do¹ ze⁶.",
+            "english": "Great, thank you.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  }
+]

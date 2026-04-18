@@ -1,0 +1,235 @@
+/* SessionSummary.module.css — End-of-session summary */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  padding: var(--safe-area-top) 0 var(--safe-area-bottom);
+  z-index: var(--z-overlay, 100);
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 32px;
+}
+
+/* === Success icon === */
+.iconWrap {
+  margin-top: 48px;
+}
+
+.successCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-brand-lime-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scorePop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* === Title === */
+.title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark-text);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* === Stat tiles === */
+.statRow {
+  display: flex;
+  gap: 10px;
+  margin: 28px 22px 0;
+  width: calc(100% - 44px);
+}
+
+.statTile {
+  flex: 1;
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statNum {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+}
+
+.statLabel {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.2px;
+}
+
+/* === Streak row === */
+.streakRow {
+  margin: 20px 22px 0;
+  padding: 12px 16px;
+  background: var(--color-streak-bg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% - 44px);
+}
+
+.streakFlame {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.streakFlame::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 14px;
+  height: 16px;
+  background: #E8703A;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.streakFlame::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 5px;
+  width: 7px;
+  height: 9px;
+  background: #FFCC4D;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.streakText {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-streak-text);
+}
+
+.streakPlus {
+  font-weight: var(--font-weight-normal);
+  color: #B06830;
+}
+
+/* === Divider === */
+.divider {
+  width: calc(100% - 44px);
+  height: 0.5px;
+  background: var(--color-border);
+  margin: 24px 22px;
+}
+
+/* === Phrase breakdown === */
+.sectionLabel {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 0 22px;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+
+.phraseList {
+  width: 100%;
+}
+
+.phraseRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+}
+
+.phraseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.phraseText {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.phraseScore {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  flex-shrink: 0;
+}
+
+.star {
+  color: var(--color-brand-green);
+  font-size: 0.75rem;
+}
+
+/* === Action buttons === */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 28px 22px 32px;
+  width: calc(100% - 44px);
+}
+
+.practiceMoreBtn {
+  width: 100%;
+  background: var(--color-brand-dark);
+  color: white;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  min-height: 52px;
+}
+
+.practiceMoreBtn:active {
+  opacity: 0.9;
+}
+
+.doneBtn {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid var(--color-border-strong);
+  color: var(--color-text-secondary);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  min-height: 52px;
+}
+
+.doneBtn:active {
+  opacity: 0.8;
+}

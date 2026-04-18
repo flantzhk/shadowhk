@@ -1,0 +1,231 @@
+/* ToneGym.module.css — Practice Mode 4: Tone Gym */
+
+.screen {
+  flex: 1; display: flex; flex-direction: column;
+  background: var(--color-bg);
+  padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
+}
+
+/* === Header === */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-md) 0; flex-shrink: 0;
+}
+
+.closeBtn {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; color: var(--color-text-secondary);
+}
+
+.score { font-size: 0.875rem; font-weight: var(--font-weight-semibold); color: var(--color-brand-dark-text); }
+.roundCount { font-size: 0.8125rem; color: var(--color-text-muted); font-weight: var(--font-weight-medium); }
+
+.progressBar { height: 3px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; }
+.progressFill { height: 100%; background: var(--color-brand-lime); transition: width var(--transition-normal); }
+
+/* === Play area === */
+.playArea {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: var(--space-xl);
+}
+
+.questionLabel {
+  font-size: 0.8125rem; color: var(--color-text-muted); text-align: center;
+  margin-top: 48px;
+}
+
+.targetMeaning {
+  font-size: 1.375rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary); text-align: center; margin-top: 8px;
+}
+
+.instructions {
+  font-size: 0.8125rem; color: var(--color-text-muted); text-align: center;
+  margin-top: 20px; max-width: 280px; line-height: 1.4;
+}
+
+.label { font-size: var(--font-size-base); color: var(--color-text-muted); text-align: center; }
+
+/* === Option cards === */
+.choiceRow {
+  display: flex; gap: 16px; margin: 32px 0;
+  justify-content: center; width: 100%;
+}
+
+.choiceBtn {
+  flex: 1; aspect-ratio: 1; max-width: 160px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-strong);
+  border-radius: 16px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.choiceBtn:active:not(:disabled) { transform: scale(0.97); }
+.choiceBtn:disabled { opacity: 0.8; }
+
+.choiceLetter {
+  font-size: 1.75rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+}
+
+.choicePlayBtn {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--color-brand-lime);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.choicePlayTriangle {
+  width: 0; height: 0;
+  border-left: 12px solid var(--color-brand-dark);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-left: 2px;
+}
+
+/* === Selected states === */
+.choiceCorrect {
+  border-color: var(--color-brand-green);
+  background: var(--color-mastered-bg);
+}
+
+.choiceWrong {
+  border-color: var(--color-error);
+  background: #FFE0E0;
+}
+
+/* === Revealed content in cards === */
+.choiceChar { font-size: 1.5rem; color: var(--color-text-primary); margin-top: 4px; }
+.choiceJyutping { font-size: 1rem; font-weight: var(--font-weight-semibold); color: var(--color-jyutping); }
+.choiceMeaning { font-size: 0.75rem; color: var(--color-text-muted); }
+
+/* === Feedback header === */
+.feedbackResult {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+
+.feedbackIcon {
+  width: 80px; height: 80px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.25rem; animation: scorePop 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feedbackIconCorrect { background: var(--color-mastered-bg); color: var(--color-brand-green); }
+.feedbackIconWrong { background: #FFE0E0; color: var(--color-error); }
+
+.feedbackText {
+  font-size: 1rem; font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* === Tone explanation === */
+.toneExplanation {
+  font-size: 0.8125rem; color: var(--color-text-secondary); text-align: center;
+  margin: 24px 0 0; line-height: 1.5;
+}
+
+/* === Buttons === */
+.playBothBtn {
+  width: calc(100% - 60px); margin: 0 30px;
+  background: var(--color-brand-dark); color: white;
+  border-radius: 12px; padding: 14px;
+  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+  text-align: center; min-height: 44px;
+}
+
+.listenBtn {
+  display: flex; align-items: center; gap: var(--space-sm);
+  padding: var(--space-base) var(--space-xl);
+  background: var(--color-brand-lime); color: var(--color-brand-dark);
+  border-radius: var(--radius-pill); font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md); min-height: 52px;
+}
+
+.listenBtn:active { opacity: 0.9; }
+
+.nextBtn {
+  align-self: center; padding: var(--space-md) var(--space-2xl);
+  background: var(--color-brand-lime); color: var(--color-brand-dark);
+  border-radius: 10px; font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md); min-height: 44px; margin-bottom: var(--space-2xl);
+}
+
+/* === Intro screen === */
+.introContent {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 0 24px; text-align: center; gap: 20px;
+}
+.introTitle { font-size: 1.75rem; font-weight: var(--font-weight-bold); color: var(--color-brand-dark-text); }
+.introDesc { font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.5; max-width: 320px; }
+.introExample { display: flex; align-items: center; gap: 16px; margin: 8px 0; }
+.introVs { font-size: 0.875rem; color: var(--color-text-muted); font-weight: var(--font-weight-semibold); }
+.introToneBtn {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 16px 20px; background: var(--color-surface);
+  border: 1px solid var(--color-border); border-radius: 14px; cursor: pointer;
+  min-width: 100px;
+}
+.introToneBtn:active { transform: scale(0.97); }
+.introChar { font-size: 1.75rem; }
+.introJyut { font-size: 0.8125rem; font-weight: var(--font-weight-semibold); color: var(--color-jyutping); }
+.introMeaning { font-size: 0.75rem; color: var(--color-text-muted); }
+.introToneLabel { font-size: 0.6875rem; color: var(--color-brand-dark-text); font-weight: var(--font-weight-semibold); margin-top: 4px; }
+.introHint { font-size: 0.75rem; color: var(--color-text-muted); }
+.startBtn {
+  padding: 16px 40px; background: var(--color-brand-lime);
+  color: var(--color-brand-dark-text); border-radius: 14px;
+  font-size: 1rem; font-weight: var(--font-weight-semibold); margin-top: 12px;
+}
+.startBtn:active { transform: scale(0.97); }
+
+/* === Learn phase === */
+.learnSection {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 24px; padding: 0 8px;
+}
+.learnTitle { font-size: 1rem; font-weight: var(--font-weight-semibold); color: var(--color-text-primary); text-align: center; }
+.learnPair { display: flex; gap: 16px; width: 100%; justify-content: center; }
+.learnCard {
+  flex: 1; max-width: 160px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 20px 12px; background: var(--color-surface);
+  border: 1.5px solid var(--color-border); border-radius: 16px; cursor: pointer;
+}
+.learnCard:active { transform: scale(0.97); border-color: var(--color-brand-lime); }
+.learnChar { font-size: 2rem; }
+.learnJyut { font-size: 0.875rem; font-weight: var(--font-weight-semibold); color: var(--color-jyutping); }
+.learnDesc { font-size: 0.6875rem; color: var(--color-text-muted); font-style: italic; }
+.learnMeaning { font-size: 0.75rem; color: var(--color-text-secondary); }
+.learnPlay { font-size: 0.75rem; color: var(--color-brand-dark-text); font-weight: var(--font-weight-semibold); margin-top: 4px; }
+.readyBtn {
+  padding: 14px 28px; background: var(--color-brand-dark);
+  color: white; border-radius: 12px;
+  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+}
+.readyBtn:active { opacity: 0.9; }
+
+/* === Feedback area === */
+.feedbackArea {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 16px; padding: 16px 0 32px;
+}
+.choiceDesc { font-size: 0.6875rem; color: var(--color-text-muted); font-style: italic; }
+.choicePlayHint { font-size: 0.625rem; color: var(--color-brand-dark-text); font-weight: var(--font-weight-medium); }
+
+/* === Done/Summary === */
+.doneCard {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: var(--space-xl);
+}
+
+.doneTitle { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
+.doneScore { font-size: 3rem; font-weight: var(--font-weight-bold); color: var(--color-brand-green); }
+
+.doneBtn {
+  padding: var(--space-base) var(--space-2xl); background: var(--color-brand-lime);
+  color: var(--color-brand-dark-text); border-radius: 10px;
+  font-weight: var(--font-weight-semibold); min-height: 44px;
+}

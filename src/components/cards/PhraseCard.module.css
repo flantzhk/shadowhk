@@ -1,0 +1,258 @@
+/* PhraseCard.module.css — Shared phrase card */
+
+.card {
+  background: var(--color-surface);
+  border-radius: 14px;
+  border: 0.5px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* === Top Row === */
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.playBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-brand-lime);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.playBtn:active { transform: scale(0.95); }
+
+/* === "I know this" labeled button in status row === */
+.knowBtn {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  padding: 3px 10px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.6;
+}
+.knowBtn:active {
+  background: var(--color-surface);
+  transform: scale(0.97);
+}
+
+@keyframes knowPop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.06); background: var(--color-brand-lime); color: var(--color-brand-dark); border-color: var(--color-brand-lime); }
+  65%  { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+.knowBtnCelebrate {
+  animation: knowPop 0.4s ease;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.romanization {
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+}
+
+.chinese {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.english {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.missingText {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.expandIcon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.expandIconOpen { transform: rotate(180deg); }
+
+/* === Status Row === */
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 10px 68px;
+}
+
+.badge {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-semibold);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.badgeLearning {
+  background: var(--color-learning-bg, rgba(232, 160, 50, 0.12));
+  color: var(--color-learning-text, #b07020);
+}
+
+.badgeMastered {
+  background: var(--color-mastered-bg, rgba(58, 106, 26, 0.1));
+  color: var(--color-mastered-text, #3a6a1a);
+}
+
+.score {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-green);
+}
+
+/* === Expanded Section === */
+.expandedSection {
+  padding: 0 16px 14px;
+  border-top: 0.5px solid var(--color-border);
+  margin-top: 2px;
+}
+
+.wordCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.wordCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-bg);
+  border: 0.5px solid var(--color-border);
+  border-radius: 10px;
+  min-width: 60px;
+  overflow: hidden;
+}
+
+.wordTap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 14px 6px;
+  cursor: pointer;
+}
+
+.wordChinese { font-size: 1.125rem; color: var(--color-text-primary); }
+.wordJyutping { font-size: 0.6875rem; color: var(--color-jyutping, #6b8f5e); }
+.wordEnglish { font-size: 0.6875rem; color: var(--color-text-muted); }
+.wordSpeaker { font-size: 0.625rem; color: var(--color-text-muted); }
+
+.wordSave {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  border-top: 0.5px solid var(--color-border);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+.wordSave:active { background: rgba(0,0,0,0.03); }
+
+.context {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 4px 0 10px;
+}
+
+/* === Actions === */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-surface);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+.actionBtn:active { transform: scale(0.97); }
+
+.actionActive {
+  background: var(--color-brand-dark);
+  color: white;
+  border-color: var(--color-brand-dark-text);
+}
+
+.actionBtnPrimary {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-brand-lime);
+  border: none;
+  color: var(--color-brand-dark);
+  cursor: pointer;
+}
+.actionBtnPrimary:active { transform: scale(0.97); }
+
+@keyframes celebratePop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.18); background: #b8f000; }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.celebrateBtn {
+  animation: celebratePop 0.55s ease;
+  background: var(--color-brand-lime);
+}
+
+.masteredBadgeInline {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-mastered-text, #5a7a2a);
+  background: var(--color-mastered-bg, rgba(139, 184, 43, 0.12));
+  border-radius: 8px;
+  padding: 6px 12px;
+}

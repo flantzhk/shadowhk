@@ -1,0 +1,1521 @@
+[
+  {
+    "id": "taxis-and-uber",
+    "category": "getting-around",
+    "name": "Taxis and Uber",
+    "description": "Getting where you need to go by taxi",
+    "phraseCount": 20,
+    "imageGradient": "linear-gradient(135deg, #8A1A4A 0%, #C43070 50%, #FFB0C8 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "taxi-001",
+        "romanization": "Heoi³ ..., m⁴ goi¹",
+        "jyutping": "heoi3 ..., m4 goi1",
+        "chinese": "去...，唔該",
+        "english": "To... please",
+        "context": "The most important taxi phrase — follow with your destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" }
+        ]
+      },
+      {
+        "id": "taxi-002",
+        "romanization": "Heoi³ zung¹ waan⁴, m⁴ goi¹",
+        "jyutping": "heoi3 zung1 waan4, m4 goi1",
+        "chinese": "去中環，唔該",
+        "english": "To Central please",
+        "context": "Naming Central as your destination — swap for any HK district",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
+          { "chinese": "中環", "jyutping": "zung1 waan4", "english": "Central" },
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" }
+        ]
+      },
+      {
+        "id": "taxi-003",
+        "romanization": "Ni¹ dou⁶ lok⁶",
+        "jyutping": "ni1 dou6 lok6",
+        "chinese": "呢度落",
+        "english": "Stop here",
+        "context": "Tell the driver to pull over — they'll stop as soon as it's safe",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢度", "jyutping": "ni1 dou6", "english": "here" },
+          { "chinese": "落", "jyutping": "lok6", "english": "get off / stop" }
+        ]
+      },
+      {
+        "id": "taxi-004",
+        "romanization": "Cin⁴ min⁶ jau⁶ bin¹ lok⁶",
+        "jyutping": "cin4 min6 jau6 bin1 lok6",
+        "chinese": "前面右邊落",
+        "english": "Drop me off on the right up ahead",
+        "context": "Guide the driver to a specific spot to stop",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "前面", "jyutping": "cin4 min6", "english": "up ahead / in front" },
+          { "chinese": "右邊", "jyutping": "jau6 bin1", "english": "right side" },
+          { "chinese": "落", "jyutping": "lok6", "english": "get off / stop" }
+        ]
+      },
+      {
+        "id": "taxi-005",
+        "romanization": "Cin⁴ min⁶ zyun³ jau⁶",
+        "jyutping": "cin4 min6 zyun3 jau6",
+        "chinese": "前面轉右",
+        "english": "Turn right up ahead",
+        "context": "Direct the driver — use if they're about to miss a turn",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "前面", "jyutping": "cin4 min6", "english": "up ahead" },
+          { "chinese": "轉右", "jyutping": "zyun3 jau6", "english": "turn right" }
+        ]
+      },
+      {
+        "id": "taxi-006",
+        "romanization": "Cin⁴ min⁶ zyun³ zo²",
+        "jyutping": "cin4 min6 zyun3 zo2",
+        "chinese": "前面轉左",
+        "english": "Turn left up ahead",
+        "context": "Direct the driver to turn left",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "前面", "jyutping": "cin4 min6", "english": "up ahead" },
+          { "chinese": "轉左", "jyutping": "zyun3 zo2", "english": "turn left" }
+        ]
+      },
+      {
+        "id": "taxi-007",
+        "romanization": "M⁴ sai² gwo³ hoi²",
+        "jyutping": "m4 sai2 gwo3 hoi2",
+        "chinese": "唔使過海",
+        "english": "No need to cross the harbour",
+        "context": "Tell the driver not to take the tunnel — avoids extra tolls",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need to" },
+          { "chinese": "過海", "jyutping": "gwo3 hoi2", "english": "cross the harbour" }
+        ]
+      },
+      {
+        "id": "taxi-008",
+        "romanization": "Lok⁶ seoi⁶ dou⁶",
+        "jyutping": "lok6 seoi6 dou6",
+        "chinese": "落隧道",
+        "english": "Take the tunnel",
+        "context": "Tell the driver to go through the tunnel",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "落", "jyutping": "lok6", "english": "go into / take" },
+          { "chinese": "隧道", "jyutping": "seoi6 dou6", "english": "tunnel" }
+        ]
+      },
+      {
+        "id": "taxi-009",
+        "romanization": "Hoi¹ haa⁵ laang⁵ hei³",
+        "jyutping": "hoi1 haa5 laang5 hei3",
+        "chinese": "開下冷氣",
+        "english": "Could you turn on the AC?",
+        "context": "HK taxis can be hot — politely ask for the air con",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "開下", "jyutping": "hoi1 haa5", "english": "turn on / open a little" },
+          { "chinese": "冷氣", "jyutping": "laang5 hei3", "english": "air conditioning" }
+        ]
+      },
+      {
+        "id": "taxi-010",
+        "romanization": "Dung³ di¹, m⁴ goi¹",
+        "jyutping": "dung3 di1, m4 goi1",
+        "chinese": "凍啲，唔該",
+        "english": "A bit colder please",
+        "context": "Ask for the AC to be turned up",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "凍啲", "jyutping": "dung3 di1", "english": "a bit colder" },
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" }
+        ]
+      },
+      {
+        "id": "taxi-011",
+        "romanization": "M⁴ goi¹ faai³ di¹",
+        "jyutping": "m4 goi1 faai3 di1",
+        "chinese": "唔該快啲",
+        "english": "Please hurry",
+        "context": "Use when you're running late — drivers will do their best",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "快啲", "jyutping": "faai3 di1", "english": "faster / hurry up" }
+        ]
+      },
+      {
+        "id": "taxi-012",
+        "romanization": "Sau¹ gei² do¹ cin²?",
+        "jyutping": "sau1 gei2 do1 cin2",
+        "chinese": "收幾多錢？",
+        "english": "How much is it?",
+        "context": "Ask the fare before paying",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "收", "jyutping": "sau1", "english": "to charge / collect" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much money" }
+        ]
+      },
+      {
+        "id": "taxi-013",
+        "romanization": "M⁴ sai² zaau²",
+        "jyutping": "m4 sai2 zaau2",
+        "chinese": "唔使找",
+        "english": "Keep the change",
+        "context": "Tell the driver to keep the change — rounding up is the norm",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need to" },
+          { "chinese": "找", "jyutping": "zaau2", "english": "give change" }
+        ]
+      },
+      {
+        "id": "taxi-014",
+        "romanization": "Ho² m⁴ ho² ji³ jung⁶ kaat¹?",
+        "jyutping": "ho2 m4 ho2 ji3 jung6 kaat1",
+        "chinese": "可唔可以用卡？",
+        "english": "Can I pay by card?",
+        "context": "Most HK taxis are cash only — ask to be safe",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it okay" },
+          { "chinese": "用卡", "jyutping": "jung6 kaat1", "english": "use a card" }
+        ]
+      },
+      {
+        "id": "taxi-015",
+        "romanization": "Daa² zo² biu¹ mei⁶?",
+        "jyutping": "daa2 zo2 biu1 mei6",
+        "chinese": "打咗錶未？",
+        "english": "Did you start the meter?",
+        "context": "Check if the driver started the meter — especially important at night",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "打咗", "jyutping": "daa2 zo2", "english": "already hit / started" },
+          { "chinese": "錶", "jyutping": "biu1", "english": "meter" },
+          { "chinese": "未", "jyutping": "mei6", "english": "yet? (question about completion)" }
+        ]
+      },
+      {
+        "id": "taxi-016",
+        "romanization": "Dou³ zo², do¹ ze⁶",
+        "jyutping": "dou3 zo2, do1 ze6",
+        "chinese": "到咗，多謝",
+        "english": "We're here, thank you",
+        "context": "Say this as you arrive — a polite farewell to the driver",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "到咗", "jyutping": "dou3 zo2", "english": "arrived / we're here" },
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" }
+        ]
+      },
+      {
+        "id": "taxi-017",
+        "romanization": "Hái² ni¹ dou⁶ dang² ngo⁵",
+        "jyutping": "hai2 ni1 dou6 dang2 ngo5",
+        "chinese": "喺呢度等我",
+        "english": "Wait for me here",
+        "context": "Ask the driver to wait while you run a quick errand",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "喺呢度", "jyutping": "hai2 ni1 dou6", "english": "here / at this place" },
+          { "chinese": "等我", "jyutping": "dang2 ngo5", "english": "wait for me" }
+        ]
+      },
+      {
+        "id": "taxi-018",
+        "romanization": "Ngo⁵ heoi³ ...",
+        "jyutping": "ngo5 heoi3",
+        "chinese": "我去...",
+        "english": "I'm going to...",
+        "context": "Alternative way to state your destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "去", "jyutping": "heoi3", "english": "go to" }
+        ]
+      },
+      {
+        "id": "taxi-019",
+        "romanization": "Hái² ngo³ gei³ dou⁶ laa³",
+        "jyutping": "hai2 ngo3 gei3 dou6 laa3",
+        "chinese": "喺嗰棟大廈落",
+        "english": "Drop me off at that building",
+        "context": "Point out a specific building as your drop-off",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai2", "english": "at" },
+          { "chinese": "嗰棟大廈", "jyutping": "go2 dung6 daai6 haa6", "english": "that building" },
+          { "chinese": "落", "jyutping": "lok6", "english": "get off / drop off" }
+        ]
+      },
+      {
+        "id": "taxi-020",
+        "romanization": "Zik⁶ haang⁴",
+        "jyutping": "zik6 haang4",
+        "chinese": "直行",
+        "english": "Go straight",
+        "context": "Tell the driver to go straight ahead",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "直", "jyutping": "zik6", "english": "straight / direct" },
+          { "chinese": "行", "jyutping": "haang4", "english": "go / walk / drive" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "taxi-scene-1",
+        "title": "Taking a taxi to Causeway Bay",
+        "description": "You hail a taxi and give directions",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-001",
+            "chinese": "去銅鑼灣，唔該。",
+            "jyutping": "heoi3 tung4 lo4 waan1, m4 goi1.",
+            "romanization": "Heoi³ tung⁴ lo⁴ waan¹, m⁴ goi¹.",
+            "english": "To Causeway Bay please.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Driver",
+            "phraseId": null,
+            "chinese": "好。去邊度㗎？",
+            "jyutping": "hou2. heoi3 bin1 dou6 gaa3?",
+            "romanization": "Hou². Heoi³ bin¹ dou⁶ gaa³?",
+            "english": "Sure. Where exactly?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-020",
+            "chinese": "直行，前面轉右。",
+            "jyutping": "zik6 haang4, cin4 min6 zyun3 jau6.",
+            "romanization": "Zik⁶ haang⁴, cin⁴ min⁶ zyun³ jau⁶.",
+            "english": "Go straight, then turn right up ahead.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Driver",
+            "phraseId": null,
+            "chinese": "落隧道定唔落？",
+            "jyutping": "lok6 seoi6 dou6 ding6 m4 lok6?",
+            "romanization": "Lok⁶ seoi⁶ dou⁶ ding⁶ m⁴ lok⁶?",
+            "english": "Tunnel or not?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-007",
+            "chinese": "唔使過海，唔該。",
+            "jyutping": "m4 sai2 gwo3 hoi2, m4 goi1.",
+            "romanization": "M⁴ sai² gwo³ hoi², m⁴ goi¹.",
+            "english": "No tunnel needed, thanks.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Driver",
+            "phraseId": null,
+            "chinese": "好，到喇。",
+            "jyutping": "hou2, dou3 laa3.",
+            "romanization": "Hou², dou³ laa³.",
+            "english": "Okay, we're here.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-013",
+            "chinese": "多謝。唔使找。",
+            "jyutping": "do1 ze6. m4 sai2 zaau2.",
+            "romanization": "Do¹ ze⁶. M⁴ sai² zaau².",
+            "english": "Thank you. Keep the change.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "taxi-scene-2",
+        "title": "Taxi in the rain — running late",
+        "description": "You're late and need the driver to hurry",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-001",
+            "chinese": "去尖沙咀，唔該。快啲，我遲到喇。",
+            "jyutping": "heoi3 zim1 saa1 zeoi2, m4 goi1. faai3 di1, ngo5 ci4 dou3 laa3.",
+            "romanization": "Heoi³ zim¹ saa¹ zeoi², m⁴ goi¹. Faai³ di¹, ngo⁵ ci⁴ dou³ laa³.",
+            "english": "To Tsim Sha Tsui please. Quickly — I'm late.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Driver",
+            "phraseId": null,
+            "chinese": "好，我盡快。",
+            "jyutping": "hou2, ngo5 zeon6 faai3.",
+            "romanization": "Hou², ngo⁵ zeon⁶ faai³.",
+            "english": "Okay, I'll go as fast as I can.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-009",
+            "chinese": "開下冷氣，唔該。",
+            "jyutping": "hoi1 haa5 laang5 hei3, m4 goi1.",
+            "romanization": "Hoi¹ haa⁵ laang⁵ hei³, m⁴ goi¹.",
+            "english": "Could you turn on the AC please?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Driver",
+            "phraseId": null,
+            "chinese": "好，到喇，係唔係呢度落？",
+            "jyutping": "hou2, dou3 laa3, hai6 m4 hai6 ni1 dou6 lok6?",
+            "romanization": "Hou², dou³ laa³, hai⁶ m⁴ hai⁶ ni¹ dou⁶ lok⁶?",
+            "english": "Okay, we're here — is this where you're getting off?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "taxi-003",
+            "chinese": "係，呢度落。多謝晒！",
+            "jyutping": "hai6, ni1 dou6 lok6. do1 ze6 saai3!",
+            "romanization": "Hai⁶, ni¹ dou⁶ lok⁶. Do¹ ze⁶ saai³!",
+            "english": "Yes, here. Thank you so much!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mtr-and-buses",
+    "category": "getting-around",
+    "name": "MTR and Buses",
+    "description": "Navigating Hong Kong's world-class public transport",
+    "phraseCount": 15,
+    "imageGradient": "linear-gradient(135deg, #1A2A6A 0%, #3050C4 50%, #90B0FF 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "mtr-001",
+        "romanization": "Heoi³ ... hai⁶ bin¹ tiu⁴ sin³?",
+        "jyutping": "heoi3 ... hai6 bin1 tiu4 sin3",
+        "chinese": "去...係邊條線？",
+        "english": "Which line goes to...?",
+        "context": "Ask which MTR line to take for your destination",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
+          { "chinese": "係", "jyutping": "hai6", "english": "is / which" },
+          { "chinese": "邊條線", "jyutping": "bin1 tiu4 sin3", "english": "which line" }
+        ]
+      },
+      {
+        "id": "mtr-002",
+        "romanization": "Jiu³ m⁴ jiu³ zyun³ sin³?",
+        "jyutping": "jiu3 m4 jiu3 zyun3 sin3",
+        "chinese": "要唔要轉線？",
+        "english": "Do I need to change lines?",
+        "context": "Ask if you need to transfer to get to your destination",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "do I need to" },
+          { "chinese": "轉線", "jyutping": "zyun3 sin3", "english": "change lines / transfer" }
+        ]
+      },
+      {
+        "id": "mtr-003",
+        "romanization": "Gei² do¹ go³ zaam⁶?",
+        "jyutping": "gei2 do1 go3 zaam6",
+        "chinese": "幾多個站？",
+        "english": "How many stops?",
+        "context": "Ask how many stops until your destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾多個", "jyutping": "gei2 do1 go3", "english": "how many" },
+          { "chinese": "站", "jyutping": "zaam6", "english": "stop / station" }
+        ]
+      },
+      {
+        "id": "mtr-004",
+        "romanization": "Ceot¹ gei² hou⁶ ceot¹ hau²?",
+        "jyutping": "ceot1 gei2 hou6 ceot1 hau2",
+        "chinese": "出幾號出口？",
+        "english": "Which exit?",
+        "context": "HK MTR exits are labeled A, B, C etc — knowing the right one saves time",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "出", "jyutping": "ceot1", "english": "exit / go out" },
+          { "chinese": "幾號", "jyutping": "gei2 hou6", "english": "which number / letter" },
+          { "chinese": "出口", "jyutping": "ceot1 hau2", "english": "exit" }
+        ]
+      },
+      {
+        "id": "mtr-005",
+        "romanization": "A ceot¹ hau²",
+        "jyutping": "A ceot1 hau2",
+        "chinese": "A出口",
+        "english": "Exit A",
+        "context": "The exit letter you need — MTR exits are labeled A1, A2, B, C etc.",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "A", "jyutping": "A", "english": "A (letter)" },
+          { "chinese": "出口", "jyutping": "ceot1 hau2", "english": "exit" }
+        ]
+      },
+      {
+        "id": "mtr-006",
+        "romanization": "Lok⁶ gan² bin¹ go³ zaam⁶?",
+        "jyutping": "lok6 gan2 bin1 go3 zaam6",
+        "chinese": "落緊邊個站？",
+        "english": "What's the next stop?",
+        "context": "Ask on a train or bus when you're unsure of your stop",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "落緊", "jyutping": "lok6 gan2", "english": "arriving at / next stop" },
+          { "chinese": "邊個站", "jyutping": "bin1 go3 zaam6", "english": "which stop" }
+        ]
+      },
+      {
+        "id": "mtr-007",
+        "romanization": "Ni¹ gaa³ hai⁶ m⁴ hai⁶ heoi³ ... ge³?",
+        "jyutping": "ni1 gaa3 hai6 m4 hai6 heoi3 ... ge3",
+        "chinese": "呢架係唔係去...㗎？",
+        "english": "Does this bus go to...?",
+        "context": "Check you're getting on the right bus before boarding",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢架", "jyutping": "ni1 gaa3", "english": "this (bus / vehicle)" },
+          { "chinese": "係唔係去", "jyutping": "hai6 m4 hai6 heoi3", "english": "does it go to" }
+        ]
+      },
+      {
+        "id": "mtr-008",
+        "romanization": "M⁴ goi¹ giu³ ngo⁵ lok⁶",
+        "jyutping": "m4 goi1 giu3 ngo5 lok6",
+        "chinese": "唔該叫我落",
+        "english": "Please tell me when to get off",
+        "context": "Ask a nearby passenger to alert you at your stop — people are very helpful",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+          { "chinese": "叫我", "jyutping": "giu3 ngo5", "english": "tell me / let me know" },
+          { "chinese": "落", "jyutping": "lok6", "english": "get off" }
+        ]
+      },
+      {
+        "id": "mtr-009",
+        "romanization": "Ni¹ go³ hai⁶ m⁴ hai⁶ ... zaam⁶?",
+        "jyutping": "ni1 go3 hai6 m4 hai6 ... zaam6",
+        "chinese": "呢個係唔係...站？",
+        "english": "Is this the ... station?",
+        "context": "Confirm you're at the right stop",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "係唔係", "jyutping": "hai6 m4 hai6", "english": "is this / isn't this" },
+          { "chinese": "站", "jyutping": "zaam6", "english": "station / stop" }
+        ]
+      },
+      {
+        "id": "mtr-010",
+        "romanization": "Haa⁶ ban¹ gei² si⁴?",
+        "jyutping": "haa6 ban1 gei2 si4",
+        "chinese": "下班幾時？",
+        "english": "When's the next one?",
+        "context": "Ask when the next train or bus is coming",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "下班", "jyutping": "haa6 ban1", "english": "next service / next bus or train" },
+          { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when" }
+        ]
+      },
+      {
+        "id": "mtr-011",
+        "romanization": "Daap³ gei² do¹ cin²?",
+        "jyutping": "daap3 gei2 do1 cin2",
+        "chinese": "搭幾多錢？",
+        "english": "How much is the fare?",
+        "context": "Ask about the bus or minibus fare",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "搭", "jyutping": "daap3", "english": "to take / ride" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much money" }
+        ]
+      },
+      {
+        "id": "mtr-012",
+        "romanization": "Ho² m⁴ ho² ji³ jung⁶ baat³ daat⁶ tung¹?",
+        "jyutping": "ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1",
+        "chinese": "可唔可以用八達通？",
+        "english": "Can I use my Octopus card?",
+        "context": "Octopus works on MTR, most buses, trams, and ferries",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I" },
+          { "chinese": "用", "jyutping": "jung6", "english": "use" },
+          { "chinese": "八達通", "jyutping": "baat3 daat6 tung1", "english": "Octopus card" }
+        ]
+      },
+      {
+        "id": "mtr-013",
+        "romanization": "Fei¹ gaau¹ zaam⁶ heoi³ bin¹ dou⁶ daap³?",
+        "jyutping": "fei1 gaau1 zaam6 heoi3 bin1 dou6 daap3",
+        "chinese": "飛機站去邊度搭？",
+        "english": "Where do I get the Airport Express?",
+        "context": "Ask for the Airport Express train location",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "飛機站", "jyutping": "fei1 gaau1 zaam6", "english": "airport station" },
+          { "chinese": "去邊度搭", "jyutping": "heoi3 bin1 dou6 daap3", "english": "where to board" }
+        ]
+      },
+      {
+        "id": "mtr-014",
+        "romanization": "Heoi³ dei⁶ tit³ zaam⁶ dim² haang⁴?",
+        "jyutping": "heoi3 dei6 tit3 zaam6 dim2 haang4",
+        "chinese": "去地鐵站點行？",
+        "english": "How do I get to the MTR station?",
+        "context": "Ask someone nearby how to walk to the MTR",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
+          { "chinese": "地鐵站", "jyutping": "dei6 tit3 zaam6", "english": "MTR station" },
+          { "chinese": "點行", "jyutping": "dim2 haang4", "english": "how to walk / how to get" }
+        ]
+      },
+      {
+        "id": "mtr-015",
+        "romanization": "Duk¹ zo² laa³",
+        "jyutping": "duk1 zo2 laa3",
+        "chinese": "嘟咗喇",
+        "english": "Already tapped",
+        "context": "Tell someone you've already tapped your Octopus card",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "嘟咗", "jyutping": "duk1 zo2", "english": "already tapped (Octopus)" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle (done)" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "mtr-scene-1",
+        "title": "Asking for directions on the MTR",
+        "description": "You're lost in an MTR station and need help",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-001",
+            "chinese": "唔該，去銅鑼灣係邊條線？",
+            "jyutping": "m4 goi1, heoi3 tung4 lo4 waan1 hai6 bin1 tiu4 sin3?",
+            "romanization": "M⁴ goi¹, heoi³ tung⁴ lo⁴ waan¹ hai⁶ bin¹ tiu⁴ sin³?",
+            "english": "Excuse me, which line goes to Causeway Bay?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Commuter",
+            "phraseId": null,
+            "chinese": "搭港島線，唔使轉線。",
+            "jyutping": "daap3 gong2 dou2 sin3, m4 sai2 zyun3 sin3.",
+            "romanization": "Daap³ gong² dou² sin³, m⁴ sai² zyun³ sin³.",
+            "english": "Take the Island Line — no transfers needed.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-003",
+            "chinese": "幾多個站？",
+            "jyutping": "gei2 do1 go3 zaam6?",
+            "romanization": "Gei² do¹ go³ zaam⁶?",
+            "english": "How many stops?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Commuter",
+            "phraseId": null,
+            "chinese": "兩個站。出A出口。",
+            "jyutping": "loeng5 go3 zaam6. ceot1 A ceot1 hau2.",
+            "romanization": "Loeng⁵ go³ zaam⁶. Ceot¹ A ceot¹ hau².",
+            "english": "Two stops. Take Exit A.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-005",
+            "chinese": "A出口，明白。多謝！",
+            "jyutping": "A ceot1 hau2, ming4 baak6. do1 ze6!",
+            "romanization": "A ceot¹ hau², ming⁴ baak⁶. Do¹ ze⁶!",
+            "english": "Exit A, got it. Thank you!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "mtr-scene-2",
+        "title": "Getting on the right bus",
+        "description": "You're not sure if this bus goes where you need",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-007",
+            "chinese": "呢架係唔係去赤柱㗎？",
+            "jyutping": "ni1 gaa3 hai6 m4 hai6 heoi3 cek3 zyu6 gaa3?",
+            "romanization": "Ni¹ gaa³ hai⁶ m⁴ hai⁶ heoi³ cek³ zyu⁶ gaa³?",
+            "english": "Does this bus go to Stanley?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passenger",
+            "phraseId": null,
+            "chinese": "係呀，但係要等陣。",
+            "jyutping": "hai6 aa3, daan6 hai6 jiu3 dang2 zan6.",
+            "romanization": "Hai⁶ aa³, daan⁶ hai⁶ jiu³ dang² zan⁶.",
+            "english": "Yes, but you need to wait a bit.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-008",
+            "chinese": "唔該叫我落，好嗎？",
+            "jyutping": "m4 goi1 giu3 ngo5 lok6, hou2 maa3?",
+            "romanization": "M⁴ goi¹ giu³ ngo⁵ lok⁶, hou² maa³?",
+            "english": "Please let me know when to get off, okay?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passenger",
+            "phraseId": null,
+            "chinese": "好，我叫你。",
+            "jyutping": "hou2, ngo5 giu3 nei5.",
+            "romanization": "Hou², ngo⁵ giu³ nei⁵.",
+            "english": "Sure, I'll let you know.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shopping",
+    "category": "getting-around",
+    "name": "Shopping",
+    "description": "Sizes, colours, trying on, and getting a deal",
+    "phraseCount": 25,
+    "imageGradient": "linear-gradient(135deg, #6A1A6A 0%, #A040A0 50%, #F0A0F0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "shop-001",
+        "romanization": "Ni¹ gin⁶ gei² do¹ cin²?",
+        "jyutping": "ni1 gin6 gei2 do1 cin2",
+        "chinese": "呢件幾多錢？",
+        "english": "How much is this?",
+        "context": "Point at any item and ask the price",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢件", "jyutping": "ni1 gin6", "english": "this item (clothing)" },
+          { "chinese": "幾多錢", "jyutping": "gei2 do1 cin2", "english": "how much" }
+        ]
+      },
+      {
+        "id": "shop-002",
+        "romanization": "Jau⁵ mou⁵ daai⁶ maa⁵?",
+        "jyutping": "jau5 mou5 daai6 maa5",
+        "chinese": "有冇大碼？",
+        "english": "Do you have a bigger size?",
+        "context": "Ask for a larger size — 大碼 (large), 細碼 (small), 中碼 (medium)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "大碼", "jyutping": "daai6 maa5", "english": "large size" }
+        ]
+      },
+      {
+        "id": "shop-003",
+        "romanization": "Jau⁵ mou⁵ sai³ maa⁵?",
+        "jyutping": "jau5 mou5 sai3 maa5",
+        "chinese": "有冇細碼？",
+        "english": "Do you have a smaller size?",
+        "context": "Ask for a smaller size",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "細碼", "jyutping": "sai3 maa5", "english": "small size" }
+        ]
+      },
+      {
+        "id": "shop-004",
+        "romanization": "Ho² m⁴ ho² ji³ si³ san¹?",
+        "jyutping": "ho2 m4 ho2 ji3 si3 san1",
+        "chinese": "可唔可以試身？",
+        "english": "Can I try this on?",
+        "context": "Ask to use the fitting room",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / may I" },
+          { "chinese": "試身", "jyutping": "si3 san1", "english": "try on (clothing)" }
+        ]
+      },
+      {
+        "id": "shop-005",
+        "romanization": "Si³ san¹ sat¹ hai⁶ bin¹ dou⁶?",
+        "jyutping": "si3 san1 sat1 hai6 bin1 dou6",
+        "chinese": "試身室喺邊度？",
+        "english": "Where's the fitting room?",
+        "context": "Ask for directions to the changing rooms",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "試身室", "jyutping": "si3 san1 sat1", "english": "fitting room / changing room" },
+          { "chinese": "喺邊度", "jyutping": "hai6 bin1 dou6", "english": "where is" }
+        ]
+      },
+      {
+        "id": "shop-006",
+        "romanization": "Jau⁵ mou⁵ ke⁴ taa¹ ngaan⁴ sik¹?",
+        "jyutping": "jau5 mou5 ke4 taa1 ngaan4 sik1",
+        "chinese": "有冇其他顏色？",
+        "english": "Do you have this in other colours?",
+        "context": "Ask if the item comes in different colours",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "其他", "jyutping": "ke4 taa1", "english": "other" },
+          { "chinese": "顏色", "jyutping": "ngaan4 sik1", "english": "colour" }
+        ]
+      },
+      {
+        "id": "shop-007",
+        "romanization": "Jau⁵ mou⁵ hak¹ sik¹?",
+        "jyutping": "jau5 mou5 hak1 sik1",
+        "chinese": "有冇黑色？",
+        "english": "Do you have this in black?",
+        "context": "Ask for a specific colour — swap 黑色 for 白色 (white), 紅色 (red), 藍色 (blue)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "黑色", "jyutping": "hak1 sik1", "english": "black" }
+        ]
+      },
+      {
+        "id": "shop-008",
+        "romanization": "Daa² gei² zit³?",
+        "jyutping": "daa2 gei2 zit3",
+        "chinese": "打幾折？",
+        "english": "What's the discount?",
+        "context": "Ask about any sale or discount — 打八折 means 20% off (paying 8/10)",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "打", "jyutping": "daa2", "english": "to give (a discount)" },
+          { "chinese": "幾折", "jyutping": "gei2 zit3", "english": "what percentage off" }
+        ]
+      },
+      {
+        "id": "shop-009",
+        "romanization": "Peng⁴ di¹ dak¹ m⁴ dak¹?",
+        "jyutping": "peng4 di1 dak1 m4 dak1",
+        "chinese": "平啲得唔得？",
+        "english": "Can you go cheaper?",
+        "context": "Negotiate at market stalls and smaller independent shops",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "平啲", "jyutping": "peng4 di1", "english": "a bit cheaper" },
+          { "chinese": "得唔得", "jyutping": "dak1 m4 dak1", "english": "is that okay" }
+        ]
+      },
+      {
+        "id": "shop-010",
+        "romanization": "Maai⁵ loeng⁵ gin⁶ jau⁵ mou⁵ jau¹ wai⁶?",
+        "jyutping": "maai5 loeng5 gin6 jau5 mou5 jau1 wai6",
+        "chinese": "買兩件有冇優惠？",
+        "english": "Any deal if I buy two?",
+        "context": "Ask for a bundle discount",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "買兩件", "jyutping": "maai5 loeng5 gin6", "english": "buy two items" },
+          { "chinese": "有冇優惠", "jyutping": "jau5 mou5 jau1 wai6", "english": "any deal / discount" }
+        ]
+      },
+      {
+        "id": "shop-011",
+        "romanization": "Ho² m⁴ ho² ji³ teoi³ fun²?",
+        "jyutping": "ho2 m4 ho2 ji3 teoi3 fun2",
+        "chinese": "可唔可以退款？",
+        "english": "Can I get a refund?",
+        "context": "Ask about the refund policy",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I" },
+          { "chinese": "退款", "jyutping": "teoi3 fun2", "english": "refund" }
+        ]
+      },
+      {
+        "id": "shop-012",
+        "romanization": "Ho² m⁴ ho² ji³ wun⁶?",
+        "jyutping": "ho2 m4 ho2 ji3 wun6",
+        "chinese": "可唔可以換？",
+        "english": "Can I exchange this?",
+        "context": "Ask to exchange an item for a different size or colour",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I" },
+          { "chinese": "換", "jyutping": "wun6", "english": "exchange / swap" }
+        ]
+      },
+      {
+        "id": "shop-013",
+        "romanization": "Ngo⁵ jiu³ ni¹ go³",
+        "jyutping": "ngo5 jiu3 ni1 go3",
+        "chinese": "我要呢個",
+        "english": "I'll take this one",
+        "context": "Tell them you want to buy this item",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I'll take / I want" },
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this one" }
+        ]
+      },
+      {
+        "id": "shop-014",
+        "romanization": "M⁴ maai⁵ laa³, do¹ ze⁶",
+        "jyutping": "m4 maai5 laa3, do1 ze6",
+        "chinese": "唔買喇，多謝",
+        "english": "I won't buy it, thanks",
+        "context": "Politely decline after looking — staff won't be offended",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔買喇", "jyutping": "m4 maai5 laa3", "english": "won't buy / decided not to" },
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" }
+        ]
+      },
+      {
+        "id": "shop-015",
+        "romanization": "Tai² haa⁵ sin¹",
+        "jyutping": "tai2 haa5 sin1",
+        "chinese": "睇下先",
+        "english": "Just browsing for now",
+        "context": "Tell staff you're just looking — they'll give you space",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "睇下", "jyutping": "tai2 haa5", "english": "have a look / browse" },
+          { "chinese": "先", "jyutping": "sin1", "english": "first / for now" }
+        ]
+      },
+      {
+        "id": "shop-016",
+        "romanization": "Jau⁵ mou⁵ sau¹ geoi³?",
+        "jyutping": "jau5 mou5 sau1 geoi3",
+        "chinese": "有冇收據？",
+        "english": "Can I have a receipt?",
+        "context": "Ask for a receipt — useful for returns and expense claims",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "can I have / do you have" },
+          { "chinese": "收據", "jyutping": "sau1 geoi3", "english": "receipt" }
+        ]
+      },
+      {
+        "id": "shop-017",
+        "romanization": "Jau⁵ mou⁵ doi²?",
+        "jyutping": "jau5 mou5 doi2",
+        "chinese": "有冇袋？",
+        "english": "Do you have a bag?",
+        "context": "Ask for a shopping bag — some shops charge for them now",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "袋", "jyutping": "doi2", "english": "bag" }
+        ]
+      },
+      {
+        "id": "shop-018",
+        "romanization": "M⁴ sai² doi², do¹ ze⁶",
+        "jyutping": "m4 sai2 doi2, do1 ze6",
+        "chinese": "唔使袋，多謝",
+        "english": "No bag needed, thanks",
+        "context": "Decline the bag — environmentally friendly and saves the plastic bag levy",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need for" },
+          { "chinese": "袋", "jyutping": "doi2", "english": "bag" },
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" }
+        ]
+      },
+      {
+        "id": "shop-019",
+        "romanization": "Ni¹ gin⁶ ngaam¹ m⁴ ngaam¹ maa⁵?",
+        "jyutping": "ni1 gin6 ngaam1 m4 ngaam1 maa5",
+        "chinese": "呢件啱唔啱碼？",
+        "english": "Is this the right size?",
+        "context": "Ask a staff member to check the size for you",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢件", "jyutping": "ni1 gin6", "english": "this item" },
+          { "chinese": "啱唔啱", "jyutping": "ngaam1 m4 ngaam1", "english": "right / suitable (A-not-A question)" },
+          { "chinese": "碼", "jyutping": "maa5", "english": "size" }
+        ]
+      },
+      {
+        "id": "shop-020",
+        "romanization": "Tung⁴ ngo⁵ lau⁴ zyu⁶",
+        "jyutping": "tung4 ngo5 lau4 zyu6",
+        "chinese": "同我留住",
+        "english": "Hold this for me",
+        "context": "Ask the shop to set aside an item while you think about it",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "同我", "jyutping": "tung4 ngo5", "english": "for me" },
+          { "chinese": "留住", "jyutping": "lau4 zyu6", "english": "hold / keep aside" }
+        ]
+      },
+      {
+        "id": "shop-021",
+        "romanization": "Jau⁵ mou⁵ san¹ fun²?",
+        "jyutping": "jau5 mou5 san1 fun2",
+        "chinese": "有冇新款？",
+        "english": "Do you have new styles?",
+        "context": "Ask if there are new arrivals — useful in fashion or electronics shops",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+          { "chinese": "新款", "jyutping": "san1 fun2", "english": "new style / new model" }
+        ]
+      },
+      {
+        "id": "shop-022",
+        "romanization": "Ni¹ go³ hai⁶ me¹ liu²?",
+        "jyutping": "ni1 go3 hai6 me1 liu2",
+        "chinese": "呢個係咩料？",
+        "english": "What material is this?",
+        "context": "Ask about the fabric or material of an item",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "係咩料", "jyutping": "hai6 me1 liu2", "english": "what material is it" }
+        ]
+      },
+      {
+        "id": "shop-023",
+        "romanization": "Baau¹ zong¹ hou² di¹, sung³ jan⁴ ge³",
+        "jyutping": "baau1 zong1 hou2 di1, sung3 jan4 ge3",
+        "chinese": "包裝好啲，送人㗎",
+        "english": "Please wrap it nicely — it's a gift",
+        "context": "Ask for gift wrapping",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "包裝好啲", "jyutping": "baau1 zong1 hou2 di1", "english": "wrap it nicely" },
+          { "chinese": "送人㗎", "jyutping": "sung3 jan4 ge3", "english": "it's a gift / giving to someone" }
+        ]
+      },
+      {
+        "id": "shop-024",
+        "romanization": "Ni¹ go³ jau⁵ mou⁵ haa⁴ ci¹?",
+        "jyutping": "ni1 go3 jau5 mou5 haa4 ci1",
+        "chinese": "呢個有冇瑕疵？",
+        "english": "Is there any defect on this?",
+        "context": "Check for damage before buying, especially at markets",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+          { "chinese": "有冇瑕疵", "jyutping": "jau5 mou5 haa4 ci1", "english": "any defect / flaw" }
+        ]
+      },
+      {
+        "id": "shop-025",
+        "romanization": "Ngo⁵ seung² tai² haa⁵ ...",
+        "jyutping": "ngo5 seung2 tai2 haa5",
+        "chinese": "我想睇下...",
+        "english": "I'd like to look at...",
+        "context": "Ask to see a specific item — follow with what you want to see",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我想", "jyutping": "ngo5 seung2", "english": "I'd like to" },
+          { "chinese": "睇下", "jyutping": "tai2 haa5", "english": "have a look at" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "shop-scene-1",
+        "title": "Trying on clothes",
+        "description": "You want to try on a shirt at a market stall",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-001",
+            "chinese": "呢件幾多錢？",
+            "jyutping": "ni1 gin6 gei2 do1 cin2?",
+            "romanization": "Ni¹ gin⁶ gei² do¹ cin²?",
+            "english": "How much is this?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "一百五十蚊。",
+            "jyutping": "jat1 baak3 ng5 sap6 man1.",
+            "romanization": "Jat¹ baak³ ng⁵ sap⁶ man¹.",
+            "english": "One hundred and fifty dollars.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-004",
+            "chinese": "可唔可以試身？",
+            "jyutping": "ho2 m4 ho2 ji3 si3 san1?",
+            "romanization": "Ho² m⁴ ho² ji³ si³ san¹?",
+            "english": "Can I try it on?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "得，入去試。",
+            "jyutping": "dak1, jap6 heoi3 si3.",
+            "romanization": "Dak¹, jap⁶ heoi³ si³.",
+            "english": "Sure, go try it on.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-002",
+            "chinese": "有冇大碼？呢件細咗啲。",
+            "jyutping": "jau5 mou5 daai6 maa5? ni1 gin6 sai3 zo2 di1.",
+            "romanization": "Jau⁵ mou⁵ daai⁶ maa⁵? Ni¹ gin⁶ sai³ zo² di¹.",
+            "english": "Do you have a bigger size? This one's a bit small.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "有，等我攞。",
+            "jyutping": "jau5, dang2 ngo5 lo2.",
+            "romanization": "Jau⁵, dang² ngo⁵ lo².",
+            "english": "Yes, let me get it.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "shop-scene-2",
+        "title": "Asking for a discount",
+        "description": "You want to buy a bag but think the price is high",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-009",
+            "chinese": "呢個太貴喇，平啲得唔得？",
+            "jyutping": "ni1 go3 taai3 gwai3 laa3, peng4 di1 dak1 m4 dak1?",
+            "romanization": "Ni¹ go³ taai³ gwai³ laa³, peng⁴ di¹ dak¹ m⁴ dak¹?",
+            "english": "This is too expensive — can you go cheaper?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "係靚嘢嚟㗎，平唔得㗎。",
+            "jyutping": "hai6 leng3 je5 lai4 gaa3, peng4 m4 dak1 gaa3.",
+            "romanization": "Hai⁶ leng³ je⁵ lai⁴ gaa³, peng⁴ m⁴ dak¹ gaa³.",
+            "english": "It's good quality — I can't go lower.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-010",
+            "chinese": "買兩件有冇優惠？",
+            "jyutping": "maai5 loeng5 gin6 jau5 mou5 jau1 wai6?",
+            "romanization": "Maai⁵ loeng⁵ gin⁶ jau⁵ mou⁵ jau¹ wai⁶?",
+            "english": "Any deal if I buy two?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "買兩件打九折，二百七十蚊。",
+            "jyutping": "maai5 loeng5 gin6 daa2 gau2 zit3, ji6 baak3 cat1 sap6 man1.",
+            "romanization": "Maai⁵ loeng⁵ gin⁶ daa² gau² zit³, ji⁶ baak³ cat¹ sap⁶ man¹.",
+            "english": "Buy two and get 10% off — two hundred and seventy dollars.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "shop-013",
+            "chinese": "好，我要呢兩個。",
+            "jyutping": "hou2, ngo5 jiu3 ni1 loeng5 go3.",
+            "romanization": "Hou², ngo⁵ jiu³ ni¹ loeng⁵ go³.",
+            "english": "Okay, I'll take these two.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "asking-for-directions",
+    "category": "getting-around",
+    "name": "Asking for Directions",
+    "description": "Left, right, straight ahead, and nearby landmarks",
+    "phraseCount": 12,
+    "imageGradient": "linear-gradient(135deg, #1A4A6A 0%, #3080A0 50%, #90D0E0 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "dir-001",
+        "romanization": "M⁴ goi¹, ... dim² heoi³?",
+        "jyutping": "m4 goi1, ... dim2 heoi3",
+        "chinese": "唔該，...點去？",
+        "english": "Excuse me, how do I get to...?",
+        "context": "Start any directions request with this — follow with your destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me" },
+          { "chinese": "點去", "jyutping": "dim2 heoi3", "english": "how to get to / how to go" }
+        ]
+      },
+      {
+        "id": "dir-002",
+        "romanization": "Zik⁶ haang⁴",
+        "jyutping": "zik6 haang4",
+        "chinese": "直行",
+        "english": "Go straight",
+        "context": "The most common direction — keep going straight ahead",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "直", "jyutping": "zik6", "english": "straight / direct" },
+          { "chinese": "行", "jyutping": "haang4", "english": "walk / go" }
+        ]
+      },
+      {
+        "id": "dir-003",
+        "romanization": "Zyun³ zo²",
+        "jyutping": "zyun3 zo2",
+        "chinese": "轉左",
+        "english": "Turn left",
+        "context": "Turn to the left",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "轉", "jyutping": "zyun3", "english": "turn" },
+          { "chinese": "左", "jyutping": "zo2", "english": "left" }
+        ]
+      },
+      {
+        "id": "dir-004",
+        "romanization": "Zyun³ jau⁶",
+        "jyutping": "zyun3 jau6",
+        "chinese": "轉右",
+        "english": "Turn right",
+        "context": "Turn to the right",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "轉", "jyutping": "zyun3", "english": "turn" },
+          { "chinese": "右", "jyutping": "jau6", "english": "right" }
+        ]
+      },
+      {
+        "id": "dir-005",
+        "romanization": "Hai⁶ cin⁴ min⁶",
+        "jyutping": "hai6 cin4 min6",
+        "chinese": "喺前面",
+        "english": "It's up ahead",
+        "context": "The destination is in front of you",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai6", "english": "is at / located at" },
+          { "chinese": "前面", "jyutping": "cin4 min6", "english": "ahead / in front" }
+        ]
+      },
+      {
+        "id": "dir-006",
+        "romanization": "Gei² jyun⁵?",
+        "jyutping": "gei2 jyun5",
+        "chinese": "幾遠？",
+        "english": "How far is it?",
+        "context": "Ask the distance before deciding to walk or take transport",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾", "jyutping": "gei2", "english": "how" },
+          { "chinese": "遠", "jyutping": "jyun5", "english": "far" }
+        ]
+      },
+      {
+        "id": "dir-007",
+        "romanization": "Haang⁴ lou⁶ gei² noi⁶?",
+        "jyutping": "haang4 lou6 gei2 noi6",
+        "chinese": "行路幾耐？",
+        "english": "How long is it on foot?",
+        "context": "Ask how many minutes to walk",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "行路", "jyutping": "haang4 lou6", "english": "walk / on foot" },
+          { "chinese": "幾耐", "jyutping": "gei2 noi6", "english": "how long" }
+        ]
+      },
+      {
+        "id": "dir-008",
+        "romanization": "Hai⁶ fu⁶ gan⁶",
+        "jyutping": "hai6 fu6 gan6",
+        "chinese": "喺附近",
+        "english": "It's nearby",
+        "context": "Reassurance that something is close — a very useful thing to hear",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai6", "english": "is at" },
+          { "chinese": "附近", "jyutping": "fu6 gan6", "english": "nearby / in the vicinity" }
+        ]
+      },
+      {
+        "id": "dir-009",
+        "romanization": "M⁴ hai⁶ hou² jyun⁵",
+        "jyutping": "m4 hai6 hou2 jyun5",
+        "chinese": "唔係好遠",
+        "english": "It's not too far",
+        "context": "Expect to hear this a lot — HK people often underestimate walking distance",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔係", "jyutping": "m4 hai6", "english": "not" },
+          { "chinese": "好遠", "jyutping": "hou2 jyun5", "english": "very far" }
+        ]
+      },
+      {
+        "id": "dir-010",
+        "romanization": "Ngo⁵ m⁴ zi¹",
+        "jyutping": "ngo5 m4 zi1",
+        "chinese": "我唔知",
+        "english": "I don't know",
+        "context": "Say this if someone asks you for directions you can't give",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "我", "jyutping": "ngo5", "english": "I" },
+          { "chinese": "唔知", "jyutping": "m4 zi1", "english": "don't know" }
+        ]
+      },
+      {
+        "id": "dir-011",
+        "romanization": "Hai⁶ go² bin¹",
+        "jyutping": "hai6 go2 bin1",
+        "chinese": "喺嗰邊",
+        "english": "It's over there",
+        "context": "Point in the direction of the destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai6", "english": "is at" },
+          { "chinese": "嗰邊", "jyutping": "go2 bin1", "english": "over there / that side" }
+        ]
+      },
+      {
+        "id": "dir-012",
+        "romanization": "Gwo³ zo² ... zau⁶ hai⁶",
+        "jyutping": "gwo3 zo2 ... zau6 hai6",
+        "chinese": "過咗...就係",
+        "english": "Just past... you'll see it",
+        "context": "A landmark-based direction — very common in HK",
+        "difficulty": 3,
+        "words": [
+          { "chinese": "過咗", "jyutping": "gwo3 zo2", "english": "past / after you pass" },
+          { "chinese": "就係", "jyutping": "zau6 hai6", "english": "then it is / you'll find it" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "dir-scene-1",
+        "title": "Finding a pharmacy",
+        "description": "You're looking for a pharmacy on a busy street",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dir-001",
+            "chinese": "唔該，附近有冇藥房？",
+            "jyutping": "m4 goi1, fu6 gan6 jau5 mou5 joek6 fong4?",
+            "romanization": "M⁴ goi¹, fu⁶ gan⁶ jau⁵ mou⁵ joek⁶ fong⁴?",
+            "english": "Excuse me, is there a pharmacy nearby?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "有，喺前面轉左，唔係好遠。",
+            "jyutping": "jau5, hai6 cin4 min6 zyun3 zo2, m4 hai6 hou2 jyun5.",
+            "romanization": "Jau⁵, hai⁶ cin⁴ min⁶ zyun³ zo², m⁴ hai⁶ hou² jyun⁵.",
+            "english": "Yes — go straight, turn left, it's not far.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dir-007",
+            "chinese": "行路幾耐？",
+            "jyutping": "haang4 lou6 gei2 noi6?",
+            "romanization": "Haang⁴ lou⁶ gei² noi⁶?",
+            "english": "How long on foot?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "兩三分鐘啫。",
+            "jyutping": "loeng5 saam1 fan1 jung1 ze1.",
+            "romanization": "Loeng⁵ saam¹ fan¹ jung¹ ze¹.",
+            "english": "Just two or three minutes.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dir-002",
+            "chinese": "明白，直行轉左。多謝！",
+            "jyutping": "ming4 baak6, zik6 haang4 zyun3 zo2. do1 ze6!",
+            "romanization": "Ming⁴ baak⁶, zik⁶ haang⁴ zyun³ zo². Do¹ ze⁶!",
+            "english": "Got it — straight then turn left. Thanks!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "dir-scene-2",
+        "title": "Finding the MTR station",
+        "description": "You're lost and need to find the nearest MTR",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "mtr-014",
+            "chinese": "唔該，去地鐵站點行？",
+            "jyutping": "m4 goi1, heoi3 dei6 tit3 zaam6 dim2 haang4?",
+            "romanization": "M⁴ goi¹, heoi³ dei⁶ tit³ zaam⁶ dim² haang⁴?",
+            "english": "Excuse me, how do I get to the MTR station?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "直行，過咗那個超市就係。",
+            "jyutping": "zik6 haang4, gwo3 zo2 go2 go3 ciu1 si5 zau6 hai6.",
+            "romanization": "Zik⁶ haang⁴, gwo³ zo² go² go³ ciu¹ si⁵ zau⁶ hai⁶.",
+            "english": "Go straight — just past that supermarket you'll see it.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dir-006",
+            "chinese": "幾遠？",
+            "jyutping": "gei2 jyun5?",
+            "romanization": "Gei² jyun⁵?",
+            "english": "How far?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "喺附近㗎，行五分鐘。",
+            "jyutping": "hai6 fu6 gan6 gaa3, haang4 ng5 fan1 jung1.",
+            "romanization": "Hai⁶ fu⁶ gan⁶ gaa³, haang⁴ ng⁵ fan¹ jung¹.",
+            "english": "It's nearby — five minutes' walk.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "dir-002",
+            "chinese": "多謝晒！直行就到。",
+            "jyutping": "do1 ze6 saai3! zik6 haang4 zau6 dou3.",
+            "romanization": "Do¹ ze⁶ saai³! Zik⁶ haang⁴ zau⁶ dou³.",
+            "english": "Thank you so much! Just go straight.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-page);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.sep {
+  color: var(--color-text-muted);
+}
+
+.context {
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

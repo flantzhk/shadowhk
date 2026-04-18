@@ -1,0 +1,79 @@
+{
+  "id": "cha-chaan-teng",
+  "language": "cantonese",
+  "emoji": "🍜",
+  "title": "Ordering at a cha chaan teng",
+  "description": "Get a seat, order milk tea and toast, ask for the bill",
+  "category": "food",
+  "difficulty": "starter",
+  "estimatedMinutes": 5,
+  "location": "Cha chaan teng, Sham Shui Po",
+  "context": "A cha chaan teng (茶餐廳) is HK's working-class diner. Fast, loud, cash-only. The waiter has heard worse Cantonese than yours. Just point and speak.",
+  "culturalFact": "Cha chaan tengs were born in 1950s HK as a cheaper Western-style diner. Over 1,600 in the city today — more than Starbucks, McDonald's, and 7-Eleven combined.",
+  "lines": [
+    {
+      "id": "cct-01",
+      "speaker": "you",
+      "cjk": "唔該，有位坐冇？",
+      "jyutping": "m4 goi1, jau5 wai2 co5 mou5?",
+      "english": "Excuse me, is there a seat available?",
+      "audioFile": "cct-01.mp3"
+    },
+    {
+      "id": "cct-02",
+      "speaker": "waiter",
+      "cjk": "有，入嚟坐啦。",
+      "jyutping": "jau5, jap6 lei4 co5 laa1.",
+      "english": "Yes, come in and sit down.",
+      "audioFile": "cct-02.mp3"
+    },
+    {
+      "id": "cct-03",
+      "speaker": "you",
+      "cjk": "要一杯奶茶同兩件多士。",
+      "jyutping": "jiu3 jat1 bui1 naai5 caa4 tung4 loeng5 gin6 do1 si2.",
+      "english": "I'd like a milk tea and two pieces of toast.",
+      "audioFile": "cct-03.mp3"
+    },
+    {
+      "id": "cct-04",
+      "speaker": "waiter",
+      "cjk": "凍定熱？",
+      "jyutping": "dung3 ding6 jit6?",
+      "english": "Cold or hot?",
+      "audioFile": "cct-04.mp3"
+    },
+    {
+      "id": "cct-05",
+      "speaker": "you",
+      "cjk": "凍嘅，唔該。",
+      "jyutping": "dung3 ge3, m4 goi1.",
+      "english": "Cold, please.",
+      "audioFile": "cct-05.mp3"
+    },
+    {
+      "id": "cct-06",
+      "speaker": "waiter",
+      "cjk": "好，等陣。",
+      "jyutping": "hou2, dang2 zan6.",
+      "english": "OK, just a moment.",
+      "audioFile": "cct-06.mp3"
+    },
+    {
+      "id": "cct-07",
+      "speaker": "you",
+      "cjk": "唔該，埋單。",
+      "jyutping": "m4 goi1, maai4 daan1.",
+      "english": "Excuse me, the bill please.",
+      "audioFile": "cct-07.mp3"
+    },
+    {
+      "id": "cct-08",
+      "speaker": "waiter",
+      "cjk": "係三十二蚊。",
+      "jyutping": "hai6 saam1 sap6 ji6 man1.",
+      "english": "That's 32 dollars.",
+      "audioFile": "cct-08.mp3"
+    }
+  ]
+}

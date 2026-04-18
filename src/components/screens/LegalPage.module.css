@@ -1,0 +1,76 @@
+/* LegalPage.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) 0;
+  padding-bottom: var(--space-3xl);
+  background: var(--color-bg);
+}
+
+.backBtn {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: 0 22px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-dark-text);
+  padding: 16px 22px 4px;
+}
+
+.updated {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  padding: 0 22px 24px;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--color-border);
+  margin: 0 22px;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+  padding: 28px 22px 10px;
+}
+
+.body {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  padding: 0 22px 16px;
+}
+
+.list {
+  padding: 0 22px 16px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.footer {
+  padding: 32px 22px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.footer strong {
+  color: var(--color-brand-dark-text);
+  font-weight: var(--font-weight-semibold);
+}

@@ -1,0 +1,71 @@
+/* OfflineBanner.module.css */
+
+.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 428px;
+  margin: 0 auto;
+  background: var(--color-brand-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  z-index: 400;
+  animation: slideDown 200ms ease;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+}
+
+.updateBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 428px;
+  margin: 0 auto;
+  background: var(--color-brand-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.8125rem;
+  z-index: 400;
+}
+
+.updateText {
+  flex: 1;
+  font-weight: var(--font-weight-medium);
+}
+
+.updateBtn {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  text-decoration: underline;
+  padding: 4px 8px;
+}
+
+.dismissBtn {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 8px;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}

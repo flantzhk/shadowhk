@@ -1,0 +1,396 @@
+{
+  "id": "at-a-coffee-shop",
+  "category": "food-and-drink",
+  "name": "At a Coffee Shop",
+  "description": "Specialty coffee, milk alternatives, and modern café ordering",
+  "phraseCount": 18,
+  "imageGradient": "linear-gradient(135deg, #2A1A0A 0%, #5A3A1A 50%, #C89060 100%)",
+  "imageUrl": null,
+  "phrases": [
+    {
+      "id": "cafe-001",
+      "romanization": "Jat¹ bui¹ naap⁴ tit³",
+      "jyutping": "jat1 bui1 naap4 tit3",
+      "chinese": "一杯拿鐵",
+      "english": "A latte",
+      "context": "Order a latte — the most popular specialty coffee order in HK cafés",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
+        { "chinese": "拿鐵", "jyutping": "naap4 tit3", "english": "latte (from Italian)" }
+      ]
+    },
+    {
+      "id": "cafe-002",
+      "romanization": "Jat¹ bui¹ kaa¹ bu³ kei⁴ nuo⁴",
+      "jyutping": "jat1 bui1 kaa1 bu3 kei4 nuo4",
+      "chinese": "一杯卡布奇諾",
+      "english": "A cappuccino",
+      "context": "Order a cappuccino — lighter and foamier than a latte",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
+        { "chinese": "卡布奇諾", "jyutping": "kaa1 bu3 kei4 nuo4", "english": "cappuccino (transliteration)" }
+      ]
+    },
+    {
+      "id": "cafe-003",
+      "romanization": "Jat¹ bui¹ mei⁵ sik¹",
+      "jyutping": "jat1 bui1 mei5 sik1",
+      "chinese": "一杯美式",
+      "english": "An Americano",
+      "context": "Order an Americano — espresso with hot water, the classic black coffee option",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
+        { "chinese": "美式", "jyutping": "mei5 sik1", "english": "Americano (American style)" }
+      ]
+    },
+    {
+      "id": "cafe-004",
+      "romanization": "Dung³ mei⁵ sik¹",
+      "jyutping": "dung3 mei5 sik1",
+      "chinese": "凍美式",
+      "english": "Iced Americano",
+      "context": "The most popular café order in HK — cold Americano over ice",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
+        { "chinese": "美式", "jyutping": "mei5 sik1", "english": "Americano" }
+      ]
+    },
+    {
+      "id": "cafe-005",
+      "romanization": "Laang⁵ cyut³",
+      "jyutping": "laang5 cyut3",
+      "chinese": "冷萃",
+      "english": "Cold brew",
+      "context": "Cold brew coffee — slow-steeped overnight, smooth and strong",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "冷", "jyutping": "laang5", "english": "cold" },
+        { "chinese": "萃", "jyutping": "cyut3", "english": "extract / brew" }
+      ]
+    },
+    {
+      "id": "cafe-006",
+      "romanization": "Dung³ nong⁴ suk¹",
+      "jyutping": "dung3 nong4 suk1",
+      "chinese": "凍濃縮",
+      "english": "Iced espresso",
+      "context": "A shot of espresso over ice — intense and quick",
+      "difficulty": 2,
+      "words": [
+        { "chinese": "凍", "jyutping": "dung3", "english": "iced" },
+        { "chinese": "濃縮", "jyutping": "nong4 suk1", "english": "espresso (concentrated)" }
+      ]
+    },
+    {
+      "id": "cafe-007",
+      "romanization": "Jin³ mak⁶ naai⁵",
+      "jyutping": "jin3 mak6 naai5",
+      "chinese": "燕麥奶",
+      "english": "Oat milk",
+      "context": "The most popular milk alternative in HK cafés — ask to swap your milk",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "燕麥", "jyutping": "jin3 mak6", "english": "oats" },
+        { "chinese": "奶", "jyutping": "naai5", "english": "milk" }
+      ]
+    },
+    {
+      "id": "cafe-008",
+      "romanization": "Dau⁶ naai⁵",
+      "jyutping": "dau6 naai5",
+      "chinese": "豆奶",
+      "english": "Soy milk",
+      "context": "Soy milk — widely available at HK cafés and cha chaan tengs",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "豆", "jyutping": "dau6", "english": "bean / soy" },
+        { "chinese": "奶", "jyutping": "naai5", "english": "milk" }
+      ]
+    },
+    {
+      "id": "cafe-009",
+      "romanization": "Haang⁴ jan⁴ naai⁵",
+      "jyutping": "haang4 jan4 naai5",
+      "chinese": "杏仁奶",
+      "english": "Almond milk",
+      "context": "Almond milk — less common than oat but available at specialty cafés",
+      "difficulty": 2,
+      "words": [
+        { "chinese": "杏仁", "jyutping": "haang4 jan4", "english": "almond" },
+        { "chinese": "奶", "jyutping": "naai5", "english": "milk" }
+      ]
+    },
+    {
+      "id": "cafe-010",
+      "romanization": "Ho² m⁴ ho² ji³ wun⁶ jin³ mak⁶ naai⁵?",
+      "jyutping": "ho2 m4 ho2 ji3 wun6 jin3 mak6 naai5",
+      "chinese": "可唔可以換燕麥奶？",
+      "english": "Can I swap to oat milk?",
+      "context": "Ask to substitute regular milk with oat milk — usually adds $7-10",
+      "difficulty": 2,
+      "words": [
+        { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible" },
+        { "chinese": "換", "jyutping": "wun6", "english": "swap / change to" },
+        { "chinese": "燕麥奶", "jyutping": "jin3 mak6 naai5", "english": "oat milk" }
+      ]
+    },
+    {
+      "id": "cafe-011",
+      "romanization": "Sai³ bui¹ ding⁶ daai⁶ bui¹?",
+      "jyutping": "sai3 bui1 ding6 daai6 bui1",
+      "chinese": "細杯定大杯？",
+      "english": "Small or large?",
+      "context": "The size question — most HK cafés use small/large rather than Italian sizes",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "細杯", "jyutping": "sai3 bui1", "english": "small cup" },
+        { "chinese": "定", "jyutping": "ding6", "english": "or (in questions)" },
+        { "chinese": "大杯", "jyutping": "daai6 bui1", "english": "large cup" }
+      ]
+    },
+    {
+      "id": "cafe-012",
+      "romanization": "Daai⁶ bui¹, m⁴ goi¹",
+      "jyutping": "daai6 bui1, m4 goi1",
+      "chinese": "大杯，唔該",
+      "english": "Large please",
+      "context": "Order the larger size",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "大杯", "jyutping": "daai6 bui1", "english": "large cup" },
+        { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" }
+      ]
+    },
+    {
+      "id": "cafe-013",
+      "romanization": "M⁴ goi¹ siu² tong⁴",
+      "jyutping": "m4 goi1 siu2 tong4",
+      "chinese": "唔該少糖",
+      "english": "Less sugar please",
+      "context": "Reduce the syrup in your drink — relevant for lattes with flavoured syrup",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+        { "chinese": "少糖", "jyutping": "siu2 tong4", "english": "less sugar" }
+      ]
+    },
+    {
+      "id": "cafe-014",
+      "romanization": "M⁴ goi¹ mou⁵ tong⁴",
+      "jyutping": "m4 goi1 mou5 tong4",
+      "chinese": "唔該冇糖",
+      "english": "No sugar please",
+      "context": "Remove all syrup or sugar from your drink",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
+        { "chinese": "冇糖", "jyutping": "mou5 tong4", "english": "no sugar" }
+      ]
+    },
+    {
+      "id": "cafe-015",
+      "romanization": "Ngo⁵ jiu³ zau² bui¹",
+      "jyutping": "ngo5 jiu3 zau2 bui1",
+      "chinese": "我要走杯",
+      "english": "I want a takeaway cup",
+      "context": "Ask for your coffee to go — 走杯 is the universal HK term for a to-go cup",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want" },
+        { "chinese": "走杯", "jyutping": "zau2 bui1", "english": "to-go cup / takeaway cup" }
+      ]
+    },
+    {
+      "id": "cafe-016",
+      "romanization": "Jau⁵ mou⁵ zi⁵ ji⁴ ngaa⁴ kaa¹ fe¹?",
+      "jyutping": "jau5 mou5 zi5 ji4 ngaa4 kaa1 fe1",
+      "chinese": "有冇自家烘焙咖啡？",
+      "english": "Do you have house-roasted coffee?",
+      "context": "Ask at specialty cafés whether they roast their own beans — a mark of quality",
+      "difficulty": 3,
+      "words": [
+        { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
+        { "chinese": "自家烘焙", "jyutping": "zi5 ji4 ngaa4", "english": "house-roasted / in-house roasted" },
+        { "chinese": "咖啡", "jyutping": "kaa1 fe1", "english": "coffee" }
+      ]
+    },
+    {
+      "id": "cafe-017",
+      "romanization": "Ni¹ go³ jyut⁶ faan³ hai⁶ bin¹ dou⁶ lei⁴ ge³?",
+      "jyutping": "ni1 go3 jyut6 faan3 hai6 bin1 dou6 lei4 ge3",
+      "chinese": "呢個月份係邊度嚟㗎？",
+      "english": "Where is this month's coffee from?",
+      "context": "Ask about the origin of the single-origin coffee — specialty cafés love this question",
+      "difficulty": 3,
+      "words": [
+        { "chinese": "呢個月份", "jyutping": "ni1 go3 jyut6 faan3", "english": "this month's (coffee)" },
+        { "chinese": "係邊度嚟㗎", "jyutping": "hai6 bin1 dou6 lei4 ge3", "english": "where is it from" }
+      ]
+    },
+    {
+      "id": "cafe-018",
+      "romanization": "Jiu³ m⁴ jiu³ sik⁶ je⁵?",
+      "jyutping": "jiu3 m4 jiu3 sik6 je5",
+      "chinese": "要唔要食嘢？",
+      "english": "Would you like anything to eat?",
+      "context": "What the barista asks after you order — say 唔使喇多謝 to decline",
+      "difficulty": 1,
+      "words": [
+        { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "would you like / do you want" },
+        { "chinese": "食嘢", "jyutping": "sik6 je5", "english": "something to eat" }
+      ]
+    }
+  ],
+  "dialogueScenes": [
+    {
+      "id": "cafe-scene-1",
+      "title": "Ordering at a specialty café",
+      "description": "You stop at a third-wave coffee shop on your way to work",
+      "turns": [
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "你好，想飲咩？",
+          "jyutping": "nei5 hou2, soeng2 jam2 me1?",
+          "romanization": "Nei⁵ hou², soeng² jam² me¹?",
+          "english": "Hi, what can I get you?",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-004",
+          "chinese": "一杯凍美式，唔該。",
+          "jyutping": "jat1 bui1 dung3 mei5 sik1, m4 goi1.",
+          "romanization": "Jat¹ bui¹ dung³ mei⁵ sik¹, m⁴ goi¹.",
+          "english": "An iced Americano please.",
+          "voiceId": null,
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "細杯定大杯？",
+          "jyutping": "sai3 bui1 ding6 daai6 bui1?",
+          "romanization": "Sai³ bui¹ ding⁶ daai⁶ bui¹?",
+          "english": "Small or large?",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-012",
+          "chinese": "大杯，唔該。走杯。",
+          "jyutping": "daai6 bui1, m4 goi1. zau2 bui1.",
+          "romanization": "Daai⁶ bui¹, m⁴ goi¹. Zau² bui¹.",
+          "english": "Large please. To go.",
+          "voiceId": null,
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "要唔要食嘢？",
+          "jyutping": "jiu3 m4 jiu3 sik6 je5?",
+          "romanization": "Jiu³ m⁴ jiu³ sik⁶ je⁵?",
+          "english": "Anything to eat?",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-018",
+          "chinese": "唔使喇，多謝。",
+          "jyutping": "m4 sai2 laa3, do1 ze6.",
+          "romanization": "M⁴ sai² laa³, do¹ ze⁶.",
+          "english": "No thanks.",
+          "voiceId": null,
+          "pauseAfterMs": 1000
+        }
+      ]
+    },
+    {
+      "id": "cafe-scene-2",
+      "title": "Swapping to oat milk",
+      "description": "You order a latte and ask for oat milk",
+      "turns": [
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-001",
+          "chinese": "唔該，一杯拿鐵。",
+          "jyutping": "m4 goi1, jat1 bui1 naap4 tit3.",
+          "romanization": "M⁴ goi¹, jat¹ bui¹ naap⁴ tit³.",
+          "english": "A latte please.",
+          "voiceId": null,
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "好，凍定熱？",
+          "jyutping": "hou2, dung3 ding6 jit6?",
+          "romanization": "Hou², dung³ ding⁶ jit⁶?",
+          "english": "Sure, iced or hot?",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-010",
+          "chinese": "凍。可唔可以換燕麥奶？",
+          "jyutping": "dung3. ho2 m4 ho2 ji3 wun6 jin3 mak6 naai5?",
+          "romanization": "Dung³. Ho² m⁴ ho² ji³ wun⁶ jin³ mak⁶ naai⁵?",
+          "english": "Iced. Can I swap to oat milk?",
+          "voiceId": null,
+          "pauseAfterMs": 2000
+        },
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "得，但係要加七蚊。",
+          "jyutping": "dak1, daan6 hai6 jiu3 gaa1 cat1 man1.",
+          "romanization": "Dak¹, daan⁶ hai⁶ jiu³ gaa¹ cat¹ man¹.",
+          "english": "Sure, but it's an extra $7.",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "user",
+          "speakerLabel": "You",
+          "phraseId": "cafe-013",
+          "chinese": "冇問題。少糖，唔該。",
+          "jyutping": "mou5 man6 tai4. siu2 tong4, m4 goi1.",
+          "romanization": "Mou⁵ man⁶ tai⁴. Siu² tong⁴, m⁴ goi¹.",
+          "english": "No problem. Less sugar please.",
+          "voiceId": null,
+          "pauseAfterMs": 1500
+        },
+        {
+          "speaker": "other",
+          "speakerLabel": "Barista",
+          "phraseId": null,
+          "chinese": "好，燕麥拿鐵少糖，等一等。",
+          "jyutping": "hou2, jin3 mak6 naap4 tit3 siu2 tong4, dang2 jat1 dang2.",
+          "romanization": "Hou², jin³ mak⁶ naap⁴ tit³ siu² tong⁴, dang² jat¹ dang².",
+          "english": "Oat milk latte less sugar — just a moment.",
+          "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+          "pauseAfterMs": 1000
+        }
+      ]
+    }
+  ]
+}

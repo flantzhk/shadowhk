@@ -1,0 +1,119 @@
+/* SupportScreen.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--content-padding);
+  padding-bottom: var(--space-3xl);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text-primary);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-md);
+}
+
+/* FAQ */
+.faqItem {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-md) 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-align: left;
+  gap: var(--space-md);
+  min-height: 44px;
+}
+
+.chevron {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.answer {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding-bottom: var(--space-md);
+}
+
+/* Contact card */
+.contactCard {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contactText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.emailBtn {
+  display: inline-block;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  min-height: 44px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sla {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}

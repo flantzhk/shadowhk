@@ -1,0 +1,104 @@
+/* AboutScreen.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  background: var(--color-bg);
+}
+
+.backBtn {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: 12px 22px;
+  min-height: 44px;
+}
+
+.logoWrap {
+  width: 80px;
+  height: 80px;
+  background: var(--color-brand-dark);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto 20px;
+}
+
+.logoS {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-lime);
+}
+
+.wordmark {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+}
+
+.shadow { color: var(--color-brand-dark-text); }
+.speak { color: var(--color-brand-green); }
+
+.version {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.build {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  opacity: 0.6;
+}
+
+.credit {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 32px 40px;
+  line-height: 1.6;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--color-border);
+  margin: 8px 0;
+}
+
+.linkRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 0.5px solid var(--color-border);
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  text-align: left;
+}
+
+.chevron {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.partnerCredit {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 32px;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 8px 0 32px;
+  opacity: 0.6;
+}

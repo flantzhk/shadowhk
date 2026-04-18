@@ -1,0 +1,216 @@
+/* src/styles/global.css — Global styles and typography */
+
+@import './reset.css';
+@import './variables.css';
+
+html {
+  /* 110% base → 1rem ≈ 17.6px at default iOS text size.
+     Uses % (not px) so it compounds with the user's iOS Display & Text Size
+     preference — bigger text setting = bigger fonts throughout the app. */
+  font-size: 110%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  font-size: 1rem;
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 428px;
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+
+/* Tablet: show phone frame on mid-width screens */
+@media (min-width: 520px) and (max-width: 899px) {
+  body {
+    background: var(--color-bg-page);
+  }
+
+  #root {
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Desktop: full-width sidebar layout — phone frame removed */
+@media (min-width: 900px) {
+  html {
+    overflow: auto;
+  }
+
+  body {
+    overflow: auto;
+    background: var(--color-bg);
+  }
+
+  #root {
+    max-width: none;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-brand-lime);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
+}
+
+/* Safe area padding for iOS */
+.safe-area-top {
+  padding-top: var(--safe-area-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: var(--safe-area-bottom);
+}
+
+/* Accessibility: skip link for keyboard nav */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  width: auto;
+  height: auto;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  z-index: 9999;
+  border-radius: var(--radius-sm);
+}
+
+/* Accessibility: visually hidden but screen-reader accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Page transition animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+main > * {
+  animation: slideIn var(--transition-normal);
+}
+
+/* === Global reusable animations === */
+
+/* Score reveal pop: scale 0 → 1.2 → 1.0 */
+@keyframes scorePop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Toast slide up + fade */
+@keyframes toastIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toastOut {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(20px); opacity: 0; }
+}
+
+/* Save morph: + → ✓ with pop */
+@keyframes savePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Recording pulse */
+@keyframes recordPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Now Playing slide up */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Now Playing slide down */
+@keyframes slideDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+/* Indeterminate loading bar */
+@keyframes loadingBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* Loading bar — 2px top-of-screen */
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  z-index: var(--z-toast);
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background: var(--color-brand-lime);
+  animation: loadingBar 1.5s ease-in-out infinite;
+}

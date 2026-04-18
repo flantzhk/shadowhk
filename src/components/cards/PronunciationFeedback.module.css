@@ -1,0 +1,166 @@
+/* PronunciationFeedback.module.css */
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Transcription */
+.transcription {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.transcriptionLabel {
+  font-style: normal;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+/* Section header */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hearAllBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+  background: var(--color-brand-lime);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* Word grid */
+.wordGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.wordCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px 8px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  text-align: center;
+  min-height: 100px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.wordCard:active {
+  transform: scale(0.96);
+}
+
+.wordPassed {
+  background: rgba(74, 163, 74, 0.08);
+  border-color: rgba(74, 163, 74, 0.25);
+}
+
+.wordFailed {
+  background: rgba(240, 90, 58, 0.07);
+  border-color: rgba(240, 90, 58, 0.25);
+}
+
+/* Neutral: API returned no per-word score (word.score === null) */
+.wordNeutral {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.wordStatus {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wordPassed .wordStatus {
+  background: rgba(74, 163, 74, 0.15);
+  color: #3a9a3a;
+}
+
+.wordFailed .wordStatus {
+  background: rgba(240, 90, 58, 0.15);
+  color: #d44;
+}
+
+.wordChinese {
+  font-size: 1.375rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.wordJyutping {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-jyutping);
+  line-height: 1.3;
+}
+
+.toneNum {
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.tonePassed {
+  color: #3a9a3a;
+}
+
+.toneFailed {
+  color: #d44;
+  font-weight: var(--font-weight-semibold);
+}
+
+.wordScore {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.scorePassed {
+  color: #3a9a3a;
+}
+
+.scoreFailed {
+  color: #d44;
+}
+
+.hearHint {
+  font-size: 0.5625rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.loadingDots {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

@@ -1,0 +1,61 @@
+/* ScoreBadge.module.css */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-weight-bold);
+}
+
+.compact {
+  padding: var(--space-xs) var(--space-sm);
+}
+
+.full {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.score {
+  font-variant-numeric: tabular-nums;
+}
+
+.compact .score {
+  font-size: var(--font-size-sm);
+}
+
+.full .score {
+  font-size: var(--font-size-xl);
+}
+
+.label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.excellent {
+  background: var(--color-mastered-bg);
+  color: var(--color-score-excellent);
+}
+
+.good {
+  background: rgba(139, 184, 43, 0.15);
+  color: var(--color-score-good);
+}
+
+.fair {
+  background: rgba(232, 160, 48, 0.15);
+  color: var(--color-score-fair);
+}
+
+.needsWork {
+  background: rgba(208, 64, 64, 0.15);
+  color: var(--color-score-poor);
+}
+
+.pending {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+}

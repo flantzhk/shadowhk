@@ -1,0 +1,71 @@
+/* LicensesScreen.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  background: var(--color-bg);
+}
+
+.backBtn {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: 12px 22px;
+  min-height: 44px;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: 0 22px;
+  margin-bottom: 8px;
+}
+
+.intro {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  padding: 0 22px;
+  margin-bottom: 24px;
+}
+
+.list {
+  padding: 0 22px;
+}
+
+.item {
+  padding: 14px 0;
+  border-bottom: 0.5px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.libName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.libVersion {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.libLicense {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 0.5px solid var(--color-border);
+}

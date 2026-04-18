@@ -1,0 +1,338 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.flowmapRow {
+  padding: 20px 20px 0;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Step 0 — Try it */
+.tryStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 16px;
+  flex: 1;
+}
+
+.phraseBlock {
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 32px 40px;
+  border: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.romanization {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-jyutping);
+  margin: 0 0 8px;
+}
+
+.cjk {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.english {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.hint {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin: 0;
+  text-align: center;
+}
+
+.micArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 120px;
+  justify-content: center;
+}
+
+.micBtn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s;
+}
+
+.micBtn:active, .micRecording {
+  transform: scale(0.95);
+  background: var(--color-error);
+  color: #fff;
+}
+
+.scoringSpinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-brand-dark);
+  animation: spin 0.8s linear infinite;
+}
+
+.scoreResult {
+  text-align: center;
+}
+
+.scoreNum {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin: 8px 0 0;
+}
+
+.micError {
+  font-size: 13px;
+  color: var(--color-error);
+  margin: 0;
+}
+
+.stepActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.retryMicBtn {
+  width: 100%;
+  padding: 14px;
+  background: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  min-height: 52px;
+}
+
+/* Step 1 — Pick scenes */
+.pickStep {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.stepTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.stepDesc {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sceneGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+  align-content: start;
+}
+
+.scenePickWrap {
+  position: relative;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.1s;
+}
+
+.scenePickWrap:active {
+  transform: scale(0.97);
+}
+
+.sceneSelected {
+  outline: 2.5px solid var(--color-brand-dark);
+  border-radius: 18px;
+}
+
+.selectedCheck {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Step 2 — Library */
+.libraryStep {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.phraseList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.moreNote {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+/* Step 3 — Ready */
+.readyStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+  flex: 1;
+  text-align: center;
+}
+
+.readyEmoji {
+  font-size: 64px;
+  line-height: 1;
+}
+
+/* Shared */
+.primaryBtn {
+  width: 100%;
+  padding: 18px;
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  border: none;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 56px;
+  transition: opacity 0.15s;
+  margin-top: auto;
+}
+
+.primaryBtn:hover { opacity: 0.88; }
+
+.primaryBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.introduceNudge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--color-brand-lime-muted);
+  border: 1.5px solid rgba(197, 232, 90, 0.4);
+  border-radius: 14px;
+}
+
+.nudgeEmoji {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.nudgeText {
+  flex: 1;
+}
+
+.nudgeTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brand-dark);
+  margin: 0 0 2px;
+}
+
+.nudgeDesc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.nudgeBtn {
+  padding: 8px 16px;
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+.loadingForm {
+  flex: 1;
+  height: 200px;
+  background: var(--color-bg-page);
+  border-radius: 16px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

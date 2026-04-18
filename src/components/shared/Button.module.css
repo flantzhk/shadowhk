@@ -1,0 +1,60 @@
+/* Button.module.css */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background: var(--color-brand-lime);
+  color: var(--color-brand-dark);
+}
+
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 0.5px solid var(--color-border-strong);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+/* Sizes */
+.small {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+.medium {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-base);
+}
+
+.large {
+  padding: var(--space-base) var(--space-xl);
+  font-size: var(--font-size-md);
+}
+
+.fullWidth {
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dotFuture    { background: var(--color-border); }
+.dotCompleted { background: var(--color-brand-green); }
+.dotCurrent   { background: var(--color-brand-dark); transform: scale(1.25); }

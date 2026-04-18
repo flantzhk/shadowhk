@@ -1,0 +1,1227 @@
+[
+  {
+    "id": "daily-basics",
+    "category": "the-very-basics",
+    "name": "Daily Basics",
+    "description": "Your first words in any Cantonese encounter",
+    "phraseCount": 12,
+    "imageGradient": "linear-gradient(135deg, #1A3A1A 0%, #3A6A1A 60%, #8BB82B 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "basics-001",
+        "romanization": "Nei⁵ hou²",
+        "jyutping": "nei5 hou2",
+        "chinese": "你好",
+        "english": "Hello",
+        "context": "The standard greeting for any situation",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "你", "jyutping": "nei5", "english": "you" },
+          { "chinese": "好", "jyutping": "hou2", "english": "good / well" }
+        ]
+      },
+      {
+        "id": "basics-002",
+        "romanization": "M⁴ goi¹",
+        "jyutping": "m4 goi1",
+        "chinese": "唔該",
+        "english": "Thank you / Excuse me",
+        "context": "Say this to thank someone for a service, or to get someone's attention",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔", "jyutping": "m4", "english": "not" },
+          { "chinese": "該", "jyutping": "goi1", "english": "should" }
+        ]
+      },
+      {
+        "id": "basics-003",
+        "romanization": "Zou² san⁴",
+        "jyutping": "zou2 san4",
+        "chinese": "早晨",
+        "english": "Good morning",
+        "context": "Used from early morning until around midday",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "早", "jyutping": "zou2", "english": "early / morning" },
+          { "chinese": "晨", "jyutping": "san4", "english": "morning / dawn" }
+        ]
+      },
+      {
+        "id": "basics-004",
+        "romanization": "Hou² hou², do¹ ze⁶",
+        "jyutping": "hou2 hou2, do1 ze6",
+        "chinese": "好好，多謝",
+        "english": "Good, thanks",
+        "context": "The natural response when someone asks how you are",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好好", "jyutping": "hou2 hou2", "english": "very good / doing well" },
+          { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" }
+        ]
+      },
+      {
+        "id": "basics-005",
+        "romanization": "Nei⁵ hou² maa³?",
+        "jyutping": "nei5 hou2 maa3",
+        "chinese": "你好嗎？",
+        "english": "How are you?",
+        "context": "A common greeting — expect 好好 in response",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "你", "jyutping": "nei5", "english": "you" },
+          { "chinese": "好", "jyutping": "hou2", "english": "good / well" },
+          { "chinese": "嗎", "jyutping": "maa3", "english": "question particle" }
+        ]
+      },
+      {
+        "id": "basics-006",
+        "romanization": "Do¹ ze⁶",
+        "jyutping": "do1 ze6",
+        "chinese": "多謝",
+        "english": "Thank you",
+        "context": "Use for gifts, compliments, and favours — more heartfelt than 唔該",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "多", "jyutping": "do1", "english": "many / much" },
+          { "chinese": "謝", "jyutping": "ze6", "english": "to thank" }
+        ]
+      },
+      {
+        "id": "basics-007",
+        "romanization": "Baai¹ baai³",
+        "jyutping": "baai1 baai3",
+        "chinese": "拜拜",
+        "english": "Bye bye",
+        "context": "The most common way to say goodbye — used by absolutely everyone",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "拜拜", "jyutping": "baai1 baai3", "english": "bye bye" }
+        ]
+      },
+      {
+        "id": "basics-008",
+        "romanization": "M⁴ hou² ji³ si³",
+        "jyutping": "m4 hou2 ji3 si3",
+        "chinese": "唔好意思",
+        "english": "Sorry / Excuse me",
+        "context": "Use to apologize, or to politely get someone's attention",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔好", "jyutping": "m4 hou2", "english": "not good" },
+          { "chinese": "意思", "jyutping": "ji3 si3", "english": "meaning / intention" }
+        ]
+      },
+      {
+        "id": "basics-009",
+        "romanization": "Haa⁶ ci³ gin³",
+        "jyutping": "haa6 ci3 gin3",
+        "chinese": "下次見",
+        "english": "See you next time",
+        "context": "A warm farewell when you expect to see them again",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "下次", "jyutping": "haa6 ci3", "english": "next time" },
+          { "chinese": "見", "jyutping": "gin3", "english": "to see / to meet" }
+        ]
+      },
+      {
+        "id": "basics-010",
+        "romanization": "Hai⁶",
+        "jyutping": "hai6",
+        "chinese": "係",
+        "english": "Yes",
+        "context": "The Cantonese yes — sounds like 'hey' with a low falling tone",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "係", "jyutping": "hai6", "english": "yes / is / am / are" }
+        ]
+      },
+      {
+        "id": "basics-011",
+        "romanization": "M⁴ hai⁶",
+        "jyutping": "m4 hai6",
+        "chinese": "唔係",
+        "english": "No / That's not right",
+        "context": "The Cantonese no — literally 'is not'",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔", "jyutping": "m4", "english": "not" },
+          { "chinese": "係", "jyutping": "hai6", "english": "yes / is" }
+        ]
+      },
+      {
+        "id": "basics-012",
+        "romanization": "Hou²",
+        "jyutping": "hou2",
+        "chinese": "好",
+        "english": "Okay / Good",
+        "context": "Means both 'good' and 'okay' — you'll use this dozens of times a day",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "good / okay" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "basics-scene-1",
+        "title": "Meeting your neighbor in the lift",
+        "description": "You run into a neighbor on the way up to your floor",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-003",
+            "chinese": "早晨！",
+            "jyutping": "zou2 san4!",
+            "romanization": "Zou² san⁴!",
+            "english": "Good morning!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Neighbor",
+            "phraseId": null,
+            "chinese": "早晨！你好嗎？",
+            "jyutping": "zou2 san4! nei5 hou2 maa3?",
+            "romanization": "Zou² san⁴! Nei⁵ hou² maa³?",
+            "english": "Good morning! How are you?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-004",
+            "chinese": "好好，多謝。你呢？",
+            "jyutping": "hou2 hou2, do1 ze6. nei5 ne1?",
+            "romanization": "Hou² hou², do¹ ze⁶. Nei⁵ ne¹?",
+            "english": "Good, thanks. And you?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Neighbor",
+            "phraseId": null,
+            "chinese": "幾好呀。今日天氣好好。",
+            "jyutping": "gei2 hou2 aa3. gam1 jat6 tin1 hei3 hou2 hou2.",
+            "romanization": "Gei² hou² aa³. Gam¹ jat⁶ tin¹ hei³ hou² hou².",
+            "english": "Pretty good. The weather is lovely today.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-010",
+            "chinese": "係呀！拜拜！",
+            "jyutping": "hai6 aa3! baai1 baai3!",
+            "romanization": "Hai⁶ aa³! Baai¹ baai³!",
+            "english": "Yes! Bye!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Neighbor",
+            "phraseId": null,
+            "chinese": "拜拜！",
+            "jyutping": "baai1 baai3!",
+            "romanization": "Baai¹ baai³!",
+            "english": "Bye!",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "basics-scene-2",
+        "title": "Apologizing for bumping into someone",
+        "description": "You accidentally bump into someone on a busy pavement",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-008",
+            "chinese": "唔好意思！",
+            "jyutping": "m4 hou2 ji3 si3!",
+            "romanization": "M⁴ hou² ji³ si³!",
+            "english": "Sorry!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "冇問題。",
+            "jyutping": "mou5 man6 tai4.",
+            "romanization": "Mou⁵ man⁶ tai⁴.",
+            "english": "No problem.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-002",
+            "chinese": "唔該晒。",
+            "jyutping": "m4 goi1 saai3.",
+            "romanization": "M⁴ goi¹ saai³.",
+            "english": "Thank you so much.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Passerby",
+            "phraseId": null,
+            "chinese": "唔使客氣。",
+            "jyutping": "m4 sai2 haak3 hei3.",
+            "romanization": "M⁴ sai² haak³ hei³.",
+            "english": "You're welcome.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "numbers-counting",
+    "category": "the-very-basics",
+    "name": "Numbers and Counting",
+    "description": "Prices, phone numbers, and quantities",
+    "phraseCount": 15,
+    "imageGradient": "linear-gradient(135deg, #2A3A8A 0%, #4A5AC4 60%, #8AB0FF 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "nums-001",
+        "romanization": "Jat¹",
+        "jyutping": "jat1",
+        "chinese": "一",
+        "english": "One",
+        "context": "The number one — used in counting, prices, and quantities",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "一", "jyutping": "jat1", "english": "one" }
+        ]
+      },
+      {
+        "id": "nums-002",
+        "romanization": "Ji⁶",
+        "jyutping": "ji6",
+        "chinese": "二",
+        "english": "Two",
+        "context": "Used in phone numbers and formal counting — say 兩 when ordering two of something",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "二", "jyutping": "ji6", "english": "two" }
+        ]
+      },
+      {
+        "id": "nums-003",
+        "romanization": "Saam¹",
+        "jyutping": "saam1",
+        "chinese": "三",
+        "english": "Three",
+        "context": "The number three",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "三", "jyutping": "saam1", "english": "three" }
+        ]
+      },
+      {
+        "id": "nums-004",
+        "romanization": "Sei³",
+        "jyutping": "sei3",
+        "chinese": "四",
+        "english": "Four",
+        "context": "The number four — considered unlucky as it sounds like 死 (to die)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "四", "jyutping": "sei3", "english": "four" }
+        ]
+      },
+      {
+        "id": "nums-005",
+        "romanization": "Ng⁵",
+        "jyutping": "ng5",
+        "chinese": "五",
+        "english": "Five",
+        "context": "The number five",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "五", "jyutping": "ng5", "english": "five" }
+        ]
+      },
+      {
+        "id": "nums-006",
+        "romanization": "Luk⁶",
+        "jyutping": "luk6",
+        "chinese": "六",
+        "english": "Six",
+        "context": "The number six — considered lucky as it sounds like 祿 (prosperity)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "六", "jyutping": "luk6", "english": "six" }
+        ]
+      },
+      {
+        "id": "nums-007",
+        "romanization": "Cat¹",
+        "jyutping": "cat1",
+        "chinese": "七",
+        "english": "Seven",
+        "context": "The number seven",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "七", "jyutping": "cat1", "english": "seven" }
+        ]
+      },
+      {
+        "id": "nums-008",
+        "romanization": "Baat³",
+        "jyutping": "baat3",
+        "chinese": "八",
+        "english": "Eight",
+        "context": "The number eight — very lucky, sounds like 發 (to prosper)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "八", "jyutping": "baat3", "english": "eight" }
+        ]
+      },
+      {
+        "id": "nums-009",
+        "romanization": "Gau²",
+        "jyutping": "gau2",
+        "chinese": "九",
+        "english": "Nine",
+        "context": "The number nine — sounds like 久 (long time), associated with longevity",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "九", "jyutping": "gau2", "english": "nine" }
+        ]
+      },
+      {
+        "id": "nums-010",
+        "romanization": "Sap⁶",
+        "jyutping": "sap6",
+        "chinese": "十",
+        "english": "Ten",
+        "context": "The number ten — combine with other numbers: 十一 (11), 二十 (20)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "十", "jyutping": "sap6", "english": "ten" }
+        ]
+      },
+      {
+        "id": "nums-011",
+        "romanization": "Gei² do¹ cin²?",
+        "jyutping": "gei2 do1 cin2",
+        "chinese": "幾多錢？",
+        "english": "How much?",
+        "context": "Ask this at any shop, market stall, or restaurant",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾多", "jyutping": "gei2 do1", "english": "how much / how many" },
+          { "chinese": "錢", "jyutping": "cin2", "english": "money" }
+        ]
+      },
+      {
+        "id": "nums-012",
+        "romanization": "Taai³ gwai³ laa³!",
+        "jyutping": "taai3 gwai3 laa3",
+        "chinese": "太貴喇！",
+        "english": "That's too expensive!",
+        "context": "Say this at markets when negotiating — it's expected and not rude",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "太", "jyutping": "taai3", "english": "too / excessively" },
+          { "chinese": "貴", "jyutping": "gwai3", "english": "expensive" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      },
+      {
+        "id": "nums-013",
+        "romanization": "Peng⁴ di¹ dak¹ m⁴ dak¹?",
+        "jyutping": "peng4 di1 dak1 m4 dak1",
+        "chinese": "平啲得唔得？",
+        "english": "Can you go a bit cheaper?",
+        "context": "The polite way to negotiate at a market stall",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "平啲", "jyutping": "peng4 di1", "english": "a bit cheaper" },
+          { "chinese": "得唔得", "jyutping": "dak1 m4 dak1", "english": "is it okay / can you?" }
+        ]
+      },
+      {
+        "id": "nums-014",
+        "romanization": "Loeng⁵ go³",
+        "jyutping": "loeng5 go3",
+        "chinese": "兩個",
+        "english": "Two of them",
+        "context": "Use 兩 (not 二) when ordering or counting physical items",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "兩", "jyutping": "loeng5", "english": "two (of things)" },
+          { "chinese": "個", "jyutping": "go3", "english": "general measure word" }
+        ]
+      },
+      {
+        "id": "nums-015",
+        "romanization": "Gau³ laa³",
+        "jyutping": "gau3 laa3",
+        "chinese": "夠喇",
+        "english": "That's enough",
+        "context": "Stop someone from giving you more food, change, or items",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "夠", "jyutping": "gau3", "english": "enough" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "nums-scene-1",
+        "title": "Asking the price at a market stall",
+        "description": "You're at a wet market and want to buy some fruit",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "nums-011",
+            "chinese": "唔該，呢個幾多錢？",
+            "jyutping": "m4 goi1, ni1 go3 gei2 do1 cin2?",
+            "romanization": "M⁴ goi¹, ni¹ go³ gei² do¹ cin²?",
+            "english": "Excuse me, how much is this?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "三十蚊。",
+            "jyutping": "saam1 sap6 man1.",
+            "romanization": "Saam¹ sap⁶ man¹.",
+            "english": "Thirty dollars.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "nums-012",
+            "chinese": "太貴喇！平啲得唔得？",
+            "jyutping": "taai3 gwai3 laa3! peng4 di1 dak1 m4 dak1?",
+            "romanization": "Taai³ gwai³ laa³! Peng⁴ di¹ dak¹ m⁴ dak¹?",
+            "english": "Too expensive! Can you go a bit cheaper?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "廿五蚊啦，最平喇。",
+            "jyutping": "jaa6 ng5 man1 laa3, zeoi3 peng4 laa3.",
+            "romanization": "Jaa⁶ ng⁵ man¹ laa³, zeoi³ peng⁴ laa³.",
+            "english": "Twenty-five dollars, that's the lowest.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "nums-014",
+            "chinese": "好，我要兩個。",
+            "jyutping": "hou2, ngo5 jiu3 loeng5 go3.",
+            "romanization": "Hou², ngo⁵ jiu³ loeng⁵ go³.",
+            "english": "Okay, I'll take two.",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Vendor",
+            "phraseId": null,
+            "chinese": "好，五十蚊，多謝。",
+            "jyutping": "hou2, ng5 sap6 man1, do1 ze6.",
+            "romanization": "Hou², ng⁵ sap⁶ man¹, do¹ ze⁶.",
+            "english": "Great, fifty dollars, thank you.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "nums-scene-2",
+        "title": "Giving your phone number",
+        "description": "A new friend asks for your number",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Friend",
+            "phraseId": null,
+            "chinese": "你電話幾號？",
+            "jyutping": "nei5 din6 waa2 gei2 hou6?",
+            "romanization": "Nei⁵ din⁶ waa² gei² hou⁶?",
+            "english": "What's your phone number?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": null,
+            "chinese": "九四七二，三三零八。",
+            "jyutping": "gau2 sei3 cat1 ji6, saam1 saam1 ling4 baat3.",
+            "romanization": "Gau² sei³ cat¹ ji⁶, saam¹ saam¹ ling⁴ baat³.",
+            "english": "9472, 3308.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Friend",
+            "phraseId": null,
+            "chinese": "好，我WhatsApp你。",
+            "jyutping": "hou2, ngo5 WhatsApp nei5.",
+            "romanization": "Hou², ngo⁵ WhatsApp nei⁵.",
+            "english": "Great, I'll WhatsApp you.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-012",
+            "chinese": "好，多謝。",
+            "jyutping": "hou2, do1 ze6.",
+            "romanization": "Hou², do¹ ze⁶.",
+            "english": "Great, thanks.",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quick-questions",
+    "category": "the-very-basics",
+    "name": "Quick Questions",
+    "description": "The questions you need every single day",
+    "phraseCount": 18,
+    "imageGradient": "linear-gradient(135deg, #6A2A1A 0%, #C4623A 60%, #FFB08A 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "qq-001",
+        "romanization": "Hai⁶ bin¹ dou⁶?",
+        "jyutping": "hai6 bin1 dou6",
+        "chinese": "喺邊度？",
+        "english": "Where is it?",
+        "context": "Ask where anything is — attach a noun before it: 廁所喺邊度?",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "喺", "jyutping": "hai6", "english": "at / is located at" },
+          { "chinese": "邊度", "jyutping": "bin1 dou6", "english": "where" }
+        ]
+      },
+      {
+        "id": "qq-002",
+        "romanization": "Chi³ so² hai⁶ bin¹ dou⁶?",
+        "jyutping": "ci3 so2 hai6 bin1 dou6",
+        "chinese": "廁所喺邊度？",
+        "english": "Where's the toilet?",
+        "context": "The most important question you'll ever ask in Hong Kong",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "廁所", "jyutping": "ci3 so2", "english": "toilet / bathroom" },
+          { "chinese": "喺邊度", "jyutping": "hai6 bin1 dou6", "english": "where is" }
+        ]
+      },
+      {
+        "id": "qq-003",
+        "romanization": "Ni¹ dou⁶",
+        "jyutping": "ni1 dou6",
+        "chinese": "呢度",
+        "english": "Here",
+        "context": "Point to something nearby — also used as 'stop here' in a taxi",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢", "jyutping": "ni1", "english": "this" },
+          { "chinese": "度", "jyutping": "dou6", "english": "place" }
+        ]
+      },
+      {
+        "id": "qq-004",
+        "romanization": "Go² dou⁶",
+        "jyutping": "go2 dou6",
+        "chinese": "嗰度",
+        "english": "There / Over there",
+        "context": "Point to something further away",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "嗰", "jyutping": "go2", "english": "that" },
+          { "chinese": "度", "jyutping": "dou6", "english": "place" }
+        ]
+      },
+      {
+        "id": "qq-005",
+        "romanization": "Gei² si⁴?",
+        "jyutping": "gei2 si4",
+        "chinese": "幾時？",
+        "english": "When?",
+        "context": "Ask when something happens — e.g. 幾時開始 (when does it start)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when / what time" }
+        ]
+      },
+      {
+        "id": "qq-006",
+        "romanization": "Gei² dim²?",
+        "jyutping": "gei2 dim2",
+        "chinese": "幾點？",
+        "english": "What time?",
+        "context": "Ask for a specific time — e.g. 幾點開始 (what time does it start)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾", "jyutping": "gei2", "english": "how many / what" },
+          { "chinese": "點", "jyutping": "dim2", "english": "o'clock" }
+        ]
+      },
+      {
+        "id": "qq-007",
+        "romanization": "Gei² dim² hoi¹ ci²?",
+        "jyutping": "gei2 dim2 hoi1 ci2",
+        "chinese": "幾點開始？",
+        "english": "What time does it start?",
+        "context": "Ask about events, classes, shops, restaurants",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "幾點", "jyutping": "gei2 dim2", "english": "what time" },
+          { "chinese": "開始", "jyutping": "hoi1 ci2", "english": "to start / begin" }
+        ]
+      },
+      {
+        "id": "qq-008",
+        "romanization": "Gam¹ jat⁶",
+        "jyutping": "gam1 jat6",
+        "chinese": "今日",
+        "english": "Today",
+        "context": "Used to specify something is happening today",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "今", "jyutping": "gam1", "english": "now / this" },
+          { "chinese": "日", "jyutping": "jat6", "english": "day / sun" }
+        ]
+      },
+      {
+        "id": "qq-009",
+        "romanization": "Ting¹ jat⁶",
+        "jyutping": "ting1 jat6",
+        "chinese": "聽日",
+        "english": "Tomorrow",
+        "context": "Used to plan ahead — 後日 (hau6 jat6) means the day after tomorrow",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "聽", "jyutping": "ting1", "english": "tomorrow (Cantonese-specific)" },
+          { "chinese": "日", "jyutping": "jat6", "english": "day" }
+        ]
+      },
+      {
+        "id": "qq-010",
+        "romanization": "Dim² joeng²?",
+        "jyutping": "dim2 joeng2",
+        "chinese": "點樣？",
+        "english": "How? / How is it?",
+        "context": "Ask how to do something, or how something is going",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "點樣", "jyutping": "dim2 joeng2", "english": "how / in what way" }
+        ]
+      },
+      {
+        "id": "qq-011",
+        "romanization": "Dim² gaai²?",
+        "jyutping": "dim2 gaai2",
+        "chinese": "點解？",
+        "english": "Why?",
+        "context": "Ask the reason for something",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "點解", "jyutping": "dim2 gaai2", "english": "why / how come" }
+        ]
+      },
+      {
+        "id": "qq-012",
+        "romanization": "Dim² syun³?",
+        "jyutping": "dim2 syun3",
+        "chinese": "點算？",
+        "english": "What should we do?",
+        "context": "Said when you're stuck or something has gone wrong — a very Cantonese expression",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "點", "jyutping": "dim2", "english": "how" },
+          { "chinese": "算", "jyutping": "syun3", "english": "to count / to figure out" }
+        ]
+      },
+      {
+        "id": "qq-013",
+        "romanization": "Me¹ je⁵?",
+        "jyutping": "me1 je5",
+        "chinese": "咩嘢？",
+        "english": "What?",
+        "context": "Ask what something is — also used when you didn't hear something",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "咩", "jyutping": "me1", "english": "what (Cantonese-specific)" },
+          { "chinese": "嘢", "jyutping": "je5", "english": "thing / stuff" }
+        ]
+      },
+      {
+        "id": "qq-014",
+        "romanization": "Bin¹ go³?",
+        "jyutping": "bin1 go3",
+        "chinese": "邊個？",
+        "english": "Who? / Which one?",
+        "context": "Ask who someone is, or which option to choose",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "邊", "jyutping": "bin1", "english": "which" },
+          { "chinese": "個", "jyutping": "go3", "english": "measure word for people / things" }
+        ]
+      },
+      {
+        "id": "qq-015",
+        "romanization": "Hai⁶ mai⁶?",
+        "jyutping": "hai6 mai6",
+        "chinese": "係咪？",
+        "english": "Is that right? / Really?",
+        "context": "Ask to confirm something, or express mild surprise",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "係", "jyutping": "hai6", "english": "yes / is" },
+          { "chinese": "咪", "jyutping": "mai6", "english": "isn't it (question tag)" }
+        ]
+      },
+      {
+        "id": "qq-016",
+        "romanization": "Jau⁵ mou⁵?",
+        "jyutping": "jau5 mou5",
+        "chinese": "有冇？",
+        "english": "Do you have any?",
+        "context": "Ask if something is available — in shops, restaurants, everywhere",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "有", "jyutping": "jau5", "english": "have / there is" },
+          { "chinese": "冇", "jyutping": "mou5", "english": "don't have / there isn't" }
+        ]
+      },
+      {
+        "id": "qq-017",
+        "romanization": "Dak¹ m⁴ dak¹?",
+        "jyutping": "dak1 m4 dak1",
+        "chinese": "得唔得？",
+        "english": "Is that okay? / Can I?",
+        "context": "Ask permission or check if something is possible",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "得", "jyutping": "dak1", "english": "okay / can / possible" },
+          { "chinese": "唔得", "jyutping": "m4 dak1", "english": "not okay / can't" }
+        ]
+      },
+      {
+        "id": "qq-018",
+        "romanization": "Gei² noi⁶?",
+        "jyutping": "gei2 noi6",
+        "chinese": "幾耐？",
+        "english": "How long?",
+        "context": "Ask how long a wait, journey, or process will take",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "幾", "jyutping": "gei2", "english": "how much / how many" },
+          { "chinese": "耐", "jyutping": "noi6", "english": "long (time)" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "qq-scene-1",
+        "title": "Finding the bathroom in a restaurant",
+        "description": "You need the toilet and ask a member of staff",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-002",
+            "chinese": "唔該，廁所喺邊度？",
+            "jyutping": "m4 goi1, ci3 so2 hai6 bin1 dou6?",
+            "romanization": "M⁴ goi¹, chi³ so² hai⁶ bin¹ dou⁶?",
+            "english": "Excuse me, where's the toilet?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "直行，轉左。",
+            "jyutping": "zik6 haang4, zyun3 zo2.",
+            "romanization": "Zik⁶ haang⁴, zyun³ zo².",
+            "english": "Go straight, then turn left.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-006",
+            "chinese": "多謝！",
+            "jyutping": "do1 ze6!",
+            "romanization": "Do¹ ze⁶!",
+            "english": "Thank you!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "唔使客氣。",
+            "jyutping": "m4 sai2 haak3 hei3.",
+            "romanization": "M⁴ sai² haak³ hei³.",
+            "english": "You're welcome.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "qq-scene-2",
+        "title": "Asking what time something starts",
+        "description": "You want to know if there's a table and when they open",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "qq-007",
+            "chinese": "幾點開始？",
+            "jyutping": "gei2 dim2 hoi1 ci2?",
+            "romanization": "Gei² dim² hoi¹ ci²?",
+            "english": "What time does it start?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "三點半。",
+            "jyutping": "saam1 dim2 bun3.",
+            "romanization": "Saam¹ dim² bun³.",
+            "english": "Three thirty.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "qq-016",
+            "chinese": "仲有冇位？",
+            "jyutping": "zung6 jau5 mou5 wai2?",
+            "romanization": "Zung⁶ jau⁵ mou⁵ wai²?",
+            "english": "Are there still seats available?",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Staff",
+            "phraseId": null,
+            "chinese": "有呀，入嚟坐。",
+            "jyutping": "jau5 aa3, jap6 lai4 co5.",
+            "romanization": "Jau⁵ aa³, jap⁶ lai⁴ co⁵.",
+            "english": "Yes, come on in and sit down.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-006",
+            "chinese": "多謝！",
+            "jyutping": "do1 ze6!",
+            "romanization": "Do¹ ze⁶!",
+            "english": "Thank you!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yes-no-maybe",
+    "category": "the-very-basics",
+    "name": "Yes, No, Maybe",
+    "description": "Agreeing, declining, and hedging politely",
+    "phraseCount": 10,
+    "imageGradient": "linear-gradient(135deg, #4A2A6A 0%, #7A5AB0 60%, #C8A8FF 100%)",
+    "imageUrl": null,
+    "phrases": [
+      {
+        "id": "ynm-001",
+        "romanization": "Hou², mou⁵ man⁶ tai⁴",
+        "jyutping": "hou2, mou5 man6 tai4",
+        "chinese": "好，冇問題",
+        "english": "Sure, no problem",
+        "context": "Say yes with confidence — the most reassuring thing you can hear in Cantonese",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "好", "jyutping": "hou2", "english": "okay / good" },
+          { "chinese": "冇問題", "jyutping": "mou5 man6 tai4", "english": "no problem" }
+        ]
+      },
+      {
+        "id": "ynm-002",
+        "romanization": "Mou⁵ man⁶ tai⁴",
+        "jyutping": "mou5 man6 tai4",
+        "chinese": "冇問題",
+        "english": "No problem",
+        "context": "Reassure someone that everything is fine or that you can do something",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "冇", "jyutping": "mou5", "english": "don't have / no" },
+          { "chinese": "問題", "jyutping": "man6 tai4", "english": "problem" }
+        ]
+      },
+      {
+        "id": "ynm-003",
+        "romanization": "Dak¹",
+        "jyutping": "dak1",
+        "chinese": "得",
+        "english": "Okay / Can do",
+        "context": "A quick, casual yes — means something is possible or you agree",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "得", "jyutping": "dak1", "english": "okay / can / possible" }
+        ]
+      },
+      {
+        "id": "ynm-004",
+        "romanization": "Hai⁶ aa³",
+        "jyutping": "hai6 aa3",
+        "chinese": "係呀",
+        "english": "Yes, that's right",
+        "context": "Confirm that something is correct — 呀 makes it sound natural and friendly",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "係", "jyutping": "hai6", "english": "yes / correct" },
+          { "chinese": "呀", "jyutping": "aa3", "english": "friendly sentence-final particle" }
+        ]
+      },
+      {
+        "id": "ynm-005",
+        "romanization": "M⁴ hai⁶ aa³",
+        "jyutping": "m4 hai6 aa3",
+        "chinese": "唔係呀",
+        "english": "No, that's not right",
+        "context": "Politely correct a misunderstanding",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔係", "jyutping": "m4 hai6", "english": "no / not correct" },
+          { "chinese": "呀", "jyutping": "aa3", "english": "friendly sentence-final particle" }
+        ]
+      },
+      {
+        "id": "ynm-006",
+        "romanization": "M⁴ dak¹",
+        "jyutping": "m4 dak1",
+        "chinese": "唔得",
+        "english": "Can't / Not okay",
+        "context": "Refuse permission or say something isn't possible",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔", "jyutping": "m4", "english": "not" },
+          { "chinese": "得", "jyutping": "dak1", "english": "okay / can" }
+        ]
+      },
+      {
+        "id": "ynm-007",
+        "romanization": "M⁴ sai² laa³",
+        "jyutping": "m4 sai2 laa3",
+        "chinese": "唔使喇",
+        "english": "No need / Don't bother",
+        "context": "Tell someone not to go to any trouble on your behalf",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need / don't need to" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "sentence-final particle" }
+        ]
+      },
+      {
+        "id": "ynm-008",
+        "romanization": "M⁴ hou²",
+        "jyutping": "m4 hou2",
+        "chinese": "唔好",
+        "english": "Don't / Please don't",
+        "context": "Stop someone from doing something — e.g. 唔好喺度食嘢 (don't eat here)",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔", "jyutping": "m4", "english": "not" },
+          { "chinese": "好", "jyutping": "hou2", "english": "good" }
+        ]
+      },
+      {
+        "id": "ynm-009",
+        "romanization": "Ho² nang⁴",
+        "jyutping": "ho2 nang4",
+        "chinese": "可能",
+        "english": "Maybe / Possibly",
+        "context": "Express uncertainty without committing either way",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "可能", "jyutping": "ho2 nang4", "english": "maybe / possibly" }
+        ]
+      },
+      {
+        "id": "ynm-010",
+        "romanization": "Tai² haa⁵ sin¹",
+        "jyutping": "tai2 haa5 sin1",
+        "chinese": "睇下先",
+        "english": "Let me see / We'll see",
+        "context": "Buy yourself time — a very common Cantonese hedge that's softer than 可能",
+        "difficulty": 2,
+        "words": [
+          { "chinese": "睇下", "jyutping": "tai2 haa5", "english": "have a look / see how it goes" },
+          { "chinese": "先", "jyutping": "sin1", "english": "first / for now" }
+        ]
+      }
+    ],
+    "dialogueScenes": [
+      {
+        "id": "ynm-scene-1",
+        "title": "Declining an invitation politely",
+        "description": "A colleague invites you to dinner but you're busy",
+        "turns": [
+          {
+            "speaker": "other",
+            "speakerLabel": "Colleague",
+            "phraseId": null,
+            "chinese": "今晚一齊食飯？",
+            "jyutping": "gam1 maan5 jat1 cai4 sik6 faan6?",
+            "romanization": "Gam¹ maan⁵ jat¹ cai⁴ sik⁶ faan⁶?",
+            "english": "Dinner together tonight?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "ynm-006",
+            "chinese": "唔得呀，今晚有嘢做。",
+            "jyutping": "m4 dak1 aa3, gam1 maan5 jau5 je5 zou6.",
+            "romanization": "M⁴ dak¹ aa³, gam¹ maan⁵ jau⁵ je⁵ zou⁶.",
+            "english": "Can't tonight, I'm busy.",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Colleague",
+            "phraseId": null,
+            "chinese": "聽日呢？",
+            "jyutping": "ting1 jat6 ne1?",
+            "romanization": "Ting¹ jat⁶ ne¹?",
+            "english": "How about tomorrow?",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "ynm-001",
+            "chinese": "好呀，冇問題！",
+            "jyutping": "hou2 aa3, mou5 man6 tai4!",
+            "romanization": "Hou² aa³, mou⁵ man⁶ tai⁴!",
+            "english": "Sure, no problem!",
+            "voiceId": null,
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Colleague",
+            "phraseId": null,
+            "chinese": "好，聽日見！",
+            "jyutping": "hou2, ting1 jat6 gin3!",
+            "romanization": "Hou², ting¹ jat⁶ gin³!",
+            "english": "Great, see you tomorrow!",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      },
+      {
+        "id": "ynm-scene-2",
+        "title": "Checking if it's okay to bring a friend",
+        "description": "You want to bring someone extra to a gathering",
+        "turns": [
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "qq-017",
+            "chinese": "我帶多個朋友，得唔得？",
+            "jyutping": "ngo5 daai3 do1 go3 pang4 jau5, dak1 m4 dak1?",
+            "romanization": "Ngo⁵ daai³ do¹ go³ pang⁴ jau⁵, dak¹ m⁴ dak¹?",
+            "english": "Can I bring an extra friend along?",
+            "voiceId": null,
+            "pauseAfterMs": 2000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Host",
+            "phraseId": null,
+            "chinese": "得呀，冇問題。",
+            "jyutping": "dak1 aa3, mou5 man6 tai4.",
+            "romanization": "Dak¹ aa³, mou⁵ man⁶ tai⁴.",
+            "english": "Sure, no problem at all.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1500
+          },
+          {
+            "speaker": "user",
+            "speakerLabel": "You",
+            "phraseId": "basics-006",
+            "chinese": "多謝晒！",
+            "jyutping": "do1 ze6 saai3!",
+            "romanization": "Do¹ ze⁶ saai³!",
+            "english": "Thank you so much!",
+            "voiceId": null,
+            "pauseAfterMs": 1000
+          },
+          {
+            "speaker": "other",
+            "speakerLabel": "Host",
+            "phraseId": null,
+            "chinese": "唔使客氣，多人多熱鬧。",
+            "jyutping": "m4 sai2 haak3 hei3, do1 jan4 do1 jit6 naau6.",
+            "romanization": "M⁴ sai² haak³ hei³, do¹ jan⁴ do¹ jit⁶ naau⁶.",
+            "english": "Don't mention it — the more the merrier.",
+            "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
+            "pauseAfterMs": 1000
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,194 @@
+/* src/styles/variables.css — ShadowSpeak Design Tokens */
+
+:root {
+  /* === Colors === */
+  --color-bg:             #F7F4EC;
+  --color-bg-page:        #EDE8DC;
+  --color-surface:        #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-border:         rgba(0, 0, 0, 0.06);
+  --color-border-strong:  rgba(0, 0, 0, 0.12);
+
+  --color-text-primary:   #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+  --color-text-tertiary:  #7A7A7A;
+  --color-text-muted:     #9A9A9A;
+  --color-text-inverse:   #FFFFFF;
+
+  --color-brand-dark:     #1A2A18;
+  /* Use --color-brand-dark-text for any CSS `color:` property.
+     It maps to --color-text-primary in dark mode so text stays readable
+     while button backgrounds (which use --color-brand-dark directly) stay dark. */
+  --color-brand-dark-text: #1A2A18;
+  --color-brand-green:    #8BB82B;
+  --color-brand-lime:     #C5E85A;
+  --color-brand-lime-muted: rgba(197, 232, 90, 0.15);
+
+  --color-streak-orange:  #E8703A;
+  --color-streak-bg:      #FFF0D8;
+  --color-streak-text:    #8A3810;
+
+  --color-learning-bg:    #FFF0D8;
+  --color-learning-text:  #8A3810;
+  --color-mastered-bg:    #E8F1D4;
+  --color-mastered-text:  #2A5A10;
+
+  --color-score-excellent: #2A5A10;
+  --color-score-good:      #8BB82B;
+  --color-score-fair:      #E8A030;
+  --color-score-poor:      #D04040;
+
+  --color-error:           #D04040;
+  --color-warning:         #E8A030;
+  --color-success:         #2A5A10;
+
+  --color-jyutping:        #8F6AE8;
+
+  /* === Typography === */
+  --font-family:           "DM Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-family-mono:      "SF Mono", "Menlo", monospace;
+
+  --font-size-xs:          0.625rem;   /* 11px at 110% base */
+  --font-size-sm:          0.75rem;    /* 13.2px at 110% base */
+  --font-size-base:        0.875rem;   /* 15.4px at 110% base */
+  --font-size-md:          1rem;       /* 17.6px at 110% base */
+  --font-size-lg:          1.125rem;   /* 19.8px at 110% base */
+  --font-size-xl:          1.375rem;   /* 24.2px at 110% base */
+  --font-size-2xl:         1.5rem;     /* 26.4px at 110% base */
+  --font-size-3xl:         2rem;       /* 35.2px at 110% base */
+
+  --font-weight-normal:    400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:     1.15;
+  --line-height-normal:    1.4;
+  --line-height-relaxed:   1.6;
+
+  --letter-spacing-tight:  -0.5px;
+  --letter-spacing-normal: -0.2px;
+  --letter-spacing-wide:   1.2px;
+
+  /* === Spacing === */
+  --space-xs:    4px;
+  --space-sm:    8px;
+  --space-md:    12px;
+  --space-base:  16px;
+  --space-lg:    20px;
+  --space-xl:    24px;
+  --space-2xl:   32px;
+  --space-3xl:   40px;
+
+  /* === Radii === */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   22px;
+  --radius-pill:  999px;
+  --radius-circle: 50%;
+
+  /* === Shadows === */
+  --shadow-card:    0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-raised:  0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-player:  0 -4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-phone:   0 30px 80px rgba(0, 0, 0, 0.15);
+
+  /* === Transitions === */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* === Z-index layers === */
+  --z-base:      1;
+  --z-card:      10;
+  --z-player:    100;
+  --z-modal:     200;
+  --z-toast:     300;
+  --z-overlay:   400;
+
+  /* === Layout === */
+  --safe-area-top:    env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --player-height:    140px;
+  /* These heights are used for scroll padding calculations.
+     Set generous so content is never hidden at large Dynamic Type sizes. */
+  --tab-bar-height:   72px;
+  --top-bar-height:   64px;
+  --content-padding:  22px;
+}
+
+/* === Dark token block (shared by media query + [data-theme="dark"]) === */
+/* Applied when: OS is dark AND no forced theme, OR data-theme="dark" is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg:             #121212;
+    --color-bg-page:        #0A0A0A;
+    --color-surface:        #1E1E1E;
+    --color-surface-raised: #252525;
+    --color-border:         rgba(255, 255, 255, 0.10);
+    --color-border-strong:  rgba(255, 255, 255, 0.18);
+
+    --color-text-primary:   #F0F0F0;
+    --color-text-secondary: #B0B0B0;
+    --color-text-tertiary:  #909090;
+    --color-text-muted:     #787878;
+
+    --color-learning-bg:    rgba(232, 160, 48, 0.18);
+    --color-learning-text:  #E8A030;
+    --color-mastered-bg:    rgba(139, 184, 43, 0.15);
+    --color-mastered-text:  #A4D042;
+    --color-streak-bg:      rgba(232, 112, 58, 0.18);
+    --color-streak-text:    #E8703A;
+
+    --color-score-excellent: #A4D042;
+    --color-score-good:      #C5E85A;
+    --color-score-fair:      #E8A030;
+    --color-score-poor:      #E06060;
+
+    --color-jyutping:        #A4D042;
+
+    --color-brand-lime-muted: rgba(197, 232, 90, 0.12);
+    --color-brand-dark-text: var(--color-text-primary);
+
+    --shadow-card:          0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-raised:        0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-player:        0 -4px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Force dark — applies regardless of OS setting */
+:root[data-theme="dark"] {
+  --color-bg:             #121212;
+  --color-bg-page:        #0A0A0A;
+  --color-surface:        #1E1E1E;
+  --color-surface-raised: #252525;
+  --color-border:         rgba(255, 255, 255, 0.10);
+  --color-border-strong:  rgba(255, 255, 255, 0.18);
+
+  --color-text-primary:   #F0F0F0;
+  --color-text-secondary: #B0B0B0;
+  --color-text-tertiary:  #909090;
+  --color-text-muted:     #787878;
+
+  --color-learning-bg:    rgba(232, 160, 48, 0.18);
+  --color-learning-text:  #E8A030;
+  --color-mastered-bg:    rgba(139, 184, 43, 0.15);
+  --color-mastered-text:  #A4D042;
+  --color-streak-bg:      rgba(232, 112, 58, 0.18);
+  --color-streak-text:    #E8703A;
+
+  --color-score-excellent: #A4D042;
+  --color-score-good:      #C5E85A;
+  --color-score-fair:      #E8A030;
+  --color-score-poor:      #E06060;
+
+  --color-jyutping:        #A4D042;
+
+  --color-brand-lime-muted: rgba(197, 232, 90, 0.12);
+  --color-brand-dark-text: var(--color-text-primary);
+
+  --shadow-card:          0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-raised:        0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-player:        0 -4px 20px rgba(0, 0, 0, 0.5);
+}
