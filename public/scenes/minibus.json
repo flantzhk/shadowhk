@@ -1,0 +1,71 @@
+{
+  "id": "minibus",
+  "language": "cantonese",
+  "emoji": "🚐",
+  "title": "Riding a green minibus",
+  "description": "Board a minibus and tell the driver where you want to get off",
+  "category": "transport",
+  "difficulty": "everyday",
+  "estimatedMinutes": 4,
+  "location": "Green minibus, Kowloon",
+  "context": "Green minibuses (綠色小巴) run fixed routes and fixed fares. You board at the front, pay when you get on (exact change or Octopus), and shout when you want to stop. The driver will not stop unless you ask — loudly.",
+  "culturalFact": "HK's minibus culture has its own language. Locals say '有落' (jau5 lok6 — 'someone's getting off') to alert the driver. Getting the phrasing wrong is a classic foreigner tell — and a great icebreaker with locals who hear you try.",
+  "lines": [
+    {
+      "id": "minibus-01",
+      "speaker": "you",
+      "cjk": "唔該，去旺角有位坐冇？",
+      "jyutping": "m4 goi1, heoi3 wong6 gok3 jau5 wai2 co5 mou5?",
+      "english": "Excuse me, is there a seat going to Mong Kok?",
+      "audioFile": "minibus-01.mp3"
+    },
+    {
+      "id": "minibus-02",
+      "speaker": "driver",
+      "cjk": "有，上嚟啦，九蚊。",
+      "jyutping": "jau5, soeng5 lei4 laa1, gau2 man1.",
+      "english": "Yes, hop on, nine dollars.",
+      "audioFile": "minibus-02.mp3"
+    },
+    {
+      "id": "minibus-03",
+      "speaker": "you",
+      "cjk": "用八達通得唔得？",
+      "jyutping": "jung6 baat3 daat6 tung1 dak1 m4 dak1?",
+      "english": "Can I pay with Octopus?",
+      "audioFile": "minibus-03.mp3"
+    },
+    {
+      "id": "minibus-04",
+      "speaker": "driver",
+      "cjk": "得㗎，嗶個機喺度。",
+      "jyutping": "dak1 ga3, bit1 go3 gei1 hai2 dou6.",
+      "english": "Yes, tap the machine here.",
+      "audioFile": "minibus-04.mp3"
+    },
+    {
+      "id": "minibus-05",
+      "speaker": "you",
+      "cjk": "唔該，旺角西洋菜街有落！",
+      "jyutping": "m4 goi1, wong6 gok3 sai1 joeng4 coi3 gaai1 jau5 lok6!",
+      "english": "Excuse me, I'm getting off at Sai Yeung Choi Street, Mong Kok!",
+      "audioFile": "minibus-05.mp3"
+    },
+    {
+      "id": "minibus-06",
+      "speaker": "driver",
+      "cjk": "知道喇，等陣停。",
+      "jyutping": "zi1 dou6 laa3, dang2 zan6 ting4.",
+      "english": "Got it, stopping shortly.",
+      "audioFile": "minibus-06.mp3"
+    },
+    {
+      "id": "minibus-07",
+      "speaker": "you",
+      "cjk": "多謝！",
+      "jyutping": "do1 ze6!",
+      "english": "Thank you!",
+      "audioFile": "minibus-07.mp3"
+    }
+  ]
+}

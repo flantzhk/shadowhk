@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback, useContext } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAudio } from '../../contexts/AudioContext.jsx';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { updateAfterPractice } from '../../services/srs.js';
@@ -23,7 +23,7 @@ const STEPS = ['Listen', 'Say it', 'Score'];
 const SPEEDS = [0.75, 1, 1.25];
 
 export default function ShadowSession({ sceneId, onBack, onComplete }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const audio = useAudio();
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
   const isOnline = useOnlineStatus();

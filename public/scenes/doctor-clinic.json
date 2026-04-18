@@ -1,0 +1,79 @@
+{
+  "id": "doctor-clinic",
+  "language": "cantonese",
+  "emoji": "🩺",
+  "title": "Seeing a GP at a clinic",
+  "description": "Describe your symptoms to a doctor at a private clinic in Hong Kong",
+  "category": "services",
+  "difficulty": "confident",
+  "estimatedMinutes": 6,
+  "location": "Private GP clinic, Tuen Mun",
+  "context": "Most Hong Kongers see private GPs (私家醫生) for minor illness — it's quick and affordable compared to public hospitals. Clinics are usually in the ground floor of residential blocks. Register at reception, wait your turn, then see the doctor for 5-10 minutes.",
+  "culturalFact": "Hong Kong's public healthcare system is heavily subsidised — a visit to a public hospital outpatient clinic costs around HK$50 (about £5). However, public waiting times can be very long, so most people choose private GPs for anything non-urgent.",
+  "lines": [
+    {
+      "id": "doctor-01",
+      "speaker": "you",
+      "cjk": "醫生你好，我喉嚨痛，又發燒。",
+      "jyutping": "ji1 sang1 nei5 hou2, ngo5 hau4 lung4 tung3, jau6 faat3 siu1.",
+      "english": "Hello doctor, I have a sore throat and I have a fever.",
+      "audioFile": "doctor-01.mp3"
+    },
+    {
+      "id": "doctor-02",
+      "speaker": "doctor",
+      "cjk": "幾時開始㗎？",
+      "jyutping": "gei2 si4 hoi1 ci2 ga3?",
+      "english": "When did it start?",
+      "audioFile": "doctor-02.mp3"
+    },
+    {
+      "id": "doctor-03",
+      "speaker": "you",
+      "cjk": "尋日開始，今朝起身覺得好辛苦。",
+      "jyutping": "cam4 jat6 hoi1 ci2, gam1 ziu1 hei2 san1 gok3 dak1 hou2 san1 fu2.",
+      "english": "It started yesterday. This morning when I woke up I felt really unwell.",
+      "audioFile": "doctor-03.mp3"
+    },
+    {
+      "id": "doctor-04",
+      "speaker": "doctor",
+      "cjk": "有冇咳？有冇肚痛？",
+      "jyutping": "jau5 mou5 kat1? jau5 mou5 tou5 tung3?",
+      "english": "Any cough? Any stomach pain?",
+      "audioFile": "doctor-04.mp3"
+    },
+    {
+      "id": "doctor-05",
+      "speaker": "you",
+      "cjk": "有少少咳，肚痛冇。",
+      "jyutping": "jau5 siu2 siu2 kat1, tou5 tung3 mou5.",
+      "english": "A little cough, no stomach pain.",
+      "audioFile": "doctor-05.mp3"
+    },
+    {
+      "id": "doctor-06",
+      "speaker": "doctor",
+      "cjk": "係上呼吸道感染，開三日藥俾你。要多休息，多飲水。",
+      "jyutping": "hai6 soeng6 fu1 kap1 dou6 gam2 jim5, hoi1 saam1 jat6 joek6 bei2 nei5. jiu3 do1 jau1 sik1, do1 jam2 seoi2.",
+      "english": "It's an upper respiratory infection. I'll prescribe three days of medicine. Get plenty of rest and drink lots of water.",
+      "audioFile": "doctor-06.mp3"
+    },
+    {
+      "id": "doctor-07",
+      "speaker": "you",
+      "cjk": "要唔要病假紙？",
+      "jyutping": "jiu3 m4 jiu3 beng6 gaa3 zi2?",
+      "english": "Do I need a sick leave certificate?",
+      "audioFile": "doctor-07.mp3"
+    },
+    {
+      "id": "doctor-08",
+      "speaker": "doctor",
+      "cjk": "要㗎話我知，我寫俾你。請護士幫你拎藥。",
+      "jyutping": "jiu3 ga3 wa6 ngo5 zi1, ngo5 se2 bei2 nei5. cing2 wu6 si6 bong1 nei5 ling1 joek6.",
+      "english": "Just let me know and I'll write one. Please ask the nurse to get your medicine.",
+      "audioFile": "doctor-08.mp3"
+    }
+  ]
+}

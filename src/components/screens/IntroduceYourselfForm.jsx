@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import styles from './IntroduceYourselfForm.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { countPhrases, buildGenerationPrompt, savePersonalScene, buildPersonalSceneObject, PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL } from '../../utils/constants.js';
@@ -29,7 +29,7 @@ const EMPTY_FORM = {
 };
 
 export default function IntroduceYourselfForm({ onComplete, onBack }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [form, setForm] = useState({ ...EMPTY_FORM, kids: [] });

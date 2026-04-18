@@ -1,0 +1,63 @@
+{
+  "id": "neighbour-lift",
+  "language": "cantonese",
+  "emoji": "🛗",
+  "title": "Small talk in the lift",
+  "description": "Chat briefly with your neighbour on the way up in the building lift",
+  "category": "social",
+  "difficulty": "starter",
+  "estimatedMinutes": 3,
+  "location": "Residential building lift, Tai Koo",
+  "context": "Most Hong Kongers live in high-rise apartments and share a lift with dozens of neighbours. Lift encounters are short and friendly — just enough to be neighbourly without overstaying your welcome. A smile and basic pleasantries go a long way.",
+  "culturalFact": "In Cantonese culture, 'Have you eaten yet?' (食咗飯未？) is a common greeting that doubles as genuine concern for your wellbeing. Answering truthfully is fine — it's both small talk and a check-in.",
+  "lines": [
+    {
+      "id": "lift-01",
+      "speaker": "neighbour",
+      "cjk": "早晨！",
+      "jyutping": "zou2 san4!",
+      "english": "Good morning!",
+      "audioFile": "lift-01.mp3"
+    },
+    {
+      "id": "lift-02",
+      "speaker": "you",
+      "cjk": "早晨！食咗飯未？",
+      "jyutping": "zou2 san4! sik6 zo2 faan6 mei6?",
+      "english": "Good morning! Have you eaten yet?",
+      "audioFile": "lift-02.mp3"
+    },
+    {
+      "id": "lift-03",
+      "speaker": "neighbour",
+      "cjk": "食咗喇，你呢？",
+      "jyutping": "sik6 zo2 laa3, nei5 ne1?",
+      "english": "Yes I have, and you?",
+      "audioFile": "lift-03.mp3"
+    },
+    {
+      "id": "lift-04",
+      "speaker": "you",
+      "cjk": "仲未，等陣去飲茶。天氣好好喎，今日。",
+      "jyutping": "zung6 mei6, dang2 zan6 heoi3 jam2 caa4. tin1 hei3 hou2 hou2 wo3, gam1 jat6.",
+      "english": "Not yet, I'm going for yum cha shortly. Nice weather today.",
+      "audioFile": "lift-04.mp3"
+    },
+    {
+      "id": "lift-05",
+      "speaker": "neighbour",
+      "cjk": "係呀，出去行吓囉。呢層？",
+      "jyutping": "hai6 aa3, ceot1 heoi3 haang4 haa5 lo3. ni1 cang4?",
+      "english": "Yes, good day for a walk. This floor?",
+      "audioFile": "lift-05.mp3"
+    },
+    {
+      "id": "lift-06",
+      "speaker": "you",
+      "cjk": "係，多謝。拜拜！",
+      "jyutping": "hai6, do1 ze6. baai1 baai3!",
+      "english": "Yes, thank you. Bye bye!",
+      "audioFile": "lift-06.mp3"
+    }
+  ]
+}

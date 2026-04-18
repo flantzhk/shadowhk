@@ -1,0 +1,79 @@
+{
+  "id": "chinese-new-year",
+  "language": "cantonese",
+  "emoji": "🧧",
+  "title": "Chinese New Year greetings",
+  "description": "Exchange New Year wishes and receive a lai see red packet",
+  "category": "festivals",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "Family home visit, Lunar New Year",
+  "context": "Lunar New Year (農曆新年) is the biggest celebration in the Chinese calendar. In Hong Kong, people visit relatives, exchange greetings (拜年), and give red packets of money (利是 lai si). Saying the right greetings matters — elders appreciate the effort.",
+  "culturalFact": "Cantonese New Year greetings are famously punchy and specific. '恭喜發財' means 'wishing you prosperity' but in HK the classic reply is '利是逗來' — 'hand over the red packet!' It's a playful tradition between children and adults.",
+  "lines": [
+    {
+      "id": "cny-01",
+      "speaker": "you",
+      "cjk": "新年快樂，恭喜發財！",
+      "jyutping": "san1 nin4 faai3 lok6, gung1 hei2 faat3 coi4!",
+      "english": "Happy New Year, wishing you prosperity!",
+      "audioFile": "cny-01.mp3"
+    },
+    {
+      "id": "cny-02",
+      "speaker": "elder",
+      "cjk": "恭喜恭喜！身體健康，萬事如意！",
+      "jyutping": "gung1 hei2 gung1 hei2! san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3!",
+      "english": "Congratulations! Wishing you good health and all the best!",
+      "audioFile": "cny-02.mp3"
+    },
+    {
+      "id": "cny-03",
+      "speaker": "you",
+      "cjk": "多謝！希望你今年身體健康，萬事如意。",
+      "jyutping": "do1 ze6! hei1 mong6 nei5 gam1 nin4 san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3.",
+      "english": "Thank you! I hope you have good health and all good things this year.",
+      "audioFile": "cny-03.mp3"
+    },
+    {
+      "id": "cny-04",
+      "speaker": "elder",
+      "cjk": "嚟，利是逗你。",
+      "jyutping": "lei4, lai6 si6 dau3 nei5.",
+      "english": "Here, a red packet for you.",
+      "audioFile": "cny-04.mp3"
+    },
+    {
+      "id": "cny-05",
+      "speaker": "you",
+      "cjk": "多謝晒！好意收下喇。",
+      "jyutping": "do1 ze6 saai3! hou2 ji3 sau1 haa5 laa3.",
+      "english": "Thank you so much! I gratefully accept.",
+      "audioFile": "cny-05.mp3"
+    },
+    {
+      "id": "cny-06",
+      "speaker": "elder",
+      "cjk": "你今年有咩打算？",
+      "jyutping": "nei5 gam1 nin4 jau5 me1 daa2 syun3?",
+      "english": "What are your plans for this year?",
+      "audioFile": "cny-06.mp3"
+    },
+    {
+      "id": "cny-07",
+      "speaker": "you",
+      "cjk": "希望今年廣東話學得好啲，多嚟香港。",
+      "jyutping": "hei1 mong6 gam1 nin4 gwong2 dung1 waa2 hok6 dak1 hou2 di1, do1 lei4 hoeng1 gong2.",
+      "english": "I hope to improve my Cantonese this year, and visit Hong Kong more often.",
+      "audioFile": "cny-07.mp3"
+    },
+    {
+      "id": "cny-08",
+      "speaker": "elder",
+      "cjk": "好嘢！你廣東話越講越好㗎喇！",
+      "jyutping": "hou2 je5! nei5 gwong2 dung1 waa2 jyut6 gong2 jyut6 hou2 ga3 laa3!",
+      "english": "Excellent! Your Cantonese just keeps getting better!",
+      "audioFile": "cny-08.mp3"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "school-gate",
+  "language": "cantonese",
+  "emoji": "🏫",
+  "title": "Chatting at the school gate",
+  "description": "Make small talk with another parent while waiting to pick up the kids",
+  "category": "social",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "Primary school gate, Sai Kung",
+  "context": "School pick-up in Hong Kong is a social ritual. Parents and domestic helpers gather at the gate from around 3pm. It's a good place to hear relaxed, everyday Cantonese — gossip, homework complaints, and weekend plans.",
+  "culturalFact": "Hong Kong students consistently rank among the world's top performers in reading and maths (PISA). Parents here put huge emphasis on education — extracurricular tutoring (補習) is so common that entire malls are dedicated to tutoring centres.",
+  "lines": [
+    {
+      "id": "school-01",
+      "speaker": "parent",
+      "cjk": "你個仔係幾年級㗎？",
+      "jyutping": "nei5 go3 zai2 hai6 gei2 nin4 kap1 ga3?",
+      "english": "What year is your son in?",
+      "audioFile": "school-01.mp3"
+    },
+    {
+      "id": "school-02",
+      "speaker": "you",
+      "cjk": "小三，你呢？",
+      "jyutping": "siu2 saam1, nei5 ne1?",
+      "english": "Primary Three, and yours?",
+      "audioFile": "school-02.mp3"
+    },
+    {
+      "id": "school-03",
+      "speaker": "parent",
+      "cjk": "我個女係小四。佢哋係同一間學校呀，可能識㗎。",
+      "jyutping": "ngo5 go3 neoi2 hai6 siu2 sei3. keoi5 dei6 hai6 tung4 jat1 gaan1 hok6 haau6 aa3, ho2 nang4 sik1 ga3.",
+      "english": "My daughter is in Primary Four. They're in the same school, they might know each other.",
+      "audioFile": "school-03.mp3"
+    },
+    {
+      "id": "school-04",
+      "speaker": "you",
+      "cjk": "係囉！你個女叫咩名？",
+      "jyutping": "hai6 lo3! nei5 go3 neoi2 giu3 me1 meng2?",
+      "english": "Oh really! What's your daughter's name?",
+      "audioFile": "school-04.mp3"
+    },
+    {
+      "id": "school-05",
+      "speaker": "parent",
+      "cjk": "佢叫嘉嘉。你個仔叫？",
+      "jyutping": "keoi5 giu3 gaa1 gaa1. nei5 go3 zai2 giu3?",
+      "english": "She's called Ka Ka. And your son?",
+      "audioFile": "school-05.mp3"
+    },
+    {
+      "id": "school-06",
+      "speaker": "you",
+      "cjk": "佢叫阿明。佢放學鍾意打波，你個女呢？",
+      "jyutping": "keoi5 giu3 aa3 ming4. keoi5 fong3 hok6 zung1 ji3 daa2 bo1, nei5 go3 neoi2 ne1?",
+      "english": "He's called Ming. After school he loves playing ball. What about your daughter?",
+      "audioFile": "school-06.mp3"
+    },
+    {
+      "id": "school-07",
+      "speaker": "parent",
+      "cjk": "佢去學鋼琴，又去補習。好忙㗎，小朋友。",
+      "jyutping": "keoi5 heoi3 hok6 gong3 kam4, jau6 heoi3 bou2 zaap6. hou2 mong4 ga3, siu2 pang4 jau5.",
+      "english": "She does piano, and also tutoring. Kids are so busy these days.",
+      "audioFile": "school-07.mp3"
+    },
+    {
+      "id": "school-08",
+      "speaker": "you",
+      "cjk": "係呀。好喇，啱啱見到我個仔出嚟喇。拜拜！",
+      "jyutping": "hai6 aa3. hou2 laa3, ngaam1 ngaam1 gin3 dou2 ngo5 go3 zai2 ceot1 lei4 laa3. baai1 baai3!",
+      "english": "Yes, indeed. OK, I can see my son coming out now. Bye bye!",
+      "audioFile": "school-08.mp3"
+    }
+  ]
+}

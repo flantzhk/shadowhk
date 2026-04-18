@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './PracticeScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { getDueByLanguage as getDueEntries } from '../../services/srs.js';
 import { getLibraryEntries } from '../../services/storage.js';
 
@@ -13,7 +13,7 @@ const FOCUS_OPTIONS = [
 ];
 
 export default function PracticeScreen({ onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [time, setTime] = useState(10);

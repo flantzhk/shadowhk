@@ -1,0 +1,79 @@
+{
+  "id": "bakery",
+  "language": "cantonese",
+  "emoji": "🍞",
+  "title": "Ordering at a HK bakery",
+  "description": "Buy a pineapple bun and wife cake at a traditional Hong Kong bakery",
+  "category": "food",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "Tai Cheong Bakery, Central",
+  "context": "Hong Kong bakeries (餅店) are a blend of Chinese and Western influences. Pineapple buns (菠蘿包) are arguably HK's most iconic pastry — despite the name, there's no pineapple in them. Wife cakes (老婆餅) are a sweet flaky pastry with winter melon filling.",
+  "culturalFact": "The pineapple bun gets its name from the crinkled golden crust that looks like a pineapple skin. In 2014 it was granted 'intangible cultural heritage' status by the HK government — a serious honour for a bun.",
+  "lines": [
+    {
+      "id": "bakery-01",
+      "speaker": "you",
+      "cjk": "唔該，要兩個菠蘿包。",
+      "jyutping": "m4 goi1, jiu3 loeng5 go3 bo1 lo4 baau1.",
+      "english": "Excuse me, I'd like two pineapple buns.",
+      "audioFile": "bakery-01.mp3"
+    },
+    {
+      "id": "bakery-02",
+      "speaker": "staff",
+      "cjk": "要唔要加牛油？",
+      "jyutping": "jiu3 m4 jiu3 gaa1 ngau4 jau4?",
+      "english": "Would you like butter added?",
+      "audioFile": "bakery-02.mp3"
+    },
+    {
+      "id": "bakery-03",
+      "speaker": "you",
+      "cjk": "要，加牛油。仲要兩件老婆餅。",
+      "jyutping": "jiu3, gaa1 ngau4 jau4. zung6 jiu3 loeng5 gin6 lou5 po4 beng2.",
+      "english": "Yes, with butter. And two wife cakes as well.",
+      "audioFile": "bakery-03.mp3"
+    },
+    {
+      "id": "bakery-04",
+      "speaker": "staff",
+      "cjk": "老婆餅係剛出爐㗎，好香㗎。",
+      "jyutping": "lou5 po4 beng2 hai6 gong1 ceot1 lou4 ga3, hou2 hoeng1 ga3.",
+      "english": "The wife cakes just came out of the oven, they smell great.",
+      "audioFile": "bakery-04.mp3"
+    },
+    {
+      "id": "bakery-05",
+      "speaker": "you",
+      "cjk": "好嘢！一共幾多錢？",
+      "jyutping": "hou2 je5! jat1 gung6 gei2 do1 cin2?",
+      "english": "Great! How much altogether?",
+      "audioFile": "bakery-05.mp3"
+    },
+    {
+      "id": "bakery-06",
+      "speaker": "staff",
+      "cjk": "三十八蚊。",
+      "jyutping": "saam1 sap6 baat3 man1.",
+      "english": "Thirty-eight dollars.",
+      "audioFile": "bakery-06.mp3"
+    },
+    {
+      "id": "bakery-07",
+      "speaker": "you",
+      "cjk": "唔該，呢係四十蚊，唔使找。",
+      "jyutping": "m4 goi1, ni1 hai6 sei3 sap6 man1, m4 sai2 zaau2.",
+      "english": "Here's forty dollars, keep the change.",
+      "audioFile": "bakery-07.mp3"
+    },
+    {
+      "id": "bakery-08",
+      "speaker": "staff",
+      "cjk": "多謝！慢走。",
+      "jyutping": "do1 ze6! maan6 zau2.",
+      "english": "Thank you! Take care.",
+      "audioFile": "bakery-08.mp3"
+    }
+  ]
+}

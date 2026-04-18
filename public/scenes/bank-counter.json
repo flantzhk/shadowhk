@@ -1,0 +1,71 @@
+{
+  "id": "bank-counter",
+  "language": "cantonese",
+  "emoji": "🏦",
+  "title": "Enquiring at a bank counter",
+  "description": "Ask a teller about your account at an HSBC or Hang Seng branch",
+  "category": "services",
+  "difficulty": "confident",
+  "estimatedMinutes": 5,
+  "location": "HSBC branch, Central",
+  "context": "Hong Kong is a major financial hub — banking is taken seriously. Branch visits usually require taking a queue number from a machine. Bring your HKID and any relevant documents. Tellers are professional and patient with Cantonese learners.",
+  "culturalFact": "Hong Kong has one of the world's highest concentrations of bank branches per capita. HSBC, founded here in 1865 as the Hongkong and Shanghai Banking Corporation, still considers Hong Kong its spiritual home — its headquarters building in Central is one of the most photographed structures in the city.",
+  "lines": [
+    {
+      "id": "bank-01",
+      "speaker": "you",
+      "cjk": "唔該，我想查吓我個戶口嘅結餘。",
+      "jyutping": "m4 goi1, ngo5 soeng2 caa4 haa5 ngo5 go3 wu6 hau2 ge3 git3 jyu4.",
+      "english": "Excuse me, I'd like to check the balance of my account.",
+      "audioFile": "bank-01.mp3"
+    },
+    {
+      "id": "bank-02",
+      "speaker": "teller",
+      "cjk": "可以，請出示你嘅身份證。",
+      "jyutping": "ho2 ji5, cing2 ceot1 si6 nei5 ge3 san1 fan2 zing3.",
+      "english": "Certainly, please show me your ID card.",
+      "audioFile": "bank-02.mp3"
+    },
+    {
+      "id": "bank-03",
+      "speaker": "you",
+      "cjk": "呢係我嘅身份證。仲有，我想問吓有冇定期存款嘅計劃？",
+      "jyutping": "ni1 hai6 ngo5 ge3 san1 fan2 zing3. zung6 jau5, ngo5 soeng2 man6 haa5 jau5 mou5 ding6 kei4 cyun4 fun2 ge3 gai3 waak6?",
+      "english": "Here's my ID. Also, I'd like to ask about fixed deposit plans.",
+      "audioFile": "bank-03.mp3"
+    },
+    {
+      "id": "bank-04",
+      "speaker": "teller",
+      "cjk": "有，而家三個月定期年息係百分之三點二。",
+      "jyutping": "jau5, ji4 gaa1 saam1 go3 jyut6 ding6 kei4 nin4 sik1 hai6 baak3 fan1 zi1 saam1 dim2 ji6.",
+      "english": "Yes, the current three-month fixed deposit annual rate is 3.2 per cent.",
+      "audioFile": "bank-04.mp3"
+    },
+    {
+      "id": "bank-05",
+      "speaker": "you",
+      "cjk": "最低存款金額係幾多？",
+      "jyutping": "zeoi3 dai1 cyun4 fun2 gam1 ngaak6 hai6 gei2 do1?",
+      "english": "What is the minimum deposit amount?",
+      "audioFile": "bank-05.mp3"
+    },
+    {
+      "id": "bank-06",
+      "speaker": "teller",
+      "cjk": "最低係一萬蚊港幣。如果有興趣，我幫你填份申請表。",
+      "jyutping": "zeoi3 dai1 hai6 jat1 maan6 man1 gong2 bai6. jyu4 gwo2 jau5 hing3 ceoi3, ngo5 bong1 nei5 tin4 fan6 san1 cing2 biu2.",
+      "english": "The minimum is ten thousand Hong Kong dollars. If you're interested, I can help you fill in an application form.",
+      "audioFile": "bank-06.mp3"
+    },
+    {
+      "id": "bank-07",
+      "speaker": "you",
+      "cjk": "好，我考慮吓先。唔該晒！",
+      "jyutping": "hou2, ngo5 haau2 leoi6 haa5 sin1. m4 goi1 saai3!",
+      "english": "OK, I'll think about it first. Thank you so much!",
+      "audioFile": "bank-07.mp3"
+    }
+  ]
+}

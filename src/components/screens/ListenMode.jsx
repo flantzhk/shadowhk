@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './ListenMode.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { KaraokeLine } from '../ui/KaraokeLine.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { getAudioUrl } from '../../services/api.js';
@@ -8,7 +8,7 @@ import { getAudioUrl } from '../../services/api.js';
 const SPEEDS = [0.75, 1, 1.25];
 
 export default function ListenMode({ sceneId, onBack, onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [scene, setScene] = useState(null);

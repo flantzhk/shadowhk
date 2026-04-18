@@ -1,0 +1,71 @@
+{
+  "id": "mtr-station",
+  "language": "cantonese",
+  "emoji": "🚇",
+  "title": "At the MTR station",
+  "description": "Top up your Octopus card and find the right exit",
+  "category": "transport",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "Causeway Bay MTR Station",
+  "context": "The MTR is Hong Kong's metro system — clean, fast, and punctual to the minute. Every journey uses an Octopus card (八達通). Top-up machines are everywhere. If you're lost, station staff at the customer service counter (客務中心) will help.",
+  "culturalFact": "The MTR is the most profitable urban rail system in the world, partly because it also develops the real estate above each station. The approach is called 'Rail plus Property' and has been studied and copied by cities from Beijing to London.",
+  "lines": [
+    {
+      "id": "mtr-01",
+      "speaker": "you",
+      "cjk": "唔該，我想增值八達通。",
+      "jyutping": "m4 goi1, ngo5 soeng2 zang1 zik6 baat3 daat6 tung1.",
+      "english": "Excuse me, I'd like to top up my Octopus card.",
+      "audioFile": "mtr-01.mp3"
+    },
+    {
+      "id": "mtr-02",
+      "speaker": "staff",
+      "cjk": "增值機喺右手邊，可以自己增值㗎。",
+      "jyutping": "zang1 zik6 gei1 hai2 jau6 sau2 bin1, ho2 ji5 zi6 gei2 zang1 zik6 ga3.",
+      "english": "The top-up machine is on your right — you can do it yourself.",
+      "audioFile": "mtr-02.mp3"
+    },
+    {
+      "id": "mtr-03",
+      "speaker": "you",
+      "cjk": "好，多謝。請問去銅鑼灣出口幾號？",
+      "jyutping": "hou2, do1 ze6. cing2 man6 heoi3 tung4 lo4 waan1 ceot1 hau2 gei2 hou6?",
+      "english": "Great, thanks. Which exit number for Causeway Bay?",
+      "audioFile": "mtr-03.mp3"
+    },
+    {
+      "id": "mtr-04",
+      "speaker": "staff",
+      "cjk": "睇你去邊度。去時代廣場就出E號出口。",
+      "jyutping": "tai2 nei5 heoi3 bin1 dou6. heoi3 si4 doi6 gwong2 coeng4 zau6 ceot1 E hou6 ceot1 hau2.",
+      "english": "Depends where you're going. For Times Square, take Exit E.",
+      "audioFile": "mtr-04.mp3"
+    },
+    {
+      "id": "mtr-05",
+      "speaker": "you",
+      "cjk": "我去維多利亞公園。",
+      "jyutping": "ngo5 heoi3 wai4 do1 lei6 aa3 gung1 jyun2.",
+      "english": "I'm going to Victoria Park.",
+      "audioFile": "mtr-05.mp3"
+    },
+    {
+      "id": "mtr-06",
+      "speaker": "staff",
+      "cjk": "噉出A號出口，行直就到㗎喇。",
+      "jyutping": "gam2 ceot1 A hou6 ceot1 hau2, haang4 zik6 zau6 dou3 ga3 laa3.",
+      "english": "Then take Exit A and go straight — you'll get there.",
+      "audioFile": "mtr-06.mp3"
+    },
+    {
+      "id": "mtr-07",
+      "speaker": "you",
+      "cjk": "明白喇，唔該晒！",
+      "jyutping": "ming4 baak6 laa3, m4 goi1 saai3!",
+      "english": "Got it, thank you so much!",
+      "audioFile": "mtr-07.mp3"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "building-management",
+  "language": "cantonese",
+  "emoji": "🏢",
+  "title": "Talking to the building manager",
+  "description": "Report a maintenance issue to the 大廈管理員",
+  "category": "services",
+  "difficulty": "confident",
+  "estimatedMinutes": 5,
+  "location": "Residential building management office, North Point",
+  "context": "Every residential building in Hong Kong has a management office (管理處) and a 管理員 (guard/manager) on duty around the clock. They handle maintenance requests, parcel collection, and building rules. It helps to be polite and specific about your issue.",
+  "culturalFact": "The Owners' Corporation (業主立案法團) is a legally constituted body that manages a building's common areas. Virtually every multi-unit building in HK has one. They collect management fees, hire staff, and decide on repairs — a small but real form of local democracy.",
+  "lines": [
+    {
+      "id": "bldg-01",
+      "speaker": "you",
+      "cjk": "唔該，我係三零六室嘅住客。我想報告一個問題。",
+      "jyutping": "m4 goi1, ngo5 hai6 saam1 ling4 luk6 sat1 ge3 zyu6 haak3. ngo5 soeng2 bou3 gou3 jat1 go3 man6 tai4.",
+      "english": "Excuse me, I'm a resident of flat 306. I'd like to report a problem.",
+      "audioFile": "bldg-01.mp3"
+    },
+    {
+      "id": "bldg-02",
+      "speaker": "manager",
+      "cjk": "咩問題㗎？",
+      "jyutping": "me1 man6 tai4 ga3?",
+      "english": "What's the problem?",
+      "audioFile": "bldg-02.mp3"
+    },
+    {
+      "id": "bldg-03",
+      "speaker": "you",
+      "cjk": "走廊盞燈壞咗，黑晒。",
+      "jyutping": "zau2 long4 zaan2 dang1 waai6 zo2, hak1 saai3.",
+      "english": "The corridor light is broken — it's completely dark.",
+      "audioFile": "bldg-03.mp3"
+    },
+    {
+      "id": "bldg-04",
+      "speaker": "manager",
+      "cjk": "係幾樓走廊㗎？",
+      "jyutping": "hai6 gei2 lau4 zau2 long4 ga3?",
+      "english": "Which floor's corridor?",
+      "audioFile": "bldg-04.mp3"
+    },
+    {
+      "id": "bldg-05",
+      "speaker": "you",
+      "cjk": "係三樓，電梯出嚟轉右個走廊。",
+      "jyutping": "hai6 saam1 lau4, din6 tai1 ceot1 lei4 zyun3 jau6 go3 zau2 long4.",
+      "english": "Third floor, the corridor to the right when you exit the lift.",
+      "audioFile": "bldg-05.mp3"
+    },
+    {
+      "id": "bldg-06",
+      "speaker": "manager",
+      "cjk": "明白，我幫你記低，今日下午安排人去換燈。",
+      "jyutping": "ming4 baak6, ngo5 bong1 nei5 gei3 dai1, gam1 jat6 haa6 zau3 on1 paai4 jan4 heoi3 wun6 dang1.",
+      "english": "Understood, I'll make a note. We'll arrange for someone to replace the bulb this afternoon.",
+      "audioFile": "bldg-06.mp3"
+    },
+    {
+      "id": "bldg-07",
+      "speaker": "you",
+      "cjk": "好，唔該晒。有咩需要簽名冇？",
+      "jyutping": "hou2, m4 goi1 saai3. jau5 me1 seoi1 jiu3 cim1 meng2 mou5?",
+      "english": "Great, thank you. Do I need to sign anything?",
+      "audioFile": "bldg-07.mp3"
+    },
+    {
+      "id": "bldg-08",
+      "speaker": "manager",
+      "cjk": "唔使，我幫你填㗎喇。",
+      "jyutping": "m4 sai2, ngo5 bong1 nei5 tin4 ga3 laa3.",
+      "english": "No need, I'll fill it in for you.",
+      "audioFile": "bldg-08.mp3"
+    }
+  ]
+}

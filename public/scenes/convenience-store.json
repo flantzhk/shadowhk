@@ -1,0 +1,71 @@
+{
+  "id": "convenience-store",
+  "language": "cantonese",
+  "emoji": "🏪",
+  "title": "Shopping at 7-Eleven",
+  "description": "Buy snacks and a drink, use your Octopus card to pay",
+  "category": "food",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "7-Eleven, Causeway Bay",
+  "context": "Hong Kong has over 1,000 convenience stores — 7-Eleven and Circle K on almost every corner. You can pay bills, top up Octopus cards, and pick up a hot meal. Staff are used to being busy; keep it short and friendly.",
+  "culturalFact": "Hong Kong has the highest density of 7-Eleven stores in the world — roughly one per 6,000 residents. The stores never close and many locals use them as a second kitchen, grabbing instant noodles or a hot dog for breakfast.",
+  "lines": [
+    {
+      "id": "conv-01",
+      "speaker": "you",
+      "cjk": "唔該，呢個幾多錢？",
+      "jyutping": "m4 goi1, ni1 go3 gei2 do1 cin2?",
+      "english": "Excuse me, how much is this?",
+      "audioFile": "conv-01.mp3"
+    },
+    {
+      "id": "conv-02",
+      "speaker": "staff",
+      "cjk": "七蚊半。",
+      "jyutping": "cat1 man1 bun3.",
+      "english": "Seven dollars fifty.",
+      "audioFile": "conv-02.mp3"
+    },
+    {
+      "id": "conv-03",
+      "speaker": "you",
+      "cjk": "好，仲要一支水。",
+      "jyutping": "hou2, zung6 jiu3 jat1 zi1 seoi2.",
+      "english": "OK, and a bottle of water too.",
+      "audioFile": "conv-03.mp3"
+    },
+    {
+      "id": "conv-04",
+      "speaker": "staff",
+      "cjk": "一共十四蚊半。",
+      "jyutping": "jat1 gung6 sap6 sei3 man1 bun3.",
+      "english": "Fourteen dollars fifty altogether.",
+      "audioFile": "conv-04.mp3"
+    },
+    {
+      "id": "conv-05",
+      "speaker": "you",
+      "cjk": "用八達通得唔得？",
+      "jyutping": "jung6 baat3 daat6 tung1 dak1 m4 dak1?",
+      "english": "Can I pay with Octopus card?",
+      "audioFile": "conv-05.mp3"
+    },
+    {
+      "id": "conv-06",
+      "speaker": "staff",
+      "cjk": "得㗎，嗶一嗶喇。",
+      "jyutping": "dak1 ga3, bit1 jat1 bit1 laa3.",
+      "english": "Yes, go ahead and tap it.",
+      "audioFile": "conv-06.mp3"
+    },
+    {
+      "id": "conv-07",
+      "speaker": "you",
+      "cjk": "多謝！",
+      "jyutping": "do1 ze6!",
+      "english": "Thank you!",
+      "audioFile": "conv-07.mp3"
+    }
+  ]
+}

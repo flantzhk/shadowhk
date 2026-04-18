@@ -1,0 +1,79 @@
+{
+  "id": "mid-autumn",
+  "language": "cantonese",
+  "emoji": "🥮",
+  "title": "Mid-Autumn Festival in the park",
+  "description": "Chat with a local family at a Mid-Autumn celebration in Victoria Park",
+  "category": "festivals",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "Victoria Park, Causeway Bay",
+  "context": "Mid-Autumn Festival (中秋節) falls on the 15th day of the eighth lunar month. Hong Kong families gather in parks with lanterns, mooncakes, and candles. Victoria Park in Causeway Bay hosts the biggest public celebration. The atmosphere is festive and relaxed.",
+  "culturalFact": "Hong Kong's Mid-Autumn is unique: traditional paper lanterns (燈籠) sit alongside battery-powered cartoon characters, and the parks glow with thousands of candles until midnight. The event was once cancelled for years due to COVID and its return in 2023 drew record crowds.",
+  "lines": [
+    {
+      "id": "midaut-01",
+      "speaker": "local",
+      "cjk": "中秋節快樂！你嘅燈籠好靚㗎。",
+      "jyutping": "zung1 cau1 zit3 faai3 lok6! nei5 ge3 dang1 lung4 hou2 leng3 ga3.",
+      "english": "Happy Mid-Autumn Festival! Your lantern is beautiful.",
+      "audioFile": "midaut-01.mp3"
+    },
+    {
+      "id": "midaut-02",
+      "speaker": "you",
+      "cjk": "中秋節快樂！係我自己整㗎，整得唔係好靚。",
+      "jyutping": "zung1 cau1 zit3 faai3 lok6! hai6 ngo5 zi6 gei2 zing2 ga3, zing2 dak1 m4 hai6 hou2 leng3.",
+      "english": "Happy Mid-Autumn! I made it myself — it's not very good.",
+      "audioFile": "midaut-02.mp3"
+    },
+    {
+      "id": "midaut-03",
+      "speaker": "local",
+      "cjk": "係囉，自己整有心機㗎！食咗月餅未？",
+      "jyutping": "hai6 lo3, zi6 gei2 zing2 jau5 sam1 gei1 ga3! sik6 zo2 jyut6 beng2 mei6?",
+      "english": "It's the effort that counts! Have you eaten mooncake yet?",
+      "audioFile": "midaut-03.mp3"
+    },
+    {
+      "id": "midaut-04",
+      "speaker": "you",
+      "cjk": "仲未，你有冇帶？",
+      "jyutping": "zung6 mei6, nei5 jau5 mou5 daai3?",
+      "english": "Not yet — have you brought some?",
+      "audioFile": "midaut-04.mp3"
+    },
+    {
+      "id": "midaut-05",
+      "speaker": "local",
+      "cjk": "有㗎，嚟，食塊蓮蓉蛋黃㗎。",
+      "jyutping": "jau5 ga3, lei4, sik6 faai3 lin4 jung4 daan6 wong2 ga3.",
+      "english": "Yes, here — have a slice of lotus paste with egg yolk.",
+      "audioFile": "midaut-05.mp3"
+    },
+    {
+      "id": "midaut-06",
+      "speaker": "you",
+      "cjk": "多謝！好食㗎，好香。你哋成家人嚟㗎？",
+      "jyutping": "do1 ze6! hou2 sik6 ga3, hou2 hoeng1. nei5 dei6 sing4 gaa1 jan4 lei4 ga3?",
+      "english": "Thank you! It's delicious, so fragrant. Did your whole family come?",
+      "audioFile": "midaut-06.mp3"
+    },
+    {
+      "id": "midaut-07",
+      "speaker": "local",
+      "cjk": "係囉，每年都嚟維園。呢個係我囡囡，佢最鍾意提燈籠。",
+      "jyutping": "hai6 lo3, mui5 nin4 dou1 lei4 wai4 jyun4. ni1 go3 hai6 ngo5 neoi2 neoi2, keoi5 zeoi3 zung1 ji3 tai4 dang1 lung4.",
+      "english": "Yes, we come to Victoria Park every year. This is my daughter — she loves carrying lanterns.",
+      "audioFile": "midaut-07.mp3"
+    },
+    {
+      "id": "midaut-08",
+      "speaker": "you",
+      "cjk": "好可愛！香港嘅中秋節真係好有氣氛。",
+      "jyutping": "hou2 ho2 oi3! hoeng1 gong2 ge3 zung1 cau1 zit3 zan1 hai6 hou2 jau5 hei3 fan1.",
+      "english": "So cute! Mid-Autumn in Hong Kong really has a wonderful atmosphere.",
+      "audioFile": "midaut-08.mp3"
+    }
+  ]
+}

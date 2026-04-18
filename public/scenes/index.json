@@ -1,3 +1,22 @@
 [
-  { "id": "cha-chaan-teng", "language": "cantonese" }
+  { "id": "cha-chaan-teng", "language": "cantonese" },
+  { "id": "wet-market", "language": "cantonese" },
+  { "id": "dim-sum", "language": "cantonese" },
+  { "id": "convenience-store", "language": "cantonese" },
+  { "id": "pharmacy", "language": "cantonese" },
+  { "id": "bakery", "language": "cantonese" },
+  { "id": "mtr-station", "language": "cantonese" },
+  { "id": "minibus", "language": "cantonese" },
+  { "id": "taxi", "language": "cantonese" },
+  { "id": "ferry", "language": "cantonese" },
+  { "id": "neighbour-lift", "language": "cantonese" },
+  { "id": "school-gate", "language": "cantonese" },
+  { "id": "hair-salon", "language": "cantonese" },
+  { "id": "temple-visit", "language": "cantonese" },
+  { "id": "post-office", "language": "cantonese" },
+  { "id": "doctor-clinic", "language": "cantonese" },
+  { "id": "bank-counter", "language": "cantonese" },
+  { "id": "building-management", "language": "cantonese" },
+  { "id": "chinese-new-year", "language": "cantonese" },
+  { "id": "mid-autumn", "language": "cantonese" }
 ]

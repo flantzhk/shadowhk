@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './LibraryScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseTile } from '../ui/PhraseTile.jsx';
 import { GrowthBadge } from '../ui/GrowthBadge.jsx';
 import { getLibraryEntries } from '../../services/storage.js';
@@ -33,7 +33,7 @@ const SOURCE_LABELS = {
 };
 
 export default function LibraryScreen({ onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [library, setLibrary] = useState([]);

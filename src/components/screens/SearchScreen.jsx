@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './SearchScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseTile } from '../ui/PhraseTile.jsx';
 import { GrowthBadge } from '../ui/GrowthBadge.jsx';
 import { SourceTag } from '../ui/SourceTag.jsx';
@@ -16,7 +16,7 @@ const SOURCE_OPTIONS = [
 ];
 
 export default function SearchScreen({ onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [query, setQuery] = useState('');

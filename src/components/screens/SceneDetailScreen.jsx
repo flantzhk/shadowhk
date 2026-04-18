@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './SceneDetailScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { Bubble } from '../ui/Bubble.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry } from '../../services/storage.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [scene, setScene] = useState(null);

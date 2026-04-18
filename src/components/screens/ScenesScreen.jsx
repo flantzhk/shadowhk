@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ScenesScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { SceneCard } from '../ui/SceneCard.jsx';
 import { getAllScenes, getScenesByCategory } from '../../services/sceneLoader.js';
 import { getAllSceneProgress } from '../../services/storage.js';
@@ -15,7 +15,7 @@ const CATEGORY_LABELS = {
 };
 
 export default function ScenesScreen({ onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [scenes, setScenes] = useState([]);

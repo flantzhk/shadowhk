@@ -1,0 +1,87 @@
+{
+  "id": "wet-market",
+  "language": "cantonese",
+  "emoji": "🥬",
+  "title": "Buying vegetables at the wet market",
+  "description": "Pick out fresh veg, ask the price, and haggle a little",
+  "category": "food",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "Wet market, Sham Shui Po",
+  "context": "Hong Kong wet markets (街市) sell fresh produce, meat, and fish every morning. Vendors are fast-talking and friendly — they appreciate customers who try Cantonese. Get there before 10am for the best picks.",
+  "culturalFact": "HK's wet markets are called 'wet' because the floors are hosed down constantly to keep fish and meat fresh. Most vendors have occupied the same stall for decades, sometimes passing the pitch down through generations.",
+  "lines": [
+    {
+      "id": "wet-mkt-01",
+      "speaker": "you",
+      "cjk": "唔該，呢啲菜幾多錢一斤？",
+      "jyutping": "m4 goi1, ni1 di1 coi3 gei2 do1 cin2 jat1 gan1?",
+      "english": "Excuse me, how much is this vegetable per catty?",
+      "audioFile": "wet-mkt-01.mp3"
+    },
+    {
+      "id": "wet-mkt-02",
+      "speaker": "vendor",
+      "cjk": "六蚊一斤，新鮮㗎，今朝剛到。",
+      "jyutping": "luk6 man1 jat1 gan1, san1 sin1 ga3, gam1 ziu1 gong1 dou3.",
+      "english": "Six dollars a catty, very fresh, just arrived this morning.",
+      "audioFile": "wet-mkt-02.mp3"
+    },
+    {
+      "id": "wet-mkt-03",
+      "speaker": "you",
+      "cjk": "要兩斤，唔該。",
+      "jyutping": "jiu3 loeng5 gan1, m4 goi1.",
+      "english": "Two catties please.",
+      "audioFile": "wet-mkt-03.mp3"
+    },
+    {
+      "id": "wet-mkt-04",
+      "speaker": "vendor",
+      "cjk": "好，我幫你執靚啲。仲要啲咩？",
+      "jyutping": "hou2, ngo5 bong1 nei5 zap1 leng3 di1. zung6 jiu3 di1 me1?",
+      "english": "OK, I'll pick the nice ones for you. Anything else?",
+      "audioFile": "wet-mkt-04.mp3"
+    },
+    {
+      "id": "wet-mkt-05",
+      "speaker": "you",
+      "cjk": "有冇番茄？",
+      "jyutping": "jau5 mou5 faan1 ke2?",
+      "english": "Do you have tomatoes?",
+      "audioFile": "wet-mkt-05.mp3"
+    },
+    {
+      "id": "wet-mkt-06",
+      "speaker": "vendor",
+      "cjk": "有，喺後面。一盒十蚊，甜㗎。",
+      "jyutping": "jau5, hai2 hau6 min6. jat1 hap2 sap6 man1, tim4 ga3.",
+      "english": "Yes, at the back. Ten dollars a box, they're sweet.",
+      "audioFile": "wet-mkt-06.mp3"
+    },
+    {
+      "id": "wet-mkt-07",
+      "speaker": "you",
+      "cjk": "好，要一盒。一共幾多錢？",
+      "jyutping": "hou2, jiu3 jat1 hap2. jat1 gung6 gei2 do1 cin2?",
+      "english": "OK, one box. How much is it altogether?",
+      "audioFile": "wet-mkt-07.mp3"
+    },
+    {
+      "id": "wet-mkt-08",
+      "speaker": "vendor",
+      "cjk": "二十二蚊，俾二十蚊得㗎喇，算你平啲。",
+      "jyutping": "ji6 sap6 ji6 man1, bei2 ji6 sap6 man1 dak1 ga3 laa3, syun3 nei5 peng4 di1.",
+      "english": "Twenty-two dollars — just give me twenty, I'll give you a deal.",
+      "audioFile": "wet-mkt-08.mp3"
+    },
+    {
+      "id": "wet-mkt-09",
+      "speaker": "you",
+      "cjk": "好，多謝晒！",
+      "jyutping": "hou2, do1 ze6 saai3!",
+      "english": "Great, thank you so much!",
+      "audioFile": "wet-mkt-09.mp3"
+    }
+  ]
+}

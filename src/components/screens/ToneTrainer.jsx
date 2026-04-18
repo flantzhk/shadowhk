@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ToneTrainer.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
 import { Wave } from '../ui/Wave.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
@@ -11,7 +11,7 @@ import { updateAfterPractice } from '../../services/srs.js';
 const REPS = 10;
 
 export default function ToneTrainer({ onBack }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [phrase, setPhrase] = useState(null);

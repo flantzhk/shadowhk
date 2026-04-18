@@ -1,0 +1,71 @@
+{
+  "id": "hair-salon",
+  "language": "cantonese",
+  "emoji": "✂️",
+  "title": "Getting a haircut at a local salon",
+  "description": "Tell the stylist what cut you want and chat while they work",
+  "category": "social",
+  "difficulty": "everyday",
+  "estimatedMinutes": 6,
+  "location": "Local hair salon, Sheung Wan",
+  "context": "Neighbourhood hair salons (髮廊) in Hong Kong are a social hub as much as a service. The stylist will chat throughout your cut — it's considered friendly. Be clear about what you want: length, style, fringe or no fringe.",
+  "culturalFact": "Hong Kong's beauty industry is huge — there are more than 12,000 registered hairdressing establishments in the city. Many neighbourhood salons have been in the same family for two or three generations and are beloved institutions in their street.",
+  "lines": [
+    {
+      "id": "salon-01",
+      "speaker": "you",
+      "cjk": "唔該，我想剪頭髮。",
+      "jyutping": "m4 goi1, ngo5 soeng2 zin2 tau4 faat3.",
+      "english": "Excuse me, I'd like a haircut.",
+      "audioFile": "salon-01.mp3"
+    },
+    {
+      "id": "salon-02",
+      "speaker": "stylist",
+      "cjk": "好，坐低先。想點剪？",
+      "jyutping": "hou2, co5 dai1 sin1. soeng2 dim2 zin2?",
+      "english": "Sure, have a seat. How would you like it cut?",
+      "audioFile": "salon-02.mp3"
+    },
+    {
+      "id": "salon-03",
+      "speaker": "you",
+      "cjk": "剪短啲，但係唔好剪太短。兩側薄返。",
+      "jyutping": "zin2 dyun2 di1, daan6 hai6 m4 hou2 zin2 taai3 dyun2. loeng5 zak1 bok6 faan1.",
+      "english": "Shorter, but not too short. Thin out the sides.",
+      "audioFile": "salon-03.mp3"
+    },
+    {
+      "id": "salon-04",
+      "speaker": "stylist",
+      "cjk": "好，有冇留瀏海？",
+      "jyutping": "hou2, jau5 mou5 lau4 lau4 hoi2?",
+      "english": "OK, do you want a fringe?",
+      "audioFile": "salon-04.mp3"
+    },
+    {
+      "id": "salon-05",
+      "speaker": "you",
+      "cjk": "唔使留瀏海，唔該。",
+      "jyutping": "m4 sai2 lau4 lau4 hoi2, m4 goi1.",
+      "english": "No fringe please.",
+      "audioFile": "salon-05.mp3"
+    },
+    {
+      "id": "salon-06",
+      "speaker": "stylist",
+      "cjk": "好靚㗎，你剪完啱曬。係幾多錢呀？八十蚊。",
+      "jyutping": "hou2 leng3 ga3, nei5 zin2 jyun4 ngaam1 saai3. hai6 gei2 do1 cin2 aa3? baat3 sap6 man1.",
+      "english": "It'll look great on you. How much? Eighty dollars.",
+      "audioFile": "salon-06.mp3"
+    },
+    {
+      "id": "salon-07",
+      "speaker": "you",
+      "cjk": "好，多謝！剪得好靚。",
+      "jyutping": "hou2, do1 ze6! zin2 dak1 hou2 leng3.",
+      "english": "Great, thank you! It looks really nice.",
+      "audioFile": "salon-07.mp3"
+    }
+  ]
+}

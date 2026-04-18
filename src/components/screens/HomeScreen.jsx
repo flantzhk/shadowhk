@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './HomeScreen.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { SceneCard } from '../ui/SceneCard.jsx';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
 
 export default function HomeScreen({ onNavigate }) {
-  const { settings } = useContext(AppContext);
+  const { settings } = useAppContext();
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
 

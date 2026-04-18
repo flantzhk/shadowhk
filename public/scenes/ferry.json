@@ -1,0 +1,71 @@
+{
+  "id": "ferry",
+  "language": "cantonese",
+  "emoji": "⛴️",
+  "title": "Taking the Star Ferry",
+  "description": "Buy a ticket and board the Star Ferry across Victoria Harbour",
+  "category": "transport",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "Star Ferry Pier, Tsim Sha Tsui",
+  "context": "The Star Ferry has crossed Victoria Harbour since 1888. It links Tsim Sha Tsui (Kowloon) to Central and Wan Chai on Hong Kong Island. The upper deck costs a little more but the view is one of the best in the world. Trips take about 8 minutes.",
+  "culturalFact": "In 1966, a proposed Star Ferry fare increase of 5 cents triggered three days of riots in Kowloon — a sign of how central the ferry was to working-class daily life. The current fare is still among the cheapest harbour crossings of any major city.",
+  "lines": [
+    {
+      "id": "ferry-01",
+      "speaker": "you",
+      "cjk": "唔該，去中環要幾多錢？",
+      "jyutping": "m4 goi1, heoi3 zung1 waan4 jiu3 gei2 do1 cin2?",
+      "english": "Excuse me, how much is it to Central?",
+      "audioFile": "ferry-01.mp3"
+    },
+    {
+      "id": "ferry-02",
+      "speaker": "staff",
+      "cjk": "上層六蚊，下層五蚊。",
+      "jyutping": "soeng6 cang4 luk6 man1, haa6 cang4 ng5 man1.",
+      "english": "Upper deck six dollars, lower deck five dollars.",
+      "audioFile": "ferry-02.mp3"
+    },
+    {
+      "id": "ferry-03",
+      "speaker": "you",
+      "cjk": "要一張上層，多謝。",
+      "jyutping": "jiu3 jat1 zoeng1 soeng6 cang4, do1 ze6.",
+      "english": "One upper deck ticket please, thank you.",
+      "audioFile": "ferry-03.mp3"
+    },
+    {
+      "id": "ferry-04",
+      "speaker": "staff",
+      "cjk": "呢係你張飛，下一班係十五分鐘後。",
+      "jyutping": "ni1 hai6 nei5 zoeng1 fei1, haa6 jat1 baan1 hai6 sap6 ng5 fan1 zung1 hau6.",
+      "english": "Here's your ticket, the next departure is in fifteen minutes.",
+      "audioFile": "ferry-04.mp3"
+    },
+    {
+      "id": "ferry-05",
+      "speaker": "you",
+      "cjk": "喺邊度等？",
+      "jyutping": "hai2 bin1 dou6 dang2?",
+      "english": "Where do I wait?",
+      "audioFile": "ferry-05.mp3"
+    },
+    {
+      "id": "ferry-06",
+      "speaker": "staff",
+      "cjk": "入閘之後，跟住個牌走就係㗎喇。",
+      "jyutping": "jap6 zaa3 zi1 hau6, gan1 zyu6 go3 paai4 zau2 zau6 hai6 ga3 laa3.",
+      "english": "After you go through the gate, just follow the signs.",
+      "audioFile": "ferry-06.mp3"
+    },
+    {
+      "id": "ferry-07",
+      "speaker": "you",
+      "cjk": "好，唔該晒！",
+      "jyutping": "hou2, m4 goi1 saai3!",
+      "english": "Great, thank you so much!",
+      "audioFile": "ferry-07.mp3"
+    }
+  ]
+}

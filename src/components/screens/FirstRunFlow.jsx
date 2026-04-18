@@ -1,6 +1,6 @@
-import { useState, useContext, lazy, Suspense } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import styles from './FirstRunFlow.module.css';
-import { AppContext } from '../../contexts/AppContext.jsx';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 import { FlowMap } from '../ui/FlowMap.jsx';
 import { SceneCard } from '../ui/SceneCard.jsx';
 import { PhraseTile } from '../ui/PhraseTile.jsx';
@@ -25,7 +25,7 @@ const STARTER_PHRASE = {
 };
 
 export default function FirstRunFlow({ onComplete, onNavigate }) {
-  const { settings, updateSettings } = useContext(AppContext);
+  const { settings, updateSettings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [step, setStep] = useState(0);

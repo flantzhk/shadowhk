@@ -1,0 +1,79 @@
+{
+  "id": "temple-visit",
+  "language": "cantonese",
+  "emoji": "🛕",
+  "title": "Visiting Wong Tai Sin Temple",
+  "description": "Ask a local about offerings and how to use the fortune sticks",
+  "category": "social",
+  "difficulty": "confident",
+  "estimatedMinutes": 6,
+  "location": "Wong Tai Sin Temple, Kowloon",
+  "context": "Wong Tai Sin Temple (黃大仙祠) is one of Hong Kong's most visited temples, dedicated to the Taoist deity Wong Tai Sin. Visitors come to pray, consult fortune sticks (籤), and make offerings. A friendly local can show you the ropes.",
+  "culturalFact": "Wong Tai Sin is famous for the phrase '有求必應' — 'whatever you ask for will be granted'. On the first day of the Lunar New Year, the queue of worshippers starts forming at midnight, and tens of thousands visit before sunrise.",
+  "lines": [
+    {
+      "id": "temple-01",
+      "speaker": "you",
+      "cjk": "唔好意思，我係第一次嚟呢度，可唔可以教我點拜？",
+      "jyutping": "m4 hou2 ji3 si1, ngo5 hai6 dai6 jat1 ci3 lei4 ni1 dou6, ho2 m4 ho2 ji5 gaau3 ngo5 dim2 baai3?",
+      "english": "Excuse me, this is my first time here — could you show me how to pay respects?",
+      "audioFile": "temple-01.mp3"
+    },
+    {
+      "id": "temple-02",
+      "speaker": "local",
+      "cjk": "可以㗎，好簡單。先買香，然後面向黃大仙拜三拜。",
+      "jyutping": "ho2 ji5 ga3, hou2 gaan2 daan1. sin1 maai5 hoeng1, jin4 hau6 min6 heung3 wong4 daai6 sin1 baai3 saam1 baai3.",
+      "english": "Of course, it's simple. First buy incense, then bow three times facing Wong Tai Sin.",
+      "audioFile": "temple-02.mp3"
+    },
+    {
+      "id": "temple-03",
+      "speaker": "you",
+      "cjk": "籤係點搖㗎？",
+      "jyutping": "cim1 hai6 dim2 jiu4 ga3?",
+      "english": "How do you shake the fortune sticks?",
+      "audioFile": "temple-03.mp3"
+    },
+    {
+      "id": "temple-04",
+      "speaker": "local",
+      "cjk": "跪低，心中默想你想問嘅事，然後搖個筒直到一支籤跌出嚟。",
+      "jyutping": "gwai6 dai1, sam1 zung1 mak6 soeng2 nei5 soeng2 man6 ge3 si6, jin4 hau6 jiu4 go3 tung2 zik6 dou3 jat1 zi1 cim1 dit3 ceot1 lei4.",
+      "english": "Kneel down, think silently of your question, then shake the tube until one stick falls out.",
+      "audioFile": "temple-04.mp3"
+    },
+    {
+      "id": "temple-05",
+      "speaker": "you",
+      "cjk": "籤上面嘅號碼係咩意思？",
+      "jyutping": "cim1 soeng6 min6 ge3 hou6 maa5 hai6 me1 ji3 si1?",
+      "english": "What does the number on the stick mean?",
+      "audioFile": "temple-05.mp3"
+    },
+    {
+      "id": "temple-06",
+      "speaker": "local",
+      "cjk": "攞住個號去解籤亭，有人幫你解釋。收費係自願㗎。",
+      "jyutping": "lo2 zyu6 go3 hou6 heoi3 gaai2 cim1 ting4, jau5 jan4 bong1 nei5 gaai2 sik1. sau1 fai3 hai6 zi6 jyun6 ga3.",
+      "english": "Take the number to the fortune-telling booth and someone will interpret it for you. The fee is voluntary.",
+      "audioFile": "temple-06.mp3"
+    },
+    {
+      "id": "temple-07",
+      "speaker": "you",
+      "cjk": "多謝你教我，真係幫到我好多。",
+      "jyutping": "do1 ze6 nei5 gaau3 ngo5, zan1 hai6 bong1 dou3 ngo5 hou2 do1.",
+      "english": "Thank you for teaching me, you've been a great help.",
+      "audioFile": "temple-07.mp3"
+    },
+    {
+      "id": "temple-08",
+      "speaker": "local",
+      "cjk": "唔使客氣，希望黃大仙保佑你。",
+      "jyutping": "m4 sai2 haak3 hei3, hei1 mong6 wong4 daai6 sin1 bou2 jau6 nei5.",
+      "english": "Don't mention it — may Wong Tai Sin bless you.",
+      "audioFile": "temple-08.mp3"
+    }
+  ]
+}
