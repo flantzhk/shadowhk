@@ -140,9 +140,9 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.PROMPT_DRILL:    return <PromptDrill navigate={navigate} goBack={goBack} />;
     case ROUTES.SPEED_RUN:       return <SpeedRun navigate={navigate} goBack={goBack} />;
     case ROUTES.TONE_GYM:        return <ToneGym navigate={navigate} goBack={goBack} />;
-    case 'tonegym-results':      return <ToneGymResults navigate={navigate} goBack={goBack} />;
+    case ROUTES.TONE_GYM_RESULTS: return <ToneGymResults navigate={navigate} goBack={goBack} />;
     case ROUTES.DIALOGUE:        return <DialogueScene sceneId={id} navigate={navigate} goBack={goBack} />;
-    case 'scene-end':            return <SceneSummary navigate={navigate} goBack={goBack} />;
+    case ROUTES.SCENE_END:       return <SceneSummary navigate={navigate} goBack={goBack} />;
     case ROUTES.PAYWALL:         return <Paywall navigate={navigate} goBack={goBack} />;
     case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
     case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} />;

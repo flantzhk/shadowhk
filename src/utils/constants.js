@@ -96,6 +96,8 @@ export const ROUTES = {
   ADMIN: 'admin',
   SUPPORT: 'support',
   INTRODUCE_YOURSELF: 'introduce-yourself',
+  TONE_GYM_RESULTS: 'tonegym-results',
+  SCENE_END: 'scene-end',
 };
 
 export const SCENE_CATEGORIES = {

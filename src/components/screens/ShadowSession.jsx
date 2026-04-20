@@ -10,7 +10,7 @@ import { isAuthenticated } from '../../services/auth.js';
 import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
 import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
-import { buildPhraseQueueFromScene } from '../../services/lessonBuilder.js';
+import { buildPhraseQueueFromScene, buildLesson } from '../../services/lessonBuilder.js';
 import { Dots } from '../ui/Dots.jsx';
 import { KaraokeLine } from '../ui/KaraokeLine.jsx';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
@@ -50,7 +50,23 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const romanizationLabel = language === 'mandarin' ? 'Pīnyīn' : 'Jyutping';
 
   useEffect(() => {
-    if (!sceneId) { setLoading(false); return; }
+    if (!sceneId) {
+      // Free-form mode: pull due/library phrases as a virtual scene
+      buildLesson(10, language).then(phrases => {
+        const virtualLines = phrases.map(e => ({
+          id: e.phraseId,
+          speaker: 'you',
+          cjk: e.cjk,
+          romanization: e.romanization,
+          english: e.english,
+          audioFile: e.audioFile,
+        }));
+        setScene({ id: 'free-practice', title: 'Free practice', lines: virtualLines, culturalFact: null });
+        setYouLines(virtualLines);
+        setAllLines(virtualLines);
+      }).catch(() => {}).finally(() => setLoading(false));
+      return;
+    }
     getSceneById(sceneId)
       .then(s => {
         setScene(s);
@@ -59,7 +75,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [sceneId]);
+  }, [sceneId, language]);
 
   const currentYouLine = youLines[currentLineIndex] ?? null;
   const totalYou = youLines.length;
