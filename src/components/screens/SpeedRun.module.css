@@ -1,12 +1,12 @@
-/* SpeedRun.module.css — Practice Mode 3: Speed Run */
+/* SpeedRun.module.css — dark navy (#1A1F3D) */
 
 .screen {
   flex: 1; display: flex; flex-direction: column;
-  background: var(--color-bg);
+  background: #1A1F3D;
   padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
 }
 
-.loading { flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); }
+.loading { flex: 1; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); }
 
 /* === Header === */
 .header {
@@ -15,24 +15,32 @@
 }
 
 .closeBtn {
-  display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; color: var(--color-text-secondary);
-  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .timer {
-  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-size: 0.875rem; font-weight: 700;
+  color: rgba(255,255,255,0.6);
 }
 
 .timerUrgent {
-  color: var(--color-error);
+  color: #ff7a5c;
   animation: recordPulse 1s infinite;
 }
 
 .score {
-  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-size: 0.875rem; font-weight: 700;
+  color: #C4F000;
 }
 
 /* === Circular timer === */
@@ -46,11 +54,11 @@
 }
 
 .circularTimerTrack {
-  fill: none; stroke: rgba(0,0,0,0.08); stroke-width: 4;
+  fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 4;
 }
 
 .circularTimerFill {
-  fill: none; stroke: var(--color-brand-lime); stroke-width: 4;
+  fill: none; stroke: #C4F000; stroke-width: 4;
   stroke-linecap: round;
   transition: stroke-dashoffset 1s linear;
 }
@@ -58,8 +66,8 @@
 .circularTimerNum {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: clamp(18px, 2rem, 32px); font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-size: clamp(18px, 2rem, 32px); font-weight: 900;
+  color: #fff;
 }
 
 /* === Prompt === */
@@ -68,26 +76,28 @@
   justify-content: center; gap: var(--space-md); padding: var(--space-xl) 0;
 }
 
-.label { font-size: 0.8125rem; color: var(--color-text-muted); }
+.label { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
 
 .english {
-  font-size: clamp(22px, 2rem, 44px); font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary); text-align: center;
+  font-size: clamp(22px, 2rem, 44px); font-weight: 800;
+  color: #fff; text-align: center;
   padding: 0 32px; margin-top: 24px;
 }
 
 /* === Speak button === */
 .speakBtn {
   width: calc(100% - 40px); margin: 0 20px;
-  background: var(--color-brand-dark); color: white;
+  background: rgba(196,240,0,0.1); color: #C4F000;
+  border: 2px solid #C4F000;
   border-radius: 14px; padding: 18px;
-  font-size: 1rem; font-weight: var(--font-weight-semibold);
+  font-size: 1rem; font-weight: 800;
   text-align: center; min-height: 52px;
+  cursor: pointer;
 }
 
 .speakBtn:active { transform: scale(0.98); }
 
-/* === Feedback banner (inline, not fixed overlay) === */
+/* === Feedback banner === */
 .feedback {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: var(--space-md);
@@ -97,37 +107,38 @@
   animation: scorePop 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.correct { background: var(--color-mastered-bg); }
-.wrong { background: #FFE0E0; }
+.correct { background: rgba(196,240,0,0.12); border: 1px solid rgba(196,240,0,0.25); }
+.wrong { background: rgba(240,90,58,0.1); border: 1px solid rgba(240,90,58,0.25); }
 
 .feedbackAnswer {
-  font-size: 1.25rem; font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-size: 1.25rem; font-weight: 700;
+  color: #fff;
 }
 
 /* === Stats footer === */
 .statsFooter {
   flex-shrink: 0; text-align: center;
-  padding: 16px; font-size: 0.75rem; color: var(--color-text-muted);
+  padding: 16px; font-size: 0.75rem; color: rgba(255,255,255,0.3);
 }
 
-/* === Options grid (for tap-based speed run) === */
+/* === Options grid === */
 .optionsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); flex: 1; align-content: start; }
 
 .optionBtn {
   display: flex; flex-direction: column; align-items: center; gap: var(--space-xs);
-  padding: var(--space-lg); background: var(--color-surface);
-  border-radius: 14px; border: 0.5px solid var(--color-border);
-  min-height: 80px; transition: all var(--transition-fast);
+  padding: var(--space-lg); background: rgba(255,255,255,0.06);
+  border-radius: 14px; border: 1px solid rgba(255,255,255,0.1);
+  min-height: 80px; transition: all 0.15s;
+  cursor: pointer;
 }
 
 .optionBtn:active:not(:disabled) { transform: scale(0.97); }
 .optionBtn:disabled { opacity: 0.6; }
 
-.optRoman { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--color-jyutping); }
-.optChinese { font-size: var(--font-size-md); color: var(--color-text-primary); }
+.optRoman { font-size: var(--font-size-base); font-weight: 700; color: #C4F000; font-style: italic; }
+.optChinese { font-size: var(--font-size-md); color: rgba(255,255,255,0.5); font-family: 'Noto Sans HK', sans-serif; }
 
-.roundCount { font-size: 0.8125rem; color: var(--color-text-muted); }
+.roundCount { font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
 
 /* === Done/Summary === */
 .doneCard {
@@ -135,17 +146,28 @@
   align-items: center; justify-content: center; gap: var(--space-xl);
 }
 
-.doneTitle { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
-.doneScore { font-size: 3rem; font-weight: var(--font-weight-bold); color: var(--color-brand-green); }
-.doneBest { font-size: var(--font-size-base); color: var(--color-text-muted); }
+.doneTitle { font-size: var(--font-size-2xl); font-weight: 900; color: #fff; }
+.doneScore { font-size: 3rem; font-weight: 900; color: #C4F000; }
+.doneBest { font-size: var(--font-size-base); color: rgba(255,255,255,0.4); }
 
 .doneBtn {
-  padding: var(--space-base) var(--space-2xl); background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text); border-radius: 10px;
-  font-weight: var(--font-weight-semibold); min-height: 44px;
+  padding: var(--space-base) var(--space-2xl); background: #C4F000;
+  color: #1A1F3D; border-radius: 10px;
+  font-weight: 900; min-height: 44px; cursor: pointer;
 }
 
 .nextBtn { composes: doneBtn; }
 
-.timerBar { height: 3px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; margin-bottom: var(--space-lg); }
-.timerFill { height: 100%; background: var(--color-brand-lime); transition: width 1s linear; }
+.timerBar { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; margin-bottom: var(--space-lg); }
+.timerFill { height: 100%; background: #C4F000; transition: width 1s linear; }
+
+@keyframes recordPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scorePop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}

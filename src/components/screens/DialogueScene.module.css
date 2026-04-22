@@ -1,8 +1,8 @@
-/* DialogueScene.module.css */
+/* DialogueScene.module.css — dark navy (#1A1F3D) */
 
 .screen {
   flex: 1; display: flex; flex-direction: column;
-  background: var(--color-bg);
+  background: #1A1F3D;
   padding: var(--safe-area-top) 0 var(--safe-area-bottom);
 }
 
@@ -14,8 +14,17 @@
 }
 
 .closeBtn {
-  display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; color: var(--color-text-secondary);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
@@ -28,22 +37,22 @@
 }
 
 .progressTrack {
-  height: 4px;
-  background: var(--color-border);
+  height: 3px;
+  background: rgba(255,255,255,0.1);
   border-radius: 2px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
-  background: var(--color-brand-lime);
+  background: #C4F000;
   border-radius: 2px;
   transition: width 300ms ease;
 }
 
 .progressLabel {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.3);
   text-align: center;
 }
 
@@ -64,21 +73,21 @@
 
 .introTitle {
   font-size: 1.25rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-weight: 900;
+  color: #fff;
   text-align: center;
 }
 
 .introDesc {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.5);
   text-align: center;
   line-height: 1.5;
 }
 
 .introPreview {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
   padding: 16px;
   margin-top: 8px;
@@ -86,10 +95,10 @@
 
 .introPreviewLabel {
   font-size: 0.6875rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--color-brand-dark-text);
+  letter-spacing: 0.8px;
+  color: rgba(255,255,255,0.3);
   margin-bottom: 12px;
 }
 
@@ -109,10 +118,10 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
+  background: #C4F000;
+  color: #1A1F3D;
   font-size: 0.6875rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,13 +138,13 @@
 
 .introLineEnglish {
   font-size: 0.875rem;
-  color: var(--color-text-primary);
+  color: #fff;
   line-height: 1.4;
 }
 
 .introLineChinese {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.4);
 }
 
 .introActions {
@@ -150,19 +159,22 @@
   width: 100%;
   padding: 16px;
   border-radius: 14px;
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark);
+  background: #C4F000;
+  color: #1A1F3D;
   font-size: 1rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: 900;
   text-align: center;
   min-height: 56px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(196,240,0,0.25);
 }
 
 .cancelBtn {
   padding: 12px;
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.3);
   text-align: center;
+  cursor: pointer;
 }
 
 /* === Chat area === */
@@ -178,42 +190,45 @@
 
 .otherBubble {
   align-self: flex-start;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px 14px 14px 4px;
 }
 
 .userBubble {
   align-self: flex-end;
-  background: var(--color-brand-dark);
+  background: rgba(196,240,0,0.1);
+  border: 1px solid rgba(196,240,0,0.2);
   border-radius: 14px 14px 4px 14px;
 }
 
 .speakerLabel {
-  font-size: 0.625rem; font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted); margin-bottom: 4px;
+  font-size: 0.625rem; font-weight: 800;
+  color: rgba(255,255,255,0.3); margin-bottom: 4px;
+  text-transform: uppercase; letter-spacing: 0.5px;
 }
 
-.userBubble .speakerLabel { color: rgba(255,255,255,0.45); }
+.userBubble .speakerLabel { color: rgba(196,240,0,0.5); }
 
 .bubbleRoman {
-  font-size: 0.875rem; font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-size: 0.875rem; font-weight: 700;
+  color: rgba(255,255,255,0.85); font-style: italic;
 }
 
-.userBubble .bubbleRoman { color: var(--color-brand-lime); }
+.userBubble .bubbleRoman { color: #C4F000; }
 
 .bubbleChinese {
-  font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 2px;
+  font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 2px;
+  font-family: 'Noto Sans HK', sans-serif;
 }
 
-.userBubble .bubbleChinese { color: rgba(255,255,255,0.65); }
+.userBubble .bubbleChinese { color: rgba(196,240,0,0.55); }
 
 .bubbleEnglish {
-  font-size: 0.6875rem; color: var(--color-text-muted); margin-top: 2px;
+  font-size: 0.6875rem; color: rgba(255,255,255,0.25); margin-top: 2px;
 }
 
-.userBubble .bubbleEnglish { color: rgba(255,255,255,0.4); }
+.userBubble .bubbleEnglish { color: rgba(255,255,255,0.3); }
 
 .bubbleScore {
   margin-top: 6px;
@@ -225,8 +240,8 @@
 .controls {
   flex-shrink: 0; display: flex; flex-direction: column; align-items: center;
   gap: var(--space-md); padding: var(--space-lg) var(--content-padding);
-  background: var(--color-bg);
-  border-top: 0.5px solid var(--color-border);
+  background: rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* === Other person speaking === */
@@ -234,36 +249,38 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(26,42,24,0.06);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 12px 16px;
   width: 100%;
-  color: var(--color-brand-dark-text);
 }
 
 .speakingLabel {
   flex: 1;
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
 }
 
 .replayLineBtn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 /* === Your Line prompt card === */
 .yourLineCard {
   width: 100%;
-  background: var(--color-brand-dark);
+  background: rgba(0,0,0,0.2);
+  border: 1.5px solid rgba(196,240,0,0.3);
   border-radius: 14px;
   padding: 16px 18px;
   display: flex;
@@ -273,28 +290,30 @@
 
 .yourLineLabel {
   font-size: 0.5625rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 800;
   letter-spacing: 1.2px;
-  color: var(--color-brand-lime);
+  color: #C4F000;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 
 .yourLineRoman {
   font-size: 1.0625rem;
-  font-weight: var(--font-weight-semibold);
-  color: white;
+  font-weight: 700;
+  color: #fff;
   line-height: 1.3;
+  font-style: italic;
 }
 
 .yourLineChinese {
   font-size: 0.875rem;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.45);
+  font-family: 'Noto Sans HK', sans-serif;
 }
 
 .yourLineEnglish {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.3);
   font-style: italic;
 }
 
@@ -304,11 +323,12 @@
 .continueBtn {
   width: 100%;
   padding: var(--space-md) var(--space-2xl);
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
+  background: #C4F000;
+  color: #1A1F3D;
   border-radius: 10px;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 900;
   min-height: 48px;
+  cursor: pointer;
 }
 
 /* === Done === */
@@ -317,18 +337,19 @@
 .saveBtn {
   width: 100%;
   padding: 14px;
-  background: var(--color-brand-dark);
-  color: white;
+  background: #C4F000;
+  color: #1A1F3D;
   border-radius: 12px;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 900;
   font-size: 0.9375rem;
   min-height: 48px;
+  cursor: pointer;
 }
 
 .savedConfirm {
   font-size: 0.875rem;
-  color: var(--color-success, #2a9d60);
-  font-weight: var(--font-weight-semibold);
+  color: #C4F000;
+  font-weight: 700;
   padding: 12px;
 }
 
@@ -337,19 +358,23 @@
 .replayBtn {
   flex: 1;
   padding: var(--space-md);
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-semibold);
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.06);
+  font-weight: 700;
   min-height: 48px;
+  cursor: pointer;
 }
 
 .doneBtn {
   flex: 1;
   padding: var(--space-md);
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 10px;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 700;
   min-height: 48px;
+  cursor: pointer;
 }

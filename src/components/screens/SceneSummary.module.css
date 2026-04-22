@@ -1,9 +1,9 @@
-/* SceneSummary.module.css */
+/* SceneSummary.module.css — dark forest green overlay */
 
 .screen {
   position: fixed;
   inset: 0;
-  background: var(--color-bg);
+  background: rgba(31,51,41,0.97);
   z-index: 300;
   overflow: hidden;
 }
@@ -23,7 +23,7 @@
   width: 72px;
   height: 72px;
   border-radius: 24px;
-  background: var(--color-brand-lime-muted);
+  background: rgba(196,240,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,21 +34,24 @@
 
 .title {
   font-size: 1.625rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-weight: 900;
+  color: #fff;
   margin-bottom: 4px;
+  text-align: center;
 }
 
 .sceneLabel {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.35);
   margin-bottom: 4px;
+  text-align: center;
 }
 
 .subtitle {
   font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   margin-bottom: 28px;
+  text-align: center;
 }
 
 /* === Stat Row === */
@@ -61,8 +64,8 @@
 
 .statTile {
   flex: 1;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 16px 8px;
   display: flex;
@@ -73,14 +76,14 @@
 
 .statNum {
   font-size: 1.375rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  font-weight: 900;
+  color: #fff;
 }
 
 .statLabel {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
-  font-weight: var(--font-weight-medium);
+  color: rgba(255,255,255,0.35);
+  font-weight: 500;
 }
 
 /* === Streak === */
@@ -88,8 +91,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #FFF8E6;
-  border: 0.5px solid #F0D898;
+  background: rgba(255,160,60,0.1);
+  border: 1px solid rgba(255,160,60,0.2);
   border-radius: 10px;
   padding: 10px 16px;
   width: 100%;
@@ -100,8 +103,8 @@
 
 .streakText {
   font-size: 0.875rem;
-  font-weight: var(--font-weight-semibold);
-  color: #B45309;
+  font-weight: 700;
+  color: rgba(255,200,100,0.9);
 }
 
 /* === Chat Section === */
@@ -112,15 +115,16 @@
 
 .sectionTitle {
   font-size: 0.6875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
+  font-weight: 800;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 .turnList {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -130,7 +134,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   gap: 12px;
 }
 
@@ -146,29 +150,31 @@
 
 .turnRoman {
   font-size: 0.875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-weight: 700;
+  color: #C4F000;
+  font-style: italic;
 }
 
 .turnChinese {
   font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.4);
+  font-family: 'Noto Sans HK', sans-serif;
 }
 
 .turnEnglish {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.25);
 }
 
 .turnScore {
   font-size: 0.9375rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: 900;
   flex-shrink: 0;
 }
 
 .turnSkipped {
   font-size: 0.9375rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.25);
   flex-shrink: 0;
 }
 
@@ -184,31 +190,36 @@
   width: 100%;
   padding: 16px;
   border-radius: 14px;
-  background: var(--color-brand-lime);
+  background: #C4F000;
   font-size: 1rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-weight: 900;
+  color: #1F3329;
   text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
 }
 
 .replayBtn {
   width: 100%;
   padding: 16px;
   border-radius: 14px;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   font-size: 1rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
 }
 
 .doneBtn {
   width: 100%;
   padding: 16px;
   border-radius: 14px;
-  background: var(--color-brand-dark);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
   font-size: 1rem;
-  font-weight: var(--font-weight-semibold);
-  color: white;
+  font-weight: 700;
+  color: #fff;
   text-align: center;
+  cursor: pointer;
 }

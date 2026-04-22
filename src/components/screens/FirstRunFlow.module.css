@@ -1,8 +1,10 @@
+/* FirstRunFlow.module.css — dark navy #1A1F3D */
+
 .screen {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--color-bg);
+  background: #1A1F3D;
 }
 
 .flowmapRow {
@@ -32,24 +34,25 @@
 
 .phraseBlock {
   text-align: center;
-  background: var(--color-surface);
+  background: rgba(255,255,255,0.06);
   border-radius: 20px;
   padding: 32px 40px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255,255,255,0.1);
   width: 100%;
 }
 
 .romanization {
   font-size: 32px;
   font-weight: 700;
-  color: var(--color-jyutping);
+  color: #C4F000;
+  font-style: italic;
   margin: 0 0 8px;
 }
 
 .cjk {
   font-size: 40px;
   font-weight: 700;
-  color: var(--color-brand-dark);
+  color: #fff;
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
   margin: 0 0 8px;
   line-height: 1.2;
@@ -57,13 +60,13 @@
 
 .english {
   font-size: 16px;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.45);
   margin: 0;
 }
 
 .hint {
   font-size: 15px;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.35);
   margin: 0;
   text-align: center;
 }
@@ -81,29 +84,30 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
-  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   transition: transform 0.1s;
 }
 
 .micBtn:active, .micRecording {
   transform: scale(0.95);
-  background: var(--color-error);
-  color: #fff;
+  background: rgba(231,76,60,0.2);
+  border-color: rgba(231,76,60,0.5);
+  color: #E74C3C;
 }
 
 .scoringSpinner {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 3px solid var(--color-border);
-  border-top-color: var(--color-brand-dark);
+  border: 3px solid rgba(255,255,255,0.1);
+  border-top-color: #C4F000;
   animation: spin 0.8s linear infinite;
 }
 
@@ -119,13 +123,13 @@
 
 .scoreLabel {
   font-size: 15px;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   margin: 8px 0 0;
 }
 
 .micError {
   font-size: 13px;
-  color: var(--color-error);
+  color: #E74C3C;
   margin: 0;
 }
 
@@ -140,12 +144,12 @@
 .retryMicBtn {
   width: 100%;
   padding: 14px;
-  background: none;
-  border: 1.5px solid var(--color-border);
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15);
   border-radius: 14px;
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.6);
   cursor: pointer;
   min-height: 52px;
 }
@@ -161,14 +165,14 @@
 .stepTitle {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-brand-dark);
+  color: #fff;
   margin: 0;
   letter-spacing: -0.4px;
 }
 
 .stepDesc {
   font-size: 15px;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   margin: 0;
   line-height: 1.5;
 }
@@ -193,7 +197,7 @@
 }
 
 .sceneSelected {
-  outline: 2.5px solid var(--color-brand-dark);
+  outline: 2.5px solid #C4F000;
   border-radius: 18px;
 }
 
@@ -204,8 +208,8 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: #C4F000;
+  color: #1A1F3D;
   font-size: 12px;
   font-weight: 700;
   display: flex;
@@ -231,7 +235,7 @@
 
 .moreNote {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.3);
   text-align: center;
   margin: 8px 0 0;
 }
@@ -256,23 +260,25 @@
 .primaryBtn {
   width: 100%;
   padding: 18px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: #C4F000;
+  color: #1A1F3D;
   border: none;
   border-radius: 16px;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 900;
   cursor: pointer;
   min-height: 56px;
   transition: opacity 0.15s;
   margin-top: auto;
+  box-shadow: 0 4px 20px rgba(196,240,0,0.25);
 }
 
 .primaryBtn:hover { opacity: 0.88; }
 
 .primaryBtn:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .introduceNudge {
@@ -280,8 +286,8 @@
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  background: var(--color-brand-lime-muted);
-  border: 1.5px solid rgba(197, 232, 90, 0.4);
+  background: rgba(196,240,0,0.08);
+  border: 1.5px solid rgba(196,240,0,0.25);
   border-radius: 14px;
 }
 
@@ -297,24 +303,24 @@
 .nudgeTitle {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-brand-dark);
+  color: #C4F000;
   margin: 0 0 2px;
 }
 
 .nudgeDesc {
   font-size: 13px;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   margin: 0;
 }
 
 .nudgeBtn {
   padding: 8px 16px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
-  border: none;
+  background: rgba(196,240,0,0.15);
+  color: #C4F000;
+  border: 1px solid rgba(196,240,0,0.3);
   border-radius: 10px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   flex-shrink: 0;
   min-height: 40px;
@@ -323,7 +329,7 @@
 .loadingForm {
   flex: 1;
   height: 200px;
-  background: var(--color-bg-page);
+  background: rgba(255,255,255,0.06);
   border-radius: 16px;
   animation: pulse 1.5s ease-in-out infinite;
 }

@@ -1,11 +1,11 @@
-/* SessionSummary.module.css — End-of-session summary */
+/* SessionSummary.module.css — dark forest green overlay */
 
 .screen {
   position: fixed;
   inset: 0;
   display: flex;
   flex-direction: column;
-  background: var(--color-bg);
+  background: rgba(31,51,41,0.97);
   padding: var(--safe-area-top) 0 var(--safe-area-bottom);
   z-index: var(--z-overlay, 100);
 }
@@ -29,7 +29,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--color-brand-lime-muted);
+  background: rgba(196,240,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,15 +39,15 @@
 /* === Title === */
 .title {
   font-size: 1.75rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  font-weight: 900;
+  color: #fff;
   text-align: center;
   margin-top: 24px;
 }
 
 .subtitle {
   font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   text-align: center;
   margin-top: 4px;
 }
@@ -62,8 +62,8 @@
 
 .statTile {
   flex: 1;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 16px 12px;
   text-align: center;
@@ -74,13 +74,13 @@
 
 .statNum {
   font-size: 1.75rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-weight: 900;
+  color: #fff;
 }
 
 .statLabel {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.35);
   letter-spacing: 0.2px;
 }
 
@@ -88,7 +88,8 @@
 .streakRow {
   margin: 20px 22px 0;
   padding: 12px 16px;
-  background: var(--color-streak-bg);
+  background: rgba(255,160,60,0.1);
+  border: 1px solid rgba(255,160,60,0.2);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -127,28 +128,28 @@
 
 .streakText {
   font-size: 0.8125rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-streak-text);
+  font-weight: 700;
+  color: rgba(255,200,100,0.9);
 }
 
 .streakPlus {
-  font-weight: var(--font-weight-normal);
-  color: #B06830;
+  font-weight: 400;
+  color: rgba(255,200,100,0.6);
 }
 
 /* === Divider === */
 .divider {
   width: calc(100% - 44px);
-  height: 0.5px;
-  background: var(--color-border);
+  height: 1px;
+  background: rgba(255,255,255,0.08);
   margin: 24px 22px;
 }
 
 /* === Phrase breakdown === */
 .sectionLabel {
   font-size: 0.6875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  font-weight: 800;
+  color: rgba(255,255,255,0.3);
   letter-spacing: 1.2px;
   text-transform: uppercase;
   padding: 0 22px;
@@ -177,18 +178,18 @@
 .phraseText {
   flex: 1;
   font-size: 0.875rem;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
 }
 
 .phraseScore {
   font-size: 0.8125rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 700;
   flex-shrink: 0;
 }
 
 .star {
-  color: var(--color-brand-green);
+  color: #C4F000;
   font-size: 0.75rem;
 }
 
@@ -196,8 +197,8 @@
 .keeperBox {
   margin: 20px 22px 0;
   width: calc(100% - 44px);
-  background: var(--color-brand-lime-muted);
-  border: 1px solid var(--color-brand-lime);
+  background: rgba(196,240,0,0.1);
+  border: 1px solid rgba(196,240,0,0.25);
   border-radius: 16px;
   padding: 16px;
   position: relative;
@@ -205,8 +206,8 @@
 
 .keeperLabel {
   font-size: 0.6875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  font-weight: 800;
+  color: rgba(196,240,0,0.6);
   letter-spacing: 1px;
   text-transform: uppercase;
   display: block;
@@ -215,14 +216,15 @@
 
 .keeperRoman {
   font-size: 1.0625rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  font-weight: 700;
+  color: #C4F000;
+  font-style: italic;
   margin: 0 0 2px;
 }
 
 .keeperEnglish {
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  color: rgba(255,255,255,0.5);
   margin: 0;
 }
 
@@ -231,15 +233,15 @@
   top: 14px;
   right: 16px;
   font-size: 1.5rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: 900;
 }
 
 /* === D1 Lived-in-HK prompt === */
 .livedPrompt {
   margin: 20px 22px 0;
   width: calc(100% - 44px);
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
   padding: 18px 16px;
   display: flex;
@@ -250,7 +252,7 @@
 
 .livedQ {
   font-size: 0.9375rem;
-  color: var(--color-text-primary);
+  color: #fff;
   text-align: center;
   margin: 0;
 }
@@ -265,32 +267,32 @@
   flex: 1;
   padding: 12px;
   background: transparent;
-  border: 1.5px solid var(--color-border-strong);
+  border: 1.5px solid rgba(255,255,255,0.2);
   border-radius: 12px;
   font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
   cursor: pointer;
 }
 
 .livedIt {
   flex: 1;
   padding: 12px;
-  background: var(--color-brand-dark);
+  background: #C4F000;
   border: none;
   border-radius: 12px;
   font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-lime);
+  font-weight: 900;
+  color: #1F3329;
   cursor: pointer;
 }
 
 .livedConfirm {
   font-size: 0.875rem;
-  color: var(--color-brand-green);
+  color: #C4F000;
   text-align: center;
   margin: 16px 0 0;
-  font-weight: var(--font-weight-medium);
+  font-weight: 700;
 }
 
 /* === Action buttons === */
@@ -304,14 +306,16 @@
 
 .practiceMoreBtn {
   width: 100%;
-  background: var(--color-brand-dark);
-  color: white;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 14px;
   padding: 16px;
   font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 700;
   text-align: center;
   min-height: 52px;
+  cursor: pointer;
 }
 
 .practiceMoreBtn:active {
@@ -320,17 +324,25 @@
 
 .doneBtn {
   width: 100%;
-  background: transparent;
-  border: 1.5px solid var(--color-border-strong);
-  color: var(--color-text-secondary);
+  background: #C4F000;
+  border: none;
+  color: #1F3329;
   border-radius: 14px;
   padding: 16px;
   font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: 900;
   text-align: center;
   min-height: 52px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
 }
 
 .doneBtn:active {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+@keyframes scorePop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
 }
