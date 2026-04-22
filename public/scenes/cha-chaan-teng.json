@@ -17,7 +17,14 @@
       "cjk": "唔該，有位坐冇？",
       "jyutping": "m4 goi1, jau5 wai2 co5 mou5?",
       "english": "Excuse me, is there a seat available?",
-      "audioFile": "cct-01.mp3"
+      "audioFile": "cct-01.mp3",
+      "scenario": "You walk in, the place is packed. A waiter glances over. Before they turn away — 唔該，有位坐冇？ That's it. One line, and you're in.",
+      "usage": "Entering any busy HK diner, cooked food stall, or dai pai dong where seating isn't obvious.",
+      "replies": [
+        { "cjk": "有，入嚟坐", "romanization": "jau5, jap6 lei4 co5", "english": "Yes, come sit inside." },
+        { "cjk": "等陣先", "romanization": "dang2 zan6 sin1", "english": "Wait a moment." },
+        { "cjk": "冇位喎", "romanization": "mou5 wai2 wo3", "english": "No seats right now." }
+      ]
     },
     {
       "id": "cct-02",

@@ -4,6 +4,7 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { SceneCard } from '../ui/SceneCard.jsx';
 import { getAllScenes, getScenesByCategory } from '../../services/sceneLoader.js';
 import { getAllSceneProgress } from '../../services/storage.js';
+import { buildSceneLesson } from '../../services/lessonBuilder.js';
 import { SCENE_CATEGORIES } from '../../utils/constants.js';
 
 const CATEGORY_LABELS = {
@@ -22,6 +23,7 @@ export default function ScenesScreen({ onNavigate }) {
   const [progress, setProgress] = useState({});
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const [suggested, setSuggested] = useState(null);
 
   useEffect(() => {
     Promise.all([getAllScenes(language), getAllSceneProgress()])
@@ -33,6 +35,7 @@ export default function ScenesScreen({ onNavigate }) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
+    buildSceneLesson(language).then(setSuggested).catch(() => {});
   }, [language]);
 
   const categories = SCENE_CATEGORIES[language] ?? [];
@@ -72,6 +75,21 @@ export default function ScenesScreen({ onNavigate }) {
           </button>
         )}
       </div>
+
+      {!search && suggested?.scene && (
+        <div className={styles.suggestedRow}>
+          <span className={styles.suggestedLabel}>SUGGESTED FOR YOU</span>
+          <SceneCard
+            emoji={suggested.scene.emoji}
+            title={suggested.scene.title}
+            phraseCount={suggested.scene.lines?.filter(l => l.speaker === 'you').length ?? 0}
+            duration={suggested.scene.estimatedMinutes ?? 5}
+            status={sceneStatus(suggested.scene)}
+            onClick={() => onNavigate('scene', suggested.scene.id)}
+          />
+          {suggested.reason && <p className={styles.suggestedReason}>{suggested.reason}</p>}
+        </div>
+      )}
 
       <div className={styles.content}>
         {loading && <div className={styles.skeleton} />}

@@ -6,6 +6,29 @@ import { GrowthBadge } from '../ui/GrowthBadge.jsx';
 import { SourceTag } from '../ui/SourceTag.jsx';
 import { getLibraryEntry } from '../../services/storage.js';
 import { getSchedule } from '../../services/srs.js';
+import { getSceneById } from '../../services/sceneLoader.js';
+
+function buildWhyToday(phrase, schedule) {
+  if (!phrase.practiceCount || phrase.practiceCount === 0) {
+    return 'New phrase. First practice starts the review clock.';
+  }
+  if (!schedule?.nextReview) return null;
+  const now = Date.now();
+  const nextReviewAt = new Date(schedule.nextReview).getTime();
+  const scoreNote = phrase.lastScore != null ? ` Score last time: ${phrase.lastScore}.` : '';
+  const gapNote = schedule.interval ? ` ${schedule.interval}-day review gap.` : '';
+  const diff = now - nextReviewAt;
+  const dayMs = 86400000;
+  if (diff > dayMs) {
+    const days = Math.floor(diff / dayMs);
+    return `Due ${days} day${days === 1 ? '' : 's'} ago.${scoreNote}${gapNote}`;
+  }
+  if (diff >= 0) return `Due today.${scoreNote}${gapNote}`;
+  const daysUntil = Math.ceil(-diff / dayMs);
+  const when = daysUntil === 1 ? 'tomorrow'
+    : new Date(nextReviewAt).toLocaleDateString('en-GB', { weekday: 'long' });
+  return `Not due until ${when}.${scoreNote}${gapNote}`;
+}
 
 export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const { settings } = useAppContext();
@@ -13,6 +36,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
 
   const [phrase, setPhrase] = useState(null);
   const [schedule, setSchedule] = useState(null);
+  const [sceneLine, setSceneLine] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const romanizationLabel = language === 'mandarin' ? 'Pīnyīn' : 'Jyutping';
@@ -25,6 +49,12 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
         if (entry) {
           const sched = await getSchedule(phraseId).catch(() => null);
           setSchedule(sched);
+          if (entry.scene_id) {
+            getSceneById(entry.scene_id).then(scene => {
+              const line = (scene?.lines ?? []).find(l => l.id === phraseId);
+              if (line?.scenario || line?.replies || line?.usage) setSceneLine(line);
+            }).catch(() => {});
+          }
         }
       })
       .catch(() => {})
@@ -72,6 +102,15 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
           </div>
         )}
 
+        {/* D4 — Imagine this (vivid story scenario) */}
+        {sceneLine?.scenario && (
+          <section className={styles.section}>
+            <div className={styles.scenarioBox}>
+              <p className={styles.scenarioText}>{sceneLine.scenario}</p>
+            </div>
+          </section>
+        )}
+
         {/* Word-by-word breakdown */}
         {syllables.length > 0 && (
           <section className={styles.section}>
@@ -95,11 +134,41 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
           </section>
         )}
 
+        {/* D5 — How to reply */}
+        {sceneLine?.replies?.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>How to reply</h2>
+            {sceneLine.replies.map((r, i) => (
+              <div key={i} className={styles.replyRow}>
+                <span className={styles.replyCjk}>{r.cjk}</span>
+                <span className={styles.replyRoman}>{r.romanization}</span>
+                <span className={styles.replyEnglish}>{r.english}</span>
+              </div>
+            ))}
+          </section>
+        )}
+
+        {/* D6 — Use it when */}
+        {sceneLine?.usage && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Use it when</h2>
+            <p className={styles.usageText}>{sceneLine.usage}</p>
+          </section>
+        )}
+
         {/* SRS History */}
         {schedule && (
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Your history</h2>
             <HistoryTimeline schedule={schedule} phrase={phrase} />
+          </section>
+        )}
+
+        {/* D7 — Why today? */}
+        {phrase.practiceCount != null && buildWhyToday(phrase, schedule) && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Why now?</h2>
+            <p className={styles.whyText}>{buildWhyToday(phrase, schedule)}</p>
           </section>
         )}
 

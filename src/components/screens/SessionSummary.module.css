@@ -192,6 +192,107 @@
   font-size: 0.75rem;
 }
 
+/* === D2 Keeper phrase === */
+.keeperBox {
+  margin: 20px 22px 0;
+  width: calc(100% - 44px);
+  background: var(--color-brand-lime-muted);
+  border: 1px solid var(--color-brand-lime);
+  border-radius: 16px;
+  padding: 16px;
+  position: relative;
+}
+
+.keeperLabel {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.keeperRoman {
+  font-size: 1.0625rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-dark-text);
+  margin: 0 0 2px;
+}
+
+.keeperEnglish {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.keeperScore {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* === D1 Lived-in-HK prompt === */
+.livedPrompt {
+  margin: 20px 22px 0;
+  width: calc(100% - 44px);
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: 16px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.livedQ {
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0;
+}
+
+.livedBtns {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.livedNotYet {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.livedIt {
+  flex: 1;
+  padding: 12px;
+  background: var(--color-brand-dark);
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-lime);
+  cursor: pointer;
+}
+
+.livedConfirm {
+  font-size: 0.875rem;
+  color: var(--color-brand-green);
+  text-align: center;
+  margin: 16px 0 0;
+  font-weight: var(--font-weight-medium);
+}
+
 /* === Action buttons === */
 .actions {
   display: flex;

@@ -1,8 +1,10 @@
 // src/components/screens/SessionSummary.jsx — End-of-session summary
 
+import { useState } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { formatTime } from '../../utils/formatters';
 import { ROUTES } from '../../utils/constants';
+import { getLibraryEntriesByScene, saveLibraryEntry } from '../../services/storage';
 import styles from './SessionSummary.module.css';
 
 function getScoreColor(score) {
@@ -18,10 +20,34 @@ function getScoreColor(score) {
  */
 export default function SessionSummary({ summary, onDone }) {
   const { settings } = useAppContext();
+  const sceneId = summary?.sceneId ?? null;
+
+  const [livedState, setLivedState] = useState(() => {
+    if (!sceneId) return 'hidden';
+    return localStorage.getItem(`lived_asked_${sceneId}`) ? 'hidden' : 'pending';
+  });
 
   if (!summary) return null;
 
   const firstName = (settings.name || '').split(' ')[0] || 'there';
+
+  async function handleLivedIt() {
+    if (!sceneId) return;
+    localStorage.setItem(`lived_asked_${sceneId}`, '1');
+    setLivedState('confirmed');
+    const now = Date.now();
+    try {
+      const entries = await getLibraryEntriesByScene(sceneId);
+      for (const e of entries) {
+        await saveLibraryEntry({ ...e, lived_at: now });
+      }
+    } catch {}
+  }
+
+  function handleNotYet() {
+    if (sceneId) localStorage.setItem(`lived_asked_${sceneId}`, '1');
+    setLivedState('hidden');
+  }
 
   return (
     <div className={styles.screen}>
@@ -66,6 +92,21 @@ export default function SessionSummary({ summary, onDone }) {
           </div>
         )}
 
+        {/* D2 — Keeper phrase (best-scored) */}
+        {(() => {
+          const scored = (summary.phraseResults ?? []).filter(r => r.score != null);
+          if (!scored.length) return null;
+          const best = scored.reduce((a, b) => b.score > a.score ? b : a);
+          return (
+            <div className={styles.keeperBox}>
+              <span className={styles.keeperLabel}>YOUR LINE TODAY</span>
+              <p className={styles.keeperRoman}>{best.romanization}</p>
+              {best.english && <p className={styles.keeperEnglish}>{best.english}</p>}
+              <span className={styles.keeperScore} style={{ color: getScoreColor(best.score) }}>{best.score}</span>
+            </div>
+          );
+        })()}
+
         {/* Phrase breakdown */}
         {summary.phraseResults && summary.phraseResults.length > 0 && (
           <>
@@ -90,6 +131,20 @@ export default function SessionSummary({ summary, onDone }) {
               ))}
             </div>
           </>
+        )}
+
+        {/* D1 — Lived-in-HK prompt */}
+        {livedState === 'pending' && (
+          <div className={styles.livedPrompt}>
+            <p className={styles.livedQ}>Did you actually use this in a real HK conversation?</p>
+            <div className={styles.livedBtns}>
+              <button className={styles.livedNotYet} onClick={handleNotYet}>Not yet</button>
+              <button className={styles.livedIt} onClick={handleLivedIt}>📍 I did it!</button>
+            </div>
+          </div>
+        )}
+        {livedState === 'confirmed' && (
+          <p className={styles.livedConfirm}>Marked. That's the real thing.</p>
         )}
 
         {/* Action buttons */}

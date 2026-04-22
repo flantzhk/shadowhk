@@ -119,13 +119,13 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         setCurrentScore(result.score);
         setToneResult(result);
         await updateAfterPractice(currentYouLine.id, result.score);
-        setResults(prev => [...prev, { phraseId: currentYouLine.id, score: result.score, romanization: currentYouLine.romanization }]);
+        setResults(prev => [...prev, { phraseId: currentYouLine.id, score: result.score, romanization: currentYouLine.romanization, english: currentYouLine.english }]);
         if (result.score >= SCORE_THRESHOLDS.EXCELLENT && scene?.culturalFact) {
           setShowPostIt(true);
         }
       } catch (_) {
         setCurrentScore(null);
-        setResults(prev => [...prev, { phraseId: currentYouLine.id, score: null, romanization: currentYouLine.romanization }]);
+        setResults(prev => [...prev, { phraseId: currentYouLine.id, score: null, romanization: currentYouLine.romanization, english: currentYouLine.english }]);
       }
     } else {
       if (blob) {
@@ -134,7 +134,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           await addToQueue('score-pronunciation', { audioBase64: b64, expectedText: currentYouLine.cjk, language, phraseId: currentYouLine.id });
         } catch (_) {}
       }
-      setResults(prev => [...prev, { phraseId: currentYouLine.id, score: null, romanization: currentYouLine.romanization }]);
+      setResults(prev => [...prev, { phraseId: currentYouLine.id, score: null, romanization: currentYouLine.romanization, english: currentYouLine.english }]);
     }
     setIsScoring(false);
   }, [stopRecording, currentYouLine, language, isOnline, scene]);
@@ -175,9 +175,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         averageScore: avg,
         phraseResults: results,
       });
-      onComplete?.({ sceneId, phrasesAttempted: results.length, averageScore: avg, streakCount: streakResult?.count ?? 0 });
+      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: dur, averageScore: avg, streakCount: streakResult?.count ?? 0 });
     } catch (_) {
-      onComplete?.({ sceneId, phrasesAttempted: results.length, averageScore: null, streakCount: 0 });
+      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: 0, averageScore: null, streakCount: 0 });
     }
   }, [audio, sessionStart, results, sceneId, onComplete]);
 

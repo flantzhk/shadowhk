@@ -129,8 +129,8 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.DRILL_TONE:      return <ToneTrainer onNavigate={navigate} onBack={goBack} />;
     case ROUTES.PHRASE_DETAIL:   return <PhraseDetailScreen phraseId={id} onNavigate={navigate} onBack={goBack} />;
     case ROUTES.SEARCH:          return <SearchScreen onNavigate={navigate} onBack={goBack} />;
-    case ROUTES.SHADOW:          return <ShadowSession sceneId={id} onNavigate={navigate} onBack={goBack} onComplete={() => navigate(ROUTES.SESSION_END)} />;
-    case ROUTES.SESSION_END:     return <SessionSummary navigate={navigate} goBack={goBack} />;
+    case ROUTES.SHADOW:          return <ShadowSession sceneId={id} onNavigate={navigate} onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('shadowSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.SESSION_END); }} />;
+    case ROUTES.SESSION_END:     return <SessionSummary summary={(() => { try { return JSON.parse(sessionStorage.getItem('shadowSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} />;
     case ROUTES.PROFILE:         return <ProfileScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.SETTINGS:        return <SettingsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.STATS:           return <StatsScreen navigate={navigate} goBack={goBack} />;
