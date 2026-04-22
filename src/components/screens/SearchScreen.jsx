@@ -69,7 +69,7 @@ export default function SearchScreen({ onNavigate }) {
     setSaveError(null);
     try {
       await saveLibraryEntry({
-        id: crypto.randomUUID(),
+        phraseId: crypto.randomUUID(),
         cjk: generated.cjk,
         romanization: generated.romanization,
         english: generated.english,
@@ -79,8 +79,9 @@ export default function SearchScreen({ onNavigate }) {
         growth_state: GROWTH_STATE.NEW,
         interval: 0,
         easeFactor: 2.5,
-        nextReviewDate: new Date().toISOString().slice(0, 10),
-        lastPracticed: null,
+        practiceCount: 0,
+        nextReviewAt: Date.now(),
+        lastPracticedAt: null,
         lived_at: null,
         cultural_note: generated.culturalNote ?? null,
         _createdAt: Date.now(),
@@ -89,8 +90,10 @@ export default function SearchScreen({ onNavigate }) {
       setSaved(true);
       setAddText('');
       setGenerated(null);
-      setShowAdd(false);
-      setSaved(false);
+      setTimeout(() => {
+        setShowAdd(false);
+        setSaved(false);
+      }, 1500);
     } catch (_) {
       setSaveError('Failed to save. Try again.');
     }

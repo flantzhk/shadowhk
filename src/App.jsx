@@ -280,8 +280,8 @@ function MainLayout() {
   return (
     <div className={`app-shell ${isDesktop ? 'app-shell--desktop' : 'app-shell--mobile'}`}>
       {isDesktop
-        ? <Sidebar activeRoute={route.path} navigate={navigate} />
-        : !hideChrome && <TopBar route={route} navigate={navigate} />
+        ? <Sidebar activeTab={route.path} onNavigate={navigate} />
+        : !hideChrome && <TopBar onNavigate={navigate} />
       }
       <main className="app-main">
         <Suspense fallback={<Loader />}>
@@ -289,7 +289,7 @@ function MainLayout() {
         </Suspense>
       </main>
       {!isDesktop && !hideChrome && (
-        <BottomTabBar activeRoute={route.path} navigate={navigate} />
+        <BottomTabBar activeTab={route.path} onNavigate={navigate} />
       )}
     </div>
   );

@@ -36,7 +36,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       setSavedIds(prev => { const next = new Set(prev); next.delete(line.id); return next; });
     } else {
       await saveLibraryEntry({
-        id: line.id,
+        phraseId: line.id,
         cjk: line.cjk,
         romanization: line.romanization,
         english: line.english,
@@ -46,8 +46,9 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         growth_state: GROWTH_STATE.NEW,
         interval: 0,
         easeFactor: 2.5,
-        nextReviewDate: new Date().toISOString().slice(0, 10),
-        lastPracticed: null,
+        practiceCount: 0,
+        nextReviewAt: Date.now(),
+        lastPracticedAt: null,
         lived_at: null,
         _createdAt: Date.now(),
         _updatedAt: Date.now(),

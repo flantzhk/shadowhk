@@ -87,7 +87,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
     // Save all phrases to library
     for (const phrase of phrases) {
       await saveLibraryEntry({
-        id: phrase.id,
+        phraseId: phrase.id,
         cjk: phrase.cjk,
         romanization: phrase.romanization,
         english: phrase.english,
@@ -97,8 +97,9 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         growth_state: GROWTH_STATE.NEW,
         interval: 0,
         easeFactor: 2.5,
-        nextReviewDate: new Date().toISOString().slice(0, 10),
-        lastPracticed: null,
+        practiceCount: 0,
+        nextReviewAt: Date.now(),
+        lastPracticedAt: null,
         lived_at: null,
         _createdAt: Date.now(),
         _updatedAt: Date.now(),

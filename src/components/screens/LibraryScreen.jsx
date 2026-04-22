@@ -174,9 +174,9 @@ export default function LibraryScreen({ onNavigate }) {
                   growthState={phrase.growth_state}
                   livedAt={phrase.lived_at}
                   sourceTag={phrase.source_tag}
-                  onProveIt={score => handleProveIt(phrase.id, score)}
-                  onMarkMastered={() => handleMarkMastered(phrase.id)}
-                  onTap={() => onNavigate('phrase', phrase.id)}
+                  onProveIt={() => handleProveIt(phrase.phraseId ?? phrase.id, null)}
+                  onIKnow={() => handleMarkMastered(phrase.phraseId ?? phrase.id)}
+                  onNavigate={() => onNavigate('phrase', phrase.phraseId ?? phrase.id)}
                 />
               ))}
             </div>
