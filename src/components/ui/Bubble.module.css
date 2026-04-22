@@ -1,70 +1,105 @@
+/* Bubble.module.css — dark-themed dialogue bubble (used in SceneDetailScreen) */
+
 .bubble {
   display: flex;
   flex-direction: column;
-  max-width: 85%;
-  gap: 2px;
+  max-width: 78%;
+  gap: 4px;
 }
 
 .bubbleLeft  { align-self: flex-start; }
 .bubbleRight { align-self: flex-end;   }
 
+/* === Speaker label === */
+.speaker {
+  font-size: 0.625rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0 4px;
+}
+
+.bubbleRight .speaker {
+  text-align: right;
+  color: rgba(196,240,0,0.45);
+}
+
+/* === Bubble body === */
 .body {
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .bodyLeft {
-  background: var(--color-bg-page);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
   border-bottom-left-radius: 4px;
 }
 
 .bodyRight {
-  background: var(--color-brand-lime-muted);
-  border: 1px solid var(--color-brand-lime);
+  background: rgba(196,240,0,0.1);
+  border: 1px solid rgba(196,240,0,0.25);
   border-bottom-right-radius: 4px;
 }
 
-.speaker {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: capitalize;
-  margin-bottom: 4px;
-}
-
+/* === Text layers === */
 .cjk {
-  font-size: 17px;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: #fff;
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
   line-height: 1.35;
 }
 
 .romanization {
-  font-size: 13px;
-  color: var(--color-jyutping);
-  font-weight: 500;
-}
-
-.english {
-  font-size: 13px;
-  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  color: #C4F000;
+  font-weight: 600;
+  font-style: italic;
   margin-top: 1px;
 }
 
-.saveBtn {
-  align-self: flex-end;
-  margin-top: 4px;
-  font-size: 20px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  line-height: 1;
-  transition: transform 0.15s;
+.english {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.38);
+  margin-top: 2px;
+  line-height: 1.4;
 }
 
-.saveBtn:hover { transform: scale(1.15); }
+/* === Save chip === */
+.saveChip {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  margin-top: 2px;
+}
+
+.bubbleRight .saveChip {
+  align-self: flex-end;
+}
+
+.saveChip:hover {
+  background: rgba(196,240,0,0.12);
+  color: #C4F000;
+  border-color: rgba(196,240,0,0.3);
+}
+
+.saveChipSaved {
+  background: rgba(196,240,0,0.12);
+  color: #C4F000;
+  border-color: rgba(196,240,0,0.3);
+}

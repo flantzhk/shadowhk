@@ -11,8 +11,12 @@ export function Bubble({ speaker, cjk, romanization, english, saved, onSave }) {
         <span className={styles.english}>{english}</span>
       </div>
       {onSave && (
-        <button className={styles.saveBtn} onClick={onSave} aria-label={saved ? 'Saved' : 'Save phrase'}>
-          {saved ? '✓' : '+'}
+        <button
+          className={`${styles.saveChip} ${saved ? styles.saveChipSaved : ''}`}
+          onClick={onSave}
+          aria-label={saved ? 'Saved to library' : 'Save to library'}
+        >
+          {saved ? '✓ Saved' : '＋ Save'}
         </button>
       )}
     </div>

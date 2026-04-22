@@ -100,11 +100,12 @@ const PUBLIC_ROUTES = new Set([
   ROUTES.PRIVACY, ROUTES.TERMS, ROUTES.SUPPORT, ROUTES.FIRSTRUN,
 ]);
 
-// Routes that hide the app chrome (tabs/topbar) for immersive experience
+// Routes that hide the app chrome (tabs/topbar/sidebar) for immersive experience
 const CHROME_HIDDEN_ROUTES = new Set([
   ROUTES.SHADOW, ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN,
   ROUTES.TONE_GYM, ROUTES.DRILL_TONE, ROUTES.DIALOGUE,
   ROUTES.LISTEN, ROUTES.FIRSTRUN,
+  ROUTES.SCENE_DETAIL, ROUTES.SESSION_END, ROUTES.SCENE_END,
 ]);
 
 // ── Loader ─────────────────────────────────────────────────────────────────
@@ -279,9 +280,9 @@ function MainLayout() {
 
   return (
     <div className={`app-shell ${isDesktop ? 'app-shell--desktop' : 'app-shell--mobile'}`}>
-      {isDesktop
+      {isDesktop && !hideChrome
         ? <Sidebar activeTab={route.path} onNavigate={navigate} />
-        : !hideChrome && <TopBar onNavigate={navigate} />
+        : !isDesktop && !hideChrome && <TopBar onNavigate={navigate} />
       }
       <main className="app-main">
         <Suspense fallback={<Loader />}>

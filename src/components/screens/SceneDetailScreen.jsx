@@ -81,9 +81,10 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       {/* Hero */}
       <div className={styles.hero}>
         <button className={styles.backBtn} onClick={onBack} aria-label="Back">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
             <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
+          Back
         </button>
         <span className={styles.heroEmoji}>{scene.emoji}</span>
         <div className={styles.heroText}>
