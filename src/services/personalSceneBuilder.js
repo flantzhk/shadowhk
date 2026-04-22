@@ -57,7 +57,7 @@ export async function savePersonalScene(phrases, language) {
   const now = Date.now();
   for (const phrase of phrases) {
     await saveLibraryEntry({
-      id: `${PERSONAL_SCENE_ID}-${crypto.randomUUID()}`,
+      phraseId: `${PERSONAL_SCENE_ID}-${crypto.randomUUID()}`,
       cjk: phrase.cjk,
       romanization: phrase.romanization,
       english: phrase.english,
@@ -67,8 +67,9 @@ export async function savePersonalScene(phrases, language) {
       growth_state: GROWTH_STATE.NEW,
       interval: 0,
       easeFactor: 2.5,
-      nextReviewDate: new Date().toISOString().slice(0, 10),
-      lastPracticed: null,
+      practiceCount: 0,
+      nextReviewAt: now,
+      lastPracticedAt: null,
       lived_at: null,
       _createdAt: now,
       _updatedAt: now,

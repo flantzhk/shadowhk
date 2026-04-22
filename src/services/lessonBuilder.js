@@ -137,19 +137,24 @@ function buildPhraseQueueFromScene(scene) {
 }
 
 // Compat shims for carry-over screens (PromptDrill, SpeedRun)
+// normaliseEntry adds `id` as an alias for `phraseId` so v1 code that reads `.id` still works.
+function normaliseEntry(e) {
+  return e.id ? e : { ...e, id: e.phraseId };
+}
+
 async function buildLesson(goalMinutes, language) {
   const { getDueEntries, getAllLibraryEntries } = await import('./storage.js');
   const due = await getDueEntries();
   const all = await getAllLibraryEntries();
   const pool = due.length > 0 ? due : all.filter(e => !e.language || e.language === language);
   const maxPhrases = Math.max(5, Math.floor((goalMinutes || 10) * 1.5));
-  return pool.slice(0, maxPhrases);
+  return pool.slice(0, maxPhrases).map(normaliseEntry);
 }
 
 async function loadAllPhrases(language) {
   const { getAllLibraryEntries } = await import('./storage.js');
   const all = await getAllLibraryEntries();
-  return all.filter(e => !e.language || e.language === language);
+  return all.filter(e => !e.language || e.language === language).map(normaliseEntry);
 }
 
 export { buildSceneLesson, buildPhraseQueueFromScene, buildLesson, loadAllPhrases };

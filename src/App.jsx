@@ -135,12 +135,12 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.SETTINGS:        return <SettingsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.STATS:           return <StatsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.DAY_DETAIL:      return <DayDetailScreen date={id} navigate={navigate} goBack={goBack} />;
-    case ROUTES.AI_CHAT:         return <AIConversation navigate={navigate} goBack={goBack} />;
-    case ROUTES.AI_SCENARIO:     return <AIScenarioPicker navigate={navigate} goBack={goBack} />;
-    case ROUTES.PROMPT_DRILL:    return <PromptDrill navigate={navigate} goBack={goBack} />;
-    case ROUTES.SPEED_RUN:       return <SpeedRun navigate={navigate} goBack={goBack} />;
-    case ROUTES.TONE_GYM:        return <ToneGym navigate={navigate} goBack={goBack} />;
-    case ROUTES.TONE_GYM_RESULTS: return <ToneGymResults navigate={navigate} goBack={goBack} />;
+    case ROUTES.AI_CHAT:         return <AIConversation onBack={goBack} onNavigate={navigate} />;
+    case ROUTES.AI_SCENARIO:     return <AIScenarioPicker onBack={goBack} onNavigate={navigate} onSelectScenario={(s) => { try { sessionStorage.setItem('aiScenario', JSON.stringify(s)); } catch {} navigate(ROUTES.AI_CHAT); }} />;
+    case ROUTES.PROMPT_DRILL:    return <PromptDrill onBack={goBack} onComplete={() => navigate(ROUTES.HOME)} />;
+    case ROUTES.SPEED_RUN:       return <SpeedRun onBack={goBack} onComplete={() => navigate(ROUTES.HOME)} />;
+    case ROUTES.TONE_GYM:        return <ToneGym onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('toneGymSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.TONE_GYM_RESULTS); }} />;
+    case ROUTES.TONE_GYM_RESULTS: return <ToneGymResults summary={(() => { try { return JSON.parse(sessionStorage.getItem('toneGymSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} onPlayAgain={() => navigate(ROUTES.TONE_GYM)} />;
     case ROUTES.DIALOGUE:        return <DialogueScene sceneId={id} navigate={navigate} goBack={goBack} />;
     case ROUTES.SCENE_END:       return <SceneSummary navigate={navigate} goBack={goBack} />;
     case ROUTES.PAYWALL:         return <Paywall navigate={navigate} goBack={goBack} />;
@@ -158,8 +158,8 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.TERMS:           return <LegalPage type="terms" navigate={navigate} goBack={goBack} />;
     case ROUTES.LICENSES:        return <LicensesScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess navigate={navigate} />;
-    case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm navigate={navigate} goBack={goBack} onComplete={() => navigate(ROUTES.LIBRARY)} />;
-    default:                     return <HomeScreen navigate={navigate} />;
+    case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.LIBRARY)} />;
+    default:                     return <HomeScreen onNavigate={navigate} />;
   }
 }
 
@@ -257,7 +257,7 @@ function MainLayout() {
     }
     return (
       <Suspense fallback={<Loader />}>
-        <FirstRunFlow navigate={navigate} />
+        <FirstRunFlow onNavigate={navigate} onComplete={() => navigate(ROUTES.HOME)} />
       </Suspense>
     );
   }
