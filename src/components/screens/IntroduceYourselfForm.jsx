@@ -81,14 +81,18 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
       });
 
       const data = await response.json();
-      const raw = data.content ?? data.message ?? '';
 
       let phrases;
-      try {
-        const jsonMatch = raw.match(/\[[\s\S]*\]/);
-        phrases = jsonMatch ? JSON.parse(jsonMatch[0]) : [];
-      } catch (_) {
-        throw new Error('Could not parse generated phrases. Try again.');
+      if (Array.isArray(data)) {
+        phrases = data;
+      } else {
+        const raw = data.content ?? data.message ?? '';
+        try {
+          const jsonMatch = raw.match(/\[[\s\S]*\]/);
+          phrases = jsonMatch ? JSON.parse(jsonMatch[0]) : [];
+        } catch (_) {
+          throw new Error('Could not parse generated phrases. Try again.');
+        }
       }
 
       if (!phrases.length) throw new Error('No phrases generated. Try adding more details.');
