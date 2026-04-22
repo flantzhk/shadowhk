@@ -190,7 +190,7 @@ function MainLayout() {
   // Stamp the <html> bg colour so the body never bleeds cream behind dark screens
   useEffect(() => {
     document.documentElement.style.background = DARK_BG_ROUTES.has(route.path)
-      ? '#1F3329'
+      ? '#111111'
       : '';
   }, [route.path]);
 

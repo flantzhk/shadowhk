@@ -2,7 +2,7 @@
 
 .screen {
   flex: 1; display: flex; flex-direction: column;
-  background: #1F3329;
+  background: #111111;
   padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
 }
 
