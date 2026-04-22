@@ -8,13 +8,6 @@ import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 
-const VIEWS = [
-  { id: 'growth', label: 'By growth' },
-  { id: 'badges', label: 'Badges' },
-  { id: 'source', label: 'Where it came from' },
-  { id: 'scene', label: 'By scene' },
-];
-
 const GROWTH_ORDER = [GROWTH_STATE.MASTERED, GROWTH_STATE.STRONG, GROWTH_STATE.GROWING, GROWTH_STATE.NEW];
 
 const GROWTH_LABELS = {
@@ -38,7 +31,7 @@ export default function LibraryScreen({ onNavigate }) {
 
   const [library, setLibrary] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeView, setActiveView] = useState('growth');
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
     reload();
@@ -70,45 +63,42 @@ export default function LibraryScreen({ onNavigate }) {
   }
 
   const total = library.length;
-  const livedPhrases = library.filter(p => p.lived_at);
+  const masteredCount = library.filter(p => p.growth_state === GROWTH_STATE.MASTERED).length;
+  const strongCount   = library.filter(p => p.growth_state === GROWTH_STATE.STRONG).length;
+  const growingCount  = library.filter(p => p.growth_state === GROWTH_STATE.GROWING).length;
+  const livedCount    = library.filter(p => p.lived_at).length;
+
+  const FILTER_CHIPS = [
+    { id: 'all',      label: `all · ${total}` },
+    { id: 'mastered', label: `⭐ mastered · ${masteredCount}` },
+    { id: 'strong',   label: `strong · ${strongCount}` },
+    { id: 'growing',  label: `growing · ${growingCount}` },
+    { id: 'lived',    label: `📍 lived · ${livedCount}` },
+  ];
 
   function grouped() {
-    switch (activeView) {
-      case 'growth': {
-        return GROWTH_ORDER.map(state => ({
-          key: state,
-          label: GROWTH_LABELS[state],
-          items: library.filter(p => p.growth_state === state),
-        })).filter(g => g.items.length > 0);
-      }
-      case 'badges': {
-        return [{
-          key: 'lived',
-          label: '📍 Lived in HK',
-          items: livedPhrases,
-        }].filter(g => g.items.length > 0);
-      }
-      case 'source': {
-        const sources = [...new Set(library.map(p => p.source_tag))];
-        return sources.map(src => ({
-          key: src,
-          label: SOURCE_LABELS[src] ?? src,
-          items: library.filter(p => p.source_tag === src),
-        })).filter(g => g.items.length > 0);
-      }
-      case 'scene': {
-        const sceneIds = [...new Set(library.map(p => p.scene_id).filter(Boolean))];
-        const noScene = library.filter(p => !p.scene_id);
-        const groups = sceneIds.map(id => ({
-          key: id,
-          label: id,
-          items: library.filter(p => p.scene_id === id),
-        }));
-        if (noScene.length > 0) groups.push({ key: 'none', label: 'No scene', items: noScene });
-        return groups;
-      }
-      default: return [];
+    if (activeFilter === 'all') {
+      return GROWTH_ORDER.map(state => ({
+        key: state,
+        label: GROWTH_LABELS[state],
+        items: library.filter(p => p.growth_state === state),
+      })).filter(g => g.items.length > 0);
     }
+    if (activeFilter === 'lived') {
+      return [{ key: 'lived', label: '📍 Lived in HK', items: library.filter(p => p.lived_at) }].filter(g => g.items.length > 0);
+    }
+    const stateMap = {
+      mastered: GROWTH_STATE.MASTERED,
+      strong: GROWTH_STATE.STRONG,
+      growing: GROWTH_STATE.GROWING,
+    };
+    const state = stateMap[activeFilter];
+    if (!state) return [];
+    return [{
+      key: activeFilter,
+      label: GROWTH_LABELS[state],
+      items: library.filter(p => p.growth_state === state),
+    }].filter(g => g.items.length > 0);
   }
 
   const groups = grouped();
@@ -119,16 +109,19 @@ export default function LibraryScreen({ onNavigate }) {
         <span className={styles.bannerCount}>你識 {total} 句</span>
       </div>
 
-      <div className={styles.viewTabs}>
-        {VIEWS.map(v => (
-          <button
-            key={v.id}
-            className={`${styles.viewTab} ${activeView === v.id ? styles.viewTabActive : ''}`}
-            onClick={() => setActiveView(v.id)}
-          >
-            {v.label}
-          </button>
-        ))}
+      <div className={styles.jumpChipsRow}>
+        <span className={styles.jumpLabel}>JUMP TO</span>
+        <div className={styles.jumpChips}>
+          {FILTER_CHIPS.map(chip => (
+            <button
+              key={chip.id}
+              className={`${styles.jumpChip} ${activeFilter === chip.id ? styles.jumpChipActive : ''}`}
+              onClick={() => setActiveFilter(chip.id)}
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={styles.content}>

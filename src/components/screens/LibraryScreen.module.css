@@ -20,37 +20,52 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-.viewTabs {
-  display: flex;
-  gap: 0;
+.jumpChipsRow {
+  padding: 14px 16px 10px;
   border-bottom: 1px solid var(--color-border);
-  overflow-x: auto;
-  scrollbar-width: none;
   flex-shrink: 0;
   background: var(--color-bg);
 }
 
-.viewTabs::-webkit-scrollbar {
+.jumpLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.jumpChips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.jumpChips::-webkit-scrollbar {
   display: none;
 }
 
-.viewTab {
-  padding: 12px 16px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-muted);
+.jumpChip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border-strong);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.15s;
-  margin-bottom: -1px;
+  min-height: 30px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
 }
 
-.viewTabActive {
-  color: var(--color-brand-dark);
-  border-bottom-color: var(--color-brand-dark);
+.jumpChipActive {
+  background: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  color: var(--color-brand-lime);
 }
 
 .content {

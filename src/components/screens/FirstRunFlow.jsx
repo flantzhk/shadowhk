@@ -9,6 +9,7 @@ import { useRecorder } from '../../hooks/useRecorder.js';
 import { scorePronunciation } from '../../services/api.js';
 import { saveLibraryEntry } from '../../services/storage.js';
 import { getAllScenes, getYouLines } from '../../services/sceneLoader.js';
+import { isAuthenticated } from '../../services/auth.js';
 import { SOURCE_TAGS, GROWTH_STATE, SCORE_THRESHOLDS } from '../../utils/constants.js';
 
 const IntroduceYourselfForm = lazy(() => import('./IntroduceYourselfForm.jsx'));
@@ -45,6 +46,11 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   async function handleStopRecording() {
     const blob = await stopRecording();
     if (!blob) return;
+    if (!isAuthenticated()) {
+      // Not signed in yet — skip scoring silently, don't redirect to login
+      setScore(null);
+      return;
+    }
     setIsScoring(true);
     try {
       const result = await scorePronunciation(blob, STARTER_PHRASE.cjk, language);

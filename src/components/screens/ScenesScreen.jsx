@@ -24,6 +24,7 @@ export default function ScenesScreen({ onNavigate }) {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
   const [suggested, setSuggested] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
     Promise.all([getAllScenes(language), getAllSceneProgress()])
@@ -58,6 +59,26 @@ export default function ScenesScreen({ onNavigate }) {
 
   return (
     <div className={styles.screen}>
+      {!search && (
+        <div className={styles.categoryChips}>
+          <button
+            className={`${styles.categoryChip} ${activeCategory === 'all' ? styles.categoryChipActive : ''}`}
+            onClick={() => setActiveCategory('all')}
+          >
+            All
+          </button>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`${styles.categoryChip} ${activeCategory === cat ? styles.categoryChipActive : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {CATEGORY_LABELS[cat] ?? cat}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className={styles.searchBar}>
         <SearchIcon />
         <input
@@ -117,7 +138,9 @@ export default function ScenesScreen({ onNavigate }) {
           </section>
         )}
 
-        {!loading && filteredScenes === null && categories.map(cat => {
+        {!loading && filteredScenes === null && categories
+          .filter(cat => activeCategory === 'all' || activeCategory === cat)
+          .map(cat => {
           const catScenes = scenes.filter(s => s.category === cat);
           if (catScenes.length === 0) return null;
           return (

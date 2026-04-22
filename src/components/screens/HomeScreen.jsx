@@ -45,13 +45,14 @@ export default function HomeScreen({ onNavigate }) {
 }
 
 function StreakDots({ count }) {
-  const dots = Array.from({ length: 7 });
+  const boxes = Array.from({ length: 7 });
+  const filled = count % 7 === 0 && count > 0 ? 7 : count % 7;
   return (
     <div className={styles.streakRow} aria-label={`${count} day streak`}>
-      {dots.map((_, i) => (
+      {boxes.map((_, i) => (
         <div
           key={i}
-          className={`${styles.dot} ${i < count % 7 ? styles.dotFilled : ''}`}
+          className={`${styles.dot} ${i < filled ? styles.dotFilled : ''}`}
         />
       ))}
     </div>
@@ -65,21 +66,31 @@ function TodayLesson({ lesson, onNavigate }) {
 
   return (
     <section className={styles.lessonSection}>
+      <p className={styles.sectionLabel}>TODAY'S SCENE</p>
       {reason && <p className={styles.reason}>{reason}</p>}
-      <SceneCard
-        emoji={scene.emoji}
-        title={scene.title}
-        phraseCount={phraseCount}
-        duration={duration}
-        status="fresh"
-        onClick={() => onNavigate('shadow', scene.id)}
-      />
-      <button
-        className={styles.primaryCta}
-        onClick={() => onNavigate('shadow', scene.id)}
-      >
-        Shadow this scene
-      </button>
+      <div className={styles.sceneHero}>
+        <div className={styles.sceneHeroMeta}>
+          <span className={styles.sceneEmoji}>{scene.emoji}</span>
+          <div>
+            <p className={styles.sceneTitle}>{scene.title}</p>
+            <p className={styles.sceneMeta}>{phraseCount} phrases · {duration} min</p>
+          </div>
+        </div>
+        <div className={styles.sceneHeroBtns}>
+          <button
+            className={styles.primaryCta}
+            onClick={() => onNavigate('shadow', scene.id)}
+          >
+            ▶ Shadow
+          </button>
+          <button
+            className={styles.secondaryCta}
+            onClick={() => onNavigate('listen', scene.id)}
+          >
+            🎧 Listen
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
@@ -98,14 +109,18 @@ function EmptyState({ onNavigate }) {
 function QuickActions({ onNavigate }) {
   return (
     <div className={styles.quickActions}>
-      <button className={styles.chip} onClick={() => onNavigate('practice')}>
-        Practice hub
+      <p className={styles.orLabel}>OR</p>
+      <button className={styles.actionBox} onClick={() => onNavigate('practice')}>
+        <span className={styles.actionTitle}>⚡ 3 min review</span>
+        <span className={styles.actionDesc}>Quick drill on due phrases</span>
       </button>
-      <button className={styles.chip} onClick={() => onNavigate('ai')}>
-        Free chat
+      <button className={styles.actionBox} onClick={() => onNavigate('ai-scenario')}>
+        <span className={styles.actionTitle}>💬 Free chat</span>
+        <span className={styles.actionDesc}>Practice what you know</span>
       </button>
-      <button className={styles.chip} onClick={() => onNavigate('scenes')}>
-        Browse scenes
+      <button className={styles.actionBox} onClick={() => onNavigate('scenes')}>
+        <span className={styles.actionTitle}>🎬 Browse scenes</span>
+        <span className={styles.actionDesc}>Add a new HK moment to your library</span>
       </button>
     </div>
   );

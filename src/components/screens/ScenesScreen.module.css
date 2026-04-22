@@ -6,6 +6,38 @@
   flex-direction: column;
 }
 
+/* === Category chips === */
+.categoryChips {
+  display: flex;
+  gap: 6px;
+  padding: 10px 16px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+
+.categoryChips::-webkit-scrollbar { display: none; }
+
+.categoryChip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border-strong);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 34px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.categoryChipActive {
+  background: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+}
+
 .searchBar {
   position: sticky;
   top: 0;
