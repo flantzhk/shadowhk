@@ -1,35 +1,44 @@
+/* SceneDetailScreen.module.css — browsing/cream screen */
+
 .screen {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #111111;
+  background: var(--color-bg);
   overflow: hidden;
 }
 
+/* === Hero header === */
 .hero {
-  background: rgba(0,0,0,0.15);
+  background: var(--color-surface);
   padding: 10px 16px 16px;
   display: flex;
   align-items: flex-start;
   gap: 14px;
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .backBtn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
   min-height: 40px;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   flex-shrink: 0;
   margin-top: 2px;
+  transition: background 0.15s;
+}
+
+.backBtn:hover {
+  background: var(--color-border);
 }
 
 .heroEmoji {
@@ -45,32 +54,34 @@
 .heroTitle {
   font-size: 22px;
   font-weight: 900;
-  color: #fff;
+  color: var(--color-text-primary);
   margin: 0 0 4px;
   line-height: 1.3;
 }
 
 .heroDesc {
   font-size: 14px;
-  color: rgba(255,255,255,0.5);
+  color: var(--color-text-secondary);
   margin: 0;
   line-height: 1.5;
 }
 
+/* === Context note === */
 .contextBlock {
   padding: 12px 20px;
-  background: rgba(196,240,0,0.08);
-  border-bottom: 1px solid rgba(196,240,0,0.15);
+  background: rgba(196,240,0,0.1);
+  border-bottom: 1px solid rgba(196,240,0,0.18);
   flex-shrink: 0;
 }
 
 .contextText {
   font-size: 13px;
-  color: rgba(255,255,255,0.6);
+  color: var(--color-text-secondary);
   margin: 0;
   line-height: 1.6;
 }
 
+/* === Dialogue scroll area === */
 .dialogue {
   flex: 1;
   overflow-y: auto;
@@ -80,39 +91,40 @@
   gap: 8px;
 }
 
+/* === Sticky CTA bar === */
 .ctaBar {
   display: flex;
   gap: 12px;
   padding: 16px 20px;
   padding-bottom: calc(16px + env(safe-area-inset-bottom));
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: rgba(0,0,0,0.15);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
   flex-shrink: 0;
 }
 
 .ctaSecondary {
   flex: 1;
   padding: 16px;
-  background: rgba(255,255,255,0.07);
-  border: 1.5px solid rgba(255,255,255,0.2);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
   border-radius: 14px;
   font-size: 16px;
   font-weight: 700;
-  color: rgba(255,255,255,0.85);
+  color: var(--color-text-primary);
   cursor: pointer;
   min-height: 56px;
   transition: background 0.15s;
 }
 
 .ctaSecondary:hover {
-  background: rgba(255,255,255,0.13);
+  background: var(--color-border);
 }
 
 .ctaPrimary {
   flex: 1.5;
   padding: 16px;
   background: #C4F000;
-  color: #1F3329;
+  color: #111111;
   border: none;
   border-radius: 14px;
   font-size: 16px;
@@ -120,16 +132,18 @@
   cursor: pointer;
   min-height: 56px;
   transition: opacity 0.15s;
-  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
+  box-shadow: 0 4px 16px rgba(196,240,0,0.3);
 }
 
 .ctaPrimary:hover { opacity: 0.88; }
 
+/* === Loading / error states === */
 .loadingBar {
   height: 200px;
-  background: rgba(255,255,255,0.06);
+  background: var(--color-border);
   border-radius: 12px;
   animation: pulse 1.5s ease-in-out infinite;
+  margin: 20px;
 }
 
 .error {
@@ -139,20 +153,20 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: rgba(255,255,255,0.5);
+  color: var(--color-text-secondary);
   font-size: 16px;
   padding: 24px;
 }
 
 .error button {
   padding: 10px 20px;
-  background: rgba(255,255,255,0.1);
-  border: 1.5px solid rgba(255,255,255,0.2);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
   border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 @keyframes pulse {

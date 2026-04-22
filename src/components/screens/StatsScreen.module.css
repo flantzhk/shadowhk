@@ -3,6 +3,7 @@
 .screen {
   flex: 1;
   overflow-y: auto;
+  background: var(--color-bg);
   padding: var(--space-lg) var(--content-padding);
   padding-bottom: var(--space-3xl);
 }

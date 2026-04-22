@@ -287,8 +287,8 @@ export default function PromptDrill({ onBack, onComplete }) {
           <div className={styles.comparison}>
             <div className={styles.expected}>
               <span className={styles.compLabel}>Expected</span>
-              <span className={styles.compText} lang="yue">{phrase.chinese}</span>
               <span className={styles.compJyutping}>{phrase.jyutping}</span>
+              <span className={styles.compText} lang="yue">{phrase.chinese}</span>
             </div>
             <div className={styles.actual}>
               <span className={styles.compLabel}>You said</span>

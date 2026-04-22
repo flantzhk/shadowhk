@@ -306,9 +306,9 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
           {messages.map((msg, i) => (
             <div key={i} className={`${styles.reviewBubble} ${msg.role === 'user' ? styles.reviewUserBubble : styles.reviewAiBubble}`}>
               <span className={styles.reviewSpeaker}>{msg.role === 'user' ? 'You' : 'AI'}</span>
-              {msg.chinese && <p className={styles.reviewChinese} lang="yue">{msg.chinese}</p>}
               {msg.romanization && msg.role === 'user' && <p className={styles.reviewRoman}>{msg.romanization}</p>}
               {msg.english && <p className={styles.reviewEnglish}>{msg.english}</p>}
+              {msg.chinese && <p className={styles.reviewChinese} lang="yue">{msg.chinese}</p>}
               {msg.role === 'user' && !savedMsgIds.has(i) && (
                 <button className={styles.saveMsgBtn} onClick={() => handleSavePhrase(msg, i)}>
                   + Save

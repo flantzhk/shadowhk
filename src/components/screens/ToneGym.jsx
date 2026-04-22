@@ -157,16 +157,16 @@ export default function ToneGym({ onBack, onComplete }) {
           </p>
           <div className={styles.introExample}>
             <button className={styles.introToneBtn} onClick={() => playChar('媽')}>
-              <span className={styles.introChar}>媽</span>
               <span className={styles.introJyut}>maa1</span>
               <span className={styles.introMeaning}>mother</span>
+              <span className={styles.introChar}>媽</span>
               <span className={styles.introToneLabel}>high flat ▶</span>
             </button>
             <span className={styles.introVs}>vs</span>
             <button className={styles.introToneBtn} onClick={() => playChar('麻')}>
-              <span className={styles.introChar}>麻</span>
               <span className={styles.introJyut}>maa4</span>
               <span className={styles.introMeaning}>numb</span>
+              <span className={styles.introChar}>麻</span>
               <span className={styles.introToneLabel}>low falling ▶</span>
             </button>
           </div>
@@ -205,10 +205,9 @@ export default function ToneGym({ onBack, onComplete }) {
           <div className={styles.learnPair}>
             {currentPair.tones.map((t, i) => (
               <button key={i} className={styles.learnCard} onClick={() => playChar(t.char)}>
-                <span className={styles.learnChar} lang="yue">{t.char}</span>
                 <span className={styles.learnJyut}>{t.jyutping}</span>
                 <span className={styles.learnDesc}>{t.desc}</span>
-                <span className={styles.learnMeaning}>{t.char}</span>
+                <span className={styles.learnChar} lang="yue">{t.char}</span>
                 <span className={styles.learnPlay}>▶ Play</span>
               </button>
             ))}
@@ -263,9 +262,9 @@ export default function ToneGym({ onBack, onComplete }) {
                 else playChar(t.char); // In feedback, tap to replay
               }}
               disabled={false}>
-              <span className={styles.choiceChar} lang="yue">{t.char}</span>
               <span className={styles.choiceJyutping}>{t.jyutping}</span>
               <span className={styles.choiceDesc}>{t.desc}</span>
+              <span className={styles.choiceChar} lang="yue">{t.char}</span>
               {phase === 'feedback' && (
                 <span className={styles.choicePlayHint}>tap to hear</span>
               )}
