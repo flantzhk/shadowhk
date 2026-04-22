@@ -103,9 +103,20 @@ const PUBLIC_ROUTES = new Set([
 // Routes that hide the app chrome (tabs/topbar/sidebar) for immersive experience
 const CHROME_HIDDEN_ROUTES = new Set([
   ROUTES.SHADOW, ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN,
-  ROUTES.TONE_GYM, ROUTES.DRILL_TONE, ROUTES.DIALOGUE,
+  ROUTES.TONE_GYM, ROUTES.TONE_GYM_RESULTS, ROUTES.DRILL_TONE, ROUTES.DIALOGUE,
   ROUTES.LISTEN, ROUTES.FIRSTRUN,
   ROUTES.SCENE_DETAIL, ROUTES.SESSION_END, ROUTES.SCENE_END,
+]);
+
+// Dark bg routes — set on <html> so body never bleeds cream behind immersive screens
+const GREEN_BG_ROUTES = new Set([
+  ROUTES.SHADOW, ROUTES.SCENE_DETAIL, ROUTES.LISTEN,
+  ROUTES.SESSION_END, ROUTES.SCENE_END,
+  ROUTES.TONE_GYM, ROUTES.TONE_GYM_RESULTS,
+]);
+const NAVY_BG_ROUTES = new Set([
+  ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN, ROUTES.DIALOGUE,
+  ROUTES.TONE_GYM, ROUTES.FIRSTRUN, ROUTES.DRILL_TONE,
 ]);
 
 // ── Loader ─────────────────────────────────────────────────────────────────
@@ -177,6 +188,18 @@ function MainLayout() {
     const p = new URLSearchParams(window.location.search);
     return p.get('checkout');
   });
+
+  // Stamp the <html> bg colour so the body never bleeds cream behind dark screens
+  useEffect(() => {
+    const el = document.documentElement;
+    if (GREEN_BG_ROUTES.has(route.path)) {
+      el.style.background = '#1F3329';
+    } else if (NAVY_BG_ROUTES.has(route.path)) {
+      el.style.background = '#1A1F3D';
+    } else {
+      el.style.background = '';
+    }
+  }, [route.path]);
 
   useEffect(() => {
     if (checkoutResult) {
