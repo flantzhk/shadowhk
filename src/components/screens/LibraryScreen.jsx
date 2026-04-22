@@ -106,7 +106,8 @@ export default function LibraryScreen({ onNavigate }) {
   return (
     <div className={styles.screen}>
       <div className={styles.banner}>
-        <span className={styles.bannerCount}>你識 {total} 句</span>
+        <span className={styles.bannerCount}>{total}</span>
+        <span className={styles.bannerLabel}>phrases in your library</span>
       </div>
 
       <div className={styles.jumpChipsRow}>

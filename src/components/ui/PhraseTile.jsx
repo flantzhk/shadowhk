@@ -35,11 +35,13 @@ export function PhraseTile({
       <div style={{ flex: 1 }}>
         <div className={styles.content} onClick={handleTileClick} role="button" tabIndex={0}
           onKeyDown={(e) => e.key === 'Enter' && handleTileClick()}>
-          <span className={styles.cjk}>{phrase.cjk}</span>
           {phrase.romanization && (
             <span className={styles.romanization}>{phrase.romanization}</span>
           )}
           <span className={styles.english}>{phrase.english}</span>
+          {phrase.cjk && (
+            <span className={styles.cjk}>{phrase.cjk}</span>
+          )}
           <div className={styles.footer}>
             <GrowthBadge state={growthState} />
             {livedAt && <span className={styles.livedBadge}>📍 Lived in HK</span>}

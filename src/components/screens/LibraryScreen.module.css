@@ -7,16 +7,27 @@
 }
 
 .banner {
-  padding: 28px 20px 20px;
+  padding: 28px 20px 22px;
   background: var(--color-brand-dark);
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .bannerCount {
-  font-size: 40px;
-  font-weight: 700;
-  color: var(--color-surface);
-  letter-spacing: -0.8px;
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.bannerLabel {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
   font-family: 'DM Sans', sans-serif;
 }
 

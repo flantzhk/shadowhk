@@ -46,28 +46,30 @@
   border-bottom-right-radius: 4px;
 }
 
-/* === Text layers === */
-.cjk {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
-  line-height: 1.35;
-}
-
+/* === Text layers — jyutping first, English second, characters last === */
 .romanization {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
   color: #C4F000;
-  font-weight: 600;
   font-style: italic;
-  margin-top: 1px;
+  line-height: 1.3;
 }
 
 .english {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.38);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.7);
   margin-top: 2px;
   line-height: 1.4;
+}
+
+/* Characters — reference only, smallest */
+.cjk {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
+  line-height: 1.35;
+  margin-top: 2px;
 }
 
 /* === Save chip === */
