@@ -120,15 +120,15 @@ const Loader = () => (
 function renderScreen(route, navigate, goBack) {
   const { path, id } = route;
   switch (path) {
-    case ROUTES.HOME:            return <HomeScreen navigate={navigate} />;
-    case ROUTES.SCENES:          return <ScenesScreen navigate={navigate} />;
-    case ROUTES.SCENE_DETAIL:    return <SceneDetailScreen sceneId={id} navigate={navigate} goBack={goBack} />;
-    case ROUTES.LISTEN:          return <ListenMode sceneId={id} navigate={navigate} goBack={goBack} />;
-    case ROUTES.LIBRARY:         return <LibraryScreen navigate={navigate} />;
-    case ROUTES.PRACTICE:        return <PracticeScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.DRILL_TONE:      return <ToneTrainer navigate={navigate} goBack={goBack} />;
-    case ROUTES.PHRASE_DETAIL:   return <PhraseDetailScreen phraseId={id} navigate={navigate} goBack={goBack} />;
-    case ROUTES.SEARCH:          return <SearchScreen navigate={navigate} goBack={goBack} />;
+    case ROUTES.HOME:            return <HomeScreen onNavigate={navigate} />;
+    case ROUTES.SCENES:          return <ScenesScreen onNavigate={navigate} />;
+    case ROUTES.SCENE_DETAIL:    return <SceneDetailScreen sceneId={id} onNavigate={navigate} goBack={goBack} />;
+    case ROUTES.LISTEN:          return <ListenMode sceneId={id} onNavigate={navigate} goBack={goBack} />;
+    case ROUTES.LIBRARY:         return <LibraryScreen onNavigate={navigate} />;
+    case ROUTES.PRACTICE:        return <PracticeScreen onNavigate={navigate} goBack={goBack} />;
+    case ROUTES.DRILL_TONE:      return <ToneTrainer onNavigate={navigate} goBack={goBack} />;
+    case ROUTES.PHRASE_DETAIL:   return <PhraseDetailScreen phraseId={id} onNavigate={navigate} goBack={goBack} />;
+    case ROUTES.SEARCH:          return <SearchScreen onNavigate={navigate} goBack={goBack} />;
     case ROUTES.SHADOW:          return <ShadowSession sceneId={id} navigate={navigate} goBack={goBack} />;
     case ROUTES.SESSION_END:     return <SessionSummary navigate={navigate} goBack={goBack} />;
     case ROUTES.PROFILE:         return <ProfileScreen navigate={navigate} goBack={goBack} />;

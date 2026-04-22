@@ -61,6 +61,53 @@ body {
   }
 }
 
+/* === App shell layout === */
+
+.app-shell {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Mobile: column stack — TopBar / main / BottomTabBar */
+.app-shell--mobile {
+  flex-direction: column;
+}
+
+.app-shell--mobile .app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Desktop: sidebar on left, content on right */
+.app-shell--desktop {
+  flex-direction: row;
+}
+
+.app-shell--desktop .app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+/* Fullscreen spinner used by Suspense Loader */
+.spin-loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-brand-lime);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
