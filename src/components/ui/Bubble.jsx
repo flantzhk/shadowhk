@@ -9,16 +9,16 @@ export function Bubble({ speaker, cjk, romanization, english, saved, onSave }) {
         {romanization && <span className={styles.romanization}>{romanization}</span>}
         <span className={styles.english}>{english}</span>
         {cjk && <span className={styles.cjk}>{cjk}</span>}
+        {onSave && (
+          <button
+            className={`${styles.saveChip} ${saved ? styles.saveChipSaved : ''}`}
+            onClick={onSave}
+            aria-label={saved ? 'Saved to library' : 'Save to library'}
+          >
+            {saved ? '✓ Saved' : '＋ Save'}
+          </button>
+        )}
       </div>
-      {onSave && (
-        <button
-          className={`${styles.saveChip} ${saved ? styles.saveChipSaved : ''}`}
-          onClick={onSave}
-          aria-label={saved ? 'Saved to library' : 'Save to library'}
-        >
-          {saved ? '✓ Saved' : '＋ Save'}
-        </button>
-      )}
     </div>
   );
 }

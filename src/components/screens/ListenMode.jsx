@@ -182,8 +182,9 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
         {!loading && lines.map((line, i) => (
           <div key={line.id} className={styles.lineRow}>
             <KaraokeLine
-              cjk={line.cjk}
               romanization={line.romanization}
+              english={line.english}
+              cjk={line.cjk}
               state={
                 loopingIndex === i ? 'now'
                 : i < currentLineIndex ? 'past'

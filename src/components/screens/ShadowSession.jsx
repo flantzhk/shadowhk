@@ -237,8 +237,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           <span className={styles.tagLabel}>{currentYouLine.tag}</span>
         )}
 
-        <p className={styles.english}>{currentYouLine?.english}</p>
         <p className={styles.romanization}>{currentYouLine?.romanization}</p>
+        <p className={styles.english}>{currentYouLine?.english}</p>
         <p className={styles.cjk} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>
           {currentYouLine?.cjk}
         </p>
@@ -251,8 +251,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             {isSpeakPhase ? 'Say it out loud!' : 'Listen'}
           </span>
         </div>
-
-        <span className={styles.phraseCount}>Phrase {currentLineIndex + 1} of {totalYou}</span>
 
         {/* Score reveal (inline, after scoring) */}
         {(phase === 'scoring' || phase === 'scored') && (
