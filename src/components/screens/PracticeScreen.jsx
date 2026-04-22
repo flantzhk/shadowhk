@@ -6,10 +6,10 @@ import { getLibraryEntries } from '../../services/storage.js';
 
 const TIME_OPTIONS = [5, 10, 20];
 const FOCUS_OPTIONS = [
-  { id: 'tones', label: 'Tones' },
-  { id: 'speaking', label: 'Speaking' },
-  { id: 'recall', label: 'Recall' },
-  { id: 'everything', label: 'Everything' },
+  { id: 'tones',      label: '🎯 Tones' },
+  { id: 'speaking',   label: '🗣 Speaking' },
+  { id: 'recall',     label: '🧠 Recall' },
+  { id: 'everything', label: '⚡ Everything' },
 ];
 
 export default function PracticeScreen({ onNavigate }) {
@@ -19,14 +19,12 @@ export default function PracticeScreen({ onNavigate }) {
   const [time, setTime] = useState(10);
   const [focus, setFocus] = useState('everything');
   const [recommendation, setRecommendation] = useState(null);
-  const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
     (async () => {
       try {
         const library = await getLibraryEntries(language);
         const due = await getDueEntries(language);
-        setDueCount(due.length);
         if (due.length > 0) {
           setRecommendation({
             type: 'shadow',
@@ -48,17 +46,21 @@ export default function PracticeScreen({ onNavigate }) {
 
   function start() {
     switch (focus) {
-      case 'tones': return onNavigate('drill/tone');
+      case 'tones':    return onNavigate('drill/tone');
       case 'speaking': return onNavigate('shadow', null);
-      case 'recall': return onNavigate('prompt');
-      default: return onNavigate('shadow', null);
+      case 'recall':   return onNavigate('prompt');
+      default:         return onNavigate('shadow', null);
     }
   }
 
   return (
     <div className={styles.screen}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Practice</h1>
+        <div>
+          <div className={styles.titleEmoji}>⚡</div>
+          <h1 className={styles.title}>Practice</h1>
+          <p className={styles.subtitle}>Say it out loud. Even whispering is 3× more effective than just listening.</p>
+        </div>
 
         {recommendation && (
           <button className={styles.recommendCard} onClick={recommendation.action}>
@@ -69,7 +71,7 @@ export default function PracticeScreen({ onNavigate }) {
               <p className={styles.recommendLabel}>{recommendation.label}</p>
               <p className={styles.recommendDetail}>{recommendation.detail}</p>
             </div>
-            <ChevronRight />
+            <ChevronRight className={styles.modeChevron} />
           </button>
         )}
 
@@ -104,42 +106,19 @@ export default function PracticeScreen({ onNavigate }) {
         </div>
 
         <button className={styles.startBtn} onClick={start}>
-          Start {time} min session
+          Start {time} min session 💪
         </button>
+
+        <div className={styles.divider} />
 
         <div className={styles.modeList}>
           <p className={styles.modeListTitle}>Other modes</p>
 
-          <ModeRow
-            emoji="🗣"
-            label="Shadow a scene"
-            desc="Listen, then say it back"
-            onClick={() => onNavigate('scenes')}
-          />
-          <ModeRow
-            emoji="💬"
-            label="Free chat"
-            desc="Open conversation with AI"
-            onClick={() => onNavigate('ai')}
-          />
-          <ModeRow
-            emoji="⚡"
-            label="Speed run"
-            desc="60 seconds, as many phrases as possible"
-            onClick={() => onNavigate('speedrun')}
-          />
-          <ModeRow
-            emoji="🎯"
-            label="Tone Gym"
-            desc="10 reps on your hardest tones"
-            onClick={() => onNavigate('drill/tone')}
-          />
-          <ModeRow
-            emoji="🧠"
-            label="Prompt drill"
-            desc="Hear English, produce Cantonese"
-            onClick={() => onNavigate('prompt')}
-          />
+          <ModeRow emoji="🗣" label="Shadow a scene"    desc="Listen, then say it back"                   onClick={() => onNavigate('scenes')} />
+          <ModeRow emoji="💬" label="Free chat"         desc="Open conversation with AI"                  onClick={() => onNavigate('ai')} />
+          <ModeRow emoji="⚡" label="Speed run"         desc="60 seconds, as many phrases as possible"    onClick={() => onNavigate('speedrun')} />
+          <ModeRow emoji="🎯" label="Tone Gym"          desc="10 reps on your hardest tones"              onClick={() => onNavigate('drill/tone')} />
+          <ModeRow emoji="🧠" label="Prompt drill"      desc="Hear English, produce Cantonese"            onClick={() => onNavigate('prompt')} />
         </div>
       </div>
     </div>
@@ -154,13 +133,13 @@ function ModeRow({ emoji, label, desc, onClick }) {
         <p className={styles.modeLabel}>{label}</p>
         <p className={styles.modeDesc}>{desc}</p>
       </div>
-      <ChevronRight />
+      <ChevronRight className={styles.modeChevron} />
     </button>
   );
 }
 
-const ChevronRight = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+const ChevronRight = ({ className }) => (
+  <svg className={className} width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );

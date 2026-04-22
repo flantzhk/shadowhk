@@ -1,33 +1,51 @@
 .screen {
   flex: 1;
   overflow-y: auto;
-  background: var(--color-bg);
+  background: #1A1F3D;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
   max-width: 560px;
   margin: 0 auto;
-  padding: 24px 20px 40px;
+  padding: 28px 20px 48px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
+  width: 100%;
+}
+
+.titleEmoji {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-brand-dark);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
   margin: 0;
   letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
+.subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,.5);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+/* Recommendation card */
 .recommendCard {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 16px;
-  background: var(--color-brand-lime-muted);
-  border: 1.5px solid rgba(197, 232, 90, 0.4);
+  background: rgba(196,240,0,.08);
+  border: 1.5px solid rgba(196,240,0,.2);
   border-radius: 16px;
   cursor: pointer;
   text-align: left;
@@ -47,18 +65,19 @@
 }
 
 .recommendLabel {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-brand-dark);
+  font-size: 14px;
+  font-weight: 700;
+  color: #C4F000;
   margin: 0 0 2px;
 }
 
 .recommendDetail {
-  font-size: 13px;
-  color: var(--color-text-secondary);
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
   margin: 0;
 }
 
+/* Question blocks */
 .question {
   display: flex;
   flex-direction: column;
@@ -66,9 +85,11 @@
 }
 
 .questionText {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-text-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.35);
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -80,64 +101,77 @@
 
 .chip {
   padding: 10px 18px;
-  background: var(--color-bg-page);
-  border: 1.5px solid var(--color-border);
-  border-radius: 20px;
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 999px;
   font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: rgba(255,255,255,.5);
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: all 0.15s;
   min-height: 44px;
 }
 
-.chipActive {
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
-  border-color: var(--color-brand-dark);
+.chip:hover {
+  background: rgba(255,255,255,.1);
+  color: rgba(255,255,255,.8);
 }
 
+.chipActive {
+  background: rgba(196,240,0,.1);
+  border-color: rgba(196,240,0,.4);
+  color: #C4F000;
+}
+
+/* Start button */
 .startBtn {
   width: 100%;
   padding: 18px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: #C4F000;
+  color: #1A1F3D;
   border: none;
   border-radius: 16px;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 900;
   cursor: pointer;
   min-height: 56px;
   transition: opacity 0.15s;
+  box-shadow: 0 4px 20px rgba(196,240,0,.25);
 }
 
 .startBtn:hover { opacity: 0.88; }
 
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,.07);
+}
+
+/* Mode list */
 .modeList {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .modeListTitle {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-text-muted);
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.25);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 0 0 8px;
+  letter-spacing: 1.2px;
+  margin: 0 0 10px;
 }
 
 .modeRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding: 14px 12px;
   border-radius: 12px;
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-primary);
   text-align: left;
   transition: background 0.15s;
   width: 100%;
@@ -145,12 +179,14 @@
 }
 
 .modeRow:hover {
-  background: var(--color-bg-page);
+  background: rgba(255,255,255,.05);
 }
 
 .modeEmoji {
   font-size: 22px;
   flex-shrink: 0;
+  width: 36px;
+  text-align: center;
 }
 
 .modeText {
@@ -158,14 +194,19 @@
 }
 
 .modeLabel {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   margin: 0;
-  color: var(--color-text-primary);
+  color: #fff;
 }
 
 .modeDesc {
-  font-size: 13px;
-  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,.4);
   margin: 2px 0 0;
+}
+
+.modeChevron {
+  color: rgba(255,255,255,.25);
+  flex-shrink: 0;
 }
