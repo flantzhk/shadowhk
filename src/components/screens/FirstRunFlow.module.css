@@ -1,10 +1,10 @@
-/* FirstRunFlow.module.css — dark navy #1A1F3D */
+/* FirstRunFlow.module.css — dark navy #1F3329 */
 
 .screen {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #1A1F3D;
+  background: #1F3329;
 }
 
 .flowmapRow {
@@ -209,7 +209,7 @@
   height: 24px;
   border-radius: 50%;
   background: #C4F000;
-  color: #1A1F3D;
+  color: #1F3329;
   font-size: 12px;
   font-weight: 700;
   display: flex;
@@ -261,7 +261,7 @@
   width: 100%;
   padding: 18px;
   background: #C4F000;
-  color: #1A1F3D;
+  color: #1F3329;
   border: none;
   border-radius: 16px;
   font-size: 17px;

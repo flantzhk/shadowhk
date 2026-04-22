@@ -108,15 +108,13 @@ const CHROME_HIDDEN_ROUTES = new Set([
   ROUTES.SCENE_DETAIL, ROUTES.SESSION_END, ROUTES.SCENE_END,
 ]);
 
-// Dark bg routes — set on <html> so body never bleeds cream behind immersive screens
-const GREEN_BG_ROUTES = new Set([
+// All immersive screens use the same dark forest green — set on <html> so body never bleeds cream
+const DARK_BG_ROUTES = new Set([
   ROUTES.SHADOW, ROUTES.SCENE_DETAIL, ROUTES.LISTEN,
   ROUTES.SESSION_END, ROUTES.SCENE_END,
   ROUTES.TONE_GYM, ROUTES.TONE_GYM_RESULTS,
-]);
-const NAVY_BG_ROUTES = new Set([
   ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN, ROUTES.DIALOGUE,
-  ROUTES.TONE_GYM, ROUTES.FIRSTRUN, ROUTES.DRILL_TONE,
+  ROUTES.FIRSTRUN, ROUTES.DRILL_TONE, ROUTES.PRACTICE,
 ]);
 
 // ── Loader ─────────────────────────────────────────────────────────────────
@@ -191,14 +189,9 @@ function MainLayout() {
 
   // Stamp the <html> bg colour so the body never bleeds cream behind dark screens
   useEffect(() => {
-    const el = document.documentElement;
-    if (GREEN_BG_ROUTES.has(route.path)) {
-      el.style.background = '#1F3329';
-    } else if (NAVY_BG_ROUTES.has(route.path)) {
-      el.style.background = '#1A1F3D';
-    } else {
-      el.style.background = '';
-    }
+    document.documentElement.style.background = DARK_BG_ROUTES.has(route.path)
+      ? '#1F3329'
+      : '';
   }, [route.path]);
 
   useEffect(() => {

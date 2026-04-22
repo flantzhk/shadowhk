@@ -1,8 +1,8 @@
-/* SpeedRun.module.css — dark navy (#1A1F3D) */
+/* SpeedRun.module.css — dark navy (#1F3329) */
 
 .screen {
   flex: 1; display: flex; flex-direction: column;
-  background: #1A1F3D;
+  background: #1F3329;
   padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
 }
 
@@ -152,7 +152,7 @@
 
 .doneBtn {
   padding: var(--space-base) var(--space-2xl); background: #C4F000;
-  color: #1A1F3D; border-radius: 10px;
+  color: #1F3329; border-radius: 10px;
   font-weight: 900; min-height: 44px; cursor: pointer;
 }
 

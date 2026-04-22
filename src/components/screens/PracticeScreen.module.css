@@ -1,7 +1,7 @@
 .screen {
   flex: 1;
   overflow-y: auto;
-  background: #1A1F3D;
+  background: #1F3329;
   display: flex;
   flex-direction: column;
 }
@@ -128,7 +128,7 @@
   width: 100%;
   padding: 18px;
   background: #C4F000;
-  color: #1A1F3D;
+  color: #1F3329;
   border: none;
   border-radius: 16px;
   font-size: 1.05rem;
