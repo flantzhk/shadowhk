@@ -150,9 +150,51 @@
 .doneScore { font-size: 3rem; font-weight: 900; color: #C4F000; }
 .doneBest { font-size: var(--font-size-base); color: rgba(255,255,255,0.4); }
 
+/* === Empty state === */
+.emptyScreen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 16px;
+}
+
+.emptyTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.emptyDesc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+.emptyBackBtn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.feedbackCjk {
+  font-size: 1.125rem;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Noto Sans HK', sans-serif;
+}
+
 .doneBtn {
   padding: var(--space-base) var(--space-2xl); background: #C4F000;
-  color: #1F3329; border-radius: 10px;
+  color: #111111; border-radius: 10px;
   font-weight: 900; min-height: 44px; cursor: pointer;
 }
 

@@ -63,16 +63,18 @@ export default function LibraryScreen({ onNavigate }) {
   }
 
   const total = library.length;
-  const masteredCount = library.filter(p => p.growth_state === GROWTH_STATE.MASTERED).length;
-  const strongCount   = library.filter(p => p.growth_state === GROWTH_STATE.STRONG).length;
+  const newCount      = library.filter(p => p.growth_state === GROWTH_STATE.NEW).length;
   const growingCount  = library.filter(p => p.growth_state === GROWTH_STATE.GROWING).length;
+  const strongCount   = library.filter(p => p.growth_state === GROWTH_STATE.STRONG).length;
+  const masteredCount = library.filter(p => p.growth_state === GROWTH_STATE.MASTERED).length;
   const livedCount    = library.filter(p => p.lived_at).length;
 
   const FILTER_CHIPS = [
     { id: 'all',      label: `all · ${total}` },
-    { id: 'mastered', label: `⭐ mastered · ${masteredCount}` },
-    { id: 'strong',   label: `strong · ${strongCount}` },
+    { id: 'new',      label: `new · ${newCount}` },
     { id: 'growing',  label: `growing · ${growingCount}` },
+    { id: 'strong',   label: `strong · ${strongCount}` },
+    { id: 'mastered', label: `⭐ mastered · ${masteredCount}` },
     { id: 'lived',    label: `📍 lived · ${livedCount}` },
   ];
 
@@ -88,9 +90,10 @@ export default function LibraryScreen({ onNavigate }) {
       return [{ key: 'lived', label: '📍 Lived in HK', items: library.filter(p => p.lived_at) }].filter(g => g.items.length > 0);
     }
     const stateMap = {
+      new:      GROWTH_STATE.NEW,
+      growing:  GROWTH_STATE.GROWING,
+      strong:   GROWTH_STATE.STRONG,
       mastered: GROWTH_STATE.MASTERED,
-      strong: GROWTH_STATE.STRONG,
-      growing: GROWTH_STATE.GROWING,
     };
     const state = stateMap[activeFilter];
     if (!state) return [];
