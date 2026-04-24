@@ -87,17 +87,17 @@ export default function HomeScreen({ onNavigate }) {
         <StreakPill count={streakCount} />
       </header>
 
-      {/* Jump back in grid */}
-      {allScenes.length > 0 && (
-        <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
-      )}
-
-      {/* Today's Scene hero */}
+      {/* Today's Scene hero — FIRST: this is the primary action */}
       {!loading && lesson?.scene && (
         <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
       )}
       {!loading && !lesson && (
         <EmptyHero onNavigate={onNavigate} />
+      )}
+
+      {/* Jump back in grid — below the hero */}
+      {allScenes.length > 0 && (
+        <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
       )}
 
       {/* Made for you playlist row */}
@@ -155,10 +155,10 @@ function JumpBackGrid({ scenes, progress, onNavigate }) {
 }
 
 function TodaySceneHero({ lesson, onNavigate }) {
-  const { scene } = lesson;
-  const phraseCount = scene.lines?.filter(l => l.speaker === 'you').length ?? 0;
-  const duration = scene.estimatedMinutes ?? Math.ceil(phraseCount * 0.75);
-  const reason = getReasonLabel(lesson);
+  const { scene, fadingPhrases = [] } = lesson;
+  const totalLines = scene.lines?.length ?? 0;
+  const duration = scene.estimatedMinutes ?? 5;
+  const dueCount = fadingPhrases.length;
 
   return (
     <section className={styles.heroSection}>
@@ -169,23 +169,26 @@ function TodaySceneHero({ lesson, onNavigate }) {
           '--tint': scene.tint ?? '#C5E85A',
         }}
       >
-        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#C5E85A'}55 0%, transparent 50%)` }} />
+        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#C5E85A'}44 0%, transparent 55%)` }} />
         <div className={styles.heroDarkOverlay} />
 
         <div className={styles.heroTopLeft}>
-          <span className={styles.becauseChip}>BECAUSE {reason.toUpperCase()}</span>
+          {dueCount > 0
+            ? <span className={styles.dueChip}>🔁 {dueCount} due for review</span>
+            : <span className={styles.todayChip}>TODAY'S PRACTICE</span>
+          }
         </div>
 
         <div className={styles.heroBottomLeft}>
           <span className={styles.heroEmoji}>{scene.emoji}</span>
           <h2 className={styles.heroTitle}>{scene.title}</h2>
-          <p className={styles.heroMeta}>{phraseCount} phrases · {duration} min · {scene.description?.split(',')[0] ?? ''}</p>
+          <p className={styles.heroMeta}>{totalLines} phrases · {duration} min</p>
           <div className={styles.heroBtns}>
-            <button className={styles.shadowBtn} onClick={() => onNavigate('shadow', scene.id)}>
-              ▶ Shadow
+            <button className={styles.practiceNowBtn} onClick={() => onNavigate('shadow', scene.id)}>
+              ▶ Practice now
             </button>
             <button className={styles.listenBtn} onClick={() => onNavigate('listen', scene.id)}>
-              🔊 Listen
+              🔊 Listen first
             </button>
           </div>
         </div>
