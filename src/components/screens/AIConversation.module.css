@@ -2,7 +2,7 @@
 
 .screen {
   flex: 1; display: flex; flex-direction: column;
-  background: var(--color-bg);
+  background: var(--bg-0);
   padding: var(--safe-area-top) 0 var(--safe-area-bottom);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -10,7 +10,7 @@
 
 .offline {
   flex: 1; display: flex; flex-direction: column; align-items: center;
-  justify-content: center; gap: var(--space-lg); color: var(--color-text-muted);
+  justify-content: center; gap: var(--space-lg); color: var(--fg-2);
   padding: var(--content-padding);
   text-align: center;
 }
@@ -22,42 +22,42 @@
 
 .closeBtn {
   display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; color: var(--color-text-secondary);
+  width: 44px; height: 44px; color: var(--fg-1);
 }
 
 .title {
   font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .onlineIndicator {
   display: flex; align-items: center; gap: 4px;
-  font-size: 0.6875rem; color: var(--color-text-muted);
+  font-size: 0.6875rem; color: var(--fg-2);
 }
 
 .onlineDot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--color-success);
+  background: #5AC85A;
 }
 
 .subtitle {
-  font-size: var(--font-size-base); color: var(--color-text-muted);
+  font-size: var(--font-size-base); color: var(--fg-2);
   padding: 0 var(--content-padding); margin-bottom: var(--space-lg);
 }
 
 .scenarioBar {
-  background: rgba(0,0,0,0.03); padding: 10px var(--content-padding);
-  font-size: 0.75rem; color: var(--color-text-secondary);
+  background: rgba(255,255,255,0.03); padding: 10px var(--content-padding);
+  font-size: 0.75rem; color: var(--fg-1);
 }
 
 .scenarioLabel {
   font-size: var(--font-size-md); font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
 }
 
 .endBtn {
-  padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-pill); color: var(--color-text-secondary); font-size: var(--font-size-sm);
+  padding: var(--space-sm) var(--space-md); border: 1px solid var(--border-1);
+  border-radius: var(--radius-pill); color: var(--fg-1); font-size: var(--font-size-sm);
   min-height: 44px; display: flex; align-items: center;
 }
 
@@ -74,7 +74,7 @@
   height: 180px;
   border-radius: 18px;
   overflow: hidden;
-  background-color: #1a2a18; /* fallback if image fails */
+  background-color: var(--bg-0);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -129,7 +129,7 @@
 .chatScreen {
   position: fixed;
   inset: 0;
-  background-color: #1a2a18; /* fallback */
+  background-color: var(--bg-0);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -335,8 +335,8 @@
 }
 
 .chatSendBtnActive {
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark);
+  background: var(--accent);
+  color: var(--accent-dark);
 }
 
 .chatSwitchModeBtn {
@@ -356,8 +356,8 @@
 }
 
 .backBtn {
-  padding: var(--space-md) var(--space-xl); border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md); color: var(--color-text-secondary); min-height: 44px;
+  padding: var(--space-md) var(--space-xl); border: 1px solid var(--border-1);
+  border-radius: var(--radius-md); color: var(--fg-1); min-height: 44px;
 }
 
 /* Review */
@@ -368,22 +368,22 @@
 
 .reviewCard {
   display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md);
-  background: var(--color-surface); border-radius: 14px; border: 0.5px solid var(--color-border);
+  background: var(--surface-1); border-radius: 14px; border: 0.5px solid var(--border-0);
 }
 
 .reviewText { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.reviewRoman { font-size: var(--font-size-sm); color: var(--color-text-primary); font-weight: var(--font-weight-bold); font-style: italic; }
-.reviewEnglish { font-size: var(--font-size-xs); color: var(--color-text-secondary); }
-.reviewChinese { font-size: var(--font-size-xs); color: var(--color-text-muted); font-family: 'Noto Sans HK', sans-serif; }
+.reviewRoman { font-size: var(--font-size-sm); color: var(--fg-0); font-weight: var(--font-weight-bold); font-style: italic; }
+.reviewEnglish { font-size: var(--font-size-xs); color: var(--fg-1); }
+.reviewChinese { font-size: var(--font-size-xs); color: var(--fg-2); font-family: var(--font-cjk); }
 
 .saveBtn {
   display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
-  font-size: var(--font-size-xl); color: var(--color-brand-green); font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl); color: var(--accent); font-weight: var(--font-weight-bold);
 }
 
 .doneBtn {
-  padding: var(--space-base) var(--space-xl); background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text); border-radius: 10px;
+  padding: var(--space-base) var(--space-xl); background: var(--accent);
+  color: var(--accent-dark); border-radius: 10px;
   font-weight: var(--font-weight-semibold); min-height: 44px; margin-top: var(--space-lg);
 }
 
@@ -398,22 +398,22 @@
 .textInput {
   flex: 1;
   padding: 14px 16px;
-  background: var(--color-bg);
-  border: 0.5px solid var(--color-border);
+  background: var(--bg-0);
+  border: 0.5px solid var(--border-0);
   border-radius: 22px;
   font-size: 0.9375rem;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   outline: none;
 }
 
-.textInput:focus { border-color: var(--color-brand-lime); }
+.textInput:focus { border-color: var(--accent); }
 
 .sendBtn {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-bg);
-  color: var(--color-text-muted);
+  background: var(--bg-0);
+  color: var(--fg-2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -421,14 +421,14 @@
 }
 
 .sendBtnActive {
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
+  background: var(--accent);
+  color: var(--accent-dark);
 }
 
 .switchModeBtn {
   font-size: 0.8125rem;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-align: center;
   width: 100%;
   padding: 4px 0;
@@ -445,7 +445,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--color-brand-lime);
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -454,14 +454,14 @@
 .reviewTitle {
   font-size: 1.375rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   text-align: center;
   margin-bottom: 4px;
 }
 
 .reviewScenario {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-align: center;
   font-style: italic;
   margin-bottom: 16px;
@@ -476,8 +476,8 @@
 }
 
 .reviewStat {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: 12px;
   padding: 14px 24px;
   display: flex;
@@ -489,18 +489,18 @@
 .reviewStatNum {
   font-size: 1.375rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
 }
 
 .reviewStatLabel {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .reviewSectionLabel {
   font-size: 0.6875rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   letter-spacing: 0.05em;
   padding: 0 var(--content-padding);
   margin-bottom: 8px;
@@ -510,23 +510,23 @@
   margin: 0 var(--content-padding) 8px;
   padding: 12px 14px;
   border-radius: 14px;
-  border: 0.5px solid var(--color-border);
+  border: 0.5px solid var(--border-0);
 }
 
 .reviewUserBubble {
-  background: var(--color-brand-lime-muted);
+  background: var(--accent-muted);
   border-color: rgba(197, 232, 90, 0.3);
   align-self: flex-end;
 }
 
 .reviewAiBubble {
-  background: var(--color-surface);
+  background: var(--surface-1);
 }
 
 .reviewSpeaker {
   font-size: 0.625rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
@@ -536,9 +536,9 @@
 .saveMsgBtn {
   font-size: 0.75rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
   margin-top: 8px;
-  border-top: 0.5px solid rgba(0,0,0,0.06);
+  border-top: 0.5px solid var(--border-0);
   padding-top: 8px;
   width: 100%;
   text-align: right;
@@ -547,7 +547,7 @@
 
 .savedLabel {
   font-size: 0.75rem;
-  color: var(--color-brand-green);
+  color: var(--accent);
   margin-top: 8px;
   display: block;
   text-align: right;
@@ -564,7 +564,7 @@
   width: 100%;
   padding: 15px;
   border-radius: 14px;
-  background: var(--color-brand-dark);
+  background: var(--accent-dark);
   color: white;
   font-size: 0.9375rem;
   font-weight: var(--font-weight-semibold);
@@ -574,8 +574,8 @@
   width: 100%;
   padding: 14px;
   border-radius: 14px;
-  border: 0.5px solid var(--color-border);
-  color: var(--color-text-secondary);
+  border: 0.5px solid var(--border-0);
+  color: var(--fg-1);
   font-size: 0.9375rem;
   font-weight: var(--font-weight-medium);
 }
@@ -596,7 +596,7 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--color-brand-lime);
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -607,14 +607,14 @@
 .gateTitle {
   font-size: 1.375rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   margin-bottom: 10px;
   line-height: 1.25;
 }
 
 .gateSubtitle {
   font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.5;
   max-width: 280px;
   margin-bottom: 32px;
@@ -625,8 +625,8 @@
   max-width: 320px;
   padding: 16px 0;
   border-radius: 14px;
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark);
+  background: var(--accent);
+  color: var(--accent-dark);
   font-size: 1rem;
   font-weight: var(--font-weight-bold);
   min-height: 56px;
@@ -635,7 +635,7 @@
 
 .gateBackBtn {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   min-height: 44px;
   padding: 8px 16px;
 }

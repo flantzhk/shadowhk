@@ -20,13 +20,13 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .title {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .section {
@@ -36,7 +36,7 @@
 .sectionTitle {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
   margin-bottom: var(--space-md);
@@ -44,7 +44,7 @@
 
 /* FAQ */
 .faqItem {
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
 }
 
 .question {
@@ -55,7 +55,7 @@
   padding: var(--space-md) 0;
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   text-align: left;
   gap: var(--space-md);
   min-height: 44px;
@@ -63,7 +63,7 @@
 
 .chevron {
   font-size: 1.125rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
   display: inline-block;
@@ -75,15 +75,15 @@
 
 .answer {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.6;
   padding-bottom: var(--space-md);
 }
 
 /* Contact card */
 .contactCard {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   display: flex;
@@ -93,15 +93,15 @@
 
 .contactText {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.5;
 }
 
 .emailBtn {
   display: inline-block;
   padding: var(--space-md) var(--space-lg);
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: var(--accent);
+  color: var(--accent-dark);
   border-radius: var(--radius-md);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
@@ -115,5 +115,5 @@
 
 .sla {
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }

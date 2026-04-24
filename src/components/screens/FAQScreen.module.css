@@ -4,14 +4,14 @@
   flex: 1;
   overflow-y: auto;
   padding-bottom: 40px;
-  background: var(--color-bg);
+  background: var(--bg-0);
 }
 
 .backBtn {
   display: block;
   font-size: 0.875rem;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   padding: 12px 22px;
   min-height: 44px;
 }
@@ -19,24 +19,24 @@
 .title {
   font-size: 1.75rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  color: var(--fg-0);
   padding: 8px 22px 4px;
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--font-ui);
 }
 
 .subtitle {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   padding: 0 22px 20px;
 }
 
 .divider {
   height: 0.5px;
-  background: var(--color-border);
+  background: var(--border-0);
 }
 
 .faqItem {
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
 }
 
 .question {
@@ -48,13 +48,13 @@
   text-align: left;
   font-size: 0.9375rem;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   gap: 12px;
 }
 
 .chevron {
   font-size: 1.125rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   transition: transform 200ms;
   flex-shrink: 0;
 }
@@ -65,7 +65,7 @@
 
 .answer {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.6;
   padding: 0 22px 16px;
 }
@@ -74,14 +74,14 @@
   text-align: center;
   padding: 32px 22px;
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .contactLink {
   display: block;
   font-size: 0.9375rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
   margin-top: 8px;
   text-decoration: underline;
 }

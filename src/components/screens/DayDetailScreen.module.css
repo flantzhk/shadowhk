@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .headerCenter {
@@ -31,14 +31,14 @@
 .title {
   font-size: 1.0625rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 /* === Loading / Empty === */
 .loading {
   text-align: center;
   padding: 60px 24px;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   font-size: 0.875rem;
 }
 
@@ -58,12 +58,12 @@
 .emptyTitle {
   font-size: 1rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .emptyText {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-align: center;
 }
 
@@ -76,8 +76,8 @@
 
 .summaryTile {
   flex: 1;
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: 12px;
   padding: 14px 10px;
   display: flex;
@@ -89,12 +89,12 @@
 .summaryNum {
   font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
 }
 
 .summaryLabel {
   font-size: 0.6875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   font-weight: var(--font-weight-medium);
 }
 
@@ -107,8 +107,8 @@
 }
 
 .sessionCard {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: 14px;
   padding: 14px 16px;
   display: flex;
@@ -120,7 +120,7 @@
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: var(--color-bg);
+  background: var(--bg-0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,7 +140,7 @@
   display: block;
   font-size: 0.875rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   margin-bottom: 3px;
 }
 
@@ -155,12 +155,12 @@
 .sessionDuration,
 .sessionPhrases {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .sessionDot {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .sessionScore {
@@ -173,12 +173,12 @@
 .scoreNum {
   font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
 }
 
 .scorePct {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 /* === Phrase Section === */
@@ -189,15 +189,15 @@
 .sectionTitle {
   font-size: 0.6875rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 .phraseList {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: 14px;
   overflow: hidden;
 }
@@ -207,7 +207,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
 }
 
 .phraseRow:last-child {
@@ -216,7 +216,7 @@
 
 .phraseName {
   font-size: 0.875rem;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .phraseScore {

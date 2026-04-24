@@ -3,7 +3,7 @@
 .screen {
   flex: 1;
   overflow-y: auto;
-  background: var(--color-bg);
+  background: var(--bg-0);
   padding: var(--space-lg) var(--content-padding);
   padding-bottom: var(--space-3xl);
 }
@@ -21,7 +21,7 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .title {
@@ -36,7 +36,7 @@
 .sectionTitle {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
+  color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
   margin-bottom: var(--space-md);
@@ -50,26 +50,26 @@
 
 .fieldLabel {
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
 }
 
 .input {
   padding: var(--space-md);
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border-strong);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-1);
   border-radius: var(--radius-md);
   font-size: var(--font-size-md);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .input:focus {
-  border-color: var(--color-brand-lime);
-  outline: 2px solid var(--color-brand-lime-muted);
+  border-color: var(--accent);
+  outline: 2px solid var(--accent-muted);
 }
 
 .hint {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   margin-top: var(--space-sm);
 }
 
@@ -77,13 +77,13 @@
 .langPill {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md);
-  background: var(--color-surface); border: 0.5px solid var(--color-border-strong);
+  background: var(--surface-1); border: 0.5px solid var(--border-1);
   min-height: 44px;
 }
-.langActive { background: var(--color-brand-dark); border-color: var(--color-brand-dark-text); }
-.langName { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--color-text-primary); }
-.langActive .langName { color: var(--color-brand-lime); }
-.langNative { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+.langActive { background: var(--accent-dark); border-color: var(--accent); }
+.langName { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--fg-0); }
+.langActive .langName { color: var(--accent); }
+.langNative { font-size: var(--font-size-sm); color: var(--fg-2); }
 
 .goalRow {
   display: flex;
@@ -96,16 +96,16 @@
   border-radius: var(--radius-pill);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border-strong);
-  color: var(--color-text-secondary);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-1);
+  color: var(--fg-1);
   min-height: 44px;
 }
 
 .goalActive {
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
-  border-color: var(--color-brand-dark-text);
+  background: var(--accent-dark);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .toggleRow {
@@ -113,27 +113,27 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-md) 0;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
   cursor: pointer;
 }
 
 .toggleLabel {
   font-size: var(--font-size-md);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .toggle {
   width: 48px;
   height: 28px;
   border-radius: var(--radius-pill);
-  background: var(--color-border-strong);
+  background: var(--border-1);
   position: relative;
   transition: background var(--transition-fast);
   padding: 2px;
 }
 
 .toggleOn {
-  background: var(--color-brand-lime);
+  background: var(--accent);
 }
 
 .toggleKnob {
@@ -141,7 +141,7 @@
   width: 24px;
   height: 24px;
   border-radius: var(--radius-circle);
-  background: var(--color-surface);
+  background: var(--surface-1);
   box-shadow: var(--shadow-card);
   transition: transform var(--transition-fast);
 }
@@ -157,17 +157,17 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--space-md) 0;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
 }
 
 .accountLabel {
   font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
 }
 
 .accountValue {
   font-size: var(--font-size-md);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   font-weight: var(--font-weight-medium);
 }
 
@@ -175,12 +175,12 @@
   width: 100%;
   padding: var(--space-md);
   margin-top: var(--space-base);
-  border: 1.5px solid var(--color-border-strong);
+  border: 1.5px solid var(--border-1);
   border-radius: var(--radius-md);
   background: transparent;
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-error);
+  color: #E85A5A;
   min-height: 44px;
   transition: transform var(--transition-fast);
 }
@@ -199,7 +199,7 @@
   background: transparent;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   min-height: 44px;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -207,7 +207,7 @@
 }
 
 .deleteAccountBtn:active {
-  color: var(--color-error);
+  color: #E85A5A;
 }
 
 .downloadDataBtn {
@@ -219,7 +219,7 @@
   background: transparent;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   min-height: 44px;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -231,7 +231,7 @@
 
 .deleteError {
   font-size: var(--font-size-sm);
-  color: var(--color-error);
+  color: #E85A5A;
   text-align: center;
   margin-top: var(--space-sm);
   line-height: 1.5;
@@ -244,8 +244,8 @@
   padding: var(--space-md) 0;
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
-  color: var(--color-brand-dark-text);
-  border-bottom: 0.5px solid var(--color-border);
+  color: var(--accent);
+  border-bottom: 0.5px solid var(--border-0);
   margin-bottom: var(--space-md);
 }
 
@@ -256,13 +256,13 @@
   width: 100%;
   padding: var(--space-md) 0;
   font-size: var(--font-size-md);
-  color: var(--color-text-primary);
-  border-bottom: 0.5px solid var(--color-border);
+  color: var(--fg-0);
+  border-bottom: 0.5px solid var(--border-0);
   text-align: left;
 }
 
 .appChevron {
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   font-size: 0.875rem;
 }
 
@@ -270,7 +270,7 @@
 .downloadBar {
   width: 100%;
   height: 6px;
-  background: var(--color-border-strong);
+  background: var(--border-1);
   border-radius: 3px;
   margin-bottom: var(--space-sm);
   position: relative;
@@ -279,14 +279,14 @@
 
 .downloadFill {
   height: 100%;
-  background: var(--color-brand-lime);
+  background: var(--accent);
   border-radius: 3px;
   transition: width 200ms ease;
 }
 
 .downloadLabel {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   display: block;
   margin-bottom: var(--space-sm);
 }
@@ -294,12 +294,12 @@
 .downloadBtn {
   width: 100%;
   padding: var(--space-md);
-  border: 1.5px solid var(--color-border-strong);
+  border: 1.5px solid var(--border-1);
   border-radius: var(--radius-md);
   background: transparent;
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
   min-height: 44px;
   text-align: center;
 }
@@ -308,10 +308,10 @@
   width: 100%;
   padding: var(--space-md);
   border-radius: var(--radius-md);
-  background: var(--color-brand-lime);
+  background: var(--accent);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent-dark);
   min-height: 44px;
   text-align: center;
 }
@@ -322,7 +322,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 0;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
   width: 100%;
   text-align: left;
   min-height: 44px;
@@ -332,18 +332,18 @@
 
 .rowLabel {
   font-size: 0.9375rem;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .rowValue {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 /* === Picker Bottom Sheet === */
 .pickerHint {
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   margin-bottom: 16px;
   line-height: 1.5;
 }
@@ -353,35 +353,35 @@
   align-items: flex-start;
   gap: 12px;
   padding: 16px;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--border-0);
   border-radius: 14px;
   margin-bottom: 10px;
   width: 100%;
   text-align: left;
 }
 
-.pickerSelected { border-color: var(--color-brand-lime); background: var(--color-brand-lime-muted); }
+.pickerSelected { border-color: var(--accent); background: var(--accent-muted); }
 
 .pickerRadio {
   font-size: 1.125rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.pickerSelected .pickerRadio { color: var(--color-brand-dark-text); }
+.pickerSelected .pickerRadio { color: var(--accent); }
 
 .pickerText { display: flex; flex-direction: column; gap: 4px; }
 
 .pickerLabel {
   font-size: 0.9375rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 .pickerDesc {
   font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.5;
 }
 
@@ -389,25 +389,25 @@
 .timeInput {
   width: 100%;
   padding: 16px;
-  background: var(--color-bg);
-  border: 1.5px solid var(--color-border);
+  background: var(--bg-0);
+  border: 1.5px solid var(--border-0);
   border-radius: 14px;
   font-size: 1.375rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
+  color: var(--accent);
   text-align: center;
   margin-bottom: 12px;
 }
 
 .reminderPreview {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   text-align: center;
 }
 
 .versionLabel {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-align: center;
   padding: 12px 0 0;
 }

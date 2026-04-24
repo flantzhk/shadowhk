@@ -131,7 +131,7 @@ export default function DayDetailScreen({ date, onBack }) {
                     {r.score != null && (
                       <span
                         className={styles.phraseScore}
-                        style={{ color: r.score >= 90 ? 'var(--color-score-excellent)' : r.score >= 70 ? 'var(--color-score-good)' : 'var(--color-score-fair)' }}
+                        style={{ color: r.score >= 90 ? 'var(--accent)' : r.score >= 70 ? '#E8A030' : '#E8703A' }}
                       >
                         {r.score}%
                       </span>

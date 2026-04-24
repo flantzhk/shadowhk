@@ -73,7 +73,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
           <div className={styles.gateSpinner}>
             <div style={{
               width: 32, height: 32, borderRadius: '50%',
-              border: '3px solid var(--color-brand-lime)',
+              border: '3px solid var(--accent)',
               borderTopColor: 'transparent',
               animation: 'spinGate 0.8s linear infinite',
             }} />
@@ -95,7 +95,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         </div>
         <div className={styles.gate}>
           <div className={styles.gateIcon} aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-dark)" strokeWidth="2.2">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-dark)" strokeWidth="2.2">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>

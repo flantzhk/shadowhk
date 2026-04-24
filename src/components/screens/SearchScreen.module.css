@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--color-bg);
+  background: var(--bg-0);
 }
 
 .searchBar {
@@ -10,8 +10,8 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--border-0);
+  color: var(--fg-2);
   flex-shrink: 0;
 }
 
@@ -21,19 +21,19 @@
   border: none;
   outline: none;
   font-size: 16px;
-  color: var(--color-text-primary);
-  font-family: var(--font-family);
+  color: var(--fg-0);
+  font-family: var(--font-ui);
 }
 
 .searchInput::placeholder {
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .clearBtn {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   padding: 4px;
   display: flex;
 }
@@ -49,7 +49,7 @@
 
 .searchingNote {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 .section {}
@@ -57,7 +57,7 @@
 .sectionTitle {
   font-size: 12px;
   font-weight: 700;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0 0 12px;
@@ -72,7 +72,7 @@
 
 .noResults p {
   font-size: 15px;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   margin: 0;
 }
 
@@ -80,12 +80,12 @@
   display: inline-flex;
   align-items: center;
   padding: 10px 16px;
-  background: var(--color-brand-lime-muted);
+  background: var(--accent-muted);
   border: 1.5px solid rgba(197, 232, 90, 0.4);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-brand-dark);
+  color: var(--accent);
   cursor: pointer;
   min-height: 44px;
   text-align: left;
@@ -96,25 +96,25 @@
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  background: var(--color-bg-page);
-  border: 1.5px dashed var(--color-border);
+  background: var(--bg-1);
+  border: 1.5px dashed var(--border-0);
   border-radius: 14px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   cursor: pointer;
   min-height: 52px;
   transition: background 0.15s;
 }
 
 .addOwnTrigger:hover {
-  background: var(--color-brand-lime-muted);
-  color: var(--color-brand-dark);
+  background: var(--accent-muted);
+  color: var(--accent);
 }
 
 .addIcon {
   font-size: 20px;
-  color: var(--color-brand-dark);
+  color: var(--accent);
   font-weight: 300;
 }
 
@@ -127,18 +127,18 @@
 .addInput {
   width: 100%;
   padding: 14px 16px;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 1.5px solid var(--border-0);
   border-radius: 12px;
   font-size: 16px;
-  color: var(--color-text-primary);
-  font-family: var(--font-family);
+  color: var(--fg-0);
+  font-family: var(--font-ui);
   outline: none;
   box-sizing: border-box;
 }
 
 .addInput:focus {
-  border-color: var(--color-brand-dark);
+  border-color: var(--accent);
 }
 
 .sourceChips {
@@ -149,28 +149,28 @@
 
 .sourceChip {
   padding: 8px 14px;
-  background: var(--color-bg-page);
-  border: 1.5px solid var(--color-border);
+  background: var(--bg-1);
+  border: 1.5px solid var(--border-0);
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   cursor: pointer;
   transition: background 0.15s;
   min-height: 40px;
 }
 
 .sourceChipActive {
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
-  border-color: var(--color-brand-dark);
+  background: var(--accent-dark);
+  color: var(--accent);
+  border-color: var(--accent-dark);
 }
 
 .generateBtn {
   width: 100%;
   padding: 15px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: var(--accent);
+  color: var(--accent-dark);
   border: none;
   border-radius: 12px;
   font-size: 16px;
@@ -187,13 +187,13 @@
 
 .error {
   font-size: 13px;
-  color: var(--color-error);
+  color: #E85A5A;
   margin: 0;
 }
 
 .preview {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--surface-1);
+  border: 1px solid var(--border-0);
   border-radius: 14px;
   padding: 20px;
   display: flex;
@@ -204,31 +204,31 @@
 .previewRomanization {
   font-size: 20px;
   font-weight: 600;
-  color: var(--color-jyutping);
+  color: var(--accent);
   margin: 0;
 }
 
 .previewCjk {
   font-size: 24px;
   font-weight: 600;
-  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
-  color: var(--color-text-primary);
+  font-family: var(--font-cjk);
+  color: var(--fg-0);
   margin: 0;
 }
 
 .previewEnglish {
   font-size: 14px;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   margin: 0;
 }
 
 .previewNote {
   font-size: 13px;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   margin: 0;
   font-style: italic;
   padding-top: 8px;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--border-0);
 }
 
 .previewActions {
@@ -241,20 +241,20 @@
   flex: 1;
   padding: 12px;
   background: none;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--border-0);
   border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   min-height: 48px;
 }
 
 .saveBtn {
   flex: 2;
   padding: 12px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: var(--accent);
+  color: var(--accent-dark);
   border: none;
   border-radius: 10px;
   font-size: 14px;

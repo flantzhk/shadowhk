@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  background: var(--color-bg);
+  background: var(--bg-0);
 }
 
 .header {
@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--border-0);
   flex-shrink: 0;
 }
 
@@ -23,7 +23,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
 }
 
 .content {
@@ -45,7 +45,7 @@
 .romanization {
   font-size: 32px;
   font-weight: 700;
-  color: var(--color-jyutping);
+  color: var(--accent);
   margin: 0;
   line-height: 1.2;
 }
@@ -53,15 +53,15 @@
 .cjk {
   font-size: 40px;
   font-weight: 700;
-  color: var(--color-brand-dark);
-  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
+  color: var(--fg-3);
+  font-family: var(--font-cjk);
   margin: 0;
   line-height: 1.2;
 }
 
 .english {
   font-size: 16px;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   margin: 0;
 }
 
@@ -74,7 +74,7 @@
 .sectionTitle {
   font-size: 12px;
   font-weight: 700;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0 0 12px;
@@ -91,7 +91,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  background: var(--color-bg-page);
+  background: var(--bg-1);
   border-radius: 10px;
   padding: 10px 14px;
   min-width: 52px;
@@ -100,13 +100,13 @@
 .breakdownChar {
   font-size: 22px;
   font-weight: 600;
-  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
-  color: var(--color-text-primary);
+  font-family: var(--font-cjk);
+  color: var(--fg-0);
 }
 
 .breakdownSyl {
   font-size: 13px;
-  color: var(--color-jyutping);
+  color: var(--accent);
   font-weight: 500;
 }
 
@@ -121,7 +121,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 12px 0;
-  border-left: 2px solid var(--color-border);
+  border-left: 2px solid var(--border-0);
   margin-left: 6px;
   padding-left: 20px;
   position: relative;
@@ -134,13 +134,13 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-brand-dark);
+  background: var(--accent-dark);
   flex-shrink: 0;
 }
 
 .upcoming .timelineDot {
-  background: var(--color-brand-lime);
-  border: 1.5px solid var(--color-brand-dark);
+  background: var(--accent);
+  border: 1.5px solid var(--accent-dark);
 }
 
 .timelineContent {}
@@ -148,27 +148,27 @@
 .timelineLabel {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   margin: 0 0 2px;
 }
 
 .timelineDate {
   font-size: 13px;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   margin: 0;
 }
 
 .noHistory {
   font-size: 14px;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
   margin: 0;
 }
 
 .practiceBtn {
   width: 100%;
   padding: 18px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  background: var(--accent);
+  color: var(--accent-dark);
   border: none;
   border-radius: 16px;
   font-size: 17px;
@@ -184,7 +184,7 @@
 .loading {
   flex: 1;
   margin: 24px;
-  background: var(--color-bg-page);
+  background: var(--bg-1);
   border-radius: 16px;
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -197,25 +197,25 @@
   justify-content: center;
   gap: 16px;
   padding: 24px;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   font-size: 16px;
 }
 
 .error button {
   padding: 10px 20px;
-  background: var(--color-bg-page);
-  border: 1.5px solid var(--color-border);
+  background: var(--bg-1);
+  border: 1.5px solid var(--border-0);
   border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
 /* D4 — Imagine this */
 .scenarioBox {
-  background: #FFFBE6;
-  border-left: 3px solid #E8C040;
+  background: var(--surface-1);
+  border-left: 3px solid var(--accent);
   border-radius: 0 10px 10px 0;
   padding: 14px 16px;
 }
@@ -223,15 +223,15 @@
 .scenarioText {
   font-size: 14px;
   font-style: italic;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
   margin: 0;
   line-height: 1.6;
 }
 
 /* D5 — How to reply */
 .replyRow {
-  background: var(--color-surface);
-  border: 0.5px solid var(--color-border);
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-0);
   border-radius: 10px;
   padding: 10px 14px;
   display: flex;
@@ -243,24 +243,24 @@
 .replyCjk {
   font-size: 1rem;
   font-weight: 600;
-  font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
-  color: var(--color-text-primary);
+  font-family: var(--font-cjk);
+  color: var(--fg-0);
 }
 
 .replyRoman {
   font-size: 0.8125rem;
-  color: var(--color-jyutping);
+  color: var(--accent);
 }
 
 .replyEnglish {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: var(--fg-2);
 }
 
 /* D6 — Use it when */
 .usageText {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.6;
   margin: 0;
 }
@@ -268,7 +268,7 @@
 /* D7 — Why now? */
 .whyText {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--fg-1);
   line-height: 1.6;
   margin: 0;
 }
