@@ -174,7 +174,7 @@ function TodaySceneHero({ lesson, onNavigate }) {
 
         <div className={styles.heroTopLeft}>
           {dueCount > 0
-            ? <span className={styles.dueChip}>🔁 {dueCount} due for review</span>
+            ? <span className={styles.dueChip}>🔁 {dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} to practise</span>
             : <span className={styles.todayChip}>TODAY'S PRACTICE</span>
           }
         </div>
