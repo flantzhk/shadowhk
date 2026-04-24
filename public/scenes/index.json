@@ -65,7 +65,7 @@
   {
     "id": "ferry",
     "language": "cantonese",
-    "imageUrl": "https://images.unsplash.com/photo-1576859959726-08c4a80c45c8?auto=format&fit=crop&w=800&h=800&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1673409897771-ab2b5f4548bd?auto=format&fit=crop&w=800&h=800&q=80",
     "tint": "#3A8FE8",
     "emoji": "⛴️"
   },
@@ -128,14 +128,14 @@
   {
     "id": "chinese-new-year",
     "language": "cantonese",
-    "imageUrl": "https://images.unsplash.com/photo-1610020688070-14d4a3afe78b?auto=format&fit=crop&w=800&h=800&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1675610682384-aaa76115742d?auto=format&fit=crop&w=800&h=800&q=80",
     "tint": "#E8703A",
     "emoji": "🧧"
   },
   {
     "id": "mid-autumn",
     "language": "cantonese",
-    "imageUrl": "https://images.unsplash.com/photo-1569297615762-b11a2041e1b8?auto=format&fit=crop&w=800&h=800&q=80",
+    "imageUrl": "https://images.unsplash.com/photo-1695915381559-7995a5393174?auto=format&fit=crop&w=800&h=800&q=80",
     "tint": "#E8A030",
     "emoji": "🥮"
   },

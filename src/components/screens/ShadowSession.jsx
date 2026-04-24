@@ -240,7 +240,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
   const isSpeakPhase = phase === 'record' || phase === 'scoring' || phase === 'scored';
   const scoreColor = currentScore === null ? '#fff'
-    : currentScore >= 80 ? '#C4F000'
+    : currentScore >= 80 ? 'var(--accent)'
     : currentScore >= 60 ? '#9dcc33'
     : currentScore >= 40 ? '#f0a030'
     : '#ff7a5c';

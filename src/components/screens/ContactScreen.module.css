@@ -20,7 +20,7 @@
   font-size: 1.75rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-dark-text);
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--font-ui);
   margin-bottom: 8px;
 }
 
@@ -65,7 +65,7 @@
 .textarea {
   width: 100%;
   padding: 14px 16px;
-  background: white;
+  background: var(--bg-1);
   border: 1.5px solid var(--color-border-strong);
   border-radius: 12px;
   font-size: 0.9375rem;

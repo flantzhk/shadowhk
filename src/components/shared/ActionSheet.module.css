@@ -17,11 +17,11 @@
 }
 
 .titleCard {
-  background: white;
+  background: var(--surface-1);
   border-radius: 14px 14px 0 0;
   padding: 16px;
   text-align: center;
-  border-bottom: 0.5px solid var(--color-border);
+  border-bottom: 0.5px solid var(--border-0);
 }
 
 .title {
@@ -37,7 +37,7 @@
 }
 
 .actionsGroup {
-  background: white;
+  background: var(--surface-1);
   border-radius: 0 0 14px 14px;
   overflow: hidden;
   margin-bottom: 8px;
@@ -60,7 +60,7 @@
 
 .cancelBtn {
   width: 100%;
-  background: white;
+  background: var(--surface-1);
   border-radius: 14px;
   padding: 18px;
   text-align: center;

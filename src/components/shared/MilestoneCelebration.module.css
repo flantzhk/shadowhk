@@ -3,7 +3,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(26, 42, 24, 0.92);
+  background: rgba(26, 23, 20, 0.94);
   z-index: 400;
   display: flex;
   align-items: center;
@@ -30,7 +30,7 @@
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-lime);
   margin-bottom: 12px;
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--font-ui);
 }
 
 .subtitle {
