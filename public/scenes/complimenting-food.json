@@ -1,0 +1,81 @@
+{
+  "id": "complimenting-food",
+  "language": "cantonese",
+  "emoji": "😋",
+  "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#C5E85A",
+  "title": "Complimenting food",
+  "description": "Dinner at a friend's home — warm up the host with genuine Cantonese compliments",
+  "category": "social",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "A friend's home, Sham Shui Po",
+  "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full — 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
+  "culturalFact": "Saying 你過獎喇 (you're too kind / you flatter me) is the standard humble response when someone compliments your cooking. If you don't say it, the host might think you're not being polite!",
+  "lines": [
+    {
+      "id": "comp-01",
+      "speaker": "host",
+      "cjk": "食多啲！唔夠㗎！",
+      "jyutping": "sik6 do1 di1! m4 gau3 gaa3!",
+      "english": "Eat more! There's plenty!",
+      "audioFile": null
+    },
+    {
+      "id": "comp-02",
+      "speaker": "you",
+      "cjk": "好食呀！係你整㗎？",
+      "jyutping": "hou2 sik6 aa3! hai6 nei5 zing2 gaa3?",
+      "english": "This is delicious! Did you make it yourself?",
+      "audioFile": null
+    },
+    {
+      "id": "comp-03",
+      "speaker": "host",
+      "cjk": "係呀，呢個係我阿媽教落嚟㗎。",
+      "jyutping": "hai6 aa3, ni1 go3 hai6 ngo5 aa3 maa1 gaau3 lok6 lei4 gaa3.",
+      "english": "Yes, this recipe was passed down from my mum.",
+      "audioFile": null
+    },
+    {
+      "id": "comp-04",
+      "speaker": "you",
+      "cjk": "咁滋味！我從來冇食過咁好食嘅魚。",
+      "jyutping": "gam3 zi1 mei6! ngo5 cung4 loi4 mou5 sik6 gwo3 gam3 hou2 sik6 ge3 jyu2.",
+      "english": "It's so flavourful! I've never had fish this good before.",
+      "audioFile": null
+    },
+    {
+      "id": "comp-05",
+      "speaker": "host",
+      "cjk": "唔係呀，你過獎喇！",
+      "jyutping": "m4 hai6 aa3, nei5 gwo3 zoeng2 laa3!",
+      "english": "Oh stop it, you're too kind!",
+      "audioFile": null
+    },
+    {
+      "id": "comp-06",
+      "speaker": "you",
+      "cjk": "真係，下次可唔可以教我煮？",
+      "jyutping": "zan1 hai6, haa6 ci3 ho2 m4 ho2 ji5 gaau3 ngo5 zyu2?",
+      "english": "I mean it — could you teach me to cook it next time?",
+      "audioFile": null
+    },
+    {
+      "id": "comp-07",
+      "speaker": "host",
+      "cjk": "梗係得！歡迎你隨時嚟。",
+      "jyutping": "gang2 hai6 dak1! fun1 jing4 nei5 ceoi4 si4 lei4.",
+      "english": "Of course! You're welcome any time.",
+      "audioFile": null
+    },
+    {
+      "id": "comp-08",
+      "speaker": "you",
+      "cjk": "今晚真係好開心，多謝你款待。",
+      "jyutping": "gam1 maan5 zan1 hai6 hou2 hoi1 sam1, do1 ze6 nei5 fun2 doi6.",
+      "english": "Tonight has been really lovely — thank you for having me.",
+      "audioFile": null
+    }
+  ]
+}

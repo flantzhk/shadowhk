@@ -1,0 +1,81 @@
+{
+  "id": "asking-for-directions",
+  "language": "cantonese",
+  "emoji": "🗺️",
+  "imageUrl": "https://images.unsplash.com/photo-1529516548873-9ce57c8f155e?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#5AC8E8",
+  "title": "Asking for directions",
+  "description": "Find your way around HK — ask a stranger for help getting to the MTR",
+  "category": "transport",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "Street, Mongkok",
+  "context": "Hong Kong streets can be confusing — overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
+  "culturalFact": "Hong Kong MTR exits are numbered and lettered — 旺角A2出口 means Exit A2 of Mongkok station. Knowing how to say the exit letter and number in Cantonese will help you communicate clearly.",
+  "lines": [
+    {
+      "id": "dir-01",
+      "speaker": "you",
+      "cjk": "唔該，請問去旺角地鐵站點行？",
+      "jyutping": "m4 goi1, cing2 man6 heoi3 wong6 gok3 dei6 tit3 zaam6 dim2 hang4?",
+      "english": "Excuse me, how do I get to Mongkok MTR station?",
+      "audioFile": null
+    },
+    {
+      "id": "dir-02",
+      "speaker": "stranger",
+      "cjk": "直行，過咗個天橋再左轉。",
+      "jyutping": "zik6 hang4, gwo3 zo2 go3 tin1 kiu4 zoi3 zo2 zyun3.",
+      "english": "Go straight, then turn left after the pedestrian bridge.",
+      "audioFile": null
+    },
+    {
+      "id": "dir-03",
+      "speaker": "you",
+      "cjk": "係咪要過紅綠燈？",
+      "jyutping": "hai6 mai6 jiu3 gwo3 hung4 luk6 dang1?",
+      "english": "Do I need to cross at the traffic lights?",
+      "audioFile": null
+    },
+    {
+      "id": "dir-04",
+      "speaker": "stranger",
+      "cjk": "係，過完燈就係喇。大概五分鐘路程。",
+      "jyutping": "hai6, gwo3 jyun4 dang1 zau6 hai6 laa3. daai6 koi3 ng5 fan1 zung1 lou6 cing4.",
+      "english": "Yes, you'll see it right after the lights. About a five-minute walk.",
+      "audioFile": null
+    },
+    {
+      "id": "dir-05",
+      "speaker": "you",
+      "cjk": "多謝！我係外國人，聽唔係好清楚。可唔可以講慢啲？",
+      "jyutping": "do1 ze6! ngo5 hai6 ngoi6 gwok3 jan4, ting1 m4 hai6 hou2 cing1 co2. ho2 m4 ho2 ji5 gong2 maan6 di1?",
+      "english": "Thank you! I'm a foreigner and couldn't quite catch that — could you speak more slowly?",
+      "audioFile": null
+    },
+    {
+      "id": "dir-06",
+      "speaker": "stranger",
+      "cjk": "冇問題！直行，左轉，五分鐘。",
+      "jyutping": "mou5 man6 tai4! zik6 hang4, zo2 zyun3, ng5 fan1 zung1.",
+      "english": "No problem! Straight, turn left, five minutes.",
+      "audioFile": null
+    },
+    {
+      "id": "dir-07",
+      "speaker": "you",
+      "cjk": "真係唔該晒你！",
+      "jyutping": "zan1 hai6 m4 goi1 saai3 nei5!",
+      "english": "Thank you so much, I really appreciate it!",
+      "audioFile": null
+    },
+    {
+      "id": "dir-08",
+      "speaker": "stranger",
+      "cjk": "唔使客氣，慢慢行！",
+      "jyutping": "m4 sai2 haak3 hei3, maan6 maan2 hang4!",
+      "english": "No worries at all — take your time!",
+      "audioFile": null
+    }
+  ]
+}

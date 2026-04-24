@@ -384,6 +384,14 @@
   font-style: italic;
 }
 
+.learnMeaning {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-1);
+  font-style: italic;
+}
+
 .learnPlay {
   font-family: var(--font-ui);
   font-size: 11px;

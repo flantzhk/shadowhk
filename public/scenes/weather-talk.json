@@ -1,0 +1,97 @@
+{
+  "id": "weather-talk",
+  "language": "cantonese",
+  "emoji": "🌧️",
+  "imageUrl": "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#5AC8E8",
+  "title": "Talking about the weather",
+  "description": "HK's most reliable small talk — heat, rain, typhoons, and survival tips",
+  "category": "social",
+  "difficulty": "beginner",
+  "estimatedMinutes": 5,
+  "location": "Office / street / lift — anywhere",
+  "context": "Hong Kong weather is extreme — blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
+  "culturalFact": "Hong Kong has an official typhoon warning system: Signal 1, 3, 8, 10. Signal 8 (八號風球) is the big one — it means everything closes. Watching whether Signal 8 is hoisted is a collective HK experience, with everyone checking the Hong Kong Observatory app.",
+  "lines": [
+    {
+      "id": "wx-01",
+      "speaker": "colleague",
+      "cjk": "今日好熱呀！",
+      "jyutping": "gam1 jat6 hou2 jit6 aa3!",
+      "english": "It's so hot today!",
+      "audioFile": null
+    },
+    {
+      "id": "wx-02",
+      "speaker": "you",
+      "cjk": "係呀，熱到唔想出街。",
+      "jyutping": "hai6 aa3, jit6 dou3 m4 soeng2 ceot1 gaai1.",
+      "english": "I know — so hot I don't even want to go outside.",
+      "audioFile": null
+    },
+    {
+      "id": "wx-03",
+      "speaker": "colleague",
+      "cjk": "聽日話落雨㗎，記得帶遮。",
+      "jyutping": "ting1 jat6 waa6 lok6 jyu5 gaa3, gei3 dak1 daai3 ze1.",
+      "english": "They say it'll rain tomorrow — remember to bring an umbrella.",
+      "audioFile": null
+    },
+    {
+      "id": "wx-04",
+      "speaker": "you",
+      "cjk": "真係？咁要早啲出門喇。",
+      "jyutping": "zan1 hai6? gam2 jiu3 zou2 di1 ceot1 mun4 laa3.",
+      "english": "Really? Better leave home earlier then.",
+      "audioFile": null
+    },
+    {
+      "id": "wx-05",
+      "speaker": "colleague",
+      "cjk": "係，而且而家話可能打風㗎喎！",
+      "jyutping": "hai6, ji4 ce2 ji4 gaa1 waa6 ho2 nang4 daa2 fung1 gaa3 wo3!",
+      "english": "Yes, and there's even talk of a typhoon coming!",
+      "audioFile": null
+    },
+    {
+      "id": "wx-06",
+      "speaker": "you",
+      "cjk": "幾號風球？",
+      "jyutping": "gei2 hou6 fung1 kau4?",
+      "english": "What typhoon signal number?",
+      "audioFile": null
+    },
+    {
+      "id": "wx-07",
+      "speaker": "colleague",
+      "cjk": "聽講八號。你屋企準備好未？",
+      "jyutping": "ting1 gong2 baat3 hou6. nei5 uk1 kei2 zeon2 bei6 hou2 mei6?",
+      "english": "They're saying Signal 8. Is your place stocked up?",
+      "audioFile": null
+    },
+    {
+      "id": "wx-08",
+      "speaker": "you",
+      "cjk": "仲未！要去買定啲糧食先。",
+      "jyutping": "zung6 mei6! jiu3 heoi3 maai5 deng6 di1 loeng4 sik6 sin1.",
+      "english": "Not yet! I need to go buy some supplies first.",
+      "audioFile": null
+    },
+    {
+      "id": "wx-09",
+      "speaker": "colleague",
+      "cjk": "快啲呀，超市嘅嘢好快賣晒㗎！",
+      "jyutping": "faai3 di1 aa3, ciu1 si5 ge3 je5 hou2 faai3 maai6 saai3 gaa3!",
+      "english": "Hurry up — supermarket shelves empty out fast!",
+      "audioFile": null
+    },
+    {
+      "id": "wx-10",
+      "speaker": "you",
+      "cjk": "多謝提醒！我即刻去。",
+      "jyutping": "do1 ze6 tai4 sing2! ngo5 zik1 haak1 heoi3.",
+      "english": "Thanks for the heads up! I'm going right now.",
+      "audioFile": null
+    }
+  ]
+}

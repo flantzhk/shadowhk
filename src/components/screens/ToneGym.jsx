@@ -10,21 +10,21 @@ import styles from './ToneGym.module.css';
 
 const TOTAL_ROUNDS = 10;
 const TONE_PAIRS = [
-  { base: '媽', tones: [{ char: '媽', jyutping: 'maa1', tone: 1, desc: 'high flat' }, { char: '麻', jyutping: 'maa4', tone: 4, desc: 'low falling' }] },
-  { base: '好', tones: [{ char: '好', jyutping: 'hou2', tone: 2, desc: 'high rising' }, { char: '號', jyutping: 'hou6', tone: 6, desc: 'low level' }] },
-  { base: '飛', tones: [{ char: '飛', jyutping: 'fei1', tone: 1, desc: 'high flat' }, { char: '肥', jyutping: 'fei4', tone: 4, desc: 'low falling' }] },
-  { base: '詩', tones: [{ char: '詩', jyutping: 'si1', tone: 1, desc: 'high flat' }, { char: '時', jyutping: 'si4', tone: 4, desc: 'low falling' }] },
-  { base: '分', tones: [{ char: '分', jyutping: 'fan1', tone: 1, desc: 'high flat' }, { char: '粉', jyutping: 'fan2', tone: 2, desc: 'high rising' }] },
-  { base: '買', tones: [{ char: '買', jyutping: 'maai5', tone: 5, desc: 'low rising' }, { char: '賣', jyutping: 'maai6', tone: 6, desc: 'low level' }] },
-  { base: '大', tones: [{ char: '大', jyutping: 'daai6', tone: 6, desc: 'low level' }, { char: '帶', jyutping: 'daai3', tone: 3, desc: 'mid level' }] },
-  { base: '知', tones: [{ char: '知', jyutping: 'zi1', tone: 1, desc: 'high flat' }, { char: '紙', jyutping: 'zi2', tone: 2, desc: 'high rising' }] },
-  { base: '花', tones: [{ char: '花', jyutping: 'faa1', tone: 1, desc: 'high flat' }, { char: '化', jyutping: 'faa3', tone: 3, desc: 'mid level' }] },
-  { base: '書', tones: [{ char: '書', jyutping: 'syu1', tone: 1, desc: 'high flat' }, { char: '樹', jyutping: 'syu6', tone: 6, desc: 'low level' }] },
-  { base: '魚', tones: [{ char: '魚', jyutping: 'jyu4', tone: 4, desc: 'low falling' }, { char: '語', jyutping: 'jyu5', tone: 5, desc: 'low rising' }] },
-  { base: '水', tones: [{ char: '水', jyutping: 'seoi2', tone: 2, desc: 'high rising' }, { char: '睡', jyutping: 'seoi6', tone: 6, desc: 'low level' }] },
-  { base: '雞', tones: [{ char: '雞', jyutping: 'gai1', tone: 1, desc: 'high flat' }, { char: '計', jyutping: 'gai3', tone: 3, desc: 'mid level' }] },
-  { base: '糖', tones: [{ char: '糖', jyutping: 'tong4', tone: 4, desc: 'low falling' }, { char: '燙', jyutping: 'tong3', tone: 3, desc: 'mid level' }] },
-  { base: '九', tones: [{ char: '九', jyutping: 'gau2', tone: 2, desc: 'high rising' }, { char: '夠', jyutping: 'gau3', tone: 3, desc: 'mid level' }] },
+  { base: '媽', tones: [{ char: '媽', jyutping: 'maa1', tone: 1, desc: 'high flat', meaning: 'mother' }, { char: '麻', jyutping: 'maa4', tone: 4, desc: 'low falling', meaning: 'sesame / hemp' }] },
+  { base: '好', tones: [{ char: '好', jyutping: 'hou2', tone: 2, desc: 'high rising', meaning: 'good' }, { char: '號', jyutping: 'hou6', tone: 6, desc: 'low level', meaning: 'number / signal' }] },
+  { base: '飛', tones: [{ char: '飛', jyutping: 'fei1', tone: 1, desc: 'high flat', meaning: 'to fly' }, { char: '肥', jyutping: 'fei4', tone: 4, desc: 'low falling', meaning: 'fat / plump' }] },
+  { base: '詩', tones: [{ char: '詩', jyutping: 'si1', tone: 1, desc: 'high flat', meaning: 'poem' }, { char: '時', jyutping: 'si4', tone: 4, desc: 'low falling', meaning: 'time / hour' }] },
+  { base: '分', tones: [{ char: '分', jyutping: 'fan1', tone: 1, desc: 'high flat', meaning: 'minute / divide' }, { char: '粉', jyutping: 'fan2', tone: 2, desc: 'high rising', meaning: 'powder / noodles' }] },
+  { base: '買', tones: [{ char: '買', jyutping: 'maai5', tone: 5, desc: 'low rising', meaning: 'to buy' }, { char: '賣', jyutping: 'maai6', tone: 6, desc: 'low level', meaning: 'to sell' }] },
+  { base: '大', tones: [{ char: '大', jyutping: 'daai6', tone: 6, desc: 'low level', meaning: 'big / large' }, { char: '帶', jyutping: 'daai3', tone: 3, desc: 'mid level', meaning: 'to bring / belt' }] },
+  { base: '知', tones: [{ char: '知', jyutping: 'zi1', tone: 1, desc: 'high flat', meaning: 'to know' }, { char: '紙', jyutping: 'zi2', tone: 2, desc: 'high rising', meaning: 'paper' }] },
+  { base: '花', tones: [{ char: '花', jyutping: 'faa1', tone: 1, desc: 'high flat', meaning: 'flower' }, { char: '化', jyutping: 'faa3', tone: 3, desc: 'mid level', meaning: 'to melt / transform' }] },
+  { base: '書', tones: [{ char: '書', jyutping: 'syu1', tone: 1, desc: 'high flat', meaning: 'book' }, { char: '樹', jyutping: 'syu6', tone: 6, desc: 'low level', meaning: 'tree' }] },
+  { base: '魚', tones: [{ char: '魚', jyutping: 'jyu4', tone: 4, desc: 'low falling', meaning: 'fish' }, { char: '語', jyutping: 'jyu5', tone: 5, desc: 'low rising', meaning: 'language' }] },
+  { base: '水', tones: [{ char: '水', jyutping: 'seoi2', tone: 2, desc: 'high rising', meaning: 'water' }, { char: '睡', jyutping: 'seoi6', tone: 6, desc: 'low level', meaning: 'to sleep' }] },
+  { base: '雞', tones: [{ char: '雞', jyutping: 'gai1', tone: 1, desc: 'high flat', meaning: 'chicken' }, { char: '計', jyutping: 'gai3', tone: 3, desc: 'mid level', meaning: 'to plan / count' }] },
+  { base: '糖', tones: [{ char: '糖', jyutping: 'tong4', tone: 4, desc: 'low falling', meaning: 'sugar / candy' }, { char: '燙', jyutping: 'tong3', tone: 3, desc: 'mid level', meaning: 'scalding hot' }] },
+  { base: '九', tones: [{ char: '九', jyutping: 'gau2', tone: 2, desc: 'high rising', meaning: 'nine' }, { char: '夠', jyutping: 'gau3', tone: 3, desc: 'mid level', meaning: 'enough' }] },
 ];
 
 function playChar(char) {
@@ -208,6 +208,7 @@ export default function ToneGym({ onBack, onComplete }) {
                 <span className={styles.learnJyut}>{t.jyutping}</span>
                 <span className={styles.learnDesc}>{t.desc}</span>
                 <span className={styles.learnChar} lang="yue">{t.char}</span>
+                <span className={styles.learnMeaning}>{t.meaning}</span>
                 <span className={styles.learnPlay}>▶ Play</span>
               </button>
             ))}

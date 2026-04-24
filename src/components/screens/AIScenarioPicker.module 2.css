@@ -1,0 +1,111 @@
+/* AIScenarioPicker.module.css */
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+  background: var(--bg-0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 22px;
+}
+
+.backBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-0);
+}
+
+.onlineIndicator {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--accent);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--fg-0);
+  font-family: var(--font-ui);
+  padding: 0 22px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--fg-1);
+  padding: 0 22px 20px;
+  line-height: 1.5;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--border-0);
+  margin: 8px 0;
+}
+
+.sectionLabel {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--fg-2);
+  letter-spacing: 1.2px;
+  padding: 16px 22px 8px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+  margin: 0 22px 10px;
+  width: calc(100% - 44px);
+  border-radius: 14px;
+  border: 1px solid var(--border-1);
+}
+
+.featured {
+  padding: 16px;
+  background: var(--surface-1);
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compact {
+  padding: 14px 16px;
+  background: var(--surface-1);
+  flex-direction: row;
+  align-items: center;
+}
+
+.emoji {
+  font-size: 1.5rem;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--fg-0);
+}
+
+.cardRole {
+  font-size: 0.8125rem;
+  color: var(--fg-2);
+  margin-top: 4px;
+}
+
+.cardMeta {
+  font-size: 0.75rem;
+  color: var(--fg-2);
+  margin-top: 6px;
+}

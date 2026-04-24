@@ -157,7 +157,6 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
 
         <div className={styles.heroPills}>
           <span className={styles.streakPill}>🔥 {settings.streakCount ?? 0} day streak</span>
-          <span className={styles.levelPill}>{level}</span>
         </div>
       </div>
 

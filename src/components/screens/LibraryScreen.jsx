@@ -55,7 +55,7 @@ export default function LibraryScreen({ onNavigate }) {
 
   const savedPhrases = library.filter(p => p.growth_state !== GROWTH_STATE.MASTERED);
   const masteredPhrases = library.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
-  const savedScenes = scenes.filter(s => sceneProgress[s.id]?.sessionCount > 0);
+  const savedScenes = scenes.filter(s => sceneProgress[s.id]?.sessionCount > 0 || sceneProgress[s.id]?.bookmarked);
 
   // Due today: phrases whose nextReviewAt has passed
   const dueToday = library.filter(p => p.nextReviewAt && p.nextReviewAt <= Date.now());

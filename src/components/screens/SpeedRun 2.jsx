@@ -130,10 +130,10 @@ export default function SpeedRun({ onBack, onComplete }) {
 
   if (phase === 'empty') {
     return (
-      <div className={`${styles.screen} ${styles.emptyScreen}`}>
-        <p className={styles.emptyTitle}>No phrases yet</p>
-        <p className={styles.emptyDesc}>Save at least 4 phrases to your library first — Speed Run only tests what you've learned.</p>
-        <button onClick={onBack} className={styles.emptyBackBtn}>Go back</button>
+      <div className={styles.screen} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '24px', gap: '16px' }}>
+        <p style={{ fontSize: '17px', fontWeight: 600, color: 'var(--color-text-primary)' }}>No phrases available</p>
+        <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>Save at least 4 phrases to your library first — Speed Run only tests what you've learned.</p>
+        <button onClick={onBack} style={{ padding: '12px 28px', borderRadius: '10px', background: 'var(--color-brand-dark)', color: 'white', fontWeight: 600, fontSize: '15px' }}>Go back</button>
       </div>
     );
   }
@@ -167,7 +167,7 @@ export default function SpeedRun({ onBack, onComplete }) {
             {wasCorrect ? 'Correct!' : `Answer: ${phrase?.romanization}`}
           </span>
           {phrase && !wasCorrect && (
-            <span className={styles.feedbackCjk} lang="yue">{phrase.cjk}</span>
+            <span style={{ fontSize: '18px', color: 'var(--color-text-secondary)' }} lang="yue">{phrase.chinese}</span>
           )}
           <button className={styles.nextBtn} onClick={handleNextRound}>
             {round + 1 >= TOTAL_ROUNDS ? 'Finish' : 'Next'}
@@ -182,7 +182,7 @@ export default function SpeedRun({ onBack, onComplete }) {
             disabled={phase !== 'playing'}
           >
             <span className={styles.optRoman}>{opt.romanization}</span>
-            <span className={styles.optChinese} lang="yue">{opt.cjk}</span>
+            <span className={styles.optChinese} lang="yue">{opt.chinese}</span>
           </button>
         ))}
       </div>

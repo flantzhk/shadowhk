@@ -3,7 +3,7 @@ import styles from './SceneDetailScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseRow } from '../ui/PhraseRow.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
-import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress } from '../../services/storage.js';
+import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
@@ -16,6 +16,8 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const [sceneSaved, setSceneSaved] = useState(false);
   const [masteryPct, setMasteryPct] = useState(0);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [allSaved, setAllSaved] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -35,7 +37,10 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
 
     getAllSceneProgress().then(records => {
       const p = records.find(r => r.sceneId === sceneId);
-      if (p) setMasteryPct(p.masteryPct ?? 0);
+      if (p) {
+        setMasteryPct(p.masteryPct ?? 0);
+        setSceneSaved(p.bookmarked ?? false);
+      }
     }).catch(() => {});
   }, [sceneId]);
 
@@ -49,6 +54,34 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     observer.observe(hero);
     return () => observer.disconnect();
   }, [scene]);
+
+  async function saveAllLines() {
+    for (const line of (scene.lines ?? [])) {
+      if (!savedIds.has(line.id)) {
+        await saveLibraryEntry({
+          phraseId: line.id,
+          cjk: line.cjk,
+          romanization: line.romanization,
+          english: line.english,
+          language,
+          scene_id: sceneId,
+          source_tag: SOURCE_TAGS.LIBRARY,
+          growth_state: GROWTH_STATE.NEW,
+          interval: 0,
+          easeFactor: 2.5,
+          practiceCount: 0,
+          nextReviewAt: Date.now(),
+          lastPracticedAt: null,
+          lived_at: null,
+          _createdAt: Date.now(),
+          _updatedAt: Date.now(),
+        }).catch(() => {});
+      }
+    }
+    setSavedIds(new Set((scene.lines ?? []).map(l => l.id)));
+    setAllSaved(true);
+    setTimeout(() => setAllSaved(false), 2000);
+  }
 
   async function toggleSaveLine(line) {
     if (savedIds.has(line.id)) {
@@ -92,7 +125,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     );
   }
 
-  const youLineCount = scene.lines?.filter(l => l.speaker === 'you').length ?? 0;
+  const youLineCount = scene.lines?.length ?? 0;
 
   return (
     <div className={styles.screen}>
@@ -131,13 +164,34 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         <div className={styles.controlsLeft}>
           <button
             className={`${styles.heartBtn} ${sceneSaved ? styles.heartSaved : ''}`}
-            onClick={() => setSceneSaved(v => !v)}
+            onClick={async () => {
+              const next = !sceneSaved;
+              setSceneSaved(next);
+              const existing = await getAllSceneProgress().then(r => r.find(p => p.sceneId === sceneId)).catch(() => null);
+              await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
+            }}
             aria-label="Save scene"
           >
             {sceneSaved ? '♥' : '♡'}
           </button>
-          <button className={styles.controlBtn}>+</button>
-          <button className={styles.controlBtn}>⋯</button>
+          <button
+            className={`${styles.controlBtn} ${allSaved ? styles.controlBtnSaved : ''}`}
+            onClick={saveAllLines}
+            title="Save all phrases to library"
+          >
+            {allSaved ? '✓' : '+'}
+          </button>
+          <div className={styles.moreWrap}>
+            <button className={styles.controlBtn} onClick={() => setShowMore(v => !v)}>⋯</button>
+            {showMore && (
+              <div className={styles.moreMenu} onClick={() => setShowMore(false)}>
+                <button className={styles.moreItem} onClick={() => onNavigate('listen', sceneId)}>🔊 Listen mode</button>
+                {navigator.share && (
+                  <button className={styles.moreItem} onClick={() => navigator.share({ title: scene.title, text: `Practice ${scene.title} in ShadowHK` }).catch(() => {})}>↗ Share</button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
         <button
           className={styles.playBtn}
@@ -163,25 +217,29 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
 
       {/* Phrase list */}
       <div className={styles.phraseList}>
-        {(scene.lines ?? []).map((line, i) => (
-          <div
-            key={line.id}
-            className={styles.phraseRow}
-          >
-            <span className={styles.lineNum}>{i + 1}</span>
-            <div className={styles.phraseContent}>
+        {(scene.lines ?? []).map((line, i) => {
+          const prevSpeaker = i > 0 ? scene.lines[i - 1].speaker : null;
+          const speakerChanged = line.speaker !== prevSpeaker;
+          const isYou = line.speaker === 'you';
+          const speakerLabel = isYou ? 'You' : (line.speaker ? line.speaker.charAt(0).toUpperCase() + line.speaker.slice(1) : 'Partner');
+          return (
+            <div key={line.id} className={`${styles.phraseRow} ${isYou ? styles.phraseYou : styles.phrasePartner}`}>
+              {speakerChanged && (
+                <div className={`${styles.speakerLabel} ${isYou ? styles.speakerYou : styles.speakerPartner}`}>
+                  {speakerLabel}
+                </div>
+              )}
               <PhraseRow
                 jyutping={line.romanization}
                 english={line.english}
                 chinese={line.cjk}
-                role={line.speaker === 'you' ? 'You' : line.speaker}
                 size="md"
                 saved={savedIds.has(line.id)}
-                onHeartToggle={line.speaker === 'you' ? () => toggleSaveLine(line) : undefined}
+                onHeartToggle={() => toggleSaveLine(line)}
               />
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Sticky CTA bar */}

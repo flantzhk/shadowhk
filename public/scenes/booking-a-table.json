@@ -1,0 +1,81 @@
+{
+  "id": "booking-a-table",
+  "language": "cantonese",
+  "emoji": "📞",
+  "imageUrl": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E8703A",
+  "title": "Booking a table by phone",
+  "description": "Call ahead to reserve a table — get the date, time and party size sorted",
+  "category": "social",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "On the phone, anywhere in HK",
+  "context": "Most HK restaurants take phone bookings, especially for groups of four or more. You'll need to give your name, party size, time, and sometimes a phone number. Polite phone Cantonese is slightly more formal than face-to-face.",
+  "culturalFact": "In Hong Kong it's common to book under just a surname — 陳, 李, 王. Staff will address you as 陳生 (Mr Chan) or 陳小姐 (Miss Chan) throughout the call.",
+  "lines": [
+    {
+      "id": "book-01",
+      "speaker": "staff",
+      "cjk": "喂，好運酒樓，你好。",
+      "jyutping": "wai3, hou2 wan6 zau2 lau4, nei5 hou2.",
+      "english": "Hello, Good Fortune Restaurant, how can I help you?",
+      "audioFile": null
+    },
+    {
+      "id": "book-02",
+      "speaker": "you",
+      "cjk": "你好，我想訂枱，聽晚七點，三位。",
+      "jyutping": "nei5 hou2, ngo5 soeng2 deng6 toi2, ting1 maan5 cat1 dim2, saam1 wai2.",
+      "english": "Hi, I'd like to book a table — tomorrow evening at seven, three people.",
+      "audioFile": null
+    },
+    {
+      "id": "book-03",
+      "speaker": "staff",
+      "cjk": "好，請問大名？",
+      "jyutping": "hou2, cing2 man6 daai6 ming4?",
+      "english": "Sure, may I have your name?",
+      "audioFile": null
+    },
+    {
+      "id": "book-04",
+      "speaker": "you",
+      "cjk": "我姓陳。",
+      "jyutping": "ngo5 sing3 can4.",
+      "english": "My surname is Chan.",
+      "audioFile": null
+    },
+    {
+      "id": "book-05",
+      "speaker": "staff",
+      "cjk": "陳生，聽晚七點，三位，幫你記低喇。有冇特別要求？",
+      "jyutping": "can4 saang1, ting1 maan5 cat1 dim2, saam1 wai2, bong1 nei5 gei3 dai1 laa3. jau5 mou5 dak6 bit6 jiu1 kau4?",
+      "english": "Mr Chan — tomorrow at seven, table for three, noted. Any special requests?",
+      "audioFile": null
+    },
+    {
+      "id": "book-06",
+      "speaker": "you",
+      "cjk": "有個細路仔，可唔可以要個BB椅？",
+      "jyutping": "jau5 go3 sai3 lou6 zai2, ho2 m4 ho2 ji5 jiu3 go3 BB ji2?",
+      "english": "We have a small child — could we get a high chair?",
+      "audioFile": null
+    },
+    {
+      "id": "book-07",
+      "speaker": "staff",
+      "cjk": "冇問題，我哋幫你安排。",
+      "jyutping": "mou5 man6 tai4, ngo5 dei6 bong1 nei5 on1 paai4.",
+      "english": "No problem, we'll arrange that for you.",
+      "audioFile": null
+    },
+    {
+      "id": "book-08",
+      "speaker": "you",
+      "cjk": "唔該晒！聽晚見。",
+      "jyutping": "m4 goi1 saai3! ting1 maan5 gin3.",
+      "english": "Thank you so much! See you tomorrow evening.",
+      "audioFile": null
+    }
+  ]
+}
