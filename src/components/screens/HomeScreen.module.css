@@ -444,38 +444,100 @@
   color: var(--fg-2);
 }
 
-/* === Intro nudge === */
-.introNudge {
+/* === Personal scene card === */
+.personalSection { padding: 8px 16px; }
+
+/* Filled state — lime gradient, distinct from all other cards */
+.personalFilled {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin: 8px 16px;
+  background: linear-gradient(120deg, #8BB82B 0%, var(--accent) 100%);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.personalFilledLeft { flex: 1; }
+
+.personalEyebrow {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.personalTitle {
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent-dark);
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+}
+
+.personalMeta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: rgba(14,24,6,0.65);
+  margin: 0;
+}
+
+.personalShadowBtn {
+  background: var(--accent-dark);
+  color: var(--accent);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Empty state — prompt to fill the form */
+.personalEmpty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
   background: var(--surface-1);
-  border: 1px dashed var(--border-1);
-  border-radius: var(--radius-md);
-  padding: 14px;
+  border: 1.5px dashed rgba(197,232,90,0.35);
+  border-radius: 14px;
+  padding: 16px 18px;
   cursor: pointer;
   text-align: left;
-  width: calc(100% - 32px);
 }
 
-.nudgeEmoji { font-size: 24px; flex-shrink: 0; }
+.personalEmptyEmoji { font-size: 28px; flex-shrink: 0; }
 
-.nudgeText { flex: 1; }
+.personalEmptyText { flex: 1; }
 
-.nudgeTitle {
+.personalEmptyTitle {
   font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--fg-0);
-  margin: 0 0 2px;
+  margin: 0 0 3px;
 }
 
-.nudgeDesc {
+.personalEmptyDesc {
   font-family: var(--font-ui);
   font-size: 12px;
   color: var(--fg-2);
   margin: 0;
+  line-height: 1.4;
+}
+
+.personalEmptyArrow {
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .bottomPad { height: 20px; }

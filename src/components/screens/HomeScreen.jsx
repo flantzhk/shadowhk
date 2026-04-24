@@ -87,7 +87,16 @@ export default function HomeScreen({ onNavigate }) {
         <StreakPill count={streakCount} />
       </header>
 
-      {/* Today's Scene hero — FIRST: this is the primary action */}
+      {/* Personal intro scene — always prominent near top */}
+      {personalPhraseCount !== null && (
+        <PersonalSceneCard
+          phraseCount={personalPhraseCount}
+          name={userName}
+          onNavigate={onNavigate}
+        />
+      )}
+
+      {/* Today's Scene hero */}
       {!loading && lesson?.scene && (
         <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
       )}
@@ -110,9 +119,6 @@ export default function HomeScreen({ onNavigate }) {
 
       {/* Short sessions */}
       <ShortSessions onNavigate={onNavigate} />
-
-      {/* Personal scene nudge */}
-      {personalPhraseCount === 0 && <IntroNudge onNavigate={onNavigate} />}
 
       <div className={styles.bottomPad} />
     </div>
@@ -297,16 +303,38 @@ function ShortSessions({ onNavigate }) {
   );
 }
 
-function IntroNudge({ onNavigate }) {
+function PersonalSceneCard({ phraseCount, name, onNavigate }) {
+  if (phraseCount > 0) {
+    return (
+      <section className={styles.personalSection}>
+        <div className={styles.personalFilled}>
+          <div className={styles.personalFilledLeft}>
+            <span className={styles.personalEyebrow}>👋 YOUR INTRO</span>
+            <p className={styles.personalTitle}>{name ? `${name}'s intro` : 'Your intro scene'}</p>
+            <p className={styles.personalMeta}>{phraseCount} phrases · your real life in Cantonese</p>
+          </div>
+          <button
+            className={styles.personalShadowBtn}
+            onClick={() => onNavigate('shadow', 'personal-introduce-yourself')}
+          >
+            Shadow →
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <button className={styles.introNudge} onClick={() => onNavigate('introduce-yourself')}>
-      <span className={styles.nudgeEmoji}>👋</span>
-      <div className={styles.nudgeText}>
-        <p className={styles.nudgeTitle}>Build your personal intro scene</p>
-        <p className={styles.nudgeDesc}>Phrases from your real life — job, neighbourhood, family.</p>
-      </div>
-      <ChevronRight />
-    </button>
+    <section className={styles.personalSection}>
+      <button className={styles.personalEmpty} onClick={() => onNavigate('introduce-yourself')}>
+        <span className={styles.personalEmptyEmoji}>👋</span>
+        <div className={styles.personalEmptyText}>
+          <p className={styles.personalEmptyTitle}>Build your personal intro scene</p>
+          <p className={styles.personalEmptyDesc}>Shadow your own name, job, and life in Cantonese — unique to you.</p>
+        </div>
+        <span className={styles.personalEmptyArrow}>→</span>
+      </button>
+    </section>
   );
 }
 

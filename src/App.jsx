@@ -169,7 +169,7 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.TERMS:           return <LegalPage type="terms" navigate={navigate} goBack={goBack} />;
     case ROUTES.LICENSES:        return <LicensesScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess navigate={navigate} />;
-    case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.LIBRARY)} />;
+    case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.SHADOW, 'personal-introduce-yourself')} />;
     default:                     return <HomeScreen onNavigate={navigate} />;
   }
 }
