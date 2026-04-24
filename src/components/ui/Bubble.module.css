@@ -14,7 +14,7 @@
 .speaker {
   font-size: 0.625rem;
   font-weight: 800;
-  color: rgba(255,255,255,0.3);
+  color: rgba(0,0,0,0.35);
   text-transform: uppercase;
   letter-spacing: 0.8px;
   padding: 0 4px;
@@ -22,7 +22,7 @@
 
 .bubbleRight .speaker {
   text-align: right;
-  color: rgba(196,240,0,0.45);
+  color: rgba(0,0,0,0.35);
 }
 
 /* === Bubble body === */
@@ -35,14 +35,14 @@
 }
 
 .bodyLeft {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: #242424;
+  border: 1px solid rgba(255,255,255,0.1);
   border-bottom-left-radius: 4px;
 }
 
 .bodyRight {
-  background: rgba(196,240,0,0.1);
-  border: 1px solid rgba(196,240,0,0.25);
+  background: #1E3A10;
+  border: 1px solid rgba(196,240,0,0.3);
   border-bottom-right-radius: 4px;
 }
 
