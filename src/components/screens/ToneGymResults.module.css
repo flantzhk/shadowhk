@@ -1,9 +1,7 @@
-/* ToneGymResults.module.css — dark forest green overlay (matches SessionSummary) */
-
 .screen {
   position: fixed;
   inset: 0;
-  background: rgba(17,17,17,0.97);
+  background: var(--bg-0);
   z-index: 200;
   overflow: hidden;
 }
@@ -11,7 +9,9 @@
 .scrollArea {
   height: 100%;
   overflow-y: auto;
-  padding: var(--space-2xl) var(--content-padding) 48px;
+  -webkit-overflow-scrolling: touch;
+  padding: 48px 20px 48px;
+  padding-top: max(env(safe-area-inset-top, 48px), 48px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,21 +21,24 @@
   width: 72px;
   height: 72px;
   border-radius: 24px;
-  background: rgba(196,240,0,0.15);
+  background: var(--accent-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  box-shadow: 0 0 32px var(--accent-glow);
 }
 
-.iconEmoji { font-size: 2.25rem; }
+.iconEmoji { font-size: 36px; }
 
 .title {
-  font-size: 1.625rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--fg-0);
   margin-bottom: 24px;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
 /* === Stats === */
@@ -48,9 +51,9 @@
 
 .statTile {
   flex: 1;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   padding: 16px 8px;
   display: flex;
   flex-direction: column;
@@ -59,14 +62,16 @@
 }
 
 .statNum {
-  font-size: 1.375rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--fg-0);
 }
 
 .statLabel {
-  font-size: 0.6875rem;
-  color: rgba(255,255,255,0.35);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-3);
   font-weight: 500;
 }
 
@@ -77,19 +82,20 @@
 }
 
 .sectionTitle {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 1px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--fg-2);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 /* === Tone list === */
 .toneList {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -98,7 +104,7 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border-0);
 }
 
 .toneRow:last-child { border-bottom: none; }
@@ -110,36 +116,39 @@
 
 .toneName {
   display: block;
-  font-size: 0.8125rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: var(--fg-0);
 }
 
 .toneDesc {
   display: block;
-  font-size: 0.625rem;
-  color: rgba(255,255,255,0.35);
+  font-family: var(--font-ui);
+  font-size: 10px;
+  color: var(--fg-3);
   margin-top: 1px;
 }
 
 .toneBar {
   flex: 1;
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
+  height: 4px;
+  background: var(--border-1);
+  border-radius: 2px;
   overflow: hidden;
 }
 
 .toneBarFill {
   height: 100%;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: width 600ms ease;
 }
 
 .tonePct {
   width: 38px;
   text-align: right;
-  font-size: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -150,17 +159,19 @@
 }
 
 .confusionItem {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.5);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-1);
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border-0);
 }
 
 .confusionItem:last-child { border-bottom: none; }
 
 .practiceNote {
-  font-size: 0.8125rem;
-  color: rgba(255,255,255,0.3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-3);
   font-style: italic;
   margin-top: 8px;
 }
@@ -170,20 +181,21 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(196,240,0,0.1);
-  border: 1px solid rgba(196,240,0,0.25);
+  background: var(--accent-muted);
+  border: 1px solid rgba(197,232,90,0.25);
   border-radius: 12px;
   padding: 14px 18px;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.perfectEmoji { font-size: 1.375rem; }
+.perfectEmoji { font-size: 22px; }
 
 .perfectText {
-  font-size: 0.875rem;
+  font-family: var(--font-ui);
+  font-size: 14px;
   font-weight: 700;
-  color: #C4F000;
+  color: var(--accent);
 }
 
 /* === Actions === */
@@ -197,24 +209,32 @@
 .playAgainBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  font-size: 1rem;
+  border-radius: 12px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  font-family: var(--font-ui);
+  font-size: 15px;
   font-weight: 700;
-  color: rgba(255,255,255,0.75);
+  color: var(--fg-0);
   cursor: pointer;
+  transition: background 0.15s;
 }
+
+.playAgainBtn:hover { background: var(--surface-2); }
 
 .doneBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 14px;
-  background: #C4F000;
+  border-radius: 12px;
+  background: var(--accent);
   border: none;
-  font-size: 1rem;
-  font-weight: 900;
-  color: #1F3329;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent-dark);
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transition: opacity 0.15s;
 }
+
+.doneBtn:hover { opacity: 0.88; }

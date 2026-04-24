@@ -1,9 +1,7 @@
-/* SceneSummary.module.css — dark forest green overlay */
-
 .screen {
   position: fixed;
   inset: 0;
-  background: rgba(17,17,17,0.97);
+  background: var(--bg-0);
   z-index: 300;
   overflow: hidden;
 }
@@ -11,8 +9,9 @@
 .scrollArea {
   height: 100%;
   overflow-y: auto;
-  padding: var(--space-2xl) var(--content-padding);
-  padding-bottom: 40px;
+  -webkit-overflow-scrolling: touch;
+  padding: 48px 20px 40px;
+  padding-top: max(env(safe-area-inset-top, 48px), 48px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,34 +22,39 @@
   width: 72px;
   height: 72px;
   border-radius: 24px;
-  background: rgba(196,240,0,0.15);
+  background: var(--accent-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: 0 0 32px var(--accent-glow);
 }
 
-.iconEmoji { font-size: 2.25rem; }
+.iconEmoji { font-size: 36px; }
 
 .title {
-  font-size: 1.625rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--fg-0);
   margin-bottom: 4px;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .sceneLabel {
-  font-size: 0.8125rem;
-  color: rgba(255,255,255,0.35);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-3);
   margin-bottom: 4px;
   text-align: center;
 }
 
 .subtitle {
-  font-size: 0.9375rem;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 28px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fg-2);
+  margin-bottom: 24px;
   text-align: center;
 }
 
@@ -64,9 +68,9 @@
 
 .statTile {
   flex: 1;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   padding: 16px 8px;
   display: flex;
   flex-direction: column;
@@ -75,15 +79,19 @@
 }
 
 .statNum {
-  font-size: 1.375rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--fg-0);
 }
 
 .statLabel {
-  font-size: 0.6875rem;
-  color: rgba(255,255,255,0.35);
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--fg-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 /* === Streak === */
@@ -91,18 +99,19 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255,160,60,0.1);
-  border: 1px solid rgba(255,160,60,0.2);
+  background: rgba(232,112,58,0.08);
+  border: 1px solid rgba(232,112,58,0.2);
   border-radius: 10px;
   padding: 10px 16px;
   width: 100%;
   margin-bottom: 24px;
 }
 
-.streakFlame { font-size: 1.125rem; }
+.streakFlame { font-size: 18px; }
 
 .streakText {
-  font-size: 0.875rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
   color: rgba(255,200,100,0.9);
 }
@@ -114,18 +123,19 @@
 }
 
 .sectionTitle {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 1px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--fg-2);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
 .turnList {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -134,7 +144,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border-0);
   gap: 12px;
 }
 
@@ -149,32 +159,36 @@
 }
 
 .turnRoman {
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 14px;
   font-weight: 700;
-  color: #C4F000;
+  color: var(--accent);
   font-style: italic;
 }
 
 .turnChinese {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
-  font-family: 'Noto Sans HK', sans-serif;
+  font-family: var(--font-cjk);
+  font-size: 12px;
+  color: var(--fg-3);
 }
 
 .turnEnglish {
-  font-size: 0.6875rem;
-  color: rgba(255,255,255,0.25);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-3);
 }
 
 .turnScore {
-  font-size: 0.9375rem;
-  font-weight: 900;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
 .turnSkipped {
-  font-size: 0.9375rem;
-  color: rgba(255,255,255,0.25);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--fg-3);
   flex-shrink: 0;
 }
 
@@ -189,37 +203,50 @@
 .saveAllBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 14px;
-  background: #C4F000;
-  font-size: 1rem;
-  font-weight: 900;
-  color: #1F3329;
+  border-radius: 12px;
+  background: var(--accent);
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent-dark);
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transition: opacity 0.15s;
 }
+
+.saveAllBtn:hover { opacity: 0.88; }
 
 .replayBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  font-size: 1rem;
+  border-radius: 12px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  font-family: var(--font-ui);
+  font-size: 15px;
   font-weight: 700;
-  color: rgba(255,255,255,0.7);
+  color: var(--fg-0);
   cursor: pointer;
+  transition: background 0.15s;
 }
+
+.replayBtn:hover { background: var(--surface-2); }
 
 .doneBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  font-size: 1rem;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+  font-family: var(--font-ui);
+  font-size: 15px;
   font-weight: 700;
-  color: #fff;
+  color: var(--fg-1);
   text-align: center;
   cursor: pointer;
+  transition: background 0.15s;
 }
+
+.doneBtn:hover { background: var(--bg-3); }

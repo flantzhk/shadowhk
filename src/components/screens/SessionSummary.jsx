@@ -8,10 +8,10 @@ import { getLibraryEntriesByScene, saveLibraryEntry } from '../../services/stora
 import styles from './SessionSummary.module.css';
 
 function getScoreColor(score) {
-  if (score >= 90) return 'var(--color-score-excellent)';
-  if (score >= 70) return 'var(--color-score-good)';
-  if (score >= 50) return 'var(--color-score-fair)';
-  return 'var(--color-score-poor)';
+  if (score >= 90) return 'var(--accent)';
+  if (score >= 70) return '#E8A030';
+  if (score >= 50) return '#E8703A';
+  return '#E84040';
 }
 
 /**
@@ -55,7 +55,7 @@ export default function SessionSummary({ summary, onDone }) {
         {/* Success icon */}
         <div className={styles.iconWrap}>
           <div className={styles.successCircle}>
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-dark)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-dark)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
@@ -117,12 +117,12 @@ export default function SessionSummary({ summary, onDone }) {
                 <div key={i} className={styles.phraseRow}>
                   <span
                     className={styles.phraseDot}
-                    style={{ background: r.score != null ? getScoreColor(r.score) : 'var(--color-text-muted)' }}
+                    style={{ background: r.score != null ? getScoreColor(r.score) : 'var(--fg-3)' }}
                   />
                   <span className={styles.phraseText}>{r.romanization || r.english || r.phraseId}</span>
                   <span
                     className={styles.phraseScore}
-                    style={{ color: r.score != null ? getScoreColor(r.score) : 'var(--color-text-muted)' }}
+                    style={{ color: r.score != null ? getScoreColor(r.score) : 'var(--fg-3)' }}
                   >
                     {r.score != null ? r.score : '—'}
                     {r.score != null && r.score >= 90 && <span className={styles.star}> ★</span>}

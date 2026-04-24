@@ -12,10 +12,10 @@ const TONE_NAMES = {
 };
 
 function getToneColor(pct) {
-  if (pct >= 80) return 'var(--color-brand-green)';
-  if (pct >= 60) return 'var(--color-brand-lime)';
-  if (pct >= 40) return '#E8A030';
-  return '#D04040';
+  if (pct >= 80) return 'var(--accent)';
+  if (pct >= 60) return '#E8A030';
+  if (pct >= 40) return '#E8703A';
+  return '#E84040';
 }
 
 /**

@@ -1,22 +1,21 @@
-/* SessionSummary.module.css — dark forest green overlay */
-
 .screen {
   position: fixed;
   inset: 0;
   display: flex;
   flex-direction: column;
-  background: rgba(17,17,17,0.97);
-  padding: var(--safe-area-top) 0 var(--safe-area-bottom);
-  z-index: var(--z-overlay, 100);
+  background: var(--bg-0);
+  padding-top: max(env(safe-area-inset-top, 0px), 0px);
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 0px);
+  z-index: 100;
 }
 
 .scrollArea {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-overflow-scrolling: touch;
   padding-bottom: 32px;
 }
 
@@ -29,25 +28,29 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: rgba(196,240,0,0.15);
+  background: var(--accent-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   animation: scorePop 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 32px var(--accent-glow);
 }
 
 /* === Title === */
 .title {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--fg-0);
   text-align: center;
-  margin-top: 24px;
+  margin-top: 20px;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  font-size: 0.9375rem;
-  color: rgba(255,255,255,0.5);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fg-2);
   text-align: center;
   margin-top: 4px;
 }
@@ -56,45 +59,49 @@
 .statRow {
   display: flex;
   gap: 10px;
-  margin: 28px 22px 0;
-  width: calc(100% - 44px);
+  margin: 24px 20px 0;
+  width: calc(100% - 40px);
 }
 
 .statTile {
   flex: 1;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   padding: 16px 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .statNum {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--fg-0);
 }
 
 .statLabel {
-  font-size: 0.6875rem;
-  color: rgba(255,255,255,0.35);
-  letter-spacing: 0.2px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--fg-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* === Streak row === */
 .streakRow {
-  margin: 20px 22px 0;
+  margin: 16px 20px 0;
   padding: 12px 16px;
-  background: rgba(255,160,60,0.1);
-  border: 1px solid rgba(255,160,60,0.2);
+  background: rgba(232,112,58,0.08);
+  border: 1px solid rgba(232,112,58,0.2);
   border-radius: 12px;
   display: flex;
   align-items: center;
   gap: 10px;
-  width: calc(100% - 44px);
+  width: calc(100% - 40px);
 }
 
 .streakFlame {
@@ -107,10 +114,8 @@
 .streakFlame::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 1px;
-  width: 14px;
-  height: 16px;
+  bottom: 0; left: 1px;
+  width: 14px; height: 16px;
   background: #E8703A;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
@@ -118,16 +123,15 @@
 .streakFlame::after {
   content: '';
   position: absolute;
-  bottom: 1px;
-  left: 5px;
-  width: 7px;
-  height: 9px;
+  bottom: 1px; left: 5px;
+  width: 7px; height: 9px;
   background: #FFCC4D;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
 .streakText {
-  font-size: 0.8125rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
   color: rgba(255,200,100,0.9);
 }
@@ -139,20 +143,21 @@
 
 /* === Divider === */
 .divider {
-  width: calc(100% - 44px);
+  width: calc(100% - 40px);
   height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 24px 22px;
+  background: var(--border-0);
+  margin: 24px 20px;
 }
 
 /* === Phrase breakdown === */
 .sectionLabel {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 1.2px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--fg-2);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0 22px;
+  padding: 0 20px;
   margin-bottom: 12px;
   align-self: flex-start;
 }
@@ -165,7 +170,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 22px;
+  padding: 10px 20px;
 }
 
 .phraseDot {
@@ -177,54 +182,59 @@
 
 .phraseText {
   flex: 1;
-  font-size: 0.875rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(255,255,255,0.8);
+  color: var(--fg-1);
 }
 
 .phraseScore {
-  font-size: 0.8125rem;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
   flex-shrink: 0;
 }
 
 .star {
-  color: #C4F000;
-  font-size: 0.75rem;
+  color: var(--accent);
+  font-size: 11px;
 }
 
 /* === D2 Keeper phrase === */
 .keeperBox {
-  margin: 20px 22px 0;
-  width: calc(100% - 44px);
-  background: rgba(196,240,0,0.1);
-  border: 1px solid rgba(196,240,0,0.25);
-  border-radius: 16px;
+  margin: 16px 20px 0;
+  width: calc(100% - 40px);
+  background: var(--accent-muted);
+  border: 1px solid rgba(197,232,90,0.25);
+  border-radius: 14px;
   padding: 16px;
   position: relative;
 }
 
 .keeperLabel {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: rgba(196,240,0,0.6);
-  letter-spacing: 1px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(197,232,90,0.6);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   display: block;
   margin-bottom: 6px;
 }
 
 .keeperRoman {
-  font-size: 1.0625rem;
+  font-family: var(--font-mono);
+  font-size: 17px;
   font-weight: 700;
-  color: #C4F000;
+  color: var(--accent);
   font-style: italic;
   margin: 0 0 2px;
 }
 
 .keeperEnglish {
-  font-size: 0.8125rem;
-  color: rgba(255,255,255,0.5);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-2);
   margin: 0;
 }
 
@@ -232,17 +242,18 @@
   position: absolute;
   top: 14px;
   right: 16px;
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-family: var(--font-mono);
+  font-size: 24px;
+  font-weight: 800;
 }
 
 /* === D1 Lived-in-HK prompt === */
 .livedPrompt {
-  margin: 20px 22px 0;
-  width: calc(100% - 44px);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
+  margin: 16px 20px 0;
+  width: calc(100% - 40px);
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 14px;
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
@@ -251,8 +262,9 @@
 }
 
 .livedQ {
-  font-size: 0.9375rem;
-  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--fg-0);
   text-align: center;
   margin: 0;
 }
@@ -267,29 +279,32 @@
   flex: 1;
   padding: 12px;
   background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--border-1);
   border-radius: 12px;
-  font-size: 0.9375rem;
+  font-family: var(--font-ui);
+  font-size: 14px;
   font-weight: 700;
-  color: rgba(255,255,255,0.5);
+  color: var(--fg-2);
   cursor: pointer;
 }
 
 .livedIt {
   flex: 1;
   padding: 12px;
-  background: #C4F000;
+  background: var(--accent);
   border: none;
   border-radius: 12px;
-  font-size: 0.9375rem;
-  font-weight: 900;
-  color: #1F3329;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-dark);
   cursor: pointer;
 }
 
 .livedConfirm {
-  font-size: 0.875rem;
-  color: #C4F000;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--accent);
   text-align: center;
   margin: 16px 0 0;
   font-weight: 700;
@@ -300,46 +315,46 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 28px 22px 32px;
-  width: calc(100% - 44px);
+  margin: 24px 20px 32px;
+  width: calc(100% - 40px);
 }
 
 .practiceMoreBtn {
   width: 100%;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 14px;
+  background: var(--surface-1);
+  color: var(--fg-0);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
   padding: 16px;
-  font-size: 0.9375rem;
+  font-family: var(--font-ui);
+  font-size: 15px;
   font-weight: 700;
   text-align: center;
   min-height: 52px;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
-.practiceMoreBtn:active {
-  opacity: 0.9;
-}
+.practiceMoreBtn:hover { background: var(--surface-2); }
 
 .doneBtn {
   width: 100%;
-  background: #C4F000;
+  background: var(--accent);
   border: none;
-  color: #1F3329;
-  border-radius: 14px;
+  color: var(--accent-dark);
+  border-radius: 12px;
   padding: 16px;
-  font-size: 0.9375rem;
-  font-weight: 900;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 800;
   text-align: center;
   min-height: 52px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transition: opacity 0.15s;
 }
 
-.doneBtn:active {
-  opacity: 0.9;
-}
+.doneBtn:hover { opacity: 0.88; }
 
 @keyframes scorePop {
   0% { transform: scale(0.5); opacity: 0; }

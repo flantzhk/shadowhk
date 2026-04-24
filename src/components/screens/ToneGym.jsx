@@ -279,7 +279,7 @@ export default function ToneGym({ onBack, onComplete }) {
             {chosen === correctIndex ? '✓ Correct!' : `✗ It was ${currentPair.tones[correctIndex].char} (${currentPair.tones[correctIndex].jyutping})`}
           </p>
           {finishError && (
-            <p style={{ fontSize: '13px', color: 'var(--color-error)', textAlign: 'center', marginBottom: '8px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#E84040', fontFamily: 'var(--font-ui)', textAlign: 'center', marginBottom: '8px', lineHeight: 1.5 }}>
               Something went wrong. Check your connection and try again.
             </p>
           )}
