@@ -8,22 +8,32 @@ import { API_BASE_URL } from '../../utils/constants.js';
 const EMPTY_FORM = {
   name: '',
   age: '',
+  nationality: '',
   hometown: '',
   hkDistrict: '',
   job: '',
   company: '',
   yearsInHK: '',
+  reasonCameToHK: '',
+  languages: '',
   partnerName: '',
   partnerNationality: '',
   numKids: '',
   kids: [],
   parentsLocal: '',
   siblings: '',
+  pets: '',
   lunchSpot: '',
   mtrStation: '',
+  howCommute: '',
   hobby: '',
+  weekendActivity: '',
+  favHKFood: '',
   hkLove: '',
   regularPlace: '',
+  missesMostFromHome: '',
+  funFact: '',
+  futurePlans: '',
   learningReason: '',
   learningDuration: '',
 };
@@ -33,7 +43,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [form, setForm] = useState({ ...EMPTY_FORM, kids: [] });
-  const [openSections, setOpenSections] = useState({ about: true, family: false, daily: false, learning: false });
+  const [openSections, setOpenSections] = useState({ about: true, family: false, daily: false, personality: false, learning: false });
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState(null);
 
@@ -128,8 +138,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
 
       <div className={styles.content}>
         <p className={styles.description}>
-          Fill in what applies to you. We'll build you a personal Cantonese scene from your real life.
-          Everything is optional except your name.
+          Fill in what feels right. We'll build you a personal Cantonese scene using your real life — the phrases people will actually ask you when you meet them. Everything is optional except your name.
         </p>
 
         {/* About you */}
@@ -149,17 +158,26 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
               <input className={styles.input} placeholder="e.g. 3" type="number" min="0" value={form.yearsInHK} onChange={e => setField('yearsInHK', e.target.value)} />
             </Field>
           </Row>
-          <Field label="Originally from">
+          <Field label="Nationality">
+            <input className={styles.input} placeholder="e.g. British, Australian, Canadian" value={form.nationality} onChange={e => setField('nationality', e.target.value)} />
+          </Field>
+          <Field label="Where you grew up">
             <input className={styles.input} placeholder="e.g. London, UK" value={form.hometown} onChange={e => setField('hometown', e.target.value)} />
           </Field>
-          <Field label="HK district">
-            <input className={styles.input} placeholder="e.g. Sai Wan Ho" value={form.hkDistrict} onChange={e => setField('hkDistrict', e.target.value)} />
+          <Field label="Where you live in HK">
+            <input className={styles.input} placeholder="e.g. Sai Wan Ho, Tuen Mun, Sham Shui Po" value={form.hkDistrict} onChange={e => setField('hkDistrict', e.target.value)} />
           </Field>
-          <Field label="Job">
+          <Field label="Job or role">
             <input className={styles.input} placeholder="e.g. teacher, nurse, software engineer" value={form.job} onChange={e => setField('job', e.target.value)} />
           </Field>
-          <Field label="Company or industry">
+          <Field label="Industry or company">
             <input className={styles.input} placeholder="e.g. finance, education, healthcare" value={form.company} onChange={e => setField('company', e.target.value)} />
+          </Field>
+          <Field label="Why did you come to Hong Kong?">
+            <input className={styles.input} placeholder="e.g. for work, for love, for an adventure" value={form.reasonCameToHK} onChange={e => setField('reasonCameToHK', e.target.value)} />
+          </Field>
+          <Field label="Other languages you speak">
+            <input className={styles.input} placeholder="e.g. French, Spanish, basic Mandarin" value={form.languages} onChange={e => setField('languages', e.target.value)} />
           </Field>
         </Section>
 
@@ -177,7 +195,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
               <input className={styles.input} placeholder="e.g. Australian" value={form.partnerNationality} onChange={e => setField('partnerNationality', e.target.value)} />
             </Field>
           </Row>
-          <Field label="Number of kids">
+          <Field label="Number of children">
             <select
               className={styles.select}
               value={form.numKids}
@@ -198,12 +216,18 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
                   <input className={styles.input} type="number" min="0" max="25" value={form.kids[i]?.age ?? ''} onChange={e => setKidField(i, 'age', e.target.value)} />
                 </Field>
               </Row>
-              <Field label="School and district">
+              <Field label="School and area">
                 <input className={styles.input} placeholder="e.g. ESF Sha Tin, Sha Tin" value={form.kids[i]?.school ?? ''} onChange={e => setKidField(i, 'school', e.target.value)} />
               </Field>
             </div>
           ))}
-          <Field label="Are your parents HK locals who speak Cantonese?">
+          <Field label="Siblings (back home or in HK)">
+            <input className={styles.input} placeholder="e.g. a sister in Melbourne, two brothers in London" value={form.siblings} onChange={e => setField('siblings', e.target.value)} />
+          </Field>
+          <Field label="Pets">
+            <input className={styles.input} placeholder="e.g. a beagle named Siu Mai, two cats" value={form.pets} onChange={e => setField('pets', e.target.value)} />
+          </Field>
+          <Field label="Are your parents Cantonese-speaking HK locals?">
             <select className={styles.select} value={form.parentsLocal} onChange={e => setField('parentsLocal', e.target.value)}>
               <option value="">Skip</option>
               <option value="yes">Yes</option>
@@ -218,34 +242,60 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           open={openSections.daily}
           onToggle={() => toggleSection('daily')}
         >
-          <Field label="Where you eat lunch">
-            <input className={styles.input} placeholder="e.g. cha chaan teng in Sham Shui Po" value={form.lunchSpot} onChange={e => setField('lunchSpot', e.target.value)} />
+          <Field label="How you get around Hong Kong">
+            <input className={styles.input} placeholder="e.g. mostly MTR, walk everywhere, minibus fan" value={form.howCommute} onChange={e => setField('howCommute', e.target.value)} />
           </Field>
           <Field label="Your local MTR station">
             <input className={styles.input} placeholder="e.g. Sai Wan Ho" value={form.mtrStation} onChange={e => setField('mtrStation', e.target.value)} />
           </Field>
-          <Field label="Hobby or sport">
-            <input className={styles.input} placeholder="e.g. hiking, swimming" value={form.hobby} onChange={e => setField('hobby', e.target.value)} />
+          <Field label="Where you usually eat lunch">
+            <input className={styles.input} placeholder="e.g. cha chaan teng in Sham Shui Po" value={form.lunchSpot} onChange={e => setField('lunchSpot', e.target.value)} />
           </Field>
-          <Field label="Something you love about Hong Kong">
-            <input className={styles.input} placeholder="e.g. the dim sum, the efficiency" value={form.hkLove} onChange={e => setField('hkLove', e.target.value)} />
+          <Field label="Your favourite Hong Kong food">
+            <input className={styles.input} placeholder="e.g. egg tarts, wonton noodles, pineapple buns" value={form.favHKFood} onChange={e => setField('favHKFood', e.target.value)} />
+          </Field>
+          <Field label="Hobby or sport">
+            <input className={styles.input} placeholder="e.g. hiking, swimming, yoga" value={form.hobby} onChange={e => setField('hobby', e.target.value)} />
+          </Field>
+          <Field label="What you usually do on weekends">
+            <input className={styles.input} placeholder="e.g. hiking in Sai Kung, going to the market" value={form.weekendActivity} onChange={e => setField('weekendActivity', e.target.value)} />
           </Field>
           <Field label="A place you go regularly">
             <input className={styles.input} placeholder="e.g. Southorn Playground, Times Square" value={form.regularPlace} onChange={e => setField('regularPlace', e.target.value)} />
+          </Field>
+          <Field label="Something you love about Hong Kong">
+            <input className={styles.input} placeholder="e.g. the dim sum, the efficiency, the hiking" value={form.hkLove} onChange={e => setField('hkLove', e.target.value)} />
+          </Field>
+          <Field label="Something you miss from home">
+            <input className={styles.input} placeholder="e.g. proper cheddar cheese, cold winters, big gardens" value={form.missesMostFromHome} onChange={e => setField('missesMostFromHome', e.target.value)} />
+          </Field>
+        </Section>
+
+        {/* A bit about you */}
+        <Section
+          title="A bit more about you"
+          open={openSections.personality}
+          onToggle={() => toggleSection('personality')}
+        >
+          <Field label="A fun fact about yourself">
+            <input className={styles.input} placeholder="e.g. I've visited all 18 districts, I can juggle" value={form.funFact} onChange={e => setField('funFact', e.target.value)} />
+          </Field>
+          <Field label="Your plans or hopes for Hong Kong">
+            <input className={styles.input} placeholder="e.g. staying another 5 years, getting my kids bilingual" value={form.futurePlans} onChange={e => setField('futurePlans', e.target.value)} />
           </Field>
         </Section>
 
         {/* Learning */}
         <Section
-          title="Learning"
+          title="Why you're learning"
           open={openSections.learning}
           onToggle={() => toggleSection('learning')}
         >
-          <Field label="Why are you learning?">
-            <input className={styles.input} placeholder="e.g. to talk to my kids' teachers" value={form.learningReason} onChange={e => setField('learningReason', e.target.value)} />
+          <Field label="Why are you learning Cantonese?">
+            <input className={styles.input} placeholder="e.g. to talk to my kids' teachers, to connect with neighbours" value={form.learningReason} onChange={e => setField('learningReason', e.target.value)} />
           </Field>
           <Field label="How long have you been learning?">
-            <input className={styles.input} placeholder="e.g. 6 months" value={form.learningDuration} onChange={e => setField('learningDuration', e.target.value)} />
+            <input className={styles.input} placeholder="e.g. 6 months, just started" value={form.learningDuration} onChange={e => setField('learningDuration', e.target.value)} />
           </Field>
         </Section>
 

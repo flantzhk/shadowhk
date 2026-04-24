@@ -11,6 +11,8 @@ import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
 import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
 import { buildPhraseQueueFromScene, buildLesson } from '../../services/lessonBuilder.js';
+import { getLibraryEntries } from '../../services/storage.js';
+import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
@@ -56,6 +58,24 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           audioFile: e.audioFile,
         }));
         setScene({ id: 'free-practice', title: 'Free practice', lines: virtualLines });
+        setYouLines(virtualLines);
+      }).catch(() => {}).finally(() => setLoading(false));
+      return;
+    }
+    if (sceneId === PERSONAL_SCENE_ID) {
+      getLibraryEntries(language).then(entries => {
+        const personal = entries.filter(e => e.scene_id === PERSONAL_SCENE_ID);
+        if (personal.length === 0) { setLoading(false); return; }
+        const virtualLines = personal.map(e => ({
+          id: e.phraseId ?? e.id,
+          speaker: 'you',
+          cjk: e.cjk,
+          romanization: e.romanization,
+          english: e.english,
+          audioFile: null,
+        }));
+        const name = settings?.name ?? '';
+        setScene({ id: PERSONAL_SCENE_ID, emoji: '👋', title: name ? `${name}'s introduction` : 'Your introduction', lines: virtualLines });
         setYouLines(virtualLines);
       }).catch(() => {}).finally(() => setLoading(false));
       return;

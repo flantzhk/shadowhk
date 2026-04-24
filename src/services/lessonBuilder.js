@@ -84,40 +84,38 @@ async function buildSceneLesson(language) {
 
 /**
  * Build a human-readable reason string for the hero card.
- * Examples:
- *   "3 phrases from this scene are fading. Replay + 2 new lines."
- *   "You haven't practised this scene yet. Start here."
- *   "All phrases are solid. Try the next scene."
+ * Written in plain, friendly English — clear to all ages.
  */
 function buildReason(fadingPhrases, libraryEntries, sceneId) {
   const sceneEntries = libraryEntries.filter((e) => e.scene_id === sceneId);
   const newCount = sceneEntries.filter((e) => !e.practiceCount || e.practiceCount === 0).length;
 
   if (fadingPhrases.length === 0 && sceneEntries.length === 0) {
-    return 'Start here — these phrases will unlock more scenes.';
+    return 'A great place to start — shadow this scene to begin.';
   }
   if (fadingPhrases.length === 0 && newCount > 0) {
-    return `${newCount} phrase${newCount === 1 ? '' : 's'} waiting to be practised.`;
+    const phr = newCount === 1 ? '1 new phrase' : `${newCount} new phrases`;
+    return `You have ${phr} here, ready to try for the first time.`;
   }
   if (fadingPhrases.length === 0) {
-    return 'All phrases solid. Review to keep them strong.';
+    return 'Your phrases here are strong. Shadow this scene to keep them sharp.';
   }
 
-  const dayWord = _daysAgo(fadingPhrases);
-  const parts = [];
-  if (fadingPhrases.length === 1) {
-    parts.push(`1 phrase from ${dayWord} is fading.`);
-  } else {
-    parts.push(`${fadingPhrases.length} phrases from ${dayWord} are fading.`);
-  }
+  const whenStr = _daysAgo(fadingPhrases);
+  const fadeCount = fadingPhrases.length;
+  let msg = fadeCount === 1
+    ? `A phrase you learned ${whenStr} needs a quick refresh.`
+    : `${fadeCount} phrases you learned ${whenStr} need a quick refresh.`;
+
   if (newCount > 0) {
-    parts.push(`Replay + ${newCount} new line${newCount === 1 ? '' : 's'}.`);
+    const phr = newCount === 1 ? '1 new phrase' : `${newCount} new phrases`;
+    msg += ` Plus ${phr} to try for the first time.`;
   }
-  return parts.join(' ');
+  return msg;
 }
 
 function _daysAgo(entries) {
-  if (!entries.length) return 'earlier';
+  if (!entries.length) return 'a while back';
   const oldest = Math.min(...entries.map((e) => e.lastPracticedAt || Date.now()));
   const days = Math.round((Date.now() - oldest) / 86400000);
   if (days === 0) return 'today';

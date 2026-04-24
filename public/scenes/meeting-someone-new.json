@@ -1,0 +1,147 @@
+{
+  "id": "meeting-someone-new",
+  "language": "cantonese",
+  "emoji": "🤝",
+  "title": "Meeting Someone New",
+  "description": "Make small talk when you first meet someone — the questions they'll ask, and how to answer",
+  "category": "social",
+  "difficulty": "starter",
+  "estimatedMinutes": 7,
+  "location": "A social gathering, housewarming, or community event",
+  "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask — and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
+  "culturalFact": "Hongkongers tend to ask 'what do you do?' and 'how long have you been here?' pretty quickly when meeting expats. It's not nosiness — it's how they work out what you have in common. Being ready with natural answers in Cantonese is a genuine conversation-starter.",
+  "lines": [
+    {
+      "id": "msn-01",
+      "speaker": "them",
+      "cjk": "喂，你好！你係新嚟嘅？",
+      "jyutping": "wai3, nei5 hou2! nei5 hai6 san1 lai4 ge3?",
+      "english": "Hey, hi! Are you new here?",
+      "audioFile": "msn-01.mp3"
+    },
+    {
+      "id": "msn-02",
+      "speaker": "you",
+      "cjk": "係，我係 [你的名字]。好高興認識你！",
+      "jyutping": "hai6, ngo5 hai6 [nei5 ge3 meng2]. hou2 gou1 hing3 jing6 sik1 nei5!",
+      "english": "Yes, I'm [your name]. Great to meet you!",
+      "audioFile": "msn-02.mp3",
+      "scenario": "This is your opening. Swap [your name] for your own name — your personal intro scene will have this phrase built and ready for you.",
+      "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5) — 'great to meet you'. Warm and natural."
+    },
+    {
+      "id": "msn-03",
+      "speaker": "them",
+      "cjk": "你係邊度人㗎？",
+      "jyutping": "nei5 hai6 bin1 dou6 jan4 gaa3?",
+      "english": "Where are you from?",
+      "audioFile": "msn-03.mp3",
+      "replies": [
+        { "cjk": "我係英國人。", "romanization": "ngo5 hai6 jing1 gwok3 jan4.", "english": "I'm British." },
+        { "cjk": "我係澳洲人。", "romanization": "ngo5 hai6 ou3 zau1 jan4.", "english": "I'm Australian." },
+        { "cjk": "我係美國人。", "romanization": "ngo5 hai6 mei5 gwok3 jan4.", "english": "I'm American." },
+        { "cjk": "我係加拿大人。", "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.", "english": "I'm Canadian." }
+      ]
+    },
+    {
+      "id": "msn-04",
+      "speaker": "you",
+      "cjk": "我係英國人，喺倫敦大嘅。",
+      "jyutping": "ngo5 hai6 jing1 gwok3 jan4, hai2 leon4 deon1 daai6 ge3.",
+      "english": "I'm British — I grew up in London.",
+      "audioFile": "msn-04.mp3",
+      "scenario": "The key pattern: 我係 [nationality] 人，喺 [hometown] 大嘅. Your personal intro scene will have your own version of this phrase ready to go.",
+      "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy."
+    },
+    {
+      "id": "msn-05",
+      "speaker": "them",
+      "cjk": "嚟香港幾耐喇？",
+      "jyutping": "lai4 hoeng1 gong2 gei2 noi6 laa3?",
+      "english": "How long have you been in Hong Kong?",
+      "audioFile": "msn-05.mp3"
+    },
+    {
+      "id": "msn-06",
+      "speaker": "you",
+      "cjk": "我嚟咗三年喇。你呢？",
+      "jyutping": "ngo5 lai4 zo2 saam1 nin4 laa3. nei5 ne1?",
+      "english": "I've been here three years. What about you?",
+      "audioFile": "msn-06.mp3",
+      "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1) — 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
+      "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years)."
+    },
+    {
+      "id": "msn-07",
+      "speaker": "them",
+      "cjk": "我係本地人，土生土長喺香港㗎。你住喺邊度？",
+      "jyutping": "ngo5 hai6 bun2 dei6 jan4, tou2 saang1 tou2 zoeng2 hai2 hoeng1 gong2 gaa3. nei5 zyu6 hai2 bin1 dou6?",
+      "english": "I'm a local — born and raised in Hong Kong. Where do you live?",
+      "audioFile": "msn-07.mp3"
+    },
+    {
+      "id": "msn-08",
+      "speaker": "you",
+      "cjk": "我住喺西環，好近地鐵站。",
+      "jyutping": "ngo5 zyu6 hai2 sai1 waan4, hou2 kan5 dei6 tit3 zaam6.",
+      "english": "I live in Sai Wan — right near the MTR.",
+      "audioFile": "msn-08.mp3",
+      "scenario": "Tell them your neighbourhood. Your personal intro scene will have your own district phrase built for you.",
+      "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true."
+    },
+    {
+      "id": "msn-09",
+      "speaker": "them",
+      "cjk": "你做乜嘢工作㗎？",
+      "jyutping": "nei5 zou6 mat1 je5 gung1 zok3 gaa3?",
+      "english": "What do you do for work?",
+      "audioFile": "msn-09.mp3"
+    },
+    {
+      "id": "msn-10",
+      "speaker": "you",
+      "cjk": "我係老師，喺國際學校教書。",
+      "jyutping": "ngo5 hai6 lou5 si1, hai2 gwok3 zai3 hok6 haau6 gaau3 syu1.",
+      "english": "I'm a teacher — I work at an international school.",
+      "audioFile": "msn-10.mp3",
+      "scenario": "This is one of the first things people ask in HK. Your personal intro scene will have your job phrase customised for you.",
+      "usage": "The pattern: 我係 [job] (ngo5 hai6...). Examples: 我係護士 (nurse, wu6 si6), 我係工程師 (engineer, gung1 cing4 si1), 我係醫生 (doctor, ji1 saang1)."
+    },
+    {
+      "id": "msn-11",
+      "speaker": "them",
+      "cjk": "你廣東話好叻喎！學咗幾耐㗎？",
+      "jyutping": "nei5 gwong2 dung1 waa2 hou2 lek1 wo3! hok6 zo2 gei2 noi6 gaa3?",
+      "english": "Your Cantonese is great! How long have you been learning?",
+      "audioFile": "msn-11.mp3"
+    },
+    {
+      "id": "msn-12",
+      "speaker": "you",
+      "cjk": "哪裡哪裡！學咗半年，仲差得遠！",
+      "jyutping": "naa4 lei5 naa4 lei5! hok6 zo2 bun3 nin4, zung6 caa1 dak1 jyun5!",
+      "english": "Not at all! I've been learning six months — still a long way to go!",
+      "audioFile": "msn-12.mp3",
+      "scenario": "Hongkongers love to compliment your Cantonese. The reply 哪裡哪裡 (naa4 lei5 naa4 lei5) — literally 'where, where?' — means 'not at all, you're too kind'. Being humble here earns serious respect.",
+      "usage": "Even if your Cantonese is actually pretty good, being modest in response to compliments is deeply natural in Hong Kong. 哪裡哪裡 is a phrase worth mastering early."
+    },
+    {
+      "id": "msn-13",
+      "speaker": "them",
+      "cjk": "有冇WhatsApp？保持聯絡啦！",
+      "jyutping": "jau5 mou5 WhatsApp? bou2 ci4 lyun4 lok3 laa1!",
+      "english": "Got WhatsApp? Let's keep in touch!",
+      "audioFile": "msn-13.mp3"
+    },
+    {
+      "id": "msn-14",
+      "speaker": "you",
+      "cjk": "有呀！好高興識到你。",
+      "jyutping": "jau5 aa3! hou2 gou1 hing3 sik1 dou2 nei5.",
+      "english": "Of course! Really glad to have met you.",
+      "audioFile": "msn-14.mp3",
+      "scenario": "Swapping WhatsApp in HK is how people stay connected — much more common than business cards. Closing with 好高興識到你 (hou2 gou1 hing3 sik1 dou2 nei5) is warm and genuinely memorable.",
+      "usage": "好高興識到你 is a great phrase to end any first meeting. Use it every time — it's sincere, natural, and leaves a great impression."
+    }
+  ]
+}
