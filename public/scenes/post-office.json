@@ -2,6 +2,8 @@
   "id": "post-office",
   "language": "cantonese",
   "emoji": "📦",
+  "imageUrl": "https://images.unsplash.com/photo-1515600051222-a3c338ff16f6?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E84040",
   "title": "Sending a package at the post office",
   "description": "Send a parcel and ask about delivery times at Hongkong Post",
   "category": "services",

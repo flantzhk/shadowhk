@@ -1,143 +1,220 @@
-/* PromptDrill.module.css — dark navy (#1F3329) */
-
 .screen {
-  flex: 1; display: flex; flex-direction: column;
-  background: #111111;
-  padding: var(--safe-area-top) var(--content-padding) var(--safe-area-bottom);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-0);
+  padding: 0 20px;
+  padding-top: max(env(safe-area-inset-top, 12px), 12px);
+  padding-bottom: max(env(safe-area-inset-bottom, 24px), 24px);
 }
 
-.loading { flex: 1; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); }
+.loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-2);
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
 
 .header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: var(--space-md) 0; flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  flex-shrink: 0;
 }
 
 .closeBtn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+  color: var(--fg-1);
   border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 0.75rem;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  min-height: 40px;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
+  transition: background 0.15s;
 }
 
-.counter { font-size: 0.8125rem; color: rgba(255,255,255,0.4); font-weight: 500; }
+.closeBtn:hover { background: var(--bg-3); }
 
-.progressBar { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; margin-bottom: var(--space-lg); }
-.progressFill { height: 100%; background: #C4F000; transition: width 0.3s; }
+.counter {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-2);
+}
+
+.progressBar {
+  height: 3px;
+  background: var(--border-0);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
 
 /* === Prompt area === */
 .promptArea {
-  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
 }
 
 .levelLabel {
-  font-size: 0.625rem; font-weight: 800;
-  color: #C4F000; letter-spacing: 1.5px;
-  text-transform: uppercase; margin-top: 40px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 40px;
 }
 
-.levelDesc { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.levelDesc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+  margin-top: 2px;
+}
 
-.label { font-size: 0.8125rem; color: rgba(255,255,255,0.35); margin-top: 48px; }
+.label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-2);
+  margin-top: 48px;
+}
 
 .english {
-  font-size: clamp(20px, 1.625rem, 44px); font-weight: 800;
-  color: #fff; padding: 0 32px;
-  line-height: 1.3; margin-top: 16px;
+  font-family: var(--font-ui);
+  font-size: clamp(20px, 26px, 44px);
+  font-weight: 800;
+  color: var(--fg-0);
+  padding: 0 32px;
+  line-height: 1.3;
+  margin-top: 16px;
+  letter-spacing: -0.02em;
 }
 
-.context { font-size: 0.75rem; color: rgba(255,255,255,0.35); font-style: italic; }
-
-/* === Hold to speak === */
-.micBtn {
-  width: 100px; height: 100px; border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid rgba(255,255,255,0.12);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 32px;
-  cursor: pointer;
-  transition: all 0.2s;
+.context {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+  font-style: italic;
 }
 
-.micBtn:active, .micBtnActive {
-  background: rgba(231,76,60,0.2);
-  border-color: #e74c3c;
-  color: #ff7a5c;
-  animation: recordPulse 1s infinite;
-}
-
-.instruction {
-  font-size: 0.875rem; font-weight: 700;
-  color: rgba(255,255,255,0.5); margin-top: 16px; text-align: center;
-}
-
-.bottomActions {
-  display: flex; justify-content: space-between;
-  padding: 0 0 24px; flex-shrink: 0;
-}
-
-.skipLink, .giveUpLink {
-  font-size: 0.8125rem; font-weight: 500;
-  color: rgba(255,255,255,0.3); text-decoration: underline;
-  padding: var(--space-md);
-  cursor: pointer;
-}
-
+/* === Ready button === */
 .readyBtn {
-  align-self: center; padding: var(--space-base) var(--space-2xl);
-  background: #C4F000; color: #1F3329;
-  border-radius: 10px; font-weight: 900;
-  font-size: var(--font-size-md); min-height: 52px; margin-bottom: var(--space-2xl);
+  align-self: center;
+  padding: 14px 40px;
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 15px;
+  min-height: 52px;
+  margin-bottom: 32px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(196,240,0,0.25);
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: opacity 0.15s;
 }
+
+.readyBtn:hover { opacity: 0.88; }
 
 /* === Comparison cards === */
-.resultArea { display: flex; flex-direction: column; gap: 12px; padding-bottom: var(--space-2xl); }
+.resultArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 32px;
+}
 
-.compCard {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 14px; padding: 14px 16px; position: relative;
+.comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.expected {
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  position: relative;
+}
+
+.actual {
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  position: relative;
 }
 
 .compLabel {
-  font-size: 0.625rem; font-weight: 800;
-  color: rgba(255,255,255,0.3); letter-spacing: 1px;
-  text-transform: uppercase; margin-bottom: 6px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--fg-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
 }
 
-.compJyutping { font-size: 1.125rem; font-weight: 700; color: #C4F000; font-style: italic; }
-.compChinese { font-size: 0.875rem; color: rgba(255,255,255,0.4); margin-top: 4px; font-family: 'Noto Sans HK', sans-serif; }
-
-.compPlayBtn {
-  position: absolute; top: 14px; right: 14px;
-  width: 32px; height: 32px; border-radius: 50%;
-  background: #C4F000;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
+.compJyutping {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  font-style: italic;
+  display: block;
 }
 
-.comparison { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-.expected { composes: compCard; }
-.actual { composes: compCard; }
+.compText {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--fg-0);
+  display: block;
+  margin-top: 2px;
+}
 
 .nextBtn {
-  padding: var(--space-md) var(--space-2xl); background: #C4F000;
-  color: #1F3329; border-radius: 10px;
-  font-weight: 900; font-size: var(--font-size-md); min-height: 44px;
-  align-self: center; cursor: pointer;
+  padding: 14px 40px;
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 15px;
+  min-height: 48px;
+  align-self: center;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
-.compText { font-size: var(--font-size-md); color: #fff; }
+.nextBtn:hover { opacity: 0.88; }
 
 @keyframes recordPulse {
   0%, 100% { opacity: 1; }

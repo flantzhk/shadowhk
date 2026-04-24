@@ -16,8 +16,11 @@ body {
   height: 100%;
   overflow: hidden;
   font-size: 1rem;
+  font-family: var(--font-ui);
   line-height: var(--line-height-normal);
   letter-spacing: var(--letter-spacing-normal);
+  background: var(--bg-0);
+  color: var(--fg-0);
 }
 
 #root {

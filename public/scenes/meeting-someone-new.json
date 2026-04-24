@@ -2,6 +2,8 @@
   "id": "meeting-someone-new",
   "language": "cantonese",
   "emoji": "🤝",
+  "imageUrl": "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#C5E85A",
   "title": "Meeting Someone New",
   "description": "Make small talk when you first meet someone — the questions they'll ask, and how to answer",
   "category": "social",
@@ -37,10 +39,26 @@
       "english": "Where are you from?",
       "audioFile": "msn-03.mp3",
       "replies": [
-        { "cjk": "我係英國人。", "romanization": "ngo5 hai6 jing1 gwok3 jan4.", "english": "I'm British." },
-        { "cjk": "我係澳洲人。", "romanization": "ngo5 hai6 ou3 zau1 jan4.", "english": "I'm Australian." },
-        { "cjk": "我係美國人。", "romanization": "ngo5 hai6 mei5 gwok3 jan4.", "english": "I'm American." },
-        { "cjk": "我係加拿大人。", "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.", "english": "I'm Canadian." }
+        {
+          "cjk": "我係英國人。",
+          "romanization": "ngo5 hai6 jing1 gwok3 jan4.",
+          "english": "I'm British."
+        },
+        {
+          "cjk": "我係澳洲人。",
+          "romanization": "ngo5 hai6 ou3 zau1 jan4.",
+          "english": "I'm Australian."
+        },
+        {
+          "cjk": "我係美國人。",
+          "romanization": "ngo5 hai6 mei5 gwok3 jan4.",
+          "english": "I'm American."
+        },
+        {
+          "cjk": "我係加拿大人。",
+          "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.",
+          "english": "I'm Canadian."
+        }
       ]
     },
     {

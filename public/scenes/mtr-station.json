@@ -2,6 +2,8 @@
   "id": "mtr-station",
   "language": "cantonese",
   "emoji": "🚇",
+  "imageUrl": "https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#5AC8E8",
   "title": "At the MTR station",
   "description": "Top up your Octopus card and find the right exit",
   "category": "transport",

@@ -1,19 +1,29 @@
 import { useState, useEffect } from 'react';
 import styles from './ScenesScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { SceneCard } from '../ui/SceneCard.jsx';
-import { getAllScenes, getScenesByCategory } from '../../services/sceneLoader.js';
+import { getAllScenes } from '../../services/sceneLoader.js';
 import { getAllSceneProgress } from '../../services/storage.js';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
 import { SCENE_CATEGORIES } from '../../utils/constants.js';
 
 const CATEGORY_LABELS = {
+  all: 'All',
   food: 'Food',
   transport: 'Transport',
+  everyday: 'Everyday',
   social: 'Social',
   services: 'Services',
   festivals: 'Festivals',
 };
+
+// Pick a seasonally relevant scene for the featured mosaic
+function getFeaturedScene(scenes) {
+  const month = new Date().getMonth(); // 0-indexed
+  // Jan/Feb → CNY, Aug/Sep → Mid-Autumn, otherwise cha-chaan-teng fallback
+  if (month === 0 || month === 1) return scenes.find(s => s.id === 'chinese-new-year');
+  if (month === 7 || month === 8) return scenes.find(s => s.id === 'mid-autumn');
+  return scenes.find(s => s.id === 'cha-chaan-teng') ?? scenes[0];
+}
 
 export default function ScenesScreen({ onNavigate }) {
   const { settings } = useAppContext();
@@ -23,7 +33,6 @@ export default function ScenesScreen({ onNavigate }) {
   const [progress, setProgress] = useState({});
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [suggested, setSuggested] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
@@ -36,54 +45,42 @@ export default function ScenesScreen({ onNavigate }) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-    buildSceneLesson(language).then(setSuggested).catch(() => {});
   }, [language]);
 
-  const categories = SCENE_CATEGORIES[language] ?? [];
+  const categories = ['all', ...(SCENE_CATEGORIES[language] ?? [])];
 
-  const filteredScenes = search.trim()
-    ? scenes.filter(s =>
-        s.title.toLowerCase().includes(search.toLowerCase()) ||
-        s.description?.toLowerCase().includes(search.toLowerCase()) ||
-        s.category?.toLowerCase().includes(search.toLowerCase())
-      )
-    : null;
+  const filteredScenes = (() => {
+    let list = scenes;
+    if (activeCategory !== 'all') list = list.filter(s => s.category === activeCategory);
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      list = list.filter(s =>
+        s.title?.toLowerCase().includes(q) ||
+        s.description?.toLowerCase().includes(q) ||
+        s.category?.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  })();
 
-  function sceneStatus(scene) {
-    const p = progress[scene.id];
-    if (!p) return 'fresh';
-    if (p.livedAt) return 'lived';
-    if (p.sessionCount > 0) return 'practiced';
-    return 'fresh';
+  function masteryPct(sceneId) {
+    const p = progress[sceneId];
+    if (!p) return 0;
+    return Math.round((p.masteredCount ?? 0) / Math.max(p.totalCount ?? 1, 1) * 100);
   }
+
+  const featured = !search.trim() && activeCategory === 'all' ? getFeaturedScene(scenes) : null;
 
   return (
     <div className={styles.screen}>
-      {!search && (
-        <div className={styles.categoryChips}>
-          <button
-            className={`${styles.categoryChip} ${activeCategory === 'all' ? styles.categoryChipActive : ''}`}
-            onClick={() => setActiveCategory('all')}
-          >
-            All
-          </button>
-          {categories.map(cat => (
-            <button
-              key={cat}
-              className={`${styles.categoryChip} ${activeCategory === cat ? styles.categoryChipActive : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {CATEGORY_LABELS[cat] ?? cat}
-            </button>
-          ))}
-        </div>
-      )}
+      <h1 className={styles.title}>Browse</h1>
 
+      {/* Search */}
       <div className={styles.searchBar}>
         <SearchIcon />
         <input
           className={styles.searchInput}
-          placeholder="Search scenes"
+          placeholder="Scenes, phrases, or tones"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
@@ -97,72 +94,85 @@ export default function ScenesScreen({ onNavigate }) {
         )}
       </div>
 
-      {!search && suggested?.scene && (
-        <div className={styles.suggestedRow}>
-          <span className={styles.suggestedLabel}>SUGGESTED FOR YOU</span>
-          <SceneCard
-            emoji={suggested.scene.emoji}
-            title={suggested.scene.title}
-            phraseCount={suggested.scene.lines?.filter(l => l.speaker === 'you').length ?? 0}
-            duration={suggested.scene.estimatedMinutes ?? 5}
-            status={sceneStatus(suggested.scene)}
-            onClick={() => onNavigate('scene', suggested.scene.id)}
-          />
-          {suggested.reason && <p className={styles.suggestedReason}>{suggested.reason}</p>}
-        </div>
+      {/* Category chips */}
+      <div className={styles.categoryChips}>
+        {categories.map(cat => (
+          <button
+            key={cat}
+            className={`${styles.chip} ${activeCategory === cat ? styles.chipActive : ''}`}
+            onClick={() => setActiveCategory(cat)}
+          >
+            {CATEGORY_LABELS[cat] ?? cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Featured mosaic */}
+      {featured && (
+        <button
+          className={styles.featured}
+          style={{ backgroundImage: featured.imageUrl ? `url(${featured.imageUrl})` : undefined, backgroundColor: featured.tint ?? 'var(--surface-2)' }}
+          onClick={() => onNavigate('scene', featured.id)}
+        >
+          <div className={styles.featuredOverlay} />
+          <div className={styles.featuredContent}>
+            <span className={styles.featuredEyebrow}>FEATURED SCENE</span>
+            <p className={styles.featuredTitle}>{featured.title}</p>
+            <p className={styles.featuredMeta}>
+              {featured.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
+              {featured.estimatedMinutes ? ` · ${featured.estimatedMinutes} min` : ''}
+            </p>
+          </div>
+        </button>
       )}
 
-      <div className={styles.content}>
-        {loading && <div className={styles.skeleton} />}
-
-        {!loading && filteredScenes !== null && (
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Results</h2>
-            {filteredScenes.length === 0 ? (
-              <p className={styles.empty}>No scenes match "{search}"</p>
-            ) : (
-              <div className={styles.grid}>
-                {filteredScenes.map(s => (
-                  <SceneCard
-                    key={s.id}
-                    emoji={s.emoji}
-                    title={s.title}
-                    phraseCount={s.lines?.filter(l => l.speaker === 'you').length ?? 0}
-                    duration={s.estimatedMinutes ?? 5}
-                    status={sceneStatus(s)}
-                    onClick={() => onNavigate('scene', s.id)}
+      {/* Grid */}
+      {loading ? (
+        <div className={styles.grid}>
+          {[1, 2, 3, 4].map(i => (
+            <div key={i} className={styles.skeleton} style={{ aspectRatio: 1 }} />
+          ))}
+        </div>
+      ) : (
+        <div className={styles.grid}>
+          {filteredScenes.length === 0 && (
+            <p className={styles.empty}>No scenes match "{search}"</p>
+          )}
+          {filteredScenes.map(scene => {
+            const pct = masteryPct(scene.id);
+            return (
+              <button
+                key={scene.id}
+                className={styles.tile}
+                onClick={() => onNavigate('scene', scene.id)}
+              >
+                <div
+                  className={styles.cover}
+                  style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
+                >
+                  <div
+                    className={styles.coverTint}
+                    style={{ background: `linear-gradient(135deg, ${scene.tint ?? '#C5E85A'}44 0%, transparent 60%)` }}
                   />
-                ))}
-              </div>
-            )}
-          </section>
-        )}
-
-        {!loading && filteredScenes === null && categories
-          .filter(cat => activeCategory === 'all' || activeCategory === cat)
-          .map(cat => {
-          const catScenes = scenes.filter(s => s.category === cat);
-          if (catScenes.length === 0) return null;
-          return (
-            <section key={cat} className={styles.section}>
-              <h2 className={styles.sectionTitle}>{CATEGORY_LABELS[cat] ?? cat}</h2>
-              <div className={styles.scrollRow}>
-                {catScenes.map(s => (
-                  <SceneCard
-                    key={s.id}
-                    emoji={s.emoji}
-                    title={s.title}
-                    phraseCount={s.lines?.filter(l => l.speaker === 'you').length ?? 0}
-                    duration={s.estimatedMinutes ?? 5}
-                    status={sceneStatus(s)}
-                    onClick={() => onNavigate('scene', s.id)}
-                  />
-                ))}
-              </div>
-            </section>
-          );
-        })}
-      </div>
+                  <div className={styles.coverDark} />
+                  {scene.emoji && <span className={styles.coverEmoji}>{scene.emoji}</span>}
+                  {pct > 0 && (
+                    <span className={`${styles.masteryBadge} ${pct >= 80 ? styles.masteryHigh : ''}`}>
+                      {pct}%
+                    </span>
+                  )}
+                </div>
+                <p className={styles.tileTitle}>{scene.title}</p>
+                <p className={styles.tileMeta}>
+                  {scene.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
+                  {scene.estimatedMinutes ? ` · ${scene.estimatedMinutes} min` : ''}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+      )}
+      <div className={styles.bottomPad} />
     </div>
   );
 }

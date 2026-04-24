@@ -2,6 +2,8 @@
   "id": "ferry",
   "language": "cantonese",
   "emoji": "⛴️",
+  "imageUrl": "https://images.unsplash.com/photo-1576859959726-08c4a80c45c8?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#3A8FE8",
   "title": "Taking the Star Ferry",
   "description": "Buy a ticket and board the Star Ferry across Victoria Harbour",
   "category": "transport",

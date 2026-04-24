@@ -1,299 +1,455 @@
 .screen {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--bg-0);
   overflow-y: auto;
-  background: var(--color-bg);
+  -webkit-overflow-scrolling: touch;
 }
 
-.content {
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 24px 20px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-brand-dark);
-  margin: 0;
-  letter-spacing: -0.5px;
-}
-
-.streakWidget {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-}
-
-.streakLabel {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--color-streak-orange);
-  margin: 0;
-  letter-spacing: 0.2px;
-}
-
-.streakDots {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
-  background: var(--color-bg-page);
-  border: 1.5px solid var(--color-border-strong);
-}
-
-.dotFilled {
-  background: var(--color-streak-orange);
-  border-color: var(--color-streak-orange);
-}
-
-.sectionLabel {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.lessonSection {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.reason {
-  font-size: 13px;
-  color: var(--color-text-secondary);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Scene hero card */
-.sceneHero {
-  background: var(--color-brand-lime-muted);
-  border: 2px solid var(--color-brand-lime);
-  border-radius: 16px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.sceneHeroMeta {
+/* === Greeting bar === */
+.greetingBar {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  justify-content: space-between;
+  padding: 16px 16px 8px;
 }
 
-.sceneEmoji {
-  font-size: 28px;
-  line-height: 1;
+.greetingText { flex: 1; }
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+}
+
+.greetingTitle {
+  font-family: var(--font-ui);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.streakPill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-pill);
+  padding: 5px 10px 5px 8px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.streakFlame { font-size: 14px; }
+.streakNum {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--streak);
+}
+
+/* === Jump back grid === */
+.jumpSection { padding: 8px 16px; }
+
+.jumpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.jumpChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-0);
+  border-radius: var(--radius-md);
+  padding: 6px 8px;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+}
+
+.jumpImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
   flex-shrink: 0;
 }
 
-.sceneTitle {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-brand-dark);
-  margin: 0 0 2px;
-  line-height: 1.2;
+.jumpEmoji {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  background: var(--surface-2);
+  border-radius: 8px;
 }
 
-.sceneMeta {
-  font-size: 12px;
-  color: var(--color-text-secondary);
-  margin: 0;
+.jumpTitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-0);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.3;
 }
 
-.sceneHeroBtns {
+/* === Today's Scene hero === */
+.heroSection { padding: 8px 16px; }
+
+.sceneHero {
+  position: relative;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface-2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.heroTintOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroDarkOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 2;
+}
+
+.heroTopLeft {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+}
+
+.becauseChip {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--fg-0);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+}
+
+.heroBottomLeft {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 3;
+}
+
+.heroEmoji { font-size: 20px; display: block; margin-bottom: 4px; }
+
+.heroTitle {
+  font-family: var(--font-ui);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heroMeta {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: rgba(255,255,255,0.72);
+  margin: 0 0 10px;
+}
+
+.heroBtns {
   display: flex;
   gap: 8px;
 }
 
-.primaryCta {
-  flex: 1;
-  padding: 13px 16px;
-  background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+.shadowBtn {
+  background: var(--accent);
+  color: var(--accent-dark);
   border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
   cursor: pointer;
-  min-height: 48px;
-  transition: opacity 0.15s;
-  text-align: center;
+  letter-spacing: 0.01em;
 }
 
-.primaryCta:hover { opacity: 0.88; }
-
-.secondaryCta {
-  padding: 13px 16px;
-  background: transparent;
-  color: var(--color-brand-dark);
-  border: 1.5px solid var(--color-brand-dark);
-  border-radius: 12px;
-  font-size: 15px;
+.listenBtn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 600;
+  padding: 8px 18px;
   cursor: pointer;
-  min-height: 48px;
-  white-space: nowrap;
-  transition: background 0.15s;
 }
 
-.secondaryCta:hover { background: var(--color-brand-lime); }
-
-.empty {
+.emptyHero {
+  height: 220px;
+  border-radius: 14px;
+  background: var(--surface-1);
+  border: 1px dashed var(--border-1);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 32px 0;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .emptyText {
-  font-size: 16px;
-  color: var(--color-text-secondary);
-  margin: 0;
-  line-height: 1.5;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fg-2);
 }
 
-/* OR quick actions */
-.orLabel {
-  font-size: 11px;
+/* === Row sections (playlist, keep going) === */
+.rowSection { padding: 16px 0 4px; }
+
+.rowLabel {
+  font-family: var(--font-ui);
+  font-size: 15px;
   font-weight: 700;
-  color: var(--color-text-muted);
-  letter-spacing: 1px;
+  color: var(--fg-0);
+  margin: 0 0 10px;
+  padding: 0 16px;
+}
+
+.scrollRow {
+  display: flex;
+  gap: 12px;
+  padding: 0 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scrollRow::-webkit-scrollbar { display: none; }
+
+/* Playlist cards */
+.playlistCard {
+  flex-shrink: 0;
+  width: 150px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.playlistCover {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface-2);
+  margin-bottom: 6px;
+}
+
+.playlistCoverGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.7) 100%);
+}
+
+.playlistTitle {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.playlistDesc {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-2);
   margin: 0;
 }
 
-.quickActions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* Keep going cards */
+.keepCard {
+  flex-shrink: 0;
+  width: 140px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
 }
 
-.actionBox {
-  width: 100%;
-  padding: 10px 14px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+.keepCover {
+  position: relative;
+  width: 140px;
+  height: 140px;
   border-radius: 12px;
-  text-align: left;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--surface-2);
+  margin-bottom: 6px;
+}
+
+.keepCoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.keepTitle {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-0);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.keepProgressBar {
+  height: 3px;
+  background: var(--surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+
+.keepProgressFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.keepPct {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  color: var(--fg-2);
+  margin: 0;
+  text-align: right;
+}
+
+/* === Short sessions === */
+.shortSection { padding: 16px 16px 4px; }
+
+.shortRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: var(--surface-1);
+  border: 1px solid var(--border-0);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
   cursor: pointer;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.shortIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shortEmoji { font-size: 18px; }
+
+.shortText {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1px;
-  transition: background 0.12s;
 }
 
-.actionBox:hover { background: var(--color-bg-page); }
-
-.actionTitle {
+.shortLabel {
+  font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--fg-0);
 }
 
-.actionDesc {
-  font-size: 12px;
-  color: var(--color-text-muted);
+.shortDesc {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-2);
 }
 
-/* Personal scene card */
-.personalCard {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-radius: 16px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* Intro nudge — standout CTA for users who haven't built their personal scene */
+/* === Intro nudge === */
 .introNudge {
-  width: 100%;
-  background: rgba(196, 240, 0, 0.07);
-  border: 2px dashed rgba(100, 140, 0, 0.35);
-  border-radius: 16px;
-  padding: 16px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
+  margin: 8px 16px;
+  background: var(--surface-1);
+  border: 1px dashed var(--border-1);
+  border-radius: var(--radius-md);
+  padding: 14px;
   cursor: pointer;
   text-align: left;
-  transition: background 0.15s, border-color 0.15s;
+  width: calc(100% - 32px);
 }
 
-.introNudge:hover {
-  background: rgba(196, 240, 0, 0.12);
-  border-color: rgba(100, 140, 0, 0.5);
-}
+.nudgeEmoji { font-size: 24px; flex-shrink: 0; }
 
-.introNudgeInner {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  flex: 1;
-  min-width: 0;
-}
+.nudgeText { flex: 1; }
 
-.introNudgeEmoji {
-  font-size: 28px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.introNudgeText {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.introNudgeTitle {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-brand-dark);
-  margin: 0;
-}
-
-.introNudgeDesc {
+.nudgeTitle {
+  font-family: var(--font-ui);
   font-size: 13px;
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: var(--fg-0);
+  margin: 0 0 2px;
+}
+
+.nudgeDesc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
   margin: 0;
-  line-height: 1.45;
 }
 
-.introNudgeArrow {
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-
-.skeleton {
-  height: 120px;
-  background: var(--color-bg-page);
-  border-radius: 16px;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
+.bottomPad { height: 20px; }

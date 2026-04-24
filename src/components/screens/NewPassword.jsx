@@ -1,20 +1,7 @@
-// src/components/screens/NewPassword.jsx — Item 7
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fbAuth } from '../../services/firebase';
+import { ROUTES } from '../../utils/constants';
 import styles from './NewPassword.module.css';
-
-function getStrength(pw) {
-  let score = 0;
-  if (pw.length >= 8) score++;
-  if (/\d/.test(pw)) score++;
-  if (/[^a-zA-Z0-9]/.test(pw)) score++;
-  if (pw.length >= 12) score++;
-  return score;
-}
-
-const STRENGTH_LABELS = ['', 'Weak', 'Medium', 'Good', 'Strong'];
-const STRENGTH_COLORS = ['', '#D04040', '#E8A030', '#8BB82B', '#2A5A10'];
 
 export default function NewPassword({ onBack, showToast }) {
   const [password, setPassword] = useState('');
@@ -23,13 +10,24 @@ export default function NewPassword({ onBack, showToast }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
-  const strength = getStrength(password);
+  const user = fbAuth.currentUser;
+  const email = user?.email || '';
+
   const hasLength = password.length >= 8;
   const hasNumber = /\d/.test(password);
-  const hasSpecial = /[^a-zA-Z0-9]/.test(password);
-  const matches = password === confirm && confirm.length > 0;
-  const canSubmit = hasLength && hasNumber && matches;
+  const passwordsMatch = password === confirm && confirm.length > 0;
+  const canSubmit = hasLength && hasNumber && passwordsMatch;
+
+  // Auto-redirect after success
+  useEffect(() => {
+    if (!success) return;
+    const t = setTimeout(() => {
+      window.location.hash = `#${ROUTES.HOME}`;
+    }, 1500);
+    return () => clearTimeout(t);
+  }, [success]);
 
   const handleSubmit = async () => {
     if (!canSubmit) return;
@@ -37,8 +35,7 @@ export default function NewPassword({ onBack, showToast }) {
     setError('');
     try {
       await fbAuth.currentUser?.updatePassword(password);
-      showToast?.('Password updated. Sign in with your new password.', 'success');
-      onBack?.();
+      setSuccess(true);
     } catch (e) {
       setError(e.message || 'Failed to update password.');
     } finally {
@@ -46,14 +43,37 @@ export default function NewPassword({ onBack, showToast }) {
     }
   };
 
+  if (success) {
+    return (
+      <div className={styles.screen}>
+        <div className={styles.successWrap}>
+          <div className={styles.successCircle}>✓</div>
+          <h2 className={styles.successTitle}>You're in</h2>
+          <p className={styles.successSub}>
+            Taking you home…
+            <span className={styles.spinner} />
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>‹ Back to sign in</button>
+      <div className={styles.topBar}>
+        <button className={styles.backBtn} onClick={onBack ?? (() => window.location.hash = `#${ROUTES.LOGIN}`)}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <span className={styles.topTitle}>New password</span>
+        <div className={styles.spacerBtn} />
+      </div>
 
-      <div className={styles.logoMark}>S</div>
+      {email && <p className={styles.contextLine}>Signed in as {email}</p>}
 
-      <h1 className={styles.title}>Set a new password</h1>
-      <p className={styles.body}>Choose a strong password for your account.</p>
+      <h1 className={styles.title}>Choose a new password</h1>
+      <p className={styles.body}>Make it something you'll remember on the MTR at 7am.</p>
 
       <label className={styles.fieldLabel}>NEW PASSWORD</label>
       <div className={styles.inputWrap}>
@@ -61,79 +81,55 @@ export default function NewPassword({ onBack, showToast }) {
           className={styles.input}
           type={showPw ? 'text' : 'password'}
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
           placeholder="••••••••"
           autoComplete="new-password"
         />
-        <button className={styles.eyeBtn} onClick={() => setShowPw(!showPw)} type="button">
+        <button className={styles.eyeBtn} onClick={() => setShowPw(v => !v)} type="button">
           {showPw ? <EyeOffIcon /> : <EyeIcon />}
         </button>
       </div>
 
-      {password.length > 0 && (
-        <>
-          <div className={styles.strengthBar}>
-            {[1, 2, 3, 4].map(i => (
-              <div
-                key={i}
-                className={styles.segment}
-                style={{ background: i <= strength ? STRENGTH_COLORS[strength] : '#EEE8D8' }}
-              />
-            ))}
-          </div>
-          <p className={styles.strengthLabel} style={{ color: STRENGTH_COLORS[strength] }}>
-            {STRENGTH_LABELS[strength]}
-          </p>
-        </>
-      )}
-
-      <label className={styles.fieldLabel} style={{ marginTop: 20 }}>CONFIRM PASSWORD</label>
+      <label className={styles.fieldLabel}>CONFIRM PASSWORD</label>
       <div className={styles.inputWrap}>
         <input
           className={styles.input}
           type={showConfirm ? 'text' : 'password'}
           value={confirm}
-          onChange={(e) => setConfirm(e.target.value)}
+          onChange={e => setConfirm(e.target.value)}
           placeholder="••••••••"
           autoComplete="new-password"
         />
-        <button className={styles.eyeBtn} onClick={() => setShowConfirm(!showConfirm)} type="button">
+        <button className={styles.eyeBtn} onClick={() => setShowConfirm(v => !v)} type="button">
           {showConfirm ? <EyeOffIcon /> : <EyeIcon />}
         </button>
       </div>
 
-      <ul className={styles.requirements}>
-        <Req met={hasLength} label="Be at least 8 characters" />
-        <Req met={hasNumber} label="Include a number" />
-        <Req met={hasSpecial} label="Include a special character (recommended)" />
-        {confirm.length > 0 && <Req met={matches} label="Passwords match" />}
+      <ul className={styles.checklist}>
+        <CheckItem met={hasLength} label="8 or more characters" />
+        <CheckItem met={hasNumber} label="Mix of letters and numbers" />
+        <CheckItem met={passwordsMatch} label="Passwords match" />
       </ul>
 
       {error && <p className={styles.error}>{error}</p>}
 
       <button
-        className={`${styles.submitBtn} ${!canSubmit ? styles.disabled : ''}`}
+        className={styles.submitBtn}
         onClick={handleSubmit}
         disabled={!canSubmit || loading}
       >
-        {loading ? 'Updating...' : 'Update password'}
+        {loading ? 'Saving…' : 'Save and sign in'}
       </button>
+
+      <div className={styles.spacer} />
     </div>
   );
 }
 
-function Req({ met, label }) {
+function CheckItem({ met, label }) {
   return (
-    <li style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: "0.75rem", color: 'var(--color-text-muted)', marginBottom: 6 }}>
-      <span style={{
-        width: 14, height: 14, borderRadius: '50%',
-        border: met ? 'none' : '1.5px solid var(--color-border-strong)',
-        background: met ? 'var(--color-success)' : 'transparent',
-        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        flexShrink: 0, fontSize: "0.625rem", color: 'white'
-      }}>
-        {met ? '✓' : ''}
-      </span>
+    <li className={`${styles.checkItem} ${met ? styles.checkMet : ''}`}>
+      <span className={styles.checkDot}>{met ? '✓' : ''}</span>
       {label}
     </li>
   );
@@ -141,13 +137,12 @@ function Req({ met, label }) {
 
 const EyeIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-    <circle cx="12" cy="12" r="3" />
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
   </svg>
 );
 const EyeOffIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
-    <line x1="1" y1="1" x2="23" y2="23" />
+    <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/>
+    <line x1="1" y1="1" x2="23" y2="23"/>
   </svg>
 );

@@ -6,29 +6,44 @@ const TABS = [
     label: 'Today',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect x="3" y="3" width="7" height="7" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="12" y="3" width="7" height="7" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="3" y="12" width="7" height="7" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-        <rect x="12" y="12" width="7" height="7" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M3 9.5L11 3l8 6.5V19a1 1 0 01-1 1H14v-5h-4v5H4a1 1 0 01-1-1V9.5z"
+          stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
     id: 'scenes',
-    label: 'Scenes',
+    label: 'Browse',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M3 5a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M8 11l2.5 2.5L14 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M15.5 15.5L19 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
     id: 'library',
-    label: 'Library',
+    label: 'Saved',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M4 4h4v14H4zM9 4h4v14H9zM14 4l4 1v12l-4-1z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M11 18.5S3 13.5 3 8a4 4 0 018-1.2A4 4 0 0119 8c0 5.5-8 10.5-8 10.5z"
+          stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+      </svg>
+    ),
+    iconFilled: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 18.5S3 13.5 3 8a4 4 0 018-1.2A4 4 0 0119 8c0 5.5-8 10.5-8 10.5z"
+          fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'profile',
+    label: 'You',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M3 19c0-3.866 3.582-7 8-7s8 3.134 8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -46,7 +61,9 @@ export function BottomTabBar({ activeTab, onNavigate }) {
             onClick={() => onNavigate(tab.id)}
             aria-current={isActive ? 'page' : undefined}
           >
-            <span className={styles.icon}>{tab.icon}</span>
+            <span className={styles.icon}>
+              {isActive && tab.iconFilled ? tab.iconFilled : tab.icon}
+            </span>
             <span className={styles.label}>{tab.label}</span>
           </button>
         );

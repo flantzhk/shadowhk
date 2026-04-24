@@ -2,6 +2,8 @@
   "id": "wet-market",
   "language": "cantonese",
   "emoji": "🥬",
+  "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#C5E85A",
   "title": "Buying vegetables at the wet market",
   "description": "Pick out fresh veg, ask the price, and haggle a little",
   "category": "food",

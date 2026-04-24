@@ -2,6 +2,8 @@
   "id": "doctor-clinic",
   "language": "cantonese",
   "emoji": "🩺",
+  "imageUrl": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#5AC8E8",
   "title": "Seeing a GP at a clinic",
   "description": "Describe your symptoms to a doctor at a private clinic in Hong Kong",
   "category": "services",

@@ -2,6 +2,8 @@
   "id": "building-management",
   "language": "cantonese",
   "emoji": "🏢",
+  "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#8F6AE8",
   "title": "Talking to the building manager",
   "description": "Report a maintenance issue to the 大廈管理員",
   "category": "services",

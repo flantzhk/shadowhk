@@ -2,6 +2,8 @@
   "id": "neighbour-lift",
   "language": "cantonese",
   "emoji": "🛗",
+  "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#8F6AE8",
   "title": "Small talk in the lift",
   "description": "Chat briefly with your neighbour on the way up in the building lift",
   "category": "social",

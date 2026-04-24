@@ -2,6 +2,8 @@
   "id": "taxi",
   "language": "cantonese",
   "emoji": "🚕",
+  "imageUrl": "https://images.unsplash.com/photo-1597200381847-30ec200eeb9a?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E84040",
   "title": "Giving directions to a taxi driver",
   "description": "Flag down a red taxi and direct the driver to your destination",
   "category": "transport",

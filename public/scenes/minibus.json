@@ -2,6 +2,8 @@
   "id": "minibus",
   "language": "cantonese",
   "emoji": "🚐",
+  "imageUrl": "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E8703A",
   "title": "Riding a green minibus",
   "description": "Board a minibus and tell the driver where you want to get off",
   "category": "transport",

@@ -2,33 +2,37 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #111111;
+  background: var(--bg-0);
   overflow: hidden;
+  position: relative;
 }
 
 .header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(0,0,0,0.15);
+  padding: 10px 16px;
+  padding-top: max(env(safe-area-inset-top, 10px), 10px);
+  border-bottom: 1px solid var(--border-0);
   flex-shrink: 0;
 }
 
 .backBtn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
+  background: var(--surface-2);
+  border: 1px solid var(--border-1);
+  color: var(--fg-1);
   border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 0.75rem;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  min-height: 40px;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   flex-shrink: 0;
+  transition: background 0.15s;
 }
 
 .titleBlock {
@@ -39,64 +43,55 @@
   overflow: hidden;
 }
 
-.emoji {
-  font-size: 20px;
-  flex-shrink: 0;
-}
+.emoji { font-size: 20px; flex-shrink: 0; }
 
 .title {
+  font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 700;
-  color: rgba(255,255,255,0.7);
+  color: var(--fg-1);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.speedToggle {
-  display: flex;
-  gap: 6px;
-  flex-shrink: 0;
-}
+.speedToggle { display: flex; gap: 4px; flex-shrink: 0; }
 
 .speedBtn {
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--border-1);
   background: none;
-  font-size: 0.72rem;
+  font-family: var(--font-ui);
+  font-size: 12px;
   font-weight: 700;
-  color: rgba(255,255,255,0.35);
+  color: var(--fg-2);
   cursor: pointer;
-  min-height: 34px;
+  min-height: 32px;
   transition: all 0.15s;
 }
 
 .speedActive {
-  background: rgba(196,240,0,0.1);
-  border-color: rgba(196,240,0,0.25);
-  color: #C4F000;
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.scrubberSection {
-  padding: 16px 20px 8px;
-  flex-shrink: 0;
-}
+.scrubberSection { padding: 16px 20px 8px; flex-shrink: 0; }
 
 .scrubber {
   position: relative;
   height: 4px;
-  background: rgba(255,255,255,0.1);
+  background: var(--border-1);
   border-radius: 2px;
   cursor: pointer;
 }
 
 .scrubberFill {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0; top: 0;
   height: 100%;
-  background: #C4F000;
+  background: var(--accent);
   border-radius: 2px;
   pointer-events: none;
 }
@@ -105,19 +100,21 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+  width: 12px; height: 12px;
   border-radius: 50%;
-  background: #C4F000;
+  background: var(--accent);
   pointer-events: none;
+  box-shadow: 0 0 0 3px var(--accent-muted);
 }
 
 .timeRow {
   display: flex;
   justify-content: space-between;
   margin-top: 6px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-3);
 }
 
 .playRow {
@@ -130,60 +127,54 @@
 }
 
 .playBtn {
-  width: 64px;
-  height: 64px;
+  width: 64px; height: 64px;
   border-radius: 50%;
-  background: #C4F000;
-  color: #1F3329;
+  background: var(--accent);
+  color: var(--accent-dark);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: opacity 0.15s;
-  box-shadow: 0 4px 16px rgba(196,240,0,0.2);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .playBtn:hover { opacity: 0.88; }
 
 .stopLoopBtn {
   padding: 8px 16px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
   border-radius: 999px;
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  color: rgba(255,255,255,0.5);
+  color: var(--fg-2);
+  transition: all 0.15s;
 }
 
 .transcript {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.lineRow {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.lineRow > :first-child {
-  flex: 1;
-}
+.lineRow { display: flex; align-items: center; gap: 4px; }
+.lineRow > :first-child { flex: 1; }
 
 .loopBtn {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   border-radius: 8px;
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(255,255,255,0.3);
+  color: var(--fg-3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,48 +183,49 @@
   transition: opacity 0.15s;
 }
 
-.lineRow:hover .loopBtn {
-  opacity: 1;
-}
+.lineRow:hover .loopBtn { opacity: 1; }
 
 .loopActive {
   opacity: 1 !important;
-  color: #C4F000;
-  background: rgba(196,240,0,0.1);
+  color: var(--accent);
+  background: var(--accent-muted);
 }
 
 .skeleton {
   height: 200px;
-  background: rgba(255,255,255,0.06);
+  background: var(--surface-1);
   border-radius: 12px;
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
 .ctaBar {
   padding: 16px 20px;
-  padding-bottom: calc(16px + env(safe-area-inset-bottom));
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: rgba(0,0,0,0.15);
+  padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
+  border-top: 1px solid var(--border-0);
   flex-shrink: 0;
 }
 
 .shadowCta {
   width: 100%;
   padding: 16px;
-  background: rgba(196,240,0,0.1);
-  color: #C4F000;
-  border: 2px solid #C4F000;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 800;
+  background: var(--accent-muted);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  min-height: 56px;
-  transition: opacity 0.15s;
+  min-height: 52px;
+  transition: all 0.15s;
 }
 
-.shadowCta:hover { opacity: 0.88; }
+.shadowCta:hover {
+  background: var(--accent);
+  color: var(--accent-dark);
+}
 
-@keyframes pulse {
+@keyframes shimmer {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }

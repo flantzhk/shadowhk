@@ -2,6 +2,8 @@
   "id": "convenience-store",
   "language": "cantonese",
   "emoji": "🏪",
+  "imageUrl": "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#5AC8E8",
   "title": "Shopping at 7-Eleven",
   "description": "Buy snacks and a drink, use your Octopus card to pay",
   "category": "food",

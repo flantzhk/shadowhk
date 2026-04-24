@@ -1,11 +1,11 @@
 .bar {
   display: flex;
   align-items: stretch;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  height: 60px;
+  height: 68px;
   padding-bottom: env(safe-area-inset-bottom);
   flex-shrink: 0;
+  background: linear-gradient(180deg, transparent, var(--bg-0) 35%);
+  border-top: 1px solid var(--border-0);
 }
 
 .tab {
@@ -18,14 +18,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text-muted);
-  transition: color 0.15s;
+  color: var(--fg-2);
+  transition: color var(--transition-fast);
   padding: 8px 0;
   min-height: 44px;
 }
 
 .tab.active {
-  color: var(--color-brand-dark);
+  color: var(--fg-0);
 }
 
 .icon {
@@ -35,7 +35,8 @@
 }
 
 .label {
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.05em;
 }

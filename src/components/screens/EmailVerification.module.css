@@ -1,102 +1,191 @@
-/* EmailVerification.module.css */
-
 .screen {
-  flex: 1;
-  overflow-y: auto;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 22px 40px;
-  background: var(--color-bg);
+  background: var(--bg-0);
+  padding: 0 20px;
+  padding-top: env(safe-area-inset-top, 48px);
+  padding-bottom: env(safe-area-inset-bottom, 32px);
   text-align: center;
 }
 
-.closeBtn {
-  align-self: flex-start;
-  width: 44px;
-  height: 44px;
+/* Brand mark */
+.brandMark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
-  margin-top: 8px;
+  font-family: var(--font-cjk);
+  font-size: 18px;
+  color: var(--accent-dark);
+  margin-bottom: 24px;
 }
 
-.iconWrap {
-  width: 100px;
-  height: 100px;
-  border-radius: 28px;
-  background: var(--color-brand-lime-muted);
+/* Hero illustration — 3 stacked envelopes */
+.heroWrap {
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 32px auto 0;
+  margin-bottom: 24px;
+  position: relative;
 }
 
-.title {
-  font-size: 1.75rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-dark-text);
-  margin-top: 28px;
-  font-family: 'DM Serif Display', Georgia, serif;
+.envelope {
+  position: absolute;
+  border-radius: 6px;
 }
 
-.body {
-  font-size: 0.9375rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
+.envelopeBack {
+  width: 120px;
+  height: 80px;
+  background: var(--surface-2);
+  transform: rotate(-6deg) translateY(10px);
+}
+
+.envelopeMid {
+  width: 120px;
+  height: 80px;
+  background: var(--surface-1);
+  transform: rotate(-2deg) translateY(4px);
+}
+
+.envelopeFront {
+  width: 120px;
+  height: 80px;
+  background: var(--surface-1);
+  border: 2px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.envelopeFlap {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 36px solid var(--accent);
+  position: absolute;
+  top: 0;
+}
+
+.envelopeLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   margin-top: 16px;
 }
 
-.email {
-  font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
-  margin-top: 4px;
+.envelopeLine {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border-1);
 }
 
-.body2 {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  margin: 12px 10px 32px;
-  line-height: 1.6;
+/* Content */
+.title {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
 }
 
-.primaryBtn {
-  width: 100%;
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
-  border-radius: 14px;
-  padding: 16px;
-  font-size: 1rem;
-  font-weight: var(--font-weight-semibold);
+.body {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-2);
+  line-height: 1.55;
+  max-width: 340px;
+  margin: 0 0 6px;
 }
 
-.linksSection {
-  margin-top: 28px;
-  width: 100%;
+.emailDisplay {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-0);
+  margin-bottom: 24px;
 }
 
-.linkLabel {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
+/* Pulsing dots */
+.dotsRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 28px;
 }
 
-.link {
-  font-size: 0.8125rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-dark-text);
-  padding: 8px;
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dotFade 1.4s ease-in-out infinite;
 }
 
-.refreshBtn {
-  margin-top: 24px;
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotFade {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
 }
 
-.refreshLink {
-  color: var(--color-brand-dark-text);
+/* Resend button */
+.resendBtn {
+  height: 48px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-pill);
+  color: var(--fg-0);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: opacity 0.15s;
+}
+
+.resendBtn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Switch + help */
+.switchBtn {
+  background: none;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
   text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.spacer { flex: 1; }
+
+.helpLink {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.helpLink a {
+  color: var(--fg-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

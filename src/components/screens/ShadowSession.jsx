@@ -4,13 +4,13 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
-import { saveSession, addToQueue } from '../../services/storage.js';
+import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
 import { isAuthenticated } from '../../services/auth.js';
 import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
 import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
-import { buildPhraseQueueFromScene, buildLesson } from '../../services/lessonBuilder.js';
+import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
@@ -23,6 +23,8 @@ const SPEEDS = [
   { label: '🐇 Fast', value: 1.25 },
 ];
 
+const WAVEFORM_BARS = 28;
+
 export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const { settings } = useAppContext();
   const audio = useAudio();
@@ -34,8 +36,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [loading, setLoading] = useState(true);
   const [speed, setSpeed] = useState(1);
   const [knowDone, setKnowDone] = useState(false);
+  const [savedLines, setSavedLines] = useState({});
 
-  // phase: ready | listen | record | scoring | scored
   const [phase, setPhase] = useState('ready');
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [completedCount, setCompletedCount] = useState(0);
@@ -75,24 +77,23 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           audioFile: null,
         }));
         const name = settings?.name ?? '';
-        setScene({ id: PERSONAL_SCENE_ID, emoji: '👋', title: name ? `${name}'s introduction` : 'Your introduction', lines: virtualLines });
+        setScene({ id: PERSONAL_SCENE_ID, emoji: '👋', title: name ? `${name}'s intro` : 'Your intro', lines: virtualLines });
         setYouLines(virtualLines);
       }).catch(() => {}).finally(() => setLoading(false));
       return;
     }
     getSceneById(sceneId)
-      .then(s => {
-        setScene(s);
-        setYouLines(getYouLines(s));
-      })
+      .then(s => { setScene(s); setYouLines(getYouLines(s)); })
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [sceneId, language]);
 
   const currentYouLine = youLines[currentLineIndex] ?? null;
   const totalYou = youLines.length;
+  const progressPct = totalYou > 0 ? (completedCount / totalYou) * 100 : 0;
 
-  // Reset "know" state when moving to a new phrase
+  const tint = scene?.tint ?? '#C5E85A';
+
   useEffect(() => { setKnowDone(false); }, [currentLineIndex]);
 
   const handlePlayPause = useCallback(async () => {
@@ -105,11 +106,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       } catch (_) {}
       return;
     }
-    if (audio.isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
+    if (audio.isPlaying) audio.pause();
+    else audio.play();
   }, [phase, audio, currentYouLine, language, speed]);
 
   const handleReplay = useCallback(async () => {
@@ -121,6 +119,28 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     } catch (_) {}
   }, [audio, currentYouLine, language, speed, phase]);
 
+  const handlePrev = useCallback(() => {
+    if (currentLineIndex > 0) {
+      setCurrentLineIndex(i => i - 1);
+      setCurrentScore(null);
+      setToneResult(null);
+      setPhase('ready');
+    }
+  }, [currentLineIndex]);
+
+  const handleNext = useCallback(async () => {
+    const nextIndex = currentLineIndex + 1;
+    if (nextIndex < totalYou) {
+      setCurrentLineIndex(nextIndex);
+      setCompletedCount(nextIndex);
+      setCurrentScore(null);
+      setToneResult(null);
+      setPhase('ready');
+    } else {
+      await finishSession();
+    }
+  }, [currentLineIndex, totalYou]);
+
   const handleRecord = useCallback(async () => {
     audio.pause();
     setPhase('record');
@@ -130,11 +150,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const handleStopRecording = useCallback(async () => {
     const blob = await stopRecording();
     if (!blob || !currentYouLine) return;
-
     setPhase('scoring');
     setCurrentScore(null);
     setToneResult(null);
-
     if (isOnline && isAuthenticated()) {
       try {
         const result = await scorePronunciation(blob, currentYouLine.cjk, language);
@@ -158,24 +176,27 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     setPhase('scored');
   }, [stopRecording, currentYouLine, language, isOnline]);
 
-  const handleNext = useCallback(async () => {
-    const nextIndex = currentLineIndex + 1;
-    if (nextIndex < totalYou) {
-      setCurrentLineIndex(nextIndex);
-      setCompletedCount(nextIndex);
-      setCurrentScore(null);
-      setToneResult(null);
-      setPhase('ready');
-    } else {
-      await finishSession();
-    }
-  }, [currentLineIndex, totalYou]);
-
   const handleKnowIt = useCallback(async () => {
     if (!currentYouLine || knowDone) return;
     setKnowDone(true);
     await markAsMastered(currentYouLine.id).catch(() => {});
   }, [currentYouLine, knowDone]);
+
+  const handleSaveLine = useCallback(async () => {
+    if (!currentYouLine) return;
+    const id = currentYouLine.id;
+    setSavedLines(prev => ({ ...prev, [id]: true }));
+    try {
+      await saveLibraryEntry({
+        phraseId: id,
+        sceneId: scene?.id ?? null,
+        romanization: currentYouLine.romanization,
+        english: currentYouLine.english,
+        cjk: currentYouLine.cjk,
+        language,
+      });
+    } catch (_) {}
+  }, [currentYouLine, scene, language]);
 
   const finishSession = useCallback(async () => {
     audio.setAutoAdvance(true);
@@ -204,16 +225,14 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     }
   }, [audio, sessionStart, results, sceneId, onComplete]);
 
-  if (loading) {
-    return <div className={styles.screen}><div className={styles.loadingPulse} /></div>;
-  }
+  if (loading) return <div className={styles.screen}><div className={styles.loadingPulse} /></div>;
 
   if (!scene || youLines.length === 0) {
     return (
       <div className={styles.screen}>
         <div className={styles.empty}>
           <p>Scene not found or has no phrases to practice.</p>
-          <button className={styles.backBtn} onClick={onBack}>Go back</button>
+          <button className={styles.emptyBack} onClick={onBack}>Go back</button>
         </div>
       </div>
     );
@@ -226,61 +245,77 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     : currentScore >= 40 ? '#f0a030'
     : '#ff7a5c';
 
-  const progressPct = totalYou > 0 ? (completedCount / totalYou) * 100 : 0;
+  const isSaved = savedLines[currentYouLine?.id];
+  const speaker = (currentYouLine?.speaker ?? 'you').toUpperCase();
 
   return (
     <div className={styles.screen}>
-      {/* Header */}
-      <div className={styles.header}>
-        <button className={styles.closeBtn} onClick={onBack}>✕ Close</button>
-        <div className={styles.headerCenter}>
-          <span className={styles.phraseCounter}>
-            {scene.title ?? 'Practice'} · {currentLineIndex + 1}/{totalYou}
-          </span>
-        </div>
-        <div className={styles.headerSpacer} />
-      </div>
+      {/* Ambient background */}
+      {scene.imageUrl && (
+        <div className={styles.ambientBg} style={{ backgroundImage: `url(${scene.imageUrl})` }} />
+      )}
+      <div className={styles.tintOverlay} style={{ background: `linear-gradient(180deg, ${tint}55 0%, var(--bg-0) 70%)` }} />
+      <div className={styles.darkOverlay} />
 
-      {/* Progress bar */}
-      <div className={styles.progressBar}>
-        <div className={styles.progressFill} style={{ width: `${progressPct}%` }} />
-      </div>
-
-      {/* Coach banner */}
-      <div className={`${styles.coachBanner} ${isSpeakPhase ? styles.coachBannerSpeak : styles.coachBannerListen}`}>
-        {isSpeakPhase ? '🗣️ Say it out loud!' : '🎯 Listen, then say it out loud...'}
-      </div>
-
-      {/* Phrase body */}
-      <div className={styles.phraseBody}>
-        {currentYouLine?.tag && (
-          <span className={styles.tagLabel}>{currentYouLine.tag}</span>
-        )}
-
-        <p className={styles.romanization}>{currentYouLine?.romanization}</p>
-        <p className={styles.english}>{currentYouLine?.english}</p>
-        <p className={styles.cjk} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>
-          {currentYouLine?.cjk}
-        </p>
-
-        {/* Cue pill */}
-        <div className={`${styles.cuePill} ${isSpeakPhase ? styles.cuePillSpeak : styles.cuePillListen}`}>
-          <span className={styles.cuePillEmoji}>{isSpeakPhase ? '🗣️' : '👂'}</span>
-          <div className={`${styles.cuePillDot} ${isSpeakPhase ? styles.cuePillDotSpeak : styles.cuePillDotListen}`} />
-          <span className={`${styles.cuePillText} ${isSpeakPhase ? styles.cuePillTextSpeak : styles.cuePillTextListen}`}>
-            {isSpeakPhase ? 'Say it out loud!' : 'Listen'}
-          </span>
+      <div className={styles.inner}>
+        {/* Top bar */}
+        <div className={styles.topBar}>
+          <button className={styles.downBtn} onClick={onBack} aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div className={styles.topCenter}>
+            <span className={styles.topEyebrow}>SHADOWING</span>
+            <span className={styles.topTitle}>{scene.title}</span>
+          </div>
+          <button className={styles.moreBtn} aria-label="More">⋯</button>
         </div>
 
-        {/* Score reveal (inline, after scoring) */}
+        {/* Progress */}
+        <div className={styles.progressBar}>
+          <div className={styles.progressFill} style={{ width: `${progressPct}%` }} />
+        </div>
+        <div className={styles.progressMeta}>
+          <span>Line {currentLineIndex + 1}/{totalYou}</span>
+          <span>{Math.round(progressPct)}%</span>
+        </div>
+
+        {/* Cover art */}
+        <div className={styles.coverWrap}>
+          {scene.imageUrl ? (
+            <img className={styles.coverArt} src={scene.imageUrl} alt={scene.title} />
+          ) : (
+            <div className={styles.coverPlaceholder} style={{ background: `${tint}33` }}>
+              <span className={styles.coverEmoji}>{scene.emoji ?? '🎭'}</span>
+            </div>
+          )}
+          {scene.emoji && scene.imageUrl && (
+            <span className={styles.coverEmojiOverlay}>{scene.emoji}</span>
+          )}
+        </div>
+
+        {/* Lyric block */}
+        <div className={styles.lyricBlock}>
+          <span className={styles.speakerLabel}>{isSpeakPhase ? 'YOUR TURN' : speaker}</span>
+          <div className={styles.jyutpingHero}>
+            {currentYouLine?.romanization ?? currentYouLine?.jyutping ?? '—'}
+          </div>
+          <div className={styles.englishLine}>"{currentYouLine?.english}"</div>
+          {currentYouLine?.cjk && (
+            <div className={styles.chineseLine}>{currentYouLine.cjk}</div>
+          )}
+        </div>
+
+        {/* Score reveal */}
         {(phase === 'scoring' || phase === 'scored') && (
-          <div className={styles.scoreInline}>
+          <div className={styles.scoreReveal}>
             {phase === 'scoring' ? (
               <span className={styles.scoringText}>Scoring your pronunciation…</span>
             ) : (
               <>
-                <span className={styles.scoreNumber} style={{ color: scoreColor }}>
-                  {currentScore !== null ? currentScore : '--'}
+                <span className={styles.scoreNum} style={{ color: scoreColor }}>
+                  {currentScore !== null ? currentScore : '—'}
                 </span>
                 {toneResult?.toneContours && (
                   <div className={styles.toneTrackWrap}>
@@ -295,87 +330,91 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             )}
           </div>
         )}
-      </div>
 
-      {/* Controls */}
-      <div className={styles.controls}>
-        {/* Transport row — shown when not recording/scoring */}
-        {phase !== 'record' && phase !== 'scoring' && (
+        {/* Save row */}
+        <div className={styles.saveRow}>
+          <button
+            className={`${styles.saveRowBtn} ${isSaved ? styles.saveRowBtnSaved : ''}`}
+            onClick={handleSaveLine}
+          >
+            <span className={styles.saveRowIcon}>{isSaved ? '♥' : '♡'}</span>
+            <span className={styles.saveRowLabel}>SAVE</span>
+          </button>
+          <button className={styles.saveRowBtn} onClick={handleReplay}>
+            <span className={styles.saveRowIcon}>🔊</span>
+            <span className={styles.saveRowLabel}>SLOW 0.5×</span>
+          </button>
+          <button className={styles.saveRowBtn}>
+            <span className={styles.saveRowIcon}>💬</span>
+            <span className={styles.saveRowLabel}>TRANSLATE</span>
+          </button>
+        </div>
+
+        {/* Waveform (recording) */}
+        {isRecording && (
+          <div className={styles.waveform}>
+            {Array.from({ length: WAVEFORM_BARS }).map((_, i) => (
+              <div
+                key={i}
+                className={styles.waveBar}
+                style={{ animationDelay: `${(i * 0.6 / WAVEFORM_BARS).toFixed(2)}s` }}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Scored actions */}
+        {phase === 'scored' && (
+          <div className={styles.scoredActions}>
+            <button className={styles.retryBtn} onClick={() => { setPhase('listen'); setCurrentScore(null); setToneResult(null); audio.play(); }}>
+              🔄 Try again
+            </button>
+            <button className={styles.nextBtn} onClick={handleNext}>
+              {currentLineIndex < totalYou - 1 ? '→ Next' : '✓ Finish'}
+            </button>
+          </div>
+        )}
+
+        {/* Transport */}
+        {phase !== 'record' && phase !== 'scoring' && phase !== 'scored' && (
           <div className={styles.transport}>
-            <div className={styles.transportItem}>
-              <button className={styles.transportBtnSec} onClick={handleReplay} aria-label="Replay">
-                ↻
+            <button className={styles.transportSec} onClick={handleReplay} aria-label="Replay">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+            </button>
+            <button className={styles.transportSec} onClick={handlePrev} aria-label="Previous" disabled={currentLineIndex === 0} style={{ opacity: currentLineIndex === 0 ? 0.3 : 0.7 }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+            </button>
+            <button className={styles.playPauseBtn} onClick={handlePlayPause} aria-label={audio.isPlaying ? 'Pause' : 'Play'}>
+              {audio.isPlaying ? <PauseIcon /> : <PlayIcon />}
+            </button>
+            <button className={styles.transportSec} onClick={handleNext} aria-label="Next">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </button>
+            {phase === 'scoring' ? (
+              <div className={styles.scoringSpinner} />
+            ) : (
+              <button
+                className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
+                onClick={phase === 'record' ? handleStopRecording : handleRecord}
+                aria-label="Record"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
               </button>
-              <span className={styles.transportLbl}>Replay</span>
-            </div>
-
-            <div className={styles.transportItem}>
-              <button className={styles.transportBtnPri} onClick={handlePlayPause} aria-label={audio.isPlaying ? 'Pause' : 'Play'}>
-                {audio.isPlaying ? <PauseIcon /> : <PlayIcon />}
-              </button>
-              <span className={styles.transportLbl}>{audio.isPlaying ? 'Pause' : 'Play'}</span>
-            </div>
-
-            {totalYou > 1 && (
-              <div className={styles.transportItem}>
-                <button className={styles.transportBtnSec} onClick={handleNext} aria-label="Skip">
-                  ⏭
-                </button>
-                <span className={styles.transportLbl}>Next</span>
-              </div>
             )}
           </div>
         )}
 
-        {/* Pronunciation test button */}
-        {phase !== 'scoring' && phase !== 'scored' && (
-          <button
-            className={`${styles.testBtn} ${phase === 'record' ? styles.testBtnRecording : ''}`}
-            onClick={phase === 'record' ? handleStopRecording : handleRecord}
-          >
-            {phase === 'record' ? '⏹ Stop recording & score' : '🎙 Test your pronunciation'}
-          </button>
-        )}
-
-        {/* Scoring state */}
-        {phase === 'scoring' && (
-          <button className={`${styles.testBtn} ${styles.testBtnScoring}`} disabled>
-            Scoring your pronunciation…
-          </button>
-        )}
-
-        {/* Scored: retry + next */}
-        {phase === 'scored' && (
-          <div className={styles.scoredActions}>
-            <button
-              className={styles.retryBtn}
-              onClick={() => { setPhase('listen'); setCurrentScore(null); setToneResult(null); audio.play(); }}
-            >
-              🔄 Try again
-            </button>
-            <button className={styles.nextBtn} onClick={handleNext}>
-              {currentLineIndex < totalYou - 1 ? '→ Next phrase' : '👂 Finish'}
-            </button>
-          </div>
-        )}
-
-        {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
-
-        {/* "I know this now" */}
+        {/* Know it + speed */}
         {phase !== 'record' && phase !== 'scoring' && (
-          <div className={styles.knowRow}>
-            <button
-              className={`${styles.knowBtn} ${knowDone ? styles.knowBtnDone : ''}`}
-              onClick={handleKnowIt}
-            >
-              💪 I know this now
-            </button>
-          </div>
+          <button
+            className={`${styles.knowBtn} ${knowDone ? styles.knowBtnDone : ''}`}
+            onClick={handleKnowIt}
+          >
+            💪 I know this now
+          </button>
         )}
 
-        {/* Speed selector */}
         <div className={styles.speedRow}>
-          <span className={styles.speedRowLabel}>Speed</span>
           {SPEEDS.map(s => (
             <button
               key={s.value}
@@ -386,18 +425,22 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             </button>
           ))}
         </div>
+
+        {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
+
+        <p className={styles.footerHint}>TAP MIC TO SHADOW · SWIPE UP FOR FULL DIALOGUE</p>
       </div>
     </div>
   );
 }
 
 const PlayIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
     <polygon points="5 3 19 12 5 21 5 3" />
   </svg>
 );
 const PauseIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
     <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
   </svg>
 );

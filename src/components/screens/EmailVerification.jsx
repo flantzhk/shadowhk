@@ -1,16 +1,14 @@
-// src/components/screens/EmailVerification.jsx — Item 6
-
 import { useState, useEffect } from 'react';
 import { fbAuth } from '../../services/firebase';
+import { ROUTES } from '../../utils/constants';
 import styles from './EmailVerification.module.css';
 
 export default function EmailVerification({ onVerified, onBack }) {
-  const [resent, setResent] = useState(false);
-  const [checking, setChecking] = useState(false);
+  const [resendCountdown, setResendCountdown] = useState(0);
   const user = fbAuth.currentUser;
   const email = user?.email || '';
 
-  // Auto-poll every 10 seconds
+  // Poll every 3s per spec
   useEffect(() => {
     const timer = setInterval(async () => {
       if (!fbAuth.currentUser) return;
@@ -19,83 +17,86 @@ export default function EmailVerification({ onVerified, onBack }) {
         clearInterval(timer);
         onVerified?.();
       }
-    }, 10000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [onVerified]);
 
+  // Countdown for resend
+  useEffect(() => {
+    if (resendCountdown <= 0) return;
+    const t = setTimeout(() => setResendCountdown(c => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [resendCountdown]);
+
   const handleResend = async () => {
-    if (!fbAuth.currentUser) return;
+    if (!fbAuth.currentUser || resendCountdown > 0) return;
     try {
       await fbAuth.currentUser.sendEmailVerification();
-      setResent(true);
-      setTimeout(() => setResent(false), 4000);
+      setResendCountdown(42);
     } catch {}
   };
 
-  const handleRefresh = async () => {
-    setChecking(true);
-    try {
-      await fbAuth.currentUser?.reload();
-      if (fbAuth.currentUser?.emailVerified) onVerified?.();
-    } finally {
-      setChecking(false);
-    }
-  };
-
-  const handleOpenEmail = () => {
-    const domain = email.split('@')[1]?.toLowerCase() || '';
-    const webmailUrls = {
-      'gmail.com': 'https://mail.google.com',
-      'googlemail.com': 'https://mail.google.com',
-      'outlook.com': 'https://outlook.live.com',
-      'hotmail.com': 'https://outlook.live.com',
-      'live.com': 'https://outlook.live.com',
-      'yahoo.com': 'https://mail.yahoo.com',
-      'icloud.com': 'https://www.icloud.com/mail',
-      'me.com': 'https://www.icloud.com/mail',
-      'protonmail.com': 'https://mail.proton.me',
-      'proton.me': 'https://mail.proton.me',
-    };
-    const url = webmailUrls[domain];
-    if (url) {
-      window.open(url, '_blank');
-    } else {
-      window.location.href = `mailto:${email}`;
-    }
+  const handleSwitchAccount = () => {
+    fbAuth.signOut().then(() => {
+      window.location.hash = `#${ROUTES.LOGIN}`;
+    });
   };
 
   return (
     <div className={styles.screen}>
-      <button className={styles.closeBtn} onClick={onBack}>✕</button>
+      <div className={styles.brandMark}>影</div>
 
-      <div className={styles.iconWrap}>
-        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-dark)" strokeWidth="2.5">
-          <rect x="2" y="4" width="20" height="16" rx="3" />
-          <polyline points="2,4 12,13 22,4" />
-        </svg>
+      {/* Hero illustration */}
+      <div className={styles.heroWrap}>
+        <div className={styles.envelope + ' ' + styles.envelopeBack} />
+        <div className={styles.envelope + ' ' + styles.envelopeMid} />
+        <div className={styles.envelope + ' ' + styles.envelopeFront}>
+          <div className={styles.envelopeFlap} />
+          <div className={styles.envelopeLines}>
+            <div className={styles.envelopeLine} style={{ width: 64 }} />
+            <div className={styles.envelopeLine} style={{ width: 48 }} />
+          </div>
+        </div>
       </div>
 
-      <h1 className={styles.title}>Check your email</h1>
-      <p className={styles.body}>We sent a verification link to</p>
-      <p className={styles.email}>{email}</p>
-      <p className={styles.body2}>Tap the link in the email to activate your account.</p>
+      <h1 className={styles.title}>Verify your email</h1>
+      <p className={styles.body}>
+        Tap the link we sent to
+      </p>
+      <p className={styles.emailDisplay}>{email}</p>
+      <p className={styles.body}>
+        This page will update automatically when you're verified.
+      </p>
 
-      <button className={styles.primaryBtn} onClick={handleOpenEmail}>Open email app</button>
-
-      <div className={styles.linksSection}>
-        <p className={styles.linkLabel}>Didn't get it?</p>
-        <button className={styles.link} onClick={handleResend}>
-          {resent ? 'Email sent!' : 'Resend verification email'}
-        </button>
-
-        <p className={styles.linkLabel} style={{ marginTop: 16 }}>Wrong email?</p>
-        <button className={styles.link} onClick={onBack}>Change email</button>
+      {/* Listening dots */}
+      <div className={styles.dotsRow}>
+        <div className={styles.dot} />
+        <div className={styles.dot} />
+        <div className={styles.dot} />
       </div>
 
-      <button className={styles.refreshBtn} onClick={handleRefresh} disabled={checking}>
-        Already verified?{' '}
-        <span className={styles.refreshLink}>{checking ? 'Checking...' : 'Refresh'}</span>
+      <button className={styles.resendBtn} onClick={handleResend} disabled={resendCountdown > 0}>
+        <MailIcon />
+        {resendCountdown > 0 ? `Resend in 0:${String(resendCountdown).padStart(2, '0')}` : 'Resend email'}
       </button>
+
+      <button className={styles.switchBtn} onClick={handleSwitchAccount}>
+        Switch account
+      </button>
+
+      <div className={styles.spacer} />
+
+      <p className={styles.helpLink}>
+        Need help?{' '}
+        <a href={`#${ROUTES.SUPPORT}`}>Contact support</a>
+      </p>
     </div>
   );
 }
+
+const MailIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="2" y="4" width="20" height="16" rx="3"/>
+    <polyline points="2,4 12,13 22,4"/>
+  </svg>
+);

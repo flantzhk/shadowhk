@@ -188,9 +188,9 @@ export default function PromptDrill({ onBack, onComplete }) {
   if (phase === 'empty') {
     return (
       <div className={styles.screen} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '24px', gap: '16px' }}>
-        <p style={{ fontSize: '17px', fontWeight: 600, color: 'var(--color-text-primary)' }}>No phrases available</p>
-        <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>Add phrases to your library first, then come back to practice.</p>
-        <button onClick={onBack} style={{ padding: '12px 28px', borderRadius: '10px', background: 'var(--color-brand-dark)', color: 'white', fontWeight: 600, fontSize: '15px' }}>Go back</button>
+        <p style={{ fontSize: '17px', fontWeight: 600, color: 'var(--fg-0)', fontFamily: 'var(--font-ui)' }}>No phrases available</p>
+        <p style={{ fontSize: '14px', color: 'var(--fg-2)', fontFamily: 'var(--font-ui)', lineHeight: 1.5 }}>Add phrases to your library first, then come back to practice.</p>
+        <button onClick={onBack} style={{ padding: '12px 28px', borderRadius: '10px', background: 'var(--surface-1)', border: '1px solid var(--border-1)', color: 'var(--fg-0)', fontFamily: 'var(--font-ui)', fontWeight: 600, fontSize: '15px', cursor: 'pointer' }}>Go back</button>
       </div>
     );
   }
@@ -218,9 +218,9 @@ export default function PromptDrill({ onBack, onComplete }) {
       {levelUpToast && (
         <div style={{
           position: 'fixed', top: '80px', left: '50%', transform: 'translateX(-50%)',
-          background: 'var(--color-brand-dark)', color: 'var(--color-brand-lime)',
+          background: 'var(--accent)', color: 'var(--accent-dark)',
           padding: '10px 24px', borderRadius: '20px', fontSize: '14px', fontWeight: 700,
-          zIndex: 100, boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+          fontFamily: 'var(--font-ui)', zIndex: 100, boxShadow: '0 4px 16px var(--accent-glow)',
         }}>
           Level up!
         </div>
@@ -229,14 +229,14 @@ export default function PromptDrill({ onBack, onComplete }) {
       <div className={styles.promptArea}>
         <span style={{
           fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px',
-          color: 'var(--color-brand-green)', fontWeight: 700, marginBottom: '8px',
+          color: 'var(--accent)', fontWeight: 700, marginBottom: '8px',
         }}>
           {LEVEL_LABELS[level]}
         </span>
 
         {level === 3 ? (
           <>
-            <p className={styles.english} style={{ color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+            <p className={styles.english} style={{ color: 'var(--fg-2)', fontStyle: 'italic' }}>
               Listen and repeat from memory
             </p>
             <button onClick={() => {
@@ -254,8 +254,9 @@ export default function PromptDrill({ onBack, onComplete }) {
                 } catch (err) { /* non-fatal */ }
               })();
             }} style={{
-              background: 'var(--color-brand-dark)', color: 'white', padding: '10px 20px',
-              borderRadius: '10px', fontSize: '14px', fontWeight: 600, marginTop: '8px',
+              background: 'var(--surface-1)', border: '1px solid var(--border-1)', color: 'var(--fg-0)',
+              fontFamily: 'var(--font-ui)', padding: '10px 20px', borderRadius: '10px',
+              fontSize: '14px', fontWeight: 600, marginTop: '8px', cursor: 'pointer',
             }}>
               Replay audio
             </button>
@@ -265,7 +266,7 @@ export default function PromptDrill({ onBack, onComplete }) {
             <span className={styles.label}>Say this in Cantonese:</span>
             <p className={styles.english}>{phrase.english}</p>
             {level === 1 && phrase.jyutping && (
-              <p style={{ fontSize: '14px', color: 'var(--color-jyutping)', marginTop: '4px' }}>
+              <p style={{ fontSize: '14px', fontFamily: 'var(--font-mono)', color: 'var(--accent)', marginTop: '4px', fontWeight: 600, fontStyle: 'italic' }}>
                 {phrase.jyutping}
               </p>
             )}
@@ -297,7 +298,7 @@ export default function PromptDrill({ onBack, onComplete }) {
           </div>
           <ScoreBadge score={score} variant="full" />
           {streak > 0 && streak < STREAK_TO_LEVEL_UP && (
-            <p style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '4px' }}>
+            <p style={{ fontSize: '12px', color: 'var(--fg-2)', fontFamily: 'var(--font-ui)', marginTop: '4px' }}>
               {streak}/{STREAK_TO_LEVEL_UP} correct in a row
             </p>
           )}

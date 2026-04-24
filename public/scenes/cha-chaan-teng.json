@@ -2,6 +2,8 @@
   "id": "cha-chaan-teng",
   "language": "cantonese",
   "emoji": "🍜",
+  "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E8703A",
   "title": "Ordering at a cha chaan teng",
   "description": "Get a seat, order milk tea and toast, ask for the bill",
   "category": "food",
@@ -21,9 +23,21 @@
       "scenario": "You walk in, the place is packed. A waiter glances over. Before they turn away — 唔該，有位坐冇？ That's it. One line, and you're in.",
       "usage": "Entering any busy HK diner, cooked food stall, or dai pai dong where seating isn't obvious.",
       "replies": [
-        { "cjk": "有，入嚟坐", "romanization": "jau5, jap6 lei4 co5", "english": "Yes, come sit inside." },
-        { "cjk": "等陣先", "romanization": "dang2 zan6 sin1", "english": "Wait a moment." },
-        { "cjk": "冇位喎", "romanization": "mou5 wai2 wo3", "english": "No seats right now." }
+        {
+          "cjk": "有，入嚟坐",
+          "romanization": "jau5, jap6 lei4 co5",
+          "english": "Yes, come sit inside."
+        },
+        {
+          "cjk": "等陣先",
+          "romanization": "dang2 zan6 sin1",
+          "english": "Wait a moment."
+        },
+        {
+          "cjk": "冇位喎",
+          "romanization": "mou5 wai2 wo3",
+          "english": "No seats right now."
+        }
       ]
     },
     {

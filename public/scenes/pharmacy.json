@@ -2,6 +2,8 @@
   "id": "pharmacy",
   "language": "cantonese",
   "emoji": "💊",
+  "imageUrl": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#8F6AE8",
   "title": "Asking about medicine at a pharmacy",
   "description": "Describe symptoms and ask a pharmacist for something to help",
   "category": "food",

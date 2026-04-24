@@ -2,146 +2,276 @@ import { useState, useEffect } from 'react';
 import styles from './HomeScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
-import { getLibraryEntries } from '../../services/storage.js';
+import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
+import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
+
+// Curated playlists of scene IDs
+const PLAYLISTS = [
+  { id: 'arrival', label: 'Landing in HK', desc: 'First days sorted', sceneIds: ['taxi', 'mtr-station', 'convenience-store', 'building-management'] },
+  { id: 'foodie',  label: 'Foodie circuit', desc: 'Eat like a local',  sceneIds: ['cha-chaan-teng', 'dim-sum', 'wet-market', 'bakery'] },
+  { id: 'weekend', label: 'Weekend out',    desc: 'Get around the city', sceneIds: ['ferry', 'temple-visit', 'meeting-someone-new', 'hair-salon'] },
+  { id: 'tones',   label: 'Tone workout',   desc: 'Ear-training scenes',  sceneIds: ['school-gate', 'neighbour-lift', 'minibus', 'pharmacy'] },
+];
+
+function getGreeting(name) {
+  const h = new Date().getHours();
+  const time = h < 12 ? 'MORNING' : h < 17 ? 'AFTERNOON' : 'EVENING';
+  const greeting = h < 12 ? '早晨 — let\'s shadow' : h < 17 ? '下晝好 — let\'s shadow' : '晚安 — let\'s shadow';
+  return { time, greeting, label: name ? `GOOD ${time}, ${name.toUpperCase()}` : `GOOD ${time}` };
+}
+
+function getReasonLabel(lesson) {
+  if (lesson?.reason) return lesson.reason;
+  const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
+  return `${day}'s pick`;
+}
 
 export default function HomeScreen({ onNavigate }) {
   const { settings } = useAppContext();
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [personalPhraseCount, setPersonalPhraseCount] = useState(null); // null=loading, 0=none, >0=has scene
+  const [personalPhraseCount, setPersonalPhraseCount] = useState(null);
+  const [allScenes, setAllScenes] = useState([]);
+  const [sceneProgress, setSceneProgress] = useState({});
 
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
+  const streakCount = settings?.streakCount ?? 0;
+  const { time, greeting, label } = getGreeting(userName);
 
   useEffect(() => {
-    buildSceneLesson(language)
-      .then(setLesson)
-      .catch(() => setLesson(null))
-      .finally(() => setLoading(false));
-
-    getLibraryEntries(language)
-      .then(entries => {
-        const count = entries.filter(e => e.scene_id === PERSONAL_SCENE_ID).length;
-        setPersonalPhraseCount(count);
-      })
-      .catch(() => setPersonalPhraseCount(0));
+    buildSceneLesson(language).then(setLesson).catch(() => setLesson(null)).finally(() => setLoading(false));
+    getLibraryEntries(language).then(entries => {
+      setPersonalPhraseCount(entries.filter(e => e.scene_id === PERSONAL_SCENE_ID).length);
+    }).catch(() => setPersonalPhraseCount(0));
+    getAllScenes(language).then(setAllScenes).catch(() => {});
+    getAllSceneProgress().then(records => {
+      const map = {};
+      for (const p of records) map[p.sceneId] = p;
+      setSceneProgress(map);
+    }).catch(() => {});
   }, [language]);
 
-  const streakCount = settings?.streakCount ?? 0;
+  const inProgressScenes = allScenes.filter(s => {
+    const p = sceneProgress[s.id];
+    return p && p.masteryPct > 0 && p.masteryPct < 100;
+  });
 
   return (
     <div className={styles.screen}>
-      <div className={styles.content}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>Today</h1>
-          <StreakBadge count={streakCount} />
-        </header>
+      {/* Greeting bar */}
+      <header className={styles.greetingBar}>
+        <div className={styles.greetingText}>
+          <p className={styles.eyebrow}>{label}</p>
+          <h1 className={styles.greetingTitle}>{greeting}</h1>
+        </div>
+        <StreakPill count={streakCount} />
+      </header>
 
-        {loading && <div className={styles.skeleton} />}
+      {/* Jump back in grid */}
+      {allScenes.length > 0 && (
+        <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
+      )}
 
-        {!loading && !lesson && (
-          <EmptyState onNavigate={onNavigate} />
-        )}
+      {/* Today's Scene hero */}
+      {!loading && lesson?.scene && (
+        <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
+      )}
+      {!loading && !lesson && (
+        <EmptyHero onNavigate={onNavigate} />
+      )}
 
-        {!loading && lesson && (
-          <TodayLesson lesson={lesson} onNavigate={onNavigate} />
-        )}
+      {/* Made for you playlist row */}
+      <PlaylistRow scenes={allScenes} onNavigate={onNavigate} />
 
-        {personalPhraseCount !== null && (
-          personalPhraseCount > 0
-            ? <PersonalSceneCard count={personalPhraseCount} name={userName} onNavigate={onNavigate} />
-            : <IntroNudge onNavigate={onNavigate} />
-        )}
+      {/* Keep going row */}
+      {inProgressScenes.length > 0 && (
+        <KeepGoingRow scenes={inProgressScenes} progress={sceneProgress} onNavigate={onNavigate} />
+      )}
 
-        <QuickActions onNavigate={onNavigate} />
-      </div>
+      {/* Short sessions */}
+      <ShortSessions onNavigate={onNavigate} />
+
+      {/* Personal scene nudge */}
+      {personalPhraseCount === 0 && <IntroNudge onNavigate={onNavigate} />}
+
+      <div className={styles.bottomPad} />
     </div>
   );
 }
 
-function StreakBadge({ count }) {
-  const boxes = Array.from({ length: 7 });
-  const filled = count % 7 === 0 && count > 0 ? 7 : count % 7;
+function StreakPill({ count }) {
+  if (!count) return null;
   return (
-    <div className={styles.streakWidget}>
-      {count > 0 && (
-        <p className={styles.streakLabel}>🔥 {count} day streak</p>
-      )}
-      <div className={styles.streakDots} aria-label={`${count} day streak`}>
-        {boxes.map((_, i) => (
-          <div key={i} className={`${styles.dot} ${i < filled ? styles.dotFilled : ''}`} />
+    <div className={styles.streakPill}>
+      <span className={styles.streakFlame}>🔥</span>
+      <span className={styles.streakNum}>{count}</span>
+    </div>
+  );
+}
+
+function JumpBackGrid({ scenes, progress, onNavigate }) {
+  const recent = scenes
+    .filter(s => progress?.[s.id]?.lastSessionAt)
+    .sort((a, b) => (progress[b.id]?.lastSessionAt ?? 0) - (progress[a.id]?.lastSessionAt ?? 0))
+    .slice(0, 6);
+
+  if (recent.length === 0) return null;
+
+  return (
+    <section className={styles.jumpSection}>
+      <div className={styles.jumpGrid}>
+        {recent.map(s => (
+          <button key={s.id} className={styles.jumpChip} onClick={() => onNavigate('scene', s.id)}>
+            {s.imageUrl
+              ? <img className={styles.jumpImg} src={s.imageUrl} alt="" />
+              : <span className={styles.jumpEmoji}>{s.emoji}</span>
+            }
+            <span className={styles.jumpTitle}>{s.title}</span>
+          </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
-function TodayLesson({ lesson, onNavigate }) {
-  const { scene, reason } = lesson;
+function TodaySceneHero({ lesson, onNavigate }) {
+  const { scene } = lesson;
   const phraseCount = scene.lines?.filter(l => l.speaker === 'you').length ?? 0;
   const duration = scene.estimatedMinutes ?? Math.ceil(phraseCount * 0.75);
+  const reason = getReasonLabel(lesson);
 
   return (
-    <section className={styles.lessonSection}>
-      <p className={styles.sectionLabel}>TODAY'S SCENE</p>
-      {reason && <p className={styles.reason}>{reason}</p>}
-      <div className={styles.sceneHero}>
-        <div className={styles.sceneHeroMeta}>
-          <span className={styles.sceneEmoji}>{scene.emoji}</span>
-          <div>
-            <p className={styles.sceneTitle}>{scene.title}</p>
-            <p className={styles.sceneMeta}>{phraseCount} phrases · {duration} min</p>
-          </div>
+    <section className={styles.heroSection}>
+      <div
+        className={styles.sceneHero}
+        style={{
+          backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined,
+          '--tint': scene.tint ?? '#C5E85A',
+        }}
+      >
+        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#C5E85A'}55 0%, transparent 50%)` }} />
+        <div className={styles.heroDarkOverlay} />
+
+        <div className={styles.heroTopLeft}>
+          <span className={styles.becauseChip}>BECAUSE {reason.toUpperCase()}</span>
         </div>
-        <div className={styles.sceneHeroBtns}>
-          <button
-            className={styles.primaryCta}
-            onClick={() => onNavigate('shadow', scene.id)}
-          >
-            ▶ Shadow
-          </button>
-          <button
-            className={styles.secondaryCta}
-            onClick={() => onNavigate('listen', scene.id)}
-          >
-            🎧 Listen
-          </button>
+
+        <div className={styles.heroBottomLeft}>
+          <span className={styles.heroEmoji}>{scene.emoji}</span>
+          <h2 className={styles.heroTitle}>{scene.title}</h2>
+          <p className={styles.heroMeta}>{phraseCount} phrases · {duration} min · {scene.description?.split(',')[0] ?? ''}</p>
+          <div className={styles.heroBtns}>
+            <button className={styles.shadowBtn} onClick={() => onNavigate('shadow', scene.id)}>
+              ▶ Shadow
+            </button>
+            <button className={styles.listenBtn} onClick={() => onNavigate('listen', scene.id)}>
+              🔊 Listen
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function PersonalSceneCard({ count, name, onNavigate }) {
-  const title = name ? `${name}'s introduction` : 'Your introduction';
-  const duration = Math.max(1, Math.ceil(count * 0.75));
+function EmptyHero({ onNavigate }) {
   return (
-    <section className={styles.lessonSection}>
-      <p className={styles.sectionLabel}>YOUR PERSONAL SCENE</p>
-      <div className={styles.personalCard}>
-        <div className={styles.sceneHeroMeta}>
-          <span className={styles.sceneEmoji}>👋</span>
-          <div>
-            <p className={styles.sceneTitle}>{title}</p>
-            <p className={styles.sceneMeta}>{count} phrase{count !== 1 ? 's' : ''} · {duration} min · Made from your real life</p>
-          </div>
-        </div>
-        <div className={styles.sceneHeroBtns}>
-          <button
-            className={styles.primaryCta}
-            onClick={() => onNavigate('shadow', PERSONAL_SCENE_ID)}
-          >
-            ▶ Shadow
-          </button>
-          <button
-            className={styles.secondaryCta}
-            onClick={() => onNavigate('introduce-yourself')}
-          >
-            ✏️ Update
-          </button>
-        </div>
+    <section className={styles.heroSection}>
+      <div className={styles.emptyHero}>
+        <p className={styles.emptyText}>Pick your first scenes to get started.</p>
+        <button className={styles.shadowBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
       </div>
+    </section>
+  );
+}
+
+function PlaylistRow({ scenes, onNavigate }) {
+  return (
+    <section className={styles.rowSection}>
+      <h2 className={styles.rowLabel}>Made for you</h2>
+      <div className={styles.scrollRow}>
+        {PLAYLISTS.map(playlist => {
+          const first = scenes.find(s => s.id === playlist.sceneIds[0]);
+          return (
+            <button
+              key={playlist.id}
+              className={styles.playlistCard}
+              onClick={() => onNavigate('scene', playlist.sceneIds[0])}
+            >
+              <div
+                className={styles.playlistCover}
+                style={{
+                  backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined,
+                  '--ptint': first?.tint ?? '#C5E85A',
+                }}
+              >
+                <div className={styles.playlistCoverGradient} />
+                <span className={styles.playlistTitle}>{playlist.label}</span>
+              </div>
+              <p className={styles.playlistDesc}>{playlist.desc}</p>
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function KeepGoingRow({ scenes, progress, onNavigate }) {
+  return (
+    <section className={styles.rowSection}>
+      <h2 className={styles.rowLabel}>Keep going</h2>
+      <div className={styles.scrollRow}>
+        {scenes.map(s => {
+          const pct = progress[s.id]?.masteryPct ?? 0;
+          return (
+            <button
+              key={s.id}
+              className={styles.keepCard}
+              onClick={() => onNavigate('scene', s.id)}
+            >
+              <div
+                className={styles.keepCover}
+                style={{ backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined }}
+              >
+                <div className={styles.keepCoverOverlay} />
+              </div>
+              <p className={styles.keepTitle}>{s.title}</p>
+              <div className={styles.keepProgressBar}>
+                <div className={styles.keepProgressFill} style={{ width: `${pct}%` }} />
+              </div>
+              <p className={styles.keepPct}>{Math.round(pct)}%</p>
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function ShortSessions({ onNavigate }) {
+  const sessions = [
+    { label: 'Tone Gym',  desc: 'Train your ear',      color: '#8F6AE8', route: 'tonegym',  emoji: '🎵' },
+    { label: 'Free Chat', desc: 'AI conversation',      color: '#5AC8E8', route: 'ai-scenario', emoji: '💬' },
+    { label: 'Speed Run', desc: 'Beat the clock',       color: '#E8703A', route: 'speedrun', emoji: '⚡' },
+  ];
+  return (
+    <section className={styles.shortSection}>
+      <h2 className={styles.rowLabel}>Short sessions</h2>
+      {sessions.map(s => (
+        <button key={s.route} className={styles.shortRow} onClick={() => onNavigate(s.route)}>
+          <div className={styles.shortIcon} style={{ background: s.color + '38' }}>
+            <span className={styles.shortEmoji}>{s.emoji}</span>
+          </div>
+          <div className={styles.shortText}>
+            <span className={styles.shortLabel}>{s.label}</span>
+            <span className={styles.shortDesc}>{s.desc}</span>
+          </div>
+          <ChevronRight />
+        </button>
+      ))}
     </section>
   );
 }
@@ -149,49 +279,18 @@ function PersonalSceneCard({ count, name, onNavigate }) {
 function IntroNudge({ onNavigate }) {
   return (
     <button className={styles.introNudge} onClick={() => onNavigate('introduce-yourself')}>
-      <div className={styles.introNudgeInner}>
-        <span className={styles.introNudgeEmoji}>👋</span>
-        <div className={styles.introNudgeText}>
-          <p className={styles.introNudgeTitle}>Build your personal intro scene</p>
-          <p className={styles.introNudgeDesc}>
-            Tell us about yourself — your job, family, and neighbourhood — and we'll build you a set of phrases from your real life. Exactly what people will ask when you meet them.
-          </p>
-        </div>
+      <span className={styles.nudgeEmoji}>👋</span>
+      <div className={styles.nudgeText}>
+        <p className={styles.nudgeTitle}>Build your personal intro scene</p>
+        <p className={styles.nudgeDesc}>Phrases from your real life — job, neighbourhood, family.</p>
       </div>
-      <svg className={styles.introNudgeArrow} width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
+      <ChevronRight />
     </button>
   );
 }
 
-function EmptyState({ onNavigate }) {
-  return (
-    <section className={styles.empty}>
-      <p className={styles.emptyText}>Pick your first scenes to get started.</p>
-      <button className={styles.primaryCta} onClick={() => onNavigate('scenes')}>
-        Browse scenes
-      </button>
-    </section>
-  );
-}
-
-function QuickActions({ onNavigate }) {
-  return (
-    <div className={styles.quickActions}>
-      <p className={styles.orLabel}>OR</p>
-      <button className={styles.actionBox} onClick={() => onNavigate('practice')}>
-        <span className={styles.actionTitle}>⚡ 3 min review</span>
-        <span className={styles.actionDesc}>Go through phrases you haven't practised in a while</span>
-      </button>
-      <button className={styles.actionBox} onClick={() => onNavigate('ai-scenario')}>
-        <span className={styles.actionTitle}>💬 Free chat</span>
-        <span className={styles.actionDesc}>Have a conversation with an AI tutor in Cantonese</span>
-      </button>
-      <button className={styles.actionBox} onClick={() => onNavigate('scenes')}>
-        <span className={styles.actionTitle}>🎬 Browse scenes</span>
-        <span className={styles.actionDesc}>Find a new real-life Hong Kong situation to learn</span>
-      </button>
-    </div>
-  );
-}
+const ChevronRight = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, color: 'var(--fg-2)' }}>
+    <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);

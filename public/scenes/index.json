@@ -1,23 +1,149 @@
 [
-  { "id": "cha-chaan-teng", "language": "cantonese" },
-  { "id": "wet-market", "language": "cantonese" },
-  { "id": "dim-sum", "language": "cantonese" },
-  { "id": "convenience-store", "language": "cantonese" },
-  { "id": "pharmacy", "language": "cantonese" },
-  { "id": "bakery", "language": "cantonese" },
-  { "id": "mtr-station", "language": "cantonese" },
-  { "id": "minibus", "language": "cantonese" },
-  { "id": "taxi", "language": "cantonese" },
-  { "id": "ferry", "language": "cantonese" },
-  { "id": "neighbour-lift", "language": "cantonese" },
-  { "id": "school-gate", "language": "cantonese" },
-  { "id": "hair-salon", "language": "cantonese" },
-  { "id": "temple-visit", "language": "cantonese" },
-  { "id": "post-office", "language": "cantonese" },
-  { "id": "doctor-clinic", "language": "cantonese" },
-  { "id": "bank-counter", "language": "cantonese" },
-  { "id": "building-management", "language": "cantonese" },
-  { "id": "chinese-new-year", "language": "cantonese" },
-  { "id": "mid-autumn", "language": "cantonese" },
-  { "id": "meeting-someone-new", "language": "cantonese" }
+  {
+    "id": "cha-chaan-teng",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8703A",
+    "emoji": "🍜"
+  },
+  {
+    "id": "wet-market",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#C5E85A",
+    "emoji": "🥬"
+  },
+  {
+    "id": "dim-sum",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8A030",
+    "emoji": "🥟"
+  },
+  {
+    "id": "convenience-store",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#5AC8E8",
+    "emoji": "🏪"
+  },
+  {
+    "id": "pharmacy",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#8F6AE8",
+    "emoji": "💊"
+  },
+  {
+    "id": "bakery",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8A030",
+    "emoji": "🍞"
+  },
+  {
+    "id": "mtr-station",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#5AC8E8",
+    "emoji": "🚇"
+  },
+  {
+    "id": "minibus",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8703A",
+    "emoji": "🚐"
+  },
+  {
+    "id": "taxi",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1597200381847-30ec200eeb9a?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E84040",
+    "emoji": "🚕"
+  },
+  {
+    "id": "ferry",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1576859959726-08c4a80c45c8?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#3A8FE8",
+    "emoji": "⛴️"
+  },
+  {
+    "id": "neighbour-lift",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#8F6AE8",
+    "emoji": "🛗"
+  },
+  {
+    "id": "school-gate",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#C5E85A",
+    "emoji": "🏫"
+  },
+  {
+    "id": "hair-salon",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8703A",
+    "emoji": "✂️"
+  },
+  {
+    "id": "temple-visit",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8A030",
+    "emoji": "🛕"
+  },
+  {
+    "id": "post-office",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1515600051222-a3c338ff16f6?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E84040",
+    "emoji": "📦"
+  },
+  {
+    "id": "doctor-clinic",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#5AC8E8",
+    "emoji": "🩺"
+  },
+  {
+    "id": "bank-counter",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#3A8FE8",
+    "emoji": "🏦"
+  },
+  {
+    "id": "building-management",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#8F6AE8",
+    "emoji": "🏢"
+  },
+  {
+    "id": "chinese-new-year",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1610020688070-14d4a3afe78b?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8703A",
+    "emoji": "🧧"
+  },
+  {
+    "id": "mid-autumn",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1569297615762-b11a2041e1b8?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#E8A030",
+    "emoji": "🥮"
+  },
+  {
+    "id": "meeting-someone-new",
+    "language": "cantonese",
+    "imageUrl": "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=800&h=800&q=80",
+    "tint": "#C5E85A",
+    "emoji": "🤝"
+  }
 ]

@@ -2,6 +2,8 @@
   "id": "dim-sum",
   "language": "cantonese",
   "emoji": "🥟",
+  "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E8A030",
   "title": "Ordering dim sum with family",
   "description": "Sunday yum cha — order your favourites from the trolley and check the bill",
   "category": "food",

@@ -2,6 +2,8 @@
   "id": "bakery",
   "language": "cantonese",
   "emoji": "🍞",
+  "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#E8A030",
   "title": "Ordering at a HK bakery",
   "description": "Buy a pineapple bun and wife cake at a traditional Hong Kong bakery",
   "category": "food",
