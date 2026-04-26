@@ -68,21 +68,21 @@ export default function HomeScreen({ onNavigate }) {
         <StreakPill count={streakCount} />
       </header>
 
-      {/* Personal intro scene — always prominent near top */}
+      {/* Today's Scene hero — primary action */}
+      {!loading && lesson?.scene && (
+        <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
+      )}
+      {!loading && !lesson && (
+        <EmptyHero onNavigate={onNavigate} />
+      )}
+
+      {/* Personal intro scene — secondary, below the hero */}
       {personalPhraseCount !== null && (
         <PersonalSceneCard
           phraseCount={personalPhraseCount}
           name={userName}
           onNavigate={onNavigate}
         />
-      )}
-
-      {/* Today's Scene hero */}
-      {!loading && lesson?.scene && (
-        <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
-      )}
-      {!loading && !lesson && (
-        <EmptyHero onNavigate={onNavigate} />
       )}
 
       {/* Jump back in grid — below the hero */}
