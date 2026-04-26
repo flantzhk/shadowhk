@@ -230,19 +230,6 @@
   letter-spacing: 0.01em;
 }
 
-.listenBtn {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
-  cursor: pointer;
-}
 
 .emptyHero {
   height: 220px;
