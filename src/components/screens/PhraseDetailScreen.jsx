@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './PhraseDetailScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PostIt } from '../ui/PostIt.jsx';
@@ -7,6 +7,23 @@ import { SourceTag } from '../ui/SourceTag.jsx';
 import { getLibraryEntry } from '../../services/storage.js';
 import { getSchedule } from '../../services/srs.js';
 import { getSceneById } from '../../services/sceneLoader.js';
+import { textToSpeech, fetchWithAuth } from '../../services/api.js';
+import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
+
+const CJK_RE = /[一-鿿㐀-䶿]/u;
+
+async function fetchCharMeanings(cjk, romanization, language) {
+  const prompt = `Give a 1–3 word English gloss for each syllable in this ${language === 'mandarin' ? 'Mandarin' : 'Cantonese'} phrase. Return ONLY a JSON array of strings, one meaning per syllable in the same order. No explanation.\n\nPhrase: ${cjk}\nSyllables: ${romanization}`;
+  const response = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT ?? '/ai-chat'}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: [{ role: 'user', content: prompt }], language, mode: 'explain' }),
+  });
+  const data = await response.json();
+  const raw = data.content ?? data.message ?? '';
+  const match = raw.match(/\[[\s\S]*?\]/);
+  return match ? JSON.parse(match[0]) : [];
+}
 
 function buildWhyToday(phrase, schedule) {
   if (!phrase.practiceCount || phrase.practiceCount === 0) {
@@ -38,8 +55,29 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const [schedule, setSchedule] = useState(null);
   const [sceneLine, setSceneLine] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [playing, setPlaying] = useState(false);
+  const [playingCharIdx, setPlayingCharIdx] = useState(null);
+  const [charMeanings, setCharMeanings] = useState(null);
+  const audioRef = useRef(null);
 
   const romanizationLabel = language === 'mandarin' ? 'Pīnyīn' : 'Jyutping';
+
+  async function playTTS(text, charIdx = null) {
+    try {
+      if (charIdx !== null) setPlayingCharIdx(charIdx); else setPlaying(true);
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      const blob = await textToSpeech(text, { language, turbo: true });
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => { setPlaying(false); setPlayingCharIdx(null); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setPlaying(false); setPlayingCharIdx(null); URL.revokeObjectURL(url); };
+      audio.play();
+    } catch {
+      setPlaying(false);
+      setPlayingCharIdx(null);
+    }
+  }
 
   useEffect(() => {
     if (!phraseId) return;
@@ -55,6 +93,9 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
               if (line?.scenario || line?.replies || line?.usage) setSceneLine(line);
             }).catch(() => {});
           }
+          fetchCharMeanings(entry.cjk, entry.romanization, language)
+            .then(setCharMeanings)
+            .catch(() => {});
         }
       })
       .catch(() => {})
@@ -72,7 +113,8 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   );
 
   const syllables = phrase.romanization?.split(' ') ?? [];
-  const chars = phrase.cjk?.split('') ?? [];
+  // Filter to CJK chars only so they map 1:1 with syllables (punctuation has no syllable)
+  const chars = (phrase.cjk ?? '').split('').filter(c => CJK_RE.test(c) || /[a-zA-Z]/.test(c));
 
   const growthState = phrase.growth_state ?? 'new';
 
@@ -93,6 +135,13 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
           <p className={styles.romanization}>{phrase.romanization}</p>
           <p className={styles.cjk} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>{phrase.cjk}</p>
           <p className={styles.english}>{phrase.english}</p>
+          <button
+            className={`${styles.playBtn} ${playing ? styles.playBtnActive : ''}`}
+            onClick={() => playTTS(phrase.cjk)}
+            aria-label="Play phrase"
+          >
+            {playing ? '■ Stop' : '▶ Play'}
+          </button>
         </div>
 
         {/* Source tag */}
@@ -116,12 +165,28 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Word by word</h2>
             <div className={styles.breakdown}>
-              {syllables.map((syl, i) => (
-                <div key={i} className={styles.breakdownCell}>
-                  <span className={styles.breakdownChar}>{chars[i] ?? ''}</span>
-                  <span className={styles.breakdownSyl}>{syl}</span>
-                </div>
-              ))}
+              {syllables.map((syl, i) => {
+                const char = chars[i] ?? '';
+                const isPlaying = playingCharIdx === i;
+                const meaning = charMeanings?.[i];
+                return (
+                  <button
+                    key={i}
+                    className={`${styles.breakdownCell} ${isPlaying ? styles.breakdownCellActive : ''}`}
+                    onClick={() => char && playTTS(char, i)}
+                    aria-label={`Play ${char}`}
+                  >
+                    <span className={styles.breakdownChar}>{char}</span>
+                    <span className={styles.breakdownSyl}>{syl}</span>
+                    {charMeanings === null
+                      ? <span className={styles.breakdownMeaning}>···</span>
+                      : meaning
+                        ? <span className={styles.breakdownMeaning}>{meaning}</span>
+                        : null
+                    }
+                  </button>
+                );
+              })}
             </div>
           </section>
         )}
