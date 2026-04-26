@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './IntroduceYourselfForm.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { countPhrases, buildGenerationPrompt, savePersonalScene, buildPersonalSceneObject, PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
+import { getLibraryEntries } from '../../services/storage.js';
 import { fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL } from '../../utils/constants.js';
 
@@ -46,6 +47,13 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   const [openSections, setOpenSections] = useState({ about: true, family: false, daily: false, personality: false, learning: false });
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState(null);
+  const [existingPhrases, setExistingPhrases] = useState([]);
+
+  useEffect(() => {
+    getLibraryEntries(language)
+      .then(entries => setExistingPhrases(entries.filter(e => e.scene_id === PERSONAL_SCENE_ID)))
+      .catch(() => {});
+  }, [language]);
 
   const phraseCount = countPhrases(form);
 
@@ -130,16 +138,40 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
         </button>
         <div className={styles.headerText}>
           <h1 className={styles.title}>Introduce yourself</h1>
-          {phraseCount > 0 && (
-            <span className={styles.phraseCounter}>{phraseCount} phrase{phraseCount !== 1 ? 's' : ''} ready</span>
+          {existingPhrases.length > 0 && (
+            <span className={styles.phraseCounter}>{existingPhrases.length} phrase{existingPhrases.length !== 1 ? 's' : ''} built</span>
           )}
         </div>
       </div>
 
       <div className={styles.content}>
-        <p className={styles.description}>
-          Fill in what feels right. We'll build you a personal Cantonese scene using your real life — the phrases people will actually ask you when you meet them. Everything is optional except your name.
-        </p>
+        {existingPhrases.length > 0 ? (
+          <>
+            <div className={styles.existingSection}>
+              <div className={styles.existingHeader}>
+                <p className={styles.existingSectionLabel}>YOUR PHRASES</p>
+                <button className={styles.shadowNowBtn} onClick={onComplete}>Shadow now →</button>
+              </div>
+              <ul className={styles.phraseList}>
+                {existingPhrases.map((p, i) => (
+                  <li key={i} className={styles.phraseItem}>
+                    <span className={styles.phraseCjk}>{p.cjk}</span>
+                    <span className={styles.phraseRoman}>{p.romanization}</span>
+                    <span className={styles.phraseEnglish}>{p.english}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className={styles.updateLabel}>UPDATE YOUR SCENE</p>
+            <p className={styles.description}>
+              Change your details below and rebuild to get a fresh set of phrases tailored to your life.
+            </p>
+          </>
+        ) : (
+          <p className={styles.description}>
+            Fill in what feels right. We'll build you a personal Cantonese scene using your real life — the phrases people will actually ask you when you meet them. Everything is optional except your name.
+          </p>
+        )}
 
         {/* About you */}
         <Section
@@ -309,7 +341,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           {generating
             ? 'Building your scene...'
             : phraseCount > 0
-              ? `Build ${phraseCount} phrase${phraseCount !== 1 ? 's' : ''}`
+              ? existingPhrases.length > 0 ? `Rebuild scene (${phraseCount} phrase${phraseCount !== 1 ? 's' : ''})` : `Build ${phraseCount} phrase${phraseCount !== 1 ? 's' : ''}`
               : 'Add your name to start'}
         </button>
       </div>

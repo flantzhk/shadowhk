@@ -223,3 +223,79 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+/* === Existing phrases section === */
+.existingSection {
+  background: var(--surface-1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.existingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.existingSectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.shadowNowBtn {
+  background: var(--color-brand-dark);
+  color: var(--color-brand-lime);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.phraseList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.phraseItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-1);
+}
+
+.phraseItem:last-child {
+  border-bottom: none;
+}
+
+.phraseCjk {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg-0);
+}
+
+.phraseRoman {
+  font-size: 12px;
+  color: var(--fg-2);
+}
+
+.phraseEnglish {
+  font-size: 13px;
+  color: var(--fg-1);
+}
+
+.updateLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--fg-2);
+  margin: 8px 0 0;
+}

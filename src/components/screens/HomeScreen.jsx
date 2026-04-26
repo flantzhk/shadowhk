@@ -290,13 +290,13 @@ function PersonalSceneCard({ phraseCount, name, onNavigate }) {
       <section className={styles.personalSection}>
         <div className={styles.personalFilled}>
           <div className={styles.personalFilledLeft}>
-            <span className={styles.personalEyebrow}>👋 YOUR INTRO</span>
-            <p className={styles.personalTitle}>{name ? `${name}'s intro` : 'Your intro scene'}</p>
-            <p className={styles.personalMeta}>{phraseCount} phrases · your real life in Cantonese</p>
+            <span className={styles.personalEyebrow}>👋 INTRODUCE YOURSELF</span>
+            <p className={styles.personalTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
+            <p className={styles.personalMeta}>{phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'} · shadow how you'd introduce yourself in real life</p>
           </div>
           <button
             className={styles.personalShadowBtn}
-            onClick={() => onNavigate('shadow', 'personal-introduce-yourself')}
+            onClick={() => onNavigate('introduce-yourself')}
           >
             Shadow →
           </button>
@@ -310,10 +310,10 @@ function PersonalSceneCard({ phraseCount, name, onNavigate }) {
       <button className={styles.personalEmpty} onClick={() => onNavigate('introduce-yourself')}>
         <span className={styles.personalEmptyEmoji}>👋</span>
         <div className={styles.personalEmptyText}>
-          <p className={styles.personalEmptyTitle}>Build your personal intro scene</p>
-          <p className={styles.personalEmptyDesc}>Shadow your own name, job, and life in Cantonese — unique to you.</p>
+          <p className={styles.personalEmptyTitle}>Introduce yourself in Cantonese</p>
+          <p className={styles.personalEmptyDesc}>Tell us your name, job, and a bit about your life — we'll build you a custom scene to shadow.</p>
         </div>
-        <span className={styles.personalEmptyArrow}>→</span>
+        <span className={styles.personalEmptyArrow}>Set it up →</span>
       </button>
     </section>
   );
