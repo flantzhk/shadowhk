@@ -14,29 +14,10 @@ const PLAYLISTS = [
   { id: 'tones',   label: 'Tone workout',   desc: 'Ear-training scenes',  sceneIds: ['school-gate', 'neighbour-lift', 'minibus', 'pharmacy'] },
 ];
 
-const DAILY_QUOTES = [
-  'Every tone you learn is one step closer to being understood.',
-  'The best way to learn Cantonese is to speak it — starting today.',
-  'Shadowing one scene a day builds fluency faster than you think.',
-  'Consistency beats talent. Five minutes right now matters.',
-  'Language is a door. Each phrase you learn is a key.',
-  'The locals will notice your effort — and it opens everything.',
-  'You don\'t need perfect tones. You need brave ones.',
-  'Every expert was once a complete beginner.',
-  'Cantonese has six tones. You\'ve already started.',
-  'One phrase remembered today is real progress. Let\'s go.',
-];
-
-function getDailyQuote() {
-  const now = new Date();
-  const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
-  return DAILY_QUOTES[dayOfYear % DAILY_QUOTES.length];
-}
-
 function getGreeting(name) {
   const h = new Date().getHours();
   const time = h < 12 ? 'MORNING' : h < 17 ? 'AFTERNOON' : 'EVENING';
-  return { time, greeting: getDailyQuote(), label: name ? `GOOD ${time}, ${name.toUpperCase()}` : `GOOD ${time}` };
+  return { time, greeting: "Let's learn some Cantonese together.", label: name ? `GOOD ${time}, ${name.toUpperCase()}` : `GOOD ${time}` };
 }
 
 function getReasonLabel(lesson) {
