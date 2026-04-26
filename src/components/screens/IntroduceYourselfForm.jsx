@@ -137,9 +137,9 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           </svg>
         </button>
         <div className={styles.headerText}>
-          <h1 className={styles.title}>Introduce yourself</h1>
+          <h1 className={styles.title}>Your intro scene</h1>
           {existingPhrases.length > 0 && (
-            <span className={styles.phraseCounter}>{existingPhrases.length} phrase{existingPhrases.length !== 1 ? 's' : ''} built</span>
+            <span className={styles.phraseCounter}>{existingPhrases.length} {existingPhrases.length === 1 ? 'phrase' : 'phrases'} built</span>
           )}
         </div>
       </div>
@@ -147,24 +147,29 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
       <div className={styles.content}>
         {existingPhrases.length > 0 ? (
           <>
-            <div className={styles.existingSection}>
-              <div className={styles.existingHeader}>
-                <p className={styles.existingSectionLabel}>YOUR PHRASES</p>
-                <button className={styles.shadowNowBtn} onClick={onComplete}>Shadow now →</button>
-              </div>
-              <ul className={styles.phraseList}>
-                {existingPhrases.map((p, i) => (
-                  <li key={i} className={styles.phraseItem}>
+            <button className={styles.shadowBtn} onClick={onComplete}>
+              ▶ Shadow your intro now
+            </button>
+
+            <ul className={styles.phraseList}>
+              {existingPhrases.map((p, i) => (
+                <li key={i} className={styles.phraseItem}>
+                  <div className={styles.phraseLeft}>
                     <span className={styles.phraseCjk}>{p.cjk}</span>
                     <span className={styles.phraseRoman}>{p.romanization}</span>
-                    <span className={styles.phraseEnglish}>{p.english}</span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                  <span className={styles.phraseEnglish}>{p.english}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className={styles.rebuildDivider}>
+              <hr className={styles.dividerLine} />
+              <span className={styles.dividerLabel}>REBUILD YOUR SCENE</span>
+              <hr className={styles.dividerLine} />
             </div>
-            <p className={styles.updateLabel}>UPDATE YOUR SCENE</p>
             <p className={styles.description}>
-              Change your details below and rebuild to get a fresh set of phrases tailored to your life.
+              Update your details below and we'll generate a fresh set of phrases tailored to your life.
             </p>
           </>
         ) : (
@@ -332,7 +337,9 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
         </Section>
 
         {error && <p className={styles.error}>{error}</p>}
+      </div>
 
+      <div className={styles.stickyBar}>
         <button
           className={styles.generateBtn}
           onClick={handleGenerate}
@@ -341,7 +348,9 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           {generating
             ? 'Building your scene...'
             : phraseCount > 0
-              ? existingPhrases.length > 0 ? `Rebuild scene (${phraseCount} phrase${phraseCount !== 1 ? 's' : ''})` : `Build ${phraseCount} phrase${phraseCount !== 1 ? 's' : ''}`
+              ? existingPhrases.length > 0
+                ? `Rebuild scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
+                : `Build scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
               : 'Add your name to start'}
         </button>
       </div>
