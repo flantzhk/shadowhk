@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseRow } from '../ui/PhraseRow.jsx';
@@ -7,7 +7,6 @@ import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
-import { textToSpeech } from '../../services/api.js';
 
 const TABS = ['phrases', 'scenes', 'mastered'];
 
@@ -20,30 +19,6 @@ export default function LibraryScreen({ onNavigate }) {
   const [sceneProgress, setSceneProgress] = useState({});
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('phrases');
-  const [playingId, setPlayingId] = useState(null);
-  const audioRef = useRef(null);
-
-  async function playTTS(phrase, e) {
-    e.stopPropagation();
-    if (playingId === phrase.id) {
-      audioRef.current?.pause();
-      setPlayingId(null);
-      return;
-    }
-    try {
-      setPlayingId(phrase.id);
-      const blob = await textToSpeech(phrase.cjk, { language, turbo: true });
-      const url = URL.createObjectURL(blob);
-      if (audioRef.current) audioRef.current.pause();
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      audio.onended = () => { setPlayingId(null); URL.revokeObjectURL(url); };
-      audio.onerror = () => { setPlayingId(null); URL.revokeObjectURL(url); };
-      audio.play();
-    } catch {
-      setPlayingId(null);
-    }
-  }
 
   useEffect(() => { reload(); }, [language]);
 
@@ -159,13 +134,6 @@ export default function LibraryScreen({ onNavigate }) {
                     size="sm"
                   />
                 </div>
-                <button
-                  className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                  onClick={e => playTTS(phrase, e)}
-                  aria-label="Play phrase"
-                >
-                  {playingId === phrase.id ? '■' : '▶'}
-                </button>
                 <MasteryRing pct={phrase.growth_state === GROWTH_STATE.MASTERED ? 100 : phrase.growth_state === GROWTH_STATE.STRONG ? 70 : phrase.growth_state === GROWTH_STATE.GROWING ? 40 : 10} size={28} />
               </div>
             ))}
