@@ -61,7 +61,7 @@
 
 .chineseBtnOpen .chineseText {
   color: var(--fg-0);
-  border-bottom: 2px solid var(--accent);
+  border-bottom-color: var(--border-1);
 }
 
 .chevron {
@@ -82,7 +82,7 @@
   gap: 8px;
   background: var(--surface-1);
   border: 1px solid var(--border-0);
-  border-top: 2.5px solid var(--accent);
+  border-top: 1px solid var(--border-0);
   border-radius: 0 12px 12px 12px;
   padding: 12px 10px;
   margin-top: 2px;
