@@ -89,11 +89,15 @@ export function PhraseRow({
       const res = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: prompt, history: [] }),
+        body: JSON.stringify({
+          messages: [{ role: 'user', content: prompt }],
+          language,
+          mode: 'explain',
+        }),
       });
       const data = await res.json();
       // strip markdown code fences before parsing
-      const raw = (data.reply ?? data.message ?? data.content ?? '')
+      const raw = (data.content ?? data.message ?? data.reply ?? '')
         .replace(/```json\s*/gi, '').replace(/```/g, '').trim();
       // anchor on [{ ... }] to avoid matching prose square brackets
       const match = raw.match(/\[\s*\{[\s\S]*\}\s*\]/);
