@@ -13,6 +13,8 @@ import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify } from './services/posthog';
 import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sync';
+import { ErrorBoundary } from './components/shared/ErrorBoundary';
+import { logger } from './utils/logger';
 import './styles/global.css';
 
 // ── Screen imports ─────────────────────────────────────────────────────────
@@ -229,10 +231,10 @@ function MainLayout() {
         if (!settings.firstrunCompleted) updates.firstrunCompleted = true;
         if (Object.keys(updates).length > 0) updateSettings(updates);
         updateLastActive();
-        pullLibraryFromFirestore().catch(() => {});
+        pullLibraryFromFirestore().catch(err => logger.warn('[App] library sync failed', err?.message));
         pullStreakFromFirestore().then((remote) => {
           if (remote) updateSettings(remote);
-        }).catch(() => {});
+        }).catch(err => logger.warn('[App] streak sync failed', err?.message));
         phIdentify(user.uid, { email: user.email || '', language: settings.currentLanguage });
       }
       setAuthReady(true);
@@ -320,10 +322,12 @@ function MainLayout() {
 
 export default function App() {
   return (
-    <AppProvider>
-      <AudioProvider>
-        <MainLayout />
-      </AudioProvider>
-    </AppProvider>
+    <ErrorBoundary>
+      <AppProvider>
+        <AudioProvider>
+          <MainLayout />
+        </AudioProvider>
+      </AppProvider>
+    </ErrorBoundary>
   );
 }

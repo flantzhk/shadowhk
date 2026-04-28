@@ -3,6 +3,7 @@ import styles from './FirstRunFlow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { saveLibraryEntry } from '../../services/storage.js';
 import { getAllScenes, getYouLines } from '../../services/sceneLoader.js';
+import { logger } from '../../utils/logger.js';
 import { SOURCE_TAGS, GROWTH_STATE, ROUTES } from '../../utils/constants.js';
 
 const TOTAL_STEPS = 6;
@@ -49,7 +50,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   const goForward = async () => {
     if (step === 4) {
       // Save goal + load first scene before showing step 5
-      await updateSettings({ dailyGoalMinutes: goal, reminderTime }).catch(() => {});
+      await updateSettings({ dailyGoalMinutes: goal, reminderTime }).catch(err => logger.warn('[FirstRunFlow] settings save failed', err?.message));
       const scenes = await getAllScenes(language).catch(() => []);
       setFirstScene(scenes.find(s => s.id === 'dim-sum') ?? scenes[0] ?? null);
     }
@@ -58,7 +59,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   };
 
   const finish = () => {
-    updateSettings({ firstrunCompleted: true }).catch(() => {});
+    updateSettings({ firstrunCompleted: true }).catch(err => logger.warn('[FirstRunFlow] finish settings failed', err?.message));
     if (firstScene) onNavigate?.('shadow', firstScene.id);
     else onComplete?.();
   };

@@ -3,6 +3,7 @@ import styles from './PhraseRow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
+import { logger } from '../../utils/logger.js';
 
 const SIZE_CLASSES = { sm: styles.sm, md: styles.md, lg: styles.lg };
 
@@ -85,31 +86,18 @@ export function PhraseRow({
   async function fetchWordGroups() {
     if (!chinese) return;
     try {
-      const prompt = `You are a Cantonese language teacher. For the phrase below, return ONLY a raw JSON array — no markdown, no code block, no explanation. Each element: {"chars":"...","meaning":"..."}. Group multi-character words as one unit (e.g. 銅鑼灣 → {"chars":"銅鑼灣","meaning":"Causeway Bay"}, 唔該 → {"chars":"唔該","meaning":"excuse me"}). Skip punctuation. Cover every meaningful word in order.\n\nPhrase: ${chinese}\nJyutping: ${jyutping ?? ''}`;
       const res = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: [{ role: 'user', content: prompt }],
-          language,
-          mode: 'explain',
-        }),
+        body: JSON.stringify({ mode: 'explain', chinese, jyutping: jyutping ?? '' }),
       });
       const data = await res.json();
-      console.log('[PhraseRow] breakdown response:', JSON.stringify(data).slice(0, 400));
-      // strip markdown code fences before parsing
-      const raw = (data.content ?? data.message ?? data.reply ?? '')
-        .replace(/```json\s*/gi, '').replace(/```/g, '').trim();
-      console.log('[PhraseRow] raw text:', raw.slice(0, 200));
-      // anchor on [{ ... }] to avoid matching prose square brackets
-      const match = raw.match(/\[\s*\{[\s\S]*\}\s*\]/);
-      if (match) {
-        const parsed = JSON.parse(match[0]);
-        setWordGroups(parsed.filter(g => g.chars && g.meaning));
-      } else {
-        setWordGroups(false);
-      }
-    } catch {
+      const groups = Array.isArray(data.groups)
+        ? data.groups.filter(g => g.chars && g.meaning)
+        : [];
+      setWordGroups(groups.length ? groups : false);
+    } catch (err) {
+      logger.error('[PhraseRow] word breakdown failed', err?.message ?? err);
       setWordGroups(false);
     }
   }

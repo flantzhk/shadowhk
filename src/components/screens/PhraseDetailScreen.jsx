@@ -9,6 +9,7 @@ import { getSchedule } from '../../services/srs.js';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
+import { logger } from '../../utils/logger.js';
 
 const CJK_RE = /[一-鿿㐀-䶿]/u;
 
@@ -101,7 +102,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
           }
           fetchCharMeanings(entry.cjk, entry.romanization, language)
             .then(setCharMeanings)
-            .catch(() => {});
+            .catch(err => logger.error('[PhraseDetail] char meanings failed', err?.message));
         }
       })
       .catch(() => {})

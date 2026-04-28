@@ -3,6 +3,7 @@ import { useAudio } from '../../contexts/AudioContext.jsx';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
+import { logger } from '../../utils/logger.js';
 import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
@@ -64,7 +65,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         const id = sceneId === '__quick3__' ? '__quick3__' : 'free-practice';
         setScene({ id, title, lines: virtualLines });
         setYouLines(virtualLines);
-      }).catch(() => {}).finally(() => setLoading(false));
+      }).catch(err => logger.error('[ShadowSession] library load failed', err?.message)).finally(() => setLoading(false));
       return;
     }
     if (sceneId === PERSONAL_SCENE_ID) {
@@ -82,7 +83,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         const name = settings?.name ?? '';
         setScene({ id: PERSONAL_SCENE_ID, emoji: '👋', title: name ? `${name}'s intro` : 'Your intro', lines: virtualLines });
         setYouLines(virtualLines);
-      }).catch(() => {}).finally(() => setLoading(false));
+      }).catch(err => logger.error('[ShadowSession] personal scene load failed', err?.message)).finally(() => setLoading(false));
       return;
     }
     getSceneById(sceneId)
