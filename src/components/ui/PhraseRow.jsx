@@ -7,6 +7,12 @@ import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 const SIZE_CLASSES = { sm: styles.sm, md: styles.md, lg: styles.lg };
 const CJK_RE = /[一-鿿㐀-䶿]/u;
 
+function SpeakerIcon({ active }) {
+  return active
+    ? <svg width="11" height="11" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="2" width="2.5" height="6"/><rect x="5" y="2" width="2.5" height="6"/></svg>
+    : <svg width="11" height="11" viewBox="0 0 10 10" fill="currentColor"><polygon points="1,1 9,5 1,9"/></svg>;
+}
+
 export function PhraseRow({
   jyutping,
   english,
@@ -24,7 +30,7 @@ export function PhraseRow({
   const [playing, setPlaying] = useState(false);
   const [playingCharIdx, setPlayingCharIdx] = useState(null);
   const [showBreakdown, setShowBreakdown] = useState(false);
-  const [charMeanings, setCharMeanings] = useState(null); // null = not fetched, array = loaded
+  const [charMeanings, setCharMeanings] = useState(null); // null = loading, array = done
   const audioRef = useRef(null);
   const sizeClass = SIZE_CLASSES[size] ?? styles.md;
 
@@ -81,18 +87,19 @@ export function PhraseRow({
   async function fetchMeanings() {
     if (!chinese || !jyutping) return;
     try {
-      const prompt = `For the Cantonese phrase "${chinese}" (${jyutping}), give a JSON array of short English glosses — one per CJK character in order. Only output the JSON array, nothing else. Example: ["I","want","eat"]`;
+      const cjkOnly = chinese.split('').filter(c => CJK_RE.test(c)).join('');
+      const prompt = `Output ONLY a raw JSON array — no markdown, no code block, no explanation. One short English word per CJK character in order. Cantonese phrase: ${cjkOnly} (${jyutping}). Example for 你好: ["you","hello"]`;
       const res = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: prompt, history: [] }),
       });
       const data = await res.json();
-      const text = data.reply ?? data.message ?? '';
+      const text = data.reply ?? data.message ?? data.content ?? '';
       const match = text.match(/\[[\s\S]*?\]/);
       if (match) {
         const parsed = JSON.parse(match[0]);
-        setCharMeanings(parsed);
+        setCharMeanings(parsed.map(m => String(m || '').trim()));
       } else {
         setCharMeanings([]);
       }
@@ -109,7 +116,10 @@ export function PhraseRow({
   }
 
   const cjkChars = chinese ? chinese.split('').filter(c => CJK_RE.test(c)) : [];
-  const syllables = jyutping ? jyutping.trim().split(/\s+/) : [];
+  // strip trailing punctuation from jyutping syllable tokens
+  const syllables = jyutping
+    ? jyutping.trim().split(/\s+/).map(s => s.replace(/[,.:!?，。？！：、]/g, ''))
+    : [];
 
   return (
     <div className={`${styles.row} ${sizeClass} ${isActive ? styles.active : ''}`}>
@@ -122,13 +132,15 @@ export function PhraseRow({
       )}
       {chinese && (
         <button
-          className={`${styles.chinese} ${showBreakdown ? styles.chineseOpen : ''}`}
+          className={`${styles.chineseBtn} ${showBreakdown ? styles.chineseBtnOpen : ''}`}
           onClick={handleToggleBreakdown}
           aria-label="Show character breakdown"
           aria-expanded={showBreakdown}
         >
-          {chinese}
-          <span className={styles.breakdownChevron}>{showBreakdown ? '▲' : '▼'}</span>
+          <span className={styles.chineseText}>{chinese}</span>
+          <span className={styles.expandBadge}>
+            {showBreakdown ? '▲ close' : '▾ characters'}
+          </span>
         </button>
       )}
       {showBreakdown && cjkChars.length > 0 && (
@@ -143,7 +155,10 @@ export function PhraseRow({
               <span className={styles.charCjk}>{char}</span>
               <span className={styles.charSyl}>{syllables[i] ?? '·'}</span>
               <span className={styles.charMeaning}>
-                {charMeanings === null ? '···' : (charMeanings[i] ?? '·')}
+                {charMeanings === null ? '···' : (charMeanings[i] || '–')}
+              </span>
+              <span className={`${styles.charPlayIcon} ${playingCharIdx === i ? styles.charPlayIconActive : ''}`}>
+                <SpeakerIcon active={playingCharIdx === i} />
               </span>
             </button>
           ))}
