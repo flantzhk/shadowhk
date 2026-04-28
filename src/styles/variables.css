@@ -8,9 +8,9 @@
   --bg-3: #332d27;
 
   --fg-0: rgba(255, 240, 220, 1.0);
-  --fg-1: rgba(255, 240, 220, 0.72);
-  --fg-2: rgba(255, 240, 220, 0.45);
-  --fg-3: rgba(255, 240, 220, 0.28);
+  --fg-1: rgba(255, 240, 220, 0.80);
+  --fg-2: rgba(255, 240, 220, 0.62);
+  --fg-3: rgba(255, 240, 220, 0.45);
 
   --border-0: rgba(255, 240, 220, 0.08);
   --border-1: rgba(255, 240, 220, 0.14);
@@ -39,8 +39,8 @@
 
   --color-text-primary:   rgba(255, 240, 220, 1.0);
   --color-text-secondary: rgba(255, 240, 220, 0.72);
-  --color-text-tertiary:  rgba(255, 240, 220, 0.45);
-  --color-text-muted:     rgba(255, 240, 220, 0.28);
+  --color-text-tertiary:  rgba(255, 240, 220, 0.62);
+  --color-text-muted:     rgba(255, 240, 220, 0.45);
   --color-text-inverse:   #1a1714;
 
   --color-brand-dark:      #C5E85A;

@@ -28,15 +28,42 @@
   color: var(--fg-0);
 }
 
+.iconWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #E84040;
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 10px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 1.5px solid var(--bg-0);
+}
+
 .label {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }

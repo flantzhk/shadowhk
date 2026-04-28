@@ -128,7 +128,7 @@
 
 .wordMeaning {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--fg-1);
   text-align: center;
@@ -244,7 +244,7 @@
 
 .saveBtnLabel {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1;
