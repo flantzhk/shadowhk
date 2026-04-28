@@ -35,7 +35,7 @@ export function PhraseRow({
   const [playing, setPlaying] = useState(false);
   const [playingWordIdx, setPlayingWordIdx] = useState(null);
   const [showBreakdown, setShowBreakdown] = useState(false);
-  const [wordGroups, setWordGroups] = useState(null); // null = not yet fetched
+  const [wordGroups, setWordGroups] = useState(null); // null = not fetched, false = error, array = done
   const audioRef = useRef(null);
   const sizeClass = SIZE_CLASSES[size] ?? styles.md;
 
@@ -92,16 +92,19 @@ export function PhraseRow({
         body: JSON.stringify({ message: prompt, history: [] }),
       });
       const data = await res.json();
-      const text = data.reply ?? data.message ?? data.content ?? '';
-      const match = text.match(/\[[\s\S]*?\]/);
+      // strip markdown code fences before parsing
+      const raw = (data.reply ?? data.message ?? data.content ?? '')
+        .replace(/```json\s*/gi, '').replace(/```/g, '').trim();
+      // anchor on [{ ... }] to avoid matching prose square brackets
+      const match = raw.match(/\[\s*\{[\s\S]*\}\s*\]/);
       if (match) {
         const parsed = JSON.parse(match[0]);
         setWordGroups(parsed.filter(g => g.chars && g.meaning));
       } else {
-        setWordGroups([]);
+        setWordGroups(false);
       }
     } catch {
-      setWordGroups([]);
+      setWordGroups(false);
     }
   }
 
@@ -109,7 +112,8 @@ export function PhraseRow({
     e.stopPropagation();
     const next = !showBreakdown;
     setShowBreakdown(next);
-    if (next && wordGroups === null) fetchWordGroups();
+    // fetch on first open, or retry after error
+    if (next && (wordGroups === null || wordGroups === false)) fetchWordGroups();
   }
 
   return (
@@ -137,7 +141,9 @@ export function PhraseRow({
       {showBreakdown && (
         <div className={styles.breakdownPanel}>
           {wordGroups === null ? (
-            <span className={styles.loadingText}>···</span>
+            <span className={styles.loadingText}>Loading…</span>
+          ) : wordGroups === false ? (
+            <span className={styles.loadingText}>Couldn't load — tap ▾ to retry</span>
           ) : wordGroups.map((group, i) => (
             <button
               key={i}
