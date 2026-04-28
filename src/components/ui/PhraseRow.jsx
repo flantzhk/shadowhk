@@ -96,9 +96,11 @@ export function PhraseRow({
         }),
       });
       const data = await res.json();
+      console.log('[PhraseRow] breakdown response:', JSON.stringify(data).slice(0, 400));
       // strip markdown code fences before parsing
       const raw = (data.content ?? data.message ?? data.reply ?? '')
         .replace(/```json\s*/gi, '').replace(/```/g, '').trim();
+      console.log('[PhraseRow] raw text:', raw.slice(0, 200));
       // anchor on [{ ... }] to avoid matching prose square brackets
       const match = raw.match(/\[\s*\{[\s\S]*\}\s*\]/);
       if (match) {
