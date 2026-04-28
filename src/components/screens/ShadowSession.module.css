@@ -215,6 +215,31 @@
   gap: 8px;
 }
 
+.scoreCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  transition: box-shadow 0.3s ease;
+}
+
+.scoreCircleExcellent {
+  box-shadow: 0 0 0 6px rgba(197,232,90,0.2), 0 0 32px rgba(197,232,90,0.45);
+  animation: glowPulse 1.5s ease-out forwards;
+}
+
+.scoreCircleGood {
+  box-shadow: 0 0 0 4px rgba(240,160,48,0.2), 0 0 20px rgba(240,160,48,0.3);
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(197,232,90,0.6), 0 0 0 rgba(197,232,90,0); }
+  50% { box-shadow: 0 0 0 10px rgba(197,232,90,0.15), 0 0 40px rgba(197,232,90,0.5); }
+  100% { box-shadow: 0 0 0 6px rgba(197,232,90,0.1), 0 0 24px rgba(197,232,90,0.3); }
+}
+
 .scoreNum {
   font-family: var(--font-ui);
   font-size: 52px;
@@ -227,6 +252,18 @@
 @keyframes scorePop {
   0% { transform: scale(0.5); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+.scoreLabel {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  animation: fadeInUp 0.4s ease 0.15s both;
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(6px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .scoringText {

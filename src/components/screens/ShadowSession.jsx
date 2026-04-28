@@ -49,8 +49,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const language = settings?.currentLanguage ?? 'cantonese';
 
   useEffect(() => {
-    if (!sceneId) {
-      buildLesson(10, language).then(phrases => {
+    if (!sceneId || sceneId === '__quick3__') {
+      const limit = sceneId === '__quick3__' ? 3 : 10;
+      buildLesson(limit, language).then(phrases => {
         const virtualLines = phrases.map(e => ({
           id: e.phraseId,
           speaker: 'you',
@@ -59,7 +60,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           english: e.english,
           audioFile: e.audioFile,
         }));
-        setScene({ id: 'free-practice', title: 'Free practice', lines: virtualLines });
+        const title = sceneId === '__quick3__' ? 'Quick 3' : 'Free practice';
+        const id = sceneId === '__quick3__' ? '__quick3__' : 'free-practice';
+        setScene({ id, title, lines: virtualLines });
         setYouLines(virtualLines);
       }).catch(() => {}).finally(() => setLoading(false));
       return;
@@ -314,9 +317,19 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <span className={styles.scoringText}>Scoring your pronunciation…</span>
             ) : (
               <>
-                <span className={styles.scoreNum} style={{ color: scoreColor }}>
-                  {currentScore !== null ? currentScore : '—'}
-                </span>
+                <div className={`${styles.scoreCircle} ${
+                  currentScore !== null && currentScore >= 90 ? styles.scoreCircleExcellent :
+                  currentScore !== null && currentScore >= 70 ? styles.scoreCircleGood : ''
+                }`}>
+                  <span className={styles.scoreNum} style={{ color: scoreColor }}>
+                    {currentScore !== null ? currentScore : '—'}
+                  </span>
+                </div>
+                {currentScore !== null && (
+                  <span className={styles.scoreLabel} style={{ color: scoreColor }}>
+                    {currentScore >= 90 ? 'Native Match! 🎯' : currentScore >= 70 ? 'Close! 👍' : 'Try again 🔄'}
+                  </span>
+                )}
                 {toneResult?.toneContours && (
                   <div className={styles.toneTrackWrap}>
                     <ToneTrack

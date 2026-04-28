@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 import styles from './HomeScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
-import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
+import { getLibraryEntries, getAllSceneProgress, getDueEntries, getAllSessions } from '../../services/storage.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
+import { STREAK_MILESTONES } from '../../utils/constants.js';
+
+function toDateStr(d = new Date()) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
 
 // Curated playlists of scene IDs
 const PLAYLISTS = [
@@ -33,11 +38,30 @@ export default function HomeScreen({ onNavigate }) {
   const [personalPhraseCount, setPersonalPhraseCount] = useState(null);
   const [allScenes, setAllScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
+  const [dueCount, setDueCount] = useState(0);
+  const [weeklyData, setWeeklyData] = useState(() => {
+    const today = new Date();
+    return Array.from({ length: 7 }, (_, i) => {
+      const d = new Date(today);
+      d.setDate(today.getDate() - (6 - i));
+      return { key: toDateStr(d), phrases: 0, isToday: i === 6 };
+    });
+  });
+  const [showMilestone, setShowMilestone] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
   const streakCount = settings?.streakCount ?? 0;
   const { time, greeting, label } = getGreeting(userName);
+
+  const streakAtRisk = streakCount > 0
+    && settings?.streakLastDate !== toDateStr()
+    && new Date().getHours() >= 18;
+
+  useEffect(() => {
+    if (!streakCount || !STREAK_MILESTONES.includes(streakCount)) return;
+    if (!localStorage.getItem(`celebratedStreak_${streakCount}`)) setShowMilestone(true);
+  }, [streakCount]);
 
   useEffect(() => {
     buildSceneLesson(language).then(setLesson).catch(() => setLesson(null)).finally(() => setLoading(false));
@@ -50,6 +74,18 @@ export default function HomeScreen({ onNavigate }) {
       for (const p of records) map[p.sceneId] = p;
       setSceneProgress(map);
     }).catch(() => {});
+    getDueEntries().then(entries => setDueCount(entries.length)).catch(() => {});
+    getAllSessions().then(sessions => {
+      const today = new Date();
+      const data = Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(today);
+        d.setDate(today.getDate() - (6 - i));
+        const key = toDateStr(d);
+        const phrases = sessions.filter(s => s.date === key).reduce((sum, s) => sum + (s.phrasesAttempted ?? 0), 0);
+        return { key, phrases, isToday: i === 6 };
+      });
+      setWeeklyData(data);
+    }).catch(() => {});
   }, [language]);
 
   const inProgressScenes = allScenes.filter(s => {
@@ -59,6 +95,16 @@ export default function HomeScreen({ onNavigate }) {
 
   return (
     <div className={styles.screen}>
+      {showMilestone && (
+        <StreakCelebration
+          count={streakCount}
+          onDismiss={() => {
+            localStorage.setItem(`celebratedStreak_${streakCount}`, '1');
+            setShowMilestone(false);
+          }}
+        />
+      )}
+
       {/* Greeting bar */}
       <header className={styles.greetingBar}>
         <div className={styles.greetingText}>
@@ -68,13 +114,19 @@ export default function HomeScreen({ onNavigate }) {
         <StreakPill count={streakCount} />
       </header>
 
+      {streakAtRisk && <StreakRiskBanner count={streakCount} onNavigate={onNavigate} />}
+
+      <WeeklyBar data={weeklyData} />
+
       {/* Today's Scene hero — primary action */}
       {!loading && lesson?.scene && (
-        <TodaySceneHero lesson={lesson} onNavigate={onNavigate} />
+        <TodaySceneHero lesson={lesson} dueCount={dueCount} onNavigate={onNavigate} />
       )}
       {!loading && !lesson && (
         <EmptyHero onNavigate={onNavigate} />
       )}
+
+      {dueCount > 0 && !loading && <Quick3Pill onNavigate={onNavigate} />}
 
       {/* Personal intro scene — secondary, below the hero */}
       {personalPhraseCount !== null && (
@@ -141,11 +193,14 @@ function JumpBackGrid({ scenes, progress, onNavigate }) {
   );
 }
 
-function TodaySceneHero({ lesson, onNavigate }) {
+function TodaySceneHero({ lesson, dueCount, onNavigate }) {
   const { scene, fadingPhrases = [] } = lesson;
   const totalLines = scene.lines?.length ?? 0;
   const duration = scene.estimatedMinutes ?? 5;
-  const dueCount = fadingPhrases.length;
+  const sceneDue = fadingPhrases.length;
+
+  const btnLabel = dueCount > 0 ? `🔁 Review ${dueCount} Due` : '▶ Shadow';
+  const handleBtn = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
 
   return (
     <section className={styles.heroSection}>
@@ -160,8 +215,8 @@ function TodaySceneHero({ lesson, onNavigate }) {
         <div className={styles.heroDarkOverlay} />
 
         <div className={styles.heroTopLeft}>
-          {dueCount > 0
-            ? <span className={styles.dueChip}>🔁 {dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} to practise</span>
+          {sceneDue > 0
+            ? <span className={styles.dueChip}>🔁 {sceneDue} {sceneDue === 1 ? 'phrase' : 'phrases'} to practise</span>
             : <span className={styles.todayChip}>TODAY'S PRACTICE</span>
           }
         </div>
@@ -171,8 +226,8 @@ function TodaySceneHero({ lesson, onNavigate }) {
           <h2 className={styles.heroTitle}>{scene.title}</h2>
           <p className={styles.heroMeta}>{totalLines} phrases · {duration} min</p>
           <div className={styles.heroBtns}>
-            <button className={styles.practiceNowBtn} onClick={() => onNavigate('shadow', scene.id)}>
-              ▶ Shadow
+            <button className={styles.practiceNowBtn} onClick={handleBtn}>
+              {btnLabel}
             </button>
           </div>
         </div>
@@ -313,6 +368,70 @@ function PersonalSceneCard({ phraseCount, name, onNavigate }) {
         <span className={styles.personalEmptyArrow}>Set it up →</span>
       </button>
     </section>
+  );
+}
+
+function StreakRiskBanner({ count, onNavigate }) {
+  return (
+    <div className={styles.riskBanner}>
+      <span className={styles.riskIcon}>🔥</span>
+      <div className={styles.riskText}>
+        <span className={styles.riskTitle}>Your {count}-day streak is at risk</span>
+        <span className={styles.riskSub}>3 phrases = streak saved</span>
+      </div>
+      <button className={styles.riskBtn} onClick={() => onNavigate('shadow')}>
+        Save it →
+      </button>
+    </div>
+  );
+}
+
+function Quick3Pill({ onNavigate }) {
+  return (
+    <div className={styles.quick3Wrap}>
+      <button className={styles.quick3Pill} onClick={() => onNavigate('shadow', '__quick3__')}>
+        Short on time? Do 3 phrases →
+      </button>
+    </div>
+  );
+}
+
+function WeeklyBar({ data }) {
+  const max = Math.max(...data.map(d => d.phrases), 1);
+  return (
+    <div className={styles.weeklyBar}>
+      {data.map((d, i) => {
+        const day = ['S', 'M', 'T', 'W', 'T', 'F', 'S'][new Date(d.key + 'T12:00:00').getDay()];
+        const h = Math.max((d.phrases / max) * 100, d.phrases > 0 ? 10 : 0);
+        return (
+          <div key={i} className={styles.weeklyCol}>
+            <div className={styles.weeklyTrack}>
+              <div
+                className={`${styles.weeklyFill} ${d.isToday ? styles.weeklyFillToday : ''}`}
+                style={{ height: `${h}%` }}
+              />
+            </div>
+            <span className={`${styles.weeklyDay} ${d.isToday ? styles.weeklyDayToday : ''}`}>{day}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function StreakCelebration({ count, onDismiss }) {
+  return (
+    <div className={styles.celebOverlay}>
+      <div className={styles.celebModal}>
+        <div className={styles.celebEmoji}>🔥</div>
+        <div className={styles.celebNum}>{count}</div>
+        <p className={styles.celebTitle}>
+          {count >= 100 ? 'Legendary streak!' : count >= 60 ? 'Incredible!' : count >= 30 ? 'On fire!' : count >= 14 ? 'Two weeks strong!' : 'One week done!'}
+        </p>
+        <p className={styles.celebSub}>{count}-day streak. You're building a real habit.</p>
+        <button className={styles.celebBtn} onClick={onDismiss}>Keep going →</button>
+      </div>
+    </div>
   );
 }
 

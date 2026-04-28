@@ -319,6 +319,21 @@
   width: calc(100% - 40px);
 }
 
+.shadowAgainBtn {
+  width: 100%;
+  background: rgba(197,232,90,0.12);
+  color: var(--accent);
+  border: 1px solid rgba(197,232,90,0.3);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  min-height: 52px;
+  cursor: pointer;
+}
+
 .practiceMoreBtn {
   width: 100%;
   background: var(--surface-1);

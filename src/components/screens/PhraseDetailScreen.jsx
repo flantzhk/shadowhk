@@ -58,6 +58,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const [playing, setPlaying] = useState(false);
   const [playingCharIdx, setPlayingCharIdx] = useState(null);
   const [charMeanings, setCharMeanings] = useState(null);
+  const [showMasteredToast, setShowMasteredToast] = useState(false);
   const audioRef = useRef(null);
 
   const romanizationLabel = language === 'mandarin' ? 'Pīnyīn' : 'Jyutping';
@@ -87,6 +88,11 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
         if (entry) {
           const sched = await getSchedule(phraseId).catch(() => null);
           setSchedule(sched);
+          if (entry.growth_state === 'mastered' && !localStorage.getItem(`masteredToast_${phraseId}`)) {
+            setShowMasteredToast(true);
+            localStorage.setItem(`masteredToast_${phraseId}`, '1');
+            setTimeout(() => setShowMasteredToast(false), 3000);
+          }
           if (entry.scene_id) {
             getSceneById(entry.scene_id).then(scene => {
               const line = (scene?.lines ?? []).find(l => l.id === phraseId);
@@ -120,6 +126,9 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
 
   return (
     <div className={styles.screen}>
+      {showMasteredToast && (
+        <div className={styles.masteredToast}>🏆 Mastered! This phrase is now yours.</div>
+      )}
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={onBack} aria-label="Back">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

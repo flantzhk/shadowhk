@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { getDueEntries } from '../../services/storage.js';
 import styles from './BottomTabBar.module.css';
 
 const TABS = [
@@ -50,10 +52,17 @@ const TABS = [
 ];
 
 export function BottomTabBar({ activeTab, onNavigate }) {
+  const [dueCount, setDueCount] = useState(0);
+
+  useEffect(() => {
+    getDueEntries().then(entries => setDueCount(entries.length)).catch(() => {});
+  }, []);
+
   return (
     <nav className={styles.bar} aria-label="Main navigation">
       {TABS.map((tab) => {
         const isActive = activeTab === tab.id;
+        const showBadge = tab.id === 'library' && dueCount > 0 && !isActive;
         return (
           <button
             key={tab.id}
@@ -61,8 +70,13 @@ export function BottomTabBar({ activeTab, onNavigate }) {
             onClick={() => onNavigate(tab.id)}
             aria-current={isActive ? 'page' : undefined}
           >
-            <span className={styles.icon}>
-              {isActive && tab.iconFilled ? tab.iconFilled : tab.icon}
+            <span className={styles.iconWrap}>
+              <span className={styles.icon}>
+                {isActive && tab.iconFilled ? tab.iconFilled : tab.icon}
+              </span>
+              {showBadge && (
+                <span className={styles.badge}>{dueCount > 9 ? '9+' : dueCount}</span>
+              )}
             </span>
             <span className={styles.label}>{tab.label}</span>
           </button>

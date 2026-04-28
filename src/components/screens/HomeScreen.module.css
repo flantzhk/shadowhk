@@ -528,3 +528,189 @@
 }
 
 .bottomPad { height: 20px; }
+
+/* === Streak-at-risk banner === */
+.riskBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 16px 0;
+  background: linear-gradient(120deg, #E85A1A 0%, #E8A030 100%);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.riskIcon { font-size: 20px; flex-shrink: 0; }
+
+.riskText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.riskTitle {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.riskSub {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+}
+
+.riskBtn {
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* === Quick 3 pill === */
+.quick3Wrap {
+  padding: 6px 16px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quick3Pill {
+  background: none;
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* === Weekly bar chart === */
+.weeklyBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 8px 16px 4px;
+  height: 56px;
+}
+
+.weeklyCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+}
+
+.weeklyTrack {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  background: var(--surface-1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.weeklyFill {
+  width: 100%;
+  background: var(--border-1);
+  border-radius: 3px;
+  transition: height 0.4s ease;
+}
+
+.weeklyFillToday { background: var(--accent); }
+
+.weeklyDay {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--fg-3);
+  text-transform: uppercase;
+}
+
+.weeklyDayToday {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* === Streak milestone celebration === */
+.celebOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.celebModal {
+  background: var(--surface-1);
+  border: 1px solid var(--border-1);
+  border-radius: 24px;
+  padding: 36px 28px 28px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+  animation: celebPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes celebPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.celebEmoji { font-size: 52px; margin-bottom: 8px; }
+
+.celebNum {
+  font-family: var(--font-ui);
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--streak);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -4px;
+}
+
+.celebTitle {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--fg-0);
+  margin: 0 0 6px;
+}
+
+.celebSub {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-2);
+  margin: 0 0 24px;
+}
+
+.celebBtn {
+  width: 100%;
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 14px;
+  cursor: pointer;
+}

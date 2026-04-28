@@ -149,6 +149,13 @@ export default function SessionSummary({ summary, onDone }) {
 
         {/* Action buttons */}
         <div className={styles.actions}>
+          {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
+            <button className={styles.shadowAgainBtn} onClick={() => {
+              window.location.hash = `#${ROUTES.SHADOW}/${sceneId}`;
+            }}>
+              Shadow again →
+            </button>
+          )}
           <button className={styles.practiceMoreBtn} onClick={() => {
             window.location.hash = `#${ROUTES.PRACTICE}`;
             onDone();
