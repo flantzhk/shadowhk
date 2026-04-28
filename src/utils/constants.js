@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.2.23';
+export const APP_VERSION = '2.2.24';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -104,6 +104,8 @@ export const SCENE_CATEGORIES = {
   cantonese: ['food', 'transport', 'social', 'services', 'festivals'],
   mandarin: ['food', 'transport', 'social', 'services', 'festivals'],
 };
+
+export const STREAK_MILESTONES = [7, 14, 30, 60, 100];
 
 export const DAILY_GOAL_OPTIONS = [5, 10, 15, 20, 30];
 

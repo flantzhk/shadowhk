@@ -5,12 +5,17 @@ import { textToSpeech, fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 
 const SIZE_CLASSES = { sm: styles.sm, md: styles.md, lg: styles.lg };
-const CJK_RE = /[一-鿿㐀-䶿]/u;
 
-function SpeakerIcon({ active }) {
-  return active
-    ? <svg width="11" height="11" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="2" width="2.5" height="6"/><rect x="5" y="2" width="2.5" height="6"/></svg>
-    : <svg width="11" height="11" viewBox="0 0 10 10" fill="currentColor"><polygon points="1,1 9,5 1,9"/></svg>;
+function BookmarkIcon({ filled }) {
+  return (
+    <svg width="17" height="17" viewBox="0 0 16 16"
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor" strokeWidth="1.8"
+      strokeLinecap="round" strokeLinejoin="round"
+    >
+      <path d="M3 2h10a1 1 0 0 1 1 1v11l-6-3-6 3V3a1 1 0 0 1 1-1z"/>
+    </svg>
+  );
 }
 
 export function PhraseRow({
@@ -28,9 +33,9 @@ export function PhraseRow({
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
   const [playing, setPlaying] = useState(false);
-  const [playingCharIdx, setPlayingCharIdx] = useState(null);
+  const [playingWordIdx, setPlayingWordIdx] = useState(null);
   const [showBreakdown, setShowBreakdown] = useState(false);
-  const [charMeanings, setCharMeanings] = useState(null); // null = loading, array = done
+  const [wordGroups, setWordGroups] = useState(null); // null = not yet fetched
   const audioRef = useRef(null);
   const sizeClass = SIZE_CLASSES[size] ?? styles.md;
 
@@ -38,6 +43,21 @@ export function PhraseRow({
     score >= 85 ? styles.scoreExcellent :
     score >= 70 ? styles.scoreGood :
     styles.scoreFair;
+
+  async function playAudio(text, onDone) {
+    try {
+      const blob = await textToSpeech(text, { language, turbo: true });
+      const url = URL.createObjectURL(blob);
+      if (audioRef.current) audioRef.current.pause();
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => { URL.revokeObjectURL(url); onDone?.(); };
+      audio.onerror = () => { URL.revokeObjectURL(url); onDone?.(); };
+      audio.play();
+    } catch {
+      onDone?.();
+    }
+  }
 
   async function handlePlay(e) {
     e.stopPropagation();
@@ -47,48 +67,25 @@ export function PhraseRow({
       return;
     }
     if (!chinese) return;
-    try {
-      setPlaying(true);
-      const blob = await textToSpeech(chinese, { language, turbo: true });
-      const url = URL.createObjectURL(blob);
-      if (audioRef.current) audioRef.current.pause();
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      audio.onended = () => { setPlaying(false); URL.revokeObjectURL(url); };
-      audio.onerror = () => { setPlaying(false); URL.revokeObjectURL(url); };
-      audio.play();
-    } catch {
-      setPlaying(false);
-    }
+    setPlaying(true);
+    playAudio(chinese, () => setPlaying(false));
   }
 
-  async function handleCharPlay(e, char, idx) {
+  async function handleWordPlay(e, chars, idx) {
     e.stopPropagation();
-    if (playingCharIdx === idx) {
+    if (playingWordIdx === idx) {
       audioRef.current?.pause();
-      setPlayingCharIdx(null);
+      setPlayingWordIdx(null);
       return;
     }
-    try {
-      setPlayingCharIdx(idx);
-      const blob = await textToSpeech(char, { language, turbo: true });
-      const url = URL.createObjectURL(blob);
-      if (audioRef.current) audioRef.current.pause();
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      audio.onended = () => { setPlayingCharIdx(null); URL.revokeObjectURL(url); };
-      audio.onerror = () => { setPlayingCharIdx(null); URL.revokeObjectURL(url); };
-      audio.play();
-    } catch {
-      setPlayingCharIdx(null);
-    }
+    setPlayingWordIdx(idx);
+    playAudio(chars, () => setPlayingWordIdx(null));
   }
 
-  async function fetchMeanings() {
-    if (!chinese || !jyutping) return;
+  async function fetchWordGroups() {
+    if (!chinese) return;
     try {
-      const cjkOnly = chinese.split('').filter(c => CJK_RE.test(c)).join('');
-      const prompt = `Output ONLY a raw JSON array — no markdown, no code block, no explanation. One short English word per CJK character in order. Cantonese phrase: ${cjkOnly} (${jyutping}). Example for 你好: ["you","hello"]`;
+      const prompt = `You are a Cantonese language teacher. For the phrase below, return ONLY a raw JSON array — no markdown, no code block, no explanation. Each element: {"chars":"...","meaning":"..."}. Group multi-character words as one unit (e.g. 銅鑼灣 → {"chars":"銅鑼灣","meaning":"Causeway Bay"}, 唔該 → {"chars":"唔該","meaning":"excuse me"}). Skip punctuation. Cover every meaningful word in order.\n\nPhrase: ${chinese}\nJyutping: ${jyutping ?? ''}`;
       const res = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -99,12 +96,12 @@ export function PhraseRow({
       const match = text.match(/\[[\s\S]*?\]/);
       if (match) {
         const parsed = JSON.parse(match[0]);
-        setCharMeanings(parsed.map(m => String(m || '').trim()));
+        setWordGroups(parsed.filter(g => g.chars && g.meaning));
       } else {
-        setCharMeanings([]);
+        setWordGroups([]);
       }
     } catch {
-      setCharMeanings([]);
+      setWordGroups([]);
     }
   }
 
@@ -112,14 +109,8 @@ export function PhraseRow({
     e.stopPropagation();
     const next = !showBreakdown;
     setShowBreakdown(next);
-    if (next && charMeanings === null) fetchMeanings();
+    if (next && wordGroups === null) fetchWordGroups();
   }
-
-  const cjkChars = chinese ? chinese.split('').filter(c => CJK_RE.test(c)) : [];
-  // strip trailing punctuation from jyutping syllable tokens
-  const syllables = jyutping
-    ? jyutping.trim().split(/\s+/).map(s => s.replace(/[,.:!?，。？！：、]/g, ''))
-    : [];
 
   return (
     <div className={`${styles.row} ${sizeClass} ${isActive ? styles.active : ''}`}>
@@ -134,59 +125,64 @@ export function PhraseRow({
         <button
           className={`${styles.chineseBtn} ${showBreakdown ? styles.chineseBtnOpen : ''}`}
           onClick={handleToggleBreakdown}
-          aria-label="Show character breakdown"
+          aria-label="Show word breakdown"
           aria-expanded={showBreakdown}
         >
           <span className={styles.chineseText}>{chinese}</span>
-          <span className={styles.expandBadge}>
-            {showBreakdown ? '▲ close' : '▾ characters'}
+          <span className={styles.chevron} aria-hidden="true">
+            {showBreakdown ? '▲' : '▾'}
           </span>
         </button>
       )}
-      {showBreakdown && cjkChars.length > 0 && (
+      {showBreakdown && (
         <div className={styles.breakdownPanel}>
-          {cjkChars.map((char, i) => (
+          {wordGroups === null ? (
+            <span className={styles.loadingText}>···</span>
+          ) : wordGroups.map((group, i) => (
             <button
               key={i}
-              className={`${styles.charCard} ${playingCharIdx === i ? styles.charCardActive : ''}`}
-              onClick={e => handleCharPlay(e, char, i)}
-              aria-label={`Play ${char}`}
+              className={`${styles.wordCard} ${playingWordIdx === i ? styles.wordCardActive : ''}`}
+              onClick={e => handleWordPlay(e, group.chars, i)}
+              aria-label={`Play ${group.chars} — ${group.meaning}`}
             >
-              <span className={styles.charCjk}>{char}</span>
-              <span className={styles.charSyl}>{syllables[i] ?? '·'}</span>
-              <span className={styles.charMeaning}>
-                {charMeanings === null ? '···' : (charMeanings[i] || '–')}
-              </span>
-              <span className={`${styles.charPlayIcon} ${playingCharIdx === i ? styles.charPlayIconActive : ''}`}>
-                <SpeakerIcon active={playingCharIdx === i} />
+              <span className={styles.wordCjk}>{group.chars}</span>
+              <span className={styles.wordMeaning}>{group.meaning}</span>
+              <span className={`${styles.wordPlayBtn} ${playingWordIdx === i ? styles.wordPlayBtnActive : ''}`}>
+                {playingWordIdx === i
+                  ? <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
+                  : <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
+                }
               </span>
             </button>
           ))}
         </div>
       )}
       <div className={styles.meta}>
-        {score != null && (
-          <span className={`${styles.scorePill} ${scorePillClass}`}>{score}</span>
-        )}
-        {chinese && (
-          <button
-            className={`${styles.playBtn} ${playing ? styles.playBtnActive : ''}`}
-            onClick={handlePlay}
-            aria-label="Play phrase"
-          >
-            {playing
-              ? <svg width="13" height="13" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
-              : <svg width="13" height="13" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
-            }
-          </button>
-        )}
+        <div className={styles.metaLeft}>
+          {score != null && (
+            <span className={`${styles.scorePill} ${scorePillClass}`}>{score}</span>
+          )}
+          {chinese && (
+            <button
+              className={`${styles.playBtn} ${playing ? styles.playBtnActive : ''}`}
+              onClick={handlePlay}
+              aria-label="Play phrase"
+            >
+              {playing
+                ? <svg width="13" height="13" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
+                : <svg width="13" height="13" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
+              }
+            </button>
+          )}
+        </div>
         {onHeartToggle && (
           <button
-            className={`${styles.heart} ${saved ? styles.heartSaved : ''}`}
-            onClick={onHeartToggle}
+            className={`${styles.saveBtn} ${saved ? styles.saveBtnSaved : ''}`}
+            onClick={e => { e.stopPropagation(); onHeartToggle(e); }}
             aria-label={saved ? 'Remove from library' : 'Save to library'}
           >
-            {saved ? '♥' : '♡'}
+            <BookmarkIcon filled={saved} />
+            <span className={styles.saveBtnLabel}>{saved ? 'Saved' : 'Save'}</span>
           </button>
         )}
       </div>

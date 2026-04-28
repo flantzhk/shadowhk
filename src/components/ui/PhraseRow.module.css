@@ -37,12 +37,136 @@
   line-height: 1.3;
 }
 
-/* === Meta row (score pill + heart) === */
+/* === Chinese — tap to explore === */
+.chineseBtn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 2px 0 3px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chineseText {
+  font-family: var(--font-cjk);
+  color: var(--fg-2);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  border-bottom: 1.5px dashed var(--border-1);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.chineseBtnOpen .chineseText {
+  color: var(--fg-0);
+  border-bottom: 2px solid var(--accent);
+}
+
+.chevron {
+  font-size: 13px;
+  color: var(--fg-2);
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.chineseBtnOpen .chevron {
+  color: var(--accent);
+}
+
+/* === Word breakdown panel === */
+.breakdownPanel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-0);
+  border-top: 2.5px solid var(--accent);
+  border-radius: 0 12px 12px 12px;
+  padding: 12px 10px;
+  margin-top: 2px;
+}
+
+.loadingText {
+  font-size: 14px;
+  color: var(--fg-2);
+  font-family: var(--font-mono);
+  padding: 4px 8px;
+}
+
+.wordCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-1);
+  border: 1.5px solid var(--border-0);
+  border-radius: 12px;
+  padding: 10px 14px 8px;
+  min-width: 58px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.wordCard:active {
+  transform: scale(0.95);
+}
+
+.wordCardActive {
+  border-color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.wordCjk {
+  font-family: var(--font-cjk);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--fg-0);
+  line-height: 1.2;
+}
+
+.wordMeaning {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--fg-1);
+  text-align: center;
+  line-height: 1.3;
+  max-width: 80px;
+}
+
+.wordPlayBtn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  color: var(--fg-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.wordPlayBtnActive {
+  background: var(--accent);
+  color: var(--accent-dark);
+}
+
+/* === Meta row === */
 .meta {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 2px;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.metaLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .scorePill {
@@ -70,8 +194,8 @@
 }
 
 .playBtn {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background: var(--accent);
@@ -94,152 +218,47 @@
   box-shadow: none;
 }
 
-.heart {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--fg-2);
-  font-size: 15px;
-  padding: 0;
-  line-height: 1;
-  transition: color var(--transition-fast);
-}
-
-.heart.heartSaved {
-  color: var(--accent);
-}
-
-/* === Chinese tap-to-expand trigger === */
-.chineseBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-1);
-  border: 1.5px solid var(--border-1);
-  border-radius: 8px;
-  padding: 4px 10px 4px 8px;
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.15s, border-color 0.15s;
-  margin-top: 2px;
-}
-
-.chineseBtnOpen {
-  background: var(--accent-muted);
-  border-color: var(--accent);
-}
-
-.chineseText {
-  font-family: var(--font-cjk);
-  color: var(--fg-1);
-  line-height: 1.4;
-  letter-spacing: 0.04em;
-}
-
-.chineseBtnOpen .chineseText {
-  color: var(--fg-0);
-}
-
-.expandBadge {
-  font-family: var(--font-ui);
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--fg-2);
-  letter-spacing: 0.02em;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-.chineseBtnOpen .expandBadge {
-  color: var(--accent);
-}
-
-/* === Breakdown panel === */
-.breakdownPanel {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-0);
-  border-top: 2.5px solid var(--accent);
-  border-radius: 0 0 12px 12px;
-  padding: 12px 10px 10px;
-  margin-top: -2px;
-}
-
-.charCard {
+/* === Save button (was heart) === */
+.saveBtn {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  border: 1.5px solid var(--border-0);
-  border-radius: 10px;
-  padding: 10px 12px 8px;
-  min-width: 52px;
+  background: none;
+  border: none;
   cursor: pointer;
-  background: var(--bg-1);
-  transition: border-color 0.15s, background 0.15s, transform 0.1s;
-}
-
-.charCard:active { transform: scale(0.95); }
-
-.charCardActive {
-  border-color: var(--accent);
-  background: var(--accent-muted);
-}
-
-.charCjk {
-  font-family: var(--font-cjk);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--fg-0);
-  line-height: 1.2;
-}
-
-.charSyl {
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 600;
-  font-family: var(--font-mono);
-}
-
-.charMeaning {
-  font-size: 11px;
-  color: var(--fg-1);
-  text-align: center;
-  line-height: 1.3;
-  font-family: var(--font-ui);
-  font-weight: 500;
-  min-height: 14px;
-}
-
-.charPlayIcon {
-  margin-top: 4px;
   color: var(--fg-2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bg-2);
-  transition: background 0.15s, color 0.15s;
+  /* 44px minimum touch target via padding */
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: color 0.15s, background 0.15s;
 }
 
-.charPlayIconActive {
-  background: var(--accent);
-  color: var(--accent-dark);
+.saveBtn:active {
+  background: var(--bg-1);
+}
+
+.saveBtnSaved {
+  color: var(--accent);
+}
+
+.saveBtnLabel {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 /* === Size variants === */
-.sm .jyutping   { font-size: 14px; }
-.sm .english    { font-size: 11px; }
+.sm .jyutping    { font-size: 14px; }
+.sm .english     { font-size: 11px; }
 .sm .chineseText { font-size: 12px; }
 
-.md .jyutping   { font-size: 17px; }
-.md .english    { font-size: 13px; }
+.md .jyutping    { font-size: 17px; }
+.md .english     { font-size: 13px; }
 .md .chineseText { font-size: 14px; }
 
-.lg .jyutping   { font-size: 24px; }
-.lg .english    { font-size: 16px; }
+.lg .jyutping    { font-size: 24px; }
+.lg .english     { font-size: 16px; }
 .lg .chineseText { font-size: 18px; }
