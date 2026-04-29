@@ -7,7 +7,7 @@ import { logger } from '../../utils/logger.js';
 import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
-import { isAuthenticated } from '../../services/auth.js';
+import { isAuthenticated, getCurrentUser } from '../../services/auth.js';
 import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
 import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
@@ -17,6 +17,32 @@ import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
+
+function NpcAvatar({ scene }) {
+  const seed = encodeURIComponent(scene?.id ?? 'npc');
+  const src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${seed}&backgroundColor=b6e3f4,c0aede,d1d4f9`;
+  return (
+    <div className={styles.avatarWrap}>
+      <img className={styles.avatarImg} src={src} alt="Speaker" onError={e => { e.target.style.display = 'none'; }} />
+    </div>
+  );
+}
+
+function UserAvatar({ photoURL, name }) {
+  if (photoURL) {
+    return (
+      <div className={styles.avatarWrap}>
+        <img className={styles.avatarImg} src={photoURL} alt="You" referrerPolicy="no-referrer" />
+      </div>
+    );
+  }
+  const initial = (name || 'Y')[0].toUpperCase();
+  return (
+    <div className={`${styles.avatarWrap} ${styles.avatarInitial}`}>
+      {initial}
+    </div>
+  );
+}
 
 const SPEEDS = [
   { label: '🐢 Slow', value: 0.75 },
@@ -48,6 +74,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [sessionStart] = useState(Date.now());
 
   const language = settings?.currentLanguage ?? 'cantonese';
+  const authUser = getCurrentUser();
+  const userPhoto = authUser?.photoURL ?? null;
+  const userName = authUser?.name ?? settings?.name ?? 'You';
 
   useEffect(() => {
     if (!sceneId || sceneId === '__quick3__') {
@@ -98,6 +127,18 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
   const tint = scene?.tint ?? '#C5E85A';
 
+  // Find NPC context lines flanking the current 'you' line
+  const allLines = scene?.lines ?? [];
+  const currentYouLineInAll = currentYouLine ? allLines.findIndex(l => l.id === currentYouLine.id) : -1;
+  const contextNpcLine = currentYouLineInAll > 0 && allLines[currentYouLineInAll - 1]?.speaker !== 'you'
+    ? allLines[currentYouLineInAll - 1] : null;
+  const followNpcLine = currentYouLineInAll >= 0 && currentYouLineInAll < allLines.length - 1
+    && allLines[currentYouLineInAll + 1]?.speaker !== 'you'
+    ? allLines[currentYouLineInAll + 1] : null;
+  const npcSpeakerLabel = contextNpcLine?.speaker
+    ? contextNpcLine.speaker.charAt(0).toUpperCase() + contextNpcLine.speaker.slice(1)
+    : 'Them';
+
   useEffect(() => { setKnowDone(false); }, [currentLineIndex]);
 
   const handlePlayPause = useCallback(async () => {
@@ -105,14 +146,15 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       setPhase('listen');
       audio.prime();
       try {
-        await audio.loadQueue([currentYouLine], language, speed === 1 ? 'natural' : speed < 1 ? 'slow' : 'fast');
+        const queue = [...(contextNpcLine ? [contextNpcLine] : []), currentYouLine].filter(Boolean);
+        await audio.loadQueue(queue, language, speed === 1 ? 'natural' : speed < 1 ? 'slow' : 'fast');
         await audio.play();
       } catch (_) {}
       return;
     }
     if (audio.isPlaying) audio.pause();
     else audio.play();
-  }, [phase, audio, currentYouLine, language, speed]);
+  }, [phase, audio, currentYouLine, contextNpcLine, language, speed]);
 
   const handleReplay = useCallback(async () => {
     audio.prime();
@@ -285,29 +327,56 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           <span>{Math.round(progressPct)}%</span>
         </div>
 
-        {/* Cover art */}
-        <div className={styles.coverWrap}>
-          {scene.imageUrl ? (
-            <img className={styles.coverArt} src={scene.imageUrl} alt={scene.title} />
-          ) : (
-            <div className={styles.coverPlaceholder} style={{ background: `${tint}33` }}>
-              <span className={styles.coverEmoji}>{scene.emoji ?? '🎭'}</span>
+        {/* Chat thread */}
+        <div className={styles.chatThread}>
+          {/* NPC context bubble */}
+          {contextNpcLine ? (
+            <div className={styles.npcRow}>
+              <NpcAvatar scene={scene} />
+              <div className={styles.npcBubble}>
+                <span className={styles.bubbleSpeaker}>{npcSpeakerLabel}</span>
+                {contextNpcLine.cjk && (
+                  <p className={styles.bubbleCjk}>{contextNpcLine.cjk}</p>
+                )}
+                <p className={styles.bubbleRoman}>{contextNpcLine.romanization}</p>
+                <p className={styles.bubbleEnglish}>"{contextNpcLine.english}"</p>
+              </div>
             </div>
+          ) : (
+            /* No NPC context — show scene image as a small header instead */
+            scene.imageUrl && (
+              <div className={styles.sceneBanner}>
+                <img className={styles.sceneBannerImg} src={scene.imageUrl} alt={scene.title} />
+                <span className={styles.sceneBannerLabel}>{scene.emoji} {scene.title}</span>
+              </div>
+            )
           )}
-          {scene.emoji && scene.imageUrl && (
-            <span className={styles.coverEmojiOverlay}>{scene.emoji}</span>
-          )}
-        </div>
 
-        {/* Lyric block */}
-        <div className={styles.lyricBlock}>
-          <span className={styles.speakerLabel}>{isSpeakPhase ? 'YOUR TURN' : speaker}</span>
-          <div className={styles.jyutpingHero}>
-            {currentYouLine?.romanization ?? currentYouLine?.jyutping ?? '—'}
+          {/* Your active bubble */}
+          <div className={styles.youRow}>
+            <div className={`${styles.youBubble} ${isSpeakPhase ? styles.youBubbleSpeak : ''}`}>
+              <span className={styles.bubbleSpeaker} style={{ textAlign: 'right', display: 'block' }}>
+                {isSpeakPhase ? 'YOUR TURN' : 'YOU'}
+              </span>
+              <p className={styles.bubbleRoman}>{currentYouLine?.romanization ?? '—'}</p>
+              <p className={styles.bubbleEnglish}>"{currentYouLine?.english}"</p>
+              {currentYouLine?.cjk && (
+                <p className={styles.bubbleCjk} style={{ opacity: 0.6, fontSize: 14 }}>{currentYouLine.cjk}</p>
+              )}
+            </div>
+            <UserAvatar photoURL={userPhoto} name={userName} />
           </div>
-          <div className={styles.englishLine}>"{currentYouLine?.english}"</div>
-          {currentYouLine?.cjk && (
-            <div className={styles.chineseLine}>{currentYouLine.cjk}</div>
+
+          {/* Next NPC line (dimmed preview) */}
+          {followNpcLine && phase === 'scored' && (
+            <div className={`${styles.npcRow} ${styles.dimmed}`}>
+              <NpcAvatar scene={scene} />
+              <div className={styles.npcBubble}>
+                <span className={styles.bubbleSpeaker}>{npcSpeakerLabel}</span>
+                {followNpcLine.cjk && <p className={styles.bubbleCjk}>{followNpcLine.cjk}</p>}
+                <p className={styles.bubbleRoman}>{followNpcLine.romanization}</p>
+              </div>
+            </div>
           )}
         </div>
 
