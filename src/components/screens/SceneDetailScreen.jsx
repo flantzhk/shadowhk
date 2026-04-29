@@ -2,13 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './SceneDetailScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseRow } from '../ui/PhraseRow.jsx';
+import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
+import { getCurrentUser } from '../../services/auth.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
+  const authUser = getCurrentUser();
+  const userPhoto = authUser?.photoURL ?? null;
+  const userName = authUser?.name ?? settings?.name ?? 'You';
 
   const [scene, setScene] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -215,28 +220,34 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         </div>
       )}
 
-      {/* Phrase list */}
-      <div className={styles.phraseList}>
+      {/* Conversation thread */}
+      <div className={styles.chatThread}>
         {(scene.lines ?? []).map((line, i) => {
-          const prevSpeaker = i > 0 ? scene.lines[i - 1].speaker : null;
-          const speakerChanged = line.speaker !== prevSpeaker;
           const isYou = line.speaker === 'you';
-          const speakerLabel = isYou ? 'You' : (line.speaker ? line.speaker.charAt(0).toUpperCase() + line.speaker.slice(1) : 'Partner');
+          const prevSpeaker = i > 0 ? scene.lines[i - 1].speaker : null;
+          const showAvatar = line.speaker !== prevSpeaker;
           return (
-            <div key={line.id} className={`${styles.phraseRow} ${isYou ? styles.phraseYou : styles.phrasePartner}`}>
-              {speakerChanged && (
-                <div className={`${styles.speakerLabel} ${isYou ? styles.speakerYou : styles.speakerPartner}`}>
-                  {speakerLabel}
+            <div key={line.id} className={isYou ? styles.youRow : styles.npcRow}>
+              {!isYou && (
+                <div className={styles.avatarSlot}>
+                  {showAvatar ? <NpcAvatar scene={scene} /> : <div className={styles.avatarSpacer} />}
                 </div>
               )}
-              <PhraseRow
-                jyutping={line.romanization}
-                english={line.english}
-                chinese={line.cjk}
-                size="md"
-                saved={savedIds.has(line.id)}
-                onHeartToggle={() => toggleSaveLine(line)}
-              />
+              <div className={isYou ? styles.youBubble : styles.npcBubble}>
+                <PhraseRow
+                  jyutping={line.romanization}
+                  english={line.english}
+                  chinese={line.cjk}
+                  size="md"
+                  saved={savedIds.has(line.id)}
+                  onHeartToggle={() => toggleSaveLine(line)}
+                />
+              </div>
+              {isYou && (
+                <div className={styles.avatarSlot}>
+                  {showAvatar ? <UserAvatar photoURL={userPhoto} name={userName} /> : <div className={styles.avatarSpacer} />}
+                </div>
+              )}
             </div>
           );
         })}

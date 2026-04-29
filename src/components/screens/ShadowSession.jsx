@@ -15,34 +15,9 @@ import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
+import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
-
-function NpcAvatar({ scene }) {
-  const seed = encodeURIComponent(scene?.id ?? 'npc');
-  const src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${seed}&backgroundColor=b6e3f4,c0aede,d1d4f9`;
-  return (
-    <div className={styles.avatarWrap}>
-      <img className={styles.avatarImg} src={src} alt="Speaker" onError={e => { e.target.style.display = 'none'; }} />
-    </div>
-  );
-}
-
-function UserAvatar({ photoURL, name }) {
-  if (photoURL) {
-    return (
-      <div className={styles.avatarWrap}>
-        <img className={styles.avatarImg} src={photoURL} alt="You" referrerPolicy="no-referrer" />
-      </div>
-    );
-  }
-  const initial = (name || 'Y')[0].toUpperCase();
-  return (
-    <div className={`${styles.avatarWrap} ${styles.avatarInitial}`}>
-      {initial}
-    </div>
-  );
-}
 
 const SPEEDS = [
   { label: '🐢 Slow', value: 0.75 },
