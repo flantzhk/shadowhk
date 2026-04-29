@@ -47,6 +47,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [currentScore, setCurrentScore] = useState(null);
   const [toneResult, setToneResult] = useState(null);
   const [sessionStart] = useState(Date.now());
+  const [showCelebration, setShowCelebration] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
   const authUser = getCurrentUser();
@@ -100,7 +101,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const totalYou = youLines.length;
   const progressPct = totalYou > 0 ? (completedCount / totalYou) * 100 : 0;
 
-  const tint = scene?.tint ?? '#C5E85A';
+  const tint = scene?.tint ?? '#00E5A0';
 
   // Find NPC context lines flanking the current 'you' line
   const allLines = scene?.lines ?? [];
@@ -179,6 +180,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         const result = await scorePronunciation(blob, currentYouLine.cjk, language);
         setCurrentScore(result.score);
         setToneResult(result);
+        if (result.score >= 90) setTimeout(() => setShowCelebration(true), 350);
         await updateAfterPractice(currentYouLine.id, result.score);
         setResults(prev => [...prev, { phraseId: currentYouLine.id, score: result.score, romanization: currentYouLine.romanization, english: currentYouLine.english }]);
       } catch (_) {
@@ -262,7 +264,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const isSpeakPhase = phase === 'record' || phase === 'scoring' || phase === 'scored';
   const scoreColor = currentScore === null ? '#fff'
     : currentScore >= 80 ? 'var(--accent)'
-    : currentScore >= 60 ? '#9dcc33'
+    : currentScore >= 60 ? '#4DCCA8'
     : currentScore >= 40 ? '#f0a030'
     : '#ff7a5c';
 
@@ -271,6 +273,17 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
   return (
     <div className={styles.screen}>
+      {/* 90+ celebration overlay */}
+      {showCelebration && currentYouLine && (
+        <ScoreCelebration
+          score={currentScore}
+          line={currentYouLine}
+          streakCount={settings?.streakCount ?? 0}
+          onKeepGoing={() => { setShowCelebration(false); handleNext(); }}
+          onRetry={() => { setShowCelebration(false); setPhase('listen'); setCurrentScore(null); setToneResult(null); audio.play(); }}
+        />
+      )}
+
       {/* Ambient background */}
       {scene.imageUrl && (
         <div className={styles.ambientBg} style={{ backgroundImage: `url(${scene.imageUrl})` }} />
@@ -502,3 +515,106 @@ const PauseIcon = () => (
     <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
   </svg>
 );
+
+// ─── 90+ Score Celebration Overlay ───────────────────────────────────────────
+// Dopamine reward: big score pop, confetti, streak badge, XP, social proof.
+// Triggers only when pronunciation score ≥ 90.
+function ScoreCelebration({ score, line, streakCount, onKeepGoing, onRetry }) {
+  const CONFETTI = [
+    { left:'7%',  w:6,  h:10, bg:'#00E5A0', dur:2.8, delay:0,    r:2 },
+    { left:'14%', w:4,  h:8,  bg:'#00E5A0', dur:3.2, delay:0.3,  r:50 },
+    { left:'24%', w:8,  h:6,  bg:'#00c489', dur:2.5, delay:0.7,  r:0 },
+    { left:'34%', w:5,  h:9,  bg:'rgba(255,255,255,0.7)', dur:3.0, delay:0.2, r:2 },
+    { left:'44%', w:6,  h:6,  bg:'rgba(255,255,255,0.5)', dur:2.7, delay:0.5, r:50 },
+    { left:'54%', w:7,  h:7,  bg:'#FF9F43', dur:3.1, delay:0.1,  r:0 },
+    { left:'64%', w:4,  h:10, bg:'#FF9F43', dur:2.9, delay:0.6,  r:2 },
+    { left:'74%', w:6,  h:8,  bg:'#00E5A0', dur:2.6, delay:0.4,  r:2 },
+    { left:'82%', w:5,  h:6,  bg:'#00c489', dur:3.3, delay:0.8,  r:50 },
+    { left:'90%', w:8,  h:5,  bg:'rgba(255,255,255,0.6)', dur:2.8, delay:0.35, r:0 },
+    { left:'11%', w:5,  h:8,  bg:'#FF9F43', dur:3.4, delay:1.1,  r:2 },
+    { left:'29%', w:6,  h:6,  bg:'#00E5A0', dur:2.9, delay:1.3,  r:50 },
+    { left:'49%', w:4,  h:10, bg:'rgba(255,255,255,0.5)', dur:3.1, delay:1.0, r:2 },
+    { left:'69%', w:7,  h:6,  bg:'#00c489', dur:2.7, delay:1.4,  r:0 },
+    { left:'87%', w:5,  h:8,  bg:'#FF9F43', dur:3.0, delay:1.2,  r:2 },
+  ];
+
+  return (
+    <div className={styles.celebOverlay}>
+      {/* Deep jade glow */}
+      <div className={styles.celebBgGlow} />
+
+      {/* Confetti */}
+      <div className={styles.celebConfetti}>
+        {CONFETTI.map((c, i) => (
+          <div
+            key={i}
+            className={styles.celebConfettiDot}
+            style={{
+              left: c.left, width: c.w, height: c.h,
+              background: c.bg, borderRadius: c.r,
+              animationDuration: `${c.dur}s`,
+              animationDelay: `${c.delay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className={styles.celebInner}>
+        {/* Score circle */}
+        <div className={styles.celebScoreWrap}>
+          <div className={styles.celebRings}>
+            <div className={styles.celebRing} />
+            <div className={styles.celebRing} />
+            <div className={styles.celebRing} />
+          </div>
+          <div className={styles.celebCircle}>
+            <span className={styles.celebScoreNum}>{score}</span>
+            <span className={styles.celebScoreSub}>/ 100</span>
+          </div>
+        </div>
+
+        <p className={styles.celebHeadline}>
+          {score >= 95 ? 'Native match! 🎯' : score >= 90 ? 'Perfect tones! ✨' : 'Excellent! 🔥'}
+        </p>
+        <p className={styles.celebSub}>Your pronunciation was flawless.</p>
+
+        {/* Badges */}
+        <div className={styles.celebBadges}>
+          {streakCount > 0 && (
+            <div className={`${styles.celebBadge} ${styles.celebBadgeStreak}`}>
+              🔥 {streakCount} day streak
+            </div>
+          )}
+          <div className={`${styles.celebBadge} ${styles.celebBadgeXp}`}>
+            ⚡ +50 XP
+          </div>
+          <div className={styles.celebBadge}>
+            🏆 Personal best
+          </div>
+        </div>
+
+        {/* Social proof */}
+        <div className={styles.celebSocial}>
+          Better than <span>top 8%</span> of learners this week
+        </div>
+
+        {/* Phrase card */}
+        <div className={styles.celebPhraseCard}>
+          <p className={styles.celebPhraseCjk}>{line.cjk}</p>
+          <p className={styles.celebPhraseRoman}>{line.romanization}</p>
+          <p className={styles.celebPhraseEn}>{line.english}</p>
+        </div>
+
+        {/* CTAs */}
+        <div className={styles.celebCtas}>
+          <button className={styles.celebPrimary} onClick={onKeepGoing}>
+            Keep going →
+          </button>
+          <div className={styles.celebSecondaryRow}>
+            <button className={styles.celebSecondary} onClick={onRetry}>↺ Retry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

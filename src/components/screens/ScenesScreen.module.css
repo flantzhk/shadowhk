@@ -8,23 +8,33 @@
 
 .title {
   font-family: var(--font-ui);
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   color: var(--fg-0);
   margin: 0;
-  padding: 16px 16px 10px;
-  letter-spacing: -0.02em;
+  padding: 16px 16px 2px;
+  letter-spacing: -0.03em;
 }
 
-/* Search bar */
+.subtitle {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-2);
+  padding: 0 16px 10px;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* Search bar — pill shaped */
 .searchBar {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0 16px 10px;
-  background: var(--surface-2);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  background: var(--surface-1);
+  border-radius: var(--radius-pill);
+  padding: 10px 16px;
   border: 1px solid var(--border-0);
 }
 
@@ -78,10 +88,10 @@
 }
 
 .chip.chipActive {
-  background: var(--fg-0);
-  color: var(--bg-0);
-  border-color: var(--fg-0);
-  font-weight: 600;
+  background: var(--accent);
+  color: var(--accent-dark);
+  border-color: var(--accent);
+  font-weight: 700;
 }
 
 /* Featured mosaic */
@@ -89,7 +99,7 @@
   display: block;
   position: relative;
   margin: 0 16px 16px;
-  height: 150px;
+  height: 180px;
   border-radius: 14px;
   overflow: hidden;
   background-size: cover;
@@ -129,10 +139,11 @@
 
 .featuredTitle {
   font-family: var(--font-ui);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   color: #fff;
   margin: 0 0 4px;
+  letter-spacing: -0.02em;
 }
 
 .featuredMeta {

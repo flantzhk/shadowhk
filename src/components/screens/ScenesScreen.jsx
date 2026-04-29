@@ -73,7 +73,8 @@ export default function ScenesScreen({ onNavigate }) {
 
   return (
     <div className={styles.screen}>
-      <h1 className={styles.title}>Browse</h1>
+      <h1 className={styles.title}>Browse scenes</h1>
+      <p className={styles.subtitle}>香港 Cantonese</p>
 
       {/* Search */}
       <div className={styles.searchBar}>
@@ -152,7 +153,7 @@ export default function ScenesScreen({ onNavigate }) {
                 >
                   <div
                     className={styles.coverTint}
-                    style={{ background: `linear-gradient(135deg, ${scene.tint ?? '#C5E85A'}44 0%, transparent 60%)` }}
+                    style={{ background: `linear-gradient(135deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 60%)` }}
                   />
                   <div className={styles.coverDark} />
                   {scene.emoji && <span className={styles.coverEmoji}>{scene.emoji}</span>}

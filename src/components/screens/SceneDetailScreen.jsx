@@ -151,7 +151,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       >
         <div
           className={styles.heroTint}
-          style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#C5E85A'}44 0%, transparent 50%)` }}
+          style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 50%)` }}
         />
         <div className={styles.heroDark} />
         <div className={styles.heroContent}>

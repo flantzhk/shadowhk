@@ -1,73 +1,73 @@
-/* src/styles/variables.css — ShadowHK Design Tokens — Espresso Dark */
+/* src/styles/variables.css — ShadowHK Design Tokens — Ink & Jade */
 
 :root {
-  /* === Espresso dark core palette === */
-  --bg-0: #1a1714;
-  --bg-1: #221e1a;
-  --bg-2: #2a2520;
-  --bg-3: #332d27;
+  /* === Ink & Jade core palette === */
+  --bg-0: #0f1117;
+  --bg-1: #161b26;
+  --bg-2: #1e2433;
+  --bg-3: #273041;
 
-  --fg-0: rgba(255, 240, 220, 1.0);
-  --fg-1: rgba(255, 240, 220, 0.80);
-  --fg-2: rgba(255, 240, 220, 0.62);
-  --fg-3: rgba(255, 240, 220, 0.45);
+  --fg-0: rgba(255, 255, 255, 1.0);
+  --fg-1: rgba(255, 255, 255, 0.80);
+  --fg-2: rgba(255, 255, 255, 0.55);
+  --fg-3: rgba(255, 255, 255, 0.38);
 
-  --border-0: rgba(255, 240, 220, 0.08);
-  --border-1: rgba(255, 240, 220, 0.14);
+  --border-0: rgba(255, 255, 255, 0.08);
+  --border-1: rgba(255, 255, 255, 0.14);
 
-  --accent: #C5E85A;
-  --accent-dark: #0e1806;
-  --accent-glow: rgba(197, 232, 90, 0.35);
-  --accent-muted: rgba(197, 232, 90, 0.08);
+  --accent: #00E5A0;
+  --accent-dark: #00241a;
+  --accent-glow: rgba(0, 229, 160, 0.35);
+  --accent-muted: rgba(0, 229, 160, 0.08);
 
-  --streak: #E8703A;
-  --surface-0: #1a1714;
-  --surface-1: #221e1a;
-  --surface-2: #2a2520;
+  --streak: #FF9F43;
+  --surface-0: #0f1117;
+  --surface-1: #161b26;
+  --surface-2: #1e2433;
 
   --font-ui:   "Inter Tight", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-cjk:  "Noto Serif HK", serif;
 
   /* === Legacy token aliases (keep existing components working) === */
-  --color-bg:             #1a1714;
-  --color-bg-page:        #141210;
-  --color-surface:        #221e1a;
-  --color-surface-raised: #2a2520;
-  --color-border:         rgba(255, 240, 220, 0.08);
-  --color-border-strong:  rgba(255, 240, 220, 0.14);
+  --color-bg:             #0f1117;
+  --color-bg-page:        #0a0c12;
+  --color-surface:        #161b26;
+  --color-surface-raised: #1e2433;
+  --color-border:         rgba(255, 255, 255, 0.08);
+  --color-border-strong:  rgba(255, 255, 255, 0.14);
 
-  --color-text-primary:   rgba(255, 240, 220, 1.0);
-  --color-text-secondary: rgba(255, 240, 220, 0.72);
-  --color-text-tertiary:  rgba(255, 240, 220, 0.62);
-  --color-text-muted:     rgba(255, 240, 220, 0.45);
-  --color-text-inverse:   #1a1714;
+  --color-text-primary:   rgba(255, 255, 255, 1.0);
+  --color-text-secondary: rgba(255, 255, 255, 0.80);
+  --color-text-tertiary:  rgba(255, 255, 255, 0.55);
+  --color-text-muted:     rgba(255, 255, 255, 0.38);
+  --color-text-inverse:   #0f1117;
 
-  --color-brand-dark:      #C5E85A;
-  --color-brand-dark-text: #C5E85A;
-  --color-brand-green:     #8BB82B;
-  --color-brand-lime:      #C5E85A;
-  --color-brand-lime-muted: rgba(197, 232, 90, 0.08);
+  --color-brand-dark:      #00E5A0;
+  --color-brand-dark-text: #00E5A0;
+  --color-brand-green:     #00A371;
+  --color-brand-lime:      #00E5A0;
+  --color-brand-lime-muted: rgba(0, 229, 160, 0.08);
 
-  --color-streak-orange: #E8703A;
-  --color-streak-bg:     rgba(232, 112, 58, 0.18);
-  --color-streak-text:   #E8703A;
+  --color-streak-orange: #FF9F43;
+  --color-streak-bg:     rgba(255, 159, 67, 0.18);
+  --color-streak-text:   #FF9F43;
 
-  --color-learning-bg:   rgba(232, 160, 48, 0.18);
-  --color-learning-text: #E8A030;
-  --color-mastered-bg:   rgba(139, 184, 43, 0.15);
-  --color-mastered-text: #A4D042;
+  --color-learning-bg:   rgba(255, 159, 67, 0.18);
+  --color-learning-text: #FF9F43;
+  --color-mastered-bg:   rgba(0, 229, 160, 0.15);
+  --color-mastered-text: #00E5A0;
 
-  --color-score-excellent: #A4D042;
-  --color-score-good:      #C5E85A;
+  --color-score-excellent: #00E5A0;
+  --color-score-good:      #4DCCA8;
   --color-score-fair:      #E8A030;
   --color-score-poor:      #E06060;
 
   --color-error:   #E06060;
   --color-warning: #E8A030;
-  --color-success: #A4D042;
+  --color-success: #00E5A0;
 
-  --color-jyutping: #C5E85A;
+  --color-jyutping: #00E5A0;
 
   /* === Typography === */
   --font-family:      var(--font-ui);
@@ -118,7 +118,7 @@
   --shadow-raised: 0 4px 12px rgba(0, 0, 0, 0.5);
   --shadow-player: 0 -4px 20px rgba(0, 0, 0, 0.6);
   --shadow-phone:  0 30px 80px rgba(0, 0, 0, 0.5);
-  --shadow-accent: 0 6px 16px rgba(197, 232, 90, 0.35);
+  --shadow-accent: 0 6px 16px rgba(0, 229, 160, 0.35);
 
   /* === Transitions === */
   --transition-fast:   150ms ease;

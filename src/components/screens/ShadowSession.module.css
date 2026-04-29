@@ -162,8 +162,8 @@
 }
 
 .youBubble {
-  background: rgba(197,232,90,0.15);
-  border: 1.5px solid rgba(197,232,90,0.35);
+  background: rgba(0,229,160,0.15);
+  border: 1.5px solid rgba(0,229,160,0.35);
   border-radius: 18px 18px 4px 18px;
   padding: 10px 14px;
   max-width: 75%;
@@ -174,8 +174,8 @@
 
 .youBubbleSpeak {
   border-color: var(--accent);
-  background: rgba(197,232,90,0.22);
-  box-shadow: 0 0 16px rgba(197,232,90,0.2);
+  background: rgba(0,229,160,0.22);
+  box-shadow: 0 0 16px rgba(0,229,160,0.2);
 }
 
 .bubbleSpeaker {
@@ -264,7 +264,7 @@
 }
 
 .scoreCircleExcellent {
-  box-shadow: 0 0 0 6px rgba(197,232,90,0.2), 0 0 32px rgba(197,232,90,0.45);
+  box-shadow: 0 0 0 6px rgba(0,229,160,0.2), 0 0 32px rgba(0,229,160,0.45);
   animation: glowPulse 1.5s ease-out forwards;
 }
 
@@ -273,9 +273,9 @@
 }
 
 @keyframes glowPulse {
-  0% { box-shadow: 0 0 0 0 rgba(197,232,90,0.6), 0 0 0 rgba(197,232,90,0); }
-  50% { box-shadow: 0 0 0 10px rgba(197,232,90,0.15), 0 0 40px rgba(197,232,90,0.5); }
-  100% { box-shadow: 0 0 0 6px rgba(197,232,90,0.1), 0 0 24px rgba(197,232,90,0.3); }
+  0% { box-shadow: 0 0 0 0 rgba(0,229,160,0.6), 0 0 0 rgba(0,229,160,0); }
+  50% { box-shadow: 0 0 0 10px rgba(0,229,160,0.15), 0 0 40px rgba(0,229,160,0.5); }
+  100% { box-shadow: 0 0 0 6px rgba(0,229,160,0.1), 0 0 24px rgba(0,229,160,0.3); }
 }
 
 .scoreNum {
@@ -417,8 +417,8 @@
 }
 
 @keyframes micPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(197,232,90,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(197,232,90,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0,229,160,0); }
 }
 
 .scoringSpinner {
@@ -591,4 +591,262 @@
   font-size: 13px;
   padding: 10px 24px;
   cursor: pointer;
+}
+
+/* ════════════════════════════════════
+   Score Celebration Overlay (90+)
+   ════════════════════════════════════ */
+
+.celebOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #070b12;
+}
+
+/* Central jade radial glow */
+.celebBgGlow {
+  position: absolute;
+  top: 28%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,160,0.22) 0%, rgba(0,229,160,0.05) 45%, transparent 70%);
+  z-index: 0;
+  animation: celebGlowBreath 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes celebGlowBreath {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+}
+
+/* Confetti layer */
+.celebConfetti {
+  position: absolute; inset: 0;
+  z-index: 1; overflow: hidden; pointer-events: none;
+}
+
+.celebConfettiDot {
+  position: absolute; top: -12px;
+  animation: celebConfettiFall linear infinite;
+}
+
+@keyframes celebConfettiFall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(900px) rotate(720deg); opacity: 0; }
+}
+
+/* Inner content */
+.celebInner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 60px 24px 28px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.celebInner::-webkit-scrollbar { display: none; }
+
+/* Score circle */
+.celebScoreWrap {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; flex-shrink: 0;
+}
+
+.celebRings {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px; height: 150px;
+}
+
+.celebRing {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,229,160,0.5);
+  animation: celebRingPulse 2s ease-out infinite;
+}
+.celebRing:nth-child(2) { animation-delay: 0.65s; }
+.celebRing:nth-child(3) { animation-delay: 1.3s; }
+
+@keyframes celebRingPulse {
+  0% { transform: scale(0.88); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.celebCircle {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(0,229,160,0.22), rgba(0,229,160,0.07));
+  border: 2px solid rgba(0,229,160,0.6);
+  box-shadow:
+    0 0 0 8px rgba(0,229,160,0.07),
+    0 0 50px rgba(0,229,160,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  animation: celebCirclePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes celebCirclePop {
+  0% { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.celebScoreNum {
+  font-family: var(--font-ui);
+  font-size: 72px; font-weight: 900;
+  line-height: 1; letter-spacing: -4px;
+  color: #00E5A0;
+  text-shadow: 0 0 40px rgba(0,229,160,0.5);
+  animation: celebScorePop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+@keyframes celebScorePop {
+  0% { transform: scale(0.5) translateY(8px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.celebScoreSub {
+  font-family: var(--font-ui);
+  font-size: 14px; font-weight: 700;
+  color: rgba(0,229,160,0.6);
+}
+
+.celebHeadline {
+  font-family: var(--font-ui);
+  font-size: 26px; font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.03em; line-height: 1.1;
+  text-align: center;
+  margin: 0 0 6px; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.35s both;
+}
+
+.celebSub {
+  font-family: var(--font-ui);
+  font-size: 14px; color: rgba(255,255,255,0.5);
+  text-align: center; margin: 0 0 18px; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.45s both;
+}
+
+@keyframes celebFadeUp {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Badge row */
+.celebBadges {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.5s both;
+}
+
+.celebBadge {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+.celebBadgeStreak {
+  background: rgba(255,159,67,0.12);
+  border-color: rgba(255,159,67,0.25);
+  color: #FF9F43;
+}
+
+.celebBadgeXp {
+  background: rgba(0,229,160,0.1);
+  border-color: rgba(0,229,160,0.25);
+  color: #00E5A0;
+}
+
+/* Social proof */
+.celebSocial {
+  font-family: var(--font-ui);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  margin-bottom: 20px; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.55s both;
+}
+.celebSocial span { color: #00E5A0; font-weight: 700; }
+
+/* Phrase card */
+.celebPhraseCard {
+  width: 100%;
+  background: rgba(0,229,160,0.07);
+  border: 1px solid rgba(0,229,160,0.18);
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 20px; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.6s both;
+}
+
+.celebPhraseCjk {
+  font-family: var(--font-cjk);
+  font-size: 20px; color: rgba(255,255,255,0.9);
+  letter-spacing: 0.04em; margin: 0 0 4px;
+}
+
+.celebPhraseRoman {
+  font-family: var(--font-mono);
+  font-size: 13px; font-weight: 700;
+  color: rgba(0,229,160,0.8); margin: 0 0 4px;
+}
+
+.celebPhraseEn {
+  font-family: var(--font-ui);
+  font-size: 12px; font-style: italic;
+  color: rgba(255,255,255,0.45); margin: 0;
+}
+
+/* CTAs */
+.celebCtas {
+  width: 100%; display: flex;
+  flex-direction: column; gap: 10px;
+  margin-top: auto; flex-shrink: 0;
+  animation: celebFadeUp 0.4s ease 0.65s both;
+}
+
+.celebPrimary {
+  width: 100%;
+  background: #00E5A0; border: none;
+  border-radius: var(--radius-pill);
+  color: #00241a;
+  font-family: var(--font-ui);
+  font-size: 16px; font-weight: 800;
+  padding: 16px; cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0,229,160,0.35);
+  letter-spacing: -0.01em;
+}
+
+.celebSecondaryRow { display: flex; gap: 10px; }
+
+.celebSecondary {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill);
+  color: rgba(255,255,255,0.65);
+  font-family: var(--font-ui);
+  font-size: 13px; font-weight: 600;
+  padding: 12px; cursor: pointer;
 }

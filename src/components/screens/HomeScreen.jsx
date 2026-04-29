@@ -116,7 +116,7 @@ export default function HomeScreen({ onNavigate }) {
 
       {streakAtRisk && <StreakRiskBanner count={streakCount} onNavigate={onNavigate} />}
 
-      <WeeklyBar data={weeklyData} />
+      <SparkDots data={weeklyData} />
 
       {/* Today's Scene hero — primary action */}
       {!loading && lesson?.scene && (
@@ -137,20 +137,40 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      {/* Jump back in grid — below the hero */}
+      {/* Jump back in */}
       {allScenes.length > 0 && (
-        <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
+        <>
+          <div className={styles.sectionRule}>
+            <div className={styles.sectionRuleLine} style={{ background: '#00E5A0' }} />
+            <span className={styles.sectionRuleLabel}>Jump back in</span>
+          </div>
+          <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
+        </>
       )}
 
       {/* Made for you playlist row */}
+      <div className={styles.sectionRule}>
+        <div className={styles.sectionRuleLine} style={{ background: '#FF9F43' }} />
+        <span className={styles.sectionRuleLabel}>Made for you</span>
+      </div>
       <PlaylistRow scenes={allScenes} onNavigate={onNavigate} />
 
       {/* Keep going row */}
       {inProgressScenes.length > 0 && (
-        <KeepGoingRow scenes={inProgressScenes} progress={sceneProgress} onNavigate={onNavigate} />
+        <>
+          <div className={styles.sectionRule}>
+            <div className={styles.sectionRuleLine} style={{ background: '#818cf8' }} />
+            <span className={styles.sectionRuleLabel}>Keep going</span>
+          </div>
+          <KeepGoingRow scenes={inProgressScenes} progress={sceneProgress} onNavigate={onNavigate} />
+        </>
       )}
 
       {/* Short sessions */}
+      <div className={styles.sectionRule}>
+        <div className={styles.sectionRuleLine} style={{ background: '#22d3ee' }} />
+        <span className={styles.sectionRuleLabel}>Short sessions</span>
+      </div>
       <ShortSessions onNavigate={onNavigate} />
 
       <div className={styles.bottomPad} />
@@ -208,10 +228,10 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
         className={styles.sceneHero}
         style={{
           backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined,
-          '--tint': scene.tint ?? '#C5E85A',
+          '--tint': scene.tint ?? '#00E5A0',
         }}
       >
-        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#C5E85A'}44 0%, transparent 55%)` }} />
+        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 55%)` }} />
         <div className={styles.heroDarkOverlay} />
 
         <div className={styles.heroTopLeft}>
@@ -250,7 +270,6 @@ function EmptyHero({ onNavigate }) {
 function PlaylistRow({ scenes, onNavigate }) {
   return (
     <section className={styles.rowSection}>
-      <h2 className={styles.rowLabel}>Made for you</h2>
       <div className={styles.scrollRow}>
         {PLAYLISTS.map(playlist => {
           const first = scenes.find(s => s.id === playlist.sceneIds[0]);
@@ -264,7 +283,7 @@ function PlaylistRow({ scenes, onNavigate }) {
                 className={styles.playlistCover}
                 style={{
                   backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined,
-                  '--ptint': first?.tint ?? '#C5E85A',
+                  '--ptint': first?.tint ?? '#00E5A0',
                 }}
               >
                 <div className={styles.playlistCoverGradient} />
@@ -282,7 +301,6 @@ function PlaylistRow({ scenes, onNavigate }) {
 function KeepGoingRow({ scenes, progress, onNavigate }) {
   return (
     <section className={styles.rowSection}>
-      <h2 className={styles.rowLabel}>Keep going</h2>
       <div className={styles.scrollRow}>
         {scenes.map(s => {
           const pct = progress[s.id]?.masteryPct ?? 0;
@@ -315,11 +333,10 @@ function ShortSessions({ onNavigate }) {
   const sessions = [
     { label: 'Tone Gym',  desc: 'Train your ear',      color: '#8F6AE8', route: 'tonegym',  emoji: '🎵' },
     { label: 'Free Chat', desc: 'AI conversation',      color: '#5AC8E8', route: 'ai-scenario', emoji: '💬' },
-    { label: 'Speed Run', desc: 'Beat the clock',       color: '#E8703A', route: 'speedrun', emoji: '⚡' },
+    { label: 'Speed Run', desc: 'Beat the clock',       color: '#FF9F43', route: 'speedrun', emoji: '⚡' },
   ];
   return (
     <section className={styles.shortSection}>
-      <h2 className={styles.rowLabel}>Short sessions</h2>
       {sessions.map(s => (
         <button key={s.route} className={styles.shortRow} onClick={() => onNavigate(s.route)}>
           <div className={styles.shortIcon} style={{ background: s.color + '38' }}>
@@ -396,22 +413,23 @@ function Quick3Pill({ onNavigate }) {
   );
 }
 
-function WeeklyBar({ data }) {
+function SparkDots({ data }) {
   const max = Math.max(...data.map(d => d.phrases), 1);
   return (
-    <div className={styles.weeklyBar}>
+    <div className={styles.sparkRow}>
       {data.map((d, i) => {
         const day = ['S', 'M', 'T', 'W', 'T', 'F', 'S'][new Date(d.key + 'T12:00:00').getDay()];
-        const h = Math.max((d.phrases / max) * 100, d.phrases > 0 ? 10 : 0);
+        // Scale dot 4px (empty) → 14px (full day)
+        const size = d.phrases > 0 ? Math.max(Math.round((d.phrases / max) * 10) + 4, 7) : 4;
+        const dotClass = d.isToday
+          ? `${styles.sparkDot} ${styles.sparkDotToday}`
+          : d.phrases > 0
+            ? `${styles.sparkDot} ${styles.sparkDotDone}`
+            : styles.sparkDot;
         return (
-          <div key={i} className={styles.weeklyCol}>
-            <div className={styles.weeklyTrack}>
-              <div
-                className={`${styles.weeklyFill} ${d.isToday ? styles.weeklyFillToday : ''}`}
-                style={{ height: `${h}%` }}
-              />
-            </div>
-            <span className={`${styles.weeklyDay} ${d.isToday ? styles.weeklyDayToday : ''}`}>{day}</span>
+          <div key={i} className={styles.sparkCol}>
+            <div className={dotClass} style={{ width: size, height: size }} />
+            <span className={`${styles.sparkDay} ${d.isToday ? styles.sparkDayToday : ''}`}>{day}</span>
           </div>
         );
       })}
