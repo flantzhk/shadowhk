@@ -21,6 +21,7 @@ body {
   letter-spacing: var(--letter-spacing-normal);
   background: var(--bg-0);
   color: var(--fg-0);
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
@@ -122,7 +123,7 @@ body {
 
 /* Focus indicator for keyboard navigation */
 :focus-visible {
-  outline: 2px solid var(--color-brand-lime);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -132,8 +133,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
+  background: var(--sage-mid);
   border-radius: var(--radius-pill);
+  opacity: 0.4;
 }
 
 /* Safe area padding for iOS */

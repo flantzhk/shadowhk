@@ -5,7 +5,6 @@ import { AppProvider, useAppContext } from './contexts/AppContext';
 import { AudioProvider } from './contexts/AudioContext';
 import { TopBar } from './components/layout/TopBar';
 import { BottomTabBar } from './components/layout/BottomTabBar';
-import { MiniPlayer } from './components/layout/MiniPlayer';
 import { Sidebar } from './components/layout/Sidebar';
 import { ROUTES } from './utils/constants';
 import { isAuthenticated, waitForAuth, updateLastActive } from './services/auth';
@@ -308,10 +307,7 @@ function MainLayout() {
           {renderScreen(route, navigate, goBack)}
         </Suspense>
       </main>
-      {!isDesktop && !hideChrome && (
-        <MiniPlayer onNavigate={navigate} currentSceneId={route.id} />
-      )}
-      {!isDesktop && !hideChrome && (
+{!isDesktop && !hideChrome && (
         <BottomTabBar activeTab={route.path} onNavigate={navigate} />
       )}
     </div>
