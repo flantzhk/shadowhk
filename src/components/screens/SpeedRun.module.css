@@ -117,7 +117,7 @@
 
 .correct {
   background: var(--accent-muted);
-  border: 1px solid rgba(197,232,90,0.25);
+  border: 1px solid rgba(0,229,160,0.25);
 }
 
 .wrong {

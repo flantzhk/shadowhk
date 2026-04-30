@@ -232,7 +232,7 @@
 .userBubble {
   align-self: flex-end;
   background: var(--accent-muted);
-  border: 1px solid rgba(197,232,90,0.2);
+  border: 1px solid rgba(0,229,160,0.2);
   border-radius: 14px 14px 4px 14px;
 }
 
@@ -246,7 +246,7 @@
   letter-spacing: 0.08em;
 }
 
-.userBubble .speakerLabel { color: rgba(197,232,90,0.5); }
+.userBubble .speakerLabel { color: rgba(0,229,160,0.5); }
 
 .bubbleRoman {
   font-family: var(--font-mono);
@@ -331,7 +331,7 @@
 .yourLineCard {
   width: 100%;
   background: var(--surface-1);
-  border: 1.5px solid rgba(197,232,90,0.3);
+  border: 1.5px solid rgba(0,229,160,0.3);
   border-radius: 12px;
   padding: 16px 18px;
   display: flex;

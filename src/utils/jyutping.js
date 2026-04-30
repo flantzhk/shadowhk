@@ -58,7 +58,7 @@ function getToneColor(tone) {
     2: '#E8A030',
     3: '#2A5A10',
     4: '#4A6A2A',
-    5: '#8BB82B',
+    5: '#00E5A0',
     6: '#5A5A5A',
   };
   return colors[tone] || '#1A1A1A';

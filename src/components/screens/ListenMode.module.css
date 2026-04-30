@@ -7,6 +7,20 @@
   position: relative;
 }
 
+/* Ambient radial glow behind play controls */
+.screen::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(0,229,160,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -15,6 +29,8 @@
   padding-top: max(env(safe-area-inset-top, 10px), 10px);
   border-bottom: 1px solid var(--border-0);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .backBtn {
@@ -77,7 +93,7 @@
   color: var(--accent);
 }
 
-.scrubberSection { padding: 16px 20px 8px; flex-shrink: 0; }
+.scrubberSection { padding: 16px 20px 8px; flex-shrink: 0; position: relative; z-index: 1; }
 
 .scrubber {
   position: relative;
@@ -124,10 +140,12 @@
   gap: 16px;
   padding: 12px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .playBtn {
-  width: 64px; height: 64px;
+  width: 72px; height: 72px;
   border-radius: 50%;
   background: var(--accent);
   color: var(--accent-dark);
@@ -136,11 +154,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: opacity 0.15s;
-  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: opacity 0.15s, transform 0.15s;
+  box-shadow: 0 6px 24px var(--accent-glow), 0 0 0 8px rgba(0,229,160,0.08);
 }
 
-.playBtn:hover { opacity: 0.88; }
+.playBtn:hover { opacity: 0.88; transform: scale(1.04); }
 
 .stopLoopBtn {
   padding: 8px 16px;
@@ -159,10 +177,12 @@
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 8px 16px;
+  padding: 8px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  position: relative;
+  z-index: 1;
 }
 
 .lineRow { display: flex; align-items: center; gap: 4px; }
@@ -199,30 +219,33 @@
 }
 
 .ctaBar {
-  padding: 16px 20px;
-  padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
-  border-top: 1px solid var(--border-0);
+  padding: 12px 20px;
+  padding-bottom: max(env(safe-area-inset-bottom, 12px), 12px);
+  background: linear-gradient(transparent, var(--bg-0) 30%);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .shadowCta {
   width: 100%;
   padding: 16px;
-  background: var(--accent-muted);
-  color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 12px;
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: none;
+  border-radius: 14px;
   font-family: var(--font-ui);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  min-height: 52px;
-  transition: all 0.15s;
+  min-height: 54px;
+  transition: opacity 0.15s, transform 0.15s;
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 .shadowCta:hover {
-  background: var(--accent);
-  color: var(--accent-dark);
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 @keyframes shimmer {

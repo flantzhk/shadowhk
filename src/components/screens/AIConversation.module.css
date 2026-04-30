@@ -324,7 +324,7 @@
 }
 
 .chatTextInput::placeholder { color: rgba(255,255,255,0.45); }
-.chatTextInput:focus { border-color: rgba(197,232,90,0.6); }
+.chatTextInput:focus { border-color: rgba(0,229,160,0.6); }
 
 .chatSendBtn {
   width: 44px; height: 44px; border-radius: 50%;

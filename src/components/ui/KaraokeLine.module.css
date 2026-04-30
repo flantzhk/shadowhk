@@ -7,7 +7,7 @@
 }
 
 .past    { opacity: 0.35; }
-.now     { background: rgba(197,232,90,0.08); border-radius: 8px; padding: 6px 10px; }
+.now     { background: rgba(0,229,160,0.08); border-radius: 8px; padding: 6px 10px; }
 .future  { opacity: 1; }
 
 /* Jyutping — primary: what you're learning */

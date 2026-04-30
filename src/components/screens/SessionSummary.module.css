@@ -95,8 +95,8 @@
 .streakRow {
   margin: 16px 20px 0;
   padding: 12px 16px;
-  background: rgba(232,112,58,0.08);
-  border: 1px solid rgba(232,112,58,0.2);
+  background: rgba(255,159,67,0.08);
+  border: 1px solid rgba(255,159,67,0.2);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@
   position: absolute;
   bottom: 0; left: 1px;
   width: 14px; height: 16px;
-  background: #E8703A;
+  background: #FF9F43;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
@@ -205,7 +205,7 @@
   margin: 16px 20px 0;
   width: calc(100% - 40px);
   background: var(--accent-muted);
-  border: 1px solid rgba(197,232,90,0.25);
+  border: 1px solid rgba(0,229,160,0.25);
   border-radius: 14px;
   padding: 16px;
   position: relative;
@@ -215,7 +215,7 @@
   font-family: var(--font-ui);
   font-size: 10px;
   font-weight: 700;
-  color: rgba(197,232,90,0.6);
+  color: rgba(0,229,160,0.6);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   display: block;
@@ -321,9 +321,9 @@
 
 .shadowAgainBtn {
   width: 100%;
-  background: rgba(197,232,90,0.12);
+  background: rgba(0,229,160,0.10);
   color: var(--accent);
-  border: 1px solid rgba(197,232,90,0.3);
+  border: 1px solid rgba(0,229,160,0.28);
   border-radius: 12px;
   padding: 16px;
   font-family: var(--font-ui);

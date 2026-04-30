@@ -71,7 +71,7 @@ export default function Screen15_AccountCreation({ advance, answers, onComplete 
               width: 20,
               height: 20,
               borderRadius: '50%',
-              background: '#C5E85A',
+              background: '#00E5A0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

@@ -356,8 +356,8 @@
 }
 
 .youBubble {
-  background: rgba(197,232,90,0.08);
-  border: 1px solid rgba(197,232,90,0.25);
+  background: rgba(0,229,160,0.08);
+  border: 1px solid rgba(0,229,160,0.25);
   border-radius: 16px 16px 4px 16px;
   padding: 10px 12px 6px;
   min-width: 0;

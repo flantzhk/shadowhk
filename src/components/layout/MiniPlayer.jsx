@@ -7,7 +7,7 @@ export function MiniPlayer({ onNavigate, currentSceneId, currentScene }) {
   const isVisible = currentPhrase && playbackState !== 'idle';
   if (!isVisible) return null;
 
-  const tint = currentScene?.tint ?? '#C5E85A';
+  const tint = currentScene?.tint ?? '#00E5A0';
   const imageUrl = currentScene?.imageUrl ?? null;
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 

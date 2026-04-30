@@ -30,7 +30,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), #8BB82B);
+  background: linear-gradient(135deg, var(--accent), #00A371);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,7 +174,7 @@
 
 .heatBarFill {
   width: 100%;
-  background: linear-gradient(180deg, var(--accent), #8BB82B);
+  background: linear-gradient(180deg, var(--accent), #00A371);
   border-radius: 4px;
   min-height: 0;
   transition: height 0.5s ease;

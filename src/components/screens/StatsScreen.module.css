@@ -385,7 +385,7 @@
 
 .xpFill {
   height: 100%;
-  background: linear-gradient(90deg, #8BB82B, var(--accent));
+  background: linear-gradient(90deg, #00A371, var(--accent));
   border-radius: var(--radius-pill);
   min-width: 4px;
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);

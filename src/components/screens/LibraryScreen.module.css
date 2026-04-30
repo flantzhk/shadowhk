@@ -81,7 +81,7 @@
 }
 
 .shortcutSaved {
-  background: linear-gradient(135deg, #C5E85A, #8BB82B);
+  background: linear-gradient(135deg, #00E5A0, #00A371);
   border-radius: var(--radius-md);
   padding: 14px 12px;
   display: flex;

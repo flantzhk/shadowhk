@@ -213,7 +213,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           <div className={styles.masteryBar}>
             <div
               className={styles.masteryFill}
-              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, ${scene.tint ?? '#8BB82B'}, var(--accent))` }}
+              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, ${scene.tint ?? '#00A371'}, var(--accent))` }}
             />
           </div>
           <span className={styles.masteryLabel}>{Math.round(masteryPct)}% mastered</span>

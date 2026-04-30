@@ -59,7 +59,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
         width: 80,
         height: 80,
         borderRadius: '50%',
-        background: '#C5E85A',
+        background: '#00E5A0',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -72,7 +72,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
       {/* Wordmark */}
       <div style={{ marginBottom: 8 }}>
         <span style={{ fontSize: '1rem', fontWeight: 800, color: 'white' }}>Shadow</span>
-        <span style={{ fontSize: '1rem', fontWeight: 800, color: '#C5E85A' }}>Speak</span>
+        <span style={{ fontSize: '1rem', fontWeight: 800, color: '#00E5A0' }}>Speak</span>
       </div>
 
       <h1 style={{
@@ -100,13 +100,13 @@ export default function CheckoutSuccessScreen({ onDone }) {
       {/* Plan badge */}
       <div style={{
         marginTop: 24,
-        background: 'rgba(197,232,90,0.15)',
-        border: '1.5px solid rgba(197,232,90,0.4)',
+        background: 'rgba(0,229,160,0.15)',
+        border: '1.5px solid rgba(0,229,160,0.4)',
         borderRadius: 12,
         padding: '12px 24px',
         display: 'inline-block',
       }}>
-        <span style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#C5E85A' }}>
+        <span style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#00E5A0' }}>
           {planLabel}
         </span>
       </div>
@@ -132,7 +132,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
             alignItems: 'center',
             gap: 12,
           }}>
-            <span style={{ color: '#C5E85A', fontSize: '0.875rem', fontWeight: 800, flexShrink: 0 }}>
+            <span style={{ color: '#00E5A0', fontSize: '0.875rem', fontWeight: 800, flexShrink: 0 }}>
               {'✓'}
             </span>
             <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)' }}>{feat}</span>
@@ -151,7 +151,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
           padding: '17px 0',
           borderRadius: 12,
           border: 'none',
-          background: '#C5E85A',
+          background: '#00E5A0',
           color: '#1A2A18',
           fontSize: '1.0625rem',
           fontWeight: 800,
