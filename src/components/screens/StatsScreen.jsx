@@ -133,7 +133,7 @@ export default function StatsScreen({ onBack, onNavigate }) {
         <div className={styles.streakLeft}>
           <div className={styles.flame}>
             <svg width="36" height="42" viewBox="0 0 40 48" fill="none">
-              <path d="M20 0C20 0 30 12 32 22C34 32 28 42 20 46C12 42 6 32 8 22C10 12 20 0 20 0Z" fill="#E8703A" />
+              <path d="M20 0C20 0 30 12 32 22C34 32 28 42 20 46C12 42 6 32 8 22C10 12 20 0 20 0Z" fill="#C8392B" />
               <path d="M20 14C20 14 26 22 27 28C28 34 24 40 20 42C16 40 12 34 13 28C14 22 20 14 20 14Z" fill="#FFCC4D" />
               <path d="M20 26C20 26 23 30 23 33C23 36 22 38 20 39C18 38 17 36 17 33C17 30 20 26 20 26Z" fill="#FFE8A0" />
             </svg>

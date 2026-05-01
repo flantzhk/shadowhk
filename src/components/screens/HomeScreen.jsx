@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './HomeScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
-import { getLibraryEntries, getAllSceneProgress, getDueEntries, getAllSessions } from '../../services/storage.js';
+import { getLibraryEntries, getAllSceneProgress, getDueEntries } from '../../services/storage.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { STREAK_MILESTONES } from '../../utils/constants.js';
@@ -11,7 +11,6 @@ function toDateStr(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-// Curated playlists of scene IDs
 const PLAYLISTS = [
   { id: 'arrival', label: 'Landing in HK', desc: 'First days sorted', sceneIds: ['taxi', 'mtr-station', 'convenience-store', 'building-management'] },
   { id: 'foodie',  label: 'Foodie circuit', desc: 'Eat like a local',  sceneIds: ['cha-chaan-teng', 'dim-sum', 'wet-market', 'bakery'] },
@@ -19,16 +18,12 @@ const PLAYLISTS = [
   { id: 'tones',   label: 'Tone workout',   desc: 'Ear-training scenes',  sceneIds: ['school-gate', 'neighbour-lift', 'minibus', 'pharmacy'] },
 ];
 
-function getGreeting(name) {
+function getGreeting() {
   const h = new Date().getHours();
-  const time = h < 12 ? 'MORNING' : h < 17 ? 'AFTERNOON' : 'EVENING';
-  return { time, greeting: "Let's learn some Cantonese together.", label: name ? `GOOD ${time}, ${name.toUpperCase()}` : `GOOD ${time}` };
-}
-
-function getReasonLabel(lesson) {
-  if (lesson?.reason) return lesson.reason;
-  const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
-  return `${day}'s pick`;
+  const period = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
+  const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
+  const month = ['January','February','March','April','May','June','July','August','September','October','November','December'][new Date().getMonth()];
+  return { eyebrow: `${day} · ${month}`, period };
 }
 
 export default function HomeScreen({ onNavigate }) {
@@ -39,20 +34,12 @@ export default function HomeScreen({ onNavigate }) {
   const [allScenes, setAllScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
   const [dueCount, setDueCount] = useState(0);
-  const [weeklyData, setWeeklyData] = useState(() => {
-    const today = new Date();
-    return Array.from({ length: 7 }, (_, i) => {
-      const d = new Date(today);
-      d.setDate(today.getDate() - (6 - i));
-      return { key: toDateStr(d), phrases: 0, isToday: i === 6 };
-    });
-  });
   const [showMilestone, setShowMilestone] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
   const streakCount = settings?.streakCount ?? 0;
-  const { time, greeting, label } = getGreeting(userName);
+  const { eyebrow, period } = getGreeting();
 
   const streakAtRisk = streakCount > 0
     && settings?.streakLastDate !== toDateStr()
@@ -75,17 +62,6 @@ export default function HomeScreen({ onNavigate }) {
       setSceneProgress(map);
     }).catch(() => {});
     getDueEntries().then(entries => setDueCount(entries.length)).catch(() => {});
-    getAllSessions().then(sessions => {
-      const today = new Date();
-      const data = Array.from({ length: 7 }, (_, i) => {
-        const d = new Date(today);
-        d.setDate(today.getDate() - (6 - i));
-        const key = toDateStr(d);
-        const phrases = sessions.filter(s => s.date === key).reduce((sum, s) => sum + (s.phrasesAttempted ?? 0), 0);
-        return { key, phrases, isToday: i === 6 };
-      });
-      setWeeklyData(data);
-    }).catch(() => {});
   }, [language]);
 
   const inProgressScenes = allScenes.filter(s => {
@@ -105,20 +81,23 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      {/* Greeting bar */}
       <header className={styles.greetingBar}>
         <div className={styles.greetingText}>
-          <p className={styles.eyebrow}>{label}</p>
-          <h1 className={styles.greetingTitle}>{greeting}</h1>
+          <p className={styles.eyebrow}>{eyebrow}</p>
+          <h1 className={styles.greetingTitle}>
+            Good {period}{userName && <>, <span className={styles.greetingItalic}>{userName}</span></>}
+          </h1>
         </div>
         <StreakPill count={streakCount} />
       </header>
 
       {streakAtRisk && <StreakRiskBanner count={streakCount} onNavigate={onNavigate} />}
 
-      <SparkDots data={weeklyData} />
+      <div className={styles.sectionBar}>
+        <span className={styles.sectionNum}>01</span>
+        <span className={styles.sectionLabel}>Today's scene</span>
+      </div>
 
-      {/* Today's Scene hero — primary action */}
       {!loading && lesson?.scene && (
         <TodaySceneHero lesson={lesson} dueCount={dueCount} onNavigate={onNavigate} />
       )}
@@ -128,7 +107,6 @@ export default function HomeScreen({ onNavigate }) {
 
       {dueCount > 0 && !loading && <Quick3Pill onNavigate={onNavigate} />}
 
-      {/* Personal intro scene — secondary, below the hero */}
       {personalPhraseCount !== null && (
         <PersonalSceneCard
           phraseCount={personalPhraseCount}
@@ -137,39 +115,36 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      {/* Jump back in */}
       {allScenes.length > 0 && (
         <>
-          <div className={styles.sectionRule}>
-            <div className={styles.sectionRuleLine} style={{ background: '#00E5A0' }} />
-            <span className={styles.sectionRuleLabel}>Jump back in</span>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>02</span>
+            <span className={styles.sectionLabel}>Jump back in</span>
+            <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>See all →</button>
           </div>
           <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
         </>
       )}
 
-      {/* Made for you playlist row */}
-      <div className={styles.sectionRule}>
-        <div className={styles.sectionRuleLine} style={{ background: '#FF9F43' }} />
-        <span className={styles.sectionRuleLabel}>Made for you</span>
+      <div className={styles.sectionBar}>
+        <span className={styles.sectionNum}>03</span>
+        <span className={styles.sectionLabel}>Made for you</span>
       </div>
       <PlaylistRow scenes={allScenes} onNavigate={onNavigate} />
 
-      {/* Keep going row */}
       {inProgressScenes.length > 0 && (
         <>
-          <div className={styles.sectionRule}>
-            <div className={styles.sectionRuleLine} style={{ background: '#818cf8' }} />
-            <span className={styles.sectionRuleLabel}>Keep going</span>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>04</span>
+            <span className={styles.sectionLabel}>Keep going</span>
           </div>
           <KeepGoingRow scenes={inProgressScenes} progress={sceneProgress} onNavigate={onNavigate} />
         </>
       )}
 
-      {/* Short sessions */}
-      <div className={styles.sectionRule}>
-        <div className={styles.sectionRuleLine} style={{ background: '#22d3ee' }} />
-        <span className={styles.sectionRuleLabel}>Short sessions</span>
+      <div className={styles.sectionBar}>
+        <span className={styles.sectionNum}>05</span>
+        <span className={styles.sectionLabel}>Practice modes</span>
       </div>
       <ShortSessions onNavigate={onNavigate} />
 
@@ -185,6 +160,65 @@ function StreakPill({ count }) {
       <span className={styles.streakFlame}>🔥</span>
       <span className={styles.streakNum}>{count}</span>
     </div>
+  );
+}
+
+function TodaySceneHero({ lesson, dueCount, onNavigate }) {
+  const { scene, fadingPhrases = [] } = lesson;
+  const totalLines = scene.lines?.length ?? 0;
+  const duration = scene.estimatedMinutes ?? 5;
+  const sceneDue = fadingPhrases.length;
+
+  const handleBtn = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
+
+  return (
+    <>
+      <section className={styles.heroSection}>
+        <div
+          className={styles.sceneHero}
+          style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
+        >
+          {!scene.imageUrl && <div className={styles.heroCinematicBg} />}
+          <div className={styles.heroGrain} />
+          <div className={styles.heroVignette} />
+          <div className={styles.heroDarkGrad} />
+
+          <div className={styles.heroTop}>
+            <span className={styles.heroLocationTag}>HONG KONG · TODAY</span>
+          </div>
+
+          <div className={styles.heroBottom}>
+            <span className={styles.heroCategoryEyebrow}>{scene.category?.toUpperCase() ?? 'SCENE'}</span>
+            <h2 className={styles.heroTitle}>{scene.title}</h2>
+            <div className={styles.heroPills}>
+              <span className={styles.heroPill}>{totalLines} phrases</span>
+              <span className={styles.heroPill}>{duration} min</span>
+              {sceneDue > 0 && <span className={styles.heroPill}>🔁 {sceneDue} to review</span>}
+            </div>
+          </div>
+        </div>
+      </section>
+      <button className={styles.continueSection} onClick={handleBtn}>
+        <div className={styles.continueEyebrow}>
+          <span className={styles.continueLabel}>{dueCount > 0 ? 'REVIEW DUE' : 'START SESSION'}</span>
+          <span className={styles.continueArrow}>→</span>
+        </div>
+        <p className={styles.continueTitle}>
+          {dueCount > 0 ? `Review ${dueCount} due phrases` : scene.title}
+        </p>
+      </button>
+    </>
+  );
+}
+
+function EmptyHero({ onNavigate }) {
+  return (
+    <section className={styles.heroSection}>
+      <div className={styles.emptyHero}>
+        <p className={styles.emptyText}>Pick your first scenes to get started.</p>
+        <button className={styles.shadowBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
+      </div>
+    </section>
   );
 }
 
@@ -213,60 +247,6 @@ function JumpBackGrid({ scenes, progress, onNavigate }) {
   );
 }
 
-function TodaySceneHero({ lesson, dueCount, onNavigate }) {
-  const { scene, fadingPhrases = [] } = lesson;
-  const totalLines = scene.lines?.length ?? 0;
-  const duration = scene.estimatedMinutes ?? 5;
-  const sceneDue = fadingPhrases.length;
-
-  const btnLabel = dueCount > 0 ? `🔁 Review ${dueCount} Due` : '▶ Shadow';
-  const handleBtn = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
-
-  return (
-    <section className={styles.heroSection}>
-      <div
-        className={styles.sceneHero}
-        style={{
-          backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined,
-          '--tint': scene.tint ?? '#00E5A0',
-        }}
-      >
-        <div className={styles.heroTintOverlay} style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 55%)` }} />
-        <div className={styles.heroDarkOverlay} />
-
-        <div className={styles.heroTopLeft}>
-          {sceneDue > 0
-            ? <span className={styles.dueChip}>🔁 {sceneDue} {sceneDue === 1 ? 'phrase' : 'phrases'} to practise</span>
-            : <span className={styles.todayChip}>TODAY'S PRACTICE</span>
-          }
-        </div>
-
-        <div className={styles.heroBottomLeft}>
-          <span className={styles.heroEmoji}>{scene.emoji}</span>
-          <h2 className={styles.heroTitle}>{scene.title}</h2>
-          <p className={styles.heroMeta}>{totalLines} phrases · {duration} min</p>
-          <div className={styles.heroBtns}>
-            <button className={styles.practiceNowBtn} onClick={handleBtn}>
-              {btnLabel}
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function EmptyHero({ onNavigate }) {
-  return (
-    <section className={styles.heroSection}>
-      <div className={styles.emptyHero}>
-        <p className={styles.emptyText}>Pick your first scenes to get started.</p>
-        <button className={styles.shadowBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
-      </div>
-    </section>
-  );
-}
-
 function PlaylistRow({ scenes, onNavigate }) {
   return (
     <section className={styles.rowSection}>
@@ -281,10 +261,7 @@ function PlaylistRow({ scenes, onNavigate }) {
             >
               <div
                 className={styles.playlistCover}
-                style={{
-                  backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined,
-                  '--ptint': first?.tint ?? '#00E5A0',
-                }}
+                style={{ backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined }}
               >
                 <div className={styles.playlistCoverGradient} />
                 <span className={styles.playlistTitle}>{playlist.label}</span>
@@ -331,20 +308,20 @@ function KeepGoingRow({ scenes, progress, onNavigate }) {
 
 function ShortSessions({ onNavigate }) {
   const sessions = [
-    { label: 'Tone Gym',  desc: 'Train your ear',      color: '#8F6AE8', route: 'tonegym',  emoji: '🎵' },
-    { label: 'Free Chat', desc: 'AI conversation',      color: '#5AC8E8', route: 'ai-scenario', emoji: '💬' },
-    { label: 'Speed Run', desc: 'Beat the clock',       color: '#FF9F43', route: 'speedrun', emoji: '⚡' },
+    { label: 'Tone Gym',  desc: 'Train your ear',  bg: '#D6E0D4', route: 'tonegym',  emoji: '🎵' },
+    { label: 'Free Chat', desc: 'AI conversation',  bg: '#F2DDD9', route: 'ai-scenario', emoji: '💬' },
+    { label: 'Speed Run', desc: 'Beat the clock',   bg: '#F2DDD9', route: 'speedrun', emoji: '⚡' },
   ];
   return (
-    <section className={styles.shortSection}>
+    <section className={styles.practiceSection}>
       {sessions.map(s => (
-        <button key={s.route} className={styles.shortRow} onClick={() => onNavigate(s.route)}>
-          <div className={styles.shortIcon} style={{ background: s.color + '38' }}>
-            <span className={styles.shortEmoji}>{s.emoji}</span>
+        <button key={s.route} className={styles.practiceRow} onClick={() => onNavigate(s.route)}>
+          <div className={styles.practiceIcon} style={{ background: s.bg }}>
+            <span>{s.emoji}</span>
           </div>
-          <div className={styles.shortText}>
-            <span className={styles.shortLabel}>{s.label}</span>
-            <span className={styles.shortDesc}>{s.desc}</span>
+          <div className={styles.practiceText}>
+            <span className={styles.practiceLabel}>{s.label}</span>
+            <span className={styles.practiceDesc}>{s.desc}</span>
           </div>
           <ChevronRight />
         </button>
@@ -363,10 +340,7 @@ function PersonalSceneCard({ phraseCount, name, onNavigate }) {
             <p className={styles.personalTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
             <p className={styles.personalMeta}>{phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'} · shadow how you'd introduce yourself in real life</p>
           </div>
-          <button
-            className={styles.personalShadowBtn}
-            onClick={() => onNavigate('introduce-yourself')}
-          >
+          <button className={styles.personalShadowBtn} onClick={() => onNavigate('introduce-yourself')}>
             Shadow →
           </button>
         </div>
@@ -409,30 +383,6 @@ function Quick3Pill({ onNavigate }) {
       <button className={styles.quick3Pill} onClick={() => onNavigate('shadow', '__quick3__')}>
         Short on time? Do 3 phrases →
       </button>
-    </div>
-  );
-}
-
-function SparkDots({ data }) {
-  const max = Math.max(...data.map(d => d.phrases), 1);
-  return (
-    <div className={styles.sparkRow}>
-      {data.map((d, i) => {
-        const day = ['S', 'M', 'T', 'W', 'T', 'F', 'S'][new Date(d.key + 'T12:00:00').getDay()];
-        // Scale dot 4px (empty) → 14px (full day)
-        const size = d.phrases > 0 ? Math.max(Math.round((d.phrases / max) * 10) + 4, 7) : 4;
-        const dotClass = d.isToday
-          ? `${styles.sparkDot} ${styles.sparkDotToday}`
-          : d.phrases > 0
-            ? `${styles.sparkDot} ${styles.sparkDotDone}`
-            : styles.sparkDot;
-        return (
-          <div key={i} className={styles.sparkCol}>
-            <div className={dotClass} style={{ width: size, height: size }} />
-            <span className={`${styles.sparkDay} ${d.isToday ? styles.sparkDayToday : ''}`}>{day}</span>
-          </div>
-        );
-      })}
     </div>
   );
 }

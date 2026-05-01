@@ -7,35 +7,35 @@
 }
 
 .title {
-  font-family: var(--font-ui);
-  font-size: 32px;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
   color: var(--fg-0);
   margin: 0;
-  padding: 16px 16px 2px;
-  letter-spacing: -0.03em;
+  padding: 20px 20px 2px;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 500;
+  font-family: var(--font-serif-alt);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
   color: var(--fg-2);
-  padding: 0 16px 10px;
-  letter-spacing: 0.02em;
+  padding: 0 20px 14px;
   margin: 0;
 }
 
-/* Search bar — pill shaped */
+/* Search bar */
 .searchBar {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 16px 10px;
-  background: var(--surface-1);
-  border-radius: var(--radius-pill);
-  padding: 10px 16px;
-  border: 1px solid var(--border-0);
+  margin: 0 20px 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-1);
+  border-radius: 0;
+  padding: 10px 14px;
 }
 
 .searchInput {
@@ -48,7 +48,7 @@
   outline: none;
 }
 
-.searchInput::placeholder { color: var(--fg-2); }
+.searchInput::placeholder { color: var(--fg-3); }
 
 .clearBtn {
   background: none;
@@ -64,7 +64,7 @@
 .categoryChips {
   display: flex;
   gap: 6px;
-  padding: 0 16px 12px;
+  padding: 0 20px 14px;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -74,9 +74,11 @@
 
 .chip {
   flex-shrink: 0;
-  font-family: var(--font-ui);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--fg-1);
   background: transparent;
   border: 1px solid var(--border-1);
@@ -88,33 +90,44 @@
 }
 
 .chip.chipActive {
-  background: var(--accent);
-  color: var(--accent-dark);
-  border-color: var(--accent);
-  font-weight: 700;
+  background: var(--fg-0);
+  color: #fff;
+  border-color: var(--fg-0);
 }
 
-/* Featured mosaic */
+/* Featured card */
+.sectionLabel {
+  padding: 0 20px 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--fg-2);
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .featured {
   display: block;
   position: relative;
-  margin: 0 16px 16px;
-  height: 180px;
-  border-radius: 14px;
+  margin: 0 20px 16px;
+  height: 200px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  background-color: var(--surface-2);
+  background-color: var(--ink);
   cursor: pointer;
   text-align: left;
   border: none;
   padding: 0;
+  border-radius: 0;
+  border: 1px solid var(--fg-0);
 }
 
 .featuredOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%);
 }
 
 .featuredContent {
@@ -128,28 +141,32 @@
 }
 
 .featuredEyebrow {
-  font-family: var(--font-ui);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .featuredTitle {
-  font-family: var(--font-ui);
-  font-size: 24px;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
   color: #fff;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .featuredMeta {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: rgba(255,255,255,0.7);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
   margin: 0;
 }
 
@@ -157,14 +174,13 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  padding: 0 16px;
+  gap: 12px;
+  padding: 0 20px;
 }
 
 .skeleton {
-  height: 200px;
-  border-radius: 14px;
-  background: var(--surface-1);
+  height: 160px;
+  background: var(--bg-2);
   animation: pulse 1.4s ease-in-out infinite;
 }
 
@@ -183,8 +199,10 @@
 }
 
 .tile {
-  background: none;
-  border: none;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 0;
+  overflow: hidden;
   cursor: pointer;
   text-align: left;
   padding: 0;
@@ -192,68 +210,66 @@
 
 .cover {
   position: relative;
-  aspect-ratio: 1;
-  border-radius: 14px;
+  height: 100px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  background-color: var(--surface-2);
-  margin-bottom: 6px;
+  background-color: var(--bg-2);
 }
 
 .coverTint {
   position: absolute;
   inset: 0;
+  background: linear-gradient(135deg, rgba(61,20,23,0.25) 0%, transparent 60%);
 }
 
 .coverDark {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2);
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.35) 100%);
 }
 
 .coverEmoji {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 8px;
   font-size: 16px;
   z-index: 1;
 }
 
-.masteryBadge {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--fg-1);
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: var(--radius-pill);
-  padding: 3px 8px;
-  z-index: 1;
-}
-
-.masteryBadge.masteryHigh {
-  color: var(--accent);
+.tileInfo {
+  padding: 10px 12px 12px;
 }
 
 .tileTitle {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--fg-0);
-  margin: 0 0 2px;
+  margin: 0 0 3px;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .tileMeta {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: var(--fg-2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
   margin: 0;
+  text-transform: uppercase;
+}
+
+.tileProgressBar {
+  height: 2px;
+  background: var(--bg-3);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.tileProgressFill {
+  height: 100%;
+  background: var(--accent);
 }
 
 .bottomPad { height: 20px; }

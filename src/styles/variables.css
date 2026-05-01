@@ -32,11 +32,19 @@
   --surface-1: #FAFAF7;
   --surface-2: #FFFFFF;
 
+  /* === Cinematic palette — photos & hero overlays only === */
+  --ink:     #16242A;
+  --oxblood: #3D1417;
+  --amber:   #A8642A;
+  --jade:    #2A4A3A;
+  --gold:    #C9A24A;
+
   /* === Fonts === */
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-ui:    "Inter Tight", system-ui, -apple-system, sans-serif;
-  --font-mono:  "JetBrains Mono", monospace;
-  --font-cjk:   "Noto Serif HK", serif;
+  --font-serif:     "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --font-serif-alt: "Newsreader", Georgia, serif;
+  --font-ui:        "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:      "JetBrains Mono", ui-monospace, monospace;
+  --font-cjk:       "Noto Serif HK", "Songti SC", serif;
 
   /* === Legacy token aliases (keep existing components working) === */
   --color-bg:             #F4F1EC;

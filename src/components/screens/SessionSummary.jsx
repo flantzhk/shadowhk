@@ -9,8 +9,8 @@ import styles from './SessionSummary.module.css';
 
 function getScoreColor(score) {
   if (score >= 90) return 'var(--accent)';
-  if (score >= 70) return '#E8A030';
-  if (score >= 50) return '#E8703A';
+  if (score >= 70) return '#C9A24A';
+  if (score >= 50) return '#C8392B';
   return '#E84040';
 }
 

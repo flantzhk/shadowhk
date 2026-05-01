@@ -7,6 +7,7 @@ import { getSceneById } from '../../services/sceneLoader.js';
 import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
 import { getCurrentUser } from '../../services/auth.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
+import { logger } from '../../utils/logger.js';
 
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const { settings } = useAppContext();
@@ -37,7 +38,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         }
         setSavedIds(ids);
       })
-      .catch(() => {})
+      .catch(err => logger.error('[SceneDetail] scene load failed', err?.message))
       .finally(() => setLoading(false));
 
     getAllSceneProgress().then(records => {
@@ -60,27 +61,31 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     return () => observer.disconnect();
   }, [scene]);
 
+  function buildLineEntry(line) {
+    return {
+      phraseId: line.id,
+      cjk: line.cjk,
+      romanization: line.romanization,
+      english: line.english,
+      language,
+      scene_id: sceneId,
+      source_tag: SOURCE_TAGS.LIBRARY,
+      growth_state: GROWTH_STATE.NEW,
+      interval: 0,
+      easeFactor: 2.5,
+      practiceCount: 0,
+      nextReviewAt: Date.now(),
+      lastPracticedAt: null,
+      lived_at: null,
+      _createdAt: Date.now(),
+      _updatedAt: Date.now(),
+    };
+  }
+
   async function saveAllLines() {
     for (const line of (scene.lines ?? [])) {
       if (!savedIds.has(line.id)) {
-        await saveLibraryEntry({
-          phraseId: line.id,
-          cjk: line.cjk,
-          romanization: line.romanization,
-          english: line.english,
-          language,
-          scene_id: sceneId,
-          source_tag: SOURCE_TAGS.LIBRARY,
-          growth_state: GROWTH_STATE.NEW,
-          interval: 0,
-          easeFactor: 2.5,
-          practiceCount: 0,
-          nextReviewAt: Date.now(),
-          lastPracticedAt: null,
-          lived_at: null,
-          _createdAt: Date.now(),
-          _updatedAt: Date.now(),
-        }).catch(() => {});
+        await saveLibraryEntry(buildLineEntry(line)).catch(() => {});
       }
     }
     setSavedIds(new Set((scene.lines ?? []).map(l => l.id)));
@@ -93,24 +98,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       await removeLibraryEntry(line.id).catch(() => {});
       setSavedIds(prev => { const next = new Set(prev); next.delete(line.id); return next; });
     } else {
-      await saveLibraryEntry({
-        phraseId: line.id,
-        cjk: line.cjk,
-        romanization: line.romanization,
-        english: line.english,
-        language,
-        scene_id: sceneId,
-        source_tag: SOURCE_TAGS.LIBRARY,
-        growth_state: GROWTH_STATE.NEW,
-        interval: 0,
-        easeFactor: 2.5,
-        practiceCount: 0,
-        nextReviewAt: Date.now(),
-        lastPracticedAt: null,
-        lived_at: null,
-        _createdAt: Date.now(),
-        _updatedAt: Date.now(),
-      }).catch(() => {});
+      await saveLibraryEntry(buildLineEntry(line)).catch(() => {});
       setSavedIds(prev => new Set(prev).add(line.id));
     }
   }
@@ -151,7 +139,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       >
         <div
           className={styles.heroTint}
-          style={{ background: `linear-gradient(160deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 50%)` }}
+          style={{ background: `linear-gradient(160deg, rgba(61, 20, 23, 0.35) 0%, transparent 50%)` }}
         />
         <div className={styles.heroDark} />
         <div className={styles.heroContent}>
@@ -213,7 +201,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           <div className={styles.masteryBar}>
             <div
               className={styles.masteryFill}
-              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, ${scene.tint ?? '#00A371'}, var(--accent))` }}
+              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, var(--sage-dark), var(--accent))` }}
             />
           </div>
           <span className={styles.masteryLabel}>{Math.round(masteryPct)}% mastered</span>

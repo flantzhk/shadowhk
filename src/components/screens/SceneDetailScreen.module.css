@@ -10,7 +10,7 @@
 
 .loadingBar {
   height: 3px;
-  background: var(--surface-2);
+  background: var(--bg-2);
   position: relative;
   overflow: hidden;
 }
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
+  padding: 0 16px;
   background: var(--bg-0);
   border-bottom: 1px solid var(--border-0);
   z-index: var(--z-player);
@@ -68,8 +68,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-0);
+  background: none;
+  border: 1px solid var(--border-1);
   border-radius: var(--radius-pill);
   color: var(--fg-1);
   font-family: var(--font-ui);
@@ -80,14 +80,15 @@
 }
 
 .stickyTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--fg-0);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 160px;
+  max-width: 180px;
+  letter-spacing: -0.01em;
 }
 
 .moreBtn {
@@ -102,11 +103,12 @@
 /* === Hero === */
 .hero {
   position: relative;
-  height: 300px;
+  height: 280px;
   background-size: cover;
   background-position: center;
-  background-color: var(--surface-2);
+  background-color: var(--ink);
   flex-shrink: 0;
+  border-bottom: 1px solid var(--fg-0);
 }
 
 .heroTint {
@@ -117,7 +119,7 @@
 .heroDark {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, var(--bg-0) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
 }
 
 .heroContent {
@@ -126,7 +128,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 12px 16px 16px;
+  padding: 14px 16px 18px;
   z-index: 1;
 }
 
@@ -134,7 +136,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0,0,0,0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.15);
@@ -151,29 +153,32 @@
 .heroMeta { align-self: flex-end; width: 100%; }
 
 .heroEyebrow {
-  font-family: var(--font-ui);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .heroTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 28px;
-  font-weight: 800;
+  font-weight: 500;
   color: #fff;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .heroDesc {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  color: rgba(255,255,255,0.65);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
   margin: 0;
 }
 
@@ -182,24 +187,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 14px 20px;
   max-width: 680px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+  border-bottom: 1px solid var(--border-0);
 }
 
 .controlsLeft {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .heartBtn {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--fg-2);
   cursor: pointer;
   padding: 0;
@@ -212,7 +218,7 @@
 .controlBtn {
   background: none;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--fg-2);
   cursor: pointer;
   padding: 0;
@@ -228,13 +234,13 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background: var(--surface-2);
+  background: var(--bg-1);
   border: 1px solid var(--border-1);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 4px;
   min-width: 160px;
   z-index: 100;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: var(--shadow-raised);
 }
 
 .moreItem {
@@ -247,16 +253,15 @@
   font-size: 14px;
   font-weight: 500;
   padding: 10px 14px;
-  border-radius: 7px;
   cursor: pointer;
   text-align: left;
 }
 
-.moreItem:hover { background: var(--surface-1); }
+.moreItem:hover { background: var(--bg-2); }
 
 .playBtn {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--accent);
   border: none;
@@ -264,8 +269,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--accent-dark);
-  box-shadow: 0 6px 16px var(--accent-glow);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
   transition: transform var(--transition-fast);
 }
 
@@ -276,7 +281,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0 16px 12px;
+  padding: 12px 20px;
   max-width: 680px;
   width: 100%;
   margin-left: auto;
@@ -286,21 +291,21 @@
 
 .masteryBar {
   flex: 1;
-  height: 4px;
-  background: var(--surface-2);
-  border-radius: 2px;
+  height: 3px;
+  background: var(--bg-3);
   overflow: hidden;
 }
 
 .masteryFill {
   height: 100%;
-  border-radius: 2px;
   transition: width 0.5s ease;
 }
 
 .masteryLabel {
-  font-family: var(--font-ui);
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--fg-2);
   white-space: nowrap;
   flex-shrink: 0;
@@ -309,7 +314,7 @@
 /* === Conversation thread === */
 .chatThread {
   flex: 1;
-  padding: 12px 12px 0;
+  padding: 16px 16px 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -325,7 +330,7 @@
   align-items: flex-end;
   gap: 8px;
   align-self: flex-start;
-  max-width: 78%;
+  max-width: 80%;
 }
 
 .youRow {
@@ -333,7 +338,7 @@
   align-items: flex-end;
   gap: 8px;
   align-self: flex-end;
-  max-width: 78%;
+  max-width: 80%;
   justify-content: flex-end;
 }
 
@@ -348,18 +353,18 @@
 }
 
 .npcBubble {
-  background: var(--surface-1);
+  background: var(--bg-1);
   border: 1px solid var(--border-0);
-  border-radius: 16px 16px 16px 4px;
-  padding: 10px 12px 6px;
+  border-radius: 14px 14px 14px 4px;
+  padding: 10px 12px 8px;
   min-width: 0;
 }
 
 .youBubble {
-  background: rgba(0,229,160,0.08);
-  border: 1px solid rgba(0,229,160,0.25);
-  border-radius: 16px 16px 4px 16px;
-  padding: 10px 12px 6px;
+  background: var(--accent-muted);
+  border: 1px solid rgba(200,57,43,0.15);
+  border-radius: 14px 14px 4px 14px;
+  padding: 10px 12px 8px;
   min-width: 0;
 }
 
@@ -369,8 +374,9 @@
   bottom: 0;
   display: flex;
   gap: 10px;
-  padding: 12px 16px;
-  background: linear-gradient(180deg, transparent, var(--bg-0) 40%);
+  padding: 12px 20px;
+  background: var(--bg-0);
+  border-top: 1px solid var(--border-0);
   padding-bottom: calc(12px + env(safe-area-inset-bottom));
   max-width: 680px;
   width: 100%;
@@ -381,15 +387,16 @@
 
 .ctaSecondary {
   flex: 1;
-  background: var(--surface-1);
+  background: none;
   border: 1px solid var(--border-1);
   border-radius: var(--radius-pill);
   color: var(--fg-1);
   font-family: var(--font-ui);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 12px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 .ctaPrimary {
@@ -397,10 +404,11 @@
   background: var(--accent);
   border: none;
   border-radius: var(--radius-pill);
-  color: var(--accent-dark);
+  color: #fff;
   font-family: var(--font-ui);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 12px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }

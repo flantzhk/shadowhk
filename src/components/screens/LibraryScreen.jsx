@@ -63,7 +63,7 @@ export default function LibraryScreen({ onNavigate }) {
   return (
     <div className={styles.screen}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Your library</h1>
+        <h1 className={styles.title}>Your phrasebook.</h1>
         <button className={styles.addBtn}>+</button>
       </div>
 
@@ -86,20 +86,18 @@ export default function LibraryScreen({ onNavigate }) {
           <>
             <div className={styles.shortcutGrid}>
               <div className={styles.shortcutSaved}>
-                <span className={styles.shortcutHeart}>♥</span>
                 <div>
-                  <p className={styles.shortcutLabel}>Saved phrases</p>
-                  <p className={styles.shortcutCount}>{library.length} items</p>
+                  <p className={styles.shortcutCount}>{library.length}</p>
+                  <p className={styles.shortcutLabel}>Saved</p>
                 </div>
               </div>
               <button
                 className={styles.shortcutDue}
                 onClick={() => onNavigate('practice')}
               >
-                <span className={styles.shortcutDueIcon}>⚡</span>
                 <div>
+                  <p className={styles.shortcutCount}>{dueToday.length}</p>
                   <p className={styles.shortcutLabel}>Due today</p>
-                  <p className={styles.shortcutCount}>{dueToday.length} phrases</p>
                 </div>
               </button>
             </div>

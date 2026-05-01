@@ -8,12 +8,12 @@ import { SCENE_CATEGORIES } from '../../utils/constants.js';
 
 const CATEGORY_LABELS = {
   all: 'All',
-  food: 'Food',
-  transport: 'Transport',
+  food: '🍜 Food',
+  transport: '🚇 Transport',
   everyday: 'Everyday',
-  social: 'Social',
-  services: 'Services',
-  festivals: 'Festivals',
+  social: '👋 Social',
+  services: '🏥 Services',
+  festivals: '🎆 Festivals',
 };
 
 // Pick a seasonally relevant scene for the featured mosaic
@@ -110,28 +110,32 @@ export default function ScenesScreen({ onNavigate }) {
 
       {/* Featured mosaic */}
       {featured && (
-        <button
-          className={styles.featured}
-          style={{ backgroundImage: featured.imageUrl ? `url(${featured.imageUrl})` : undefined, backgroundColor: featured.tint ?? 'var(--surface-2)' }}
-          onClick={() => onNavigate('scene', featured.id)}
-        >
-          <div className={styles.featuredOverlay} />
-          <div className={styles.featuredContent}>
-            <span className={styles.featuredEyebrow}>FEATURED SCENE</span>
-            <p className={styles.featuredTitle}>{featured.title}</p>
-            <p className={styles.featuredMeta}>
-              {featured.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
-              {featured.estimatedMinutes ? ` · ${featured.estimatedMinutes} min` : ''}
-            </p>
-          </div>
-        </button>
+        <>
+          <p className={styles.sectionLabel}>FEATURED</p>
+          <button
+            className={styles.featured}
+            style={{ backgroundImage: featured.imageUrl ? `url(${featured.imageUrl})` : undefined, backgroundColor: featured.tint ?? 'var(--surface-2)' }}
+            onClick={() => onNavigate('scene', featured.id)}
+          >
+            <div className={styles.featuredOverlay} />
+            <div className={styles.featuredContent}>
+              <span className={styles.featuredEyebrow}>FEATURED SCENE</span>
+              <p className={styles.featuredTitle}>{featured.title}</p>
+              <p className={styles.featuredMeta}>
+                {featured.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
+                {featured.estimatedMinutes ? ` · ${featured.estimatedMinutes} min` : ''}
+              </p>
+            </div>
+          </button>
+        </>
       )}
 
       {/* Grid */}
+      <p className={styles.sectionLabel}>ALL SCENES</p>
       {loading ? (
         <div className={styles.grid}>
           {[1, 2, 3, 4].map(i => (
-            <div key={i} className={styles.skeleton} style={{ aspectRatio: 1 }} />
+            <div key={i} className={styles.skeleton} />
           ))}
         </div>
       ) : (
@@ -151,23 +155,20 @@ export default function ScenesScreen({ onNavigate }) {
                   className={styles.cover}
                   style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
                 >
-                  <div
-                    className={styles.coverTint}
-                    style={{ background: `linear-gradient(135deg, ${scene.tint ?? '#00E5A0'}44 0%, transparent 60%)` }}
-                  />
+                  <div className={styles.coverTint} />
                   <div className={styles.coverDark} />
                   {scene.emoji && <span className={styles.coverEmoji}>{scene.emoji}</span>}
-                  {pct > 0 && (
-                    <span className={`${styles.masteryBadge} ${pct >= 80 ? styles.masteryHigh : ''}`}>
-                      {pct}%
-                    </span>
-                  )}
                 </div>
-                <p className={styles.tileTitle}>{scene.title}</p>
-                <p className={styles.tileMeta}>
-                  {scene.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
-                  {scene.estimatedMinutes ? ` · ${scene.estimatedMinutes} min` : ''}
-                </p>
+                <div className={styles.tileInfo}>
+                  <p className={styles.tileTitle}>{scene.title}</p>
+                  <p className={styles.tileMeta}>
+                    {scene.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases
+                    {scene.estimatedMinutes ? ` · ${scene.estimatedMinutes} min` : ''}
+                  </p>
+                  <div className={styles.tileProgressBar}>
+                    <div className={styles.tileProgressFill} style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
               </button>
             );
           })}

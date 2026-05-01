@@ -20,21 +20,20 @@
 .iconWrap {
   width: 72px;
   height: 72px;
-  border-radius: 24px;
+  border-radius: 0;
   background: var(--accent-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  box-shadow: 0 0 32px var(--accent-glow);
 }
 
 .iconEmoji { font-size: 36px; }
 
 .title {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--fg-0);
   margin-bottom: 24px;
   text-align: center;
@@ -51,9 +50,9 @@
 
 .statTile {
   flex: 1;
-  background: var(--surface-1);
-  border: 1px solid var(--border-1);
-  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 0;
   padding: 16px 8px;
   display: flex;
   flex-direction: column;
@@ -62,17 +61,20 @@
 }
 
 .statNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-serif);
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--fg-0);
+  letter-spacing: -0.02em;
 }
 
 .statLabel {
-  font-family: var(--font-ui);
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--fg-3);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* === Section === */
@@ -82,20 +84,23 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   color: var(--fg-2);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: 4px solid var(--fg-0);
+  display: block;
 }
 
 /* === Tone list === */
 .toneList {
-  background: var(--surface-1);
-  border: 1px solid var(--border-1);
-  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -147,7 +152,7 @@
 .tonePct {
   width: 38px;
   text-align: right;
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
@@ -169,10 +174,10 @@
 .confusionItem:last-child { border-bottom: none; }
 
 .practiceNote {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
   font-size: 12px;
-  color: var(--fg-3);
   font-style: italic;
+  color: var(--fg-3);
   margin-top: 8px;
 }
 
@@ -182,8 +187,8 @@
   align-items: center;
   gap: 10px;
   background: var(--accent-muted);
-  border: 1px solid rgba(0,229,160,0.25);
-  border-radius: 12px;
+  border: 1px solid rgba(200,57,43,0.25);
+  border-radius: 0;
   padding: 14px 18px;
   width: 100%;
   margin-bottom: 20px;
@@ -209,8 +214,8 @@
 .playAgainBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 12px;
-  background: var(--surface-1);
+  border-radius: 0;
+  background: var(--bg-1);
   border: 1px solid var(--border-1);
   font-family: var(--font-ui);
   font-size: 15px;
@@ -220,18 +225,18 @@
   transition: background 0.15s;
 }
 
-.playAgainBtn:hover { background: var(--surface-2); }
+.playAgainBtn:hover { background: var(--bg-2); }
 
 .doneBtn {
   width: 100%;
   padding: 16px;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--accent);
   border: none;
   font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 800;
-  color: var(--accent-dark);
+  color: #fff;
   cursor: pointer;
   box-shadow: 0 4px 16px var(--accent-glow);
   transition: opacity 0.15s;

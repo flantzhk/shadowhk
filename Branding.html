@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>ShadowHK — Brand System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+HK:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#F4F1EC; --bg-1:#FAFAF7; --bg-2:#EDE7DF; --bg-3:#E4DDD5;
+    --sage-light:#D6E0D4; --sage-mid:#8FAB8A; --sage-dark:#4A6B46;
+    --fg-0:#1A1A1A; --fg-1:#3D3D3D; --fg-2:#6B6B6B; --fg-3:#ABABAB;
+    --accent:#C8392B; --accent-dark:#F2DDD9; --gold:#C9A24A;
+    /* Wong Kar-wai cinematic shadow palette */
+    --ink:#16242A;       /* deep teal-ink shadow */
+    --oxblood:#3D1417;   /* maroon-black plinth */
+    --amber:#A8642A;     /* warm lamp glow */
+    --jade:#2A4A3A;      /* qipao silk green */
+    --serif:'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+    --serif-alt:'Newsreader', Georgia, serif;
+    --sans:'Inter', system-ui, sans-serif;
+    --hk:'Noto Serif HK', 'Songti SC', serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  body{padding:0 0 120px;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 56px;}
+
+  /* ─ Monocle masthead bar ─ */
+  .masthead{
+    border-top:8px solid var(--fg-0);
+    border-bottom:1px solid var(--fg-0);
+    padding:14px 0 12px;margin-bottom:48px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-0);
+  }
+  .masthead b{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:500;letter-spacing:-0.01em;text-transform:none;color:var(--fg-0);}
+  .masthead .dots{display:flex;gap:24px;}
+  .masthead .dots span{display:flex;align-items:center;gap:6px;}
+  .masthead .dots span::before{content:"";width:6px;height:6px;border-radius:99px;background:var(--accent);display:inline-block;}
+
+  .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-0);font-weight:600;display:flex;align-items:baseline;gap:10px;}
+  h1.title{font-family:var(--serif);font-weight:500;font-size:64px;line-height:1.02;letter-spacing:-0.015em;margin:32px 0 24px;color:var(--fg-0);}
+  .lede{font-family:var(--serif-alt);font-weight:400;font-size:21px;line-height:1.55;color:var(--fg-1);max-width:760px;}
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:1px solid var(--fg-0);border-bottom:1px solid var(--fg-0);padding:18px 0;font-size:10px;color:var(--fg-2);font-family:var(--mono);letter-spacing:0.14em;text-transform:uppercase;}
+  .meta > div{padding:0 24px;border-right:1px solid var(--bg-3);}
+  .meta > div:first-child{padding-left:0;}
+  .meta > div:last-child{border-right:none;}
+  .meta b{display:block;color:var(--fg-0);font-weight:500;font-family:var(--serif);font-style:italic;font-size:14px;letter-spacing:-0.005em;text-transform:none;margin-bottom:6px;}
+  section{margin-top:88px;position:relative;}
+  .sec-bar{border-top:6px solid var(--fg-0);padding-top:14px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:baseline;gap:24px;}
+  .sec-bar .num{font-family:var(--serif-alt);font-style:italic;font-weight:400;font-size:14px;color:var(--accent);}
+  .sec-bar .label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-0);font-weight:600;}
+  .sec-bar .meta-r{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-2);margin-left:auto;}
+  h2{font-family:var(--serif);font-weight:500;font-size:36px;line-height:1.15;letter-spacing:-0.005em;margin:0 0 10px;}
+  .section-sub{color:var(--fg-1);font-size:15px;max-width:680px;line-height:1.6;margin:0 0 28px;font-family:var(--serif-alt);font-style:italic;font-weight:400;}
+  .rule{height:1px;background:var(--fg-0);margin:0 0 32px;}
+  .rule-thick{height:3px;background:var(--fg-0);margin:0 0 24px;}
+  .rule-double{height:8px;border-top:1px solid var(--fg-0);border-bottom:1px solid var(--fg-0);margin:0 0 32px;}
+
+  /* Hero card */
+  .hero{border-radius:0;overflow:hidden;background:var(--bg-1);border:1px solid var(--fg-0);display:grid;grid-template-columns:1.1fr 1fr;min-height:380px;position:relative;}
+  .hero::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--fg-0);z-index:5;}
+  .hero-photo{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 25% 30%, rgba(200,57,43,0.32), transparent 55%),
+      radial-gradient(ellipse at 78% 75%, rgba(22,36,42,0.6), transparent 60%),
+      radial-gradient(ellipse at 60% 10%, rgba(168,100,42,0.22), transparent 50%),
+      linear-gradient(140deg, #1a0e0a 0%, #2a1410 35%, #3d1417 70%, #16242a 100%);
+    color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .hero-photo::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0,0,0,0.35) 100%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode:overlay;
+  }
+  .hero-photo > *{position:relative;}
+  .hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7;}
+  .hero-photo .ch{font-family:var(--hk);font-weight:500;font-size:96px;line-height:1;color:#fff;letter-spacing:0.04em;text-shadow:0 2px 30px rgba(0,0,0,0.4);}
+  .hero-photo .jy{font-family:var(--sans);font-size:18px;color:rgba(255,255,255,0.7);margin-top:12px;font-weight:400;}
+  .hero-photo .en{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;color:rgba(255,255,255,0.92);margin-top:8px;}
+  .hero-info{padding:40px;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-1);}
+  .hero-info h3{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.2;margin:8px 0 14px;}
+  .hero-info p{font-size:15px;line-height:1.6;color:var(--fg-1);margin:0;max-width:380px;}
+  .hero-stamp{
+    display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
+    background:var(--accent-dark);color:var(--accent);font-size:12px;font-weight:500;letter-spacing:0.04em;
+    align-self:flex-start;margin-top:16px;
+  }
+  .stamp-dot{width:7px;height:7px;border-radius:99px;background:var(--accent);}
+
+  /* Color tokens */
+  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .swatch{border-radius:0;background:var(--bg-1);overflow:hidden;border:1px solid var(--fg-0);}
+  .swatch .chip{height:120px;display:flex;align-items:flex-end;padding:14px;}
+  .swatch .info{padding:14px 16px 18px;font-family:var(--mono);font-size:11px;}
+  .swatch .info b{display:block;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--fg-0);margin-bottom:4px;letter-spacing:-0.01em;}
+  .swatch .info span{color:var(--fg-2);}
+  .swatch .info em{display:block;font-style:normal;color:var(--fg-2);font-family:var(--sans);font-size:12px;margin-top:6px;line-height:1.4;}
+  .palette-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+
+  /* Typography */
+  .type-row{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:26px 0;border-bottom:1px solid var(--bg-3);align-items:baseline;}
+  .type-row:last-child{border-bottom:none;}
+  .type-meta{font-family:var(--mono);font-size:11px;color:var(--fg-2);line-height:1.6;}
+  .type-meta b{display:block;font-family:var(--sans);font-size:13px;color:var(--fg-0);font-weight:500;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px;}
+  .display-xxl{font-family:var(--serif);font-weight:500;font-size:64px;line-height:1.05;letter-spacing:-0.01em;color:var(--fg-0);}
+  .display-l{font-family:var(--serif);font-weight:500;font-size:36px;line-height:1.15;letter-spacing:-0.005em;}
+  .display-i{font-family:var(--serif-alt);font-weight:400;font-size:24px;line-height:1.45;color:var(--fg-1);letter-spacing:-0.005em;}
+  .pull-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;line-height:1.5;color:var(--fg-1);max-width:560px;}
+  .ui-l{font-family:var(--sans);font-weight:600;font-size:22px;letter-spacing:-0.01em;}
+  .ui-m{font-family:var(--sans);font-weight:500;font-size:16px;letter-spacing:-0.005em;color:var(--fg-1);}
+  .ui-s{font-family:var(--sans);font-weight:400;font-size:14px;color:var(--fg-2);letter-spacing:0;}
+  .num{font-family:var(--sans);font-weight:700;font-size:48px;font-variant-numeric:tabular-nums;color:var(--accent);letter-spacing:-0.02em;}
+  .ch{font-family:var(--hk);font-weight:500;font-size:48px;color:var(--fg-0);letter-spacing:0.04em;}
+  .jy{font-family:var(--sans);font-weight:400;font-size:14px;color:var(--fg-2);margin-top:6px;}
+
+  /* Components grid */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+  .card{background:var(--bg-1);border-radius:0;padding:24px;border:1px solid var(--fg-0);}
+  .card-label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-0);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--fg-0);font-weight:600;}
+
+  /* Buttons */
+  .btn-primary{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#fff;font-family:var(--sans);font-weight:500;font-size:15px;
+    padding:14px 26px;border-radius:999px;letter-spacing:-0.01em;border:none;
+  }
+  .btn-ghost{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:transparent;color:var(--fg-0);font-family:var(--sans);font-weight:500;font-size:15px;
+    padding:13px 25px;border-radius:999px;border:1px solid var(--bg-3);letter-spacing:-0.01em;
+  }
+  .btn-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent-dark);color:var(--accent);
+    font-family:var(--sans);font-weight:500;font-size:13px;
+    padding:7px 14px;border-radius:999px;letter-spacing:0;
+  }
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip-sage{background:var(--sage-light);color:var(--sage-dark);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;}
+  .chip-blush{background:var(--accent-dark);color:var(--accent);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;}
+  .chip-cream{background:var(--bg-2);color:var(--fg-1);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:500;}
+
+  /* Cinematic photo placeholders — WKW treatment */
+  .photo{
+    aspect-ratio:21/9;border-radius:6px;overflow:hidden;position:relative;
+    display:flex;align-items:flex-end;padding:18px;color:#fff;
+    box-shadow:0 1px 4px rgba(0,0,0,0.07), inset 0 0 60px rgba(0,0,0,0.4);
+  }
+  .photo::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
+  }
+  .photo::after{
+    content:"";position:absolute;inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode:overlay;opacity:0.7;
+  }
+  .photo .ph-tag{position:relative;font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;background:rgba(0,0,0,0.5);padding:5px 9px;border-radius:2px;backdrop-filter:blur(6px);z-index:2;}
+  .photo.harbour{background:radial-gradient(ellipse at 30% 70%, rgba(168,100,42,0.5) 0%, transparent 50%), linear-gradient(135deg,#0a141c 0%, #16242a 50%, #1c2a32 100%);}
+  .photo.market{background:radial-gradient(ellipse at 70% 40%, rgba(200,57,43,0.45) 0%, transparent 55%), linear-gradient(135deg,#1a0a08 0%, #3d1417 50%, #2a0e10 100%);}
+  .photo.sage{background:radial-gradient(ellipse at 40% 50%, rgba(168,100,42,0.3) 0%, transparent 55%), linear-gradient(135deg,#0e1a14 0%, #2a4a3a 50%, #1a2a20 100%);}
+  .photo.neon{background:radial-gradient(ellipse at 60% 60%, rgba(200,57,43,0.55) 0%, transparent 50%), radial-gradient(ellipse at 20% 30%, rgba(74,107,70,0.4) 0%, transparent 50%), linear-gradient(135deg,#0e0a14 0%, #1a0e1a 50%, #16242a 100%);}
+  .photo.tram{background:radial-gradient(ellipse at 50% 50%, rgba(168,100,42,0.45) 0%, transparent 55%), linear-gradient(135deg,#1a140e 0%, #2a1a10 50%, #3d1417 100%);}
+  .photo.qipao{background:radial-gradient(ellipse at 30% 60%, rgba(200,57,43,0.6) 0%, transparent 50%), linear-gradient(135deg,#1a0a0e 0%, #3d1417 50%, #16242a 100%);}
+  .photo.cinema{aspect-ratio:21/9;}
+  .photo.square{aspect-ratio:1/1;}
+  .photo.portrait{aspect-ratio:3/4;}
+
+  /* Iconography */
+  .icon-row{display:flex;gap:36px;flex-wrap:wrap;align-items:center;}
+  .icon-cell{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11px;color:var(--fg-2);font-family:var(--mono);letter-spacing:0.04em;}
+  .icon-cell svg{width:28px;height:28px;stroke:var(--fg-0);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* Motion */
+  .motion-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .motion-cell{background:var(--bg-1);padding:22px;border:1px solid var(--fg-0);border-radius:0;}
+  .motion-cell h4{font-family:var(--serif);font-weight:500;font-size:18px;margin:0 0 6px;}
+  .motion-cell .desc{font-size:13px;color:var(--fg-2);line-height:1.55;}
+  .motion-cell .demo{height:100px;display:flex;align-items:center;justify-content:center;margin-top:14px;border-radius:10px;background:var(--bg-2);position:relative;overflow:hidden;}
+  .pulse{width:64px;height:64px;border-radius:99px;background:var(--accent);animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(200,57,43,0.5);}50%{transform:scale(1.06);box-shadow:0 0 0 18px rgba(200,57,43,0);}}
+  .scorepop{font-family:var(--serif);font-weight:600;font-size:48px;color:var(--accent);animation:pop 1.4s ease-in-out infinite;}
+  @keyframes pop{0%{transform:scale(0.8);opacity:0;}30%{transform:scale(1.2);opacity:1;}50%{transform:scale(1);}100%{transform:scale(1);opacity:1;}}
+  .confetti{position:relative;width:100%;height:100%;}
+  .confetti span{position:absolute;width:8px;height:8px;border-radius:2px;animation:fall 2.5s ease-in infinite;}
+  .confetti span:nth-child(1){left:10%;background:var(--accent);animation-delay:0s;}
+  .confetti span:nth-child(2){left:30%;background:var(--sage-dark);animation-delay:.3s;}
+  .confetti span:nth-child(3){left:50%;background:var(--gold);animation-delay:.6s;width:6px;height:14px;}
+  .confetti span:nth-child(4){left:70%;background:var(--accent);animation-delay:.2s;}
+  .confetti span:nth-child(5){left:88%;background:var(--sage-dark);animation-delay:.5s;}
+  @keyframes fall{0%{transform:translateY(-20px) rotate(0);opacity:0;}10%{opacity:1;}100%{transform:translateY(100px) rotate(360deg);opacity:0;}}
+
+  /* Principles */
+  .principles{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .principle{padding:28px;border:1px solid var(--fg-0);background:var(--bg-1);position:relative;}
+  .principle::before{content:"";position:absolute;top:0;left:0;width:48px;height:6px;background:var(--fg-0);}
+  .principle .num-mark{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent);margin-bottom:8px;}
+  .principle h3{font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 10px;}
+  .principle p{font-size:14px;color:var(--fg-1);line-height:1.6;margin:0;}
+
+  /* Don'ts */
+  .donts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .donts > div{padding:16px 20px;border-radius:12px;font-size:14px;line-height:1.5;}
+  .do{background:var(--sage-light);color:var(--sage-dark);}
+  .dont{background:var(--accent-dark);color:var(--accent);}
+  .do::before,.dont::before{font-weight:600;display:block;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;}
+  .do::before{content:"Do";}
+  .dont::before{content:"Don't";}
+
+  /* Footer */
+  .footer{margin-top:96px;padding:18px 0;border-top:8px solid var(--fg-0);border-bottom:1px solid var(--fg-0);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--fg-0);letter-spacing:0.18em;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <b>ShadowHK</b>
+    <div class="dots"><span>Brand &amp; Visual System</span><span>v2.3</span><span>April 2026</span></div>
+    <div>For approval</div>
+  </div>
+
+  <!-- ─── Cover ─────────────────────────────────────────── -->
+  <div class="eyebrow" data-num="§00"><span class="sage-tag">Issue · The Hong Kong Brief</span></div>
+  <h1 class="title">Hong Kong, half-remembered.<br>Vermilion, ink, and sage.</h1>
+  <p class="lede" style="font-style:normal;font-weight:400;">ShadowHK is a Cantonese learning app for the people who already live in Hong Kong but never learned to speak it. The brand reads like a Monocle dispatch shot through a Wong Kar-wai lens — dense, cinematic photography; quiet serif typography; warm cream surfaces; one vermilion thread pulling everything forward. Mobile and desktop, light only, never childlike.</p>
+  <div class="meta">
+    <div><b>For approval</b><br>Visual direction</div>
+    <div><b>Voice</b><br>Informed · warm · proud</div>
+    <div><b>Benchmark</b><br>Monocle × Duolingo</div>
+    <div><b>Format</b><br>iPhone, light only</div>
+  </div>
+
+  <!-- ─── Hero treatment ────────────────────────────────── -->
+  <section>
+    <div class="hero">
+      <div class="hero-photo">
+        <div class="hero-tag">影 · ShadowHK</div>
+        <div>
+          <div style="font-family:var(--sans);font-weight:600;font-size:36px;color:#fff;letter-spacing:-0.01em;">jing2</div>
+          <div style="font-family:var(--hk);font-weight:500;font-size:80px;line-height:1;color:rgba(255,255,255,0.85);margin-top:14px;letter-spacing:0.04em;">影</div>
+          <div style="font-family:var(--serif);font-weight:400;font-size:18px;line-height:1.5;color:rgba(255,255,255,0.85);margin-top:24px;max-width:280px;">To follow, to mirror, to repeat what you hear.</div>
+        </div>
+        <div class="hero-tag">Cantonese · Hong Kong · 2026</div>
+      </div>
+      <div class="hero-info">
+        <span class="hero-stamp"><span class="stamp-dot"></span>Brand thesis</span>
+        <div>
+          <h3>Learning Cantonese is learning Hong Kong.</h3>
+          <p>The city, its people, its streets, its food — inseparable from the language. Every screen should feel like a page from a magazine that loves Hong Kong. Adult, sophisticated, never childlike, never cute.</p>
+        </div>
+        <div class="pill-row" style="margin-top:24px;">
+          <span class="chip-blush">Editorial</span>
+          <span class="chip-sage">Cultural</span>
+          <span class="chip-cream">Habit-forming</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Principles ───────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">01</span><span class="label">Principles</span><span class="meta-r">Four rules</span></div>
+    <h2>How the brand behaves</h2>
+    <p class="section-sub">Four rules that govern every design decision. When the editorial instinct and the gamified instinct fight, the editorial side wins.</p>
+    <div class="rule"></div>
+    <div class="principles">
+      <div class="principle"><div class="num-mark">No. 01</div><h3>Cinema, not stock.</h3><p>Photography is the brand. Shot like a Wong Kar-wai film — dense, saturated, half-seen. Vermilion bleeds, jade silk in shadow, amber lamp glow. Subjects framed by doorways, mirrors, rain on glass. Always 21:9 letterbox, always with grain.</p></div>
+      <div class="principle"><div class="num-mark">No. 02</div><h3>The chrome stays light.</h3><p>The app itself sits in warm off-white. Cinematic darkness lives only inside photographs and hero plinths — the surfaces around them breathe. No dark mode in v1. Silence and margin are part of the design.</p></div>
+      <div class="principle"><div class="num-mark">No. 03</div><h3>Vermilion is the only accent.</h3><p>One red carries every CTA, every score, every active state. Sage is for context and mastery. Ink and oxblood live in photography. Never rainbow, never neon glow.</p></div>
+      <div class="principle"><div class="num-mark">No. 04</div><h3>Celebration with restraint.</h3><p>Reward moments use editorial typography and tasteful confetti — vermilion + sage + warm gold only. The user should feel proud, not patronised.</p></div>
+    </div>
+  </section>
+
+  <!-- ─── Colour ───────────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">02</span><span class="label">Colour</span><span class="meta-r">12 tokens · 3 groups</span></div>
+    <h2>One palette, three jobs.</h2>
+    <p class="section-sub">The whole brand runs on twelve colours. They split into three roles: <b style="color:var(--fg-0);font-weight:600;">surface</b> tones do the layout work, <b style="color:var(--fg-0);font-weight:600;">action</b> (vermilion + sage) carries every CTA and state in the UI, and <b style="color:var(--fg-0);font-weight:600;">cinematic</b> tones live only inside photographs and hero overlays. UI chrome never reaches into the cinematic group.</p>
+    <div class="rule"></div>
+
+    <div class="eyebrow" style="color:var(--fg-2);margin-bottom:12px;">Group 1 · Surface — every screen, both formats</div>
+    <div class="palette-row">
+      <div class="swatch"><div class="chip" style="background:#F4F1EC"></div><div class="info"><b>Background</b><span>--bg-0 · #F4F1EC</span><em>Primary canvas. Default for every screen.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#FAFAF7"></div><div class="info"><b>Surface</b><span>--bg-1 · #FAFAF7</span><em>Cards, elevated surfaces, inputs.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#EDE7DF"></div><div class="info"><b>Section</b><span>--bg-2 · #EDE7DF</span><em>Subtle contrast. Game-mode bg.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#E4DDD5"></div><div class="info"><b>Deep</b><span>--bg-3 · #E4DDD5</span><em>Dividers, deepest neutral.</em></div></div>
+    </div>
+
+    <div class="eyebrow" style="color:var(--fg-2);margin:36px 0 12px;">Group 2 · Action — vermilion + sage carry the entire UI</div>
+    <div class="palette-row">
+      <div class="swatch" style="background:var(--accent);color:#fff;border:none;"><div class="chip" style="background:#C8392B;height:140px;"><span style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);">The accent</span></div><div class="info" style="color:#fff;"><b style="color:#fff">Vermilion</b><span style="color:rgba(255,255,255,0.7)">--accent · #C8392B</span><em style="color:rgba(255,255,255,0.85)">Every CTA, link, score, active state. The single visual hook.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#F2DDD9"></div><div class="info"><b>Blush</b><span>--accent-dark · #F2DDD9</span><em>Behind vermilion elements.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#D6E0D4"></div><div class="info"><b>Sage tint</b><span>--sage-light · #D6E0D4</span><em>Cultural cards. Mastered states.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#4A6B46"></div><div class="info" style="color:#fff;background:#4A6B46;"><b style="color:#fff">Sage dark</b><span style="color:rgba(255,255,255,0.7)">--sage-dark · #4A6B46</span><em style="color:rgba(255,255,255,0.85)">Sage headings, checkmarks, mastery.</em></div></div>
+    </div>
+    <div class="palette-row" style="margin-top:14px;">
+      <div class="swatch"><div class="chip" style="background:#1A1A1A"></div><div class="info"><b>Foreground</b><span>--fg-0 · #1A1A1A</span><em>Primary text. Never pure black.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#6B6B6B"></div><div class="info"><b>Muted</b><span>--fg-2 · #6B6B6B</span><em>Jyutping. Body context.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#ABABAB"></div><div class="info"><b>Tertiary</b><span>--fg-3 · #ABABAB</span><em>Placeholder, disabled.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#C9A24A"></div><div class="info"><b>Warm gold</b><span>--gold · #C9A24A</span><em>Confetti only. Milestone accents.</em></div></div>
+    </div>
+
+    <div class="eyebrow" style="color:var(--fg-2);margin:36px 0 8px;">Group 3 · Cinematic — only inside photographs &amp; hero overlays</div>
+    <p class="section-sub" style="font-size:14px;margin-bottom:14px;">These tones are how Wong Kar-wai photography gets its weight. They live <em>inside</em> photo overlays, gradient washes on hero images, and dark cinema plates. <b style="color:var(--accent);font-weight:500;">Never used for buttons, cards, or UI surfaces.</b></p>
+    <div class="palette-row">
+      <div class="swatch"><div class="chip" style="background:#16242A;height:120px;"></div><div class="info" style="color:var(--fg-1);"><b>Ink</b><span>--ink · #16242A</span><em>Deep teal-black. Photo shadow.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#3D1417;height:120px;"></div><div class="info"><b>Oxblood</b><span>--oxblood · #3D1417</span><em>Maroon-black. Hero overlay.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#A8642A;height:120px;"></div><div class="info"><b>Amber</b><span>--amber · #A8642A</span><em>Warm lamp glow in photos.</em></div></div>
+      <div class="swatch"><div class="chip" style="background:#2A4A3A;height:120px;"></div><div class="info"><b>Jade</b><span>--jade · #2A4A3A</span><em>Silk green photo shadow.</em></div></div>
+    </div>
+  </section>
+
+  <!-- ─── Type ─────────────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">03</span><span class="label">Typography</span><span class="meta-r">3 typefaces</span></div>
+    <h2>Three voices, never more.</h2>
+    <p class="section-sub">Playfair Display sets the magazine tone. Inter does the work. Noto Serif HK carries the language itself, always paired with quieter Jyutping romanisation.</p>
+    <div class="rule"></div>
+
+    <div class="type-row">
+      <div class="type-meta"><b>Display</b>Playfair Display<br>500 · -1% tracking<br>Hero, scene titles, celebrations</div>
+      <div><div class="display-xxl">Hong Kong speaks<br>in tones.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>Editorial body</b>Newsreader<br>400 · 24px<br>Long-form, cultural notes</div>
+      <div><div class="display-i">Yum cha has been the heartbeat of Hong Kong social life since the 1800s — a place where families settle in, share a teapot, and talk through the morning.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>Section</b>Playfair Display<br>500<br>Section dividers</div>
+      <div><div class="display-l">Food &amp; Drink</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>UI large</b>Inter 600<br>22px<br>Buttons, screen labels</div>
+      <div><div class="ui-l">Hold to shadow</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>UI body</b>Inter 500<br>16px<br>Default body, labels</div>
+      <div><div class="ui-m">Yum cha has been the heartbeat of Hong Kong social life since the 1800s.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>UI small</b>Inter 400<br>14px · muted<br>Captions, helpers</div>
+      <div><div class="ui-s">Most people quit in 3 days. You didn't.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>Numerals</b>Inter 700 · tabular<br>Streaks, scores, timers<br>Always vermilion</div>
+      <div><div class="num">87%</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><b>Cantonese pair</b>Jyutping primary (Inter 600)<br>Chinese secondary (Noto Serif HK)<br>English tertiary (Inter 14px)</div>
+      <div>
+        <div style="font-family:var(--sans);font-weight:600;font-size:30px;color:var(--fg-0);letter-spacing:-0.01em;">nei5 hou3 aa3</div>
+        <div style="font-family:var(--hk);font-weight:400;font-size:20px;color:var(--fg-2);margin-top:6px;letter-spacing:0.04em;">你好呀</div>
+        <div style="font-family:var(--sans);font-size:14px;color:var(--fg-1);margin-top:6px;">Hello there</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Photography ─────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">04</span><span class="label">Photography</span><span class="meta-r">Wong Kar-wai · cinematic</span></div>
+    <h2>Shot like 2046.</h2>
+    <p class="section-sub">Photography references late-period Wong Kar-wai — <em>2046</em>, <em>In the Mood for Love</em>, <em>Chungking Express</em>. Dense, saturated, cinematic. A figure half-seen through smoke or rain on glass. Vermilion bleeds, jade silk in shadow, amber lamp glow, ink-teal blacks. Letterboxed crops. Subtle film grain on every image. The frame holds memory, not documentation.</p>
+    <div class="rule"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+      <div class="photo cinema neon"><div class="ph-tag">Neon · Mong Kok · 23:40</div></div>
+      <div class="photo cinema tram"><div class="ph-tag">Tram window · Wan Chai</div></div>
+      <div class="photo cinema qipao"><div class="ph-tag">Qipao silk · doorway</div></div>
+      <div class="photo cinema harbour"><div class="ph-tag">Harbour · 18:12 · rain</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px;">
+      <div class="photo square market"><div class="ph-tag">Wet market · dawn</div></div>
+      <div class="photo square sage"><div class="ph-tag">Temple · incense</div></div>
+      <div class="photo square neon"><div class="ph-tag">Cha chaan teng · booth</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin-top:32px;align-items:start;">
+      <div>
+        <div class="card-label" style="margin-bottom:14px;">The look — what to brief a photographer</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;font-size:14px;line-height:1.6;color:var(--fg-1);">
+          <div><b style="color:var(--fg-0);font-weight:600;">Colour</b><br>Cross-processed feel. Reds saturated to bleeding. Greens pulled to forest/jade. Skin warm amber. Blacks read as ink-teal or oxblood, never neutral.</div>
+          <div><b style="color:var(--fg-0);font-weight:600;">Light</b><br>Practical sources only — neon, lamp, fluorescent strip, candle. Never flash. Highlights blown gently to gold; shadows lifted slightly to magenta or teal.</div>
+          <div><b style="color:var(--fg-0);font-weight:600;">Frame</b><br>Subjects off-centre. Foreground obstruction encouraged: doorways, mirrors, rain on glass, train windows, smoke, hanging meat, beaded curtains. The viewer is always looking through something.</div>
+          <div><b style="color:var(--fg-0);font-weight:600;">Texture</b><br>16mm/35mm film grain present on every shot. No clean digital. Slight defocus on edges of frame. 21:9 letterbox where the layout allows.</div>
+        </div>
+      </div>
+      <div style="background:var(--ink);color:#fff;padding:24px 26px;border-radius:6px;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);">References</div>
+        <div style="font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.5;margin-top:14px;">
+          Wong Kar-wai · <em>2046</em><br>
+          <em>In the Mood for Love</em><br>
+          <em>Chungking Express</em><br>
+          Christopher Doyle, cinematography<br>
+          William Chang, art direction
+        </div>
+        <div style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.12);font-size:13px;color:rgba(255,255,255,0.7);line-height:1.55;">
+          <b style="color:var(--accent);font-weight:500;">Never:</b> stock travel photography. Daylight portraiture. Smiling tourists. Cartoons. Mascots. Anything that signals "children's app."
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ─── Layout ─────────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">05</span><span class="label">Layout</span><span class="meta-r">Mobile · Desktop</span></div>
+    <h2>Two formats, one editorial grid.</h2>
+    <p class="section-sub">Mobile reads top-to-bottom like a column in a magazine. Desktop opens up to a 12-column spread with a wide photo plate, generous outer margins, and italic sidenotes. The serif is always the loudest voice on the page.</p>
+    <div class="rule"></div>
+
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start;">
+      <!-- Mobile preview -->
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Mobile · 390 × 844</div>
+        <div style="background:var(--bg-0);border-radius:24px;padding:20px;border:1px solid var(--bg-3);box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.16em;color:var(--sage-dark);text-transform:uppercase;font-weight:600;">Today's Scene</div>
+          <div class="photo cinema neon" style="margin:10px 0 14px;border-radius:8px;aspect-ratio:16/10;"><div class="ph-tag" style="font-size:8px;">Cha chaan teng · 18:40</div></div>
+          <div style="font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.2;color:var(--fg-0);">Ordering at the cha chaan teng</div>
+          <div style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--fg-1);margin-top:10px;">caa4 caan1 teng1</div>
+          <div style="font-family:var(--hk);font-size:13px;color:var(--fg-2);margin-top:3px;">茶餐廳</div>
+          <div style="margin-top:14px;display:flex;gap:6px;"><span style="font-size:11px;background:var(--accent-dark);color:var(--accent);padding:4px 9px;border-radius:99px;font-weight:500;">Intermediate</span><span style="font-size:11px;background:var(--bg-2);color:var(--fg-1);padding:4px 9px;border-radius:99px;">8 phrases</span></div>
+        </div>
+      </div>
+
+      <!-- Desktop preview -->
+      <div>
+        <div class="card-label" style="margin-bottom:12px;">Desktop · 12-column · cinema plate</div>
+        <div style="background:var(--bg-0);border-radius:8px;padding:32px;border:1px solid var(--bg-3);box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+          <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:start;">
+            <div style="grid-column:span 2;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--sage-dark);text-transform:uppercase;font-weight:600;padding-top:8px;">No. 14<br><span style="color:var(--fg-2);font-weight:400;">Today's Scene</span></div>
+            <div style="grid-column:span 10;">
+              <div class="photo cinema neon" style="border-radius:4px;aspect-ratio:21/9;"><div class="ph-tag">Cha chaan teng · Sham Shui Po · 18:40</div></div>
+            </div>
+            <div style="grid-column:3 / span 7;margin-top:28px;">
+              <div style="font-family:var(--serif);font-weight:500;font-size:48px;line-height:1.05;letter-spacing:-0.01em;color:var(--fg-0);">Ordering at<br>the cha chaan teng.</div>
+              <div style="font-family:var(--serif-alt);font-style:italic;font-weight:400;font-size:18px;line-height:1.55;color:var(--fg-1);margin-top:18px;max-width:480px;">Booth seats, milk tea, the menu under glass — the ritual of the working-class diner has barely changed since 1952.</div>
+            </div>
+            <div style="grid-column:11 / span 2;margin-top:32px;font-family:var(--serif-alt);font-style:italic;font-size:14px;line-height:1.55;color:var(--fg-2);border-left:1px solid var(--bg-3);padding-left:14px;">A sidenote, set in italic Newsreader, leaning quietly into the margin.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:24px;">
+      <div class="card"><div class="card-label">Mobile margin</div><div style="font-family:var(--serif);font-size:22px;font-weight:500;">24<span style="font-size:14px;color:var(--fg-2);"> px</span></div><div class="ui-s" style="margin-top:8px;">Outer padding on every screen. 32px on hero areas.</div></div>
+      <div class="card"><div class="card-label">Desktop columns</div><div style="font-family:var(--serif);font-size:22px;font-weight:500;">12 <span style="font-size:14px;color:var(--fg-2);">/ 16px gutter</span></div><div class="ui-s" style="margin-top:8px;">Outer margin 80px min. Max content 1280px. Sidenotes live in cols 11–12.</div></div>
+      <div class="card"><div class="card-label">Photo aspect</div><div style="font-family:var(--serif);font-size:22px;font-weight:500;">21:9 <span style="font-size:14px;color:var(--fg-2);">/ 16:9 / 1:1</span></div><div class="ui-s" style="margin-top:8px;">Cinema plate for hero. 16:9 mobile. 1:1 grid cards. Always letterboxed, never cropped tight.</div></div>
+    </div>
+  </section>
+
+  <!-- ─── Components ──────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">06</span><span class="label">Components</span><span class="meta-r">The kit</span></div>
+    <h2>The kit, in miniature.</h2>
+    <p class="section-sub">Eight building blocks. Used consistently across all 27 screens. Border radius is 16 for cards, 24 for sheets, 999 for everything that signals "tap me."</p>
+    <div class="rule"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Buttons</div>
+        <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+          <button class="btn-primary">Start 7-day free trial</button>
+          <button class="btn-ghost">Practise again</button>
+          <span class="btn-pill">⬆ Personal best — 87%</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Pills &amp; tags</div>
+        <div class="pill-row">
+          <span class="chip-sage">Cultural · 3 min read</span>
+          <span class="chip-blush">Intermediate</span>
+          <span class="chip-cream">Getting Around</span>
+          <span class="chip-blush">🔥 14</span>
+          <span class="chip-sage">Mastered ✓</span>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column:span 2;">
+        <div class="card-label">Phrase row · the atom of the app</div>
+        <div style="display:flex;align-items:center;gap:20px;padding:18px 0;border-top:1px solid var(--bg-3);border-bottom:1px solid var(--bg-3);">
+          <div style="flex:1;">
+            <div style="font-family:var(--sans);font-weight:600;font-size:20px;color:var(--fg-0);letter-spacing:-0.01em;line-height:1.3;">m4 goi1 bei2 ngo5 zoeng1 daan1</div>
+            <div style="font-family:var(--hk);font-weight:400;font-size:15px;color:var(--fg-2);margin-top:6px;letter-spacing:0.04em;">唔該畀我張單</div>
+            <div style="font-family:var(--sans);font-size:14px;color:var(--fg-1);margin-top:10px;line-height:1.4;">Could I have the bill, please.</div>
+          </div>
+          <button style="border:none;background:var(--accent-dark);color:var(--accent);width:36px;height:36px;border-radius:99px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+            <svg width="12" height="14" viewBox="0 0 12 14"><path d="M2 1l9 6-9 6V1z" fill="currentColor"/></svg>
+          </button>
+          <svg width="20" height="20" viewBox="0 0 20 20" style="color:var(--accent);"><path d="M5 2v16l5-3 5 3V2H5z" fill="currentColor"/></svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Cultural context · sage tint</div>
+        <div style="background:var(--sage-light);border-radius:14px;padding:18px 20px;">
+          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-dark);font-weight:600;">Did you know?</div>
+          <div style="font-family:var(--serif);font-weight:400;font-size:16px;line-height:1.55;color:var(--sage-dark);margin-top:8px;">Yum cha has been the heartbeat of Hong Kong social life since the 1800s. On weekends, families queue before 8am for the best har gow.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Score · numeric voice</div>
+        <div style="display:flex;align-items:baseline;gap:14px;">
+          <div style="font-family:var(--serif);font-style:italic;font-weight:600;font-size:88px;line-height:1;color:var(--accent);letter-spacing:-0.02em;">87<span style="font-size:42px;">%</span></div>
+          <div style="font-family:var(--sans);font-size:13px;color:var(--sage-dark);font-weight:500;">Personal best ↑<br><span style="color:var(--fg-2);font-weight:400;">Previous: 74%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Iconography ─────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">07</span><span class="label">Iconography</span><span class="meta-r">Line, 1.6px</span></div>
+    <h2>A few, plainly drawn.</h2>
+    <p class="section-sub">Line icons only — 1.6px stroke, rounded ends. Used for navigation and practice modes. Never decorative. When something needs decoration, we use a photograph instead.</p>
+    <div class="rule"></div>
+    <div class="card">
+      <div class="icon-row">
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 2v12m-4-4l4 4 4-4M5 18v3h14v-3"/></svg>SHADOW</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M9 18V6l12-2v12m-12 0a3 3 0 1 1-3-3 3 3 0 0 1 3 3zm12-2a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/></svg>TONE GYM</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 11-12h-7l1-8z"/></svg>SPEED RUN</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M3 12h2m4 0h2m4 0h2m4 0h2M7 8v8m4-12v16m4-12v8m4-6v4"/></svg>SPEAK NOW</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/></svg>HOME</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>SCENES</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13l-8.5-4-8.5 4V4z"/></svg>LIBRARY</div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>PROFILE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Motion ──────────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">08</span><span class="label">Motion</span><span class="meta-r">Pulse, pop, glow</span></div>
+    <h2>Reward, not pageantry.</h2>
+    <p class="section-sub">Every animation is short, warm, and confined. We pulse, we pop, we glow — we never bounce. Confetti is restrained: vermilion, sage, gold. Always premium magazine, never children's game.</p>
+    <div class="rule"></div>
+    <div class="motion-strip">
+      <div class="motion-cell">
+        <h4>Mic pulse</h4>
+        <div class="desc">Vermilion circle pulses 1.6s ease-in-out. Signals always-on listening.</div>
+        <div class="demo"><div class="pulse"></div></div>
+      </div>
+      <div class="motion-cell">
+        <h4>Score pop</h4>
+        <div class="desc">Scale 0 → 1.2 → 1.0 over 250ms ease. Used for +10s, percentages, streaks.</div>
+        <div class="demo"><div class="scorepop">+10</div></div>
+      </div>
+      <div class="motion-cell">
+        <h4>Confetti</h4>
+        <div class="desc">~20 pieces max. Vermilion + sage + warm gold. Falls 2.5s ease-in.</div>
+        <div class="demo"><div class="confetti"><span></span><span></span><span></span><span></span><span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Voice ───────────────────────────────────────── -->
+  <section>
+    <div class="sec-bar"><span class="num">09</span><span class="label">Voice</span><span class="meta-r">Do & don't</span></div>
+    <h2>The way the app talks.</h2>
+    <p class="section-sub">A knowledgeable friend who loves Hong Kong. Specific, unhurried, occasionally proud. Never preachy. Never cute.</p>
+    <div class="rule"></div>
+    <div class="donts">
+      <div class="do">"7 days. You're building something real."</div>
+      <div class="dont">"Yay! 7 day streak! Keep it going! 🎉🎉"</div>
+      <div class="do">"Yum cha has been the heartbeat of Hong Kong social life since the 1800s."</div>
+      <div class="dont">"Did you know? Hong Kong people LOVE dim sum! 🥟"</div>
+      <div class="do">"Hong Kong speaks in tones. Most people never hear them."</div>
+      <div class="dont">"Learn Cantonese the EASY way — guaranteed!"</div>
+      <div class="do">"You could now order dim sum, hail a taxi, and bargain at the wet market."</div>
+      <div class="dont">"You're a Cantonese superstar! ⭐⭐⭐"</div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ──────────────────────────────────────── -->
+  <div class="footer">
+    <div>SHADOWHK · BRAND v2.3 · APRIL 2026</div>
+    <div>FOR APPROVAL — REPLY TO PROCEED TO SCREENS</div>
+  </div>
+</div>
+</body>
+</html>

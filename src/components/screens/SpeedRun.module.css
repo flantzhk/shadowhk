@@ -44,14 +44,14 @@
 .closeBtn:hover { background: var(--bg-3); }
 
 .score {
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
   color: var(--accent);
 }
 
 .roundCount {
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
   color: var(--fg-2);
@@ -85,15 +85,17 @@
 }
 
 .label {
-  font-family: var(--font-ui);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--fg-2);
 }
 
 .english {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: clamp(22px, 28px, 44px);
-  font-weight: 800;
+  font-weight: 500;
   color: var(--fg-0);
   text-align: center;
   padding: 0 16px;
@@ -109,15 +111,15 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 20px 20px;
-  border-radius: 14px;
+  padding: 20px;
+  border-radius: 0;
   margin: 0 0 12px;
   animation: scorePop 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .correct {
   background: var(--accent-muted);
-  border: 1px solid rgba(0,229,160,0.25);
+  border: 1px solid rgba(200,57,43,0.25);
 }
 
 .wrong {
@@ -126,7 +128,7 @@
 }
 
 .feedbackAnswer {
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 18px;
   font-weight: 700;
   color: var(--fg-0);
@@ -153,8 +155,8 @@
   align-items: center;
   gap: 6px;
   padding: 16px 12px;
-  background: var(--surface-1);
-  border-radius: 12px;
+  background: var(--bg-1);
+  border-radius: 0;
   border: 1px solid var(--border-1);
   min-height: 80px;
   transition: all 0.15s;
@@ -184,9 +186,9 @@
 .nextBtn {
   padding: 12px 36px;
   background: var(--accent);
-  color: var(--accent-dark);
+  color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
   font-family: var(--font-ui);
   font-weight: 800;
   font-size: 15px;
@@ -207,16 +209,17 @@
 }
 
 .emptyTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--fg-0);
   margin: 0;
 }
 
 .emptyDesc {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
   font-size: 14px;
+  font-style: italic;
   color: var(--fg-2);
   margin: 0;
   line-height: 1.5;
@@ -225,8 +228,8 @@
 
 .emptyBackBtn {
   padding: 12px 28px;
-  border-radius: 12px;
-  background: var(--surface-1);
+  border-radius: 0;
+  background: var(--bg-1);
   border: 1px solid var(--border-1);
   color: var(--fg-0);
   font-family: var(--font-ui);
@@ -237,7 +240,7 @@
   transition: background 0.15s;
 }
 
-.emptyBackBtn:hover { background: var(--surface-2); }
+.emptyBackBtn:hover { background: var(--bg-2); }
 
 @keyframes recordPulse {
   0%, 100% { opacity: 1; }

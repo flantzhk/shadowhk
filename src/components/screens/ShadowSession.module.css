@@ -7,34 +7,9 @@
   overflow: hidden;
 }
 
-/* Spotify ambient blurred background */
-.ambientBg {
-  position: absolute;
-  inset: -20px;
-  background-size: cover;
-  background-position: center;
-  filter: blur(40px) saturate(1.2);
-  opacity: 0.35;
-  transform: scale(1.2);
-  z-index: 0;
-}
-
-.tintOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.darkOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-}
-
 .inner {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,12 +28,14 @@
   width: 100%;
   padding: 12px 0 8px;
   flex-shrink: 0;
+  border-bottom: 1px solid var(--border-0);
+  margin-bottom: 8px;
 }
 
 .downBtn {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.8);
+  color: var(--fg-1);
   cursor: pointer;
   padding: 4px;
   display: flex;
@@ -73,28 +50,30 @@
 }
 
 .topEyebrow {
-  font-family: var(--font-ui);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.18em;
+  color: var(--fg-3);
+  text-transform: uppercase;
 }
 
 .topTitle {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  max-width: 180px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg-0);
+  max-width: 200px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  letter-spacing: -0.01em;
 }
 
 .moreBtn {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.6);
+  color: var(--fg-2);
   font-size: 18px;
   cursor: pointer;
   padding: 4px 8px;
@@ -103,17 +82,15 @@
 /* === Progress === */
 .progressBar {
   width: 100%;
-  height: 3px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 2px;
+  height: 2px;
+  background: var(--bg-3);
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .progressFill {
   height: 100%;
-  background: rgba(255,255,255,0.9);
-  border-radius: 2px;
+  background: var(--accent);
   transition: width 0.4s ease;
 }
 
@@ -121,10 +98,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 4px 0 8px;
-  font-family: var(--font-ui);
+  padding: 4px 0 12px;
+  font-family: var(--font-mono);
   font-size: 10px;
-  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
 }
 
 /* === Chat thread === */
@@ -151,9 +129,9 @@
 }
 
 .npcBubble {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px 18px 18px 4px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-0);
+  border-radius: 16px 16px 16px 4px;
   padding: 10px 14px;
   max-width: 75%;
   display: flex;
@@ -162,9 +140,9 @@
 }
 
 .youBubble {
-  background: rgba(0,229,160,0.15);
-  border: 1.5px solid rgba(0,229,160,0.35);
-  border-radius: 18px 18px 4px 18px;
+  background: var(--accent-muted);
+  border: 1.5px solid rgba(200,57,43,0.15);
+  border-radius: 16px 16px 4px 16px;
   padding: 10px 14px;
   max-width: 75%;
   display: flex;
@@ -174,23 +152,24 @@
 
 .youBubbleSpeak {
   border-color: var(--accent);
-  background: rgba(0,229,160,0.22);
-  box-shadow: 0 0 16px rgba(0,229,160,0.2);
+  background: rgba(200,57,43,0.08);
+  box-shadow: 0 0 0 3px rgba(200,57,43,0.08);
 }
 
 .bubbleSpeaker {
-  font-family: var(--font-ui);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
   margin-bottom: 2px;
 }
 
 .bubbleCjk {
   font-family: var(--font-cjk);
-  font-size: 18px;
-  color: rgba(255,255,255,0.9);
+  font-size: 20px;
+  color: var(--fg-0);
   letter-spacing: 0.04em;
   line-height: 1.4;
   margin: 0;
@@ -199,23 +178,24 @@
 .bubbleRoman {
   font-family: var(--font-mono);
   font-size: 15px;
-  font-weight: 700;
-  color: rgba(255,255,255,1);
+  font-weight: 600;
+  color: var(--accent);
   line-height: 1.25;
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .bubbleEnglish {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
   font-size: 13px;
   font-style: italic;
-  color: rgba(255,255,255,0.7);
+  color: var(--fg-2);
   line-height: 1.3;
   margin: 0;
 }
 
 .dimmed {
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 /* Scene banner (when no NPC context) */
@@ -224,24 +204,24 @@
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  background: rgba(255,255,255,0.07);
-  border-radius: 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-0);
   margin-bottom: 4px;
 }
 
 .sceneBannerImg {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
 .sceneBannerLabel {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  color: var(--fg-1);
+  letter-spacing: -0.01em;
 }
 
 /* === Score reveal === */
@@ -251,6 +231,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  width: 100%;
 }
 
 .scoreCircle {
@@ -260,28 +241,32 @@
   border-radius: 50%;
   width: 80px;
   height: 80px;
+  border: 2px solid var(--border-1);
+  background: var(--bg-1);
   transition: box-shadow 0.3s ease;
 }
 
 .scoreCircleExcellent {
-  box-shadow: 0 0 0 6px rgba(0,229,160,0.2), 0 0 32px rgba(0,229,160,0.45);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-muted), 0 0 24px rgba(200,57,43,0.2);
   animation: glowPulse 1.5s ease-out forwards;
 }
 
 .scoreCircleGood {
-  box-shadow: 0 0 0 4px rgba(240,160,48,0.2), 0 0 20px rgba(240,160,48,0.3);
+  border-color: var(--sage-mid);
+  box-shadow: 0 0 0 4px rgba(143,171,138,0.15);
 }
 
 @keyframes glowPulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,229,160,0.6), 0 0 0 rgba(0,229,160,0); }
-  50% { box-shadow: 0 0 0 10px rgba(0,229,160,0.15), 0 0 40px rgba(0,229,160,0.5); }
-  100% { box-shadow: 0 0 0 6px rgba(0,229,160,0.1), 0 0 24px rgba(0,229,160,0.3); }
+  0% { box-shadow: 0 0 0 0 var(--accent-muted); }
+  50% { box-shadow: 0 0 0 10px rgba(200,57,43,0.06), 0 0 24px rgba(200,57,43,0.2); }
+  100% { box-shadow: 0 0 0 6px rgba(200,57,43,0.08), 0 0 16px rgba(200,57,43,0.1); }
 }
 
 .scoreNum {
-  font-family: var(--font-ui);
-  font-size: 52px;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -2px;
   animation: scorePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -293,9 +278,11 @@
 }
 
 .scoreLabel {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   animation: fadeInUp 0.4s ease 0.15s both;
 }
 
@@ -305,9 +292,11 @@
 }
 
 .scoringText {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
 }
 
 .toneTrackWrap {
@@ -318,7 +307,7 @@
 /* === Save row === */
 .saveRow {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   justify-content: center;
   margin-bottom: 12px;
@@ -334,31 +323,30 @@
   border: none;
   cursor: pointer;
   padding: 4px 8px;
-  opacity: 0.7;
-  transition: opacity var(--transition-fast);
+  color: var(--fg-2);
+  transition: color var(--transition-fast);
 }
 
-.saveRowBtn.saveRowBtnSaved { opacity: 1; }
-.saveRowBtn.saveRowBtnSaved .saveRowIcon { color: var(--accent); }
+.saveRowBtn.saveRowBtnSaved { color: var(--accent); }
 
 .saveRowIcon {
-  font-size: 18px;
-  color: rgba(255,255,255,0.8);
+  font-size: 16px;
 }
 
 .saveRowLabel {
-  font-family: var(--font-ui);
+  font-family: var(--font-mono);
   font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
 }
 
 /* === Transport === */
 .transport {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 12px;
   flex-shrink: 0;
 }
@@ -366,29 +354,30 @@
 .transportSec {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.7);
+  color: var(--fg-2);
   cursor: pointer;
-  padding: 6px;
+  padding: 8px;
   display: flex;
   align-items: center;
   border-radius: 50%;
   transition: background var(--transition-fast);
 }
 
-.transportSec:active { background: rgba(255,255,255,0.1); }
+.transportSec:active { background: var(--bg-2); }
+.transportSec:disabled { color: var(--fg-3); }
 
 .playPauseBtn {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--fg-0);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  color: #fff;
+  box-shadow: var(--shadow-raised);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
 }
@@ -396,36 +385,47 @@
 .playPauseBtn:active { transform: scale(0.94); }
 
 .micBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 3px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-1);
+  border: 1.5px solid var(--border-1);
   justify-content: center;
   cursor: pointer;
-  color: rgba(255,255,255,0.8);
+  color: var(--fg-1);
   transition: all var(--transition-fast);
 }
 
 .micBtn.micBtnActive {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--accent-dark);
-  animation: micPulse 1s ease-in-out infinite;
+  color: #fff;
+  animation: micPulse 1.2s ease-in-out infinite;
 }
 
 @keyframes micPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,160,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(0,229,160,0); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 0 8px rgba(200,57,43,0); }
+}
+
+.micLabel {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: none;
 }
 
 .scoringSpinner {
   width: 32px;
   height: 32px;
-  border: 2px solid rgba(255,255,255,0.15);
-  border-top-color: rgba(255,255,255,0.8);
+  border: 2px solid var(--bg-3);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -466,15 +466,16 @@
 
 .retryBtn {
   flex: 1;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--bg-1);
+  border: 1px solid var(--border-1);
   border-radius: var(--radius-pill);
-  color: rgba(255,255,255,0.85);
+  color: var(--fg-1);
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 600;
   padding: 10px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 .nextBtn {
@@ -482,20 +483,21 @@
   background: var(--accent);
   border: none;
   border-radius: var(--radius-pill);
-  color: var(--accent-dark);
+  color: #fff;
   font-family: var(--font-ui);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 10px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
 
 /* === Know it + speed === */
 .knowBtn {
   background: none;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid var(--border-1);
   border-radius: var(--radius-pill);
-  color: rgba(255,255,255,0.6);
+  color: var(--fg-2);
   font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 500;
@@ -506,8 +508,9 @@
 }
 
 .knowBtn.knowBtnDone {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--sage-mid);
+  color: var(--sage-dark);
+  background: rgba(74,107,70,0.06);
 }
 
 .speedRow {
@@ -518,11 +521,11 @@
 }
 
 .speedPill {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
   border-radius: var(--radius-pill);
-  color: rgba(255,255,255,0.5);
-  font-family: var(--font-ui);
+  color: var(--fg-2);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   padding: 5px 12px;
@@ -531,24 +534,25 @@
 }
 
 .speedPill.speedPillActive {
-  background: rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.9);
-  border-color: rgba(255,255,255,0.3);
+  background: var(--fg-0);
+  color: #fff;
+  border-color: var(--fg-0);
 }
 
 .micError {
   font-family: var(--font-ui);
   font-size: 11px;
-  color: #E06060;
+  color: var(--color-error);
   text-align: center;
 }
 
 .footerHint {
-  font-family: var(--font-ui);
-  font-size: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
   text-align: center;
   margin-top: auto;
   padding: 8px 0 4px;
@@ -559,7 +563,7 @@
 .loadingPulse {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  background: var(--bg-1);
   animation: bgPulse 1.4s ease-in-out infinite;
 }
 
@@ -575,7 +579,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: rgba(255,255,255,0.6);
+  color: var(--fg-2);
   font-family: var(--font-ui);
   font-size: 14px;
   text-align: center;
@@ -583,10 +587,10 @@
 }
 
 .emptyBack {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--bg-2);
+  border: 1px solid var(--border-1);
   border-radius: var(--radius-pill);
-  color: rgba(255,255,255,0.8);
+  color: var(--fg-1);
   font-family: var(--font-ui);
   font-size: 13px;
   padding: 10px 24px;
@@ -595,6 +599,7 @@
 
 /* ════════════════════════════════════
    Score Celebration Overlay (90+)
+   Stays dark — special dramatic moment
    ════════════════════════════════════ */
 
 .celebOverlay {
@@ -607,14 +612,13 @@
   background: #070b12;
 }
 
-/* Central jade radial glow */
 .celebBgGlow {
   position: absolute;
   top: 28%; left: 50%;
   transform: translate(-50%, -50%);
   width: 480px; height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,229,160,0.22) 0%, rgba(0,229,160,0.05) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,57,43,0.22) 0%, rgba(200,57,43,0.05) 45%, transparent 70%);
   z-index: 0;
   animation: celebGlowBreath 2.5s ease-in-out infinite;
   pointer-events: none;
@@ -625,7 +629,6 @@
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
 }
 
-/* Confetti layer */
 .celebConfetti {
   position: absolute; inset: 0;
   z-index: 1; overflow: hidden; pointer-events: none;
@@ -642,7 +645,6 @@
   100% { transform: translateY(900px) rotate(720deg); opacity: 0; }
 }
 
-/* Inner content */
 .celebInner {
   position: relative; z-index: 2;
   display: flex; flex-direction: column;
@@ -654,7 +656,6 @@
 }
 .celebInner::-webkit-scrollbar { display: none; }
 
-/* Score circle */
 .celebScoreWrap {
   position: relative;
   display: flex; flex-direction: column;
@@ -671,7 +672,7 @@
 .celebRing {
   position: absolute; inset: 0;
   border-radius: 50%;
-  border: 1.5px solid rgba(0,229,160,0.5);
+  border: 1.5px solid rgba(200,57,43,0.4);
   animation: celebRingPulse 2s ease-out infinite;
 }
 .celebRing:nth-child(2) { animation-delay: 0.65s; }
@@ -685,12 +686,12 @@
 .celebCircle {
   width: 140px; height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(0,229,160,0.22), rgba(0,229,160,0.07));
-  border: 2px solid rgba(0,229,160,0.6);
+  background: radial-gradient(circle at 35% 35%, rgba(200,57,43,0.18), rgba(200,57,43,0.05));
+  border: 2px solid rgba(200,57,43,0.5);
   box-shadow:
-    0 0 0 8px rgba(0,229,160,0.07),
-    0 0 50px rgba(0,229,160,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+    0 0 0 8px rgba(200,57,43,0.06),
+    0 0 50px rgba(200,57,43,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.06);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   position: relative; z-index: 1;
@@ -703,11 +704,11 @@
 }
 
 .celebScoreNum {
-  font-family: var(--font-ui);
-  font-size: 72px; font-weight: 900;
+  font-family: var(--font-serif);
+  font-size: 72px; font-weight: 500;
   line-height: 1; letter-spacing: -4px;
-  color: #00E5A0;
-  text-shadow: 0 0 40px rgba(0,229,160,0.5);
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(200,57,43,0.4);
   animation: celebScorePop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
 }
 
@@ -717,14 +718,15 @@
 }
 
 .celebScoreSub {
-  font-family: var(--font-ui);
-  font-size: 14px; font-weight: 700;
-  color: rgba(0,229,160,0.6);
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 500;
+  color: rgba(200,57,43,0.6);
+  letter-spacing: 0.08em;
 }
 
 .celebHeadline {
-  font-family: var(--font-ui);
-  font-size: 26px; font-weight: 900;
+  font-family: var(--font-serif);
+  font-size: 26px; font-weight: 500;
   color: #fff;
   letter-spacing: -0.03em; line-height: 1.1;
   text-align: center;
@@ -733,8 +735,9 @@
 }
 
 .celebSub {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
   font-size: 14px; color: rgba(255,255,255,0.5);
+  font-style: italic;
   text-align: center; margin: 0 0 18px; flex-shrink: 0;
   animation: celebFadeUp 0.4s ease 0.45s both;
 }
@@ -744,7 +747,6 @@
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Badge row */
 .celebBadges {
   display: flex; gap: 8px; flex-wrap: wrap;
   justify-content: center;
@@ -764,21 +766,20 @@
 }
 
 .celebBadgeStreak {
-  background: rgba(255,159,67,0.12);
-  border-color: rgba(255,159,67,0.25);
-  color: #FF9F43;
+  background: rgba(200,57,43,0.12);
+  border-color: rgba(200,57,43,0.25);
+  color: var(--accent);
 }
 
 .celebBadgeXp {
-  background: rgba(0,229,160,0.1);
-  border-color: rgba(0,229,160,0.25);
-  color: #00E5A0;
+  background: rgba(74,107,70,0.12);
+  border-color: rgba(74,107,70,0.3);
+  color: var(--sage-mid);
 }
 
-/* Social proof */
 .celebSocial {
   font-family: var(--font-ui);
-  font-size: 12px; font-weight: 600;
+  font-size: 12px; font-weight: 500;
   color: rgba(255,255,255,0.4);
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.07);
@@ -787,14 +788,13 @@
   margin-bottom: 20px; flex-shrink: 0;
   animation: celebFadeUp 0.4s ease 0.55s both;
 }
-.celebSocial span { color: #00E5A0; font-weight: 700; }
+.celebSocial span { color: var(--accent); font-weight: 600; }
 
-/* Phrase card */
 .celebPhraseCard {
   width: 100%;
-  background: rgba(0,229,160,0.07);
-  border: 1px solid rgba(0,229,160,0.18);
-  border-radius: 18px;
+  background: rgba(200,57,43,0.06);
+  border: 1px solid rgba(200,57,43,0.18);
+  border-radius: 0;
   padding: 14px 16px;
   margin-bottom: 20px; flex-shrink: 0;
   animation: celebFadeUp 0.4s ease 0.6s both;
@@ -808,17 +808,17 @@
 
 .celebPhraseRoman {
   font-family: var(--font-mono);
-  font-size: 13px; font-weight: 700;
-  color: rgba(0,229,160,0.8); margin: 0 0 4px;
+  font-size: 13px; font-weight: 500;
+  color: var(--accent); margin: 0 0 4px;
+  letter-spacing: 0.04em;
 }
 
 .celebPhraseEn {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
   font-size: 12px; font-style: italic;
   color: rgba(255,255,255,0.45); margin: 0;
 }
 
-/* CTAs */
 .celebCtas {
   width: 100%; display: flex;
   flex-direction: column; gap: 10px;
@@ -828,13 +828,13 @@
 
 .celebPrimary {
   width: 100%;
-  background: #00E5A0; border: none;
+  background: var(--accent); border: none;
   border-radius: var(--radius-pill);
-  color: #00241a;
+  color: #fff;
   font-family: var(--font-ui);
-  font-size: 16px; font-weight: 800;
+  font-size: 16px; font-weight: 500;
   padding: 16px; cursor: pointer;
-  box-shadow: 0 8px 32px rgba(0,229,160,0.35);
+  box-shadow: 0 8px 32px rgba(200,57,43,0.3);
   letter-spacing: -0.01em;
 }
 

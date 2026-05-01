@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
-  background: radial-gradient(ellipse at center, rgba(0,229,160,0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(200,57,43,0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -148,14 +148,14 @@
   width: 72px; height: 72px;
   border-radius: 50%;
   background: var(--accent);
-  color: var(--accent-dark);
+  color: #fff;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: opacity 0.15s, transform 0.15s;
-  box-shadow: 0 6px 24px var(--accent-glow), 0 0 0 8px rgba(0,229,160,0.08);
+  box-shadow: 0 6px 24px var(--accent-glow), 0 0 0 8px rgba(200,57,43,0.08);
 }
 
 .playBtn:hover { opacity: 0.88; transform: scale(1.04); }

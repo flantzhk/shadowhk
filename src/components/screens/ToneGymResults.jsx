@@ -13,8 +13,8 @@ const TONE_NAMES = {
 
 function getToneColor(pct) {
   if (pct >= 80) return 'var(--accent)';
-  if (pct >= 60) return '#E8A030';
-  if (pct >= 40) return '#E8703A';
+  if (pct >= 60) return '#C9A24A';
+  if (pct >= 40) return '#C8392B';
   return '#E84040';
 }
 

@@ -7,670 +7,432 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* === Greeting bar === */
+/* ─── Greeting header ─────────────────── */
 .greetingBar {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 16px 16px 8px;
+  padding: 20px 20px 14px;
 }
 
 .greetingText { flex: 1; }
 
 .eyebrow {
-  font-family: var(--font-ui);
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 500;
   color: var(--fg-2);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin: 0 0 2px;
+  margin: 0 0 4px;
 }
 
 .greetingTitle {
-  font-family: var(--font-ui);
-  font-size: 17px;
+  font-family: var(--font-serif);
+  font-size: 26px;
   font-weight: 500;
-  color: var(--fg-1);
-  letter-spacing: -0.01em;
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.15;
+}
+
+.greetingItalic {
+  font-style: italic;
 }
 
 .streakPill {
   display: flex;
   align-items: center;
-  gap: 4px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-1);
+  gap: 5px;
+  background: var(--accent-dark);
   border-radius: var(--radius-pill);
-  padding: 5px 10px 5px 8px;
+  padding: 6px 12px 6px 10px;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 14px;
 }
 
-.streakFlame { font-size: 14px; }
+.streakFlame { font-size: 13px; }
 .streakNum {
   font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ─── Editorial section bar ───────────── */
+.sectionBar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 20px 10px;
+  border-top: 6px solid var(--fg-0);
+  padding-top: 10px;
+  margin: 8px 20px 0;
+}
+
+.sectionNum {
+  font-family: var(--font-serif-alt);
+  font-style: italic;
   font-size: 13px;
-  font-weight: 700;
-  color: var(--streak);
+  color: var(--accent);
+  margin-right: 8px;
 }
 
-/* === Jump back grid (now horizontal scroll row) === */
-.jumpSection { padding: 4px 0; }
-
-.jumpGrid {
-  display: flex;
-  gap: 10px;
-  padding: 8px 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.jumpGrid::-webkit-scrollbar { display: none; }
-
-.jumpChip {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-  width: 100px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-0);
-  border-radius: var(--radius-md);
-  padding: 0 0 8px;
-  cursor: pointer;
-  text-align: left;
-  overflow: hidden;
-}
-
-.jumpImg {
-  width: 100%;
-  height: 60px;
-  object-fit: cover;
-  flex-shrink: 0;
-  display: block;
-}
-
-.jumpEmoji {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
-  background: var(--surface-2);
-}
-
-.jumpTitle {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--fg-0);
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  line-height: 1.3;
-  padding: 6px 8px 0;
-}
-
-/* === Today's Scene hero === */
-.heroSection { padding: 8px 16px; }
-
-.sceneHero {
-  position: relative;
-  height: 280px;
-  border-radius: 16px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--surface-2);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
-}
-
-.heroTintOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.heroDarkOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
-  z-index: 2;
-}
-
-.heroTopLeft {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 3;
-}
-
-.dueChip {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-  background: rgba(232, 112, 58, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-pill);
-  padding: 5px 12px;
-}
-
-.todayChip {
-  font-family: var(--font-ui);
+.sectionLabel {
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--fg-0);
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-pill);
-  padding: 4px 10px;
-}
-
-.heroBottomLeft {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  right: 14px;
-  z-index: 3;
-}
-
-.heroEmoji { font-size: 20px; display: block; margin-bottom: 4px; }
-
-.heroTitle {
-  font-family: var(--font-ui);
-  font-size: 26px;
-  font-weight: 800;
-  color: #fff;
-  margin: 0 0 4px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.heroMeta {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: rgba(255,255,255,0.72);
-  margin: 0 0 10px;
-}
-
-.heroBtns {
-  display: flex;
-  gap: 8px;
-}
-
-.practiceNowBtn {
-  background: var(--accent);
-  color: var(--accent-dark);
-  border: none;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 800;
-  padding: 12px 24px;
-  cursor: pointer;
-  letter-spacing: 0.01em;
   flex: 1;
 }
 
-.shadowBtn {
-  background: var(--accent);
-  color: var(--accent-dark);
-  border: none;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 18px;
-  cursor: pointer;
-  letter-spacing: 0.01em;
+.sectionMeta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-2);
 }
 
+/* ─── Today's Scene hero ──────────────── */
+.heroSection { padding: 0 20px 0; }
 
+.sceneHero {
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--fg-0);
+}
+
+.heroCinematicBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 60% 60%, rgba(200,57,43,0.55) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 30%, rgba(74,107,70,0.4) 0%, transparent 50%),
+    linear-gradient(135deg, #0e0a14 0%, #1a0e1a 50%, #16242a 100%);
+  z-index: 0;
+}
+
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.heroGrain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
+  z-index: 2;
+}
+
+.heroDarkGrad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 2;
+}
+
+.heroTop {
+  position: relative;
+  z-index: 3;
+  padding: 12px 14px 0;
+}
+
+.heroLocationTag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  background: rgba(0,0,0,0.45);
+  padding: 4px 8px;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+
+.heroBottom {
+  position: relative;
+  z-index: 3;
+  padding: 0 14px 16px;
+}
+
+.heroCategoryEyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.heroTitleItalic { font-style: italic; }
+
+.heroPills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.heroPill {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  backdrop-filter: blur(4px);
+}
+
+/* ─── Continue session row ────────────── */
+.continueSection {
+  margin: 0 20px;
+  border: 1px solid var(--fg-0);
+  border-top: none;
+  padding: 14px 16px 12px;
+  background: var(--bg-1);
+  cursor: pointer;
+  text-align: left;
+  width: auto;
+  display: block;
+}
+
+.continueEyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.continueLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.continueArrow {
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.continueTitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.continueProgressBar {
+  height: 2px;
+  background: var(--bg-3);
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.continueProgressFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 0;
+  transition: width 0.4s ease;
+}
+
+.continueProgressMeta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--fg-3);
+  text-align: right;
+}
+
+/* ─── Practice modes ──────────────────── */
+.practiceSection { padding: 0 0 4px; }
+
+.practiceRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--bg-3);
+  border-radius: 0;
+  padding: 14px 20px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.practiceRow:first-child {
+  border-top: 1px solid var(--bg-3);
+  margin-top: 2px;
+}
+
+.practiceIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 14px;
+  font-size: 18px;
+}
+
+.practiceText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.practiceLabel {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg-0);
+  letter-spacing: -0.01em;
+}
+
+.practiceDesc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+}
+
+.practiceChevron {
+  color: var(--fg-3);
+  flex-shrink: 0;
+}
+
+/* ─── Empty hero ──────────────────────── */
 .emptyHero {
-  height: 220px;
-  border-radius: 14px;
-  background: var(--surface-1);
-  border: 1px dashed var(--border-1);
+  min-height: 200px;
+  background: var(--bg-1);
+  border: 1px dashed var(--bg-3);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
+  padding: 24px;
 }
 
 .emptyText {
   font-family: var(--font-ui);
   font-size: 14px;
   color: var(--fg-2);
+  text-align: center;
 }
 
-/* === Row sections (playlist, keep going) === */
-.rowSection { padding: 4px 0 4px; }
-
-.rowLabel {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--fg-0);
-  margin: 0 0 10px;
-  padding: 0 16px;
-}
-
-.scrollRow {
-  display: flex;
-  gap: 12px;
-  padding: 0 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.scrollRow::-webkit-scrollbar { display: none; }
-
-/* Playlist cards */
-.playlistCard {
-  flex-shrink: 0;
-  width: 150px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-}
-
-.playlistCover {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 12px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--surface-2);
-  margin-bottom: 6px;
-}
-
-.playlistCoverGradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.7) 100%);
-}
-
-.playlistTitle {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.playlistDesc {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: var(--fg-2);
-  margin: 0;
-}
-
-/* Keep going cards */
-.keepCard {
-  flex-shrink: 0;
-  width: 140px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-}
-
-.keepCover {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  border-radius: 12px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--surface-2);
-  margin-bottom: 6px;
-}
-
-.keepCoverOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-}
-
-.keepTitle {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--fg-0);
-  margin: 0 0 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.keepProgressBar {
-  height: 3px;
-  background: var(--surface-2);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-bottom: 3px;
-}
-
-.keepProgressFill {
-  height: 100%;
+.shadowBtn {
   background: var(--accent);
-  border-radius: 2px;
-}
-
-.keepPct {
-  font-family: var(--font-ui);
-  font-size: 10px;
-  color: var(--fg-2);
-  margin: 0;
-  text-align: right;
-}
-
-/* === Short sessions === */
-.shortSection { padding: 16px 16px 4px; }
-
-.shortRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  background: var(--surface-1);
-  border: 1px solid var(--border-0);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
-  cursor: pointer;
-  text-align: left;
-  margin-bottom: 8px;
-}
-
-.shortIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.shortEmoji { font-size: 18px; }
-
-.shortText {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.shortLabel {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--fg-0);
-}
-
-.shortDesc {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: var(--fg-2);
-}
-
-/* === Personal scene card === */
-.personalSection { padding: 8px 16px; }
-
-/* Filled state — jade gradient */
-.personalFilled {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  background: linear-gradient(120deg, #00A371 0%, var(--accent) 100%);
-  border-radius: 14px;
-  padding: 16px 18px;
-}
-
-.personalFilledLeft { flex: 1; }
-
-.personalEyebrow {
-  font-family: var(--font-ui);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent-dark);
-  display: block;
-  margin-bottom: 4px;
-}
-
-.personalTitle {
-  font-family: var(--font-ui);
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--accent-dark);
-  margin: 0 0 3px;
-  letter-spacing: -0.01em;
-}
-
-.personalMeta {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  color: rgba(14,24,6,0.65);
-  margin: 0;
-}
-
-.personalShadowBtn {
-  background: var(--accent-dark);
-  color: var(--accent);
+  color: #fff;
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
   font-size: 14px;
-  font-weight: 800;
-  padding: 10px 20px;
+  font-weight: 500;
+  padding: 10px 22px;
   cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
+  letter-spacing: -0.01em;
 }
 
-/* Empty state — prompt to fill the form */
-.personalEmpty {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  background: var(--surface-1);
-  border: 1.5px dashed rgba(0,229,160,0.3);
-  border-radius: 14px;
-  padding: 16px 18px;
-  cursor: pointer;
-  text-align: left;
-}
-
-.personalEmptyEmoji { font-size: 28px; flex-shrink: 0; }
-
-.personalEmptyText { flex: 1; }
-
-.personalEmptyTitle {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--fg-0);
-  margin: 0 0 3px;
-}
-
-.personalEmptyDesc {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  color: var(--fg-2);
-  margin: 0;
-  line-height: 1.4;
-}
-
-.personalEmptyArrow {
-  font-size: 18px;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.bottomPad { height: 20px; }
-
-/* === Streak-at-risk banner === */
+/* ─── Streak banner (at-risk) ─────────── */
 .riskBanner {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 4px 16px 0;
-  background: linear-gradient(120deg, #E85A1A 0%, #E8A030 100%);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
+  margin: 8px 20px 0;
+  background: var(--accent);
+  padding: 12px 16px;
+  border-radius: 0;
 }
 
-.riskIcon { font-size: 20px; flex-shrink: 0; }
-
-.riskText {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.riskTitle {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.riskSub {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: rgba(255,255,255,0.8);
-}
-
+.riskIcon { font-size: 18px; flex-shrink: 0; }
+.riskText { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.riskTitle { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: #fff; }
+.riskSub { font-family: var(--font-ui); font-size: 11px; color: rgba(255,255,255,0.8); }
 .riskBtn {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.2);
   color: #fff;
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
   font-size: 12px;
-  font-weight: 700;
-  padding: 8px 14px;
+  font-weight: 600;
+  padding: 7px 14px;
   cursor: pointer;
   flex-shrink: 0;
 }
 
-/* === Quick 3 pill === */
-.quick3Wrap {
-  padding: 6px 16px 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
+/* ─── Quick 3 pill ────────────────────── */
+.quick3Wrap { padding: 8px 20px 0; display: flex; justify-content: flex-end; }
 .quick3Pill {
   background: none;
-  border: 1px solid var(--border-1);
+  border: 1px solid var(--bg-3);
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
   font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
+  font-weight: 500;
+  color: var(--fg-2);
   padding: 6px 14px;
   cursor: pointer;
 }
 
-/* === Spark dots (replaces weekly bar chart) === */
-.sparkRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 16px 10px;
-  height: 38px;
-}
-
-.sparkCol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.sparkDot {
-  border-radius: 50%;
-  background: var(--surface-2);
-  transition: background 0.3s ease, width 0.3s ease, height 0.3s ease;
-  flex-shrink: 0;
-}
-
-.sparkDotDone { background: var(--accent); }
-.sparkDotToday { background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
-
-.sparkDay {
-  font-family: var(--font-ui);
-  font-size: 9px;
-  font-weight: 500;
-  color: var(--fg-3);
-  text-transform: uppercase;
-}
-
-.sparkDayToday {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* === Section rule (coloured left border before section labels) === */
-.sectionRule {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 16px 0;
-}
-
-.sectionRuleLine {
-  width: 3px;
-  height: 14px;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.sectionRuleLabel {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--fg-2);
-  text-transform: uppercase;
-}
-
-/* === Streak milestone celebration === */
+/* ─── Streak celebration ──────────────── */
 .celebOverlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 100;
+  z-index: var(--z-modal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -678,14 +440,25 @@
 }
 
 .celebModal {
-  background: var(--surface-1);
-  border: 1px solid var(--border-1);
-  border-radius: 24px;
-  padding: 36px 28px 28px;
+  background: var(--bg-1);
+  border: 1px solid var(--fg-0);
+  border-radius: 0;
+  padding: 40px 28px 32px;
   text-align: center;
   max-width: 320px;
   width: 100%;
   animation: celebPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.celebModal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--fg-0);
 }
 
 @keyframes celebPop {
@@ -693,29 +466,31 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-.celebEmoji { font-size: 52px; margin-bottom: 8px; }
+.celebEmoji { font-size: 42px; margin-bottom: 6px; display: block; }
 
 .celebNum {
-  font-family: var(--font-ui);
-  font-size: 72px;
-  font-weight: 900;
-  color: var(--streak);
+  font-family: var(--font-serif);
+  font-size: 80px;
+  font-weight: 500;
+  color: var(--accent);
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -4px;
 }
 
 .celebTitle {
-  font-family: var(--font-ui);
-  font-size: 20px;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 6px;
+  letter-spacing: -0.01em;
 }
 
 .celebSub {
-  font-family: var(--font-ui);
-  font-size: 13px;
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 15px;
   color: var(--fg-2);
   margin: 0 0 24px;
 }
@@ -723,12 +498,263 @@
 .celebBtn {
   width: 100%;
   background: var(--accent);
-  color: var(--accent-dark);
+  color: #fff;
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 500;
   padding: 14px;
   cursor: pointer;
+  letter-spacing: -0.01em;
 }
+
+/* ─── See all in section bar ──────────── */
+.sectionSeeAll {
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ─── Jump back in ────────────────────── */
+.jumpSection { padding: 8px 0 0; }
+.jumpGrid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 20px 4px;
+}
+.jumpGrid::-webkit-scrollbar { display: none; }
+.jumpChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 0;
+  padding: 10px 14px 8px;
+  cursor: pointer;
+  min-width: 80px;
+  max-width: 92px;
+}
+.jumpImg {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.jumpEmoji { font-size: 22px; }
+.jumpTitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-1);
+  text-align: center;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100%;
+}
+
+/* ─── Horizontal scroll rows ──────────── */
+.rowSection { padding: 8px 0 0; }
+.scrollRow {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 20px 4px;
+}
+.scrollRow::-webkit-scrollbar { display: none; }
+
+/* ─── Playlist cards ──────────────────── */
+.playlistCard {
+  flex-shrink: 0;
+  width: 160px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+.playlistCover {
+  position: relative;
+  width: 160px;
+  height: 108px;
+  background-color: var(--bg-2);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-end;
+}
+.playlistCoverGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+}
+.playlistTitle {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  padding: 8px;
+  z-index: 1;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.playlistDesc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+}
+
+/* ─── Keep going cards ────────────────── */
+.keepCard {
+  flex-shrink: 0;
+  width: 140px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+.keepCover {
+  width: 140px;
+  height: 88px;
+  background-color: var(--bg-2);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.keepCoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+}
+.keepTitle {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-1);
+  margin: 0 0 6px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.keepProgressBar {
+  height: 2px;
+  background: var(--bg-3);
+  margin-bottom: 3px;
+}
+.keepProgressFill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.keepPct {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-3);
+  letter-spacing: 0.08em;
+}
+
+/* ─── Personal intro card ─────────────── */
+.personalSection { padding: 8px 20px 0; }
+.personalFilled {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--fg-0);
+  padding: 14px 16px;
+}
+.personalFilledLeft { flex: 1; }
+.personalEyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+  margin-bottom: 4px;
+}
+.personalTitle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+}
+.personalMeta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+  margin: 0;
+}
+.personalShadowBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.personalEmpty {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-1);
+  border: 1px dashed var(--border-1);
+  padding: 14px 16px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.personalEmptyEmoji { font-size: 22px; flex-shrink: 0; }
+.personalEmptyText { flex: 1; }
+.personalEmptyTitle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+}
+.personalEmptyDesc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+  margin: 0;
+  line-height: 1.4;
+}
+.personalEmptyArrow {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--accent);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.bottomPad { height: 32px; }

@@ -20,9 +20,10 @@ import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
 
 const SPEEDS = [
-  { label: '🐢 Slow', value: 0.75 },
-  { label: 'Normal', value: 1 },
-  { label: '🐇 Fast', value: 1.25 },
+  { label: '0.65×', value: 0.65 },
+  { label: '0.8×',  value: 0.8 },
+  { label: 'Natural', value: 1 },
+  { label: '1.2×',  value: 1.25 },
 ];
 
 const WAVEFORM_BARS = 28;
@@ -93,7 +94,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     }
     getSceneById(sceneId)
       .then(s => { setScene(s); setYouLines(getYouLines(s)); })
-      .catch(() => {})
+      .catch(err => logger.error('[ShadowSession] scene load failed', err?.message))
       .finally(() => setLoading(false));
   }, [sceneId, language]);
 
@@ -101,7 +102,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const totalYou = youLines.length;
   const progressPct = totalYou > 0 ? (completedCount / totalYou) * 100 : 0;
 
-  const tint = scene?.tint ?? '#00E5A0';
+  const tint = '#C8392B';
 
   // Find NPC context lines flanking the current 'you' line
   const allLines = scene?.lines ?? [];
@@ -262,11 +263,11 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   }
 
   const isSpeakPhase = phase === 'record' || phase === 'scoring' || phase === 'scored';
-  const scoreColor = currentScore === null ? '#fff'
+  const scoreColor = currentScore === null ? 'var(--fg-0)'
     : currentScore >= 80 ? 'var(--accent)'
-    : currentScore >= 60 ? '#4DCCA8'
-    : currentScore >= 40 ? '#f0a030'
-    : '#ff7a5c';
+    : currentScore >= 60 ? 'var(--color-score-good)'
+    : currentScore >= 40 ? 'var(--color-score-fair)'
+    : 'var(--color-score-poor)';
 
   const isSaved = savedLines[currentYouLine?.id];
   const speaker = (currentYouLine?.speaker ?? 'you').toUpperCase();
@@ -283,13 +284,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           onRetry={() => { setShowCelebration(false); setPhase('listen'); setCurrentScore(null); setToneResult(null); audio.play(); }}
         />
       )}
-
-      {/* Ambient background */}
-      {scene.imageUrl && (
-        <div className={styles.ambientBg} style={{ backgroundImage: `url(${scene.imageUrl})` }} />
-      )}
-      <div className={styles.tintOverlay} style={{ background: `linear-gradient(180deg, ${tint}55 0%, var(--bg-0) 70%)` }} />
-      <div className={styles.darkOverlay} />
 
       <div className={styles.inner}>
         {/* Top bar */}
@@ -521,21 +515,21 @@ const PauseIcon = () => (
 // Triggers only when pronunciation score ≥ 90.
 function ScoreCelebration({ score, line, streakCount, onKeepGoing, onRetry }) {
   const CONFETTI = [
-    { left:'7%',  w:6,  h:10, bg:'#00E5A0', dur:2.8, delay:0,    r:2 },
-    { left:'14%', w:4,  h:8,  bg:'#00E5A0', dur:3.2, delay:0.3,  r:50 },
-    { left:'24%', w:8,  h:6,  bg:'#00c489', dur:2.5, delay:0.7,  r:0 },
+    { left:'7%',  w:6,  h:10, bg:'#C8392B', dur:2.8, delay:0,    r:2 },
+    { left:'14%', w:4,  h:8,  bg:'#C8392B', dur:3.2, delay:0.3,  r:50 },
+    { left:'24%', w:8,  h:6,  bg:'#4A6B46', dur:2.5, delay:0.7,  r:0 },
     { left:'34%', w:5,  h:9,  bg:'rgba(255,255,255,0.7)', dur:3.0, delay:0.2, r:2 },
     { left:'44%', w:6,  h:6,  bg:'rgba(255,255,255,0.5)', dur:2.7, delay:0.5, r:50 },
-    { left:'54%', w:7,  h:7,  bg:'#FF9F43', dur:3.1, delay:0.1,  r:0 },
-    { left:'64%', w:4,  h:10, bg:'#FF9F43', dur:2.9, delay:0.6,  r:2 },
-    { left:'74%', w:6,  h:8,  bg:'#00E5A0', dur:2.6, delay:0.4,  r:2 },
-    { left:'82%', w:5,  h:6,  bg:'#00c489', dur:3.3, delay:0.8,  r:50 },
+    { left:'54%', w:7,  h:7,  bg:'#C9A24A', dur:3.1, delay:0.1,  r:0 },
+    { left:'64%', w:4,  h:10, bg:'#C9A24A', dur:2.9, delay:0.6,  r:2 },
+    { left:'74%', w:6,  h:8,  bg:'#C8392B', dur:2.6, delay:0.4,  r:2 },
+    { left:'82%', w:5,  h:6,  bg:'#4A6B46', dur:3.3, delay:0.8,  r:50 },
     { left:'90%', w:8,  h:5,  bg:'rgba(255,255,255,0.6)', dur:2.8, delay:0.35, r:0 },
-    { left:'11%', w:5,  h:8,  bg:'#FF9F43', dur:3.4, delay:1.1,  r:2 },
-    { left:'29%', w:6,  h:6,  bg:'#00E5A0', dur:2.9, delay:1.3,  r:50 },
+    { left:'11%', w:5,  h:8,  bg:'#C9A24A', dur:3.4, delay:1.1,  r:2 },
+    { left:'29%', w:6,  h:6,  bg:'#C8392B', dur:2.9, delay:1.3,  r:50 },
     { left:'49%', w:4,  h:10, bg:'rgba(255,255,255,0.5)', dur:3.1, delay:1.0, r:2 },
-    { left:'69%', w:7,  h:6,  bg:'#00c489', dur:2.7, delay:1.4,  r:0 },
-    { left:'87%', w:5,  h:8,  bg:'#FF9F43', dur:3.0, delay:1.2,  r:2 },
+    { left:'69%', w:7,  h:6,  bg:'#4A6B46', dur:2.7, delay:1.4,  r:0 },
+    { left:'87%', w:5,  h:8,  bg:'#C9A24A', dur:3.0, delay:1.2,  r:2 },
   ];
 
   return (

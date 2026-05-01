@@ -148,11 +148,11 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
 
         <button className={styles.nameBtn} onClick={() => setShowEditName(true)}>
           <span className={styles.name}>{displayName}</span>
-          <span className={styles.nameEdit}>Edit</span>
+          <span className={styles.nameEdit}>Edit →</span>
         </button>
 
         <p className={styles.heroMeta}>
-          Learning Cantonese{joinMonths ? ` · ${joinMonths} month${joinMonths !== 1 ? 's' : ''} in` : ''}
+          {joinMonths ? `${joinMonths} month${joinMonths !== 1 ? 's' : ''} studying Cantonese` : 'Learning Cantonese'}
         </p>
 
         <div className={styles.heroPills}>

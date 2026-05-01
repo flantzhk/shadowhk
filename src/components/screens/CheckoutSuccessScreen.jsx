@@ -59,7 +59,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
         width: 80,
         height: 80,
         borderRadius: '50%',
-        background: '#00E5A0',
+        background: '#C8392B',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -71,13 +71,13 @@ export default function CheckoutSuccessScreen({ onDone }) {
 
       {/* Wordmark */}
       <div style={{ marginBottom: 8 }}>
-        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'white' }}>Shadow</span>
-        <span style={{ fontSize: '1rem', fontWeight: 800, color: '#00E5A0' }}>Speak</span>
+        <span style={{ fontSize: '1rem', fontWeight: 500, color: 'white' }}>Shadow</span>
+        <span style={{ fontSize: '1rem', fontWeight: 500, color: '#C8392B' }}>Speak</span>
       </div>
 
       <h1 style={{
         fontSize: '1.75rem',
-        fontWeight: 800,
+        fontWeight: 500,
         color: 'white',
         margin: 0,
         textAlign: 'center',
@@ -106,7 +106,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
         padding: '12px 24px',
         display: 'inline-block',
       }}>
-        <span style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#00E5A0' }}>
+        <span style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#C8392B' }}>
           {planLabel}
         </span>
       </div>
@@ -132,7 +132,7 @@ export default function CheckoutSuccessScreen({ onDone }) {
             alignItems: 'center',
             gap: 12,
           }}>
-            <span style={{ color: '#00E5A0', fontSize: '0.875rem', fontWeight: 800, flexShrink: 0 }}>
+            <span style={{ color: '#C8392B', fontSize: '0.875rem', fontWeight: 500, flexShrink: 0 }}>
               {'✓'}
             </span>
             <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)' }}>{feat}</span>
@@ -151,10 +151,10 @@ export default function CheckoutSuccessScreen({ onDone }) {
           padding: '17px 0',
           borderRadius: 12,
           border: 'none',
-          background: '#00E5A0',
+          background: '#C8392B',
           color: '#1A2A18',
           fontSize: '1.0625rem',
-          fontWeight: 800,
+          fontWeight: 500,
           cursor: 'pointer',
           fontFamily: FONT,
           minHeight: 56,

@@ -114,13 +114,13 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
     }}>
       {/* Wordmark */}
       <div style={{ textAlign: 'center', marginBottom: 20 }}>
-        <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1A2A18' }}>Shadow</span>
-        <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#00A371' }}>Speak</span>
+        <span style={{ fontSize: '1.25rem', fontWeight: 500, color: '#1A2A18' }}>Shadow</span>
+        <span style={{ fontSize: '1.25rem', fontWeight: 500, color: '#4A6B46' }}>Speak</span>
       </div>
 
       <h1 style={{
         fontSize: '1.625rem',
-        fontWeight: 800,
+        fontWeight: 500,
         color: '#1A2A18',
         margin: 0,
         textAlign: 'center',
@@ -141,7 +141,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
 
       {/* Featured review */}
       <div style={{
-        background: '#00E5A0',
+        background: '#C8392B',
         borderRadius: 14,
         padding: '16px 18px',
         marginTop: 20,
@@ -178,7 +178,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
                 background: isSelected ? '#1A2A18' : 'white',
                 borderRadius: 14,
                 padding: '16px 18px',
-                border: `2px solid ${isSelected ? '#00E5A0' : 'rgba(255,255,255,0.2)'}`,
+                border: `2px solid ${isSelected ? '#C8392B' : 'rgba(255,255,255,0.2)'}`,
                 cursor: 'pointer',
                 fontFamily: FONT,
                 textAlign: 'left',
@@ -192,10 +192,10 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
                   position: 'absolute',
                   top: -10,
                   right: 14,
-                  background: '#00E5A0',
+                  background: '#C8392B',
                   color: '#1A2A18',
                   fontSize: '0.6875rem',
-                  fontWeight: 800,
+                  fontWeight: 500,
                   borderRadius: 20,
                   padding: '3px 10px',
                 }}>
@@ -208,7 +208,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
                   <div style={{
                     fontSize: '0.875rem',
                     fontWeight: 700,
-                    color: isSelected ? '#00E5A0' : '#999',
+                    color: isSelected ? '#C8392B' : '#999',
                     marginBottom: 2,
                   }}>
                     {plan.label}
@@ -216,7 +216,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
                     <span style={{
                       fontSize: '1.5rem',
-                      fontWeight: 800,
+                      fontWeight: 500,
                       color: isSelected ? 'white' : '#1A2A18',
                     }}>
                       {plan.price}
@@ -234,13 +234,13 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
                     width: 22,
                     height: 22,
                     borderRadius: '50%',
-                    background: '#00E5A0',
+                    background: '#C8392B',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '0.6875rem',
                     color: '#1A2A18',
-                    fontWeight: 800,
+                    fontWeight: 500,
                     flexShrink: 0,
                   }}>
                     {'✓'}
@@ -286,10 +286,10 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
           padding: '17px 0',
           borderRadius: 12,
           border: 'none',
-          background: loading ? '#00C48A' : '#00E5A0',
+          background: loading ? '#B03020' : '#C8392B',
           color: '#1A2A18',
           fontSize: '1.0625rem',
-          fontWeight: 800,
+          fontWeight: 500,
           cursor: loading ? 'wait' : 'pointer',
           fontFamily: FONT,
           transition: 'background 200ms ease',
@@ -375,7 +375,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
               gap: 10,
               marginBottom: 10,
             }}>
-              <span style={{ color: '#00E5A0', fontWeight: 800, flexShrink: 0 }}>{'✓'}</span>
+              <span style={{ color: '#C8392B', fontWeight: 500, flexShrink: 0 }}>{'✓'}</span>
               <span style={{ fontSize: '0.8125rem', color: '#1A2A18', lineHeight: 1.4 }}>{feature}</span>
             </div>
           ))}

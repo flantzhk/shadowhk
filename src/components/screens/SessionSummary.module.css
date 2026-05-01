@@ -116,7 +116,7 @@
   position: absolute;
   bottom: 0; left: 1px;
   width: 14px; height: 16px;
-  background: #FF9F43;
+  background: var(--accent);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
@@ -125,7 +125,7 @@
   position: absolute;
   bottom: 1px; left: 5px;
   width: 7px; height: 9px;
-  background: #FFCC4D;
+  background: #F2DDD9;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 

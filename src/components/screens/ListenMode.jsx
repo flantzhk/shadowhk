@@ -4,6 +4,7 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { KaraokeLine } from '../ui/KaraokeLine.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { getAudioUrl } from '../../services/api.js';
+import { logger } from '../../utils/logger.js';
 
 const SPEEDS = [0.75, 1, 1.25];
 
@@ -35,7 +36,7 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
         }, []);
         lineTimesRef.current = times;
       })
-      .catch(() => {})
+      .catch(err => logger.error('[ListenMode] scene load failed', err?.message))
       .finally(() => setLoading(false));
   }, [sceneId]);
 
