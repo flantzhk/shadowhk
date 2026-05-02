@@ -26,17 +26,17 @@ function getJoinMonths(user) {
   return Math.max(1, Math.round((now - created) / (1000 * 60 * 60 * 24 * 30)));
 }
 
-function getWeekActivity(sessions) {
+function getLast90Days(sessions) {
   const days = [];
   const now = new Date();
-  for (let i = 6; i >= 0; i--) {
+  for (let i = 89; i >= 0; i--) {
     const d = new Date(now);
     d.setDate(d.getDate() - i);
     const key = d.toISOString().slice(0, 10);
-    const label = ['S', 'M', 'T', 'W', 'T', 'F', 'S'][d.getDay()];
     const daySessions = sessions.filter(s => s.date === key);
     const mins = daySessions.reduce((acc, s) => acc + Math.round((s.durationSeconds ?? 0) / 60), 0);
-    days.push({ label, mins });
+    const intensity = mins === 0 ? 0 : mins < 5 ? 1 : mins < 15 ? 2 : mins < 30 ? 3 : 4;
+    days.push({ key, mins, intensity });
   }
   return days;
 }
@@ -48,7 +48,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const user = getCurrentUser();
   const languages = getAllLanguages();
 
-  const [weekActivity, setWeekActivity] = useState([]);
+  const [last90, setLast90] = useState([]);
   const [phraseCount, setPhraseCount] = useState(0);
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -68,7 +68,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
       getAllSessions().catch(() => []),
     ]).then(([entries, sessions]) => {
       setPhraseCount(entries.length);
-      setWeekActivity(getWeekActivity(sessions));
+      setLast90(getLast90Days(sessions));
     });
   }, []);
 
@@ -80,7 +80,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const toneAccuracy = settings.toneAccuracy ?? 0;
   const level = getLevelLabel(phraseCount);
 
-  const maxMins = Math.max(1, ...weekActivity.map(d => d.mins));
+  const maxMins = Math.max(1, ...last90.map(d => d.mins));
 
   const handleSignOut = async () => {
     await signOut();
@@ -179,21 +179,17 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
         </div>
       </div>
 
-      {/* This week heatmap */}
-      {weekActivity.length > 0 && (
+      {/* 90-day heatmap */}
+      {last90.length > 0 && (
         <div className={styles.heatmapSection}>
-          <p className={styles.sectionLabel}>THIS WEEK</p>
-          <div className={styles.heatmap}>
-            {weekActivity.map((day, i) => (
-              <div key={i} className={styles.heatBar}>
-                <div className={styles.heatBarTrack}>
-                  <div
-                    className={styles.heatBarFill}
-                    style={{ height: `${Math.max(2, (day.mins / maxMins) * 100)}%` }}
-                  />
-                </div>
-                <span className={styles.heatBarLabel}>{day.label}</span>
-              </div>
+          <p className={styles.heatmapTitle}>LAST 90 DAYS</p>
+          <div className={styles.heatmapGrid}>
+            {last90.map((day, i) => (
+              <div
+                key={i}
+                className={`${styles.heatCell} ${styles[`heat${day.intensity}`]}`}
+                title={`${day.key}: ${day.mins} min`}
+              />
             ))}
           </div>
         </div>

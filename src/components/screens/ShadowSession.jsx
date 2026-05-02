@@ -4,10 +4,10 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { logger } from '../../utils/logger.js';
-import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
+import { updateAfterPractice } from '../../services/srs.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
-import { isAuthenticated, getCurrentUser } from '../../services/auth.js';
+import { isAuthenticated } from '../../services/auth.js';
 import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
 import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
@@ -15,18 +15,8 @@ import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
-import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
-
-const SPEEDS = [
-  { label: '0.65×', value: 0.65 },
-  { label: '0.8×',  value: 0.8 },
-  { label: 'Natural', value: 1 },
-  { label: '1.2×',  value: 1.25 },
-];
-
-const WAVEFORM_BARS = 28;
 
 export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const { settings } = useAppContext();
@@ -37,8 +27,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [scene, setScene] = useState(null);
   const [youLines, setYouLines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [speed, setSpeed] = useState(1);
-  const [knowDone, setKnowDone] = useState(false);
+  const speed = 1;
   const [savedLines, setSavedLines] = useState({});
 
   const [phase, setPhase] = useState('ready');
@@ -51,9 +40,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [showCelebration, setShowCelebration] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
-  const authUser = getCurrentUser();
-  const userPhoto = authUser?.photoURL ?? null;
-  const userName = authUser?.name ?? settings?.name ?? 'You';
 
   useEffect(() => {
     if (!sceneId || sceneId === '__quick3__') {
@@ -115,8 +101,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const npcSpeakerLabel = contextNpcLine?.speaker
     ? contextNpcLine.speaker.charAt(0).toUpperCase() + contextNpcLine.speaker.slice(1)
     : 'Them';
-
-  useEffect(() => { setKnowDone(false); }, [currentLineIndex]);
 
   const handlePlayPause = useCallback(async () => {
     if (phase === 'ready' || phase === 'scored') {
@@ -200,12 +184,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     setPhase('scored');
   }, [stopRecording, currentYouLine, language, isOnline]);
 
-  const handleKnowIt = useCallback(async () => {
-    if (!currentYouLine || knowDone) return;
-    setKnowDone(true);
-    await markAsMastered(currentYouLine.id).catch(() => {});
-  }, [currentYouLine, knowDone]);
-
   const handleSaveLine = useCallback(async () => {
     if (!currentYouLine) return;
     const id = currentYouLine.id;
@@ -270,7 +248,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     : 'var(--color-score-poor)';
 
   const isSaved = savedLines[currentYouLine?.id];
-  const speaker = (currentYouLine?.speaker ?? 'you').toUpperCase();
+  const showJyutping = settings?.showRomanization ?? true;
+  const showEnglishToggle = settings?.showEnglish ?? true;
+  const cjkChars = (currentYouLine?.cjk ?? '').split('');
 
   return (
     <div className={styles.screen}>
@@ -286,227 +266,150 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       )}
 
       <div className={styles.inner}>
-        {/* Top bar */}
+        {/* Top bar — X close + SHADOW · TITLE + N/N */}
         <div className={styles.topBar}>
-          <button className={styles.downBtn} onClick={onBack} aria-label="Close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          <div className={styles.topCenter}>
-            <span className={styles.topEyebrow}>SHADOWING</span>
-            <span className={styles.topTitle}>{scene.title}</span>
-          </div>
-          <button className={styles.moreBtn} aria-label="More">⋯</button>
+          <button className={styles.closeBtn} onClick={onBack} aria-label="Close">×</button>
+          <span className={styles.topTitle}>
+            SHADOW · <span className={styles.topTitleScene}>{scene.title}</span>
+          </span>
+          <span className={styles.topCount}>{currentLineIndex + 1} / {totalYou}</span>
         </div>
 
-        {/* Progress */}
+        {/* Vermilion progress bar */}
         <div className={styles.progressBar}>
           <div className={styles.progressFill} style={{ width: `${progressPct}%` }} />
         </div>
-        <div className={styles.progressMeta}>
-          <span>Line {currentLineIndex + 1}/{totalYou}</span>
-          <span>{Math.round(progressPct)}%</span>
-        </div>
 
-        {/* Chat thread */}
-        <div className={styles.chatThread}>
-          {/* NPC context bubble */}
-          {contextNpcLine ? (
-            <div className={styles.npcRow}>
-              <NpcAvatar scene={scene} />
-              <div className={styles.npcBubble}>
-                <span className={styles.bubbleSpeaker}>{npcSpeakerLabel}</span>
-                {contextNpcLine.cjk && (
-                  <p className={styles.bubbleCjk}>{contextNpcLine.cjk}</p>
-                )}
-                <p className={styles.bubbleRoman}>{contextNpcLine.romanization}</p>
-                <p className={styles.bubbleEnglish}>"{contextNpcLine.english}"</p>
-              </div>
-            </div>
-          ) : (
-            /* No NPC context — show scene image as a small header instead */
-            scene.imageUrl && (
-              <div className={styles.sceneBanner}>
-                <img className={styles.sceneBannerImg} src={scene.imageUrl} alt={scene.title} />
-                <span className={styles.sceneBannerLabel}>{scene.emoji} {scene.title}</span>
-              </div>
-            )
+        {/* Centered focus content */}
+        <div className={styles.focus}>
+          <span className={styles.lineLabel}>line {String(currentLineIndex + 1).padStart(2, '0')}</span>
+
+          {showJyutping && (
+            <p className={styles.focusJyutping}>{currentYouLine?.romanization ?? '—'}</p>
           )}
 
-          {/* Your active bubble */}
-          <div className={styles.youRow}>
-            <div className={`${styles.youBubble} ${isSpeakPhase ? styles.youBubbleSpeak : ''}`}>
-              <span className={styles.bubbleSpeaker} style={{ textAlign: 'right', display: 'block' }}>
-                {isSpeakPhase ? 'YOUR TURN' : 'YOU'}
-              </span>
-              <p className={styles.bubbleRoman}>{currentYouLine?.romanization ?? '—'}</p>
-              <p className={styles.bubbleEnglish}>"{currentYouLine?.english}"</p>
-              {currentYouLine?.cjk && (
-                <p className={styles.bubbleCjk} style={{ opacity: 0.6, fontSize: 14 }}>{currentYouLine.cjk}</p>
-              )}
-            </div>
-            <UserAvatar photoURL={userPhoto} name={userName} />
-          </div>
-
-          {/* Next NPC line (dimmed preview) */}
-          {followNpcLine && phase === 'scored' && (
-            <div className={`${styles.npcRow} ${styles.dimmed}`}>
-              <NpcAvatar scene={scene} />
-              <div className={styles.npcBubble}>
-                <span className={styles.bubbleSpeaker}>{npcSpeakerLabel}</span>
-                {followNpcLine.cjk && <p className={styles.bubbleCjk}>{followNpcLine.cjk}</p>}
-                <p className={styles.bubbleRoman}>{followNpcLine.romanization}</p>
-              </div>
-            </div>
+          {currentYouLine?.cjk && (
+            <p className={styles.focusCjk}>
+              {cjkChars.map((ch, i) => (
+                <span key={i} className={i === 0 ? styles.focusCjkAccent : undefined}>{ch}</span>
+              ))}
+            </p>
           )}
-        </div>
 
-        {/* Score reveal */}
-        {(phase === 'scoring' || phase === 'scored') && (
-          <div className={styles.scoreReveal}>
-            {phase === 'scoring' ? (
-              <span className={styles.scoringText}>Scoring your pronunciation…</span>
-            ) : (
-              <>
-                <div className={`${styles.scoreCircle} ${
-                  currentScore !== null && currentScore >= 90 ? styles.scoreCircleExcellent :
-                  currentScore !== null && currentScore >= 70 ? styles.scoreCircleGood : ''
-                }`}>
+          {showEnglishToggle && (
+            <p className={styles.focusEnglish}>"{currentYouLine?.english}"</p>
+          )}
+
+          {/* Vermilion 3-bar audio icon — tap to replay */}
+          <button className={styles.audioIcon} onClick={handleReplay} aria-label="Play audio">
+            <span /><span /><span />
+          </button>
+
+          {/* Score reveal */}
+          {(phase === 'scoring' || phase === 'scored') && (
+            <div className={styles.scoreReveal}>
+              {phase === 'scoring' ? (
+                <span className={styles.scoringText}>Scoring…</span>
+              ) : (
+                <>
                   <span className={styles.scoreNum} style={{ color: scoreColor }}>
                     {currentScore !== null ? currentScore : '—'}
                   </span>
-                </div>
-                {currentScore !== null && (
-                  <span className={styles.scoreLabel} style={{ color: scoreColor }}>
-                    {currentScore >= 90 ? 'Native Match! 🎯' : currentScore >= 70 ? 'Close! 👍' : 'Try again 🔄'}
-                  </span>
-                )}
-                {toneResult?.toneContours && (
-                  <div className={styles.toneTrackWrap}>
-                    <ToneTrack
-                      target={toneResult.toneContours.expected ?? []}
-                      user={toneResult.toneContours.actual ?? []}
-                      labels={currentYouLine?.romanization?.split(' ') ?? []}
-                    />
-                  </div>
-                )}
-              </>
-            )}
-          </div>
-        )}
-
-        {/* Save row */}
-        <div className={styles.saveRow}>
-          <button
-            className={`${styles.saveRowBtn} ${isSaved ? styles.saveRowBtnSaved : ''}`}
-            onClick={handleSaveLine}
-          >
-            <span className={styles.saveRowIcon}>{isSaved ? '♥' : '♡'}</span>
-            <span className={styles.saveRowLabel}>SAVE</span>
-          </button>
-          <button className={styles.saveRowBtn} onClick={handleReplay}>
-            <span className={styles.saveRowIcon}>🔊</span>
-            <span className={styles.saveRowLabel}>SLOW 0.5×</span>
-          </button>
-          <button className={styles.saveRowBtn}>
-            <span className={styles.saveRowIcon}>💬</span>
-            <span className={styles.saveRowLabel}>TRANSLATE</span>
-          </button>
+                  {toneResult?.toneContours && (
+                    <div className={styles.toneTrackWrap}>
+                      <ToneTrack
+                        target={toneResult.toneContours.expected ?? []}
+                        user={toneResult.toneContours.actual ?? []}
+                        labels={currentYouLine?.romanization?.split(' ') ?? []}
+                      />
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Waveform (recording) */}
-        {isRecording && (
-          <div className={styles.waveform}>
-            {Array.from({ length: WAVEFORM_BARS }).map((_, i) => (
-              <div
-                key={i}
-                className={styles.waveBar}
-                style={{ animationDelay: `${(i * 0.6 / WAVEFORM_BARS).toFixed(2)}s` }}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Scored actions */}
-        {phase === 'scored' && (
-          <div className={styles.scoredActions}>
-            <button className={styles.retryBtn} onClick={() => { setPhase('listen'); setCurrentScore(null); setToneResult(null); audio.play(); }}>
-              🔄 Try again
-            </button>
-            <button className={styles.nextBtn} onClick={handleNext}>
-              {currentLineIndex < totalYou - 1 ? '→ Next' : '✓ Finish'}
-            </button>
-          </div>
-        )}
-
-        {/* Transport */}
-        {phase !== 'record' && phase !== 'scoring' && phase !== 'scored' && (
-          <div className={styles.transport}>
-            <button className={styles.transportSec} onClick={handleReplay} aria-label="Replay">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-            </button>
-            <button className={styles.transportSec} onClick={handlePrev} aria-label="Previous" disabled={currentLineIndex === 0} style={{ opacity: currentLineIndex === 0 ? 0.3 : 0.7 }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
-            </button>
-            <button className={styles.playPauseBtn} onClick={handlePlayPause} aria-label={audio.isPlaying ? 'Pause' : 'Play'}>
-              {audio.isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </button>
-            <button className={styles.transportSec} onClick={handleNext} aria-label="Next">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-            </button>
-            {phase === 'scoring' ? (
-              <div className={styles.scoringSpinner} />
-            ) : (
-              <button
-                className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
-                onClick={phase === 'record' ? handleStopRecording : handleRecord}
-                aria-label="Record"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* Know it + speed */}
-        {phase !== 'record' && phase !== 'scoring' && (
-          <button
-            className={`${styles.knowBtn} ${knowDone ? styles.knowBtnDone : ''}`}
-            onClick={handleKnowIt}
-          >
-            💪 I know this now
-          </button>
-        )}
-
-        <div className={styles.speedRow}>
-          {SPEEDS.map(s => (
+        {/* Bottom controls block */}
+        <div className={styles.bottom}>
+          {/* JYUTPING / ENGLISH eye toggles */}
+          <div className={styles.eyeToggles}>
             <button
-              key={s.value}
-              className={`${styles.speedPill} ${speed === s.value ? styles.speedPillActive : ''}`}
-              onClick={() => setSpeed(s.value)}
+              className={`${styles.eyeToggle} ${showJyutping ? styles.eyeToggleOn : ''}`}
+              onClick={() => settings && (settings.showRomanization = !showJyutping)}
             >
-              {s.label}
+              <EyeIcon /> JYUTPING
             </button>
-          ))}
+            <button
+              className={`${styles.eyeToggle} ${showEnglishToggle ? styles.eyeToggleOn : ''}`}
+              onClick={() => settings && (settings.showEnglish = !showEnglishToggle)}
+            >
+              <EyeIcon /> ENGLISH
+            </button>
+          </div>
+
+          {/* Three-button transport: skip-back · MIC · skip-forward */}
+          <div className={styles.transport}>
+            <button
+              className={styles.skipBtn}
+              onClick={handlePrev}
+              disabled={currentLineIndex === 0}
+              aria-label="Previous"
+            >
+              <ArrowLeftIcon />
+            </button>
+
+            <button
+              className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
+              onClick={phase === 'record' ? handleStopRecording : handleRecord}
+              aria-label="Record"
+            >
+              {phase === 'scoring' ? (
+                <div className={styles.micSpinner} />
+              ) : (
+                <MicIcon />
+              )}
+            </button>
+
+            <button
+              className={styles.skipBtn}
+              onClick={handleNext}
+              aria-label="Next"
+            >
+              <ArrowRightIcon />
+            </button>
+          </div>
+
+          <p className={styles.holdLabel}>
+            {phase === 'record' ? 'RECORDING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'HOLD TO SHADOW'}
+          </p>
+
+          {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
         </div>
-
-        {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
-
-        <p className={styles.footerHint}>TAP MIC TO SHADOW · SWIPE UP FOR FULL DIALOGUE</p>
       </div>
     </div>
   );
 }
 
-const PlayIcon = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="5 3 19 12 5 21 5 3" />
+const EyeIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+    <circle cx="12" cy="12" r="3" />
   </svg>
 );
-const PauseIcon = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
+const ArrowLeftIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+  </svg>
+);
+const ArrowRightIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+const MicIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm6-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
   </svg>
 );
 

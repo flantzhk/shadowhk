@@ -44,20 +44,21 @@
 .streakPill {
   display: flex;
   align-items: center;
-  gap: 5px;
-  background: var(--accent-dark);
-  border-radius: var(--radius-pill);
-  padding: 6px 12px 6px 10px;
+  gap: 6px;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 5px 12px 5px 10px;
   flex-shrink: 0;
   margin-left: 14px;
 }
 
-.streakFlame { font-size: 13px; }
+.streakFlame { font-size: 13px; filter: grayscale(1) brightness(2); }
 .streakNum {
-  font-family: var(--font-ui);
-  font-size: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
   font-weight: 700;
-  color: var(--accent);
+  color: #fff;
+  letter-spacing: 0.02em;
 }
 
 /* ─── Editorial section bar ───────────── */

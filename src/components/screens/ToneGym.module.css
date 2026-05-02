@@ -6,6 +6,9 @@
   padding: 0 20px;
   padding-top: max(env(safe-area-inset-top, 12px), 12px);
   padding-bottom: max(env(safe-area-inset-bottom, 24px), 24px);
+  position: relative;
+  border: 3px solid var(--accent);
+  box-sizing: border-box;
 }
 
 /* === Header === */
