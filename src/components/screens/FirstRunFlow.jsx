@@ -141,13 +141,21 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
       {/* Content */}
       <div className={styles.content}>
-        {/* Step 1 — Welcome */}
+        {/* Step 1 — Welcome (PDF Plate 10) */}
         {step === 0 && (
           <div className={styles.step1}>
-            <div className={styles.brandTile}>影</div>
-            <p className={styles.brandName}>ShadowHK</p>
-            <h1 className={styles.stepTitle}>Cantonese the way locals speak it</h1>
-            <p className={styles.stepBody}>Shadow real HK situations. No lesson plans. No textbook phrases.</p>
+            <div className={styles.brandRow}>
+              <div className={styles.brandTile}>影</div>
+              <span className={styles.brandName}>ShadowHK</span>
+            </div>
+            <p className={styles.welcomeEyebrow}>ISSUE 01 · WELCOME</p>
+            <h1 className={styles.stepTitle}>
+              Hong Kong speaks <em>in tones</em>.<br />
+              Most people never hear them.
+            </h1>
+            <p className={styles.stepBody}>
+              ShadowHK is built on real conversations — the ones overheard at wet markets, in taxis, at cha chaan tengs at four in the morning. Not phrasebook-Cantonese. The Cantonese that works.
+            </p>
           </div>
         )}
 

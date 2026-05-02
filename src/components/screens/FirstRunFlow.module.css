@@ -146,53 +146,71 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 24px 0;
+  padding: 24px 4px;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 
 .brandTile {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-cjk);
-  font-size: 22px;
-  color: var(--accent-dark);
-  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
 }
 
 .brandName {
-  font-family: var(--font-ui);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--fg-0);
-  letter-spacing: -0.02em;
-  margin: 0 0 28px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.welcomeEyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 12px;
 }
 
 .stepTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif);
   font-size: 32px;
-  font-weight: 800;
-  color: var(--fg-0);
+  font-weight: 500;
+  color: #fff;
   letter-spacing: -0.02em;
-  line-height: 1.15;
-  max-width: 300px;
-  margin: 0 0 14px;
+  line-height: 1.1;
+  margin: 0 0 18px;
 }
 
+.stepTitle em { font-style: italic; }
+
 .stepBody {
-  font-family: var(--font-ui);
+  font-family: var(--font-serif-alt);
+  font-style: italic;
   font-size: 14px;
-  font-weight: 500;
-  color: var(--fg-1);
-  line-height: 1.5;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
   margin: 0;
+  max-width: 360px;
 }
 
 /* ── Step 2: Level picker ── */

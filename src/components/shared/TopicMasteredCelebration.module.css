@@ -59,22 +59,28 @@
 
 /* === Text === */
 .title {
-  font-size: 1.75rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
   margin-bottom: 6px;
 }
 
 .topicName {
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-brand-green);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--accent);
   margin-bottom: 14px;
 }
 
 .body {
-  font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--fg-2);
   line-height: 1.6;
   max-width: 280px;
   margin-bottom: 20px;
@@ -82,22 +88,27 @@
 
 /* === Callout === */
 .callout {
-  background: var(--color-brand-lime-muted);
-  border-radius: 12px;
+  background: #DDE6D9;
+  border: 1px solid rgba(106,148,114,0.35);
+  border-radius: 0;
   padding: 14px 18px;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .calloutText {
-  font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: #1F3220;
 }
 
 .challengeLabel {
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-1);
   margin-bottom: 14px;
 }
 
@@ -111,22 +122,29 @@
 
 .nextTopicBtn {
   width: 100%;
-  padding: 16px;
-  border-radius: 14px;
-  background: var(--color-brand-dark);
-  color: white;
-  font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
+  padding: 14px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(200,57,43,0.25);
 }
 
 .aiBtn {
   width: 100%;
-  padding: 16px;
-  border-radius: 14px;
-  background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
-  font-size: 0.9375rem;
-  font-weight: var(--font-weight-semibold);
+  padding: 14px;
+  border: 1px solid var(--border-1);
+  border-radius: 999px;
+  background: none;
+  color: var(--fg-0);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .doneBtn {
