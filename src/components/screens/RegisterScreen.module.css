@@ -57,22 +57,33 @@
   margin-top: 8px;
 }
 
+.eyebrow {
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
 .title {
-  font-family: var(--font-ui);
-  font-size: 28px;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.02em;
+  line-height: 1.1;
   margin: 0 0 8px;
 }
 
+.titleItalic { font-style: italic; }
+
 .subtitle {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 500;
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 14px;
   color: var(--fg-2);
   margin: 0;
-  max-width: 320px;
+  max-width: 340px;
   line-height: 1.5;
 }
 

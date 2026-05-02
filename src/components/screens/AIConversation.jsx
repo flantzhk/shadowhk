@@ -391,12 +391,11 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
             </div>
           ))}
           {isThinking && (
-            <div className={styles.thinkingBubble}>
-              <div className={styles.thinkingDots}>
-                <span className={styles.dot} />
-                <span className={styles.dot} />
-                <span className={styles.dot} />
+            <div className={styles.speakingState}>
+              <div className={styles.speakingWaveform}>
+                <span /><span /><span /><span /><span />
               </div>
+              <p className={styles.speakingLabel}>SPEAKING CANTONESE…</p>
             </div>
           )}
         </div>

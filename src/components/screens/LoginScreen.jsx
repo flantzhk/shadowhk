@@ -64,8 +64,8 @@ export default function LoginScreen() {
         <div className={styles.spacer} />
 
         <div className={styles.titleBlock}>
-          <h1 className={styles.title}>Welcome back</h1>
-          <p className={styles.subtitle}>Gwai2 zoi3 gin3 — ready to shadow?</p>
+          <p className={styles.eyebrow}>Welcome back</p>
+          <h1 className={styles.title}>Welcome back to <span className={styles.titleItalic}>Hong Kong</span>.</h1>
         </div>
 
         <form onSubmit={handleSubmit} className={shaking ? styles.shakeError : ''}>
@@ -124,10 +124,6 @@ export default function LoginScreen() {
           <button className={styles.socialBtn} type="button" onClick={handleGoogle}>
             <span className={styles.socialIcon + ' ' + styles.socialG}>G</span>
             Google
-          </button>
-          <button className={styles.socialBtn} type="button" onClick={() => window.location.hash = `#${ROUTES.REGISTER}`}>
-            <span className={styles.socialMail}>✉</span>
-            Email link
           </button>
         </div>
 

@@ -112,31 +112,38 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
       padding: '40px 24px 56px',
       fontFamily: FONT,
     }}>
-      {/* Wordmark */}
-      <div style={{ textAlign: 'center', marginBottom: 20 }}>
-        <span style={{ fontSize: '1.25rem', fontWeight: 500, color: '#1A2A18' }}>Shadow</span>
-        <span style={{ fontSize: '1.25rem', fontWeight: 500, color: '#4A6B46' }}>Speak</span>
-      </div>
+      {/* Eyebrow + editorial title */}
+      <p style={{
+        fontFamily: 'Newsreader, Georgia, serif',
+        fontStyle: 'italic',
+        fontSize: 14,
+        color: '#C8392B',
+        margin: '0 0 4px',
+      }}>
+        Premium
+      </p>
 
       <h1 style={{
-        fontSize: '1.625rem',
+        fontFamily: '"Source Serif 4", Georgia, serif',
+        fontSize: 30,
         fontWeight: 500,
         color: '#1A2A18',
         margin: 0,
-        textAlign: 'center',
-        lineHeight: 1.2,
+        lineHeight: 1.1,
+        letterSpacing: '-0.02em',
       }}>
-        Your Chinese, properly scored.
+        Unlock all of <em>Hong Kong</em>.
       </h1>
 
       <p style={{
-        fontSize: '0.9375rem',
+        fontFamily: 'Newsreader, Georgia, serif',
+        fontStyle: 'italic',
+        fontSize: 14,
         color: '#666',
-        textAlign: 'center',
         marginTop: 8,
         lineHeight: 1.5,
       }}>
-        Everything you just experienced, every day. Real pronunciation feedback, real progress.
+        Every scene. Every mode. Every conversation.
       </p>
 
       {/* Featured review */}

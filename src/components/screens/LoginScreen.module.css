@@ -76,23 +76,25 @@
   margin-bottom: 24px;
 }
 
-.title {
-  font-family: var(--font-ui);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--fg-0);
-  letter-spacing: -0.02em;
-  margin: 0 0 6px;
+.eyebrow {
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0 0 4px;
 }
 
-.subtitle {
-  font-family: var(--font-ui);
-  font-size: 13px;
+.title {
+  font-family: var(--font-serif);
+  font-size: 30px;
   font-weight: 500;
-  font-style: italic;
-  color: var(--fg-2);
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   margin: 0;
 }
+
+.titleItalic { font-style: italic; }
 
 /* Fields */
 .field { margin-bottom: 12px; position: relative; }

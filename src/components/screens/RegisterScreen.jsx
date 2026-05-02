@@ -53,8 +53,9 @@ export default function RegisterScreen() {
         </div>
 
         <div className={styles.titleBlock}>
-          <h1 className={styles.title}>Start shadowing</h1>
-          <p className={styles.subtitle}>One account, all scenes. No lesson plans, just real HK situations.</p>
+          <p className={styles.eyebrow}>Create account</p>
+          <h1 className={styles.title}>Begin your <span className={styles.titleItalic}>journey</span>.</h1>
+          <p className={styles.subtitle}>Three minutes a day. Twelve weeks until you bargain at the wet market.</p>
         </div>
 
         <form onSubmit={handleSubmit}>

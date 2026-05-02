@@ -651,3 +651,44 @@
 @keyframes spinGate {
   to { transform: rotate(360deg); }
 }
+
+/* PDF Plate 05 — sage speaking state */
+.speakingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+}
+.speakingWaveform {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 24px;
+}
+.speakingWaveform span {
+  display: block;
+  width: 4px;
+  background: #4A6B46;
+  border-radius: 1px;
+  animation: speakBar 1s ease-in-out infinite;
+}
+.speakingWaveform span:nth-child(1) { height: 12px; animation-delay: 0s; }
+.speakingWaveform span:nth-child(2) { height: 22px; animation-delay: 0.15s; }
+.speakingWaveform span:nth-child(3) { height: 16px; animation-delay: 0.3s; }
+.speakingWaveform span:nth-child(4) { height: 24px; animation-delay: 0.45s; }
+.speakingWaveform span:nth-child(5) { height: 14px; animation-delay: 0.6s; }
+@keyframes speakBar {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+.speakingLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4A6B46;
+  margin: 0;
+}

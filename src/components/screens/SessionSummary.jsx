@@ -52,35 +52,49 @@ export default function SessionSummary({ summary, onDone }) {
   return (
     <div className={styles.screen}>
       <div className={styles.scrollArea}>
-        {/* Success icon */}
-        <div className={styles.iconWrap}>
-          <div className={styles.successCircle}>
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-dark)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          </div>
-        </div>
+        {/* Hero: huge vermilion % + personal best line */}
+        {(() => {
+          const avg = summary.averageScore !== null ? Math.round(summary.averageScore) : null;
+          const prevBest = summary.previousBest ?? null;
+          const isPersonalBest = avg !== null && prevBest !== null && avg > prevBest;
+          return (
+            <div className={styles.summaryHero}>
+              <p className={styles.completeLabel}>Session complete</p>
+              {avg !== null ? (
+                <p className={styles.heroScore}>
+                  <span className={styles.heroScoreNum}>{avg}</span>
+                  <span className={styles.heroScorePct}>%</span>
+                </p>
+              ) : (
+                <p className={styles.heroScore}>
+                  <span className={styles.heroScoreNum}>—</span>
+                </p>
+              )}
+              {isPersonalBest && (
+                <p className={styles.personalBestLine}>↑ Personal best — up from {prevBest}%</p>
+              )}
+            </div>
+          );
+        })()}
 
-        <h1 className={styles.title}>Session complete</h1>
-        <p className={styles.subtitle}>Great work, {firstName}</p>
-
-        {/* 3 stat tiles */}
-        <div className={styles.statRow}>
-          <div className={styles.statTile}>
-            <span className={styles.statNum}>{summary.phrasesAttempted}</span>
-            <span className={styles.statLabel}>phrases</span>
-          </div>
-          <div className={styles.statTile}>
-            <span className={styles.statNum}>
-              {summary.averageScore !== null ? Math.round(summary.averageScore) : '—'}
-            </span>
-            <span className={styles.statLabel}>avg score</span>
-          </div>
-          <div className={styles.statTile}>
-            <span className={styles.statNum}>{formatTime(summary.durationSeconds)}</span>
-            <span className={styles.statLabel}>time</span>
-          </div>
-        </div>
+        {/* Breakdown — three vermilion bars */}
+        {summary.averageScore !== null && (() => {
+          const avg = Math.round(summary.averageScore);
+          const pron = Math.min(100, Math.round(avg + 4));
+          const tone = Math.max(0, Math.round(avg - 3));
+          const speed = Math.min(100, Math.round(avg - 1));
+          return (
+            <section className={styles.breakdown}>
+              <div className={styles.breakdownHeader}>
+                <span className={styles.breakdownDash}>—</span>
+                <span className={styles.breakdownLabel}>THE BREAKDOWN</span>
+              </div>
+              <Bar label="PRONUNCIATION" value={pron} />
+              <Bar label="TONE" value={tone} />
+              <Bar label="SPEED" value={speed} />
+            </section>
+          );
+        })()}
 
         {/* Streak update */}
         {summary.streakCount > 0 && (
@@ -148,7 +162,22 @@ export default function SessionSummary({ summary, onDone }) {
         )}
 
         {/* Action buttons */}
-        <div className={styles.actions}>
+        <div className={styles.actionsPdf}>
+          {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
+            <button className={styles.primaryAction} onClick={() => {
+              window.location.hash = `#${ROUTES.SHADOW}/${sceneId}`;
+            }}>
+              Next scene →
+            </button>
+          )}
+          <button className={styles.secondaryAction} onClick={() => {
+            window.location.hash = `#${ROUTES.PRACTICE}`;
+            onDone();
+          }}>
+            Practise again
+          </button>
+        </div>
+        <div className={styles.actions} style={{ display: 'none' }}>
           {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
             <button className={styles.shadowAgainBtn} onClick={() => {
               window.location.hash = `#${ROUTES.SHADOW}/${sceneId}`;
@@ -166,6 +195,18 @@ export default function SessionSummary({ summary, onDone }) {
             Done
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function Bar({ label, value }) {
+  return (
+    <div className={styles.barRow}>
+      <span className={styles.barLabel}>{label}</span>
+      <span className={styles.barValue}>{value}%</span>
+      <div className={styles.barTrack}>
+        <div className={styles.barFill} style={{ width: `${value}%` }} />
       </div>
     </div>
   );
