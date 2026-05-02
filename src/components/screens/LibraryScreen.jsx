@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { PhraseRow } from '../ui/PhraseRow.jsx';
 import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
 import { growthStateFromInterval } from '../../services/sceneLoader.js';
-import { updateAfterPractice, markAsMastered } from '../../services/srs.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 
-const TABS = ['phrases', 'scenes', 'mastered'];
+const REFERENCE_SETS = [
+  { id: 'numbers', count: 100, title: 'Numbers 1–100' },
+  { id: 'colours', count: 12,  title: 'Colours' },
+  { id: 'drinks',  count: 18,  title: 'Drinks & Coffee' },
+  { id: 'days',    count: 24,  title: 'Days & Times' },
+];
 
 export default function LibraryScreen({ onNavigate }) {
   const { settings } = useAppContext();
@@ -18,7 +21,6 @@ export default function LibraryScreen({ onNavigate }) {
   const [scenes, setScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('phrases');
 
   useEffect(() => { reload(); }, [language]);
 
@@ -43,182 +45,129 @@ export default function LibraryScreen({ onNavigate }) {
     finally { setLoading(false); }
   }
 
-  async function handleProveIt(phraseId, score) {
-    await updateAfterPractice(phraseId, score).catch(() => {});
-    await reload();
+  // Group phrases by scene_id
+  const groups = new Map();
+  for (const phrase of library) {
+    const key = phrase.scene_id ?? 'unsorted';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(phrase);
   }
+  const groupedScenes = [...groups.entries()]
+    .map(([sceneId, phrases]) => ({
+      scene: scenes.find(s => s.id === sceneId) ?? null,
+      sceneId,
+      phrases,
+    }))
+    .sort((a, b) => (b.phrases.length - a.phrases.length));
 
-  async function handleMarkMastered(phraseId) {
-    await markAsMastered(phraseId).catch(() => {});
-    await reload();
-  }
-
-  const savedPhrases = library.filter(p => p.growth_state !== GROWTH_STATE.MASTERED);
-  const masteredPhrases = library.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
-  const savedScenes = scenes.filter(s => sceneProgress[s.id]?.sessionCount > 0 || sceneProgress[s.id]?.bookmarked);
-
-  // Due today: phrases whose nextReviewAt has passed
-  const dueToday = library.filter(p => p.nextReviewAt && p.nextReviewAt <= Date.now());
+  const totalPhrases = library.length;
+  const totalScenes = groupedScenes.filter(g => g.scene).length;
 
   return (
     <div className={styles.screen}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Your phrasebook.</h1>
-        <button className={styles.addBtn}>+</button>
+      <p className={styles.eyebrow}>
+        SAVED · {totalPhrases} {totalPhrases === 1 ? 'PHRASE' : 'PHRASES'} · {totalScenes} {totalScenes === 1 ? 'SCENE' : 'SCENES'}
+      </p>
+      <h1 className={styles.title}>Your <span className={styles.titleItalic}>phrasebook</span>.</h1>
+
+      <div className={styles.divider} />
+
+      {/* Reference sets */}
+      <div className={styles.refHeader}>
+        <span className={styles.refLabel}>— REFERENCE SETS</span>
+        <span className={styles.refTapHint}>TAP TO BROWSE</span>
       </div>
 
-      {/* Tab chips */}
-      <div className={styles.tabRow}>
-        {TABS.map(tab => (
+      <div className={styles.refGrid}>
+        {REFERENCE_SETS.map(s => (
           <button
-            key={tab}
-            className={`${styles.tabChip} ${activeTab === tab ? styles.tabChipActive : ''}`}
-            onClick={() => setActiveTab(tab)}
+            key={s.id}
+            className={styles.refCard}
+            onClick={() => onNavigate?.('reference', s.id)}
           >
-            {tab}
+            <span className={styles.refCount}>{s.count} ITEMS</span>
+            <span className={styles.refTitle}>{s.title}</span>
           </button>
         ))}
       </div>
 
-      <div className={styles.content}>
-        {/* === Phrases tab === */}
-        {activeTab === 'phrases' && (
-          <>
-            <div className={styles.shortcutGrid}>
-              <div className={styles.shortcutSaved}>
-                <div>
-                  <p className={styles.shortcutCount}>{library.length}</p>
-                  <p className={styles.shortcutLabel}>Saved</p>
-                </div>
-              </div>
-              <button
-                className={styles.shortcutDue}
-                onClick={() => onNavigate('practice')}
-              >
-                <div>
-                  <p className={styles.shortcutCount}>{dueToday.length}</p>
-                  <p className={styles.shortcutLabel}>Due today</p>
-                </div>
-              </button>
+      {/* Scene groups */}
+      {loading && <div className={styles.skeleton} />}
+
+      {!loading && totalPhrases === 0 && (
+        <div className={styles.empty}>
+          <p>Your library is empty.</p>
+          <button className={styles.emptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
+        </div>
+      )}
+
+      {!loading && groupedScenes.map(({ scene, sceneId, phrases }) => (
+        <section key={sceneId} className={styles.sceneGroup}>
+          <button
+            className={styles.sceneHeader}
+            onClick={() => scene && onNavigate('scene', scene.id)}
+          >
+            <div
+              className={styles.sceneThumb}
+              style={{
+                backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : undefined,
+                backgroundColor: scene?.tint ? scene.tint + '88' : '#3a2a26',
+              }}
+            />
+            <div className={styles.sceneText}>
+              <p className={styles.sceneName}>{scene?.title ?? 'Other phrases'}</p>
+              <p className={styles.sceneMeta}>{phrases.length} {phrases.length === 1 ? 'PHRASE' : 'PHRASES'}</p>
             </div>
+          </button>
 
-            {loading && <div className={styles.skeleton} />}
-
-            {!loading && library.length === 0 && (
-              <div className={styles.empty}>
-                <p>Your library is empty.</p>
-                <button className={styles.emptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
+          {phrases.map(phrase => (
+            <div
+              key={phrase.id}
+              className={styles.phraseRow}
+              onClick={() => onNavigate('phrase', phrase.id)}
+              role="button"
+              tabIndex={0}
+            >
+              <div className={styles.phraseText}>
+                <p className={styles.phraseRoman}>{phrase.romanization}</p>
+                <p className={styles.phraseCjk}>{phrase.cjk}</p>
+                <p className={styles.phraseEnglish}>{phrase.english}</p>
+                {phrase.growth_state === GROWTH_STATE.MASTERED && (
+                  <span className={styles.masteredPill}>✓ MASTERED</span>
+                )}
               </div>
-            )}
-
-            {!loading && library.map(phrase => (
-              <div
-                key={phrase.id}
-                className={styles.phraseItem}
-                onClick={() => onNavigate('phrase', phrase.id)}
-                role="button"
-                tabIndex={0}
-              >
-                <div className={styles.phraseThumb}>
-                  <span className={styles.thumbEmoji}>
-                    {scenes.find(s => s.id === phrase.scene_id)?.emoji ?? '💬'}
-                  </span>
-                </div>
-                <div className={styles.phraseContent}>
-                  <PhraseRow
-                    jyutping={phrase.romanization}
-                    english={phrase.english}
-                    chinese={phrase.cjk}
-                    size="sm"
-                  />
-                </div>
-                <MasteryRing pct={phrase.growth_state === GROWTH_STATE.MASTERED ? 100 : phrase.growth_state === GROWTH_STATE.STRONG ? 70 : phrase.growth_state === GROWTH_STATE.GROWING ? 40 : 10} size={28} />
-              </div>
-            ))}
-          </>
-        )}
-
-        {/* === Scenes tab === */}
-        {activeTab === 'scenes' && (
-          <>
-            {loading && <div className={styles.skeleton} />}
-            {!loading && savedScenes.length === 0 && (
-              <div className={styles.empty}>
-                <p>No scenes practised yet.</p>
-                <button className={styles.emptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
-              </div>
-            )}
-            {!loading && savedScenes.map(s => {
-              const p = sceneProgress[s.id];
-              const pct = p?.masteryPct ?? 0;
-              return (
-                <button key={s.id} className={styles.sceneRow} onClick={() => onNavigate('scene', s.id)}>
-                  <div
-                    className={styles.sceneThumb}
-                    style={{ backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined, backgroundColor: s.tint ? s.tint + '44' : 'var(--surface-2)' }}
-                  />
-                  <div className={styles.sceneInfo}>
-                    <p className={styles.sceneTitle}>{s.title}</p>
-                    <p className={styles.sceneMeta}>Scene · {s.lines?.filter(l => l.speaker === 'you').length ?? 0} phrases · {p?.sessionCount ?? 0} sessions</p>
-                  </div>
-                  <MasteryRing pct={pct} size={32} />
+              <div className={styles.phraseActions}>
+                <button
+                  className={styles.iconBtn}
+                  onClick={e => { e.stopPropagation(); onNavigate('phrase', phrase.id); }}
+                  aria-label="Play"
+                >
+                  <PlayIcon />
                 </button>
-              );
-            })}
-          </>
-        )}
-
-        {/* === Mastered tab === */}
-        {activeTab === 'mastered' && (
-          <div className={styles.masteredTab}>
-            <span className={styles.masteredTrophy}>🏆</span>
-            <p className={styles.masteredCount}>{masteredPhrases.length} phrases mastered</p>
-            <p className={styles.masteredDesc}>
-              {masteredPhrases.length > 0
-                ? 'Keep practising to lock them in long-term.'
-                : 'Keep going — mastered phrases will appear here.'}
-            </p>
-            {masteredPhrases.map(phrase => (
-              <div key={phrase.id} className={styles.phraseItem} style={{ marginTop: 8 }}>
-                <div className={styles.phraseThumb}>
-                  <span className={styles.thumbEmoji}>
-                    {scenes.find(s => s.id === phrase.scene_id)?.emoji ?? '⭐'}
-                  </span>
-                </div>
-                <div className={styles.phraseContent}>
-                  <PhraseRow
-                    jyutping={phrase.romanization}
-                    english={phrase.english}
-                    chinese={phrase.cjk}
-                    size="sm"
-                  />
-                </div>
-                <MasteryRing pct={100} size={28} />
+                <button
+                  className={styles.iconBtn}
+                  onClick={e => { e.stopPropagation(); }}
+                  aria-label="Bookmark"
+                >
+                  <BookmarkIcon />
+                </button>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
+            </div>
+          ))}
+        </section>
+      ))}
     </div>
   );
 }
 
-function MasteryRing({ pct, size = 28 }) {
-  const r = (size - 4) / 2;
-  const circ = 2 * Math.PI * r;
-  const offset = circ - (pct / 100) * circ;
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ flexShrink: 0 }}>
-      <circle cx={size/2} cy={size/2} r={r} stroke="var(--surface-2)" strokeWidth="2.5" fill="none"/>
-      <circle
-        cx={size/2} cy={size/2} r={r}
-        stroke={pct >= 80 ? 'var(--accent)' : 'var(--fg-2)'}
-        strokeWidth="2.5" fill="none"
-        strokeDasharray={circ}
-        strokeDashoffset={offset}
-        strokeLinecap="round"
-        transform={`rotate(-90 ${size/2} ${size/2})`}
-      />
-    </svg>
-  );
-}
+const PlayIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="5 3 19 12 5 21 5 3" />
+  </svg>
+);
+
+const BookmarkIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+  </svg>
+);

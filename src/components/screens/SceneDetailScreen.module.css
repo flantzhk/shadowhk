@@ -1,3 +1,60 @@
+/* Cultural note (sage editorial card) */
+.culturalSection {
+  padding: 14px 20px 18px;
+}
+
+.culturalDivider {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border-top: 4px solid var(--fg-0);
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.culturalDividerDash {
+  color: var(--accent);
+  font-family: var(--font-serif-alt);
+  font-style: italic;
+  font-size: 14px;
+}
+
+.culturalDividerLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+.culturalCard {
+  background: #DDE6D9;
+  border: 1px solid rgba(106,148,114,0.35);
+  border-radius: 0;
+  padding: 16px 18px;
+}
+
+.culturalEyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4A6B46;
+  margin: 0 0 10px;
+}
+
+.culturalText {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 400;
+  color: #1F3220;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
 .screen {
   display: flex;
   flex-direction: column;
