@@ -174,7 +174,7 @@
 .confusionItem:last-child { border-bottom: none; }
 
 .practiceNote {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 12px;
   font-style: italic;
   color: var(--fg-3);

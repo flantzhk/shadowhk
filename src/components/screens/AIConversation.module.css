@@ -670,7 +670,7 @@
 .speakingWaveform span {
   display: block;
   width: 4px;
-  background: #4A6B46;
+  background: var(--fg-1);
   border-radius: 1px;
   animation: speakBar 1s ease-in-out infinite;
 }
@@ -689,6 +689,6 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #4A6B46;
+  color: var(--fg-1);
   margin: 0;
 }

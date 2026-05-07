@@ -222,7 +222,7 @@
 }
 
 .emptyDesc {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 14px;
   font-style: italic;
   color: var(--fg-2);

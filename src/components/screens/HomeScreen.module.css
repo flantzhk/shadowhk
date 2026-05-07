@@ -73,7 +73,7 @@
 }
 
 .sectionNum {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 13px;
   color: var(--accent);
@@ -489,7 +489,7 @@
 }
 
 .celebSub {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 15px;
   color: var(--fg-2);

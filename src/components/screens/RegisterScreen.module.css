@@ -58,7 +58,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
   color: var(--accent);
@@ -78,7 +78,7 @@
 .titleItalic { font-style: italic; }
 
 .subtitle {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
   color: var(--fg-2);

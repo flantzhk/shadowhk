@@ -57,7 +57,7 @@ export default function LoginScreen({ navigate }) {
 
       <div className={styles.content}>
         <div className={styles.brandWrap}>
-          <div className={styles.brandTile}>影</div>
+          <div className={`${styles.brandTile} logo-dot`}>影</div>
           <span className={styles.wordmark}>ShadowHK</span>
         </div>
 

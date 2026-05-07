@@ -36,7 +36,7 @@
 }
 
 .subtitle {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 15px;
   color: rgba(255, 255, 255, 0.75);
@@ -45,7 +45,7 @@
 }
 
 .body {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
@@ -148,7 +148,7 @@
 }
 
 .levelSub {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);

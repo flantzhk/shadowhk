@@ -21,11 +21,6 @@
   --accent-glow:  rgba(200, 57, 43, 0.20);
   --accent-muted: rgba(200, 57, 43, 0.08);
 
-  /* Sage — secondary palette */
-  --sage-light: #D6E0D4;
-  --sage-mid:   #8FAB8A;
-  --sage-dark:  #4A6B46;
-
   --streak: #D97B20;
 
   --surface-0: #F4F1EC;
@@ -36,12 +31,10 @@
   --ink:     #16242A;
   --oxblood: #3D1417;
   --amber:   #A8642A;
-  --jade:    #2A4A3A;
   --gold:    #C9A24A;
 
   /* === Fonts === */
   --font-serif:     "Source Serif 4", "Source Serif Pro", Georgia, serif;
-  --font-serif-alt: "Newsreader", Georgia, serif;
   --font-ui:        "Inter", system-ui, -apple-system, sans-serif;
   --font-mono:      "JetBrains Mono", ui-monospace, monospace;
   --font-cjk:       "Noto Serif HK", "Songti SC", serif;
@@ -62,7 +55,7 @@
 
   --color-brand-dark:       #C8392B;
   --color-brand-dark-text:  #C8392B;
-  --color-brand-green:      #4A6B46;
+  --color-brand-green:      #C8392B;
   --color-brand-lime:       #C8392B;
   --color-brand-lime-muted: rgba(200, 57, 43, 0.08);
 
@@ -72,17 +65,17 @@
 
   --color-learning-bg:   rgba(217, 123, 32, 0.12);
   --color-learning-text: #D97B20;
-  --color-mastered-bg:   rgba(74, 107, 70, 0.12);
-  --color-mastered-text: #4A6B46;
+  --color-mastered-bg:   var(--accent-muted);
+  --color-mastered-text: var(--accent);
 
-  --color-score-excellent: #4A6B46;
-  --color-score-good:      #8FAB8A;
+  --color-score-excellent: var(--accent);
+  --color-score-good:      var(--secondary);
   --color-score-fair:      #C87C20;
   --color-score-poor:      #B03020;
 
   --color-error:   #B03020;
   --color-warning: #C87C20;
-  --color-success: #4A6B46;
+  --color-success: var(--accent);
 
   --color-jyutping: #C8392B;
 

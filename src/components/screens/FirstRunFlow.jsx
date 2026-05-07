@@ -145,7 +145,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         {step === 0 && (
           <div className={styles.step1}>
             <div className={styles.brandRow}>
-              <div className={styles.brandTile}>影</div>
+              <div className={`${styles.brandTile} logo-dot`}>影</div>
               <span className={styles.brandName}>ShadowHK</span>
             </div>
             <p className={styles.welcomeEyebrow}>ISSUE 01 · WELCOME</p>

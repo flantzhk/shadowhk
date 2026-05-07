@@ -376,7 +376,7 @@
 }
 
 .levelDesc {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 13px;
   font-style: italic;
   color: var(--fg-1);

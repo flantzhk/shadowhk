@@ -308,7 +308,7 @@ function KeepGoingRow({ scenes, progress, onNavigate }) {
 
 function ShortSessions({ onNavigate }) {
   const sessions = [
-    { label: 'Tone Gym',  desc: 'Train your ear',  bg: '#D6E0D4', route: 'tonegym',  emoji: '🎵' },
+    { label: 'Tone Gym',  desc: 'Train your ear',  bg: 'var(--bg-2)', route: 'tonegym',  emoji: '🎵' },
     { label: 'Free Chat', desc: 'AI conversation',  bg: '#F2DDD9', route: 'ai-scenario', emoji: '💬' },
     { label: 'Speed Run', desc: 'Beat the clock',   bg: '#F2DDD9', route: 'speedrun', emoji: '⚡' },
   ];

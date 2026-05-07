@@ -4,20 +4,19 @@
   --bg-0:#F4F1EC; --bg-1:#FAFAF7; --bg-2:#EDE7DF; --bg-3:#E4DDD5;
   /* Action */
   --accent:#C8392B; --accent-dark:#F2DDD9;
-  --sage-light:#D6E0D4; --sage-mid:#8FAB8A; --sage-dark:#4A6B46;
   --gold:#C9A24A;
+  --secondary:#8A7B6E;
   /* Text */
   --fg-0:#1A1A1A; --fg-1:#3D3D3D; --fg-2:#6B6B6B; --fg-3:#ABABAB;
   /* Cinematic — photos only */
-  --ink:#16242A; --oxblood:#3D1417; --amber:#A8642A; --jade:#2A4A3A;
+  --ink:#16242A; --oxblood:#3D1417; --amber:#A8642A;
+  --bark:#2C1F17;
   /* Type */
+  --display:'DM Serif Display',Georgia,serif;
   --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
-  --serif-alt:'Newsreader',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --hk:'Noto Serif HK','Songti SC',serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
-  /* Shadow */
-  --shadow-1:0 1px 4px rgba(0,0,0,0.07), 0 0 1px rgba(0,0,0,0.04);
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;background:var(--bg-0);color:var(--fg-0);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
@@ -44,12 +43,44 @@ html,body{margin:0;padding:0;background:var(--bg-0);color:var(--fg-0);font-famil
 .edi-rule{height:1px;background:var(--fg-0);}
 .edi-rule-thick{height:6px;background:var(--fg-0);}
 .edi-bar{display:flex;align-items:baseline;gap:10px;border-top:6px solid var(--fg-0);padding-top:12px;}
-.edi-bar .num{font-family:var(--serif-alt);font-style:italic;font-size:13px;color:var(--accent);}
+.edi-bar .num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--accent);}
 .edi-bar .label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;}
 .edi-bar .meta-r{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-2);margin-left:auto;}
 
 .eyebrow-mono{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-0);font-weight:600;}
-.eyebrow-italic{font-family:var(--serif-alt);font-style:italic;font-size:13px;color:var(--accent);}
+
+/* Soma eyebrow — dot + mono */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  transform-origin: center center;
+}
+.eyebrow-bone {
+  color: rgba(244,241,236,0.55);
+}
+.eyebrow-bone::before {
+  background: rgba(244,241,236,0.55);
+}
+.eyebrow-center {
+  justify-content: center;
+}
 
 /* Phrase row hierarchy */
 .phrase-jy{font-family:var(--sans);font-weight:600;font-size:18px;color:var(--fg-0);letter-spacing:-0.01em;line-height:1.3;}
@@ -62,15 +93,66 @@ html,body{margin:0;padding:0;background:var(--bg-0);color:var(--fg-0);font-famil
 .btn-ghost{background:transparent;color:var(--fg-0);font-family:var(--sans);font-weight:500;font-size:15px;padding:13px 25px;border-radius:999px;border:1px solid var(--fg-0);cursor:pointer;letter-spacing:-0.01em;}
 .btn-ghost:hover{background:var(--fg-0);color:#fff;}
 
+/* Soma button system */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: var(--accent);
+  color: var(--bg-0);
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  gap: 8px;
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--fg-0);
+  padding: 12px 24px;
+  border: 1px solid var(--fg-0);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-inverse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: var(--bg-0);
+  color: var(--accent);
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.text-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
 /* Pills */
 .pill-blush{background:var(--accent-dark);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:500;}
-.pill-sage{background:var(--sage-light);color:var(--sage-dark);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:500;}
 .pill-cream{background:var(--bg-2);color:var(--fg-1);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:500;}
 
-/* Cultural sage card */
-.sage-card{background:var(--sage-light);padding:20px 22px;border-radius:14px;}
-.sage-card .label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-dark);font-weight:600;}
-.sage-card .body{font-family:var(--serif);font-weight:400;font-size:15px;line-height:1.55;color:var(--sage-dark);margin-top:8px;}
 
 /* Confetti */
 @keyframes fall{0%{transform:translateY(-30px) rotate(0);opacity:0;}10%{opacity:1;}100%{transform:translateY(140vh) rotate(720deg);opacity:0;}}
@@ -79,6 +161,38 @@ html,body{margin:0;padding:0;background:var(--bg-0);color:var(--fg-0);font-famil
 /* Pulse */
 @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(200,57,43,0.45);}50%{transform:scale(1.05);box-shadow:0 0 0 22px rgba(200,57,43,0);}}
 .pulse{animation:pulse 1.6s ease-in-out infinite;}
+
+/* Soma logo-heartbeat — canonical breath animation */
+@keyframes logo-heartbeat {
+  0%   { transform: translateY(0.13em) scale(1);    }
+  12%  { transform: translateY(0.13em) scale(1.16); }
+  22%  { transform: translateY(0.13em) scale(1);    }
+  32%  { transform: translateY(0.13em) scale(1.09); }
+  45%  { transform: translateY(0.13em) scale(1);    }
+  100% { transform: translateY(0.13em) scale(1);    }
+}
+
+.logo-dot {
+  display: inline-block;
+  border-radius: 50%;
+  transform-origin: center center;
+  animation: logo-heartbeat 1.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-dot {
+    animation: none;
+    transform: translateY(0.13em) scale(1);
+  }
+}
+
+/* Soma callout tiers */
+.t1 { background: var(--bg-1); border: 1px solid var(--bg-3); padding: 28px 32px; }
+.t2 { background: var(--bg-2); border: 1px solid var(--bg-3); padding: 28px 32px; }
+.t3 { background: var(--bg-1); border: 1px solid var(--bg-3); border-left: 4px solid var(--secondary); padding: 24px 32px; }
+.t4 { background: var(--accent); padding: 32px 40px; }
+.t4, .t4 * { color: var(--bg-0); }
 
 /* Scorepop */
 @keyframes scorepop{0%{transform:scale(0.4);opacity:0;}30%{transform:scale(1.2);opacity:1;}60%{transform:scale(1);}100%{transform:scale(1);opacity:1;}}

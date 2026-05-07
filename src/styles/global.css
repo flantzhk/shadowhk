@@ -133,7 +133,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--sage-mid);
+  background: var(--secondary);
   border-radius: var(--radius-pill);
   opacity: 0.4;
 }

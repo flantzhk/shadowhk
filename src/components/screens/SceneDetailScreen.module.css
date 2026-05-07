@@ -14,7 +14,7 @@
 
 .culturalDividerDash {
   color: var(--accent);
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
 }
@@ -29,8 +29,9 @@
 }
 
 .culturalCard {
-  background: #DDE6D9;
-  border: 1px solid rgba(106,148,114,0.35);
+  background: var(--bg-2);
+  border: 1px solid var(--border-1);
+  border-left: 4px solid var(--secondary);
   border-radius: 0;
   padding: 16px 18px;
 }
@@ -41,7 +42,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #4A6B46;
+  color: var(--fg-1);
   margin: 0 0 10px;
 }
 
@@ -49,7 +50,7 @@
   font-family: var(--font-serif);
   font-size: 16px;
   font-weight: 400;
-  color: #1F3220;
+  color: var(--fg-1);
   line-height: 1.5;
   letter-spacing: -0.01em;
   margin: 0;

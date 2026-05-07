@@ -383,7 +383,7 @@
   margin: 8px 0 18px;
 }
 .completeLabel {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
   color: var(--accent);
@@ -411,10 +411,10 @@
   letter-spacing: -0.02em;
 }
 .personalBestLine {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
-  color: #4A6B46;
+  color: var(--fg-1);
   margin: 8px 0 0;
 }
 
@@ -431,7 +431,7 @@
 }
 .breakdownDash {
   color: var(--accent);
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
 }

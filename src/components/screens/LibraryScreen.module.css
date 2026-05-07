@@ -203,9 +203,9 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: rgba(106,148,114,0.15);
-  border: 1px solid rgba(106,148,114,0.4);
-  color: #4A6B46;
+  background: var(--accent-muted);
+  border: 1px solid rgba(200,57,43,0.25);
+  color: var(--accent);
   font-family: var(--font-mono);
   font-size: 9px;
   font-weight: 600;
@@ -258,7 +258,7 @@
   align-items: center;
   padding: 40px 0;
   gap: 14px;
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 14px;
   font-style: italic;
   color: var(--fg-2);

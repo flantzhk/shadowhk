@@ -115,7 +115,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
     }}>
       {/* Eyebrow + editorial title */}
       <p style={{
-        fontFamily: 'Newsreader, Georgia, serif',
+        fontFamily: '"Source Serif 4", "Source Serif Pro", Georgia, serif',
         fontStyle: 'italic',
         fontSize: 14,
         color: '#C8392B',
@@ -137,7 +137,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
       </h1>
 
       <p style={{
-        fontFamily: 'Newsreader, Georgia, serif',
+        fontFamily: '"Source Serif 4", "Source Serif Pro", Georgia, serif',
         fontStyle: 'italic',
         fontSize: 14,
         color: '#666',

@@ -97,7 +97,7 @@
 }
 
 .lineLabel {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
   color: var(--accent);
@@ -128,7 +128,7 @@
 }
 
 .focusEnglish {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: 17px;
   color: var(--fg-2);
@@ -312,7 +312,7 @@
   gap: 16px;
   padding: 24px;
   text-align: center;
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 14px;
   font-style: italic;
   color: var(--fg-2);
@@ -479,7 +479,7 @@
 }
 
 .celebSub {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 14px; color: rgba(255,255,255,0.5);
   font-style: italic;
   text-align: center; margin: 0 0 18px; flex-shrink: 0;
@@ -516,9 +516,9 @@
 }
 
 .celebBadgeXp {
-  background: rgba(74,107,70,0.12);
-  border-color: rgba(74,107,70,0.3);
-  color: var(--sage-mid);
+  background: var(--accent-muted);
+  border-color: rgba(200,57,43,0.25);
+  color: var(--accent);
 }
 
 .celebSocial {
@@ -558,7 +558,7 @@
 }
 
 .celebPhraseEn {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 12px; font-style: italic;
   color: rgba(255,255,255,0.45); margin: 0;
 }

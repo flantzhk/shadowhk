@@ -420,18 +420,18 @@ function ScoreCelebration({ score, line, streakCount, onKeepGoing, onRetry }) {
   const CONFETTI = [
     { left:'7%',  w:6,  h:10, bg:'#C8392B', dur:2.8, delay:0,    r:2 },
     { left:'14%', w:4,  h:8,  bg:'#C8392B', dur:3.2, delay:0.3,  r:50 },
-    { left:'24%', w:8,  h:6,  bg:'#4A6B46', dur:2.5, delay:0.7,  r:0 },
+    { left:'24%', w:8,  h:6,  bg:'var(--ink)', dur:2.5, delay:0.7,  r:0 },
     { left:'34%', w:5,  h:9,  bg:'rgba(255,255,255,0.7)', dur:3.0, delay:0.2, r:2 },
     { left:'44%', w:6,  h:6,  bg:'rgba(255,255,255,0.5)', dur:2.7, delay:0.5, r:50 },
     { left:'54%', w:7,  h:7,  bg:'#C9A24A', dur:3.1, delay:0.1,  r:0 },
     { left:'64%', w:4,  h:10, bg:'#C9A24A', dur:2.9, delay:0.6,  r:2 },
     { left:'74%', w:6,  h:8,  bg:'#C8392B', dur:2.6, delay:0.4,  r:2 },
-    { left:'82%', w:5,  h:6,  bg:'#4A6B46', dur:3.3, delay:0.8,  r:50 },
+    { left:'82%', w:5,  h:6,  bg:'var(--ink)', dur:3.3, delay:0.8,  r:50 },
     { left:'90%', w:8,  h:5,  bg:'rgba(255,255,255,0.6)', dur:2.8, delay:0.35, r:0 },
     { left:'11%', w:5,  h:8,  bg:'#C9A24A', dur:3.4, delay:1.1,  r:2 },
     { left:'29%', w:6,  h:6,  bg:'#C8392B', dur:2.9, delay:1.3,  r:50 },
     { left:'49%', w:4,  h:10, bg:'rgba(255,255,255,0.5)', dur:3.1, delay:1.0, r:2 },
-    { left:'69%', w:7,  h:6,  bg:'#4A6B46', dur:2.7, delay:1.4,  r:0 },
+    { left:'69%', w:7,  h:6,  bg:'var(--ink)', dur:2.7, delay:1.4,  r:0 },
     { left:'87%', w:5,  h:8,  bg:'#C9A24A', dur:3.0, delay:1.2,  r:2 },
   ];
 

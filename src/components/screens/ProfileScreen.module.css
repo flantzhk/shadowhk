@@ -65,7 +65,7 @@
 }
 
 .heroMeta {
-  font-family: var(--font-serif-alt);
+  font-family: var(--font-serif);
   font-size: 13px;
   font-style: italic;
   color: var(--fg-2);
@@ -180,10 +180,10 @@
 }
 
 .heat0 { background: #E8E2D8; }
-.heat1 { background: #C8D4C0; }
-.heat2 { background: #98B894; }
-.heat3 { background: #6B9472; }
-.heat4 { background: #4A6B46; }
+.heat1 { background: rgba(200,57,43,0.15); }
+.heat2 { background: rgba(200,57,43,0.30); }
+.heat3 { background: rgba(200,57,43,0.55); }
+.heat4 { background: var(--accent); }
 
 /* === Section labels (editorial bar) === */
 .sectionLabel {
