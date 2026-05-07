@@ -13,6 +13,7 @@ import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify } from './services/posthog';
 import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sync';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
+import { useToast } from './components/shared/Toast';
 import { logger } from './utils/logger';
 import './styles/global.css';
 
@@ -129,7 +130,7 @@ const Loader = () => (
 
 // ── Screen renderer ────────────────────────────────────────────────────────
 
-function renderScreen(route, navigate, goBack) {
+function renderScreen(route, navigate, goBack, showToast) {
   const { path, id } = route;
   switch (path) {
     case ROUTES.HOME:            return <HomeScreen onNavigate={navigate} />;
@@ -159,17 +160,17 @@ function renderScreen(route, navigate, goBack) {
     case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
     case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} />;
     case ROUTES.FORGOT_PASSWORD: return <ForgotPasswordScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.EMAIL_VERIFY:    return <EmailVerification navigate={navigate} />;
-    case ROUTES.NEW_PASSWORD:    return <NewPassword navigate={navigate} goBack={goBack} />;
-    case ROUTES.ADMIN:           return <AdminDashboard navigate={navigate} goBack={goBack} />;
-    case ROUTES.SUPPORT:         return <SupportScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.FAQ:             return <FAQScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.CONTACT:         return <ContactScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.ABOUT:           return <AboutScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.PRIVACY:         return <LegalPage type="privacy" navigate={navigate} goBack={goBack} />;
-    case ROUTES.TERMS:           return <LegalPage type="terms" navigate={navigate} goBack={goBack} />;
-    case ROUTES.LICENSES:        return <LicensesScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess navigate={navigate} />;
+    case ROUTES.EMAIL_VERIFY:    return <EmailVerification onVerified={() => navigate(ROUTES.HOME)} onBack={goBack} />;
+    case ROUTES.NEW_PASSWORD:    return <NewPassword onBack={goBack} showToast={showToast} />;
+    case ROUTES.ADMIN:           return <AdminDashboard onBack={goBack} />;
+    case ROUTES.SUPPORT:         return <SupportScreen onBack={goBack} />;
+    case ROUTES.FAQ:             return <FAQScreen onBack={goBack} />;
+    case ROUTES.CONTACT:         return <ContactScreen onBack={goBack} showToast={showToast} />;
+    case ROUTES.ABOUT:           return <AboutScreen onNavigate={navigate} onBack={goBack} />;
+    case ROUTES.PRIVACY:         return <LegalPage type="privacy" onBack={goBack} />;
+    case ROUTES.TERMS:           return <LegalPage type="terms" onBack={goBack} />;
+    case ROUTES.LICENSES:        return <LicensesScreen onBack={goBack} />;
+    case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess onDone={() => navigate(ROUTES.HOME)} />;
     case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.SHADOW, 'personal-introduce-yourself')} />;
     default:                     return <HomeScreen onNavigate={navigate} />;
   }
@@ -181,6 +182,7 @@ function MainLayout() {
   const { route, navigate, goBack } = useRouter();
   const isDesktop = useDesktop();
   const { settings, isLoading, updateSettings } = useAppContext();
+  const { showToast, ToastComponent } = useToast();
   const [authReady, setAuthReady] = useState(false);
   const [authError, setAuthError] = useState(null);
 
@@ -270,7 +272,7 @@ function MainLayout() {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack)}
+          {renderScreen(route, navigate, goBack, showToast)}
         </Suspense>
       );
     }
@@ -286,7 +288,7 @@ function MainLayout() {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack)}
+          {renderScreen(route, navigate, goBack, showToast)}
         </Suspense>
       );
     }
@@ -304,10 +306,11 @@ function MainLayout() {
       }
       <main className="app-main">
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack)}
+          {renderScreen(route, navigate, goBack, showToast)}
         </Suspense>
       </main>
-{!isDesktop && !hideChrome && (
+      {ToastComponent}
+      {!isDesktop && !hideChrome && (
         <BottomTabBar activeTab={route.path} onNavigate={navigate} />
       )}
     </div>

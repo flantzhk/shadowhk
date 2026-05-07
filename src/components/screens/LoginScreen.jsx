@@ -6,7 +6,7 @@ import styles from './LoginScreen.module.css';
 
 const AMBIENT_URL = 'https://images.unsplash.com/photo-1536599424071-0b215a388ba7?auto=format&fit=crop&w=800&q=80';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigate }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPw, setShowPw] = useState(false);
@@ -31,15 +31,15 @@ export default function LoginScreen() {
     const { error: authError } = await signIn(email.trim(), password);
     setLoading(false);
     if (authError) { setError(authError); shake(); return; }
-    window.location.hash = `#${ROUTES.HOME}`;
-  }, [email, password]);
+    navigate(ROUTES.HOME);
+  }, [email, password, navigate]);
 
   const handleGoogle = async () => {
     setError(''); setLoading(true);
     const { error: authError } = await signInWithGoogle();
     setLoading(false);
     if (authError) { setError(authError); return; }
-    window.location.hash = `#${ROUTES.HOME}`;
+    navigate(ROUTES.HOME);
   };
 
   const handleApple = async () => {
@@ -47,7 +47,7 @@ export default function LoginScreen() {
     const { error: authError } = await signInWithApple();
     setLoading(false);
     if (authError) { setError(authError); return; }
-    window.location.hash = `#${ROUTES.HOME}`;
+    navigate(ROUTES.HOME);
   };
 
   return (

@@ -41,7 +41,7 @@ async function pushLibraryEntry(entry) {
   try {
     await libraryCollection(userId).doc(String(entry.phraseId)).set(
       { ...entry, _updatedAt: entry._updatedAt || Date.now() },
-      { merge: false }
+      { merge: true }
     );
   } catch (err) {
     logger.warn('Failed to push library entry', entry.phraseId, err?.message || err);
@@ -98,7 +98,7 @@ async function pullLibraryFromFirestore() {
     await Promise.all([
       ...result.writesToLocal.map((entry) => idbSaveLibraryEntry(entry)),
       ...result.writesToRemote.map((entry) =>
-        libraryCollection(userId).doc(String(entry.phraseId)).set(entry, { merge: false })
+        libraryCollection(userId).doc(String(entry.phraseId)).set(entry, { merge: true })
           .catch((err) => logger.warn('Seed push failed', entry.phraseId, err?.message || err))
       ),
     ]);

@@ -100,8 +100,8 @@ export default function CheckoutSuccessScreen({ onDone }) {
       {/* Plan badge */}
       <div style={{
         marginTop: 24,
-        background: 'rgba(0,229,160,0.15)',
-        border: '1.5px solid rgba(0,229,160,0.4)',
+        background: 'rgba(200, 57, 43, 0.12)',
+        border: '1.5px solid rgba(200, 57, 43, 0.3)',
         borderRadius: 12,
         padding: '12px 24px',
         display: 'inline-block',

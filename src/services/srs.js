@@ -118,7 +118,7 @@ async function getSchedule(phraseId) {
   const entry = await getLibraryEntry(phraseId);
   if (!entry) return null;
   return {
-    nextReview: entry.nextReviewDate,
+    nextReview: entry.nextReviewAt,
     interval: entry.interval,
     reps: entry.reps ?? 0,
   };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createCheckoutSession } from '../../../../services/api';
 import { isAuthenticated } from '../../../../services/auth';
 import { ROUTES } from '../../../../utils/constants';
+import { logger } from '../../../../utils/logger';
 
 const FONT = "'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif";
 
@@ -95,7 +96,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
       // Leave the app — Stripe handles payment, returns to ?checkout=success|cancel
       window.location.href = url;
     } catch (err) {
-      console.error('Stripe checkout error:', err);
+      logger.error('Stripe checkout error:', err);
       setError('Unable to start checkout. Please check your connection and try again.');
       setLoading(false);
     }

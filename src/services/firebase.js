@@ -1,4 +1,5 @@
 // src/services/firebase.js — Firebase SDK (compat mode)
+import { logger } from '../utils/logger';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -30,8 +31,8 @@ try {
 }
 
 fbDb.enablePersistence({ synchronizeTabs: true }).catch(err => {
-  if (err.code === 'failed-precondition') console.warn("Firestore persistence: multiple tabs open");
-  else if (err.code === 'unimplemented') console.warn("Firestore persistence: not supported in this browser");
+  if (err.code === 'failed-precondition') logger.warn("Firestore persistence: multiple tabs open");
+  else if (err.code === 'unimplemented') logger.warn("Firestore persistence: not supported in this browser");
 });
 
 export { firebase, fbAuth, fbDb, fbAnalytics };

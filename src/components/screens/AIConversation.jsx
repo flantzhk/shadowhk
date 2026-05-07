@@ -36,12 +36,14 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
   // Used to swap to scenario.fallbackGradient if the image can't be fetched.
   const [imageLoadState, setImageLoadState] = useState({});
   const chatRef = useRef(null);
-  const audioRef = useRef(new Audio());
+  const audioRef = useRef(null);
 
   useEffect(() => {
+    audioRef.current = new Audio();
     return () => {
-      audioRef.current.pause();
-      audioRef.current.src = ''; // release blob URL reference
+      audioRef.current?.pause();
+      if (audioRef.current) audioRef.current.src = ''; // release blob URL reference
+      audioRef.current = null;
     };
   }, []);
   useEffect(() => {

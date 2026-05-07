@@ -106,3 +106,7 @@ export function TermsOfService({ onBack }) {
     </div>
   );
 }
+
+export default function LegalPage({ type, ...props }) {
+  return type === 'privacy' ? <PrivacyPolicy {...props} /> : <TermsOfService {...props} />;
+}

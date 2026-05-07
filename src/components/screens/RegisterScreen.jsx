@@ -7,7 +7,7 @@ import styles from './RegisterScreen.module.css';
 
 const AMBIENT_URL = 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=800&q=80';
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigate }) {
   const { settings } = useAppContext();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -35,8 +35,8 @@ export default function RegisterScreen() {
     const { error: authError } = await signUp(email.trim(), password, name.trim(), language);
     setLoading(false);
     if (authError) { setError(authError); return; }
-    window.location.hash = `#${ROUTES.HOME}`;
-  }, [name, email, password, agreed, hasLength, hasNumber, language]);
+    navigate(ROUTES.HOME);
+  }, [name, email, password, agreed, hasLength, hasNumber, language, navigate]);
 
   return (
     <div className={styles.screen}>
@@ -45,7 +45,7 @@ export default function RegisterScreen() {
 
       <div className={styles.content}>
         <div className={styles.topBar}>
-          <button className={styles.backBtn} onClick={() => window.location.hash = `#${ROUTES.LOGIN}`}>
+          <button className={styles.backBtn} onClick={() => navigate(ROUTES.LOGIN)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="15 18 9 12 15 6"/>
             </svg>

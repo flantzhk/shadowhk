@@ -19,7 +19,7 @@ async function fetchWithRetry(url, options, maxRetries = MAX_RETRIES) {
     try {
       const response = await fetch(url, {
         ...options,
-        signal: AbortSignal.timeout(API_TIMEOUT_MS),
+        signal: typeof AbortSignal.timeout === 'function' ? AbortSignal.timeout(API_TIMEOUT_MS) : undefined,
       });
 
       if (response.status === 429) {
@@ -66,7 +66,6 @@ async function fetchWithAuth(url, options = {}) {
 
   const token = await getAuthToken();
   if (!token) {
-    signOut();
     throw new ApiError('Session expired. Please sign in again.', 401, url);
   }
   const headers = {

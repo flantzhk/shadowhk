@@ -19,7 +19,7 @@ import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
 
 export default function ShadowSession({ sceneId, onBack, onComplete }) {
-  const { settings } = useAppContext();
+  const { settings, updateSettings } = useAppContext();
   const audio = useAudio();
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
   const isOnline = useOnlineStatus();
@@ -27,7 +27,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [scene, setScene] = useState(null);
   const [youLines, setYouLines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const speed = 1;
+  const speed = settings?.playbackSpeed ?? 1;
   const [savedLines, setSavedLines] = useState({});
 
   const [phase, setPhase] = useState('ready');
@@ -336,13 +336,13 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           <div className={styles.eyeToggles}>
             <button
               className={`${styles.eyeToggle} ${showJyutping ? styles.eyeToggleOn : ''}`}
-              onClick={() => settings && (settings.showRomanization = !showJyutping)}
+              onClick={() => updateSettings({ showRomanization: !showJyutping })}
             >
               <EyeIcon /> JYUTPING
             </button>
             <button
               className={`${styles.eyeToggle} ${showEnglishToggle ? styles.eyeToggleOn : ''}`}
-              onClick={() => settings && (settings.showEnglish = !showEnglishToggle)}
+              onClick={() => updateSettings({ showEnglish: !showEnglishToggle })}
             >
               <EyeIcon /> ENGLISH
             </button>

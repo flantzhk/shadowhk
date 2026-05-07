@@ -4,7 +4,7 @@ import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
 import styles from './ForgotPasswordScreen.module.css';
 
-export default function ForgotPasswordScreen() {
+export default function ForgotPasswordScreen({ navigate }) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export default function ForgotPasswordScreen() {
   return (
     <div className={styles.screen}>
       <div className={styles.topBar}>
-        <button className={styles.backBtn} onClick={() => window.location.hash = `#${ROUTES.LOGIN}`}>
+        <button className={styles.backBtn} onClick={() => navigate(ROUTES.LOGIN)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="15 18 9 12 15 6"/>
           </svg>
@@ -83,7 +83,7 @@ export default function ForgotPasswordScreen() {
 
           <div className={styles.spacer} />
 
-          <button className={styles.backToSignIn} onClick={() => window.location.hash = `#${ROUTES.LOGIN}`}>
+          <button className={styles.backToSignIn} onClick={() => navigate(ROUTES.LOGIN)}>
             Back to sign in
           </button>
         </>
@@ -106,7 +106,7 @@ export default function ForgotPasswordScreen() {
             Use a different email
           </button>
 
-          <button className={styles.backToSignIn} onClick={() => window.location.hash = `#${ROUTES.LOGIN}`}>
+          <button className={styles.backToSignIn} onClick={() => navigate(ROUTES.LOGIN)}>
             Back to sign in
           </button>
         </div>
