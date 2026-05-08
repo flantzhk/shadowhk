@@ -209,7 +209,7 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
           <span className={styles.todayBeginPlay}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
           </span>
-          Begin today
+          Start Today's Lesson
         </span>
         <span className={styles.todayBeginMeta}>{stations.length} STATIONS · {totalMins} MIN</span>
       </button>
