@@ -4,7 +4,7 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PostIt } from '../ui/PostIt.jsx';
 import { GrowthBadge } from '../ui/GrowthBadge.jsx';
 import { SourceTag } from '../ui/SourceTag.jsx';
-import { getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
+import { getLibraryEntry, saveLibraryEntry, deleteLibraryEntry } from '../../services/storage.js';
 import { getSchedule } from '../../services/srs.js';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
@@ -61,6 +61,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const [playingCharIdx, setPlayingCharIdx] = useState(null);
   const [charMeanings, setCharMeanings] = useState(null);
   const [showMasteredToast, setShowMasteredToast] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const audioRef = useRef(null);
 
   const romanizationLabel = language === 'mandarin' ? 'Pīnyīn' : 'Jyutping';
@@ -261,6 +262,29 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
         >
           {livedAt ? '📍 Said this in person' : '📍 Mark as said in person'}
         </button>
+
+        {/* Remove from phrasebook */}
+        {confirmDelete ? (
+          <div className={styles.deleteConfirm}>
+            <p className={styles.deleteConfirmText}>Remove this phrase from your phrasebook?</p>
+            <div className={styles.deleteConfirmRow}>
+              <button className={styles.deleteConfirmCancel} onClick={() => setConfirmDelete(false)}>Cancel</button>
+              <button
+                className={styles.deleteConfirmOk}
+                onClick={async () => {
+                  await deleteLibraryEntry(phrase.id);
+                  onBack();
+                }}
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button className={styles.removeBtn} onClick={() => setConfirmDelete(true)}>
+            Remove from phrasebook
+          </button>
+        )}
 
         {/* Practice CTA */}
         <button
