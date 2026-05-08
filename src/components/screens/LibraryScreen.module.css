@@ -3,7 +3,7 @@
   overflow-y: auto;
   background: var(--bg-0);
   -webkit-overflow-scrolling: touch;
-  padding: 20px 20px 40px;
+  padding: 20px 0 40px;
 }
 
 .eyebrow {
@@ -14,7 +14,10 @@
   text-transform: uppercase;
   color: var(--fg-2);
   margin: 0 0 6px;
+  padding: 0 20px;
 }
+
+.saidCount { color: var(--jade, #3F8F73); }
 
 .title {
   font-family: var(--font-serif);
@@ -23,20 +26,16 @@
   color: var(--fg-0);
   letter-spacing: -0.02em;
   line-height: 1.05;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
+  padding: 0 20px;
 }
 
 .titleItalic { font-style: italic; }
 
-.divider {
-  height: 6px;
-  background: var(--fg-0);
-  margin: 0 0 14px;
-}
-
 /* CTA banner */
 .ctaBanner {
-  width: 100%;
+  width: calc(100% - 40px);
+  margin: 0 20px 14px;
   background: var(--accent);
   color: #FAFAF7;
   border: none;
@@ -46,7 +45,6 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  margin-bottom: 12px;
 }
 
 .ctaBannerLeft {
@@ -86,7 +84,7 @@
   background: var(--bg-2);
   border-radius: 12px;
   padding: 10px 14px;
-  margin-bottom: 14px;
+  margin: 0 20px 12px;
   color: var(--fg-2);
 }
 
@@ -101,9 +99,7 @@
   outline: none;
 }
 
-.searchInput::placeholder {
-  color: var(--fg-3);
-}
+.searchInput::placeholder { color: var(--fg-3); }
 
 .searchClear {
   background: none;
@@ -115,181 +111,14 @@
   padding: 0;
 }
 
-/* Reference sets */
-.refHeader {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.refLabel {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.refTapHint {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-}
-
-.refGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 22px;
-}
-
-.refCard {
-  background: var(--bg-1);
-  border: 1px solid var(--border-0);
-  border-radius: 0;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.15s;
-}
-
-.refCard:hover { background: var(--bg-2); }
-
-.refCount {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-}
-
-.refTitle {
-  font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--fg-0);
-  letter-spacing: -0.01em;
-}
-
-/* Scene groups */
-.sceneGroup {
-  margin-bottom: 24px;
-}
-
-.sceneHeader {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 12px 0 14px;
-  cursor: pointer;
-  text-align: left;
-  border-bottom: 4px solid var(--fg-0);
-  margin-bottom: 4px;
-}
-
-.sceneThumb {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
-}
-
-.sceneText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.sceneName {
-  font-family: var(--font-serif);
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--fg-0);
-  margin: 0;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.sceneMeta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-  margin: 0;
-}
-
-/* Phrase rows */
-.phraseRow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border-0);
-  cursor: pointer;
-}
-
-.phraseRow:active { opacity: 0.7; }
-
-.phraseText {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.phraseRoman {
-  font-family: var(--font-ui);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--fg-0);
-  margin: 0;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.phraseCjk {
-  font-family: var(--font-cjk);
-  font-size: 14px;
-  color: var(--fg-2);
-  margin: 4px 0 0;
-  letter-spacing: 0.04em;
-}
-
-.phraseEnglish {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  color: var(--fg-1);
-  margin: 6px 0 0;
-  line-height: 1.4;
-}
-
-/* ─── Filter chips ───────────────────── */
+/* Filter chips */
 .filterChips {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
-  margin-bottom: 14px;
+  padding: 0 20px 16px;
 }
 .filterChips::-webkit-scrollbar { display: none; }
 
@@ -315,75 +144,222 @@
   border-color: var(--fg-0);
 }
 
-/* ─── Said in person indicators ──────── */
-.saidCount {
-  color: var(--jade, #4A6B46);
-}
-
-.sceneMetaRow {
+/* Reference sets */
+.refHeader {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 20px 10px;
 }
 
-.saidPill {
+.refLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--jade, #4A6B46);
-}
-
-.phraseTags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 2px;
-}
-
-.saidTag {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--jade, #4A6B46);
-  background: rgba(63,143,115,0.1);
-  padding: 2px 8px;
-  border-radius: 99px;
-}
-
-.masteredPill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--accent-muted);
-  border: 1px solid rgba(200,57,43,0.25);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--accent);
+}
+
+.refTapHint {
   font-family: var(--font-mono);
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 999px;
-  margin-top: 4px;
-  align-self: flex-start;
+  color: var(--fg-3);
 }
 
-.phraseActions {
+.refGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0 20px 24px;
+}
+
+.refCard {
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 0;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.refCard:hover { background: var(--bg-2); }
+
+.refCount {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.refTitle {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--fg-0);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Scene groups ──────────────────── */
+.sceneGroup {
+  border-bottom: 1px solid var(--border-0);
+}
+
+.sceneRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 20px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sceneThumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
   flex-shrink: 0;
 }
 
+.sceneText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.sceneName {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sceneMeta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin: 0;
+}
+
+.saidInline {
+  color: var(--jade, #3F8F73);
+}
+
+.chevron {
+  font-size: 22px;
+  color: var(--fg-3);
+  font-family: var(--font-ui);
+  line-height: 1;
+  transition: transform 0.18s ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+/* ─── Phrase list (expanded) ─────────── */
+.phraseList {
+  padding: 0 20px;
+  background: var(--bg-0);
+}
+
+.phraseRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-0);
+  cursor: pointer;
+}
+.phraseRow:last-child { border-bottom: none; }
+.phraseRow:active { opacity: 0.7; }
+
+/* Dot indicators */
+.dotPin {
+  font-size: 13px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.dotFilled {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fg-1);
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+
+.dotEmpty {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--fg-2);
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+
+.phraseText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.phraseRoman {
+  font-family: var(--font-ui);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg-0);
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.phraseEnglish {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--fg-2);
+  margin: 0;
+  line-height: 1.4;
+}
+
 .playBtn {
-  background: var(--accent-dark);
-  color: var(--accent);
+  background: var(--jade-soft, #D8E8E0);
+  color: var(--jade, #3F8F73);
   border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 99px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -391,20 +367,13 @@
   flex-shrink: 0;
   transition: opacity 0.15s;
 }
-
-.playBtn:hover { opacity: 0.75; }
-
-.savedMark {
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
+.playBtn:hover { opacity: 0.8; }
 
 /* Misc */
 .skeleton {
   height: 200px;
   background: var(--bg-2);
+  margin: 0 20px;
   animation: pulse 1.4s ease-in-out infinite;
 }
 
@@ -417,7 +386,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 20px;
   gap: 14px;
   font-family: var(--font-serif);
   font-size: 14px;
@@ -428,7 +397,6 @@
 .emptyBtn {
   background: none;
   border: 1px solid var(--border-1);
-  border-radius: 0;
   color: var(--fg-0);
   font-family: var(--font-ui);
   font-size: 13px;
@@ -437,3 +405,5 @@
   cursor: pointer;
   font-style: normal;
 }
+
+.bottomPad { height: 32px; }
