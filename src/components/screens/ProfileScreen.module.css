@@ -18,7 +18,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: var(--accent-muted, rgba(200,57,43,0.12));
+  background: var(--accent-dark, #F2DDD9);
   display: grid;
   place-items: center;
   flex-shrink: 0;

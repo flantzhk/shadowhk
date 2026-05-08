@@ -34,6 +34,87 @@
   margin: 0 0 14px;
 }
 
+/* CTA banner */
+.ctaBanner {
+  width: 100%;
+  background: var(--accent);
+  color: #FAFAF7;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.ctaBannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+}
+
+.ctaPlay {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.ctaMeta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+}
+
+/* Search bar */
+.searchBarWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  color: var(--fg-2);
+}
+
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--fg-0);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--fg-3);
+}
+
+.searchClear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg-2);
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+}
+
 /* Reference sets */
 .refHeader {
   display: flex;

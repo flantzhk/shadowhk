@@ -21,6 +21,11 @@
   --accent-glow:  rgba(200, 57, 43, 0.20);
   --accent-muted: rgba(200, 57, 43, 0.08);
 
+  --jade:      #3F8F73;
+  --jade-soft: #D8E8E0;
+  --jade-glow: rgba(63, 143, 115, 0.18);
+  --secondary: #8A7B6E;
+
   --streak: #D97B20;
 
   --surface-0: #F4F1EC;

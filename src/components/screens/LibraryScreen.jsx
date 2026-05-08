@@ -29,6 +29,7 @@ export default function LibraryScreen({ onNavigate }) {
   const [sceneProgress, setSceneProgress] = useState({});
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => { reload(); }, [language]);
 
@@ -72,13 +73,21 @@ export default function LibraryScreen({ onNavigate }) {
   const totalScenes = groupedScenes.filter(g => g.scene).length;
   const saidInPersonCount = library.filter(p => p.lived_at).length;
 
-  // Apply filter to each group's phrases
+  // Apply filter + search to each group's phrases
   function filterPhrases(phrases) {
-    if (activeFilter === 'all') return phrases;
-    if (activeFilter === 'said') return phrases.filter(p => p.lived_at);
-    if (activeFilter === 'needs-work') return phrases.filter(p => p.growth_state !== GROWTH_STATE.MASTERED && !p.lived_at);
-    if (activeFilter === 'mastered') return phrases.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
-    return phrases;
+    let result = phrases;
+    if (activeFilter === 'said') result = result.filter(p => p.lived_at);
+    else if (activeFilter === 'needs-work') result = result.filter(p => p.growth_state !== GROWTH_STATE.MASTERED && !p.lived_at);
+    else if (activeFilter === 'mastered') result = result.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        (p.romanization ?? '').toLowerCase().includes(q) ||
+        (p.english ?? '').toLowerCase().includes(q) ||
+        (p.cjk ?? '').includes(searchQuery)
+      );
+    }
+    return result;
   }
 
   return (
@@ -88,6 +97,32 @@ export default function LibraryScreen({ onNavigate }) {
         {saidInPersonCount > 0 && <span className={styles.saidCount}> · {saidInPersonCount} SAID IN PERSON 📍</span>}
       </p>
       <h1 className={styles.title}>Your <span className={styles.titleItalic}>phrasebook</span>.</h1>
+
+      {/* Start today's lesson CTA */}
+      {totalPhrases > 0 && (
+        <button className={styles.ctaBanner} onClick={() => onNavigate('shadow')}>
+          <span className={styles.ctaBannerLeft}>
+            <span className={styles.ctaPlay}>▶</span>
+            Start today's lesson
+          </span>
+          <span className={styles.ctaMeta}>12 MIN</span>
+        </button>
+      )}
+
+      {/* Search */}
+      <div className={styles.searchBarWrap}>
+        <SearchIcon />
+        <input
+          className={styles.searchInput}
+          type="text"
+          placeholder="SEARCH PHRASES, SCENES…"
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
+        {searchQuery && (
+          <button className={styles.searchClear} onClick={() => setSearchQuery('')}>×</button>
+        )}
+      </div>
 
       {/* Filter chips */}
       <div className={styles.filterChips}>
@@ -203,6 +238,12 @@ export default function LibraryScreen({ onNavigate }) {
 const PlayIcon = () => (
   <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor">
     <path d="M2 1l9 6-9 6V1z" />
+  </svg>
+);
+
+const SearchIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
   </svg>
 );
 
