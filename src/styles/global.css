@@ -41,8 +41,6 @@ body {
   }
 
   #root {
-    border-left: 1px solid var(--color-border);
-    border-right: 1px solid var(--color-border);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
   }
 }
@@ -93,9 +91,22 @@ body {
 
 .app-shell--desktop .app-main {
   flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  background: var(--bg-2);
+  height: 100%;
+}
+
+.desktop-content {
+  width: 520px;
+  max-width: 100%;
+  flex-shrink: 0;
+  background: var(--bg-0);
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  border-right: 1px solid var(--border-0);
 }
 
 /* Fullscreen spinner used by Suspense Loader */

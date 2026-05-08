@@ -13,12 +13,23 @@
 .logo {
   padding: 24px 20px 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoGlyph {
+  font-family: var(--font-cjk);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .logoText {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.01em;
@@ -41,7 +52,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--fg-2);
   font-size: 15px;
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
@@ -50,8 +61,13 @@
 }
 
 .item:hover {
-  background: var(--color-bg-page);
-  color: var(--color-text-primary);
+  background: var(--bg-2);
+  color: var(--fg-0);
+}
+
+.active .icon svg {
+  stroke: currentColor;
+  stroke-width: 2;
 }
 
 .item.active {
@@ -71,7 +87,7 @@
 
 .bottom {
   padding: 16px 12px;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--border-0);
 }
 
 .profileBtn {
@@ -83,7 +99,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--fg-2);
   font-size: 15px;
   font-weight: 500;
   width: 100%;
@@ -92,7 +108,7 @@
 }
 
 .profileBtn:hover {
-  background: var(--color-bg-page);
+  background: var(--bg-2);
 }
 
 .signInBtn {

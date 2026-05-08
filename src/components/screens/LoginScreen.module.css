@@ -276,3 +276,30 @@
   text-decoration: none;
   font-weight: 600;
 }
+
+@media (min-width: 900px) {
+  .screen {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-2);
+    overflow: auto;
+    padding: 48px 24px;
+  }
+
+  .ambientBg,
+  .darkGradient {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-0);
+    border: 1px solid var(--border-0);
+    border-radius: 16px;
+    padding: 40px 36px 32px;
+    box-sizing: border-box;
+    flex: none;
+  }
+}

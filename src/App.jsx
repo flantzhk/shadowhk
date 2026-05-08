@@ -309,9 +309,11 @@ function MainLayout() {
         : !isDesktop && !hideChrome && <TopBar onNavigate={navigate} />
       }
       <main className="app-main">
-        <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack, showToast)}
-        </Suspense>
+        <div className={isDesktop && !hideChrome ? 'desktop-content' : undefined}>
+          <Suspense fallback={<Loader />}>
+            {renderScreen(route, navigate, goBack, showToast)}
+          </Suspense>
+        </div>
       </main>
       {ToastComponent}
       {!isDesktop && !hideChrome && (

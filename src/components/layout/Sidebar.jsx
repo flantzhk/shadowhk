@@ -50,6 +50,7 @@ export function Sidebar({ activeTab, onNavigate }) {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logo} onClick={() => onNavigate('home')}>
+        <span className={styles.logoGlyph}>影</span>
         <span className={styles.logoText}>ShadowHK</span>
       </div>
 
