@@ -8,7 +8,7 @@
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -52,7 +52,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.1px;
 }
@@ -70,7 +70,7 @@
 
 .ctaMeta {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   opacity: 0.75;
@@ -93,7 +93,7 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: var(--fg-0);
   outline: none;
@@ -106,9 +106,14 @@
   border: none;
   cursor: pointer;
   color: var(--fg-2);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
-  padding: 0;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Filter chips */
@@ -125,10 +130,10 @@
 .filterChip {
   flex-shrink: 0;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  padding: 6px 12px;
+  padding: 9px 16px;
   border-radius: 99px;
   background: transparent;
   color: var(--fg-1);
@@ -136,6 +141,9 @@
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .filterChipActive {
@@ -154,7 +162,7 @@
 
 .refLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -163,7 +171,7 @@
 
 .refTapHint {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -194,7 +202,7 @@
 
 .refTitle {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.01em;
@@ -255,7 +263,7 @@
 
 .sceneMeta {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -330,17 +338,17 @@
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   color: var(--fg-0);
-  margin: 0 0 2px;
+  margin: 0 0 3px;
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
 
 .phraseRoman {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--fg-2);
   margin: 0 0 2px;
@@ -350,7 +358,7 @@
 
 .phraseEnglish {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-style: italic;
   color: var(--fg-2);
   margin: 0;
@@ -369,9 +377,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   opacity: 0.25;
-  padding: 2px;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: opacity 0.15s;
   line-height: 1;
 }
@@ -381,8 +394,8 @@
   background: var(--jade-soft, #D8E8E0);
   color: var(--jade, #3F8F73);
   border: none;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;

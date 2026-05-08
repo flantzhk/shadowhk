@@ -27,7 +27,7 @@
 
 .subtitle {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--fg-2);
   letter-spacing: 0.12em;
@@ -54,7 +54,7 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   color: var(--fg-0);
   outline: none;
@@ -63,7 +63,7 @@
 .searchInput::placeholder {
   color: var(--fg-3);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.08em;
 }
 
@@ -72,9 +72,14 @@
   border: none;
   cursor: pointer;
   color: var(--fg-2);
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1;
-  padding: 0;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ─── Spotify-style category rows ────── */
@@ -105,7 +110,7 @@
 
 .catLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -173,7 +178,7 @@
 
 .hBadgeText {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   color: #fff;
   letter-spacing: 0.08em;
 }
@@ -184,7 +189,7 @@
   left: 10px;
   right: 10px;
   font-family: var(--font-serif);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.2px;
@@ -267,7 +272,7 @@
 
 .tileBadgeText {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 10px;
   color: #fff;
   letter-spacing: 0.08em;
 }

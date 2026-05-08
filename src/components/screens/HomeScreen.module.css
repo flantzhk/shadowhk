@@ -21,7 +21,7 @@
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--fg-2);
   letter-spacing: 0.18em;
@@ -49,7 +49,7 @@
 
 .streakNum {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -89,7 +89,7 @@
 
 .sectionLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -101,13 +101,16 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   cursor: pointer;
-  padding: 0;
+  padding: 8px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 /* ─── Today's Lesson card ─────────────── */
@@ -172,7 +175,7 @@
 
 .todayBadgeText {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: #fff;
   letter-spacing: 0.16em;
 }
@@ -314,7 +317,7 @@
 
 .todayBeginMeta {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0.75;
 }
 
@@ -369,7 +372,7 @@
 .personalEyebrow {
   display: block;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -377,7 +380,7 @@
 }
 .personalTitle {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 3px;
@@ -385,7 +388,7 @@
 }
 .personalMeta {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--fg-2);
   margin: 0;
 }
@@ -417,7 +420,7 @@
 .personalEmptyText { flex: 1; }
 .personalEmptyTitle {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 3px;
@@ -425,7 +428,7 @@
 }
 .personalEmptyDesc {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 14px;
   color: var(--fg-2);
   margin: 0;
   line-height: 1.4;
@@ -500,7 +503,7 @@
 .pickBackTitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--fg-1);
   margin: 0;
@@ -540,15 +543,18 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   cursor: pointer;
-  padding: 0;
+  padding: 8px 0;
   white-space: nowrap;
   flex-shrink: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 /* ─── 3-column practice grid ──────────── */
@@ -578,7 +584,7 @@
 
 .practiceCellLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--fg-0);
@@ -587,7 +593,7 @@
 .practiceCellSub {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--fg-2);
 }
 
@@ -605,8 +611,8 @@
 
 .riskIcon { font-size: 18px; flex-shrink: 0; }
 .riskText { flex: 1; display: flex; flex-direction: column; gap: 1px; }
-.riskTitle { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--fg-0); }
-.riskSub { font-family: var(--font-ui); font-size: 11px; color: var(--fg-2); }
+.riskTitle { font-family: var(--font-ui); font-size: 14px; font-weight: 700; color: var(--fg-0); }
+.riskSub { font-family: var(--font-ui); font-size: 13px; color: var(--fg-2); }
 .riskBtn {
   background: none;
   color: var(--accent);
