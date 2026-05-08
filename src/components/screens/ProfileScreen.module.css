@@ -6,65 +6,7 @@
   padding-bottom: 32px;
 }
 
-/* === Header === */
-.hero {
-  padding: 20px 20px 16px;
-  border-bottom: 1px solid var(--border-0);
-}
-
-.avatarWrap { margin-bottom: 12px; }
-
-.avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.avatarInitial {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--bg-2);
-  border: 1px solid var(--border-1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--fg-0);
-}
-
-.nameBtn {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 4px;
-}
-
-.name {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--fg-0);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.nameEdit {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-/* ─── New profile header ─────────────── */
+/* ─── Profile header ─────────────────── */
 .profileRow {
   padding: 4px 20px 0;
   display: flex;

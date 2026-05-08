@@ -95,13 +95,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 70px 28px 0;
+  padding: 20px 28px 16px;
   gap: 14px;
   min-height: 0;
 }
 
 .focusJyutping {
-  font-family: var(--font-sans, var(--font-ui));
+  font-family: var(--font-ui);
   font-size: 38px;
   font-weight: 700;
   color: #FAFAF7;
@@ -207,20 +207,19 @@
 
 .toneTrackWrap { width: 100%; max-width: 280px; margin-top: 8px; }
 
-/* === Orbital mic === */
+/* === Orbital mic — in-flow flex child === */
 .micOrbit {
-  position: absolute;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  height: 220px;
+  flex-shrink: 0;
+  align-self: center;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 1px solid rgba(200,57,43,0.4);
   box-shadow: inset 0 0 60px rgba(200,57,43,0.08);
   display: grid;
   place-items: center;
   pointer-events: none;
+  margin: 4px auto;
 }
 
 .micBtn {
@@ -260,19 +259,16 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* === Bottom controls === */
+/* === Bottom controls — in-flow flex child === */
 .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   flex-shrink: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px 28px;
-  padding-bottom: max(env(safe-area-inset-bottom, 28px), 28px);
+  padding: 6px 20px 24px;
+  padding-bottom: max(env(safe-area-inset-bottom, 24px), 24px);
 }
 
 .eyeToggles {

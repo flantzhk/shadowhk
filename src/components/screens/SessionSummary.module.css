@@ -137,10 +137,11 @@
 
 .scoreNum {
   font-family: var(--font-serif);
-  font-size: 48px;
+  font-style: italic;
+  font-size: 88px;
   font-weight: 600;
-  color: #FAFAF7;
-  letter-spacing: -1px;
+  color: var(--accent);
+  letter-spacing: -3px;
   line-height: 1;
 }
 
@@ -246,7 +247,7 @@
 
 .phraseText {
   flex: 1;
-  font-family: var(--font-sans, var(--font-ui));
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
   color: rgba(237,231,223,0.8);

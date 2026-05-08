@@ -134,7 +134,7 @@
 
 .tilePhoto {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
   border-radius: 12px;
   background-size: cover;
   background-position: center;
@@ -202,7 +202,7 @@
 
 /* ─── Skeleton / empty ──────────────── */
 .skeleton {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
   background: var(--bg-2);
   border-radius: 12px;
   animation: shimmer 1.4s ease-in-out infinite;

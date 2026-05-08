@@ -122,7 +122,7 @@
 
 .todayPhoto {
   position: relative;
-  height: 200px;
+  aspect-ratio: 16 / 10;
   background-size: cover;
   background-position: center;
   background-color: var(--ink);
@@ -287,7 +287,7 @@
   background: var(--accent);
   color: #FAFAF7;
   border: none;
-  font-family: var(--font-sans, var(--font-ui));
+  font-family: var(--font-ui);
   font-size: 16px;
   font-weight: 500;
   display: flex;
