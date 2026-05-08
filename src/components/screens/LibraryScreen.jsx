@@ -29,7 +29,6 @@ export default function LibraryScreen({ onNavigate }) {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [expanded, setExpanded] = useState(new Set());
 
   useEffect(() => { reload(); }, [language]);
 
@@ -48,14 +47,6 @@ export default function LibraryScreen({ onNavigate }) {
       setScenes(loadedScenes);
     } catch (_) {}
     finally { setLoading(false); }
-  }
-
-  function toggleExpanded(sceneId) {
-    setExpanded(prev => {
-      const next = new Set(prev);
-      next.has(sceneId) ? next.delete(sceneId) : next.add(sceneId);
-      return next;
-    });
   }
 
   const groups = new Map();
@@ -170,13 +161,12 @@ export default function LibraryScreen({ onNavigate }) {
         const filtered = filterPhrases(phrases);
         if (filtered.length === 0) return null;
         const saidCount = phrases.filter(p => p.lived_at).length;
-        const isOpen = expanded.has(sceneId);
 
         return (
           <section key={sceneId} className={styles.sceneGroup}>
             <button
               className={styles.sceneRow}
-              onClick={() => toggleExpanded(sceneId)}
+              onClick={() => scene && onNavigate('scene', scene.id)}
             >
               <div
                 className={styles.sceneThumb}
@@ -194,35 +184,33 @@ export default function LibraryScreen({ onNavigate }) {
                   )}
                 </p>
               </div>
-              <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}>›</span>
+              <span className={styles.chevron}>›</span>
             </button>
 
-            {isOpen && (
-              <div className={styles.phraseList}>
-                {filtered.map(phrase => (
-                  <div
-                    key={phrase.id}
-                    className={styles.phraseRow}
-                    onClick={() => onNavigate('phrase', phrase.id)}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <PhraseDot phrase={phrase} styles={styles} />
-                    <div className={styles.phraseText}>
-                      <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                      <p className={styles.phraseEnglish}>{phrase.english}</p>
-                    </div>
-                    <button
-                      className={styles.playBtn}
-                      onClick={e => { e.stopPropagation(); onNavigate('phrase', phrase.id); }}
-                      aria-label="Play"
-                    >
-                      <PlayIcon />
-                    </button>
+            <div className={styles.phraseList}>
+              {filtered.map(phrase => (
+                <div
+                  key={phrase.id}
+                  className={styles.phraseRow}
+                  onClick={() => onNavigate('phrase', phrase.id)}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <PhraseDot phrase={phrase} styles={styles} />
+                  <div className={styles.phraseText}>
+                    <p className={styles.phraseRoman}>{phrase.romanization}</p>
+                    <p className={styles.phraseEnglish}>{phrase.english}</p>
                   </div>
-                ))}
-              </div>
-            )}
+                  <button
+                    className={styles.playBtn}
+                    onClick={e => { e.stopPropagation(); onNavigate('phrase', phrase.id); }}
+                    aria-label="Play"
+                  >
+                    <PlayIcon />
+                  </button>
+                </div>
+              ))}
+            </div>
           </section>
         );
       })}
