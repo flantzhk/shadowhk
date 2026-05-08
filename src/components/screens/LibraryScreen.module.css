@@ -159,9 +159,9 @@
 /* Phrase rows */
 .phraseRow {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 0;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border-0);
   cursor: pointer;
 }
@@ -172,31 +172,33 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 3px;
   min-width: 0;
 }
 
 .phraseRoman {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 600;
   color: var(--fg-0);
   margin: 0;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--fg-2);
-  margin: 0;
+  margin: 4px 0 0;
+  letter-spacing: 0.04em;
 }
 
 .phraseEnglish {
   font-family: var(--font-ui);
   font-size: 13px;
   color: var(--fg-1);
-  margin: 0;
+  margin: 6px 0 0;
+  line-height: 1.4;
 }
 
 /* ─── Filter chips ───────────────────── */
@@ -289,26 +291,34 @@
 
 .phraseActions {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
-  padding-top: 2px;
 }
 
-.iconBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
+.playBtn {
+  background: var(--accent-dark);
   color: var(--accent);
-  padding: 4px;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 99px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
   transition: opacity 0.15s;
 }
 
-.iconBtn:hover { opacity: 0.7; }
+.playBtn:hover { opacity: 0.75; }
+
+.savedMark {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 
 /* Misc */
 .skeleton {

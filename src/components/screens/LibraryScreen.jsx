@@ -104,24 +104,27 @@ export default function LibraryScreen({ onNavigate }) {
 
       <div className={styles.divider} />
 
-      {/* Reference sets */}
-      <div className={styles.refHeader}>
-        <span className={styles.refLabel}>— REFERENCE SETS</span>
-        <span className={styles.refTapHint}>TAP TO BROWSE</span>
-      </div>
-
-      <div className={styles.refGrid}>
-        {REFERENCE_SETS.map(s => (
-          <button
-            key={s.id}
-            className={styles.refCard}
-            onClick={() => onNavigate?.('reference', s.id)}
-          >
-            <span className={styles.refCount}>{s.count} ITEMS</span>
-            <span className={styles.refTitle}>{s.title}</span>
-          </button>
-        ))}
-      </div>
+      {/* Reference sets — hide when a filter is active */}
+      {activeFilter === 'all' && (
+        <>
+          <div className={styles.refHeader}>
+            <span className={styles.refLabel}>— REFERENCE SETS</span>
+            <span className={styles.refTapHint}>TAP TO BROWSE</span>
+          </div>
+          <div className={styles.refGrid}>
+            {REFERENCE_SETS.map(s => (
+              <button
+                key={s.id}
+                className={styles.refCard}
+                onClick={() => onNavigate?.('reference', s.id)}
+              >
+                <span className={styles.refCount}>{s.count} ITEMS</span>
+                <span className={styles.refTitle}>{s.title}</span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
 
       {/* Scene groups */}
       {loading && <div className={styles.skeleton} />}
@@ -179,8 +182,9 @@ export default function LibraryScreen({ onNavigate }) {
                 </div>
               </div>
               <div className={styles.phraseActions}>
+                <span className={styles.savedMark} aria-hidden="true"><BookmarkIcon /></span>
                 <button
-                  className={styles.iconBtn}
+                  className={styles.playBtn}
                   onClick={e => { e.stopPropagation(); onNavigate('phrase', phrase.id); }}
                   aria-label="Play"
                 >
@@ -197,8 +201,14 @@ export default function LibraryScreen({ onNavigate }) {
 }
 
 const PlayIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="5 3 19 12 5 21 5 3" />
+  <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor">
+    <path d="M2 1l9 6-9 6V1z" />
+  </svg>
+);
+
+const BookmarkIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+    <path d="M5 2v16l5-3 5 3V2H5z" />
   </svg>
 );
 
