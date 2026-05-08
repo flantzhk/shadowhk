@@ -57,6 +57,7 @@ const LicensesScreen     = lazy(() => import('./components/screens/LicensesScree
 const CheckoutSuccess    = lazy(() => import('./components/screens/CheckoutSuccessScreen'));
 const Paywall            = lazy(() => import('./components/screens/onboarding/screens/Screen16_Paywall'));
 const IntroduceYourselfForm = lazy(() => import('./components/screens/IntroduceYourselfForm'));
+const ReferenceScreen       = lazy(() => import('./components/screens/ReferenceScreen'));
 
 // ── Router ─────────────────────────────────────────────────────────────────
 
@@ -172,6 +173,7 @@ function renderScreen(route, navigate, goBack, showToast) {
     case ROUTES.LICENSES:        return <LicensesScreen onBack={goBack} />;
     case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess onDone={() => navigate(ROUTES.HOME)} />;
     case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.SHADOW, 'personal-introduce-yourself')} />;
+    case ROUTES.REFERENCE:         return <ReferenceScreen referenceId={id} onBack={goBack} onNavigate={navigate} />;
     default:                     return <HomeScreen onNavigate={navigate} />;
   }
 }

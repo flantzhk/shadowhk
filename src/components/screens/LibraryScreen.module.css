@@ -183,29 +183,28 @@
   border-radius: 0;
   padding: 12px 14px;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   cursor: pointer;
   text-align: left;
   transition: background 0.15s;
 }
 .refCard:hover { background: var(--bg-2); }
 
-.refCount {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-}
-
 .refTitle {
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.01em;
+}
+
+.refArrow {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-3);
+  flex-shrink: 0;
 }
 
 /* ─── Scene groups ──────────────────── */
@@ -357,6 +356,26 @@
   margin: 0;
   line-height: 1.4;
 }
+
+.phraseActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.livedToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.25;
+  padding: 2px;
+  transition: opacity 0.15s;
+  line-height: 1;
+}
+.livedToggleActive { opacity: 1; }
 
 .playBtn {
   background: var(--jade-soft, #D8E8E0);

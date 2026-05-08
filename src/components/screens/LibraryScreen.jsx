@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getLibraryEntries } from '../../services/storage.js';
+import { getLibraryEntries, getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
 import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { textToSpeech } from '../../services/api.js';
 
 const REFERENCE_SETS = [
-  { id: 'numbers', count: 100, title: 'Numbers 1–100' },
-  { id: 'colours', count: 12,  title: 'Colours' },
-  { id: 'drinks',  count: 18,  title: 'Drinks & Coffee' },
-  { id: 'days',    count: 24,  title: 'Days & Times' },
+  { id: 'the-very-basics',      title: 'The Very Basics' },
+  { id: 'everyday-essentials',  title: 'Everyday Essentials' },
+  { id: 'food-and-drink',       title: 'Food & Drink' },
+  { id: 'social-life',          title: 'Social Life' },
+  { id: 'getting-around',       title: 'Getting Around' },
+  { id: 'home-and-family',      title: 'Home & Family' },
+  { id: 'at-a-coffee-shop',     title: 'At a Coffee Shop' },
 ];
 
 const FILTERS = [
@@ -34,6 +37,15 @@ export default function LibraryScreen({ onNavigate }) {
   const audioRef = useRef(null);
 
   useEffect(() => { reload(); }, [language]);
+
+  async function toggleLived(e, phrase) {
+    e.stopPropagation();
+    const entry = await getLibraryEntry(phrase.id).catch(() => null);
+    if (!entry) return;
+    const updated = { ...entry, lived_at: entry.lived_at ? null : Date.now() };
+    await saveLibraryEntry(updated);
+    setLibrary(prev => prev.map(p => p.id === phrase.id ? { ...p, lived_at: updated.lived_at } : p));
+  }
 
   async function playInline(e, phrase) {
     e.stopPropagation();
@@ -186,8 +198,8 @@ export default function LibraryScreen({ onNavigate }) {
                 className={styles.refCard}
                 onClick={() => onNavigate?.('reference', s.id)}
               >
-                <span className={styles.refCount}>{s.count} ITEMS</span>
                 <span className={styles.refTitle}>{s.title}</span>
+                <span className={styles.refArrow}>→</span>
               </button>
             ))}
           </div>
@@ -248,13 +260,23 @@ export default function LibraryScreen({ onNavigate }) {
                     <p className={styles.phraseRoman}>{phrase.romanization}</p>
                     <p className={styles.phraseEnglish}>{phrase.english}</p>
                   </div>
-                  <button
-                    className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                    onClick={e => playInline(e, phrase)}
-                    aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
-                  >
-                    {playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
-                  </button>
+                  <div className={styles.phraseActions}>
+                    <button
+                      className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
+                      onClick={e => toggleLived(e, phrase)}
+                      aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
+                      title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
+                    >
+                      📍
+                    </button>
+                    <button
+                      className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                      onClick={e => playInline(e, phrase)}
+                      aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
+                    >
+                      {playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

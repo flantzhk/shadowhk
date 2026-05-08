@@ -197,6 +197,27 @@
   margin: 0;
 }
 
+.livedBtn {
+  width: 100%;
+  padding: 14px;
+  background: var(--bg-1);
+  color: var(--fg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 12px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.livedBtnActive {
+  background: rgba(63, 143, 115, 0.1);
+  color: var(--jade, #3F8F73);
+  border-color: var(--jade, #3F8F73);
+}
+
 .practiceBtn {
   width: 100%;
   padding: 18px;

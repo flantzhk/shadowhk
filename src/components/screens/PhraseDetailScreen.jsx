@@ -4,7 +4,7 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PostIt } from '../ui/PostIt.jsx';
 import { GrowthBadge } from '../ui/GrowthBadge.jsx';
 import { SourceTag } from '../ui/SourceTag.jsx';
-import { getLibraryEntry } from '../../services/storage.js';
+import { getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
 import { getSchedule } from '../../services/srs.js';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
@@ -57,6 +57,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const [sceneLine, setSceneLine] = useState(null);
   const [loading, setLoading] = useState(true);
   const [playing, setPlaying] = useState(false);
+  const [livedAt, setLivedAt] = useState(null);
   const [playingCharIdx, setPlayingCharIdx] = useState(null);
   const [charMeanings, setCharMeanings] = useState(null);
   const [showMasteredToast, setShowMasteredToast] = useState(false);
@@ -86,6 +87,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
     getLibraryEntry(phraseId)
       .then(async entry => {
         setPhrase(entry);
+        setLivedAt(entry?.lived_at ?? null);
         if (entry) {
           const sched = await getSchedule(phraseId).catch(() => null);
           setSchedule(sched);
@@ -246,6 +248,19 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
             <p className={styles.whyText}>{buildWhyToday(phrase, schedule)}</p>
           </section>
         )}
+
+        {/* Said this in person */}
+        <button
+          className={`${styles.livedBtn} ${livedAt ? styles.livedBtnActive : ''}`}
+          onClick={async () => {
+            const updated = { ...phrase, lived_at: livedAt ? null : Date.now() };
+            await saveLibraryEntry(updated);
+            setLivedAt(updated.lived_at ?? null);
+            setPhrase(updated);
+          }}
+        >
+          {livedAt ? '📍 Said this in person' : '📍 Mark as said in person'}
+        </button>
 
         {/* Practice CTA */}
         <button
