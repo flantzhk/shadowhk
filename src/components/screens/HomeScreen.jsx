@@ -140,38 +140,9 @@ function StreakPill({ count }) {
 }
 
 function TodaySceneHero({ lesson, dueCount, onNavigate }) {
-  const { scene, fadingPhrases = [] } = lesson;
-  const totalLines = scene.lines?.length ?? 0;
-  const duration = scene.estimatedMinutes ?? 5;
-  const reviewCount = fadingPhrases.length;
+  const { scene } = lesson;
 
   const handleBegin = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
-
-  const stations = [
-    {
-      n: '01',
-      active: true,
-      title: scene.title,
-      sub: `${totalLines} phrases · today's scene`,
-      mins: `${Math.max(duration - (reviewCount > 0 ? 4 : 0), 3)}m`,
-    },
-    ...(reviewCount > 0 ? [{
-      n: '02',
-      active: false,
-      title: `Review ${reviewCount} saved phrases`,
-      sub: 'from your library · spaced repetition',
-      mins: '4m',
-    }] : []),
-    {
-      n: reviewCount > 0 ? '03' : '02',
-      active: false,
-      title: 'Tone Gym warm-up',
-      sub: 'ear training · 2 minutes',
-      mins: '2m',
-    },
-  ];
-
-  const totalMins = stations.reduce((sum, s) => sum + parseInt(s.mins), 0);
 
   return (
     <div className={styles.todayCard}>
@@ -183,25 +154,9 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
         <div className={styles.todayPhotoGrad} />
         <div className={styles.todayBadge}>
           <span className={styles.todayBadgeDot} />
-          <span className={styles.todayBadgeText}>TODAY'S LESSON · {totalMins} MIN</span>
+          <span className={styles.todayBadgeText}>TODAY'S LESSON</span>
         </div>
         <h2 className={styles.todayPhotoTitle}>{scene.title}</h2>
-      </div>
-
-      <div className={styles.todayStations}>
-        {stations.map((s, i) => (
-          <div key={s.n} className={`${styles.todayStation} ${i < stations.length - 1 ? styles.todayStationBorder : ''}`}>
-            <div className={styles.todayStationLeft}>
-              <span className={`${styles.todayStationNum} ${s.active ? styles.todayStationNumActive : ''}`}>{s.n}</span>
-              {i < stations.length - 1 && <span className={styles.todayStationLine} />}
-            </div>
-            <div className={styles.todayStationBody}>
-              <span className={`${styles.todayStationTitle} ${s.active ? styles.todayStationTitleActive : ''}`}>{s.title}</span>
-              <span className={styles.todayStationMins}>{s.mins}</span>
-            </div>
-            <p className={styles.todayStationSub}>{s.sub}</p>
-          </div>
-        ))}
       </div>
 
       <button className={styles.todayBeginBtn} onClick={handleBegin}>
@@ -211,7 +166,6 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
           </span>
           Start Today's Lesson
         </span>
-        <span className={styles.todayBeginMeta}>{stations.length} STATIONS · {totalMins} MIN</span>
       </button>
     </div>
   );
