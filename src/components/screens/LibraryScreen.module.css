@@ -329,13 +329,23 @@
   min-width: 0;
 }
 
+.phraseCjk {
+  font-family: var(--font-cjk);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0 0 2px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
 .phraseRoman {
   font-family: var(--font-ui);
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--fg-0);
-  margin: 0;
-  letter-spacing: -0.01em;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-2);
+  margin: 0 0 2px;
+  letter-spacing: 0.01em;
   line-height: 1.3;
 }
 
@@ -360,9 +370,13 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 .playBtn:hover { opacity: 0.8; }
+.playBtnActive {
+  background: var(--jade, #3F8F73);
+  color: #fff;
+}
 
 /* Misc */
 .skeleton {

@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
+import { getLibraryEntries } from '../../services/storage.js';
 import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
+import { textToSpeech } from '../../services/api.js';
 
 const REFERENCE_SETS = [
   { id: 'numbers', count: 100, title: 'Numbers 1–100' },
@@ -29,8 +30,53 @@ export default function LibraryScreen({ onNavigate }) {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [playingId, setPlayingId] = useState(null);
+  const audioRef = useRef(null);
 
   useEffect(() => { reload(); }, [language]);
+
+  async function playInline(e, phrase) {
+    e.stopPropagation();
+
+    // toggle off if already playing
+    if (playingId === phrase.id) {
+      audioRef.current?.pause();
+      audioRef.current = null;
+      setPlayingId(null);
+      return;
+    }
+
+    audioRef.current?.pause();
+    setPlayingId(phrase.id);
+
+    try {
+      const basePath = import.meta.env.BASE_URL || '/';
+      let blobUrl = null;
+
+      try {
+        const resp = await fetch(`${basePath}audio/${language}/${phrase.id}.mp3`);
+        if (resp.ok) {
+          const blob = await resp.blob();
+          if (blob.size > 500) blobUrl = URL.createObjectURL(blob);
+        }
+      } catch (_) {}
+
+      if (!blobUrl) {
+        const blob = await textToSpeech(phrase.cjk, { language });
+        if (blob && blob.size > 0) blobUrl = URL.createObjectURL(blob);
+      }
+
+      if (!blobUrl) { setPlayingId(null); return; }
+
+      const audio = new Audio(blobUrl);
+      audioRef.current = audio;
+      audio.onended = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
+      audio.onerror = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
+      audio.play();
+    } catch (_) {
+      setPlayingId(null);
+    }
+  }
 
   async function reload() {
     setLoading(true);
@@ -198,15 +244,16 @@ export default function LibraryScreen({ onNavigate }) {
                 >
                   <PhraseDot phrase={phrase} styles={styles} />
                   <div className={styles.phraseText}>
+                    <p className={styles.phraseCjk}>{phrase.cjk}</p>
                     <p className={styles.phraseRoman}>{phrase.romanization}</p>
                     <p className={styles.phraseEnglish}>{phrase.english}</p>
                   </div>
                   <button
-                    className={styles.playBtn}
-                    onClick={e => { e.stopPropagation(); onNavigate('phrase', phrase.id); }}
-                    aria-label="Play"
+                    className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                    onClick={e => playInline(e, phrase)}
+                    aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
                   >
-                    <PlayIcon />
+                    {playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
                   </button>
                 </div>
               ))}
@@ -234,6 +281,12 @@ function PhraseDot({ phrase, styles }) {
 const PlayIcon = () => (
   <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor">
     <path d="M2 1l9 6-9 6V1z" />
+  </svg>
+);
+
+const StopIcon = () => (
+  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+    <rect x="1" y="1" width="8" height="8" rx="1" />
   </svg>
 );
 
