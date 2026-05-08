@@ -7,7 +7,7 @@ import { TopBar } from './components/layout/TopBar';
 import { BottomTabBar } from './components/layout/BottomTabBar';
 import { Sidebar } from './components/layout/Sidebar';
 import { ROUTES } from './utils/constants';
-import { isAuthenticated, waitForAuth, updateLastActive } from './services/auth';
+import { isAuthenticated, waitForAuth, updateLastActive, handleGoogleRedirectResult } from './services/auth';
 import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify } from './services/posthog';
@@ -221,6 +221,10 @@ function MainLayout() {
       setAuthError('Unable to connect. Check your connection and reload.');
       setAuthReady(true);
     }, 10000);
+
+    // Handle Google redirect result first — creates user doc for new Google sign-ups
+    // before onAuthStateChanged fires. Errors are non-fatal.
+    handleGoogleRedirectResult().catch(err => logger.warn('[App] Google redirect result error', err));
 
     waitForAuth().then((user) => {
       clearTimeout(timeout);

@@ -86,23 +86,45 @@ async function signIn(email, password) {
 }
 
 /**
- * Sign in with Google popup.
- * @param {string} [languageChoice] - passed through to Firestore doc on first sign-up
- * @returns {Promise<{user: Object|null, error: string|null}>}
+ * Start Google sign-in via redirect (popup is blocked on mobile/PWA).
+ * Stores languageChoice in sessionStorage so handleGoogleRedirectResult()
+ * can pick it up after the browser returns from Google.
+ * @param {string} [languageChoice]
+ * @returns {Promise<{user: null, error: string|null}>}
  */
 async function signInWithGoogle(languageChoice = 'cantonese') {
   const provider = new firebase.auth.GoogleAuthProvider();
+  sessionStorage.setItem('pendingOAuthLang', languageChoice);
   try {
-    const cred = await fbAuth.signInWithPopup(provider);
-    if (cred.additionalUserInfo?.isNewUser) {
-      await createUserDocument(cred.user.uid, cred.user.email || '', languageChoice);
-    }
-    return { user: cred.user, error: null };
+    await fbAuth.signInWithRedirect(provider);
+    return { user: null, error: null }; // unreachable — browser navigates away
   } catch (error) {
-    logger.error('Google sign-in failed', error);
-    if (error.code === 'auth/popup-closed-by-user') {
-      return { user: null, error: null };
+    sessionStorage.removeItem('pendingOAuthLang');
+    logger.error('Google sign-in redirect failed', error);
+    return { user: null, error: firebaseErrorMessage(error) };
+  }
+}
+
+/**
+ * Handle the Google redirect result after the browser returns from Google auth.
+ * Must be called once on app initialisation (before waitForAuth resolves) so
+ * new-user Firestore documents are created correctly.
+ * @returns {Promise<{user: Object|null, error: string|null}>}
+ */
+async function handleGoogleRedirectResult() {
+  try {
+    const result = await fbAuth.getRedirectResult();
+    if (!result || !result.user) return { user: null, error: null };
+
+    const languageChoice = sessionStorage.getItem('pendingOAuthLang') || 'cantonese';
+    sessionStorage.removeItem('pendingOAuthLang');
+
+    if (result.additionalUserInfo?.isNewUser) {
+      await createUserDocument(result.user.uid, result.user.email || '', languageChoice);
     }
+    return { user: result.user, error: null };
+  } catch (error) {
+    logger.error('Google redirect result failed', error);
     return { user: null, error: firebaseErrorMessage(error) };
   }
 }
@@ -143,7 +165,7 @@ async function signInWithApple(languageChoice = 'cantonese') {
 async function signOut() {
   phReset();
   await fbAuth.signOut();
-  window.location.hash = '#login';
+  window.location.hash = '#/login';
 }
 
 /**
@@ -316,6 +338,7 @@ export {
   signUp,
   signIn,
   signInWithGoogle,
+  handleGoogleRedirectResult,
   signInWithApple,
   signOut,
   isAuthenticated,
