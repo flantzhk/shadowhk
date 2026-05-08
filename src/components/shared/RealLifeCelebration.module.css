@@ -1,0 +1,202 @@
+/* RealLifeCelebration.module.css
+   Full-screen cinematic overlay — Wong Kar-wai palette, confetti burst.
+   Triggered when user marks "I said this in real life". */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: overlayIn 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  overflow: hidden;
+  background: #0e0a08;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Deep cinematic glow ── */
+.bgGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(200, 57, 43, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 65%, rgba(201, 162, 74, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(22, 36, 42, 0.8) 0%, transparent 60%),
+    linear-gradient(160deg, #1a0a08 0%, #3d1417 45%, #16242a 100%);
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { opacity: 0.85; }
+  to   { opacity: 1; }
+}
+
+/* ── Confetti particles ── */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: -20px;
+  animation: confettiFall linear both;
+  opacity: 0.9;
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(0)      rotate(0deg)   scaleX(1);   opacity: 0.9; }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { transform: translateY(110vh)  rotate(540deg) scaleX(0.6); opacity: 0; }
+}
+
+/* ── Content ── */
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+  text-align: center;
+  gap: 0;
+}
+
+/* ── Pin icon ── */
+.pinWrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  animation: pinDrop 700ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pinDrop {
+  0%   { transform: translateY(-40px) scale(0.5); opacity: 0; }
+  60%  { transform: translateY(6px)   scale(1.1); opacity: 1; }
+  80%  { transform: translateY(-4px)  scale(0.95); }
+  100% { transform: translateY(0)     scale(1); }
+}
+
+.pinRings {
+  position: absolute;
+  inset: 0;
+}
+
+.pinRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200, 57, 43, 0.35);
+  animation: ringExpand 1.8s ease-out infinite;
+}
+
+.pinRing:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes ringExpand {
+  0%   { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(2);   opacity: 0; }
+}
+
+.pinCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent, #C8392B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow:
+    0 0 0 6px rgba(200, 57, 43, 0.18),
+    0 8px 32px rgba(200, 57, 43, 0.4);
+}
+
+/* ── Typography ── */
+.eyebrow {
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent, #C8392B);
+  margin: 0 0 12px;
+  animation: fadeUp 400ms 200ms ease both;
+}
+
+.headline {
+  font-family: var(--serif, 'Source Serif 4', Georgia, serif);
+  font-size: 38px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  animation: fadeUp 450ms 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sub {
+  font-family: var(--serif, 'Source Serif 4', Georgia, serif);
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0 0 28px;
+  max-width: 280px;
+  animation: fadeUp 450ms 400ms ease both;
+}
+
+/* ── Phrase card ── */
+.phraseCard {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  animation: fadeUp 450ms 500ms ease both;
+  backdrop-filter: blur(8px);
+}
+
+.phraseCjk {
+  font-family: var(--hk, 'Noto Serif HK', serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 6px;
+  letter-spacing: 0.04em;
+}
+
+.phraseEn {
+  font-family: var(--serif, 'Source Serif 4', Georgia, serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.tapHint {
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin: 0;
+  animation: fadeUp 400ms 700ms ease both;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}

@@ -1,0 +1,129 @@
+/* PhrasebookToast.module.css
+   Bottom-anchored spring toast — compact, joyful, non-blocking. */
+
+.toast {
+  position: fixed;
+  bottom: calc(var(--tab-bar-height, 72px) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--fg-0, #1A1A1A);
+  color: #fff;
+  border-radius: 20px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 450;
+  cursor: pointer;
+  min-width: 220px;
+  max-width: calc(100vw - 40px);
+  animation: toastSpring 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes toastSpring {
+  from { transform: translateX(-50%) translateY(24px) scale(0.92); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0)    scale(1);    opacity: 1; }
+}
+
+/* ── Icon ── */
+.iconWrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent, #C8392B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  animation: iconPop 500ms 100ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes iconPop {
+  from { transform: scale(0) rotate(-20deg); }
+  to   { transform: scale(1) rotate(0deg); }
+}
+
+.iconRipple {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent, #C8392B);
+  animation: rippleOut 600ms 200ms ease-out both;
+}
+
+@keyframes rippleOut {
+  from { transform: scale(0.8); opacity: 0.7; }
+  to   { transform: scale(1.6); opacity: 0; }
+}
+
+/* ── Text ── */
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.label {
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.phrase {
+  font-family: var(--hk, 'Noto Serif HK', serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Sparkle dots ── */
+.sparkles {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  display: flex;
+  gap: 3px;
+}
+
+.spark {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold, #C9A24A);
+  animation: sparkPop 400ms 300ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.spark2 {
+  animation-delay: 400ms;
+  background: var(--accent, #C8392B);
+  width: 4px;
+  height: 4px;
+}
+
+.spark3 {
+  animation-delay: 520ms;
+  background: rgba(255, 255, 255, 0.6);
+  width: 4px;
+  height: 4px;
+}
+
+@keyframes sparkPop {
+  from { transform: scale(0) translateY(4px); opacity: 0; }
+  to   { transform: scale(1) translateY(0);   opacity: 1; }
+}

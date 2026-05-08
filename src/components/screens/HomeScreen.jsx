@@ -19,11 +19,10 @@ const PLAYLISTS = [
 ];
 
 function getGreeting() {
-  const h = new Date().getHours();
-  const period = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
-  const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
-  const month = ['January','February','March','April','May','June','July','August','September','October','November','December'][new Date().getMonth()];
-  return { eyebrow: `${day} · ${month}`, period };
+  const d = new Date();
+  const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
+  const month = ['January','February','March','April','May','June','July','August','September','October','November','December'][d.getMonth()];
+  return { eyebrow: `${day} · ${month}` };
 }
 
 export default function HomeScreen({ onNavigate }) {
@@ -39,7 +38,7 @@ export default function HomeScreen({ onNavigate }) {
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
   const streakCount = settings?.streakCount ?? 0;
-  const { eyebrow, period } = getGreeting();
+  const { eyebrow } = getGreeting();
 
   const streakAtRisk = streakCount > 0
     && settings?.streakLastDate !== toDateStr()
@@ -64,11 +63,6 @@ export default function HomeScreen({ onNavigate }) {
     getDueEntries().then(entries => setDueCount(entries.length)).catch(() => {});
   }, [language]);
 
-  const inProgressScenes = allScenes.filter(s => {
-    const p = sceneProgress[s.id];
-    return p && p.masteryPct > 0 && p.masteryPct < 100;
-  });
-
   return (
     <div className={styles.screen}>
       {showMilestone && (
@@ -82,21 +76,17 @@ export default function HomeScreen({ onNavigate }) {
       )}
 
       <header className={styles.greetingBar}>
-        <div className={styles.greetingText}>
-          <p className={styles.eyebrow}>{eyebrow}</p>
-          <h1 className={styles.greetingTitle}>
-            Good {period}{userName && <>, <span className={styles.greetingItalic}>{userName}</span></>}
-          </h1>
+        <div className={styles.greetingRow}>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <span className={styles.eyebrowDot} />
+          <StreakPill count={streakCount} />
         </div>
-        <StreakPill count={streakCount} />
+        <h1 className={styles.greetingTitle}>
+          Hello{userName && <>, <em>{userName}</em></>}.
+        </h1>
       </header>
 
       {streakAtRisk && <StreakRiskBanner count={streakCount} onNavigate={onNavigate} />}
-
-      <div className={styles.sectionBar}>
-        <span className={styles.sectionNum}>01</span>
-        <span className={styles.sectionLabel}>Today's scene</span>
-      </div>
 
       {!loading && lesson?.scene && (
         <TodaySceneHero lesson={lesson} dueCount={dueCount} onNavigate={onNavigate} />
@@ -104,8 +94,6 @@ export default function HomeScreen({ onNavigate }) {
       {!loading && !lesson && (
         <EmptyHero onNavigate={onNavigate} />
       )}
-
-      {dueCount > 0 && !loading && <Quick3Pill onNavigate={onNavigate} />}
 
       {personalPhraseCount !== null && (
         <PersonalSceneCard
@@ -118,35 +106,21 @@ export default function HomeScreen({ onNavigate }) {
       {allScenes.length > 0 && (
         <>
           <div className={styles.sectionBar}>
-            <span className={styles.sectionNum}>02</span>
-            <span className={styles.sectionLabel}>Jump back in</span>
-            <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>See all →</button>
+            <span className={styles.sectionNum}>01</span>
+            <span className={styles.sectionLabel}>Pick back up</span>
+            <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>ALL →</button>
           </div>
-          <JumpBackGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
+          <PickBackUpRow scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
         </>
       )}
 
       <div className={styles.sectionBar}>
-        <span className={styles.sectionNum}>03</span>
-        <span className={styles.sectionLabel}>Made for you</span>
+        <span className={styles.sectionNum}>02</span>
+        <span className={styles.sectionLabel}>This week's tour</span>
       </div>
-      <PlaylistRow scenes={allScenes} onNavigate={onNavigate} />
+      <ThisWeeksTour scenes={allScenes} onNavigate={onNavigate} />
 
-      {inProgressScenes.length > 0 && (
-        <>
-          <div className={styles.sectionBar}>
-            <span className={styles.sectionNum}>04</span>
-            <span className={styles.sectionLabel}>Keep going</span>
-          </div>
-          <KeepGoingRow scenes={inProgressScenes} progress={sceneProgress} onNavigate={onNavigate} />
-        </>
-      )}
-
-      <div className={styles.sectionBar}>
-        <span className={styles.sectionNum}>05</span>
-        <span className={styles.sectionLabel}>Practice modes</span>
-      </div>
-      <ShortSessions onNavigate={onNavigate} />
+      <PracticeGrid onNavigate={onNavigate} />
 
       <div className={styles.bottomPad} />
     </div>
@@ -156,10 +130,12 @@ export default function HomeScreen({ onNavigate }) {
 function StreakPill({ count }) {
   if (!count) return null;
   return (
-    <div className={styles.streakPill}>
-      <span className={styles.streakFlame}>🔥</span>
+    <span className={styles.streakPill}>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2c1 3-1 4-1 6.5 0 1.5 1 2.5 2 2.5s2-1 1.5-2.5c2 1.5 3 4 3 6.5a5.5 5.5 0 1 1-11 0c0-2 1-4 2.5-5.5C10.5 8 11 5 12 2z"/>
+      </svg>
       <span className={styles.streakNum}>{count}</span>
-    </div>
+    </span>
   );
 }
 
@@ -167,47 +143,77 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
   const { scene, fadingPhrases = [] } = lesson;
   const totalLines = scene.lines?.length ?? 0;
   const duration = scene.estimatedMinutes ?? 5;
-  const sceneDue = fadingPhrases.length;
+  const reviewCount = fadingPhrases.length;
 
-  const handleBtn = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
+  const handleBegin = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
+
+  const stations = [
+    {
+      n: '01',
+      active: true,
+      title: scene.title,
+      sub: `${totalLines} phrases · today's scene`,
+      mins: `${Math.max(duration - (reviewCount > 0 ? 4 : 0), 3)}m`,
+    },
+    ...(reviewCount > 0 ? [{
+      n: '02',
+      active: false,
+      title: `Review ${reviewCount} saved phrases`,
+      sub: 'from your library · spaced repetition',
+      mins: '4m',
+    }] : []),
+    {
+      n: reviewCount > 0 ? '03' : '02',
+      active: false,
+      title: 'Tone Gym warm-up',
+      sub: 'ear training · 2 minutes',
+      mins: '2m',
+    },
+  ];
+
+  const totalMins = stations.reduce((sum, s) => sum + parseInt(s.mins), 0);
 
   return (
-    <>
-      <section className={styles.heroSection}>
-        <div
-          className={styles.sceneHero}
-          style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
-        >
-          {!scene.imageUrl && <div className={styles.heroCinematicBg} />}
-          <div className={styles.heroGrain} />
-          <div className={styles.heroVignette} />
-          <div className={styles.heroDarkGrad} />
+    <div className={styles.todayCard}>
+      <div
+        className={styles.todayPhoto}
+        style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
+      >
+        {!scene.imageUrl && <div className={styles.heroCinematicBg} />}
+        <div className={styles.todayPhotoGrad} />
+        <div className={styles.todayBadge}>
+          <span className={styles.todayBadgeDot} />
+          <span className={styles.todayBadgeText}>TODAY'S LESSON · {totalMins} MIN</span>
+        </div>
+        <h2 className={styles.todayPhotoTitle}>{scene.title}</h2>
+      </div>
 
-          <div className={styles.heroTop}>
-            <span className={styles.heroLocationTag}>HONG KONG · TODAY</span>
-          </div>
-
-          <div className={styles.heroBottom}>
-            <span className={styles.heroCategoryEyebrow}>{scene.category?.toUpperCase() ?? 'SCENE'}</span>
-            <h2 className={styles.heroTitle}>{scene.title}</h2>
-            <div className={styles.heroPills}>
-              <span className={styles.heroPill}>{totalLines} phrases</span>
-              <span className={styles.heroPill}>{duration} min</span>
-              {sceneDue > 0 && <span className={styles.heroPill}>🔁 {sceneDue} to review</span>}
+      <div className={styles.todayStations}>
+        {stations.map((s, i) => (
+          <div key={s.n} className={`${styles.todayStation} ${i < stations.length - 1 ? styles.todayStationBorder : ''}`}>
+            <div className={styles.todayStationLeft}>
+              <span className={`${styles.todayStationNum} ${s.active ? styles.todayStationNumActive : ''}`}>{s.n}</span>
+              {i < stations.length - 1 && <span className={styles.todayStationLine} />}
             </div>
+            <div className={styles.todayStationBody}>
+              <span className={`${styles.todayStationTitle} ${s.active ? styles.todayStationTitleActive : ''}`}>{s.title}</span>
+              <span className={styles.todayStationMins}>{s.mins}</span>
+            </div>
+            <p className={styles.todayStationSub}>{s.sub}</p>
           </div>
-        </div>
-      </section>
-      <button className={styles.continueSection} onClick={handleBtn}>
-        <div className={styles.continueEyebrow}>
-          <span className={styles.continueLabel}>{dueCount > 0 ? 'REVIEW DUE' : 'START SESSION'}</span>
-          <span className={styles.continueArrow}>→</span>
-        </div>
-        <p className={styles.continueTitle}>
-          {dueCount > 0 ? `Review ${dueCount} due phrases` : scene.title}
-        </p>
+        ))}
+      </div>
+
+      <button className={styles.todayBeginBtn} onClick={handleBegin}>
+        <span className={styles.todayBeginLeft}>
+          <span className={styles.todayBeginPlay}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
+          </span>
+          Begin today
+        </span>
+        <span className={styles.todayBeginMeta}>{stations.length} STATIONS · {totalMins} MIN</span>
       </button>
-    </>
+    </div>
   );
 }
 
@@ -222,82 +228,30 @@ function EmptyHero({ onNavigate }) {
   );
 }
 
-function JumpBackGrid({ scenes, progress, onNavigate }) {
+function PickBackUpRow({ scenes, progress, onNavigate }) {
   const recent = scenes
     .filter(s => progress?.[s.id]?.lastSessionAt)
     .sort((a, b) => (progress[b.id]?.lastSessionAt ?? 0) - (progress[a.id]?.lastSessionAt ?? 0))
-    .slice(0, 6);
+    .slice(0, 5);
 
-  if (recent.length === 0) return null;
+  const cards = recent.length > 0 ? recent : scenes.slice(0, 5);
 
   return (
-    <section className={styles.jumpSection}>
-      <div className={styles.jumpGrid}>
-        {recent.map(s => (
-          <button key={s.id} className={styles.jumpChip} onClick={() => onNavigate('scene', s.id)}>
-            {s.imageUrl
-              ? <img className={styles.jumpImg} src={s.imageUrl} alt="" />
-              : <span className={styles.jumpEmoji}>{s.emoji}</span>
-            }
-            <span className={styles.jumpTitle}>{s.title}</span>
-          </button>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function PlaylistRow({ scenes, onNavigate }) {
-  return (
-    <section className={styles.rowSection}>
-      <div className={styles.scrollRow}>
-        {PLAYLISTS.map(playlist => {
-          const first = scenes.find(s => s.id === playlist.sceneIds[0]);
-          return (
-            <button
-              key={playlist.id}
-              className={styles.playlistCard}
-              onClick={() => onNavigate('scene', playlist.sceneIds[0])}
-            >
-              <div
-                className={styles.playlistCover}
-                style={{ backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined }}
-              >
-                <div className={styles.playlistCoverGradient} />
-                <span className={styles.playlistTitle}>{playlist.label}</span>
-              </div>
-              <p className={styles.playlistDesc}>{playlist.desc}</p>
-            </button>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-function KeepGoingRow({ scenes, progress, onNavigate }) {
-  return (
-    <section className={styles.rowSection}>
-      <div className={styles.scrollRow}>
-        {scenes.map(s => {
+    <section className={styles.pickBackSection}>
+      <div className={styles.pickBackScroll}>
+        {cards.map(s => {
           const pct = progress[s.id]?.masteryPct ?? 0;
           return (
-            <button
-              key={s.id}
-              className={styles.keepCard}
-              onClick={() => onNavigate('scene', s.id)}
-            >
+            <button key={s.id} className={styles.pickBackCard} onClick={() => onNavigate('scene', s.id)}>
               <div
-                className={styles.keepCover}
+                className={styles.pickBackPhoto}
                 style={{ backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined }}
               >
-                <div className={styles.keepCoverOverlay} />
+                {!s.imageUrl && <span className={styles.pickBackEmoji}>{s.emoji}</span>}
+                <div className={styles.pickBackPhotoOverlay} />
+                {pct > 0 && <div className={styles.pickBackProgress} style={{ width: `${pct}%` }} />}
               </div>
-              <p className={styles.keepTitle}>{s.title}</p>
-              <div className={styles.keepProgressBar}>
-                <div className={styles.keepProgressFill} style={{ width: `${pct}%` }} />
-              </div>
-              <p className={styles.keepPct}>{Math.round(pct)}%</p>
+              <p className={styles.pickBackTitle}>{s.title}</p>
             </button>
           );
         })}
@@ -306,27 +260,37 @@ function KeepGoingRow({ scenes, progress, onNavigate }) {
   );
 }
 
-function ShortSessions({ onNavigate }) {
-  const sessions = [
-    { label: 'Tone Gym',  desc: 'Train your ear',  bg: 'var(--bg-2)', route: 'tonegym',  emoji: '🎵' },
-    { label: 'Free Chat', desc: 'AI conversation',  bg: '#F2DDD9', route: 'ai-scenario', emoji: '💬' },
-    { label: 'Speed Run', desc: 'Beat the clock',   bg: '#F2DDD9', route: 'speedrun', emoji: '⚡' },
+function ThisWeeksTour({ scenes, onNavigate }) {
+  const playlist = PLAYLISTS[0];
+  const first = scenes.find(s => s.id === playlist.sceneIds[0]);
+  return (
+    <section className={styles.tourSection}>
+      <div className={styles.tourText}>
+        <h3 className={styles.tourTitle}>{playlist.label}</h3>
+        <p className={styles.tourDesc}>{playlist.desc} — {playlist.sceneIds.length} scenes through Hong Kong.</p>
+      </div>
+      <button className={styles.tourExploreBtn} onClick={() => onNavigate('scenes')}>
+        Explore →
+      </button>
+    </section>
+  );
+}
+
+function PracticeGrid({ onNavigate }) {
+  const modes = [
+    { label: 'TONE GYM',   sub: 'Ear training',       route: 'tonegym' },
+    { label: 'FREE CHAT',  sub: 'Open conversation',   route: 'ai-scenario' },
+    { label: 'SPEED RUN',  sub: 'Drills',              route: 'speedrun' },
   ];
   return (
-    <section className={styles.practiceSection}>
-      {sessions.map(s => (
-        <button key={s.route} className={styles.practiceRow} onClick={() => onNavigate(s.route)}>
-          <div className={styles.practiceIcon} style={{ background: s.bg }}>
-            <span>{s.emoji}</span>
-          </div>
-          <div className={styles.practiceText}>
-            <span className={styles.practiceLabel}>{s.label}</span>
-            <span className={styles.practiceDesc}>{s.desc}</span>
-          </div>
-          <ChevronRight />
+    <div className={styles.practiceGrid}>
+      {modes.map((m, i) => (
+        <button key={m.route} className={`${styles.practiceCell} ${i < 2 ? styles.practiceCellBorder : ''}`} onClick={() => onNavigate(m.route)}>
+          <span className={styles.practiceCellLabel}>{m.label}</span>
+          <span className={styles.practiceCellSub}>{m.sub}</span>
         </button>
       ))}
-    </section>
+    </div>
   );
 }
 
@@ -377,15 +341,6 @@ function StreakRiskBanner({ count, onNavigate }) {
   );
 }
 
-function Quick3Pill({ onNavigate }) {
-  return (
-    <div className={styles.quick3Wrap}>
-      <button className={styles.quick3Pill} onClick={() => onNavigate('shadow', '__quick3__')}>
-        Short on time? Do 3 phrases →
-      </button>
-    </div>
-  );
-}
 
 function StreakCelebration({ count, onDismiss }) {
   return (
@@ -403,8 +358,3 @@ function StreakCelebration({ count, onDismiss }) {
   );
 }
 
-const ChevronRight = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, color: 'var(--fg-2)' }}>
-    <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);

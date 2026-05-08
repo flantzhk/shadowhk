@@ -13,6 +13,13 @@ const REFERENCE_SETS = [
   { id: 'days',    count: 24,  title: 'Days & Times' },
 ];
 
+const FILTERS = [
+  { id: 'all', label: 'ALL' },
+  { id: 'said', label: '📍 SAID IN PERSON' },
+  { id: 'needs-work', label: 'NEEDS WORK' },
+  { id: 'mastered', label: 'MASTERED' },
+];
+
 export default function LibraryScreen({ onNavigate }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
@@ -21,6 +28,7 @@ export default function LibraryScreen({ onNavigate }) {
   const [scenes, setScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => { reload(); }, [language]);
 
@@ -62,13 +70,37 @@ export default function LibraryScreen({ onNavigate }) {
 
   const totalPhrases = library.length;
   const totalScenes = groupedScenes.filter(g => g.scene).length;
+  const saidInPersonCount = library.filter(p => p.lived_at).length;
+
+  // Apply filter to each group's phrases
+  function filterPhrases(phrases) {
+    if (activeFilter === 'all') return phrases;
+    if (activeFilter === 'said') return phrases.filter(p => p.lived_at);
+    if (activeFilter === 'needs-work') return phrases.filter(p => p.growth_state !== GROWTH_STATE.MASTERED && !p.lived_at);
+    if (activeFilter === 'mastered') return phrases.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
+    return phrases;
+  }
 
   return (
     <div className={styles.screen}>
       <p className={styles.eyebrow}>
         SAVED · {totalPhrases} {totalPhrases === 1 ? 'PHRASE' : 'PHRASES'} · {totalScenes} {totalScenes === 1 ? 'SCENE' : 'SCENES'}
+        {saidInPersonCount > 0 && <span className={styles.saidCount}> · {saidInPersonCount} SAID IN PERSON 📍</span>}
       </p>
       <h1 className={styles.title}>Your <span className={styles.titleItalic}>phrasebook</span>.</h1>
+
+      {/* Filter chips */}
+      <div className={styles.filterChips}>
+        {FILTERS.map(f => (
+          <button
+            key={f.id}
+            className={`${styles.filterChip} ${activeFilter === f.id ? styles.filterChipActive : ''}`}
+            onClick={() => setActiveFilter(f.id)}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
 
       <div className={styles.divider} />
 
@@ -101,7 +133,11 @@ export default function LibraryScreen({ onNavigate }) {
         </div>
       )}
 
-      {!loading && groupedScenes.map(({ scene, sceneId, phrases }) => (
+      {!loading && groupedScenes.map(({ scene, sceneId, phrases }) => {
+        const filtered = filterPhrases(phrases);
+        if (filtered.length === 0) return null;
+        const saidCount = phrases.filter(p => p.lived_at).length;
+        return (
         <section key={sceneId} className={styles.sceneGroup}>
           <button
             className={styles.sceneHeader}
@@ -116,11 +152,14 @@ export default function LibraryScreen({ onNavigate }) {
             />
             <div className={styles.sceneText}>
               <p className={styles.sceneName}>{scene?.title ?? 'Other phrases'}</p>
-              <p className={styles.sceneMeta}>{phrases.length} {phrases.length === 1 ? 'PHRASE' : 'PHRASES'}</p>
+              <div className={styles.sceneMetaRow}>
+                <p className={styles.sceneMeta}>{phrases.length} {phrases.length === 1 ? 'PHRASE' : 'PHRASES'}</p>
+                {saidCount > 0 && <span className={styles.saidPill}>{saidCount} SAID IN PERSON 📍</span>}
+              </div>
             </div>
           </button>
 
-          {phrases.map(phrase => (
+          {filtered.map(phrase => (
             <div
               key={phrase.id}
               className={styles.phraseRow}
@@ -132,9 +171,12 @@ export default function LibraryScreen({ onNavigate }) {
                 <p className={styles.phraseRoman}>{phrase.romanization}</p>
                 <p className={styles.phraseCjk}>{phrase.cjk}</p>
                 <p className={styles.phraseEnglish}>{phrase.english}</p>
-                {phrase.growth_state === GROWTH_STATE.MASTERED && (
-                  <span className={styles.masteredPill}>✓ MASTERED</span>
-                )}
+                <div className={styles.phraseTags}>
+                  {phrase.lived_at && <span className={styles.saidTag}>📍 Said in person</span>}
+                  {phrase.growth_state === GROWTH_STATE.MASTERED && (
+                    <span className={styles.masteredPill}>✓ MASTERED</span>
+                  )}
+                </div>
               </div>
               <div className={styles.phraseActions}>
                 <button
@@ -144,18 +186,12 @@ export default function LibraryScreen({ onNavigate }) {
                 >
                   <PlayIcon />
                 </button>
-                <button
-                  className={styles.iconBtn}
-                  onClick={e => { e.stopPropagation(); }}
-                  aria-label="Bookmark"
-                >
-                  <BookmarkIcon />
-                </button>
               </div>
             </div>
           ))}
         </section>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -166,8 +202,3 @@ const PlayIcon = () => (
   </svg>
 );
 
-const BookmarkIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-  </svg>
-);

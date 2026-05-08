@@ -48,6 +48,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const user = getCurrentUser();
   const languages = getAllLanguages();
 
+  const [activeTab, setActiveTab] = useState('you');
   const [last90, setLast90] = useState([]);
   const [phraseCount, setPhraseCount] = useState(0);
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
@@ -136,65 +137,81 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   return (
     <div className={styles.screen}>
 
-      {/* Hero */}
-      <div className={styles.hero}>
-        <div className={styles.avatarWrap}>
+      {/* Avatar + name row */}
+      <div className={styles.profileRow}>
+        <div className={styles.avatar}>
           {(settings.photoURL || user?.photoURL) ? (
-            <img className={styles.avatar} src={settings.photoURL || user?.photoURL} referrerPolicy="no-referrer" alt="Profile" />
+            <img className={styles.avatarImg} src={settings.photoURL || user?.photoURL} referrerPolicy="no-referrer" alt="Profile" />
           ) : (
-            <div className={styles.avatarInitial}>{initial}</div>
+            <span className={styles.avatarInitial}>{initial}</span>
           )}
         </div>
-
-        <button className={styles.nameBtn} onClick={() => setShowEditName(true)}>
-          <span className={styles.name}>{displayName}</span>
-          <span className={styles.nameEdit}>Edit →</span>
-        </button>
-
-        <p className={styles.heroMeta}>
-          {joinMonths ? `${joinMonths} month${joinMonths !== 1 ? 's' : ''} studying Cantonese` : 'Learning Cantonese'}
-        </p>
-
-        <div className={styles.heroPills}>
-          <span className={styles.streakPill}>🔥 {settings.streakCount ?? 0} day streak</span>
-        </div>
-      </div>
-
-      {/* Stats grid */}
-      <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
-          <span className={styles.statNum}>{phraseCount}</span>
-          <span className={styles.statCategory}>Phrases</span>
-          <span className={styles.statLabel}>learned</span>
-        </div>
-        <div className={styles.statCard}>
-          <span className={styles.statNum}>{totalMinutes}</span>
-          <span className={styles.statCategory}>Minutes</span>
-          <span className={styles.statLabel}>shadowed</span>
-        </div>
-        <div className={styles.statCard}>
-          <span className={styles.statNum}>{toneAccuracy}%</span>
-          <span className={styles.statCategory}>Tones</span>
-          <span className={styles.statLabel}>accuracy</span>
-        </div>
-      </div>
-
-      {/* 90-day heatmap */}
-      {last90.length > 0 && (
-        <div className={styles.heatmapSection}>
-          <p className={styles.heatmapTitle}>LAST 90 DAYS</p>
-          <div className={styles.heatmapGrid}>
-            {last90.map((day, i) => (
-              <div
-                key={i}
-                className={`${styles.heatCell} ${styles[`heat${day.intensity}`]}`}
-                title={`${day.key}: ${day.mins} min`}
-              />
-            ))}
+        <div>
+          <div className={styles.nameRow}>
+            <span className={styles.name}>{displayName}</span>
+            <button className={styles.editBtn} onClick={() => setShowEditName(true)}>
+              <span className={styles.editBtnText}>EDIT →</span>
+            </button>
           </div>
+          <span className={styles.heroBrow}>
+            {joinMonths ? `${joinMonths} MONTH${joinMonths !== 1 ? 'S' : ''}` : '1 MONTH'}
+            {' · '}DAY {settings.streakCount ?? 0}
+            {' · '}{(settings.currentLanguage ?? 'cantonese').toUpperCase()}
+          </span>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className={styles.tabs}>
+        {[['you', 'You'], ['progress', 'Progress'], ['settings', 'Settings']].map(([id, label]) => (
+          <button
+            key={id}
+            className={`${styles.tab} ${activeTab === id ? styles.tabActive : ''}`}
+            onClick={() => setActiveTab(id)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* You tab: stats + milestones */}
+      {activeTab === 'you' && (
+        <div className={styles.tabContent}>
+          <div className={styles.statsRows}>
+            <div className={styles.statRow}>
+              <span className={styles.statNum}>{phraseCount}</span>
+              <span className={styles.statLabel}>PHRASES LEARNED</span>
+            </div>
+            <div className={styles.statRow}>
+              <span className={styles.statNum}>{totalMinutes}</span>
+              <span className={styles.statLabel}>MINUTES SHADOWED</span>
+            </div>
+            <div className={styles.statRow}>
+              <span className={styles.statNum}>{toneAccuracy}%</span>
+              <span className={styles.statLabel}>TONE ACCURACY</span>
+            </div>
+          </div>
+
+          {last90.length > 0 && (
+            <div className={styles.heatmapSection}>
+              <p className={styles.heatmapTitle}>LAST 13 WEEKS</p>
+              <div className={styles.heatmapGrid}>
+                {last90.slice(-91).map((day, i) => (
+                  <div
+                    key={i}
+                    className={`${styles.heatCell} ${styles[`heat${day.intensity}`]}`}
+                    title={`${day.key}: ${day.mins} min`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
+      {/* Settings + progress tabs wrap all remaining content */}
+      {(activeTab === 'settings' || activeTab === 'progress') && (
+      <div className={styles.tabContent}>
       {/* Learning */}
       <p className={styles.sectionLabel}>LEARNING</p>
       <div className={styles.card}>
@@ -294,6 +311,8 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
       </div>
 
       <p className={styles.versionLabel}>ShadowSpeak v{APP_VERSION}</p>
+      </div>
+      )}
 
       {/* Modals */}
       {showSignOutConfirm && (

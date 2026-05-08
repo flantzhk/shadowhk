@@ -199,6 +199,76 @@
   margin: 0;
 }
 
+/* ─── Filter chips ───────────────────── */
+.filterChips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 14px;
+}
+.filterChips::-webkit-scrollbar { display: none; }
+
+.filterChip {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: transparent;
+  color: var(--fg-1);
+  border: 1px solid var(--bg-3);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.filterChipActive {
+  background: var(--fg-0);
+  color: var(--bg-0);
+  border-color: var(--fg-0);
+}
+
+/* ─── Said in person indicators ──────── */
+.saidCount {
+  color: var(--jade, #4A6B46);
+}
+
+.sceneMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saidPill {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--jade, #4A6B46);
+}
+
+.phraseTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.saidTag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--jade, #4A6B46);
+  background: rgba(63,143,115,0.1);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
 .masteredPill {
   display: inline-flex;
   align-items: center;

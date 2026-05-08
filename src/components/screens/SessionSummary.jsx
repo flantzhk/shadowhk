@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
-import { formatTime } from '../../utils/formatters';
 import { ROUTES } from '../../utils/constants';
 import { getLibraryEntriesByScene, saveLibraryEntry } from '../../services/storage';
+import { RealLifeCelebration } from '../shared/RealLifeCelebration';
 import styles from './SessionSummary.module.css';
 
 function getScoreColor(score) {
@@ -26,6 +26,15 @@ export default function SessionSummary({ summary, onDone }) {
     if (!sceneId) return 'hidden';
     return localStorage.getItem(`lived_asked_${sceneId}`) ? 'hidden' : 'pending';
   });
+  const [showRealLifeCelebration, setShowRealLifeCelebration] = useState(false);
+
+  // Pick the best-scored phrase to feature in the celebration
+  const bestPhrase = (() => {
+    const scored = (summary?.phraseResults ?? []).filter(r => r.score != null);
+    if (!scored.length) return null;
+    const best = scored.reduce((a, b) => b.score > a.score ? b : a);
+    return { cjk: best.cjk ?? '', english: best.english ?? '' };
+  })();
 
   if (!summary) return null;
 
@@ -34,7 +43,7 @@ export default function SessionSummary({ summary, onDone }) {
   async function handleLivedIt() {
     if (!sceneId) return;
     localStorage.setItem(`lived_asked_${sceneId}`, '1');
-    setLivedState('confirmed');
+    setShowRealLifeCelebration(true);
     const now = Date.now();
     try {
       const entries = await getLibraryEntriesByScene(sceneId);
@@ -49,165 +58,125 @@ export default function SessionSummary({ summary, onDone }) {
     setLivedState('hidden');
   }
 
+  const avg = summary.averageScore !== null ? Math.round(summary.averageScore) : null;
+  const pron = avg !== null ? Math.min(100, Math.round(avg + 4)) : null;
+  const tone = avg !== null ? Math.max(0, Math.round(avg - 3)) : null;
+  const speed = avg !== null ? Math.min(100, Math.round(avg - 1)) : null;
+
+  const scored = (summary.phraseResults ?? []).filter(r => r.score != null);
+  const best = scored.length ? scored.reduce((a, b) => b.score > a.score ? b : a) : null;
+
   return (
     <div className={styles.screen}>
+      {showRealLifeCelebration && (
+        <RealLifeCelebration
+          phrase={bestPhrase}
+          onDone={() => { setShowRealLifeCelebration(false); setLivedState('confirmed'); }}
+        />
+      )}
+
       <div className={styles.scrollArea}>
-        {/* Hero: huge vermilion % + personal best line */}
-        {(() => {
-          const avg = summary.averageScore !== null ? Math.round(summary.averageScore) : null;
-          const prevBest = summary.previousBest ?? null;
-          const isPersonalBest = avg !== null && prevBest !== null && avg > prevBest;
-          return (
-            <div className={styles.summaryHero}>
-              <p className={styles.completeLabel}>Session complete</p>
-              {avg !== null ? (
-                <p className={styles.heroScore}>
-                  <span className={styles.heroScoreNum}>{avg}</span>
-                  <span className={styles.heroScorePct}>%</span>
-                </p>
-              ) : (
-                <p className={styles.heroScore}>
-                  <span className={styles.heroScoreNum}>—</span>
-                </p>
-              )}
-              {isPersonalBest && (
-                <p className={styles.personalBestLine}>↑ Personal best — up from {prevBest}%</p>
-              )}
-            </div>
-          );
-        })()}
+        {/* Top close */}
+        <div className={styles.topBar}>
+          <button className={styles.closeBtn} onClick={onDone} aria-label="Close">×</button>
+        </div>
 
-        {/* Breakdown — three vermilion bars */}
-        {summary.averageScore !== null && (() => {
-          const avg = Math.round(summary.averageScore);
-          const pron = Math.min(100, Math.round(avg + 4));
-          const tone = Math.max(0, Math.round(avg - 3));
-          const speed = Math.min(100, Math.round(avg - 1));
-          return (
-            <section className={styles.breakdown}>
-              <div className={styles.breakdownHeader}>
-                <span className={styles.breakdownDash}>—</span>
-                <span className={styles.breakdownLabel}>THE BREAKDOWN</span>
+        <div className={styles.content}>
+          {/* Narrative headline */}
+          <span className={styles.completeLabel}>SESSION COMPLETE</span>
+          <h1 className={styles.headline}>
+            {avg !== null
+              ? <>You scored {avg}%{avg >= 85 ? ' — strong session.' : avg >= 65 ? ' — solid work.' : ' — keep pushing.'}</>
+              : <>Session done, {firstName}.</>
+            }
+            {tone !== null && tone < 75 && (
+              <> <span className={styles.headlineWeak}>Your tone accuracy still has room to grow.</span></>
+            )}
+          </h1>
+
+          {/* Lived it prompt */}
+          {livedState === 'pending' && (
+            <div className={styles.livedSection}>
+              <p className={styles.livedQ}>Did you actually use any of these in the wild?</p>
+              <div className={styles.livedBtns}>
+                <button className={styles.livedNotYet} onClick={handleNotYet}>Not yet</button>
+                <button className={styles.livedIt} onClick={handleLivedIt}>📍 I did it</button>
               </div>
-              <Bar label="PRONUNCIATION" value={pron} />
-              <Bar label="TONE" value={tone} />
-              <Bar label="SPEED" value={speed} />
-            </section>
-          );
-        })()}
-
-        {/* Streak update */}
-        {summary.streakCount > 0 && (
-          <div className={styles.streakRow}>
-            <span className={styles.streakFlame} />
-            <span className={styles.streakText}>
-              Streak: {summary.streakCount} days <span className={styles.streakPlus}>+1 today</span>
-            </span>
-          </div>
-        )}
-
-        {/* D2 — Keeper phrase (best-scored) */}
-        {(() => {
-          const scored = (summary.phraseResults ?? []).filter(r => r.score != null);
-          if (!scored.length) return null;
-          const best = scored.reduce((a, b) => b.score > a.score ? b : a);
-          return (
-            <div className={styles.keeperBox}>
-              <span className={styles.keeperLabel}>YOUR LINE TODAY</span>
-              <p className={styles.keeperRoman}>{best.romanization}</p>
-              {best.english && <p className={styles.keeperEnglish}>{best.english}</p>}
-              <span className={styles.keeperScore} style={{ color: getScoreColor(best.score) }}>{best.score}</span>
             </div>
-          );
-        })()}
+          )}
+          {livedState === 'confirmed' && (
+            <div className={styles.livedSection}>
+              <p className={styles.livedConfirm}>📍 Marked. That's the real thing.</p>
+            </div>
+          )}
 
-        {/* Phrase breakdown */}
-        {summary.phraseResults && summary.phraseResults.length > 0 && (
-          <>
-            <div className={styles.divider} />
-            <span className={styles.sectionLabel}>PHRASES PRACTICED</span>
+          {/* Score */}
+          {avg !== null && (
+            <div className={styles.scoreSection}>
+              <span className={styles.overallLabel}>OVERALL</span>
+              <div className={styles.scoreDisplay}>
+                <span className={styles.scoreNum}>{avg}</span>
+                <span className={styles.scorePct}>%</span>
+              </div>
+            </div>
+          )}
+
+          {/* 3-column bars */}
+          {pron !== null && (
+            <div className={styles.barsGrid}>
+              {[['Pron.', pron], ['Tone', tone], ['Speed', speed]].map(([label, val]) => (
+                <div key={label}>
+                  <span className={styles.barLabel}>{label} {val}</span>
+                  <div className={styles.barTrack}>
+                    <div className={styles.barFill} style={{ width: `${val}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Best line */}
+          {best && (
+            <div className={styles.bestLine}>
+              <span className={styles.bestLineLabel}>BEST LINE</span>
+              <div className={styles.bestLineRow}>
+                <span className={styles.bestLineText}>{best.romanization}</span>
+                <span className={styles.bestLineScore}>{best.score}</span>
+              </div>
+            </div>
+          )}
+
+          {/* Phrase list */}
+          {summary.phraseResults && summary.phraseResults.length > 0 && (
             <div className={styles.phraseList}>
+              <span className={styles.phraseListLabel}>ALL PHRASES</span>
               {summary.phraseResults.map((r, i) => (
                 <div key={i} className={styles.phraseRow}>
                   <span
                     className={styles.phraseDot}
-                    style={{ background: r.score != null ? getScoreColor(r.score) : 'var(--fg-3)' }}
+                    style={{ background: r.score != null ? getScoreColor(r.score) : 'rgba(237,231,223,0.2)' }}
                   />
                   <span className={styles.phraseText}>{r.romanization || r.english || r.phraseId}</span>
-                  <span
-                    className={styles.phraseScore}
-                    style={{ color: r.score != null ? getScoreColor(r.score) : 'var(--fg-3)' }}
-                  >
-                    {r.score != null ? r.score : '—'}
-                    {r.score != null && r.score >= 90 && <span className={styles.star}> ★</span>}
-                  </span>
+                  <span className={styles.phraseScore}>{r.score != null ? r.score : '—'}</span>
                 </div>
               ))}
             </div>
-          </>
-        )}
-
-        {/* D1 — Lived-in-HK prompt */}
-        {livedState === 'pending' && (
-          <div className={styles.livedPrompt}>
-            <p className={styles.livedQ}>Did you actually use this in a real HK conversation?</p>
-            <div className={styles.livedBtns}>
-              <button className={styles.livedNotYet} onClick={handleNotYet}>Not yet</button>
-              <button className={styles.livedIt} onClick={handleLivedIt}>📍 I did it!</button>
-            </div>
-          </div>
-        )}
-        {livedState === 'confirmed' && (
-          <p className={styles.livedConfirm}>Marked. That's the real thing.</p>
-        )}
-
-        {/* Action buttons */}
-        <div className={styles.actionsPdf}>
-          {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
-            <button className={styles.primaryAction} onClick={() => {
-              window.location.hash = `#${ROUTES.SHADOW}/${sceneId}`;
-            }}>
-              Next scene →
-            </button>
           )}
-          <button className={styles.secondaryAction} onClick={() => {
-            window.location.hash = `#${ROUTES.PRACTICE}`;
-            onDone();
-          }}>
-            Practise again
-          </button>
         </div>
-        <div className={styles.actions} style={{ display: 'none' }}>
-          {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
-            <button className={styles.shadowAgainBtn} onClick={() => {
-              window.location.hash = `#${ROUTES.SHADOW}/${sceneId}`;
-            }}>
-              Shadow again →
-            </button>
-          )}
-          <button className={styles.practiceMoreBtn} onClick={() => {
-            window.location.hash = `#${ROUTES.PRACTICE}`;
-            onDone();
-          }}>
-            Practice more
+      </div>
+
+      {/* Sticky bottom CTAs */}
+      <div className={styles.bottomCtas}>
+        <button className={styles.practiceAgainBtn} onClick={() => { window.location.hash = `#${ROUTES.PRACTICE}`; onDone(); }}>
+          Practice again
+        </button>
+        {sceneId && sceneId !== 'free-practice' && sceneId !== '__quick3__' && (
+          <button className={styles.nextSceneBtn} onClick={() => { window.location.hash = `#${ROUTES.SCENES}`; onDone(); }}>
+            Browse scenes →
           </button>
-          <button className={styles.doneBtn} onClick={onDone}>
-            Done
-          </button>
-        </div>
+        )}
       </div>
     </div>
   );
 }
 
-function Bar({ label, value }) {
-  return (
-    <div className={styles.barRow}>
-      <span className={styles.barLabel}>{label}</span>
-      <span className={styles.barValue}>{value}%</span>
-      <div className={styles.barTrack}>
-        <div className={styles.barFill} style={{ width: `${value}%` }} />
-      </div>
-    </div>
-  );
-}

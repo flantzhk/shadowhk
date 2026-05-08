@@ -64,6 +64,151 @@
   color: var(--accent);
 }
 
+/* ─── New profile header ─────────────── */
+.profileRow {
+  padding: 4px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-muted, rgba(200,57,43,0.12));
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.editBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.editBtnText {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.heroBrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--fg-2);
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+  display: block;
+}
+
+/* ─── Tabs ───────────────────────────── */
+.tabs {
+  padding: 18px 20px 0;
+  display: flex;
+  gap: 18px;
+  border-bottom: 1px solid var(--bg-3);
+}
+
+.tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 10px 0;
+  color: var(--fg-3);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabActive {
+  color: var(--fg-0);
+  border-bottom-color: var(--accent);
+}
+
+.tabContent {
+  padding: 0 20px;
+}
+
+/* ─── Stats rows ─────────────────────── */
+.statsRows {
+  padding: 8px 0;
+}
+
+.statRow {
+  display: flex;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bg-3);
+  gap: 16px;
+}
+
+.statNum {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  flex: 0 0 80px;
+  color: var(--fg-0);
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--fg-1);
+  flex: 1;
+}
+
+/* ─── Heatmap ─────────────────────────── */
+.heatmapSection {
+  padding: 16px 0 0;
+}
+
+.heatmapTitle {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--fg-2);
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+}
+
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 3px;
+  grid-auto-flow: column;
+}
+
+/* ─── Old kept for compatibility ───────── */
 .heroMeta {
   font-family: var(--font-serif);
   font-size: 13px;

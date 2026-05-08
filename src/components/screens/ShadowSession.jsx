@@ -15,6 +15,7 @@ import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
+import { PhrasebookToast } from '../shared/PhrasebookToast.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
 
@@ -38,6 +39,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [toneResult, setToneResult] = useState(null);
   const [sessionStart] = useState(Date.now());
   const [showCelebration, setShowCelebration] = useState(false);
+  const [showPhrasebookToast, setShowPhrasebookToast] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
 
@@ -87,8 +89,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const currentYouLine = youLines[currentLineIndex] ?? null;
   const totalYou = youLines.length;
   const progressPct = totalYou > 0 ? (completedCount / totalYou) * 100 : 0;
-
-  const tint = '#C8392B';
 
   // Find NPC context lines flanking the current 'you' line
   const allLines = scene?.lines ?? [];
@@ -187,7 +187,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const handleSaveLine = useCallback(async () => {
     if (!currentYouLine) return;
     const id = currentYouLine.id;
+    if (savedLines[id]) return;
     setSavedLines(prev => ({ ...prev, [id]: true }));
+    setShowPhrasebookToast(true);
     try {
       await saveLibraryEntry({
         phraseId: id,
@@ -198,7 +200,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         language,
       });
     } catch (_) {}
-  }, [currentYouLine, scene, language]);
+  }, [currentYouLine, scene, language, savedLines]);
 
   const finishSession = useCallback(async () => {
     audio.setAutoAdvance(true);
@@ -254,6 +256,14 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
   return (
     <div className={styles.screen}>
+      {/* Phrasebook save toast */}
+      {showPhrasebookToast && currentYouLine && (
+        <PhrasebookToast
+          phrase={{ cjk: currentYouLine.cjk, english: currentYouLine.english }}
+          onDone={() => setShowPhrasebookToast(false)}
+        />
+      )}
+
       {/* 90+ celebration overlay */}
       {showCelebration && currentYouLine && (
         <ScoreCelebration
@@ -265,25 +275,32 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         />
       )}
 
-      <div className={styles.inner}>
-        {/* Top bar — X close + SHADOW · TITLE + N/N */}
-        <div className={styles.topBar}>
-          <button className={styles.closeBtn} onClick={onBack} aria-label="Close">×</button>
-          <span className={styles.topTitle}>
-            SHADOW · <span className={styles.topTitleScene}>{scene.title}</span>
-          </span>
-          <span className={styles.topCount}>{currentLineIndex + 1} / {totalYou}</span>
-        </div>
+      {/* Left vertical progress track */}
+      <div className={styles.leftTrack} aria-hidden="true">
+        {Array.from({ length: totalYou }).map((_, i) => (
+          <div
+            key={i}
+            className={`${styles.leftTrackTick} ${i === currentLineIndex ? styles.leftTrackTickActive : i < currentLineIndex ? styles.leftTrackTickDone : ''}`}
+          />
+        ))}
+      </div>
 
-        {/* Vermilion progress bar */}
-        <div className={styles.progressBar}>
-          <div className={styles.progressFill} style={{ width: `${progressPct}%` }} />
+      <div className={styles.inner}>
+        {/* Top bar */}
+        <div className={styles.topBar}>
+          <button className={styles.closeBtn} onClick={onBack} aria-label="Close">‹</button>
+          <span className={styles.topCount}>{String(currentLineIndex + 1).padStart(2, '0')} / {String(totalYou).padStart(2, '0')}</span>
+          <button
+            className={`${styles.saveBtn} ${isSaved ? styles.saveBtnSaved : ''}`}
+            onClick={handleSaveLine}
+            aria-label={isSaved ? 'Saved to phrasebook' : 'Save to phrasebook'}
+          >
+            <BookmarkIcon saved={isSaved} />
+          </button>
         </div>
 
         {/* Centered focus content */}
         <div className={styles.focus}>
-          <span className={styles.lineLabel}>line {String(currentLineIndex + 1).padStart(2, '0')}</span>
-
           {showJyutping && (
             <p className={styles.focusJyutping}>{currentYouLine?.romanization ?? '—'}</p>
           )}
@@ -300,10 +317,16 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             <p className={styles.focusEnglish}>"{currentYouLine?.english}"</p>
           )}
 
-          {/* Vermilion 3-bar audio icon — tap to replay */}
-          <button className={styles.audioIcon} onClick={handleReplay} aria-label="Play audio">
-            <span /><span /><span />
-          </button>
+          <div className={styles.focusActions}>
+            {/* Replay audio */}
+            <button className={styles.audioIcon} onClick={handleReplay} aria-label="Play audio">
+              <span /><span /><span />
+            </button>
+            {/* Breakdown */}
+            <button className={styles.breakdownBtn} onClick={() => {}} aria-label="Breakdown">
+              📖 Breakdown
+            </button>
+          </div>
 
           {/* Score reveal */}
           {(phase === 'scoring' || phase === 'scored') && (
@@ -330,9 +353,23 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           )}
         </div>
 
-        {/* Bottom controls block */}
+        {/* Orbital mic */}
+        <div className={styles.micOrbit}>
+          <button
+            className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
+            onClick={phase === 'record' ? handleStopRecording : handleRecord}
+            aria-label="Record"
+          >
+            {phase === 'scoring' ? (
+              <div className={styles.micSpinner} />
+            ) : (
+              <MicIcon />
+            )}
+          </button>
+        </div>
+
+        {/* Bottom hint + nav */}
         <div className={styles.bottom}>
-          {/* JYUTPING / ENGLISH eye toggles */}
           <div className={styles.eyeToggles}>
             <button
               className={`${styles.eyeToggle} ${showJyutping ? styles.eyeToggleOn : ''}`}
@@ -347,43 +384,17 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <EyeIcon /> ENGLISH
             </button>
           </div>
-
-          {/* Three-button transport: skip-back · MIC · skip-forward */}
           <div className={styles.transport}>
-            <button
-              className={styles.skipBtn}
-              onClick={handlePrev}
-              disabled={currentLineIndex === 0}
-              aria-label="Previous"
-            >
+            <button className={styles.skipBtn} onClick={handlePrev} disabled={currentLineIndex === 0} aria-label="Previous">
               <ArrowLeftIcon />
             </button>
-
-            <button
-              className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
-              onClick={phase === 'record' ? handleStopRecording : handleRecord}
-              aria-label="Record"
-            >
-              {phase === 'scoring' ? (
-                <div className={styles.micSpinner} />
-              ) : (
-                <MicIcon />
-              )}
-            </button>
-
-            <button
-              className={styles.skipBtn}
-              onClick={handleNext}
-              aria-label="Next"
-            >
+            <p className={styles.holdLabel}>
+              {phase === 'record' ? 'RECORDING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'TAP TO RECORD · SWIPE → NEXT'}
+            </p>
+            <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />
             </button>
           </div>
-
-          <p className={styles.holdLabel}>
-            {phase === 'record' ? 'RECORDING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'HOLD TO SHADOW'}
-          </p>
-
           {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
         </div>
       </div>
@@ -410,6 +421,12 @@ const ArrowRightIcon = () => (
 const MicIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm6-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+  </svg>
+);
+
+const BookmarkIcon = ({ saved }) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
   </svg>
 );
 
