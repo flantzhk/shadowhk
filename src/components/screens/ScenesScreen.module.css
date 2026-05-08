@@ -7,7 +7,7 @@
 
 /* ─── Header ───────────────────────── */
 .header {
-  padding: 2px 20px 14px;
+  padding: 20px 20px 14px;
 }
 
 .title {
@@ -34,14 +34,9 @@
   display: block;
 }
 
-/* ─── Sticky search + chips ─────────── */
-.stickyBar {
-  position: sticky;
-  top: 0;
-  padding: 0 20px 12px;
-  background: var(--bg-0);
-  border-bottom: 1px solid var(--bg-3);
-  z-index: 10;
+/* ─── Search bar ─────────────────────── */
+.searchWrap {
+  padding: 0 20px 16px;
 }
 
 .searchBar {
@@ -51,7 +46,6 @@
   background: var(--bg-2);
   border-radius: 12px;
   padding: 10px 14px;
-  margin-bottom: 10px;
   color: var(--fg-2);
 }
 
@@ -83,41 +77,143 @@
   padding: 0;
 }
 
-/* ─── Category chips ─────────────────── */
-.categoryChips {
+/* ─── Spotify-style category rows ────── */
+.rows {
+  padding-bottom: 8px;
+}
+
+.catSection {
+  margin-bottom: 28px;
+}
+
+.catBar {
   display: flex;
-  gap: 8px;
+  align-items: baseline;
+  gap: 10px;
+  padding: 0 20px 12px;
+}
+
+.catNum {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: -0.2px;
+  flex-shrink: 0;
+}
+
+.catLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-0);
+}
+
+.catScroll {
+  display: flex;
+  gap: 10px;
   overflow-x: auto;
+  padding: 0 20px 4px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
-.categoryChips::-webkit-scrollbar { display: none; }
+.catScroll::-webkit-scrollbar { display: none; }
 
-.chip {
+/* ─── Horizontal row card ────────────── */
+.hCard {
   flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  padding: 6px 12px;
-  border-radius: 99px;
-  background: transparent;
-  color: var(--fg-1);
-  border: 1px solid var(--bg-3);
+  width: 148px;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  text-align: left;
+  display: block;
 }
 
-.chipActive {
-  background: var(--accent);
-  color: #FAFAF7;
-  border-color: var(--accent);
+.hPhoto {
+  width: 148px;
+  height: 148px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ─── 2-column photo grid ─────────────── */
+.hEmoji {
+  font-size: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.hGrad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.65) 100%);
+  z-index: 1;
+}
+
+.hBadge {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: rgba(0,0,0,0.4);
+  z-index: 3;
+}
+
+.hBadgeText {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.hTitle {
+  position: absolute;
+  bottom: 9px;
+  left: 10px;
+  right: 10px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  margin: 0;
+  z-index: 3;
+}
+
+.hProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--jade, #3F8F73);
+  z-index: 4;
+}
+
+.hSkeleton {
+  flex-shrink: 0;
+  width: 148px;
+  height: 148px;
+  border-radius: 10px;
+  background: var(--bg-2);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* ─── 2-column grid (search results) ─── */
 .grid {
-  padding: 14px 20px 10px;
+  padding: 4px 20px 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -196,7 +292,7 @@
   bottom: 0;
   left: 0;
   height: 3px;
-  background: var(--jade, #4A6B46);
+  background: var(--jade, #3F8F73);
   z-index: 4;
 }
 

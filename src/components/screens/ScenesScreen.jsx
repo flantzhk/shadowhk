@@ -6,15 +6,13 @@ import { getAllSceneProgress } from '../../services/storage.js';
 import { SCENE_CATEGORIES } from '../../utils/constants.js';
 
 const CATEGORY_LABELS = {
-  all: 'ALL',
-  food: 'FOOD',
-  transport: 'TRANSPORT',
-  everyday: 'EVERYDAY',
-  social: 'SOCIAL',
-  services: 'SERVICES',
-  festivals: 'FESTIVALS',
+  food:      'Food & Drink',
+  transport: 'Getting Around',
+  everyday:  'Everyday Life',
+  social:    'Social',
+  services:  'Services',
+  festivals: 'Festivals',
 };
-
 
 export default function ScenesScreen({ onNavigate }) {
   const { settings } = useAppContext();
@@ -24,7 +22,6 @@ export default function ScenesScreen({ onNavigate }) {
   const [progress, setProgress] = useState({});
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
     Promise.all([getAllScenes(language), getAllSceneProgress()])
@@ -38,21 +35,7 @@ export default function ScenesScreen({ onNavigate }) {
       .finally(() => setLoading(false));
   }, [language]);
 
-  const categories = ['all', ...(SCENE_CATEGORIES[language] ?? [])];
-
-  const filteredScenes = (() => {
-    let list = scenes;
-    if (activeCategory !== 'all') list = list.filter(s => s.category === activeCategory);
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      list = list.filter(s =>
-        s.title?.toLowerCase().includes(q) ||
-        s.description?.toLowerCase().includes(q) ||
-        s.category?.toLowerCase().includes(q)
-      );
-    }
-    return list;
-  })();
+  const categories = SCENE_CATEGORIES[language] ?? [];
 
   function masteryPct(sceneId) {
     const p = progress[sceneId];
@@ -60,16 +43,71 @@ export default function ScenesScreen({ onNavigate }) {
     return Math.round((p.masteredCount ?? 0) / Math.max(p.totalCount ?? 1, 1) * 100);
   }
 
+  const isSearching = search.trim().length > 0;
+
+  const searchResults = isSearching
+    ? scenes.filter(s => {
+        const q = search.toLowerCase();
+        return (
+          s.title?.toLowerCase().includes(q) ||
+          s.description?.toLowerCase().includes(q) ||
+          s.category?.toLowerCase().includes(q)
+        );
+      })
+    : [];
+
+  function SceneCard({ scene, size = 'row' }) {
+    const pct = masteryPct(scene.id);
+    const youLines = scene.lines?.filter(l => l.speaker === 'you').length ?? 0;
+    const mins = scene.estimatedMinutes;
+    return (
+      <button
+        className={size === 'grid' ? styles.tile : styles.hCard}
+        onClick={() => onNavigate('scene', scene.id)}
+      >
+        <div
+          className={size === 'grid' ? styles.tilePhoto : styles.hPhoto}
+          style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
+        >
+          {!scene.imageUrl && (
+            <span className={size === 'grid' ? styles.tileEmoji : styles.hEmoji}>
+              {scene.emoji}
+            </span>
+          )}
+          <div className={size === 'grid' ? styles.tileGrad : styles.hGrad} />
+          <div className={size === 'grid' ? styles.tileBadge : styles.hBadge}>
+            <span className={size === 'grid' ? styles.tileBadgeText : styles.hBadgeText}>
+              {youLines}P{mins ? ` · ${mins}M` : ''}
+            </span>
+          </div>
+          <p className={size === 'grid' ? styles.tileTitle : styles.hTitle}>
+            {scene.title}
+          </p>
+          {pct > 0 && (
+            <div
+              className={size === 'grid' ? styles.tileProgress : styles.hProgress}
+              style={{ width: `${pct}%` }}
+            />
+          )}
+        </div>
+      </button>
+    );
+  }
+
   return (
     <div className={styles.screen}>
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.title}>Browse <em className={styles.titleAccent}>scenes</em>.</h1>
-        <span className={styles.subtitle}>香港 CANTONESE · {scenes.length || ''} SCENES</span>
+        <h1 className={styles.title}>
+          Browse <em className={styles.titleAccent}>scenes</em>.
+        </h1>
+        <span className={styles.subtitle}>
+          香港 {language === 'cantonese' ? 'CANTONESE' : 'MANDARIN'} · {scenes.length || ''} SCENES
+        </span>
       </div>
 
-      {/* Sticky search + chips */}
-      <div className={styles.stickyBar}>
+      {/* Search bar */}
+      <div className={styles.searchWrap}>
         <div className={styles.searchBar}>
           <SearchIcon />
           <input
@@ -82,61 +120,67 @@ export default function ScenesScreen({ onNavigate }) {
             <button className={styles.clearBtn} onClick={() => setSearch('')}>×</button>
           )}
         </div>
-        <div className={styles.categoryChips}>
-          {categories.map(cat => (
-            <button
-              key={cat}
-              className={`${styles.chip} ${activeCategory === cat ? styles.chipActive : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {CATEGORY_LABELS[cat] ?? cat.toUpperCase()}
-            </button>
-          ))}
-        </div>
       </div>
 
-      {/* 2-column grid */}
-      {loading ? (
+      {/* Search results — flat grid */}
+      {isSearching && (
         <div className={styles.grid}>
-          {[1, 2, 3, 4].map(i => <div key={i} className={styles.skeleton} />)}
-        </div>
-      ) : (
-        <div className={styles.grid}>
-          {filteredScenes.length === 0 && (
+          {searchResults.length === 0 && (
             <p className={styles.empty}>No scenes match "{search}"</p>
           )}
-          {filteredScenes.map(scene => {
-            const pct = masteryPct(scene.id);
-            const youLines = scene.lines?.filter(l => l.speaker === 'you').length ?? 0;
-            const mins = scene.estimatedMinutes;
+          {searchResults.map(scene => (
+            <SceneCard key={scene.id} scene={scene} size="grid" />
+          ))}
+        </div>
+      )}
+
+      {/* Default — category rows */}
+      {!isSearching && (
+        <div className={styles.rows}>
+          {/* In-progress row (scenes with any mastery) */}
+          {(() => {
+            const inProgress = scenes.filter(s => masteryPct(s.id) > 0);
+            if (!inProgress.length) return null;
             return (
-              <button
-                key={scene.id}
-                className={styles.tile}
-                onClick={() => onNavigate('scene', scene.id)}
-              >
-                <div
-                  className={styles.tilePhoto}
-                  style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
-                >
-                  {!scene.imageUrl && <span className={styles.tileEmoji}>{scene.emoji}</span>}
-                  <div className={styles.tileGrad} />
-                  {/* Top-right badge */}
-                  <div className={styles.tileBadge}>
-                    <span className={styles.tileBadgeText}>
-                      {youLines}P{mins ? ` · ${mins}M` : ''}
-                    </span>
-                  </div>
-                  {/* Title overlay */}
-                  <p className={styles.tileTitle}>{scene.title}</p>
-                  {/* Progress bar */}
-                  {pct > 0 && <div className={styles.tileProgress} style={{ width: `${pct}%` }} />}
+              <section className={styles.catSection}>
+                <div className={styles.catBar}>
+                  <span className={styles.catNum}>✦</span>
+                  <span className={styles.catLabel}>Continue</span>
                 </div>
-              </button>
+                <div className={styles.catScroll}>
+                  {inProgress.map(scene => (
+                    <SceneCard key={scene.id} scene={scene} size="row" />
+                  ))}
+                </div>
+              </section>
+            );
+          })()}
+
+          {/* One row per category */}
+          {categories.map((cat, idx) => {
+            const catScenes = scenes.filter(s => s.category === cat);
+            return (
+              <section key={cat} className={styles.catSection}>
+                <div className={styles.catBar}>
+                  <span className={styles.catNum}>{String(idx + 1).padStart(2, '0')}</span>
+                  <span className={styles.catLabel}>
+                    {CATEGORY_LABELS[cat] ?? cat}
+                  </span>
+                </div>
+                <div className={styles.catScroll}>
+                  {loading
+                    ? [1, 2, 3].map(i => <div key={i} className={styles.hSkeleton} />)
+                    : catScenes.map(scene => (
+                        <SceneCard key={scene.id} scene={scene} size="row" />
+                      ))
+                  }
+                </div>
+              </section>
             );
           })}
         </div>
       )}
+
       <div className={styles.bottomPad} />
     </div>
   );
