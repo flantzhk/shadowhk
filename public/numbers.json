@@ -1,0 +1,69 @@
+[
+  {
+    "id": "numbers-1-10",
+    "name": "1 to 10",
+    "description": "The foundation of all counting",
+    "phraseCount": 10,
+    "phrases": [
+      { "id": "num-1", "chinese": "一", "romanization": "jat1", "jyutping": "jat1", "english": "one", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }] },
+      { "id": "num-2", "chinese": "二", "romanization": "ji6", "jyutping": "ji6", "english": "two", "words": [{ "chinese": "二", "jyutping": "ji6", "english": "two" }] },
+      { "id": "num-3", "chinese": "三", "romanization": "saam1", "jyutping": "saam1", "english": "three", "words": [{ "chinese": "三", "jyutping": "saam1", "english": "three" }] },
+      { "id": "num-4", "chinese": "四", "romanization": "sei3", "jyutping": "sei3", "english": "four", "words": [{ "chinese": "四", "jyutping": "sei3", "english": "four" }] },
+      { "id": "num-5", "chinese": "五", "romanization": "ng5", "jyutping": "ng5", "english": "five", "words": [{ "chinese": "五", "jyutping": "ng5", "english": "five" }] },
+      { "id": "num-6", "chinese": "六", "romanization": "luk6", "jyutping": "luk6", "english": "six", "words": [{ "chinese": "六", "jyutping": "luk6", "english": "six" }] },
+      { "id": "num-7", "chinese": "七", "romanization": "cat1", "jyutping": "cat1", "english": "seven", "words": [{ "chinese": "七", "jyutping": "cat1", "english": "seven" }] },
+      { "id": "num-8", "chinese": "八", "romanization": "baat3", "jyutping": "baat3", "english": "eight", "words": [{ "chinese": "八", "jyutping": "baat3", "english": "eight" }] },
+      { "id": "num-9", "chinese": "九", "romanization": "gau2", "jyutping": "gau2", "english": "nine", "words": [{ "chinese": "九", "jyutping": "gau2", "english": "nine" }] },
+      { "id": "num-10", "chinese": "十", "romanization": "sap6", "jyutping": "sap6", "english": "ten", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }] }
+    ]
+  },
+  {
+    "id": "numbers-11-20",
+    "name": "11 to 20",
+    "description": "Ten plus one, ten plus two…",
+    "phraseCount": 10,
+    "phrases": [
+      { "id": "num-11", "chinese": "十一", "romanization": "sap6 jat1", "jyutping": "sap6 jat1", "english": "eleven", "context": "Ten + one", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "一", "jyutping": "jat1", "english": "one" }] },
+      { "id": "num-12", "chinese": "十二", "romanization": "sap6 ji6", "jyutping": "sap6 ji6", "english": "twelve", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "二", "jyutping": "ji6", "english": "two" }] },
+      { "id": "num-13", "chinese": "十三", "romanization": "sap6 saam1", "jyutping": "sap6 saam1", "english": "thirteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "三", "jyutping": "saam1", "english": "three" }] },
+      { "id": "num-14", "chinese": "十四", "romanization": "sap6 sei3", "jyutping": "sap6 sei3", "english": "fourteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "四", "jyutping": "sei3", "english": "four" }] },
+      { "id": "num-15", "chinese": "十五", "romanization": "sap6 ng5", "jyutping": "sap6 ng5", "english": "fifteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "五", "jyutping": "ng5", "english": "five" }] },
+      { "id": "num-16", "chinese": "十六", "romanization": "sap6 luk6", "jyutping": "sap6 luk6", "english": "sixteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "六", "jyutping": "luk6", "english": "six" }] },
+      { "id": "num-17", "chinese": "十七", "romanization": "sap6 cat1", "jyutping": "sap6 cat1", "english": "seventeen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "七", "jyutping": "cat1", "english": "seven" }] },
+      { "id": "num-18", "chinese": "十八", "romanization": "sap6 baat3", "jyutping": "sap6 baat3", "english": "eighteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "八", "jyutping": "baat3", "english": "eight" }] },
+      { "id": "num-19", "chinese": "十九", "romanization": "sap6 gau2", "jyutping": "sap6 gau2", "english": "nineteen", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "九", "jyutping": "gau2", "english": "nine" }] },
+      { "id": "num-20", "chinese": "二十", "romanization": "ji6 sap6", "jyutping": "ji6 sap6", "english": "twenty", "context": "Two tens", "words": [{ "chinese": "二", "jyutping": "ji6", "english": "two" }, { "chinese": "十", "jyutping": "sap6", "english": "ten" }] }
+    ]
+  },
+  {
+    "id": "numbers-tens",
+    "name": "Tens, hundreds & thousands",
+    "description": "Scale up from 30 to a million",
+    "phraseCount": 9,
+    "phrases": [
+      { "id": "num-30", "chinese": "三十", "romanization": "saam1 sap6", "jyutping": "saam1 sap6", "english": "thirty", "words": [{ "chinese": "三", "jyutping": "saam1", "english": "three" }, { "chinese": "十", "jyutping": "sap6", "english": "ten" }] },
+      { "id": "num-40", "chinese": "四十", "romanization": "sei3 sap6", "jyutping": "sei3 sap6", "english": "forty", "words": [{ "chinese": "四", "jyutping": "sei3", "english": "four" }, { "chinese": "十", "jyutping": "sap6", "english": "ten" }] },
+      { "id": "num-50", "chinese": "五十", "romanization": "ng5 sap6", "jyutping": "ng5 sap6", "english": "fifty", "words": [{ "chinese": "五", "jyutping": "ng5", "english": "five" }, { "chinese": "十", "jyutping": "sap6", "english": "ten" }] },
+      { "id": "num-100", "chinese": "一百", "romanization": "jat1 baak3", "jyutping": "jat1 baak3", "english": "one hundred", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }, { "chinese": "百", "jyutping": "baak3", "english": "hundred" }] },
+      { "id": "num-200", "chinese": "兩百", "romanization": "loeng5 baak3", "jyutping": "loeng5 baak3", "english": "two hundred", "context": "Note: 兩 (loeng5) is used instead of 二 before measure words", "words": [{ "chinese": "兩", "jyutping": "loeng5", "english": "two (with measure word)" }, { "chinese": "百", "jyutping": "baak3", "english": "hundred" }] },
+      { "id": "num-1000", "chinese": "一千", "romanization": "jat1 cin1", "jyutping": "jat1 cin1", "english": "one thousand", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }, { "chinese": "千", "jyutping": "cin1", "english": "thousand" }] },
+      { "id": "num-10000", "chinese": "一萬", "romanization": "jat1 maan6", "jyutping": "jat1 maan6", "english": "ten thousand", "context": "萬 (maan6) is a key unit in Cantonese — prices and distances often use it", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }, { "chinese": "萬", "jyutping": "maan6", "english": "ten thousand" }] },
+      { "id": "num-zero", "chinese": "零", "romanization": "ling4", "jyutping": "ling4", "english": "zero", "words": [{ "chinese": "零", "jyutping": "ling4", "english": "zero" }] },
+      { "id": "num-half", "chinese": "半", "romanization": "bun3", "jyutping": "bun3", "english": "half", "context": "Used in time (三點半 = 3:30) and quantities", "words": [{ "chinese": "半", "jyutping": "bun3", "english": "half" }] }
+    ]
+  },
+  {
+    "id": "numbers-counting",
+    "name": "Counting things",
+    "description": "How many? Ask and answer",
+    "phraseCount": 6,
+    "phrases": [
+      { "id": "num-howmany", "chinese": "幾多個？", "romanization": "gei2 do1 go3?", "jyutping": "gei2 do1 go3?", "english": "How many?", "words": [{ "chinese": "幾多", "jyutping": "gei2 do1", "english": "how many / how much" }, { "chinese": "個", "jyutping": "go3", "english": "general measure word" }] },
+      { "id": "num-two-of", "chinese": "兩個", "romanization": "loeng5 go3", "jyutping": "loeng5 go3", "english": "two (things)", "context": "Use 兩 not 二 when counting with a measure word", "words": [{ "chinese": "兩", "jyutping": "loeng5", "english": "two" }, { "chinese": "個", "jyutping": "go3", "english": "(measure word)" }] },
+      { "id": "num-first", "chinese": "第一", "romanization": "dai6 jat1", "jyutping": "dai6 jat1", "english": "first", "words": [{ "chinese": "第", "jyutping": "dai6", "english": "ordinal prefix" }, { "chinese": "一", "jyutping": "jat1", "english": "one" }] },
+      { "id": "num-second", "chinese": "第二", "romanization": "dai6 ji6", "jyutping": "dai6 ji6", "english": "second", "words": [{ "chinese": "第", "jyutping": "dai6", "english": "ordinal prefix" }, { "chinese": "二", "jyutping": "ji6", "english": "two" }] },
+      { "id": "num-last", "chinese": "最後", "romanization": "zeoi3 hau6", "jyutping": "zeoi3 hau6", "english": "last / final", "words": [{ "chinese": "最", "jyutping": "zeoi3", "english": "most" }, { "chinese": "後", "jyutping": "hau6", "english": "after / behind" }] },
+      { "id": "num-again", "chinese": "再一次", "romanization": "zoi3 jat1 ci3", "jyutping": "zoi3 jat1 ci3", "english": "one more time", "words": [{ "chinese": "再", "jyutping": "zoi3", "english": "again" }, { "chinese": "一次", "jyutping": "jat1 ci3", "english": "one time" }] }
+    ]
+  }
+]

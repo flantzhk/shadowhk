@@ -1,0 +1,46 @@
+[
+  {
+    "id": "time-asking",
+    "name": "Asking the time",
+    "description": "How to ask and answer what time it is",
+    "phraseCount": 6,
+    "phrases": [
+      { "id": "time-whattime", "chinese": "宜家幾點？", "romanization": "ji4 gaa1 gei2 dim2?", "jyutping": "ji4 gaa1 gei2 dim2?", "english": "What time is it now?", "words": [{ "chinese": "宜家", "jyutping": "ji4 gaa1", "english": "now" }, { "chinese": "幾點", "jyutping": "gei2 dim2", "english": "what time / how many o'clock" }] },
+      { "id": "time-1oclock", "chinese": "一點", "romanization": "jat1 dim2", "jyutping": "jat1 dim2", "english": "one o'clock", "context": "Pattern: number + 點 = o'clock", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }, { "chinese": "點", "jyutping": "dim2", "english": "o'clock / point" }] },
+      { "id": "time-3oclock", "chinese": "三點", "romanization": "saam1 dim2", "jyutping": "saam1 dim2", "english": "three o'clock", "words": [{ "chinese": "三", "jyutping": "saam1", "english": "three" }, { "chinese": "點", "jyutping": "dim2", "english": "o'clock" }] },
+      { "id": "time-half", "chinese": "三點半", "romanization": "saam1 dim2 bun3", "jyutping": "saam1 dim2 bun3", "english": "half past three (3:30)", "context": "半 (bun3) = half, always after 點", "words": [{ "chinese": "三", "jyutping": "saam1", "english": "three" }, { "chinese": "點", "jyutping": "dim2", "english": "o'clock" }, { "chinese": "半", "jyutping": "bun3", "english": "half" }] },
+      { "id": "time-quarter-past", "chinese": "三點一個字", "romanization": "saam1 dim2 jat1 go3 zi6", "jyutping": "saam1 dim2 jat1 go3 zi6", "english": "quarter past three (3:15)", "context": "一個字 = one character (clock face divided into 12 = 5 mins each; 3 = 15 mins)", "words": [{ "chinese": "三點", "jyutping": "saam1 dim2", "english": "three o'clock" }, { "chinese": "一個字", "jyutping": "jat1 go3 zi6", "english": "one notch (= 5 minutes)" }] },
+      { "id": "time-minutes", "chinese": "三點十五分", "romanization": "saam1 dim2 sap6 ng5 fan1", "jyutping": "saam1 dim2 sap6 ng5 fan1", "english": "3:15 (three fifteen)", "context": "分 (fan1) = minute. Use for exact times.", "words": [{ "chinese": "三點", "jyutping": "saam1 dim2", "english": "three o'clock" }, { "chinese": "十五", "jyutping": "sap6 ng5", "english": "fifteen" }, { "chinese": "分", "jyutping": "fan1", "english": "minute" }] }
+    ]
+  },
+  {
+    "id": "time-parts-of-day",
+    "name": "Parts of the day",
+    "description": "Morning, afternoon, evening and night",
+    "phraseCount": 7,
+    "phrases": [
+      { "id": "time-morning", "chinese": "早上", "romanization": "zou2 soeng5", "jyutping": "zou2 soeng5", "english": "morning", "context": "Roughly 6am–noon", "words": [{ "chinese": "早", "jyutping": "zou2", "english": "early / morning" }, { "chinese": "上", "jyutping": "soeng5", "english": "above / up" }] },
+      { "id": "time-afternoon", "chinese": "下午", "romanization": "haa6 ng5", "jyutping": "haa6 ng5", "english": "afternoon", "context": "Noon–6pm. 下午三點 = 3pm", "words": [{ "chinese": "下", "jyutping": "haa6", "english": "below / down" }, { "chinese": "午", "jyutping": "ng5", "english": "noon" }] },
+      { "id": "time-evening", "chinese": "晚上", "romanization": "maan5 soeng5", "jyutping": "maan5 soeng5", "english": "evening", "context": "6pm onwards", "words": [{ "chinese": "晚", "jyutping": "maan5", "english": "evening / late" }, { "chinese": "上", "jyutping": "soeng5", "english": "above / up" }] },
+      { "id": "time-night", "chinese": "夜晚", "romanization": "je6 maan5", "jyutping": "je6 maan5", "english": "night", "words": [{ "chinese": "夜", "jyutping": "je6", "english": "night" }, { "chinese": "晚", "jyutping": "maan5", "english": "evening" }] },
+      { "id": "time-noon", "chinese": "中午", "romanization": "zung1 ng5", "jyutping": "zung1 ng5", "english": "noon / midday", "words": [{ "chinese": "中", "jyutping": "zung1", "english": "middle" }, { "chinese": "午", "jyutping": "ng5", "english": "noon" }] },
+      { "id": "time-midnight", "chinese": "夜晚十二點", "romanization": "je6 maan5 sap6 ji6 dim2", "jyutping": "je6 maan5 sap6 ji6 dim2", "english": "midnight (12 o'clock at night)", "words": [{ "chinese": "夜晚", "jyutping": "je6 maan5", "english": "night" }, { "chinese": "十二點", "jyutping": "sap6 ji6 dim2", "english": "twelve o'clock" }] },
+      { "id": "time-3pm", "chinese": "下午三點", "romanization": "haa6 ng5 saam1 dim2", "jyutping": "haa6 ng5 saam1 dim2", "english": "3pm", "context": "Always say the part of day first, then the hour", "words": [{ "chinese": "下午", "jyutping": "haa6 ng5", "english": "afternoon" }, { "chinese": "三點", "jyutping": "saam1 dim2", "english": "three o'clock" }] }
+    ]
+  },
+  {
+    "id": "time-expressions",
+    "name": "Useful time expressions",
+    "description": "On time, early, late and more",
+    "phraseCount": 7,
+    "phrases": [
+      { "id": "time-ontime", "chinese": "準時", "romanization": "zeon2 si4", "jyutping": "zeon2 si4", "english": "on time / punctual", "words": [{ "chinese": "準", "jyutping": "zeon2", "english": "precise / accurate" }, { "chinese": "時", "jyutping": "si4", "english": "time" }] },
+      { "id": "time-early", "chinese": "早", "romanization": "zou2", "jyutping": "zou2", "english": "early", "words": [{ "chinese": "早", "jyutping": "zou2", "english": "early" }] },
+      { "id": "time-late", "chinese": "遲", "romanization": "ci4", "jyutping": "ci4", "english": "late", "words": [{ "chinese": "遲", "jyutping": "ci4", "english": "late / slow" }] },
+      { "id": "time-soon", "chinese": "快啲", "romanization": "faai3 di1", "jyutping": "faai3 di1", "english": "soon / hurry up", "words": [{ "chinese": "快", "jyutping": "faai3", "english": "fast / quick" }, { "chinese": "啲", "jyutping": "di1", "english": "a bit (colloquial)" }] },
+      { "id": "time-wait", "chinese": "等一陣", "romanization": "dang2 jat1 zan6", "jyutping": "dang2 jat1 zan6", "english": "wait a moment", "words": [{ "chinese": "等", "jyutping": "dang2", "english": "wait" }, { "chinese": "一陣", "jyutping": "jat1 zan6", "english": "a moment / a short while" }] },
+      { "id": "time-howlong", "chinese": "要幾耐？", "romanization": "jiu3 gei2 noi6?", "jyutping": "jiu3 gei2 noi6?", "english": "How long will it take?", "words": [{ "chinese": "要", "jyutping": "jiu3", "english": "need / require" }, { "chinese": "幾耐", "jyutping": "gei2 noi6", "english": "how long (time)" }] },
+      { "id": "time-about", "chinese": "大概…分鐘", "romanization": "daai6 koi3 … fan1 zung1", "jyutping": "daai6 koi3 … fan1 zung1", "english": "about … minutes", "context": "e.g. 大概十分鐘 = about 10 minutes", "words": [{ "chinese": "大概", "jyutping": "daai6 koi3", "english": "approximately / about" }, { "chinese": "分鐘", "jyutping": "fan1 zung1", "english": "minute(s)" }] }
+    ]
+  }
+]

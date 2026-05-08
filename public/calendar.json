@@ -1,0 +1,57 @@
+[
+  {
+    "id": "calendar-days",
+    "name": "Days of the week",
+    "description": "Monday through Sunday",
+    "phraseCount": 8,
+    "phrases": [
+      { "id": "cal-monday", "chinese": "星期一", "romanization": "sing1 kei4 jat1", "jyutping": "sing1 kei4 jat1", "english": "Monday", "context": "星期 = week, 一 = one", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "一", "jyutping": "jat1", "english": "one" }] },
+      { "id": "cal-tuesday", "chinese": "星期二", "romanization": "sing1 kei4 ji6", "jyutping": "sing1 kei4 ji6", "english": "Tuesday", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "二", "jyutping": "ji6", "english": "two" }] },
+      { "id": "cal-wednesday", "chinese": "星期三", "romanization": "sing1 kei4 saam1", "jyutping": "sing1 kei4 saam1", "english": "Wednesday", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "三", "jyutping": "saam1", "english": "three" }] },
+      { "id": "cal-thursday", "chinese": "星期四", "romanization": "sing1 kei4 sei3", "jyutping": "sing1 kei4 sei3", "english": "Thursday", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "四", "jyutping": "sei3", "english": "four" }] },
+      { "id": "cal-friday", "chinese": "星期五", "romanization": "sing1 kei4 ng5", "jyutping": "sing1 kei4 ng5", "english": "Friday", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "五", "jyutping": "ng5", "english": "five" }] },
+      { "id": "cal-saturday", "chinese": "星期六", "romanization": "sing1 kei4 luk6", "jyutping": "sing1 kei4 luk6", "english": "Saturday", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "六", "jyutping": "luk6", "english": "six" }] },
+      { "id": "cal-sunday", "chinese": "星期日", "romanization": "sing1 kei4 jat6", "jyutping": "sing1 kei4 jat6", "english": "Sunday", "context": "Also said as 禮拜日 (lai5 baai3 jat6)", "words": [{ "chinese": "星期", "jyutping": "sing1 kei4", "english": "week / weekday" }, { "chinese": "日", "jyutping": "jat6", "english": "day / sun" }] },
+      { "id": "cal-weekend", "chinese": "週末", "romanization": "zau1 mut6", "jyutping": "zau1 mut6", "english": "weekend", "words": [{ "chinese": "週", "jyutping": "zau1", "english": "week" }, { "chinese": "末", "jyutping": "mut6", "english": "end" }] }
+    ]
+  },
+  {
+    "id": "calendar-months",
+    "name": "Months",
+    "description": "January through December — just numbers plus 月",
+    "phraseCount": 13,
+    "phrases": [
+      { "id": "cal-month-word", "chinese": "月", "romanization": "jyut6", "jyutping": "jyut6", "english": "month / moon", "context": "Add a number before 月 to make any month: 一月 = January", "words": [{ "chinese": "月", "jyutping": "jyut6", "english": "month / moon" }] },
+      { "id": "cal-jan", "chinese": "一月", "romanization": "jat1 jyut6", "jyutping": "jat1 jyut6", "english": "January", "words": [{ "chinese": "一", "jyutping": "jat1", "english": "one" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-feb", "chinese": "二月", "romanization": "ji6 jyut6", "jyutping": "ji6 jyut6", "english": "February", "words": [{ "chinese": "二", "jyutping": "ji6", "english": "two" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-mar", "chinese": "三月", "romanization": "saam1 jyut6", "jyutping": "saam1 jyut6", "english": "March", "words": [{ "chinese": "三", "jyutping": "saam1", "english": "three" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-apr", "chinese": "四月", "romanization": "sei3 jyut6", "jyutping": "sei3 jyut6", "english": "April", "words": [{ "chinese": "四", "jyutping": "sei3", "english": "four" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-may", "chinese": "五月", "romanization": "ng5 jyut6", "jyutping": "ng5 jyut6", "english": "May", "words": [{ "chinese": "五", "jyutping": "ng5", "english": "five" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-jun", "chinese": "六月", "romanization": "luk6 jyut6", "jyutping": "luk6 jyut6", "english": "June", "words": [{ "chinese": "六", "jyutping": "luk6", "english": "six" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-jul", "chinese": "七月", "romanization": "cat1 jyut6", "jyutping": "cat1 jyut6", "english": "July", "words": [{ "chinese": "七", "jyutping": "cat1", "english": "seven" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-aug", "chinese": "八月", "romanization": "baat3 jyut6", "jyutping": "baat3 jyut6", "english": "August", "words": [{ "chinese": "八", "jyutping": "baat3", "english": "eight" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-sep", "chinese": "九月", "romanization": "gau2 jyut6", "jyutping": "gau2 jyut6", "english": "September", "words": [{ "chinese": "九", "jyutping": "gau2", "english": "nine" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-oct", "chinese": "十月", "romanization": "sap6 jyut6", "jyutping": "sap6 jyut6", "english": "October", "words": [{ "chinese": "十", "jyutping": "sap6", "english": "ten" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-nov", "chinese": "十一月", "romanization": "sap6 jat1 jyut6", "jyutping": "sap6 jat1 jyut6", "english": "November", "words": [{ "chinese": "十一", "jyutping": "sap6 jat1", "english": "eleven" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] },
+      { "id": "cal-dec", "chinese": "十二月", "romanization": "sap6 ji6 jyut6", "jyutping": "sap6 ji6 jyut6", "english": "December", "words": [{ "chinese": "十二", "jyutping": "sap6 ji6", "english": "twelve" }, { "chinese": "月", "jyutping": "jyut6", "english": "month" }] }
+    ]
+  },
+  {
+    "id": "calendar-relative",
+    "name": "Today, tomorrow & more",
+    "description": "Relative days and useful date expressions",
+    "phraseCount": 10,
+    "phrases": [
+      { "id": "cal-today", "chinese": "今日", "romanization": "gam1 jat6", "jyutping": "gam1 jat6", "english": "today", "words": [{ "chinese": "今", "jyutping": "gam1", "english": "now / this" }, { "chinese": "日", "jyutping": "jat6", "english": "day" }] },
+      { "id": "cal-tomorrow", "chinese": "聽日", "romanization": "ting1 jat6", "jyutping": "ting1 jat6", "english": "tomorrow", "words": [{ "chinese": "聽", "jyutping": "ting1", "english": "next (day)" }, { "chinese": "日", "jyutping": "jat6", "english": "day" }] },
+      { "id": "cal-yesterday", "chinese": "琴日", "romanization": "kam4 jat6", "jyutping": "kam4 jat6", "english": "yesterday", "words": [{ "chinese": "琴", "jyutping": "kam4", "english": "previous (day)" }, { "chinese": "日", "jyutping": "jat6", "english": "day" }] },
+      { "id": "cal-dayaftertomorrow", "chinese": "後日", "romanization": "hau6 jat6", "jyutping": "hau6 jat6", "english": "day after tomorrow", "words": [{ "chinese": "後", "jyutping": "hau6", "english": "after / behind" }, { "chinese": "日", "jyutping": "jat6", "english": "day" }] },
+      { "id": "cal-thisweek", "chinese": "今個星期", "romanization": "gam1 go3 sing1 kei4", "jyutping": "gam1 go3 sing1 kei4", "english": "this week", "words": [{ "chinese": "今個", "jyutping": "gam1 go3", "english": "this (one)" }, { "chinese": "星期", "jyutping": "sing1 kei4", "english": "week" }] },
+      { "id": "cal-nextweek", "chinese": "下個星期", "romanization": "haa6 go3 sing1 kei4", "jyutping": "haa6 go3 sing1 kei4", "english": "next week", "words": [{ "chinese": "下個", "jyutping": "haa6 go3", "english": "next (one)" }, { "chinese": "星期", "jyutping": "sing1 kei4", "english": "week" }] },
+      { "id": "cal-lastweek", "chinese": "上個星期", "romanization": "soeng6 go3 sing1 kei4", "jyutping": "soeng6 go3 sing1 kei4", "english": "last week", "words": [{ "chinese": "上個", "jyutping": "soeng6 go3", "english": "last (one)" }, { "chinese": "星期", "jyutping": "sing1 kei4", "english": "week" }] },
+      { "id": "cal-whatday", "chinese": "今日係星期幾？", "romanization": "gam1 jat6 hai6 sing1 kei4 gei2?", "jyutping": "gam1 jat6 hai6 sing1 kei4 gei2?", "english": "What day is today?", "words": [{ "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" }, { "chinese": "係", "jyutping": "hai6", "english": "is" }, { "chinese": "星期幾", "jyutping": "sing1 kei4 gei2", "english": "what day of the week" }] },
+      { "id": "cal-whatdate", "chinese": "今日幾號？", "romanization": "gam1 jat6 gei2 hou6?", "jyutping": "gam1 jat6 gei2 hou6?", "english": "What's the date today?", "words": [{ "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" }, { "chinese": "幾號", "jyutping": "gei2 hou6", "english": "what number / what date" }] },
+      { "id": "cal-dateformat", "chinese": "五月八號", "romanization": "ng5 jyut6 baat3 hou6", "jyutping": "ng5 jyut6 baat3 hou6", "english": "8th May (May 8th)", "context": "Dates: month first, then day number + 號", "words": [{ "chinese": "五月", "jyutping": "ng5 jyut6", "english": "May" }, { "chinese": "八", "jyutping": "baat3", "english": "eight" }, { "chinese": "號", "jyutping": "hou6", "english": "number / date" }] }
+    ]
+  }
+]

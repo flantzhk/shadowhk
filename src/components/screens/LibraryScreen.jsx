@@ -8,13 +8,10 @@ import { getAllScenes } from '../../services/sceneLoader.js';
 import { textToSpeech } from '../../services/api.js';
 
 const REFERENCE_SETS = [
-  { id: 'the-very-basics',      title: 'The Very Basics' },
-  { id: 'everyday-essentials',  title: 'Everyday Essentials' },
-  { id: 'food-and-drink',       title: 'Food & Drink' },
-  { id: 'social-life',          title: 'Social Life' },
-  { id: 'getting-around',       title: 'Getting Around' },
-  { id: 'home-and-family',      title: 'Home & Family' },
-  { id: 'at-a-coffee-shop',     title: 'At a Coffee Shop' },
+  { id: 'numbers',  title: 'Numbers' },
+  { id: 'colours',  title: 'Colours' },
+  { id: 'calendar', title: 'Calendar' },
+  { id: 'time',     title: 'Telling the Time' },
 ];
 
 const FILTERS = [

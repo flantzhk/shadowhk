@@ -1,0 +1,35 @@
+[
+  {
+    "id": "colours-basic",
+    "name": "Basic colours",
+    "description": "The colours you need every day",
+    "phraseCount": 11,
+    "phrases": [
+      { "id": "col-red", "chinese": "紅色", "romanization": "hung4 sik1", "jyutping": "hung4 sik1", "english": "red", "words": [{ "chinese": "紅", "jyutping": "hung4", "english": "red" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-orange", "chinese": "橙色", "romanization": "caang2 sik1", "jyutping": "caang2 sik1", "english": "orange", "words": [{ "chinese": "橙", "jyutping": "caang2", "english": "orange (fruit)" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-yellow", "chinese": "黃色", "romanization": "wong4 sik1", "jyutping": "wong4 sik1", "english": "yellow", "words": [{ "chinese": "黃", "jyutping": "wong4", "english": "yellow" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-green", "chinese": "綠色", "romanization": "luk6 sik1", "jyutping": "luk6 sik1", "english": "green", "words": [{ "chinese": "綠", "jyutping": "luk6", "english": "green" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-blue", "chinese": "藍色", "romanization": "laam4 sik1", "jyutping": "laam4 sik1", "english": "blue", "words": [{ "chinese": "藍", "jyutping": "laam4", "english": "blue" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-purple", "chinese": "紫色", "romanization": "zi2 sik1", "jyutping": "zi2 sik1", "english": "purple", "words": [{ "chinese": "紫", "jyutping": "zi2", "english": "purple" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-pink", "chinese": "粉紅色", "romanization": "fan2 hung4 sik1", "jyutping": "fan2 hung4 sik1", "english": "pink", "words": [{ "chinese": "粉", "jyutping": "fan2", "english": "powder / pale" }, { "chinese": "紅", "jyutping": "hung4", "english": "red" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-white", "chinese": "白色", "romanization": "baak6 sik1", "jyutping": "baak6 sik1", "english": "white", "words": [{ "chinese": "白", "jyutping": "baak6", "english": "white" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-black", "chinese": "黑色", "romanization": "hak1 sik1", "jyutping": "hak1 sik1", "english": "black", "words": [{ "chinese": "黑", "jyutping": "hak1", "english": "black" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-grey", "chinese": "灰色", "romanization": "fui1 sik1", "jyutping": "fui1 sik1", "english": "grey", "words": [{ "chinese": "灰", "jyutping": "fui1", "english": "ash / grey" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-brown", "chinese": "啡色", "romanization": "fe1 sik1", "jyutping": "fe1 sik1", "english": "brown", "context": "啡 comes from 咖啡 (coffee) — the colour of coffee", "words": [{ "chinese": "啡", "jyutping": "fe1", "english": "coffee-coloured" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] }
+    ]
+  },
+  {
+    "id": "colours-modifiers",
+    "name": "Light, dark & more",
+    "description": "Describe shades and ask what colour something is",
+    "phraseCount": 6,
+    "phrases": [
+      { "id": "col-light", "chinese": "淺色", "romanization": "cin2 sik1", "jyutping": "cin2 sik1", "english": "light colour / pale", "context": "e.g. 淺藍色 = light blue", "words": [{ "chinese": "淺", "jyutping": "cin2", "english": "light / shallow" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-dark", "chinese": "深色", "romanization": "sam1 sik1", "jyutping": "sam1 sik1", "english": "dark colour", "context": "e.g. 深藍色 = dark blue", "words": [{ "chinese": "深", "jyutping": "sam1", "english": "dark / deep" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-whatcolour", "chinese": "咩色？", "romanization": "me1 sik1?", "jyutping": "me1 sik1?", "english": "What colour is it?", "words": [{ "chinese": "咩", "jyutping": "me1", "english": "what (colloquial)" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
+      { "id": "col-ilike", "chinese": "我鍾意呢個顏色", "romanization": "ngo5 zung1 ji3 ni1 go3 ngaan4 sik1", "jyutping": "ngo5 zung1 ji3 ni1 go3 ngaan4 sik1", "english": "I like this colour", "words": [{ "chinese": "我", "jyutping": "ngo5", "english": "I" }, { "chinese": "鍾意", "jyutping": "zung1 ji3", "english": "like / love" }, { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" }, { "chinese": "顏色", "jyutping": "ngaan4 sik1", "english": "colour" }] },
+      { "id": "col-doyouhave", "chinese": "有冇其他顏色？", "romanization": "jau5 mou5 kei4 taa1 ngaan4 sik1?", "jyutping": "jau5 mou5 kei4 taa1 ngaan4 sik1?", "english": "Do you have other colours?", "words": [{ "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have / is there" }, { "chinese": "其他", "jyutping": "kei4 taa1", "english": "other" }, { "chinese": "顏色", "jyutping": "ngaan4 sik1", "english": "colour" }] },
+      { "id": "col-favourite", "chinese": "你最鍾意咩色？", "romanization": "nei5 zeoi3 zung1 ji3 me1 sik1?", "jyutping": "nei5 zeoi3 zung1 ji3 me1 sik1?", "english": "What's your favourite colour?", "words": [{ "chinese": "你", "jyutping": "nei5", "english": "you" }, { "chinese": "最", "jyutping": "zeoi3", "english": "most" }, { "chinese": "鍾意", "jyutping": "zung1 ji3", "english": "like / love" }, { "chinese": "咩色", "jyutping": "me1 sik1", "english": "what colour" }] }
+    ]
+  }
+]
