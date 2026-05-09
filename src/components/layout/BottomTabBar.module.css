@@ -75,9 +75,10 @@
 
 .label {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .tab.active .label {
