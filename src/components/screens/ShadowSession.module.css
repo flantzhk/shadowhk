@@ -81,7 +81,7 @@
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(237,231,223,0.5);
+  color: rgba(237,231,223,0.7);
   letter-spacing: 0.04em;
   flex: 1;
   text-align: center;
@@ -172,7 +172,7 @@
   border: 1px solid rgba(237,231,223,0.18);
   border-radius: 999px;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(237,231,223,0.7);
   padding: 8px 14px;
@@ -319,7 +319,7 @@
   transition: opacity 0.15s, transform 0.15s;
 }
 
-.skipBtn:disabled { opacity: 0.25; cursor: not-allowed; }
+.skipBtn:disabled { opacity: 0.45; cursor: not-allowed; }
 .skipBtn:active:not(:disabled) { transform: scale(0.94); }
 
 .holdLabel {
@@ -328,7 +328,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(237,231,223,0.5);
+  color: rgba(237,231,223,0.7);
   margin: 0;
   flex: 1;
   text-align: center;

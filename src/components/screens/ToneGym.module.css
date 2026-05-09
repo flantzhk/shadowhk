@@ -138,14 +138,14 @@
 
 .choiceDesc {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--fg-2);
   font-style: italic;
 }
 
 .choicePlayHint {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--fg-3);
   font-weight: 500;
 }
@@ -285,13 +285,13 @@
 
 .introMeaning {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--fg-2);
 }
 
 .introToneLabel {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--fg-2);
   font-weight: 600;
   margin-top: 4px;
@@ -382,7 +382,7 @@
 
 .learnDesc {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--fg-2);
   font-style: italic;
 }
@@ -397,7 +397,7 @@
 
 .learnPlay {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--fg-3);
   font-weight: 600;
   margin-top: 4px;

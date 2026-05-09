@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './ListenMode.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
+import { phCapture } from '../../services/posthog.js';
 import { logger } from '../../utils/logger.js';
 
 const SPEEDS = [0.75, 1, 1.25];
@@ -22,6 +23,7 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
   const audioRef = useRef(null);
   const lineTimesRef = useRef([]);
   const activeLineRef = useRef(null);
+  const listenStartedRef = useRef(false);
 
   useEffect(() => {
     if (!sceneId) return;
@@ -71,7 +73,13 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
     const el = audioRef.current;
     if (!el) return;
     if (isPlaying) { el.pause(); setIsPlaying(false); }
-    else { el.play().then(() => setIsPlaying(true)).catch(() => {}); }
+    else {
+      if (!listenStartedRef.current) {
+        listenStartedRef.current = true;
+        phCapture('listen_started', { scene_id: sceneId });
+      }
+      el.play().then(() => setIsPlaying(true)).catch(() => {});
+    }
   }
 
   function seek(e) {

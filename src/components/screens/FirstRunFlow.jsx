@@ -1,8 +1,9 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import styles from './FirstRunFlow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { saveLibraryEntry } from '../../services/storage.js';
 import { getAllScenes, getYouLines } from '../../services/sceneLoader.js';
+import { phCapture } from '../../services/posthog.js';
 import { logger } from '../../utils/logger.js';
 import { SOURCE_TAGS, GROWTH_STATE, ROUTES } from '../../utils/constants.js';
 
@@ -47,6 +48,10 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   const [activeDays, setActiveDays] = useState(new Set([0,1,2,3,4,5,6]));
   const [firstScene, setFirstScene] = useState(null);
 
+  useEffect(() => {
+    phCapture('firstrun_step_viewed', { step: step + 1 });
+  }, [step]);
+
   const goForward = async () => {
     if (step === 4) {
       // Save goal + load first scene before showing step 5
@@ -59,6 +64,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   };
 
   const finish = () => {
+    phCapture('firstrun_completed');
     updateSettings({ firstrunCompleted: true }).catch(err => logger.warn('[FirstRunFlow] finish settings failed', err?.message));
     if (firstScene) onNavigate?.('shadow', firstScene.id);
     else onComplete?.();

@@ -430,7 +430,7 @@
 
 .youBubble {
   background: var(--accent-muted);
-  border: 1px solid rgba(200,57,43,0.15);
+  border: 1px solid rgba(200,57,43,0.3);
   border-radius: 14px 14px 4px 14px;
   padding: 10px 12px 8px;
   min-width: 0;

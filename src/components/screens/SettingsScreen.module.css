@@ -248,7 +248,8 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
   color: var(--accent);
-  border-bottom: 0.5px solid var(--border-0);
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.15);
   margin-bottom: var(--space-md);
   border-radius: 8px;
   transition: background var(--transition-fast);
@@ -264,7 +265,8 @@
   padding: var(--space-md) 12px;
   font-size: var(--font-size-md);
   color: var(--fg-0);
-  border-bottom: 0.5px solid var(--border-0);
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.15);
   text-align: left;
   border-radius: 8px;
   transition: background var(--transition-fast);

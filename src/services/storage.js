@@ -106,6 +106,12 @@ async function saveLibraryEntry(entry) {
   const result = await dbOp('Failed to save entry', (db) => db.put('library', stamped));
   // Fire-and-forget sync to Firestore. Dynamic import avoids circular dep.
   import('./sync').then(({ pushLibraryEntry }) => pushLibraryEntry(stamped)).catch(() => {});
+  // Fire-and-forget analytics. Dynamic import keeps this tree-shake friendly.
+  import('./posthog').then(({ phCapture }) => phCapture('phrase_saved', {
+    scene_id: stamped.scene_id ?? stamped.sceneId ?? null,
+    language: stamped.language ?? null,
+    source: stamped.source_tag ?? null,
+  })).catch(() => {});
   return result;
 }
 

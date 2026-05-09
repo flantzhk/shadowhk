@@ -179,7 +179,7 @@
 
 .hBadgeText {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
   letter-spacing: 0.08em;
 }
@@ -274,7 +274,7 @@
 
 .tileBadgeText {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
   letter-spacing: 0.08em;
 }

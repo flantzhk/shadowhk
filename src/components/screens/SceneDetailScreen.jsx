@@ -6,6 +6,7 @@ import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
 import { getCurrentUser } from '../../services/auth.js';
+import { phCapture } from '../../services/posthog.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -28,6 +29,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
 
   useEffect(() => {
     if (!sceneId) return;
+    phCapture('scene_viewed', { scene_id: sceneId, language });
     getSceneById(sceneId)
       .then(async s => {
         setScene(s);

@@ -3,6 +3,7 @@ import { signUp, signInWithGoogle, signInWithApple } from '../../services/auth';
 import { useAppContext } from '../../contexts/AppContext';
 import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
+import { phCapture } from '../../services/posthog';
 import styles from './RegisterScreen.module.css';
 
 const AMBIENT_URL = 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=800&q=80';
@@ -35,6 +36,7 @@ export default function RegisterScreen({ navigate }) {
     const { error: authError } = await signUp(email.trim(), password, name.trim(), language);
     setLoading(false);
     if (authError) { setError(authError); return; }
+    phCapture('signup_succeeded', { method: 'email' });
     navigate(ROUTES.HOME);
   }, [name, email, password, agreed, hasLength, hasNumber, language, navigate]);
 

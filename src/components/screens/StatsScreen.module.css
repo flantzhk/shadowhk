@@ -273,7 +273,7 @@
 
 .weekLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--fg-2);
   letter-spacing: 0.06em;
@@ -317,7 +317,7 @@
 
 .statLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -442,7 +442,7 @@
 
 .xpRulesTitle {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -485,7 +485,7 @@
 
 .sectionTitle {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -543,7 +543,7 @@
 
 .achieveDesc {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--fg-2);
   line-height: 1.3;
 }

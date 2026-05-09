@@ -14,6 +14,7 @@ import { getSceneById, getYouLines } from '../../services/sceneLoader.js';
 import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
+import { phCapture } from '../../services/posthog.js';
 import { ToneTrack } from '../ui/ToneTrack.jsx';
 import { PhrasebookToast } from '../shared/PhrasebookToast.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
@@ -42,6 +43,10 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [showPhrasebookToast, setShowPhrasebookToast] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
+
+  useEffect(() => {
+    phCapture('scene_started', { mode: 'shadow', scene_id: sceneId ?? null });
+  }, [sceneId]);
 
   useEffect(() => {
     if (!sceneId || sceneId === '__quick3__') {
@@ -222,6 +227,12 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         phrasesMastered: results.filter(r => r.score !== null && r.score >= SCORE_THRESHOLDS.EXCELLENT).length,
         averageScore: avg,
         phraseResults: results,
+      });
+      phCapture('scene_completed', {
+        mode: 'shadow',
+        scene_id: sceneId ?? null,
+        phrases_practiced: results.length,
+        average_score: avg,
       });
       onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: dur, averageScore: avg, streakCount: streakResult?.count ?? 0 });
     } catch (_) {

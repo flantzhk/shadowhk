@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createCheckoutSession } from '../../../../services/api';
 import { isAuthenticated } from '../../../../services/auth';
+import { phCapture } from '../../../../services/posthog';
 import { ROUTES } from '../../../../utils/constants';
 import { logger } from '../../../../utils/logger';
 
@@ -61,11 +62,16 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    phCapture('paywall_viewed', { trigger: 'onboarding' });
+  }, []);
+
   const selectedPlan = PLANS.find((p) => p.id === selected);
 
   const handlePay = async () => {
     if (loading) return;
     setError(null);
+    phCapture('paywall_clicked', { plan_id: selected });
 
     // If not authenticated (email path without account creation), route to register first
     if (!isAuthenticated()) {
@@ -103,6 +109,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
   };
 
   const handleFree = () => {
+    phCapture('paywall_dismissed', { trigger: 'onboarding' });
     if (onComplete) onComplete('free');
   };
 

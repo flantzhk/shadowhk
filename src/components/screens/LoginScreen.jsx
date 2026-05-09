@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { signIn, signInWithGoogle, signInWithApple } from '../../services/auth';
 import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
+import { phCapture } from '../../services/posthog';
 import styles from './LoginScreen.module.css';
 
 const AMBIENT_URL = 'https://images.unsplash.com/photo-1536599424071-0b215a388ba7?auto=format&fit=crop&w=800&q=80';
@@ -31,6 +32,7 @@ export default function LoginScreen({ navigate }) {
     const { error: authError } = await signIn(email.trim(), password);
     setLoading(false);
     if (authError) { setError(authError); shake(); return; }
+    phCapture('login_succeeded', { method: 'email' });
     navigate(ROUTES.HOME);
   }, [email, password, navigate]);
 
@@ -39,6 +41,7 @@ export default function LoginScreen({ navigate }) {
     const { error: authError } = await signInWithGoogle();
     setLoading(false);
     if (authError) { setError(authError); return; }
+    phCapture('login_succeeded', { method: 'google' });
     navigate(ROUTES.HOME);
   };
 
@@ -47,6 +50,7 @@ export default function LoginScreen({ navigate }) {
     const { error: authError } = await signInWithApple();
     setLoading(false);
     if (authError) { setError(authError); return; }
+    phCapture('login_succeeded', { method: 'apple' });
     navigate(ROUTES.HOME);
   };
 

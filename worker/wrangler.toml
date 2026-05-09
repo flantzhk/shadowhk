@@ -1,0 +1,10 @@
+name = "shadowspeak-api"
+main = "src/index.js"
+compatibility_date = "2026-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets (set via `wrangler secret put`, not declared here):
+#   STRIPE_WEBHOOK_SECRET
+#   FIRESTORE_SERVICE_ACCOUNT_JSON
+#
+# Add `[vars]` here for any non-secret config (e.g. environment names).

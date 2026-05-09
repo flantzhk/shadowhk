@@ -3,7 +3,7 @@
 import { firebase, fbAuth, fbDb } from './firebase';
 import { logger } from '../utils/logger';
 import { clearAllData } from './storage';
-import { phReset } from './posthog';
+import { phCapture, phReset } from './posthog';
 
 // ---------------------------------------------------------------------------
 // Internal helpers
@@ -121,6 +121,9 @@ async function handleGoogleRedirectResult() {
 
     if (result.additionalUserInfo?.isNewUser) {
       await createUserDocument(result.user.uid, result.user.email || '', languageChoice);
+      phCapture('signup_succeeded', { method: 'google' });
+    } else {
+      phCapture('login_succeeded', { method: 'google' });
     }
     return { user: result.user, error: null };
   } catch (error) {
@@ -145,6 +148,7 @@ async function signInWithApple(languageChoice = 'cantonese') {
     const cred = await fbAuth.signInWithPopup(provider);
     if (cred.additionalUserInfo?.isNewUser) {
       await createUserDocument(cred.user.uid, cred.user.email || '', languageChoice);
+      phCapture('signup_succeeded', { method: 'apple' });
     }
     return { user: cred.user, error: null };
   } catch (error) {
@@ -163,6 +167,7 @@ async function signInWithApple(languageChoice = 'cantonese') {
  * Sign out the current user.
  */
 async function signOut() {
+  phCapture('logout');
   phReset();
   await fbAuth.signOut();
   window.location.hash = '#/login';

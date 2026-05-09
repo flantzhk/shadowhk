@@ -32,7 +32,7 @@
 
 .onlineIndicator {
   display: flex; align-items: center; gap: 4px;
-  font-size: 0.6875rem; color: var(--fg-2);
+  font-size: 0.8125rem; color: var(--fg-2);
 }
 
 .onlineDot {
@@ -120,7 +120,7 @@
 }
 
 .sceneCardPersona {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   color: rgba(255,255,255,0.55);
   margin-top: 2px;
 }
@@ -191,7 +191,7 @@
 }
 
 .chatSceneChinese {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   color: rgba(255,255,255,0.6);
 }
 
@@ -342,7 +342,7 @@
 .chatSwitchModeBtn {
   font-size: 0.8125rem;
   font-weight: var(--font-weight-medium);
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   text-align: center;
   width: 100%;
   padding: 6px 0 0;
@@ -350,7 +350,7 @@
 
 .chatWaitingText {
   font-size: 0.8125rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   text-align: center;
   padding: 14px;
 }
@@ -493,12 +493,12 @@
 }
 
 .reviewStatLabel {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   color: var(--fg-2);
 }
 
 .reviewSectionLabel {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: var(--font-weight-semibold);
   color: var(--fg-2);
   letter-spacing: 0.05em;
@@ -685,7 +685,7 @@
 }
 .speakingLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
