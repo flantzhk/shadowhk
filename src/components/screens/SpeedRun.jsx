@@ -181,8 +181,8 @@ export default function SpeedRun({ onBack, onComplete }) {
             onClick={() => phase === 'playing' && handleChoice(opt)}
             disabled={phase !== 'playing'}
           >
-            <span className={styles.optRoman}>{opt.romanization}</span>
-            <span className={styles.optChinese} lang="yue">{opt.cjk}</span>
+            <span className={styles.optRoman}>{opt.romanization ?? opt.jyutping}</span>
+            <span className={styles.optChinese} lang="yue">{opt.cjk ?? opt.chinese}</span>
           </button>
         ))}
       </div>
