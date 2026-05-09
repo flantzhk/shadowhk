@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Victoria Park, Causeway Bay",
   "context": "Mid-Autumn Festival (中秋節) falls on the 15th day of the eighth lunar month. Hong Kong families gather in parks with lanterns, mooncakes, and candles. Victoria Park in Causeway Bay hosts the biggest public celebration. The atmosphere is festive and relaxed.",
-  "culturalFact": "Hong Kong's Mid-Autumn is unique: traditional paper lanterns (燈籠) sit alongside battery-powered cartoon characters, and the parks glow with thousands of candles until midnight. The event was once cancelled for years due to COVID and its return in 2023 drew record crowds.",
+  "cultural_note": "Every year since the 1880s, the Tai Hang neighbourhood (大坑) has performed the Fire Dragon Dance for three nights of the Mid-Autumn Festival, a 67-metre dragon skeleton packed with 72,000 lit incense sticks, carried by hundreds of volunteers through narrow streets. The ritual began to ward off plague. It has never stopped, and was inscribed on Hong Kong's Intangible Cultural Heritage list in 2011.",
   "lines": [
     {
       "id": "midaut-01",

@@ -11,7 +11,7 @@
   "estimatedMinutes": 4,
   "location": "Green minibus, Kowloon",
   "context": "Green minibuses (綠色小巴) run fixed routes and fixed fares. You board at the front, pay when you get on (exact change or Octopus), and shout when you want to stop. The driver will not stop unless you ask — loudly.",
-  "culturalFact": "HK's minibus culture has its own language. Locals say '有落' (jau5 lok6 — 'someone's getting off') to alert the driver. Getting the phrasing wrong is a classic foreigner tell — and a great icebreaker with locals who hear you try.",
+  "cultural_note": "The phrase every newcomer needs on a minibus is 有落 (jau5 lok6, \"someone's getting off\"). You shout it to the driver when you want to alight. There are no stop buttons, no announcements. Red minibuses (紅色小巴) are unregulated: the driver can adjust the route, negotiate the fare, and stop wherever they want. They are the last truly anarchic form of public transport in Hong Kong.",
   "lines": [
     {
       "id": "minibus-01",

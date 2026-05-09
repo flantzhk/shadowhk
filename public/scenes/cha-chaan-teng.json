@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Cha chaan teng, Sham Shui Po",
   "context": "A cha chaan teng (茶餐廳) is HK's working-class diner. Fast, loud, cash-only. The waiter has heard worse Cantonese than yours. Just point and speak.",
-  "culturalFact": "Cha chaan tengs were born in 1950s HK as a cheaper Western-style diner. Over 1,600 in the city today — more than Starbucks, McDonald's, and 7-Eleven combined.",
+  "cultural_note": "Cha chaan tengs (茶餐廳) were born in the 1950s when the working class wanted Western café culture without the prices. They built a menu that mixed everything: HK-style milk tea brewed through a cloth filter for a silky texture (nicknamed \"silk stocking tea\"), Spam on toast, borscht that bears little resemblance to Ukrainian borscht, and scrambled eggs on macaroni. The result is uniquely and irrevocably Hong Kong.",
   "lines": [
     {
       "id": "cct-01",

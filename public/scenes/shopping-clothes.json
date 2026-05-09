@@ -11,7 +11,7 @@
   "estimatedMinutes": 6,
   "location": "Clothing shop, Mong Kok Ladies' Market area",
   "context": "HK has no shortage of clothes shops — from big mall chains to tiny street stalls in Mong Kok. In smaller shops, bargaining is expected: start below the asking price and expect to meet in the middle. Sizes are often labelled S/M/L or by waist/chest measurements.",
-  "culturalFact": "In HK the phrase 平啲得唔得 (can you go cheaper?) is perfectly normal in smaller shops and market stalls. It's not rude — the vendor expects it. A polite smile and a laugh make the whole exchange friendlier.",
+  "cultural_note": "The concept of 開市 (hoi1 si5, \"opening the market\") shapes morning trading at Hong Kong's street stalls and wet markets: the first sale of the day is considered auspicious, bringing luck for all business that follows. Vendors are more willing to negotiate in the first hour of trading. Arriving at Temple Street or Mong Kok's Ladies' Market when it opens and making a polite offer is considered entirely proper.",
   "lines": [
     {
       "id": "shop-01",

@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "On the phone, anywhere in HK",
   "context": "Most HK restaurants take phone bookings, especially for groups of four or more. You'll need to give your name, party size, time, and sometimes a phone number. Polite phone Cantonese is slightly more formal than face-to-face.",
-  "culturalFact": "In Hong Kong it's common to book under just a surname — 陳, 李, 王. Staff will address you as 陳生 (Mr Chan) or 陳小姐 (Miss Chan) throughout the call.",
+  "cultural_note": "In Hong Kong, the person who booked the table is understood to be hosting, which means they pay. Attempting to pay the bill when you're a guest triggers the ritual of 搶埋單 (coeng2 maai4 daan1): a competitive scramble to grab the bill folder first. It reads as generosity, not aggression.",
   "lines": [
     {
       "id": "book-01",

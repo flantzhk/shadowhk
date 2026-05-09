@@ -153,7 +153,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       </div>
 
       {/* Cultural note — sage green editorial card */}
-      {(scene.cultural_note || scene.description) && (
+      {(scene.cultural_note || scene.culturalFact || scene.description) && (
         <section className={styles.culturalSection}>
           <div className={styles.culturalDivider}>
             <span className={styles.culturalDividerDash}>—</span>
@@ -161,7 +161,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           </div>
           <div className={styles.culturalCard}>
             <p className={styles.culturalEyebrow}>DID YOU KNOW?</p>
-            <p className={styles.culturalText}>{scene.cultural_note ?? scene.description}</p>
+            <p className={styles.culturalText}>{scene.cultural_note ?? scene.culturalFact ?? scene.description}</p>
           </div>
         </section>
       )}

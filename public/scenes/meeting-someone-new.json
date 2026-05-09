@@ -11,7 +11,7 @@
   "estimatedMinutes": 7,
   "location": "A social gathering, housewarming, or community event",
   "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask — and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
-  "culturalFact": "Hongkongers tend to ask 'what do you do?' and 'how long have you been here?' pretty quickly when meeting expats. It's not nosiness — it's how they work out what you have in common. Being ready with natural answers in Cantonese is a genuine conversation-starter.",
+  "cultural_note": "A common casual greeting in Cantonese is 你食咗飯未 (nei5 sik6 zo2 faan6 mei6, \"have you eaten yet?\"). It's not a literal question about meals. It evolved in a city that experienced food scarcity within living memory, and expressing care through food still runs through how Hong Kong people show they value each other. The expected answer is always yes.",
   "lines": [
     {
       "id": "msn-01",

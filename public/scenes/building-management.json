@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Residential building management office, North Point",
   "context": "Every residential building in Hong Kong has a management office (管理處) and a 管理員 (guard/manager) on duty around the clock. They handle maintenance requests, parcel collection, and building rules. It helps to be polite and specific about your issue.",
-  "culturalFact": "The Owners' Corporation (業主立案法團) is a legally constituted body that manages a building's common areas. Virtually every multi-unit building in HK has one. They collect management fees, hire staff, and decide on repairs — a small but real form of local democracy.",
+  "cultural_note": "Hong Kong's Owners' Corporations (業主立案法團) are mini-governments that manage buildings, collect fees, and handle disputes between residents. In older tenement buildings (唐樓, tong4 lau4), the management office is often a single uncle at a folding table in the lobby who has been there for thirty years and knows everything about everyone.",
   "lines": [
     {
       "id": "bldg-01",

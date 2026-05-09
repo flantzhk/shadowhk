@@ -11,7 +11,7 @@
   "estimatedMinutes": 6,
   "location": "Dim sum restaurant, Jordan",
   "context": "Yum cha (飲茶) on Sunday morning is a Hong Kong institution. Whole families gather — three generations at one table is normal. You order from a checklist sheet or flag down the trolley lady and shout what you want.",
-  "culturalFact": "The phrase 'yum cha' literally means 'drink tea' — tea is the centrepiece, food is the side dish. Tapping two fingers on the table is the silent way to thank someone for refilling your cup, said to originate from a Qing dynasty Emperor travelling incognito.",
+  "cultural_note": "When someone refills your tea at a yum cha table, the correct response is to tap two bent fingers on the table, a gesture rooted in Qing Dynasty court etiquette, where subjects couldn't prostrate themselves before the emperor in public, so they bent their fingers to symbolise a kneeling bow. Every dim sum table in Hong Kong is quietly re-enacting an imperial ritual.",
   "lines": [
     {
       "id": "dim-sum-01",

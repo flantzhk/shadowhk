@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Wet market, Sham Shui Po",
   "context": "Hong Kong wet markets (街市) sell fresh produce, meat, and fish every morning. Vendors are fast-talking and friendly — they appreciate customers who try Cantonese. Get there before 10am for the best picks.",
-  "culturalFact": "HK's wet markets are called 'wet' because the floors are hosed down constantly to keep fish and meat fresh. Most vendors have occupied the same stall for decades, sometimes passing the pitch down through generations.",
+  "cultural_note": "The \"wet\" in wet market refers to the constant hosing-down of floors to keep fish and meat fresh: the sound of running water is the ambient soundtrack of every Hong Kong market morning. Older Hongkongers refuse to buy fish that isn't still swimming in a tank. The concept of 新鮮 (san1 sin1, freshness) is a standard, not a preference. Many wet market vendors have held the same stall across three generations, and a loyal customer who greets them by name will often find something extra slipped into the bag.",
   "lines": [
     {
       "id": "wet-mkt-01",

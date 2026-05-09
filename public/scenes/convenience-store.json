@@ -11,7 +11,7 @@
   "estimatedMinutes": 4,
   "location": "7-Eleven, Causeway Bay",
   "context": "Hong Kong has over 1,000 convenience stores — 7-Eleven and Circle K on almost every corner. You can pay bills, top up Octopus cards, and pick up a hot meal. Staff are used to being busy; keep it short and friendly.",
-  "culturalFact": "Hong Kong has the highest density of 7-Eleven stores in the world — roughly one per 6,000 residents. The stores never close and many locals use them as a second kitchen, grabbing instant noodles or a hot dog for breakfast.",
+  "cultural_note": "When a typhoon Signal 8 is hoisted, the nearest 7-Eleven becomes the most important building in the neighbourhood. Sheltering there during a storm, charging phones, eating warm food, watching the rain move sideways through plate glass, is a collective Hong Kong experience. The city has roughly one 7-Eleven for every 2,600 people, a higher density than Tokyo.",
   "lines": [
     {
       "id": "conv-01",

@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Street, Mongkok",
   "context": "Hong Kong streets can be confusing — overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
-  "culturalFact": "Hong Kong MTR exits are numbered and lettered — 旺角A2出口 means Exit A2 of Mongkok station. Knowing how to say the exit letter and number in Cantonese will help you communicate clearly.",
+  "cultural_note": "Hong Kong has no street grid. The same address might sit on an elevated walkway, down a hillside staircase, or inside a shopping mall that passes straight through a building. Locals navigate by landmarks (opposite the 7-Eleven, up one floor), not compass points or street numbers.",
   "lines": [
     {
       "id": "dir-01",

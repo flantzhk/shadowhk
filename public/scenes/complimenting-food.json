@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "A friend's home, Sham Shui Po",
   "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full — 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
-  "culturalFact": "Saying 你過獎喇 (you're too kind / you flatter me) is the standard humble response when someone compliments your cooking. If you don't say it, the host might think you're not being polite!",
+  "cultural_note": "In Cantonese culture, food is the primary language of love. A grandmother may never say 我愛你 (I love you), but she will spend three hours making congee and insist you finish it. Complimenting the cooking, and specifically the effort (心機, sum1 gei1) that went into it, carries real emotional weight. A sincere 好好食 is not small talk.",
   "lines": [
     {
       "id": "comp-01",
