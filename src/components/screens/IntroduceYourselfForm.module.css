@@ -327,3 +327,81 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+/* === Intro banner === */
+.introBanner {
+  padding: 24px 20px 28px;
+  border-bottom: 4px solid var(--fg-0);
+  margin-bottom: 4px;
+}
+
+.introEyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.introTitle {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--fg-0);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.introBody {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--fg-1);
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.introBody em {
+  font-style: italic;
+  color: var(--fg-0);
+  font-weight: 500;
+}
+
+.introSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.introStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.introStepNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--fg-0);
+  color: var(--bg-0);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.introStepText {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fg-1);
+  line-height: 1.45;
+  padding-top: 3px;
+}

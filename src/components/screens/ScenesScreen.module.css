@@ -162,7 +162,7 @@
 .hGrad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.85) 100%);
   z-index: 1;
 }
 
@@ -185,17 +185,18 @@
 
 .hTitle {
   position: absolute;
-  bottom: 9px;
+  bottom: 10px;
   left: 10px;
   right: 10px;
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.2px;
   line-height: 1.2;
   margin: 0;
   z-index: 3;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .hProgress {
@@ -256,7 +257,7 @@
 .tileGrad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.85) 100%);
   z-index: 1;
 }
 
@@ -290,6 +291,7 @@
   line-height: 1.15;
   margin: 0;
   z-index: 3;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .tileProgress {

@@ -11,7 +11,7 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
   const [chapters, setChapters] = useState([]);
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(true);
-  const [expandedChapter, setExpandedChapter] = useState(0);
+  const [expandedChapter, setExpandedChapter] = useState(null);
   const [playingId, setPlayingId] = useState(null);
   const [savedIds, setSavedIds] = useState(new Set());
   const [livedIds, setLivedIds] = useState(new Set());
@@ -109,6 +109,14 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
     });
   }
 
+  const CHAPTER_COLORS = [
+    'linear-gradient(135deg, #1a2a3a 0%, #2d4a6a 100%)',
+    'linear-gradient(135deg, #2a1a1a 0%, #5a2a2a 100%)',
+    'linear-gradient(135deg, #1a2a1a 0%, #2a5a3a 100%)',
+    'linear-gradient(135deg, #2a2a1a 0%, #5a4a2a 100%)',
+    'linear-gradient(135deg, #2a1a2a 0%, #4a2a5a 100%)',
+  ];
+
   if (loading) return (
     <div className={styles.screen}>
       <button className={styles.backBtn} onClick={onBack}>←</button>
@@ -132,95 +140,65 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
         </div>
       </div>
 
-      <div className={styles.chapterList}>
-        {chapters.map((chapter, idx) => {
-          const isOpen = expandedChapter === idx;
-          return (
-            <section key={chapter.id ?? idx} className={styles.chapter}>
-              <button
-                className={`${styles.chapterHeader} ${isOpen ? styles.chapterHeaderOpen : ''}`}
-                onClick={() => setExpandedChapter(isOpen ? -1 : idx)}
-              >
-                <span className={styles.chapterNum}>{String(idx + 1).padStart(2, '0')}</span>
-                <div className={styles.chapterMeta}>
-                  <span className={styles.chapterName}>{chapter.name}</span>
-                  {chapter.description && (
-                    <span className={styles.chapterDesc}>{chapter.description}</span>
-                  )}
-                </div>
-                <span className={styles.chapterCount}>{chapter.phrases?.length ?? 0}</span>
-                <span className={`${styles.chapterChevron} ${isOpen ? styles.chapterChevronOpen : ''}`}>›</span>
-              </button>
+      {/* Chapter picker — horizontal scroll cards */}
+      <div className={styles.chapterScroll}>
+        {chapters.map((chapter, idx) => (
+          <button
+            key={chapter.id}
+            className={`${styles.chapterCard} ${expandedChapter === idx ? styles.chapterCardActive : ''}`}
+            onClick={() => setExpandedChapter(expandedChapter === idx ? null : idx)}
+          >
+            <div className={styles.chapterCardInner} style={{ background: CHAPTER_COLORS[idx % CHAPTER_COLORS.length] }}>
+              <span className={styles.chapterCardNum}>{String(idx + 1).padStart(2, '0')}</span>
+              <p className={styles.chapterCardName}>{chapter.name}</p>
+              <p className={styles.chapterCardCount}>{chapter.phraseCount ?? chapter.phrases?.length ?? 0} phrases</p>
+            </div>
+          </button>
+        ))}
+      </div>
 
-              {isOpen && (
-                <div className={styles.phraseList}>
-                  {(chapter.phrases ?? []).map(phrase => {
-                    const isPlaying = playingId === phrase.id;
-                    const isSaved = savedIds.has(phrase.id);
-                    const isLived = livedIds.has(phrase.id);
-                    return (
-                      <div key={phrase.id} className={styles.phraseRow}>
-                        <div className={styles.phraseMain}>
-                          <p className={styles.phraseCjk}>{phrase.chinese}</p>
-                          <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                          <p className={styles.phraseEnglish}>{phrase.english}</p>
-                          {phrase.context && (
-                            <p className={styles.phraseContext}>{phrase.context}</p>
-                          )}
-
-                          {/* Word-by-word */}
-                          {phrase.words?.length > 0 && (
-                            <div className={styles.words}>
-                              {phrase.words.map((w, wi) => (
-                                <span key={wi} className={styles.word}>
-                                  <span className={styles.wordCjk}>{w.chinese}</span>
-                                  <span className={styles.wordRoman}>{w.jyutping}</span>
-                                  <span className={styles.wordEnglish}>{w.english}</span>
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-
-                        <div className={styles.phraseActions}>
-                          <button
-                            className={`${styles.playBtn} ${isPlaying ? styles.playBtnActive : ''}`}
-                            onClick={e => playInline(e, phrase)}
-                            aria-label={isPlaying ? 'Stop' : 'Play'}
-                          >
-                            {isPlaying
-                              ? <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
-                              : <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor"><path d="M2 1l9 6-9 6V1z"/></svg>
-                            }
-                          </button>
-
-                          {isSaved ? (
-                            <button
-                              className={`${styles.livedBtn} ${isLived ? styles.livedBtnActive : ''}`}
-                              onClick={e => toggleLived(e, phrase.id)}
-                              title={isLived ? 'Unmark said in person' : 'Mark as said in person'}
-                            >
-                              📍
-                            </button>
-                          ) : (
-                            <button
-                              className={styles.saveBtn}
-                              onClick={() => toggleSaved(phrase)}
-                              title="Save to library"
-                            >
-                              +
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
+      {/* Expanded chapter phrases */}
+      {expandedChapter !== null && chapters[expandedChapter] && (
+        <div className={styles.phrasePanel}>
+          <p className={styles.phrasePanelDesc}>{chapters[expandedChapter].description}</p>
+          {(chapters[expandedChapter].phrases ?? []).map(phrase => (
+            <div key={phrase.id} className={styles.phraseRow}>
+              <div className={styles.phraseTile}>
+                <p className={styles.phraseCjk}>{phrase.chinese}</p>
+                <p className={styles.phraseRoman}>{phrase.romanization}</p>
+                <p className={styles.phraseEnglish}>{phrase.english}</p>
+                {phrase.context && <p className={styles.phraseContext}>{phrase.context}</p>}
+              </div>
+              <div className={styles.phraseActions}>
+                <button
+                  className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                  onClick={e => playInline(e, phrase)}
+                  aria-label="Play"
+                >
+                  {playingId === phrase.id ? '■' : '▶'}
+                </button>
+                <button
+                  className={`${styles.saveBtn} ${savedIds.has(phrase.id) ? styles.saveBtnActive : ''}`}
+                  onClick={() => toggleSaved(phrase)}
+                  aria-label="Save to library"
+                >
+                  {savedIds.has(phrase.id) ? '✓' : '+'}
+                </button>
+              </div>
+              {phrase.words && phrase.words.length > 1 && (
+                <div className={styles.wordRow}>
+                  {phrase.words.map((w, i) => (
+                    <div key={i} className={styles.wordChip}>
+                      <span className={styles.wordCjk}>{w.chinese}</span>
+                      <span className={styles.wordMeaning}>{w.english}</span>
+                    </div>
+                  ))}
                 </div>
               )}
-            </section>
-          );
-        })}
-      </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className={styles.bottomPad} />
     </div>

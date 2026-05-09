@@ -18,12 +18,6 @@ const PLAYLISTS = [
   { id: 'tones',   label: 'Tone workout',   desc: 'Ear-training scenes',  sceneIds: ['school-gate', 'neighbour-lift', 'minibus', 'pharmacy'] },
 ];
 
-function getGreeting() {
-  const d = new Date();
-  const day = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()];
-  const month = ['January','February','March','April','May','June','July','August','September','October','November','December'][d.getMonth()];
-  return { eyebrow: `${day} · ${month}` };
-}
 
 export default function HomeScreen({ onNavigate }) {
   const { settings } = useAppContext();
@@ -38,8 +32,6 @@ export default function HomeScreen({ onNavigate }) {
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
   const streakCount = settings?.streakCount ?? 0;
-  const { eyebrow } = getGreeting();
-
   const streakAtRisk = streakCount > 0
     && settings?.streakLastDate !== toDateStr()
     && new Date().getHours() >= 18;
@@ -77,8 +69,6 @@ export default function HomeScreen({ onNavigate }) {
 
       <header className={styles.greetingBar}>
         <div className={styles.greetingRow}>
-          <span className={styles.eyebrow}>{eyebrow}</span>
-          <span className={styles.eyebrowDot} />
           <StreakPill count={streakCount} />
         </div>
         <h1 className={styles.greetingTitle}>
@@ -216,12 +206,11 @@ function PickBackUpRow({ scenes, progress, onNavigate }) {
 
 function ThisWeeksTour({ scenes, onNavigate }) {
   const playlist = PLAYLISTS[0];
-  const first = scenes.find(s => s.id === playlist.sceneIds[0]);
   return (
     <section className={styles.tourSection}>
       <div className={styles.tourText}>
-        <h3 className={styles.tourTitle}>{playlist.label}</h3>
-        <p className={styles.tourDesc}>{playlist.desc} — {playlist.sceneIds.length} scenes through Hong Kong.</p>
+        <h3 className={styles.tourTitle}>This week's path</h3>
+        <p className={styles.tourDesc}>{playlist.sceneIds.length} scenes across Hong Kong</p>
       </div>
       <button className={styles.tourExploreBtn} onClick={() => onNavigate('scenes')}>
         Explore →
@@ -239,7 +228,7 @@ function PracticeGrid({ onNavigate }) {
   return (
     <div className={styles.practiceGrid}>
       {modes.map((m, i) => (
-        <button key={m.route} className={`${styles.practiceCell} ${i < 2 ? styles.practiceCellBorder : ''}`} onClick={() => onNavigate(m.route)}>
+        <button key={m.route} className={styles.practiceCell} onClick={() => onNavigate(m.route)}>
           <span className={styles.practiceCellLabel}>{m.label}</span>
           <span className={styles.practiceCellSub}>{m.sub}</span>
         </button>

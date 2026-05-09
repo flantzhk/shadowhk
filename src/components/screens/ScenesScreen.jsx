@@ -75,11 +75,6 @@ export default function ScenesScreen({ onNavigate }) {
             </span>
           )}
           <div className={size === 'grid' ? styles.tileGrad : styles.hGrad} />
-          <div className={size === 'grid' ? styles.tileBadge : styles.hBadge}>
-            <span className={size === 'grid' ? styles.tileBadgeText : styles.hBadgeText}>
-              {youLines}P{mins ? ` · ${mins}M` : ''}
-            </span>
-          </div>
           <p className={size === 'grid' ? styles.tileTitle : styles.hTitle}>
             {scene.title}
           </p>

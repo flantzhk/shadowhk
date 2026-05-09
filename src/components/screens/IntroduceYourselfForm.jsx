@@ -145,6 +145,29 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
       </div>
 
       <div className={styles.content}>
+        {/* Intro banner */}
+        <div className={styles.introBanner}>
+          <p className={styles.introEyebrow}>PERSONALISED FOR YOU</p>
+          <h2 className={styles.introTitle}>Build your personal Cantonese scene</h2>
+          <p className={styles.introBody}>
+            Tell us a little about yourself — your name, job, neighbourhood, family — and we'll create a custom shadowing scene built around <em>your</em> actual life in Hong Kong.
+          </p>
+          <div className={styles.introSteps}>
+            <div className={styles.introStep}>
+              <span className={styles.introStepNum}>1</span>
+              <span className={styles.introStepText}>Fill in as much or as little as you like</span>
+            </div>
+            <div className={styles.introStep}>
+              <span className={styles.introStepNum}>2</span>
+              <span className={styles.introStepText}>We generate phrases specific to your life</span>
+            </div>
+            <div className={styles.introStep}>
+              <span className={styles.introStepNum}>3</span>
+              <span className={styles.introStepText}>Shadow your own introduction — ready for real conversations</span>
+            </div>
+          </div>
+        </div>
+
         {existingPhrases.length > 0 ? (
           <>
             <button className={styles.shadowBtn} onClick={onComplete}>
