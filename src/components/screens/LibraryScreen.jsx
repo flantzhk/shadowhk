@@ -32,6 +32,8 @@ export default function LibraryScreen({ onNavigate }) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
+  const [expandedId, setExpandedId] = useState(null);
+  const [playingWord, setPlayingWord] = useState(null);
   // audioState: phraseId -> 'loading' | 'playing' | 'error'. Lets the play
   // button render an AudioStateIndicator that reflects what's actually
   // happening instead of just toggling between play/stop icons.
@@ -113,6 +115,38 @@ export default function LibraryScreen({ onNavigate }) {
       setPlayingId(null);
       flashError(phrase.id);
     }
+  }
+
+  async function playWord(e, text, key) {
+    e.stopPropagation();
+    if (playingWord === key) {
+      audioRef.current?.pause();
+      setPlayingWord(null);
+      return;
+    }
+    audioRef.current?.pause();
+    setPlayingWord(key);
+    try {
+      const blob = await textToSpeech(text, { language });
+      if (!blob || blob.size === 0) { setPlayingWord(null); return; }
+      const blobUrl = URL.createObjectURL(blob);
+      const audio = new Audio(blobUrl);
+      audioRef.current = audio;
+      audio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(blobUrl); };
+      audio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(blobUrl); };
+      audio.play().catch(() => setPlayingWord(null));
+    } catch (_) {
+      setPlayingWord(null);
+    }
+  }
+
+  function deriveBreakdown(phrase) {
+    if (phrase.words && phrase.words.length > 0) return phrase.words;
+    // Fall back: split CJK into characters, pair with romanization syllables
+    const chars = (phrase.cjk ?? '').split('').filter(c => /\p{Script=Han}/u.test(c));
+    const sylls = (phrase.romanization ?? '').split(/\s+/).filter(Boolean);
+    if (chars.length === 0) return [];
+    return chars.map((c, i) => ({ chinese: c, jyutping: sylls[i] ?? '', english: '' }));
   }
 
   async function reload() {
@@ -271,41 +305,82 @@ export default function LibraryScreen({ onNavigate }) {
             </button>
 
             <div className={styles.phraseList}>
-              {filtered.map(phrase => (
-                <div
-                  key={phrase.id}
-                  className={styles.phraseRow}
-                  onClick={() => onNavigate('phrase', phrase.id)}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <PhraseDot phrase={phrase} styles={styles} />
-                  <div className={styles.phraseText}>
-                    <p className={styles.phraseCjk}>{phrase.cjk}</p>
-                    <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                    <p className={styles.phraseEnglish}>{phrase.english}</p>
-                  </div>
-                  <div className={styles.phraseActions}>
-                    <button
-                      className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
-                      onClick={e => toggleLived(e, phrase)}
-                      aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
-                      title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
+              {filtered.map(phrase => {
+                const isExpanded = expandedId === phrase.id;
+                const breakdown = isExpanded ? deriveBreakdown(phrase) : [];
+                return (
+                  <div key={phrase.id} className={styles.phraseRowWrap}>
+                    <div
+                      className={styles.phraseRow}
+                      onClick={() => onNavigate('phrase', phrase.id)}
+                      role="button"
+                      tabIndex={0}
                     >
-                      📍
-                    </button>
-                    <button
-                      className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                      onClick={e => playInline(e, phrase)}
-                      aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
-                    >
-                      {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
-                        ? <AudioStateIndicator state={audioState[phrase.id]} />
-                        : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
-                    </button>
+                      <PhraseDot phrase={phrase} styles={styles} />
+                      <div className={styles.phraseText}>
+                        <p className={styles.phraseCjk}>{phrase.cjk}</p>
+                        <p className={styles.phraseRoman}>{phrase.romanization}</p>
+                        <p className={styles.phraseEnglish}>{phrase.english}</p>
+                      </div>
+                      <div className={styles.phraseActions}>
+                        <button
+                          className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
+                          onClick={e => toggleLived(e, phrase)}
+                          aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
+                          title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
+                        >
+                          📍
+                        </button>
+                        <button
+                          className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                          onClick={e => playInline(e, phrase)}
+                          aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
+                        >
+                          {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
+                            ? <AudioStateIndicator state={audioState[phrase.id]} />
+                            : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
+                        </button>
+                        <button
+                          className={`${styles.expandBtn} ${isExpanded ? styles.expandBtnActive : ''}`}
+                          onClick={e => { e.stopPropagation(); setExpandedId(isExpanded ? null : phrase.id); }}
+                          aria-label={isExpanded ? 'Hide breakdown' : 'Show breakdown'}
+                          aria-expanded={isExpanded}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    {isExpanded && breakdown.length > 0 && (
+                      <div className={styles.breakdown}>
+                        <span className={styles.breakdownLabel}>WORD BY WORD</span>
+                        <div className={styles.breakdownGrid}>
+                          {breakdown.map((w, i) => {
+                            const key = `${phrase.id}-${i}`;
+                            const isWordPlaying = playingWord === key;
+                            return (
+                              <button
+                                key={key}
+                                className={`${styles.wordTile} ${isWordPlaying ? styles.wordTileActive : ''}`}
+                                onClick={e => playWord(e, w.chinese, key)}
+                                aria-label={`Play ${w.chinese}`}
+                              >
+                                <span className={styles.wordCjk}>{w.chinese}</span>
+                                {w.jyutping && <span className={styles.wordRoman}>{w.jyutping}</span>}
+                                {w.english && <span className={styles.wordMeaning}>{w.english}</span>}
+                                <span className={styles.wordPlayBadge}>
+                                  {isWordPlaying ? <StopIcon /> : <PlayIcon />}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         );
