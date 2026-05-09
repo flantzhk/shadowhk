@@ -69,8 +69,8 @@
   font-size: 22px;
   line-height: 1;
   padding: 0;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +79,7 @@
 
 .topCount {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 500;
   color: rgba(237,231,223,0.5);
   letter-spacing: 0.04em;
@@ -285,12 +285,13 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(237,231,223,0.25);
-  padding: 4px 6px;
+  padding: 10px 8px;
+  min-height: 44px;
 }
 
 .eyeToggleOn { color: rgba(237,231,223,0.6); }
@@ -304,8 +305,8 @@
 }
 
 .skipBtn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(237,231,223,0.06);
   border: 1px solid rgba(237,231,223,0.12);
@@ -323,7 +324,7 @@
 
 .holdLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;

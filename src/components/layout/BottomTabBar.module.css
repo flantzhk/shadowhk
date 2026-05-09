@@ -4,7 +4,7 @@
   height: 68px;
   padding-bottom: env(safe-area-inset-bottom);
   flex-shrink: 0;
-  background: linear-gradient(180deg, transparent, var(--bg-0) 35%);
+  background: var(--bg-0);
   border-top: 1px solid var(--border-0);
 }
 
@@ -18,14 +18,26 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--fg-2);
+  color: var(--fg-3);
   transition: color var(--transition-fast);
   padding: 8px 0;
   min-height: 44px;
+  position: relative;
 }
 
 .tab.active {
   color: var(--fg-0);
+}
+
+.tab.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 0 0 2px 2px;
 }
 
 .iconWrap {
@@ -64,6 +76,10 @@
 .label {
   font-family: var(--font-ui);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.03em;
+}
+
+.tab.active .label {
+  font-weight: 700;
 }

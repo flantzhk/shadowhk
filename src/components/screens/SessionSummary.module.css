@@ -28,8 +28,13 @@
   color: rgba(237,231,223,0.5);
   font-size: 22px;
   cursor: pointer;
-  padding: 0;
+  padding: 8px;
   line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
@@ -39,7 +44,7 @@
 /* ─── Headline ─────────────────────── */
 .completeLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   color: rgba(237,231,223,0.5);
@@ -88,10 +93,11 @@
   border: 1px solid rgba(237,231,223,0.25);
   border-radius: 999px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: rgba(237,231,223,0.7);
-  padding: 8px 18px;
+  padding: 12px 20px;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -100,10 +106,11 @@
   border: none;
   border-radius: 999px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: #FAFAF7;
-  padding: 8px 18px;
+  padding: 12px 20px;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -122,7 +129,7 @@
 
 .overallLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: rgba(237,231,223,0.45);
   letter-spacing: 0.1em;
   display: block;
@@ -160,7 +167,7 @@
 
 .barLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: rgba(237,231,223,0.55);
   display: block;
   margin-bottom: 6px;
@@ -188,7 +195,7 @@
 
 .bestLineLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: rgba(237,231,223,0.45);
   display: block;
   margin-bottom: 6px;
@@ -223,7 +230,7 @@
 
 .phraseListLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: rgba(237,231,223,0.45);
   display: block;
   margin-bottom: 8px;
@@ -247,14 +254,14 @@
 .phraseText {
   flex: 1;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: rgba(237,231,223,0.8);
 }
 
 .phraseScore {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: rgba(237,231,223,0.6);
 }
 
@@ -273,26 +280,28 @@
 
 .practiceAgainBtn {
   flex: 1;
-  padding: 14px;
+  padding: 16px;
   border-radius: 14px;
   border: 1px solid rgba(237,231,223,0.25);
   background: transparent;
   color: #EDE7DF;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+  min-height: 52px;
 }
 
 .nextSceneBtn {
   flex: 1.4;
-  padding: 14px;
+  padding: 16px;
   border-radius: 14px;
   border: none;
   background: var(--accent);
   color: #FAFAF7;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  min-height: 52px;
 }

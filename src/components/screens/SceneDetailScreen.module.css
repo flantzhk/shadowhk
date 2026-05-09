@@ -21,7 +21,7 @@
 
 .culturalDividerLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -38,7 +38,7 @@
 
 .culturalEyebrow {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -212,7 +212,7 @@
 
 .heroEyebrow {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -233,7 +233,7 @@
 
 .heroDesc {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
@@ -266,7 +266,12 @@
   font-size: 22px;
   color: var(--fg-2);
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color var(--transition-fast);
   line-height: 1;
 }
@@ -361,7 +366,7 @@
 
 .masteryLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -450,9 +455,10 @@
   border-radius: var(--radius-pill);
   color: var(--fg-1);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  padding: 12px;
+  padding: 14px;
+  min-height: 52px;
   cursor: pointer;
   letter-spacing: -0.01em;
 }
@@ -464,9 +470,10 @@
   border-radius: var(--radius-pill);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  padding: 12px;
+  padding: 14px;
+  min-height: 52px;
   cursor: pointer;
   letter-spacing: -0.01em;
 }
