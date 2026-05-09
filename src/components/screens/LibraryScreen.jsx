@@ -6,6 +6,7 @@ import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { textToSpeech } from '../../services/api.js';
+import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
 const REFERENCE_SETS = [
   { id: 'numbers',  title: 'Numbers' },
@@ -31,7 +32,27 @@ export default function LibraryScreen({ onNavigate }) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
+  // audioState: phraseId -> 'loading' | 'playing' | 'error'. Lets the play
+  // button render an AudioStateIndicator that reflects what's actually
+  // happening instead of just toggling between play/stop icons.
+  const [audioState, setAudioState] = useState({});
   const audioRef = useRef(null);
+  const errorTimerRef = useRef(null);
+
+  function setPhraseAudioState(id, state) {
+    setAudioState(prev => {
+      const next = { ...prev };
+      if (state == null) delete next[id];
+      else next[id] = state;
+      return next;
+    });
+  }
+
+  function flashError(id) {
+    setPhraseAudioState(id, 'error');
+    clearTimeout(errorTimerRef.current);
+    errorTimerRef.current = setTimeout(() => setPhraseAudioState(id, null), 2000);
+  }
 
   useEffect(() => { reload(); }, [language]);
 
@@ -52,11 +73,13 @@ export default function LibraryScreen({ onNavigate }) {
       audioRef.current?.pause();
       audioRef.current = null;
       setPlayingId(null);
+      setPhraseAudioState(phrase.id, null);
       return;
     }
 
     audioRef.current?.pause();
     setPlayingId(phrase.id);
+    setPhraseAudioState(phrase.id, 'loading');
 
     try {
       const basePath = import.meta.env.BASE_URL || '/';
@@ -75,15 +98,20 @@ export default function LibraryScreen({ onNavigate }) {
         if (blob && blob.size > 0) blobUrl = URL.createObjectURL(blob);
       }
 
-      if (!blobUrl) { setPlayingId(null); return; }
+      if (!blobUrl) { setPlayingId(null); flashError(phrase.id); return; }
 
       const audio = new Audio(blobUrl);
       audioRef.current = audio;
-      audio.onended = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
-      audio.onerror = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
-      audio.play();
+      // Flip from 'loading' to 'playing' once the browser confirms it can
+      // start playback — this is when the indicator switches from spinner
+      // to waveform bars.
+      audio.oncanplay = () => setPhraseAudioState(phrase.id, 'playing');
+      audio.onended = () => { setPlayingId(null); setPhraseAudioState(phrase.id, null); URL.revokeObjectURL(blobUrl); };
+      audio.onerror = () => { setPlayingId(null); flashError(phrase.id); URL.revokeObjectURL(blobUrl); };
+      audio.play().catch(() => { setPlayingId(null); flashError(phrase.id); });
     } catch (_) {
       setPlayingId(null);
+      flashError(phrase.id);
     }
   }
 
@@ -271,7 +299,9 @@ export default function LibraryScreen({ onNavigate }) {
                       onClick={e => playInline(e, phrase)}
                       aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
                     >
-                      {playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
+                      {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
+                        ? <AudioStateIndicator state={audioState[phrase.id]} />
+                        : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
                     </button>
                   </div>
                 </div>

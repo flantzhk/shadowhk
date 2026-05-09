@@ -257,3 +257,10 @@
   60% { transform: scale(1.1); }
   100% { transform: scale(1); opacity: 1; }
 }
+
+@media (min-width: 768px) {
+  .screen {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}

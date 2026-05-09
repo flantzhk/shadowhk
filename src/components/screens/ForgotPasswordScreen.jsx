@@ -47,6 +47,14 @@ export default function ForgotPasswordScreen({ navigate }) {
         <div className={styles.spacerBtn} />
       </div>
 
+      <div className={styles.pageHeader}>
+        <span className={styles.pageEyebrow}>
+          <span className={styles.pageEyebrowDot} />
+          RESET PASSWORD
+        </span>
+        <h1 className={styles.pageTitle}>Forgot your password?</h1>
+      </div>
+
       {!sent ? (
         <>
           <div className={styles.illustrationWrap}>

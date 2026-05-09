@@ -1,0 +1,60 @@
+/* AudioStateIndicator — shared loading/playing/error glyph for audio triggers */
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Loading: rotating border circle, accent on the active quarter */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--accent-dark);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: aud-spin 0.8s linear infinite;
+}
+
+@keyframes aud-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Playing: 3 vertical bars animating like a waveform */
+.bars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+.bars span {
+  display: block;
+  width: 2px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: aud-bar 0.9s ease-in-out infinite;
+}
+
+.bars span:nth-child(1) { animation-delay: 0s; }
+.bars span:nth-child(2) { animation-delay: 0.15s; }
+.bars span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes aud-bar {
+  0%, 100% { height: 4px; }
+  50%      { height: 10px; }
+}
+
+/* Error: a muted accent warning glyph */
+.error {
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--accent);
+}

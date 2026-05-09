@@ -141,6 +141,13 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
       {/* Content */}
       <div className={styles.content}>
+        {/* Per-step page header (eyebrow shows step counter) */}
+        <div className={styles.pageHeader}>
+          <span className={styles.pageEyebrow}>
+            <span className={styles.pageEyebrowDot} />
+            STEP {step + 1} OF {TOTAL_STEPS}
+          </span>
+        </div>
         {/* Step 1 — Welcome (PDF Plate 10) */}
         {step === 0 && (
           <div className={styles.step1}>
@@ -149,7 +156,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
               <span className={styles.brandName}>ShadowHK</span>
             </div>
             <p className={styles.welcomeEyebrow}>ISSUE 01 · WELCOME</p>
-            <h1 className={styles.stepTitle}>
+            <h1 className={`${styles.stepTitle} ${styles.pageTitle}`}>
               Hong Kong speaks <em>in tones</em>.<br />
               Most people never hear them.
             </h1>
@@ -162,7 +169,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         {/* Step 2 — Level */}
         {step === 1 && (
           <div className={styles.step2}>
-            <h2 className={styles.stepHeading}>Where are you starting from?</h2>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>Where are you starting from?</h2>
             <div className={styles.levelCards}>
               {LEVELS.map(l => (
                 <button
@@ -184,7 +191,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         {/* Step 3 — Reasons */}
         {step === 2 && (
           <div className={styles.step3}>
-            <h2 className={styles.stepHeading}>What brought you here?</h2>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>What brought you here?</h2>
             <div className={styles.reasonGrid}>
               {REASONS.map(r => (
                 <button
@@ -203,7 +210,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         {/* Step 4 — Daily goal */}
         {step === 3 && (
           <div className={styles.step4}>
-            <h2 className={styles.stepHeading}>How much time per day?</h2>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>How much time per day?</h2>
             <div className={styles.goalChips}>
               {GOALS.map(g => (
                 <button
@@ -227,7 +234,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         {/* Step 5 — Reminder */}
         {step === 4 && (
           <div className={styles.step5}>
-            <h2 className={styles.stepHeading}>When should we nudge you?</h2>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>When should we nudge you?</h2>
             <p className={styles.reminderSub}>Pick a time that works every day.</p>
             <div className={styles.timePickerWrap}>
               <input

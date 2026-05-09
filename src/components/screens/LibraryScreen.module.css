@@ -448,3 +448,13 @@
 }
 
 .bottomPad { height: 32px; }
+
+@media (min-width: 768px) {
+  .screen { max-width: 960px; margin: 0 auto; }
+  .phraseList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 24px;
+  }
+  .phraseRow { border-bottom: 1px solid var(--border-0); }
+}

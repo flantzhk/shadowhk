@@ -3,6 +3,7 @@ import styles from './ReferenceScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
 import { textToSpeech } from '../../services/api.js';
+import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
 export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
   const { settings } = useAppContext();
@@ -13,9 +14,28 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
   const [loading, setLoading] = useState(true);
   const [expandedChapter, setExpandedChapter] = useState(null);
   const [playingId, setPlayingId] = useState(null);
+  // Per-phrase audio state ('loading' | 'playing' | 'error') so the play
+  // button can show a spinner / bars / warning glyph instead of just toggling.
+  const [audioState, setAudioState] = useState({});
   const [savedIds, setSavedIds] = useState(new Set());
   const [livedIds, setLivedIds] = useState(new Set());
   const audioRef = useRef(null);
+  const errorTimerRef = useRef(null);
+
+  function setPhraseAudioState(id, state) {
+    setAudioState(prev => {
+      const next = { ...prev };
+      if (state == null) delete next[id];
+      else next[id] = state;
+      return next;
+    });
+  }
+
+  function flashError(id) {
+    setPhraseAudioState(id, 'error');
+    clearTimeout(errorTimerRef.current);
+    errorTimerRef.current = setTimeout(() => setPhraseAudioState(id, null), 2000);
+  }
 
   useEffect(() => {
     if (!referenceId) return;
@@ -53,10 +73,12 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
       audioRef.current?.pause();
       audioRef.current = null;
       setPlayingId(null);
+      setPhraseAudioState(phrase.id, null);
       return;
     }
     audioRef.current?.pause();
     setPlayingId(phrase.id);
+    setPhraseAudioState(phrase.id, 'loading');
     try {
       const base = import.meta.env.BASE_URL || '/';
       let blobUrl = null;
@@ -71,13 +93,14 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
         const blob = await textToSpeech(phrase.chinese, { language });
         if (blob && blob.size > 0) blobUrl = URL.createObjectURL(blob);
       }
-      if (!blobUrl) { setPlayingId(null); return; }
+      if (!blobUrl) { setPlayingId(null); flashError(phrase.id); return; }
       const audio = new Audio(blobUrl);
       audioRef.current = audio;
-      audio.onended = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
-      audio.onerror = () => { setPlayingId(null); URL.revokeObjectURL(blobUrl); };
-      audio.play();
-    } catch (_) { setPlayingId(null); }
+      audio.oncanplay = () => setPhraseAudioState(phrase.id, 'playing');
+      audio.onended = () => { setPlayingId(null); setPhraseAudioState(phrase.id, null); URL.revokeObjectURL(blobUrl); };
+      audio.onerror = () => { setPlayingId(null); flashError(phrase.id); URL.revokeObjectURL(blobUrl); };
+      audio.play().catch(() => { setPlayingId(null); flashError(phrase.id); });
+    } catch (_) { setPlayingId(null); flashError(phrase.id); }
   }
 
   async function toggleSaved(phrase) {
@@ -175,7 +198,9 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
                   onClick={e => playInline(e, phrase)}
                   aria-label="Play"
                 >
-                  {playingId === phrase.id ? '■' : '▶'}
+                  {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
+                    ? <AudioStateIndicator state={audioState[phrase.id]} />
+                    : playingId === phrase.id ? '■' : '▶'}
                 </button>
                 <button
                   className={`${styles.saveBtn} ${savedIds.has(phrase.id) ? styles.saveBtnActive : ''}`}

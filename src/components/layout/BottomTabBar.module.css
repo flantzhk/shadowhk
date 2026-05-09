@@ -84,3 +84,31 @@
 .tab.active .label {
   font-weight: 700;
 }
+
+@media (min-width: 768px) {
+  .bar {
+    flex-direction: column;
+    width: 100px;
+    height: 100vh;
+    border-top: none;
+    border-right: 1px solid var(--border-0);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .tab {
+    flex: 0 0 auto;
+    padding: 14px 0;
+  }
+  .tab.active::before {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: auto;
+    width: 2px;
+    height: 50%;
+    border-radius: 0 2px 2px 0;
+  }
+}

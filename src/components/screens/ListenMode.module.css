@@ -432,3 +432,10 @@
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
 }
+
+@media (min-width: 768px) {
+  .screen {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}

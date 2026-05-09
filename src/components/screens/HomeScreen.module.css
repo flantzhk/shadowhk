@@ -98,8 +98,9 @@
 }
 
 .sectionSeeAll {
-  background: none;
-  border: none;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
@@ -107,8 +108,8 @@
   text-transform: uppercase;
   color: var(--accent);
   cursor: pointer;
-  padding: 8px 0;
-  min-height: 44px;
+  padding: 6px 10px;
+  min-height: 36px;
   display: flex;
   align-items: center;
 }
@@ -155,7 +156,7 @@
   top: 14px;
   left: 14px;
   padding: 4px 10px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.32);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 99px;
@@ -702,3 +703,8 @@
 }
 
 .bottomPad { height: 32px; }
+
+@media (min-width: 768px) {
+  .screen { max-width: 960px; margin-left: auto; margin-right: auto; }
+  .practiceGrid { grid-template-columns: repeat(4, 1fr); }
+}

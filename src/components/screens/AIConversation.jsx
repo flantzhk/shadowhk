@@ -12,6 +12,7 @@ import { saveLibraryEntry } from '../../services/storage';
 import { SRS_INITIAL_EASE, ROUTES } from '../../utils/constants';
 import { ScoreBadge } from '../cards/ScoreBadge';
 import { RecordButton } from '../shared/RecordButton';
+import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 import styles from './AIConversation.module.css';
 
 /**
@@ -21,7 +22,16 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
   const { settings } = useAppContext();
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
   const isOnline = useOnlineStatus();
-  const { isPro, isLoading: subLoading } = useSubscription();
+  const { isPro, isLoading: subLoadingRaw } = useSubscription();
+  // Subscription fetch can hang on flaky networks. Force-resolve after 5s and
+  // assume free tier so the gate UI never gets stuck on the spinner forever.
+  const [subTimedOut, setSubTimedOut] = useState(false);
+  useEffect(() => {
+    if (!subLoadingRaw) return;
+    const t = setTimeout(() => setSubTimedOut(true), 5000);
+    return () => clearTimeout(t);
+  }, [subLoadingRaw]);
+  const subLoading = subLoadingRaw && !subTimedOut;
   const [scenario, setScenario] = useState(null);
   const [messages, setMessages] = useState([]);
   const [phase, setPhase] = useState('select'); // select|chat|recording|review
@@ -35,6 +45,10 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
   // Tracks whether each scene's Unsplash background loaded ('loaded') or failed ('failed').
   // Used to swap to scenario.fallbackGradient if the image can't be fetched.
   const [imageLoadState, setImageLoadState] = useState({});
+  // 'idle' | 'loading' | 'playing' | 'error' — drives an AudioStateIndicator
+  // shown inside the most recent assistant bubble while we fetch and start
+  // playback of the AI's reply audio.
+  const [replyAudioState, setReplyAudioState] = useState('idle');
   const chatRef = useRef(null);
   const audioRef = useRef(null);
 
@@ -134,9 +148,10 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
   const playAudio = useCallback((blob) => {
     const url = URL.createObjectURL(blob);
     audioRef.current.src = url;
-    audioRef.current.play().catch(() => {});
-    audioRef.current.onended = () => URL.revokeObjectURL(url);
-    audioRef.current.onerror = () => URL.revokeObjectURL(url);
+    audioRef.current.oncanplay = () => setReplyAudioState('playing');
+    audioRef.current.play().catch(() => setReplyAudioState('idle'));
+    audioRef.current.onended = () => { setReplyAudioState('idle'); URL.revokeObjectURL(url); };
+    audioRef.current.onerror = () => { setReplyAudioState('idle'); URL.revokeObjectURL(url); };
   }, []);
 
   const handleSelectScenario = useCallback(async (s) => {
@@ -148,10 +163,12 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
       setMessages([{ role: 'assistant', ...reply }]);
       setIsThinking(false);
       // TTS is non-fatal — message already shown, audio failure shouldn't block UX
+      setReplyAudioState('loading');
       try {
         const blob = await generateResponseAudio(reply.chinese);
         if (blob) playAudio(blob);
-      } catch { /* audio unavailable — silently skip */ }
+        else setReplyAudioState('idle');
+      } catch { setReplyAudioState('idle'); /* audio unavailable — silently skip */ }
     } catch (err) {
       setIsThinking(false);
       setApiError(s); // store the scenario so the retry button can call this again
@@ -180,10 +197,12 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         const reply = await sendMessage(newMsgs, scenario);
         setMessages(prev => [...prev, { role: 'assistant', ...reply }]);
         setIsThinking(false);
+        setReplyAudioState('loading');
         try {
           const audioBlob = await generateResponseAudio(reply.chinese);
           if (audioBlob) playAudio(audioBlob);
-        } catch { /* TTS non-fatal */ }
+          else setReplyAudioState('idle');
+        } catch { setReplyAudioState('idle'); /* TTS non-fatal */ }
       } catch (err) {
         showToast?.('Something went wrong. Check your connection and try again.', 'error');
         setIsThinking(false);
@@ -220,10 +239,12 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
       const reply = await sendMessage(newMsgs, scenario);
       setMessages(prev => [...prev, { role: 'assistant', ...reply }]);
       setIsThinking(false);
+      setReplyAudioState('loading');
       try {
         const audioBlob = await generateResponseAudio(reply.chinese);
         if (audioBlob) playAudio(audioBlob);
-      } catch { /* TTS non-fatal */ }
+        else setReplyAudioState('idle');
+      } catch { setReplyAudioState('idle'); /* TTS non-fatal */ }
     } catch (err) {
       showToast?.('Something went wrong. Check your connection and try again.', 'error');
       setIsThinking(false);
@@ -382,16 +403,25 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
 
         {/* Message list */}
         <div className={styles.chatArea} ref={chatRef}>
-          {messages.map((msg, i) => (
-            <div
-              key={i}
-              className={`${styles.bubble} ${msg.role === 'user' ? styles.userBubble : styles.aiBubble}`}
-            >
-              {msg.romanization && <p className={styles.bubbleRoman}>{msg.romanization}</p>}
-              {msg.chinese && <p className={styles.bubbleChinese} lang="yue">{msg.chinese}</p>}
-              {msg.english && <p className={styles.bubbleEnglish}>{msg.english}</p>}
-            </div>
-          ))}
+          {messages.map((msg, i) => {
+            const isLastAssistant = msg.role === 'assistant' && i === messages.length - 1;
+            const showAudioState = isLastAssistant && replyAudioState !== 'idle';
+            return (
+              <div
+                key={i}
+                className={`${styles.bubble} ${msg.role === 'user' ? styles.userBubble : styles.aiBubble}`}
+              >
+                {msg.romanization && <p className={styles.bubbleRoman}>{msg.romanization}</p>}
+                {msg.chinese && <p className={styles.bubbleChinese} lang="yue">{msg.chinese}</p>}
+                {msg.english && <p className={styles.bubbleEnglish}>{msg.english}</p>}
+                {showAudioState && (
+                  <div style={{ marginTop: 6, display: 'flex', alignItems: 'center', gap: 6, opacity: 0.85 }}>
+                    <AudioStateIndicator state={replyAudioState} />
+                  </div>
+                )}
+              </div>
+            );
+          })}
           {isThinking && (
             <div className={styles.speakingState}>
               <div className={styles.speakingWaveform}>

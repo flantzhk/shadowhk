@@ -268,7 +268,7 @@
 
 .bubbleRoman { font-size: 0.875rem; font-weight: var(--font-weight-semibold); color: white; }
 .bubbleChinese { font-size: 0.8125rem; color: rgba(255,255,255,0.8); margin-top: 2px; }
-.bubbleEnglish { font-size: 0.6875rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.bubbleEnglish { font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
 
 /* Glassmorphism thinking bubble */
 .thinkingBubble {
@@ -323,7 +323,7 @@
   outline: none;
 }
 
-.chatTextInput::placeholder { color: rgba(255,255,255,0.45); }
+.chatTextInput::placeholder { color: rgba(255,255,255,0.65); }
 .chatTextInput:focus { border-color: rgba(0,229,160,0.6); }
 
 .chatSendBtn {

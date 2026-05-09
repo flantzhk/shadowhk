@@ -10,6 +10,26 @@
   text-align: center;
 }
 
+.pageHeader {
+  padding: 18px 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pageEyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.pageEyebrowDot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+.pageTitle {
+  font-family: var(--font-serif); font-size: 24px; font-weight: 600;
+  color: var(--fg-0); margin: 0; letter-spacing: -0.02em; line-height: 1.15;
+}
+
 /* Brand mark */
 .brandMark {
   width: 36px;
@@ -160,7 +180,7 @@
   transition: opacity 0.15s;
 }
 
-.resendBtn:disabled { opacity: 0.45; cursor: not-allowed; }
+.resendBtn:disabled { opacity: 0.55; cursor: not-allowed; }
 
 /* Switch + help */
 .switchBtn {

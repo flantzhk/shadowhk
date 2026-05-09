@@ -6,6 +6,7 @@ import { saveSession, getRecentScoredSessions } from '../../services/storage';
 import { updateStreak, getTodayString } from '../../services/streak';
 import { logEvent, isStreakMilestone, calculatePersonalPercentile } from '../../services/analytics';
 import { phCapture } from '../../services/posthog';
+import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 import styles from './ToneGym.module.css';
 
 const TOTAL_ROUNDS = 10;
@@ -27,16 +28,6 @@ const TONE_PAIRS = [
   { base: '九', tones: [{ char: '九', jyutping: 'gau2', tone: 2, desc: 'high rising', meaning: 'nine' }, { char: '夠', jyutping: 'gau3', tone: 3, desc: 'mid level', meaning: 'enough' }] },
 ];
 
-function playChar(char) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(char);
-    u.lang = 'zh-HK';
-    u.rate = 0.7;
-    window.speechSynthesis.speak(u);
-  }
-}
-
 /**
  * @param {{ onBack: Function, onComplete: (summary: Object) => void }} props
  */
@@ -50,6 +41,10 @@ export default function ToneGym({ onBack, onComplete }) {
   const [chosen, setChosen] = useState(null);
   const [toneResults, setToneResults] = useState([]);
   const [finishError, setFinishError] = useState(false);
+  // Tracks whether the SpeechSynthesis utterance is currently speaking, so we
+  // can render a "listening..." indicator below the character. Reset on end /
+  // error / cancel.
+  const [speaking, setSpeaking] = useState(false);
   const [sessionStart] = useState(Date.now());
   const [sessionPairs] = useState(() => {
     const shuffled = [...TONE_PAIRS].sort(() => Math.random() - 0.5);
@@ -61,6 +56,21 @@ export default function ToneGym({ onBack, onComplete }) {
       // Auto-setup the round data
     }
   }, [phase]);
+
+  // Wrap playChar so the UI knows when speech is in flight and can show a
+  // listening indicator. Uses utterance lifecycle events; falls back to a
+  // safety reset if the platform never fires `end`.
+  const speak = useCallback((char) => {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(char);
+    u.lang = 'zh-HK';
+    u.rate = 0.7;
+    u.onstart = () => setSpeaking(true);
+    u.onend = () => setSpeaking(false);
+    u.onerror = () => setSpeaking(false);
+    window.speechSynthesis.speak(u);
+  }, []);
 
   const setupRound = useCallback((r) => {
     const pair = sessionPairs[r % sessionPairs.length];
@@ -79,16 +89,15 @@ export default function ToneGym({ onBack, onComplete }) {
 
   const handleDoneLearn = useCallback(() => {
     setPhase('choose');
-    // Auto-play the target after a short delay
+    // Auto-play the target after a short delay. setupRound already chose
+    // currentPair + correctIndex when this round started, so we just play
+    // back what's already in state — no second re-roll.
     setTimeout(() => {
-      if (sessionPairs[round]) {
-        const pair = sessionPairs[round % sessionPairs.length];
-        const idx = Math.random() < 0.5 ? 0 : 1;
-        setCorrectIndex(idx);
-        playChar(pair.tones[idx].char);
+      if (currentPair) {
+        speak(currentPair.tones[correctIndex].char);
       }
     }, 500);
-  }, [round, sessionPairs]);
+  }, [currentPair, correctIndex, speak]);
 
   const handleChoice = useCallback((idx) => {
     const isRight = idx === correctIndex;
@@ -156,14 +165,14 @@ export default function ToneGym({ onBack, onComplete }) {
             Cantonese has 6 tones. The same syllable with a different tone means a completely different word.
           </p>
           <div className={styles.introExample}>
-            <button className={styles.introToneBtn} onClick={() => playChar('媽')}>
+            <button className={styles.introToneBtn} onClick={() => speak('媽')}>
               <span className={styles.introJyut}>maa1</span>
               <span className={styles.introMeaning}>mother</span>
               <span className={styles.introChar}>媽</span>
               <span className={styles.introToneLabel}>high flat ▶</span>
             </button>
             <span className={styles.introVs}>vs</span>
-            <button className={styles.introToneBtn} onClick={() => playChar('麻')}>
+            <button className={styles.introToneBtn} onClick={() => speak('麻')}>
               <span className={styles.introJyut}>maa4</span>
               <span className={styles.introMeaning}>numb</span>
               <span className={styles.introChar}>麻</span>
@@ -204,7 +213,7 @@ export default function ToneGym({ onBack, onComplete }) {
 
           <div className={styles.learnPair}>
             {currentPair.tones.map((t, i) => (
-              <button key={i} className={styles.learnCard} onClick={() => playChar(t.char)}>
+              <button key={i} className={styles.learnCard} onClick={() => speak(t.char)}>
                 <span className={styles.learnJyut}>{t.jyutping}</span>
                 <span className={styles.learnDesc}>{t.desc}</span>
                 <span className={styles.learnChar} lang="yue">{t.char}</span>
@@ -241,10 +250,18 @@ export default function ToneGym({ onBack, onComplete }) {
 
       <div className={styles.playArea}>
         <span className={styles.label}>Which character did you hear?</span>
-        <button className={styles.listenBtn} onClick={() => playChar(currentPair.tones[correctIndex].char)}>
+        <button className={styles.listenBtn} onClick={() => speak(currentPair.tones[correctIndex].char)}>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3" /></svg>
           Play again
         </button>
+        {speaking && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10, opacity: 0.85 }}>
+            <AudioStateIndicator state="playing" />
+            <span style={{ fontFamily: 'var(--font-ui)', fontSize: 12, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-2)' }}>
+              listening…
+            </span>
+          </div>
+        )}
       </div>
 
       <div className={styles.choiceRow}>
@@ -260,7 +277,7 @@ export default function ToneGym({ onBack, onComplete }) {
             <button key={i} className={`${styles.choiceBtn} ${variant}`}
               onClick={() => {
                 if (phase === 'choose') handleChoice(i);
-                else playChar(t.char); // In feedback, tap to replay
+                else speak(t.char); // In feedback, tap to replay
               }}
               disabled={false}>
               <span className={styles.choiceJyutping}>{t.jyutping}</span>

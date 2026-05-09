@@ -143,7 +143,9 @@
   font-size: 12px;
   font-weight: 600;
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
 }
 
 /* Errors */

@@ -46,6 +46,14 @@ export default function EmailVerification({ onVerified, onBack }) {
     <div className={styles.screen}>
       <div className={styles.brandMark}>影</div>
 
+      <div className={styles.pageHeader}>
+        <span className={styles.pageEyebrow}>
+          <span className={styles.pageEyebrowDot} />
+          VERIFY EMAIL
+        </span>
+        <h1 className={styles.pageTitle}>Check your inbox</h1>
+      </div>
+
       {/* Hero illustration */}
       <div className={styles.heroWrap}>
         <div className={styles.envelope + ' ' + styles.envelopeBack} />

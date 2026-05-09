@@ -92,6 +92,7 @@
 .tabActive {
   color: var(--fg-0);
   border-bottom-color: var(--accent);
+  font-weight: 700;
 }
 
 .tabContent {
@@ -556,7 +557,7 @@
 .pickerLabel { display: block; font-family: var(--font-ui); font-size: 14px; color: var(--fg-0); font-weight: 500; }
 .pickerDesc { display: block; font-family: var(--font-ui); font-size: 12px; color: var(--fg-2); margin-top: 2px; }
 
-.fieldLabel { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); display: block; margin-bottom: 6px; }
+.fieldLabel { font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); display: block; margin-bottom: 6px; }
 
 .nameInput {
   width: 100%;
@@ -582,4 +583,10 @@
   padding: 12px;
   outline: none;
   box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .screen { max-width: 960px; margin: 0 auto; }
+  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+  .heatmapSection { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 }

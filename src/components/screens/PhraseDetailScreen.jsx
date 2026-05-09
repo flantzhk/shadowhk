@@ -142,6 +142,14 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
         <GrowthBadge state={growthState} />
       </div>
 
+      <div className={styles.pageHeader}>
+        <span className={styles.pageEyebrow}>
+          <span className={styles.pageEyebrowDot} />
+          PHRASE
+        </span>
+        <h1 className={styles.pageTitle}>{phrase.english}</h1>
+      </div>
+
       <div className={styles.content}>
         {/* Main phrase */}
         <div className={styles.phraseHero}>

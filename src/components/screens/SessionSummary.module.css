@@ -44,7 +44,7 @@
 /* ─── Headline ─────────────────────── */
 .completeLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2em;
   color: rgba(237,231,223,0.5);
@@ -130,7 +130,7 @@
 .overallLabel {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: rgba(237,231,223,0.45);
+  color: rgba(237,231,223,0.7);
   letter-spacing: 0.1em;
   display: block;
 }
@@ -167,8 +167,8 @@
 
 .barLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: rgba(237,231,223,0.55);
+  font-size: 13px;
+  color: rgba(237,231,223,0.7);
   display: block;
   margin-bottom: 6px;
 }
@@ -230,8 +230,8 @@
 
 .phraseListLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: rgba(237,231,223,0.45);
+  font-size: 13px;
+  color: rgba(237,231,223,0.7);
   display: block;
   margin-bottom: 8px;
 }

@@ -282,3 +282,12 @@
 }
 
 .bottomPad { height: 40px; }
+
+@media (min-width: 768px) {
+  .screen { max-width: 960px; margin: 0 auto; }
+  .chapterScroll {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+}
