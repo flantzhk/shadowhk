@@ -292,9 +292,18 @@
   font-weight: 600;
 }
 
+@media (min-width: 768px) {
+  .screen {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 900px) {
   .screen {
     min-height: 100vh;
+    max-width: none;
+    margin: 0;
     align-items: center;
     justify-content: center;
     background: var(--bg-2);

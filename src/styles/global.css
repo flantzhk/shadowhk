@@ -35,13 +35,24 @@ body {
 }
 
 /* Tablet: show phone frame on mid-width screens */
-@media (min-width: 520px) and (max-width: 899px) {
+@media (min-width: 520px) and (max-width: 767px) {
   body {
     background: var(--color-bg-page);
   }
 
   #root {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* ≥768px: BottomTabBar becomes a 72px fixed left sidebar — expand root and offset content */
+@media (min-width: 768px) and (max-width: 899px) {
+  #root {
+    max-width: none;
+  }
+
+  .app-shell--mobile .app-main {
+    padding-left: 72px;
   }
 }
 

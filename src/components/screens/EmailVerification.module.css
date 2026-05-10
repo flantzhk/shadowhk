@@ -209,3 +209,10 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+@media (min-width: 768px) {
+  .screen {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}

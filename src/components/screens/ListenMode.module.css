@@ -438,4 +438,7 @@
     max-width: 428px;
     margin: 0 auto;
   }
+  .hero {
+    height: 360px;
+  }
 }

@@ -505,3 +505,10 @@
   padding: 10px;
   margin-top: 8px;
 }
+
+@media (min-width: 768px) {
+  .screen {
+    max-width: 428px;
+    margin: 0 auto;
+  }
+}

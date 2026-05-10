@@ -330,8 +330,8 @@
 .bottomPad { height: 32px; }
 
 @media (min-width: 768px) {
-  .grid { grid-template-columns: repeat(4, 1fr); max-width: 1080px; margin: 0 auto; }
-  .screen { padding-left: 24px; padding-right: 24px; }
+  .screen { max-width: 960px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  .grid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (min-width: 1024px) {
   .grid { grid-template-columns: repeat(5, 1fr); }

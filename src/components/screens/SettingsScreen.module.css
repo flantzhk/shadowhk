@@ -424,3 +424,10 @@
   text-align: center;
   padding: 12px 0 0;
 }
+
+@media (min-width: 768px) {
+  .screen {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
