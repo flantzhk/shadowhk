@@ -108,6 +108,15 @@ async function scorePronunciation(audioBlob, expectedText, language = 'cantonese
  * @param {boolean} [options.turbo=false]
  * @returns {Promise<Blob>} Audio blob
  */
+// User's chosen Cantonese voice; synced from settings by AppContext.
+// cantonese.ai rejects requests without an accessible voice, so this always
+// has a value (the voice used for the pre-recorded scene audio).
+let preferredVoiceId = 'f6786fa7-f21d-4e8c-b696-26bb67fcd2ca';
+
+function setPreferredVoice(voiceId) {
+  if (voiceId) preferredVoiceId = voiceId;
+}
+
 async function textToSpeech(text, options = {}) {
   const {
     language = 'cantonese',
@@ -125,9 +134,7 @@ async function textToSpeech(text, options = {}) {
     should_use_turbo_model: turbo,
   };
 
-  if (voiceId) {
-    body.voice_id = voiceId;
-  }
+  body.voice_id = voiceId || preferredVoiceId;
 
   const response = await fetchWithAuth(
     `${API_BASE_URL}${API_ENDPOINTS.TTS}`,
@@ -234,6 +241,7 @@ export {
   scorePronunciation,
   textToSpeech,
   englishTTS,
+  setPreferredVoice,
   speechToText,
   textToJyutping,
   fetchWithAuth,

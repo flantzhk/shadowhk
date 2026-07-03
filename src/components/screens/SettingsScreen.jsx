@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { getAllLanguages } from '../../services/languageManager';
 import { getCurrentUser, signOut, deleteAccount } from '../../services/auth';
-import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION } from '../../utils/constants';
+import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, CANTONESE_VOICES } from '../../utils/constants';
 import { fbDb, fbAuth } from '../../services/firebase';
 import { getSettings, getAllLibraryEntries } from '../../services/storage';
 import {
@@ -32,6 +32,7 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
   const [deleteError, setDeleteError] = useState('');
   const [exportLoading, setExportLoading] = useState(false);
   const [showSpeedPicker, setShowSpeedPicker] = useState(false);
+  const [showVoicePicker, setShowVoicePicker] = useState(false);
   const [showReminderPicker, setShowReminderPicker] = useState(false);
   const [reminderTime, setReminderTime] = useState(settings.reminderTime || '09:00');
   const [showDownloadModal, setShowDownloadModal] = useState(false);
@@ -215,6 +216,10 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
           <span className={styles.rowLabel}>Default speed</span>
           <span className={styles.rowValue}>{settings.defaultSpeed === 'slower' ? 'Slower' : 'Natural'} ›</span>
         </button>
+        <button className={styles.settingsRow} onClick={() => setShowVoicePicker(true)}>
+          <span className={styles.rowLabel}>Cantonese voice</span>
+          <span className={styles.rowValue}>{(CANTONESE_VOICES.find(v => v.id === settings.voiceId) ?? CANTONESE_VOICES[0]).label} ›</span>
+        </button>
         <button className={styles.settingsRow} onClick={() => setShowReminderPicker(true)}>
           <span className={styles.rowLabel}>Daily reminder time</span>
           <span className={styles.rowValue}>{settings.reminderTime ? settings.reminderTime : 'Off'} ›</span>
@@ -358,6 +363,25 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
               onClick={() => { updateSettings({ defaultSpeed: opt.id }); setShowSpeedPicker(false); }}
             >
               <span className={styles.pickerRadio}>{settings.defaultSpeed === opt.id ? '◉' : '○'}</span>
+              <div className={styles.pickerText}>
+                <span className={styles.pickerLabel}>{opt.label}</span>
+                <span className={styles.pickerDesc}>{opt.desc}</span>
+              </div>
+            </button>
+          ))}
+        </BottomSheet>
+      )}
+
+      {showVoicePicker && (
+        <BottomSheet title="Cantonese voice" onClose={() => setShowVoicePicker(false)}>
+          <p className={styles.pickerHint}>Scenes keep their original recordings. Tapped words, your own phrases, and anything generated live use this voice.</p>
+          {CANTONESE_VOICES.map(opt => (
+            <button
+              key={opt.id}
+              className={`${styles.pickerOption} ${(settings.voiceId ?? CANTONESE_VOICES[0].id) === opt.id ? styles.pickerSelected : ''}`}
+              onClick={() => { updateSettings({ voiceId: opt.id }); setShowVoicePicker(false); }}
+            >
+              <span className={styles.pickerRadio}>{(settings.voiceId ?? CANTONESE_VOICES[0].id) === opt.id ? '◉' : '○'}</span>
               <div className={styles.pickerText}>
                 <span className={styles.pickerLabel}>{opt.label}</span>
                 <span className={styles.pickerDesc}>{opt.desc}</span>

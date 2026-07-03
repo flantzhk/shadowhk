@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useReducer, useEffect, useCallback, useRef } from 'react';
 import { getSettings, saveSettings } from '../services/storage';
+import { setPreferredVoice } from '../services/api';
 import { DEFAULT_USER_SETTINGS } from '../utils/constants';
 import { logger } from '../utils/logger';
 
@@ -51,6 +52,11 @@ function AppProvider({ children }) {
   useEffect(() => {
     settingsRef.current = state.settings;
   }, [state.settings]);
+
+  // Keep the TTS service in sync with the chosen Cantonese voice
+  useEffect(() => {
+    setPreferredVoice(state.settings?.voiceId);
+  }, [state.settings?.voiceId]);
 
   useEffect(() => {
     async function loadSettings() {

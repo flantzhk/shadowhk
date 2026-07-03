@@ -110,6 +110,14 @@ export const STREAK_MILESTONES = [7, 14, 30, 60, 100];
 
 export const DAILY_GOAL_OPTIONS = [5, 10, 15, 20, 30];
 
+// Cantonese TTS voices (cantonese.ai voice ids). 'original' is the voice all
+// pre-recorded scene/reference audio was generated with.
+export const CANTONESE_VOICES = [
+  { id: 'f6786fa7-f21d-4e8c-b696-26bb67fcd2ca', label: 'Original', desc: 'The voice of the scene recordings.' },
+  { id: '50a9a698-1f99-437c-a07d-9cad435c5f8a', label: 'Female', desc: 'Hear tapped words and your own phrases in a female voice.' },
+  { id: 'f8b4470f-2321-4b59-a5b8-3877990b2881', label: 'Male', desc: 'Hear tapped words and your own phrases in a male voice.' },
+];
+
 export const DEFAULT_USER_SETTINGS = {
   name: '',
   email: '',
@@ -127,4 +135,5 @@ export const DEFAULT_USER_SETTINGS = {
   totalPracticeSeconds: 0,
   firstrunCompleted: false,
   themePreference: 'system',
+  voiceId: 'f6786fa7-f21d-4e8c-b696-26bb67fcd2ca',
 };
