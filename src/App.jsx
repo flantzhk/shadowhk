@@ -8,6 +8,7 @@ import { BottomTabBar } from './components/layout/BottomTabBar';
 import { Sidebar } from './components/layout/Sidebar';
 import { ROUTES } from './utils/constants';
 import { isAuthenticated, waitForAuth, updateLastActive, handleGoogleRedirectResult } from './services/auth';
+import { clearAllData } from './services/storage';
 import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify } from './services/posthog';
@@ -224,13 +225,26 @@ function MainLayout() {
       setAuthReady(true);
     }, 10000);
 
-    // Handle Google redirect result first — creates user doc for new Google sign-ups
-    // before onAuthStateChanged fires. Errors are non-fatal.
-    handleGoogleRedirectResult().catch(err => logger.warn('[App] Google redirect result error', err));
-
-    waitForAuth().then((user) => {
+    // Handle the OAuth redirect result (Google or Apple) BEFORE continuing —
+    // it creates the Firestore user doc for new sign-ups; running it in
+    // parallel raced against updateLastActive and left partial user docs.
+    handleGoogleRedirectResult()
+      .catch(err => logger.warn('[App] OAuth redirect result error', err))
+      .then(() => waitForAuth())
+      .then(async (user) => {
       clearTimeout(timeout);
       if (user) {
+        // Different account than last time on this device: wipe local data
+        // before pulling, otherwise the previous user's phrases would merge
+        // into (and sync up to) the new user's library.
+        const lastUid = localStorage.getItem('shadowhk_last_uid');
+        if (lastUid && lastUid !== user.uid) {
+          localStorage.setItem('shadowhk_last_uid', user.uid);
+          await clearAllData().catch(err => logger.warn('[App] account-switch wipe failed', err?.message));
+          window.location.reload();
+          return;
+        }
+        localStorage.setItem('shadowhk_last_uid', user.uid);
         const updates = {};
         const name = (user.displayName || '').split(' ')[0];
         if (name && name !== settings.name) updates.name = name;

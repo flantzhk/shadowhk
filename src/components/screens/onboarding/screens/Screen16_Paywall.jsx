@@ -76,7 +76,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
     // If not authenticated (email path without account creation), route to register first
     if (!isAuthenticated()) {
       localStorage.setItem('ss_pending_plan', selected);
-      window.location.hash = `#${ROUTES.REGISTER}?plan=${selected}`;
+      window.location.hash = `#${ROUTES.REGISTER}`;
       return;
     }
 
@@ -153,31 +153,6 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
       }}>
         Every scene. Every mode. Every conversation.
       </p>
-
-      {/* Featured review */}
-      <div style={{
-        background: '#C8392B',
-        borderRadius: 14,
-        padding: '16px 18px',
-        marginTop: 20,
-      }}>
-        <div style={{ fontSize: '0.875rem', color: '#1A2A18', letterSpacing: 1 }}>
-          {'★★★★★'}
-        </div>
-        <p style={{
-          fontSize: '0.875rem',
-          fontStyle: 'italic',
-          color: '#1A2A18',
-          margin: '8px 0 0',
-          lineHeight: 1.5,
-        }}>
-          "The AI coaching is unlike anything else out there. I've been studying for 3 years and
-          this is the first time I've known exactly what to fix."
-        </p>
-        <div style={{ fontSize: '0.75rem', color: '#3A6A1A', fontWeight: 600, marginTop: 8 }}>
-          David K. — Cantonese learner
-        </div>
-      </div>
 
       {/* Plan selector */}
       <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>

@@ -28,15 +28,17 @@ async function createUserDocument(uid, email, languageChoice = 'cantonese') {
   try {
     const docRef = fbDb.collection('users').doc(uid);
     const existing = await docRef.get();
-    if (existing.exists) return; // returning user — do not overwrite
+    // A merge-write elsewhere (e.g. last_active) can create the doc before we
+    // do — treat a doc without created_at as new and fill the core fields in.
+    if (existing.exists && existing.data()?.created_at) return; // returning user
 
     await docRef.set({
       uid,
       email: email || '',
       language_choice: languageChoice || 'cantonese',
       created_at: firebase.firestore.FieldValue.serverTimestamp(),
-      subscription_status: 'free',
-    });
+      subscription_status: existing.data()?.subscription_status || 'free',
+    }, { merge: true });
   } catch (dbErr) {
     logger.error('Failed to create user document', dbErr);
     // Non-fatal — auth still succeeded
@@ -119,11 +121,12 @@ async function handleGoogleRedirectResult() {
     const languageChoice = sessionStorage.getItem('pendingOAuthLang') || 'cantonese';
     sessionStorage.removeItem('pendingOAuthLang');
 
+    const method = result.additionalUserInfo?.providerId === 'apple.com' ? 'apple' : 'google';
     if (result.additionalUserInfo?.isNewUser) {
       await createUserDocument(result.user.uid, result.user.email || '', languageChoice);
-      phCapture('signup_succeeded', { method: 'google' });
+      phCapture('signup_succeeded', { method });
     } else {
-      phCapture('login_succeeded', { method: 'google' });
+      phCapture('login_succeeded', { method });
     }
     return { user: result.user, error: null };
   } catch (error) {
@@ -141,21 +144,19 @@ async function handleGoogleRedirectResult() {
  * @returns {Promise<{user: Object|null, error: string|null}>}
  */
 async function signInWithApple(languageChoice = 'cantonese') {
+  // Redirect, not popup: popups are blocked on mobile Safari and in installed
+  // PWAs — the exact environments where Apple sign-in matters most (this is
+  // the same failure Google sign-in had before it moved to redirect).
   const provider = new firebase.auth.OAuthProvider('apple.com');
   provider.addScope('email');
   provider.addScope('name');
+  sessionStorage.setItem('pendingOAuthLang', languageChoice);
   try {
-    const cred = await fbAuth.signInWithPopup(provider);
-    if (cred.additionalUserInfo?.isNewUser) {
-      await createUserDocument(cred.user.uid, cred.user.email || '', languageChoice);
-      phCapture('signup_succeeded', { method: 'apple' });
-    }
-    return { user: cred.user, error: null };
+    await fbAuth.signInWithRedirect(provider);
+    return { user: null, error: null }; // unreachable — browser navigates away
   } catch (error) {
-    logger.error('Apple sign-in failed', error);
-    if (error.code === 'auth/popup-closed-by-user') {
-      return { user: null, error: null };
-    }
+    sessionStorage.removeItem('pendingOAuthLang');
+    logger.error('Apple sign-in redirect failed', error);
     if (error.code === 'auth/operation-not-allowed') {
       return { user: null, error: 'Apple Sign In is not enabled yet. Please use email or Google.' };
     }
@@ -283,11 +284,21 @@ async function deleteAccount() {
   if (!user) return { success: false, error: 'Not signed in.' };
 
   try {
-    // 1. Delete Firestore user document (best-effort — don't abort if this fails)
+    // 1. Delete Firestore data (best-effort — don't abort if this fails).
+    // Firestore never cascade-deletes: the library subcollection must be
+    // removed explicitly or the user's phrases outlive their account.
     try {
+      const libSnap = await fbDb.collection('users').doc(user.uid).collection('library').get();
+      const refs = [];
+      libSnap.forEach((d) => refs.push(d.ref));
+      for (let i = 0; i < refs.length; i += 400) {
+        const batch = fbDb.batch();
+        refs.slice(i, i + 400).forEach((ref) => batch.delete(ref));
+        await batch.commit();
+      }
       await fbDb.collection('users').doc(user.uid).delete();
     } catch (dbErr) {
-      logger.error('Failed to delete Firestore user doc (non-fatal)', dbErr);
+      logger.error('Failed to delete Firestore user data (non-fatal)', dbErr);
     }
 
     // 2. Wipe all local IndexedDB data

@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { signUp, signInWithGoogle, signInWithApple } from '../../services/auth';
+import { createCheckoutSession } from '../../services/api';
 import { useAppContext } from '../../contexts/AppContext';
 import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
@@ -37,6 +38,14 @@ export default function RegisterScreen({ navigate }) {
     setLoading(false);
     if (authError) { setError(authError); return; }
     phCapture('signup_succeeded', { method: 'email' });
+    // Paywall parked a plan here before routing to register — resume checkout
+    const pendingPlan = localStorage.getItem('ss_pending_plan');
+    if (pendingPlan) {
+      try {
+        const { url } = await createCheckoutSession(pendingPlan);
+        if (url) { window.location.href = url; return; }
+      } catch (_) { /* fall through to home; plan stays parked */ }
+    }
     navigate(ROUTES.HOME);
   }, [name, email, password, agreed, hasLength, hasNumber, language, navigate]);
 
