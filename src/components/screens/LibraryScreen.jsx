@@ -9,6 +9,7 @@ import { textToSpeech } from '../../services/api.js';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
 const REFERENCE_SETS = [
+  { id: 'survival', title: 'Survival Words' },
   { id: 'numbers',  title: 'Numbers' },
   { id: 'colours',  title: 'Colours' },
   { id: 'calendar', title: 'Calendar' },

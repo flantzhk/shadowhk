@@ -1,0 +1,208 @@
+[
+  {
+    "id": "survival-words",
+    "category": "the-very-basics",
+    "name": "Survival Words",
+    "description": "One-word essentials: directions, stop, wait, careful. The words that work anywhere",
+    "phraseCount": 16,
+    "imageGradient": "linear-gradient(135deg, #1A2A18 0%, #3A6A1A 60%, #C5E85A 100%)",
+    "imageUrl": null,
+    "dialogueScenes": [],
+    "phrases": [
+      {
+        "id": "surv-001",
+        "romanization": "Zo²",
+        "jyutping": "zo2",
+        "chinese": "左",
+        "english": "Left",
+        "context": "Point and say it in a taxi or when giving directions",
+        "difficulty": 1,
+        "words": [{ "chinese": "左", "jyutping": "zo2", "english": "left" }]
+      },
+      {
+        "id": "surv-002",
+        "romanization": "Jau⁶",
+        "jyutping": "jau6",
+        "chinese": "右",
+        "english": "Right",
+        "context": "The other half of every taxi ride",
+        "difficulty": 1,
+        "words": [{ "chinese": "右", "jyutping": "jau6", "english": "right" }]
+      },
+      {
+        "id": "surv-003",
+        "romanization": "Zik⁶ haang⁴",
+        "jyutping": "zik6 haang4",
+        "chinese": "直行",
+        "english": "Straight ahead",
+        "context": "To a driver or anyone guiding you on foot",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "直", "jyutping": "zik6", "english": "straight" },
+          { "chinese": "行", "jyutping": "haang4", "english": "walk / go" }
+        ]
+      },
+      {
+        "id": "surv-004",
+        "romanization": "Soeng⁶ min⁶",
+        "jyutping": "soeng6 min6",
+        "chinese": "上面",
+        "english": "Up / on top",
+        "context": "Where is it? 上面 - up there",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "上", "jyutping": "soeng6", "english": "above / up" },
+          { "chinese": "面", "jyutping": "min6", "english": "side / surface" }
+        ]
+      },
+      {
+        "id": "surv-005",
+        "romanization": "Haa⁶ min⁶",
+        "jyutping": "haa6 min6",
+        "chinese": "下面",
+        "english": "Down / underneath",
+        "context": "The MTR is 下面 - down below",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "下", "jyutping": "haa6", "english": "below / down" },
+          { "chinese": "面", "jyutping": "min6", "english": "side / surface" }
+        ]
+      },
+      {
+        "id": "surv-006",
+        "romanization": "Ting⁴",
+        "jyutping": "ting4",
+        "chinese": "停",
+        "english": "Stop",
+        "context": "Universal stop. In a taxi, 呢度得喇 is the local way",
+        "difficulty": 1,
+        "words": [{ "chinese": "停", "jyutping": "ting4", "english": "stop" }]
+      },
+      {
+        "id": "surv-007",
+        "romanization": "Ni¹ dou⁶",
+        "jyutping": "ni1 dou6",
+        "chinese": "呢度",
+        "english": "Here",
+        "context": "Drop me here, put it here, I am here",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢", "jyutping": "ni1", "english": "this" },
+          { "chinese": "度", "jyutping": "dou6", "english": "place" }
+        ]
+      },
+      {
+        "id": "surv-008",
+        "romanization": "Go² dou⁶",
+        "jyutping": "go2 dou6",
+        "chinese": "嗰度",
+        "english": "There",
+        "context": "Point at it and say 嗰度",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "嗰", "jyutping": "go2", "english": "that" },
+          { "chinese": "度", "jyutping": "dou6", "english": "place" }
+        ]
+      },
+      {
+        "id": "surv-009",
+        "romanization": "Jap⁶",
+        "jyutping": "jap6",
+        "chinese": "入",
+        "english": "In / enter",
+        "context": "You'll see it on doors everywhere: 入口 is entrance",
+        "difficulty": 1,
+        "words": [{ "chinese": "入", "jyutping": "jap6", "english": "enter" }]
+      },
+      {
+        "id": "surv-010",
+        "romanization": "Ceot¹",
+        "jyutping": "ceot1",
+        "chinese": "出",
+        "english": "Out / exit",
+        "context": "出口 is exit. Every MTR sign uses it",
+        "difficulty": 1,
+        "words": [{ "chinese": "出", "jyutping": "ceot1", "english": "exit / out" }]
+      },
+      {
+        "id": "surv-011",
+        "romanization": "Dang² zan⁶",
+        "jyutping": "dang2 zan6",
+        "chinese": "等陣",
+        "english": "Wait a moment",
+        "context": "Buys you time in any conversation",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "等", "jyutping": "dang2", "english": "wait" },
+          { "chinese": "陣", "jyutping": "zan6", "english": "a while" }
+        ]
+      },
+      {
+        "id": "surv-012",
+        "romanization": "Faai³ di¹",
+        "jyutping": "faai3 di1",
+        "chinese": "快啲",
+        "english": "Faster / hurry",
+        "context": "To kids, to yourself, to anyone dawdling",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "快", "jyutping": "faai3", "english": "fast" },
+          { "chinese": "啲", "jyutping": "di1", "english": "a bit more" }
+        ]
+      },
+      {
+        "id": "surv-013",
+        "romanization": "Maan⁶ di¹",
+        "jyutping": "maan6 di1",
+        "chinese": "慢啲",
+        "english": "Slower",
+        "context": "Your best friend as a learner: 講慢啲 - speak slower",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "慢", "jyutping": "maan6", "english": "slow" },
+          { "chinese": "啲", "jyutping": "di1", "english": "a bit more" }
+        ]
+      },
+      {
+        "id": "surv-014",
+        "romanization": "Siu² sam¹",
+        "jyutping": "siu2 sam1",
+        "chinese": "小心",
+        "english": "Careful!",
+        "context": "Wet floor, closing doors, kids near the road",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "小", "jyutping": "siu2", "english": "small" },
+          { "chinese": "心", "jyutping": "sam1", "english": "heart / mind" }
+        ]
+      },
+      {
+        "id": "surv-015",
+        "romanization": "M⁴ hou²",
+        "jyutping": "m4 hou2",
+        "chinese": "唔好",
+        "english": "Don't!",
+        "context": "The all-purpose no: 唔好呀 - don't do that",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "唔", "jyutping": "m4", "english": "not" },
+          { "chinese": "好", "jyutping": "hou2", "english": "good" }
+        ]
+      },
+      {
+        "id": "surv-016",
+        "romanization": "Ni¹ dou⁶ dak¹ laa³",
+        "jyutping": "ni1 dou6 dak1 laa3",
+        "chinese": "呢度得喇",
+        "english": "Right here is fine",
+        "context": "How you actually stop a taxi at your destination",
+        "difficulty": 1,
+        "words": [
+          { "chinese": "呢度", "jyutping": "ni1 dou6", "english": "here" },
+          { "chinese": "得", "jyutping": "dak1", "english": "OK / fine" },
+          { "chinese": "喇", "jyutping": "laa3", "english": "(final particle)" }
+        ]
+      }
+    ]
+  }
+]

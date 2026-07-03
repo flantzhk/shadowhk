@@ -20,12 +20,23 @@ if (!apiKey && !dryRun) {
   process.exit(1);
 }
 
-const lines = readdirSync(SCENES_DIR)
+const sceneLines = readdirSync(SCENES_DIR)
   .filter((f) => f.endsWith('.json') && f !== 'index.json')
   .flatMap((f) => {
     const scene = JSON.parse(readFileSync(join(SCENES_DIR, f), 'utf8'));
     return (scene.lines || []).map((l) => ({ id: l.id, text: l.cjk, scene: f }));
   });
+
+// Reference sets / phrase banks: public/*.json, each an array of sets with phrases
+const refLines = readdirSync('public')
+  .filter((f) => f.endsWith('.json'))
+  .flatMap((f) => {
+    const data = JSON.parse(readFileSync(join('public', f), 'utf8'));
+    const sets = Array.isArray(data) ? data : [data];
+    return sets.flatMap((s) => (s.phrases || []).map((p) => ({ id: p.id, text: p.chinese, scene: f })));
+  });
+
+const lines = [...sceneLines, ...refLines];
 
 const todo = lines.filter((l) => force || !existsSync(join(OUT_DIR, `${l.id}.mp3`)));
 console.log(`${lines.length} scene lines, ${todo.length} to generate.`);
