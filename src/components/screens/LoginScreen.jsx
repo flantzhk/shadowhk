@@ -5,7 +5,7 @@ import { LoadingSpinner } from '../shared/LoadingSpinner';
 import { phCapture } from '../../services/posthog';
 import styles from './LoginScreen.module.css';
 
-const AMBIENT_URL = 'https://images.unsplash.com/photo-1536599424071-0b215a388ba7?auto=format&fit=crop&w=800&q=80';
+const AMBIENT_URL = '/shadowhk/images/scenes/auth-login.jpg';
 
 export default function LoginScreen({ navigate }) {
   const [email, setEmail] = useState('');

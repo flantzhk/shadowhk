@@ -7,7 +7,7 @@ import { LoadingSpinner } from '../shared/LoadingSpinner';
 import { phCapture } from '../../services/posthog';
 import styles from './RegisterScreen.module.css';
 
-const AMBIENT_URL = 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=800&q=80';
+const AMBIENT_URL = '/shadowhk/images/scenes/auth-register.jpg';
 
 export default function RegisterScreen({ navigate }) {
   const { settings } = useAppContext();

@@ -8,8 +8,8 @@ import { logger } from '../../utils/logger.js';
 import { SOURCE_TAGS, GROWTH_STATE, ROUTES } from '../../utils/constants.js';
 
 const TOTAL_STEPS = 6;
-const HARBOUR_URL = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80';
-const DIMSUM_URL = 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80';
+const HARBOUR_URL = '/shadowhk/images/scenes/firstrun-harbour.jpg';
+const DIMSUM_URL = '/shadowhk/images/scenes/firstrun-dimsum.jpg';
 
 const LEVELS = [
   { id: 'zero',       label: 'I know zero Cantonese',  sub: 'Start with the first 10 phrases' },
