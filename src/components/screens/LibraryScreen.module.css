@@ -410,6 +410,119 @@
   color: #fff;
 }
 
+/* Expand chevron + word breakdown */
+.phraseRowWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.expandBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: var(--fg-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.expandBtnActive {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(180deg);
+}
+
+.breakdown {
+  padding: 14px 20px 18px 56px;
+  background: rgba(0,0,0,0.02);
+  border-top: 1px solid var(--border-0);
+}
+
+.breakdownLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.wordTile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 10px 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  text-align: center;
+}
+
+.wordTile:active { transform: scale(0.97); }
+
+.wordTileActive {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+}
+
+.wordCjk {
+  font-family: var(--font-cjk);
+  font-size: 26px;
+  color: var(--fg-0);
+  line-height: 1.1;
+}
+
+.wordRoman {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.wordMeaning {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
+  line-height: 1.25;
+}
+
+.wordPlayBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-1);
+  margin-top: 4px;
+}
+
+.wordTileActive .wordPlayBadge {
+  background: var(--accent);
+  color: #fff;
+}
+
 /* Misc */
 .skeleton {
   height: 200px;
