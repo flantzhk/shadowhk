@@ -1,0 +1,65 @@
+{
+  "id": "getting-to-know-you",
+  "language": "cantonese",
+  "emoji": "💬",
+  "imageUrl": "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=800&h=800&q=80",
+  "tint": "#C5E85A",
+  "title": "Getting to Know You",
+  "description": "Keep the chat going: work, the Cantonese compliment, and swapping WhatsApps",
+  "category": "social",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "A social gathering, housewarming, or community event",
+  "context": "The conversation is flowing. Now come the second-round questions: what you do, and the moment every learner gets - the compliment on your Cantonese. Deflect it like a local and you've passed the real test.",
+  "cultural_note": "Any attempt at Cantonese earns you 你廣東話好叻喎 (\"your Cantonese is so good\"). The ritual is to deflect, never accept: 邊度係呀 (\"not at all\") is the local move. Taking the compliment at face value reads as odd. The deflection is not false modesty; it is an invitation to keep talking.",
+  "lines": [
+    {
+      "id": "gtk-01",
+      "speaker": "them",
+      "cjk": "你做乜嘢工作㗎？",
+      "jyutping": "nei5 zou6 mat1 je5 gung1 zok3 gaa3?",
+      "english": "What do you do for work?",
+      "audioFile": "gtk-01.mp3"
+    },
+    {
+      "id": "gtk-02",
+      "speaker": "you",
+      "cjk": "我係老師，喺國際學校教書。",
+      "jyutping": "ngo5 hai6 lou5 si1, hai2 gwok3 zai3 hok6 haau6 gaau3 syu1.",
+      "english": "I'm a teacher — I work at an international school.",
+      "audioFile": "gtk-02.mp3"
+    },
+    {
+      "id": "gtk-03",
+      "speaker": "them",
+      "cjk": "你廣東話好叻喎！學咗幾耐㗎？",
+      "jyutping": "nei5 gwong2 dung1 waa2 hou2 lek1 wo3! hok6 zo2 gei2 noi6 gaa3?",
+      "english": "Your Cantonese is great! How long have you been learning?",
+      "audioFile": "gtk-03.mp3"
+    },
+    {
+      "id": "gtk-04",
+      "speaker": "you",
+      "cjk": "邊度係呀！學咗半年咋，仲差好遠！",
+      "jyutping": "bin1 dou6 hai6 aa3! hok6 zo2 bun3 nin4 zaa3, zung6 caa1 hou2 jyun5!",
+      "english": "Not at all! I've only been learning six months. Still a long way to go!",
+      "audioFile": "gtk-04.mp3"
+    },
+    {
+      "id": "gtk-05",
+      "speaker": "them",
+      "cjk": "有冇WhatsApp？保持聯絡啦！",
+      "jyutping": "jau5 mou5 WhatsApp? bou2 ci4 lyun4 lok3 laa1!",
+      "english": "Got WhatsApp? Let's keep in touch!",
+      "audioFile": "gtk-05.mp3"
+    },
+    {
+      "id": "gtk-06",
+      "speaker": "you",
+      "cjk": "有呀！好高興識到你。",
+      "jyutping": "jau5 aa3! hou2 gou1 hing3 sik1 dou2 nei5.",
+      "english": "Of course! Really glad to have met you.",
+      "audioFile": "gtk-06.mp3"
+    }
+  ]
+}

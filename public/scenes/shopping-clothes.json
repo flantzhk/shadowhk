@@ -5,12 +5,12 @@
   "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&h=800&q=80",
   "tint": "#8F6AE8",
   "title": "Shopping for clothes",
-  "description": "Browse a local clothing shop — ask about sizes, try things on, and negotiate",
+  "description": "Find your size, try it on, and buy it: mall shopping, fixed prices",
   "category": "services",
   "difficulty": "everyday",
   "estimatedMinutes": 6,
   "location": "Clothing shop, Mong Kok Ladies' Market area",
-  "context": "HK has no shortage of clothes shops — from big mall chains to tiny street stalls in Mong Kok. In smaller shops, bargaining is expected: start below the asking price and expect to meet in the middle. Sizes are often labelled S/M/L or by waist/chest measurements.",
+  "context": "Mall shops and chain stores in Hong Kong have fixed prices, fitting rooms, and card payment. Sizes are labelled S/M/L or by chest and waist. No bargaining here; that belongs to the street markets.",
   "cultural_note": "The concept of 開市 (hoi1 si5, \"opening the market\") shapes morning trading at Hong Kong's street stalls and wet markets: the first sale of the day is considered auspicious, bringing luck for all business that follows. Vendors are more willing to negotiate in the first hour of trading. Arriving at Temple Street or Mong Kok's Ladies' Market when it opens and making a polite offer is considered entirely proper.",
   "lines": [
     {
@@ -19,31 +19,31 @@
       "cjk": "歡迎！想搵咩？",
       "jyutping": "fun1 jing4! soeng2 wan2 me1?",
       "english": "Welcome! What are you looking for?",
-      "audioFile": null
+      "audioFile": "shop-01.mp3"
     },
     {
       "id": "shop-02",
       "speaker": "you",
-      "cjk": "我想搵件T-shirt，深色㗎。",
-      "jyutping": "ngo5 soeng2 wan2 gin6 T-shirt, sam1 sik1 gaa3.",
+      "cjk": "我想搵件T-shirt，深色嘅。",
+      "jyutping": "ngo5 soeng2 wan2 gin6 T-shirt, sam1 sik1 ge3.",
       "english": "I'm looking for a T-shirt — something dark coloured.",
-      "audioFile": null
+      "audioFile": "shop-02.mp3"
     },
     {
       "id": "shop-03",
       "speaker": "staff",
-      "cjk": "呢邊有幾款，你睇下喜唔喜歡。",
-      "jyutping": "ni1 bin1 jau5 gei2 fun2, nei5 tai2 haa5 hei2 m4 hei2 fun1.",
-      "english": "We have a few styles over here — have a look and see what you like.",
-      "audioFile": null
+      "cjk": "呢邊有幾款，睇吓鍾唔鍾意。",
+      "jyutping": "ni1 bin1 jau5 gei2 fun2, tai2 haa5 zung1 m4 zung1 ji3.",
+      "english": "We have a few styles over here. See if you like any.",
+      "audioFile": "shop-03.mp3"
     },
     {
       "id": "shop-04",
       "speaker": "you",
-      "cjk": "呢件幾好睇。有冇細碼㗎？",
-      "jyutping": "ni1 gin6 gei2 hou2 tai2. jau5 mou5 sai3 maa3 gaa3?",
+      "cjk": "呢件幾好睇，有冇細碼呀？",
+      "jyutping": "ni1 gin6 gei2 hou2 tai2, jau5 mou5 sai3 maa5 aa3?",
       "english": "This one looks nice. Do you have it in a small?",
-      "audioFile": null
+      "audioFile": "shop-04.mp3"
     },
     {
       "id": "shop-05",
@@ -51,7 +51,7 @@
       "cjk": "有，等我攞俾你。",
       "jyutping": "jau5, dang2 ngo5 lo2 bei2 nei5.",
       "english": "Yes, let me get it for you.",
-      "audioFile": null
+      "audioFile": "shop-05.mp3"
     },
     {
       "id": "shop-06",
@@ -59,7 +59,7 @@
       "cjk": "可唔可以試吓？",
       "jyutping": "ho2 m4 ho2 ji5 si3 haa5?",
       "english": "Can I try it on?",
-      "audioFile": null
+      "audioFile": "shop-06.mp3"
     },
     {
       "id": "shop-07",
@@ -67,7 +67,7 @@
       "cjk": "試身室喺右手邊。",
       "jyutping": "si3 san1 sat1 hai2 jau6 sau2 bin1.",
       "english": "The fitting room is on your right.",
-      "audioFile": null
+      "audioFile": "shop-07.mp3"
     },
     {
       "id": "shop-08",
@@ -75,7 +75,7 @@
       "cjk": "幾錢呀？",
       "jyutping": "gei2 cin2 aa3?",
       "english": "How much is it?",
-      "audioFile": null
+      "audioFile": "shop-08.mp3"
     },
     {
       "id": "shop-09",
@@ -83,31 +83,15 @@
       "cjk": "二百八十蚊。",
       "jyutping": "ji6 baak3 baat3 sap6 man1.",
       "english": "Two hundred and eighty dollars.",
-      "audioFile": null
+      "audioFile": "shop-09.mp3"
     },
     {
       "id": "shop-10",
       "speaker": "you",
-      "cjk": "平啲得唔得？",
-      "jyutping": "peng4 di1 dak1 m4 dak1?",
-      "english": "Can you do it a bit cheaper?",
-      "audioFile": null
-    },
-    {
-      "id": "shop-11",
-      "speaker": "staff",
-      "cjk": "最平二百五十，係最低喇。",
-      "jyutping": "zeoi3 peng4 ji6 baak3 ng5 sap6, hai6 zeoi3 dai1 laa3.",
-      "english": "The lowest I can go is two hundred and fifty — that's the best price.",
-      "audioFile": null
-    },
-    {
-      "id": "shop-12",
-      "speaker": "you",
-      "cjk": "好，我要喇。唔該。",
-      "jyutping": "hou2, ngo5 jiu3 laa3. m4 goi1.",
-      "english": "Alright, I'll take it. Thank you.",
-      "audioFile": null
+      "cjk": "啱著，我要呢件喇。",
+      "jyutping": "ngaam1 zoek3, ngo5 jiu3 ni1 gin6 laa3.",
+      "english": "Fits well, I'll take this one.",
+      "audioFile": "shop-10.mp3"
     }
   ]
 }

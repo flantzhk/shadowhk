@@ -5,7 +5,7 @@
   "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&h=800&q=80",
   "tint": "#E8A030",
   "title": "Ordering at a HK bakery",
-  "description": "Buy a pineapple bun and wife cake at a traditional Hong Kong bakery",
+  "description": "Order buns fresh out of the oven and pay with Octopus",
   "category": "food",
   "difficulty": "starter",
   "estimatedMinutes": 4,
@@ -16,65 +16,65 @@
     {
       "id": "bakery-01",
       "speaker": "you",
-      "cjk": "唔該，要兩個菠蘿包。",
-      "jyutping": "m4 goi1, jiu3 loeng5 go3 bo1 lo4 baau1.",
-      "english": "Excuse me, I'd like two pineapple buns.",
+      "cjk": "唔該，菠蘿包仲有冇呀？",
+      "jyutping": "m4 goi1, bo1 lo4 baau1 zung6 jau5 mou5 aa3?",
+      "english": "Excuse me, do you still have pineapple buns?",
       "audioFile": "bakery-01.mp3"
     },
     {
       "id": "bakery-02",
       "speaker": "staff",
-      "cjk": "要唔要加牛油？",
-      "jyutping": "jiu3 m4 jiu3 gaa1 ngau4 jau4?",
-      "english": "Would you like butter added?",
+      "cjk": "有，啱啱出爐，嗰邊自己夾。",
+      "jyutping": "jau5, ngaam1 ngaam1 ceot1 lou4, go2 bin1 zi6 gei2 gaap3.",
+      "english": "Yes, just out of the oven. Help yourself over there.",
       "audioFile": "bakery-02.mp3"
     },
     {
       "id": "bakery-03",
       "speaker": "you",
-      "cjk": "要，加牛油。仲要兩件老婆餅。",
-      "jyutping": "jiu3, gaa1 ngau4 jau4. zung6 jiu3 loeng5 gin6 lou5 po4 beng2.",
-      "english": "Yes, with butter. And two wife cakes as well.",
+      "cjk": "好嘢。呢啲係咩包嚟㗎？",
+      "jyutping": "hou2 je5. ni1 di1 hai6 me1 baau1 lai4 gaa3?",
+      "english": "Great. What buns are these?",
       "audioFile": "bakery-03.mp3"
     },
     {
       "id": "bakery-04",
       "speaker": "staff",
-      "cjk": "老婆餅係剛出爐㗎，好香㗎。",
-      "jyutping": "lou5 po4 beng2 hai6 gong1 ceot1 lou4 ga3, hou2 hoeng1 ga3.",
-      "english": "The wife cakes just came out of the oven, they smell great.",
+      "cjk": "雞尾包，入面有椰絲，好香㗎。",
+      "jyutping": "gai1 mei5 baau1, jap6 min6 jau5 je4 si1, hou2 hoeng1 gaa3.",
+      "english": "Cocktail buns, coconut filling. Really fragrant.",
       "audioFile": "bakery-04.mp3"
     },
     {
       "id": "bakery-05",
       "speaker": "you",
-      "cjk": "好嘢！一共幾多錢？",
-      "jyutping": "hou2 je5! jat1 gung6 gei2 do1 cin2?",
-      "english": "Great! How much altogether?",
+      "cjk": "要兩個菠蘿包，一個雞尾包，唔該。",
+      "jyutping": "jiu3 loeng5 go3 bo1 lo4 baau1, jat1 go3 gai1 mei5 baau1, m4 goi1.",
+      "english": "Two pineapple buns and one cocktail bun please.",
       "audioFile": "bakery-05.mp3"
     },
     {
       "id": "bakery-06",
       "speaker": "staff",
-      "cjk": "三十八蚊。",
-      "jyutping": "saam1 sap6 baat3 man1.",
-      "english": "Thirty-eight dollars.",
+      "cjk": "一共十六蚊。",
+      "jyutping": "jat1 gung6 sap6 luk6 man1.",
+      "english": "Sixteen dollars altogether.",
       "audioFile": "bakery-06.mp3"
     },
     {
       "id": "bakery-07",
       "speaker": "you",
-      "cjk": "唔該，呢係四十蚊，唔使找。",
-      "jyutping": "m4 goi1, ni1 hai6 sei3 sap6 man1, m4 sai2 zaau2.",
-      "english": "Here's forty dollars, keep the change.",
+      "cjk": "八達通得唔得？",
+      "jyutping": "baat3 daat6 tung1 dak1 m4 dak1?",
+      "english": "Octopus OK?",
       "audioFile": "bakery-07.mp3"
     },
     {
       "id": "bakery-08",
       "speaker": "staff",
-      "cjk": "多謝！慢走。",
-      "jyutping": "do1 ze6! maan6 zau2.",
-      "english": "Thank you! Take care.",
+      "cjk": "得，嘟啦。多謝。",
+      "jyutping": "dak1, dyut1 laa1. do1 ze6.",
+      "english": "Yes, tap away. Thanks.",
       "audioFile": "bakery-08.mp3"
     }
   ]

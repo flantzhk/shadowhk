@@ -32,25 +32,25 @@
     {
       "id": "cny-03",
       "speaker": "you",
-      "cjk": "多謝！希望你今年身體健康，萬事如意。",
-      "jyutping": "do1 ze6! hei1 mong6 nei5 gam1 nin4 san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3.",
-      "english": "Thank you! I hope you have good health and all good things this year.",
+      "cjk": "多謝！祝你身體健康，萬事如意！",
+      "jyutping": "do1 ze6! zuk1 nei5 san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3!",
+      "english": "Thank you! Wishing you good health and all the best!",
       "audioFile": "cny-03.mp3"
     },
     {
       "id": "cny-04",
       "speaker": "elder",
-      "cjk": "嚟，利是逗你。",
-      "jyutping": "lei4, lai6 si6 dau3 nei5.",
+      "cjk": "嚟，呢封利是俾你。",
+      "jyutping": "lai4, ni1 fung1 lai6 si6 bei2 nei5.",
       "english": "Here, a red packet for you.",
       "audioFile": "cny-04.mp3"
     },
     {
       "id": "cny-05",
       "speaker": "you",
-      "cjk": "多謝晒！好意收下喇。",
-      "jyutping": "do1 ze6 saai3! hou2 ji3 sau1 haa5 laa3.",
-      "english": "Thank you so much! I gratefully accept.",
+      "cjk": "多謝晒！噉我唔客氣喇。",
+      "jyutping": "do1 ze6 saai3! gam2 ngo5 m4 haak3 hei3 laa3.",
+      "english": "Thank you so much! I won't be shy then.",
       "audioFile": "cny-05.mp3"
     },
     {
@@ -64,9 +64,9 @@
     {
       "id": "cny-07",
       "speaker": "you",
-      "cjk": "希望今年廣東話學得好啲，多嚟香港。",
-      "jyutping": "hei1 mong6 gam1 nin4 gwong2 dung1 waa2 hok6 dak1 hou2 di1, do1 lei4 hoeng1 gong2.",
-      "english": "I hope to improve my Cantonese this year, and visit Hong Kong more often.",
+      "cjk": "希望今年廣東話講得好啲，識多啲香港朋友。",
+      "jyutping": "hei1 mong6 gam1 nin4 gwong2 dung1 waa2 gong2 dak1 hou2 di1, sik1 do1 di1 hoeng1 gong2 pang4 jau5.",
+      "english": "I hope to speak better Cantonese this year and make more Hong Kong friends.",
       "audioFile": "cny-07.mp3"
     },
     {

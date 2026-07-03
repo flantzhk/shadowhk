@@ -17,9 +17,9 @@
       "id": "book-01",
       "speaker": "staff",
       "cjk": "喂，好運酒樓，你好。",
-      "jyutping": "wai3, hou2 wan6 zau2 lau4, nei5 hou2.",
+      "jyutping": "wai2, hou2 wan6 zau2 lau4, nei5 hou2.",
       "english": "Hello, Good Fortune Restaurant, how can I help you?",
-      "audioFile": null
+      "audioFile": "book-01.mp3"
     },
     {
       "id": "book-02",
@@ -27,7 +27,7 @@
       "cjk": "你好，我想訂枱，聽晚七點，三位。",
       "jyutping": "nei5 hou2, ngo5 soeng2 deng6 toi2, ting1 maan5 cat1 dim2, saam1 wai2.",
       "english": "Hi, I'd like to book a table — tomorrow evening at seven, three people.",
-      "audioFile": null
+      "audioFile": "book-02.mp3"
     },
     {
       "id": "book-03",
@@ -35,7 +35,7 @@
       "cjk": "好，請問大名？",
       "jyutping": "hou2, cing2 man6 daai6 ming4?",
       "english": "Sure, may I have your name?",
-      "audioFile": null
+      "audioFile": "book-03.mp3"
     },
     {
       "id": "book-04",
@@ -43,7 +43,7 @@
       "cjk": "我姓陳。",
       "jyutping": "ngo5 sing3 can4.",
       "english": "My surname is Chan.",
-      "audioFile": null
+      "audioFile": "book-04.mp3"
     },
     {
       "id": "book-05",
@@ -51,15 +51,15 @@
       "cjk": "陳生，聽晚七點，三位，幫你記低喇。有冇特別要求？",
       "jyutping": "can4 saang1, ting1 maan5 cat1 dim2, saam1 wai2, bong1 nei5 gei3 dai1 laa3. jau5 mou5 dak6 bit6 jiu1 kau4?",
       "english": "Mr Chan — tomorrow at seven, table for three, noted. Any special requests?",
-      "audioFile": null
+      "audioFile": "book-05.mp3"
     },
     {
       "id": "book-06",
       "speaker": "you",
-      "cjk": "有個細路仔，可唔可以要個BB椅？",
-      "jyutping": "jau5 go3 sai3 lou6 zai2, ho2 m4 ho2 ji5 jiu3 go3 BB ji2?",
-      "english": "We have a small child — could we get a high chair?",
-      "audioFile": null
+      "cjk": "有個細路仔，可唔可以整張BB凳？",
+      "jyutping": "jau5 go3 sai3 lou6 zai2, ho2 m4 ho2 ji5 zing2 zoeng1 bi4 bi1 dang3?",
+      "english": "We have a small child. Could we get a high chair?",
+      "audioFile": "book-06.mp3"
     },
     {
       "id": "book-07",
@@ -67,7 +67,7 @@
       "cjk": "冇問題，我哋幫你安排。",
       "jyutping": "mou5 man6 tai4, ngo5 dei6 bong1 nei5 on1 paai4.",
       "english": "No problem, we'll arrange that for you.",
-      "audioFile": null
+      "audioFile": "book-07.mp3"
     },
     {
       "id": "book-08",
@@ -75,7 +75,7 @@
       "cjk": "唔該晒！聽晚見。",
       "jyutping": "m4 goi1 saai3! ting1 maan5 gin3.",
       "english": "Thank you so much! See you tomorrow evening.",
-      "audioFile": null
+      "audioFile": "book-08.mp3"
     }
   ]
 }

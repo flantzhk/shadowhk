@@ -16,9 +16,9 @@
     {
       "id": "minibus-01",
       "speaker": "you",
-      "cjk": "唔該，去旺角有位坐冇？",
-      "jyutping": "m4 goi1, heoi3 wong6 gok3 jau5 wai2 co5 mou5?",
-      "english": "Excuse me, is there a seat going to Mong Kok?",
+      "cjk": "唔該，呢架係咪去旺角㗎？",
+      "jyutping": "m4 goi1, ni1 gaa3 hai6 mai6 heoi3 wong6 gok3 gaa3?",
+      "english": "Excuse me, does this one go to Mong Kok?",
       "audioFile": "minibus-01.mp3"
     },
     {
@@ -40,9 +40,9 @@
     {
       "id": "minibus-04",
       "speaker": "driver",
-      "cjk": "得㗎，嗶個機喺度。",
-      "jyutping": "dak1 ga3, bit1 go3 gei1 hai2 dou6.",
-      "english": "Yes, tap the machine here.",
+      "cjk": "得㗎，嘟喺個機度啦。",
+      "jyutping": "dak1 gaa3, dyut1 hai2 go3 gei1 dou6 laa1.",
+      "english": "Yes, tap it on the machine here.",
       "audioFile": "minibus-04.mp3"
     },
     {
@@ -64,9 +64,9 @@
     {
       "id": "minibus-07",
       "speaker": "you",
-      "cjk": "多謝！",
-      "jyutping": "do1 ze6!",
-      "english": "Thank you!",
+      "cjk": "唔該！",
+      "jyutping": "m4 goi1!",
+      "english": "Thanks!",
       "audioFile": "minibus-07.mp3"
     }
   ]

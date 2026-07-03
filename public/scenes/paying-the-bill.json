@@ -19,7 +19,7 @@
       "cjk": "唔該，埋單！",
       "jyutping": "m4 goi1, maai4 daan1!",
       "english": "Excuse me, the bill please!",
-      "audioFile": null
+      "audioFile": "bill-01.mp3"
     },
     {
       "id": "bill-02",
@@ -27,55 +27,47 @@
       "cjk": "好，等一陣。",
       "jyutping": "hou2, dang2 jat1 zan6.",
       "english": "Sure, just a moment.",
-      "audioFile": null
+      "audioFile": "bill-02.mp3"
     },
     {
       "id": "bill-03",
       "speaker": "staff",
-      "cjk": "係二百四十蚊，唔該。",
-      "jyutping": "hai6 ji6 baak3 sei3 sap6 man1, m4 goi1.",
-      "english": "That's two hundred and forty dollars, thank you.",
-      "audioFile": null
+      "cjk": "一共二百四十蚊。",
+      "jyutping": "jat1 gung6 ji6 baak3 sei3 sap6 man1.",
+      "english": "That's two hundred and forty altogether.",
+      "audioFile": "bill-03.mp3"
     },
     {
       "id": "bill-04",
-      "speaker": "you",
-      "cjk": "可唔可以AA制？我哋四個人。",
-      "jyutping": "ho2 m4 ho2 ji5 AA zai3? ngo5 dei6 sei3 go3 jan4.",
-      "english": "Can we split it? There are four of us.",
-      "audioFile": null
+      "speaker": "friend",
+      "cjk": "AA啦，一人一百二。",
+      "jyutping": "AA laa1, jat1 jan4 jat1 baak3 ji6.",
+      "english": "Let's split it. A hundred and twenty each.",
+      "audioFile": "bill-04.mp3"
     },
     {
       "id": "bill-05",
-      "speaker": "staff",
-      "cjk": "當然可以。每人六十蚊。",
-      "jyutping": "dong1 jin4 ho2 ji5. mui5 jan4 luk6 sap6 man1.",
-      "english": "Of course. That's sixty dollars each.",
-      "audioFile": null
+      "speaker": "you",
+      "cjk": "好呀。唔該，可唔可以碌卡？",
+      "jyutping": "hou2 aa3. m4 goi1, ho2 m4 ho2 ji5 luk1 kaat1?",
+      "english": "Sure. Excuse me, can I pay by card?",
+      "audioFile": "bill-05.mp3"
     },
     {
       "id": "bill-06",
-      "speaker": "you",
-      "cjk": "可唔可以刷卡？",
-      "jyutping": "ho2 m4 ho2 ji5 caat3 kaat1?",
-      "english": "Can I pay by card?",
-      "audioFile": null
-    },
-    {
-      "id": "bill-07",
       "speaker": "staff",
       "cjk": "可以，VISA同Mastercard都得。",
       "jyutping": "ho2 ji5, VISA tung4 Mastercard dou1 dak1.",
-      "english": "Yes, we accept VISA and Mastercard.",
-      "audioFile": null
+      "english": "Yes, VISA and Mastercard both fine.",
+      "audioFile": "bill-06.mp3"
     },
     {
-      "id": "bill-08",
+      "id": "bill-07",
       "speaker": "you",
       "cjk": "好，唔該晒。",
       "jyutping": "hou2, m4 goi1 saai3.",
-      "english": "Great, thank you very much.",
-      "audioFile": null
+      "english": "Great, thank you.",
+      "audioFile": "bill-07.mp3"
     }
   ]
 }

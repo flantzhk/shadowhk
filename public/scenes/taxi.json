@@ -40,33 +40,33 @@
     {
       "id": "taxi-04",
       "speaker": "driver",
-      "cjk": "好，行隧道定行地面？",
-      "jyutping": "hou2, haang4 seoi6 dou6 ding6 haang4 dei6 min6?",
-      "english": "OK, through the tunnel or on surface roads?",
+      "cjk": "好，行紅隧定係西隧？",
+      "jyutping": "hou2, haang4 hung4 seoi6 ding6 hai6 sai1 seoi6?",
+      "english": "OK. Cross Harbour Tunnel or Western Harbour Tunnel?",
       "audioFile": "taxi-04.mp3"
     },
     {
       "id": "taxi-05",
       "speaker": "you",
-      "cjk": "行地面啦，唔趕時間。",
-      "jyutping": "haang4 dei6 min6 laa1, m4 gon2 si4 gaan3.",
-      "english": "Surface roads please, I'm not in a rush.",
+      "cjk": "紅隧啦，唔該。",
+      "jyutping": "hung4 seoi6 laa1, m4 goi1.",
+      "english": "Cross Harbour Tunnel please.",
       "audioFile": "taxi-05.mp3"
     },
     {
       "id": "taxi-06",
       "speaker": "driver",
-      "cjk": "好，到㗎喇，係三十五蚊。",
-      "jyutping": "hou2, dou3 ga3 laa3, hai6 saam1 sap6 ng5 man1.",
-      "english": "Here we are, thirty-five dollars.",
+      "cjk": "好，到㗎喇，一百一十蚊。",
+      "jyutping": "hou2, dou3 gaa3 laa3, jat1 baak3 jat1 sap6 man1.",
+      "english": "Here we are, one hundred and ten dollars.",
       "audioFile": "taxi-06.mp3"
     },
     {
       "id": "taxi-07",
       "speaker": "you",
-      "cjk": "唔該，呢係四十蚊，唔使找。",
-      "jyutping": "m4 goi1, ni1 hai6 sei3 sap6 man1, m4 sai2 zaau2.",
-      "english": "Here's forty dollars, keep the change.",
+      "cjk": "呢度一百二十蚊，唔使找喇。",
+      "jyutping": "ni1 dou6 jat1 baak3 ji6 sap6 man1, m4 sai2 zaau2 laa3.",
+      "english": "Here's one hundred and twenty, keep the change.",
       "audioFile": "taxi-07.mp3"
     },
     {

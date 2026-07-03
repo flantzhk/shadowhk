@@ -40,25 +40,25 @@
     {
       "id": "lift-04",
       "speaker": "you",
-      "cjk": "仲未，等陣去飲茶。天氣好好喎，今日。",
-      "jyutping": "zung6 mei6, dang2 zan6 heoi3 jam2 caa4. tin1 hei3 hou2 hou2 wo3, gam1 jat6.",
-      "english": "Not yet, I'm going for yum cha shortly. Nice weather today.",
+      "cjk": "仲未，等陣去飲茶。今日天氣好好喎。",
+      "jyutping": "zung6 mei6, dang2 zan6 heoi3 jam2 caa4. gam1 jat6 tin1 hei3 hou2 hou2 wo3.",
+      "english": "Not yet, I'm going for yum cha shortly. Lovely weather today.",
       "audioFile": "lift-04.mp3"
     },
     {
       "id": "lift-05",
       "speaker": "neighbour",
-      "cjk": "係呀，出去行吓囉。呢層？",
-      "jyutping": "hai6 aa3, ceot1 heoi3 haang4 haa5 lo3. ni1 cang4?",
-      "english": "Yes, good day for a walk. This floor?",
+      "cjk": "係呀，出去行吓幾好。哦，到你喇。",
+      "jyutping": "hai6 aa3, ceot1 heoi3 haang4 haa5 gei2 hou2. o4, dou3 nei5 laa3.",
+      "english": "Yes, a good day for a walk. Oh, this is your floor.",
       "audioFile": "lift-05.mp3"
     },
     {
       "id": "lift-06",
       "speaker": "you",
-      "cjk": "係，多謝。拜拜！",
-      "jyutping": "hai6, do1 ze6. baai1 baai3!",
-      "english": "Yes, thank you. Bye bye!",
+      "cjk": "係呀，我走先喇，拜拜！",
+      "jyutping": "hai6 aa3, ngo5 zau2 sin1 laa3, baai1 baai3!",
+      "english": "Yes, I'm off. Bye bye!",
       "audioFile": "lift-06.mp3"
     }
   ]

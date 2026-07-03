@@ -56,25 +56,25 @@
     {
       "id": "bldg-06",
       "speaker": "manager",
-      "cjk": "明白，我幫你記低，今日下午安排人去換燈。",
-      "jyutping": "ming4 baak6, ngo5 bong1 nei5 gei3 dai1, gam1 jat6 haa6 zau3 on1 paai4 jan4 heoi3 wun6 dang1.",
-      "english": "Understood, I'll make a note. We'll arrange for someone to replace the bulb this afternoon.",
+      "cjk": "明白，我幫你記低，即刻叫人去睇。",
+      "jyutping": "ming4 baak6, ngo5 bong1 nei5 gei3 dai1, zik1 hak1 giu3 jan4 heoi3 tai2.",
+      "english": "Got it, I'll make a note and send someone to take a look right away.",
       "audioFile": "bldg-06.mp3"
     },
     {
       "id": "bldg-07",
       "speaker": "you",
-      "cjk": "好，唔該晒。有咩需要簽名冇？",
-      "jyutping": "hou2, m4 goi1 saai3. jau5 me1 seoi1 jiu3 cim1 meng2 mou5?",
-      "english": "Great, thank you. Do I need to sign anything?",
+      "cjk": "好，唔該晒。大概幾時整好呀？",
+      "jyutping": "hou2, m4 goi1 saai3. daai6 koi3 gei2 si4 zing2 hou2 aa3?",
+      "english": "Great, thank you. Roughly when will it be fixed?",
       "audioFile": "bldg-07.mp3"
     },
     {
       "id": "bldg-08",
       "speaker": "manager",
-      "cjk": "唔使，我幫你填㗎喇。",
-      "jyutping": "m4 sai2, ngo5 bong1 nei5 tin4 ga3 laa3.",
-      "english": "No need, I'll fill it in for you.",
+      "cjk": "今日下午應該得。",
+      "jyutping": "gam1 jat6 haa6 zau3 jing1 goi1 dak1.",
+      "english": "Should be done this afternoon.",
       "audioFile": "bldg-08.mp3"
     }
   ]

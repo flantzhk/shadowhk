@@ -10,12 +10,12 @@
   "difficulty": "everyday",
   "estimatedMinutes": 5,
   "location": "Victoria Park, Causeway Bay",
-  "context": "Mid-Autumn Festival (中秋節) falls on the 15th day of the eighth lunar month. Hong Kong families gather in parks with lanterns, mooncakes, and candles. Victoria Park in Causeway Bay hosts the biggest public celebration. The atmosphere is festive and relaxed.",
+  "context": "Mid-Autumn Festival (中秋節) falls on the 15th day of the eighth lunar month. Hong Kong families gather in parks with lanterns, mooncakes, and candles. Victoria Park in Causeway Bay hosts the biggest public celebration. The atmosphere is festive and relaxed. You've bumped into your neighbour's family at the park gathering.",
   "cultural_note": "Every year since the 1880s, the Tai Hang neighbourhood (大坑) has performed the Fire Dragon Dance for three nights of the Mid-Autumn Festival, a 67-metre dragon skeleton packed with 72,000 lit incense sticks, carried by hundreds of volunteers through narrow streets. The ritual began to ward off plague. It has never stopped, and was inscribed on Hong Kong's Intangible Cultural Heritage list in 2011.",
   "lines": [
     {
       "id": "midaut-01",
-      "speaker": "local",
+      "speaker": "neighbour",
       "cjk": "中秋節快樂！你嘅燈籠好靚㗎。",
       "jyutping": "zung1 cau1 zit3 faai3 lok6! nei5 ge3 dang1 lung4 hou2 leng3 ga3.",
       "english": "Happy Mid-Autumn Festival! Your lantern is beautiful.",
@@ -31,7 +31,7 @@
     },
     {
       "id": "midaut-03",
-      "speaker": "local",
+      "speaker": "neighbour",
       "cjk": "係囉，自己整有心機㗎！食咗月餅未？",
       "jyutping": "hai6 lo3, zi6 gei2 zing2 jau5 sam1 gei1 ga3! sik6 zo2 jyut6 beng2 mei6?",
       "english": "It's the effort that counts! Have you eaten mooncake yet?",
@@ -47,10 +47,10 @@
     },
     {
       "id": "midaut-05",
-      "speaker": "local",
-      "cjk": "有㗎，嚟，食塊蓮蓉蛋黃㗎。",
-      "jyutping": "jau5 ga3, lei4, sik6 faai3 lin4 jung4 daan6 wong2 ga3.",
-      "english": "Yes, here — have a slice of lotus paste with egg yolk.",
+      "speaker": "neighbour",
+      "cjk": "有㗎，嚟，食件蓮蓉蛋黃月餅啦。",
+      "jyutping": "jau5 gaa3, lai4, sik6 gin6 lin4 jung4 daan6 wong2 jyut6 beng2 laa1.",
+      "english": "Yes, here. Have a piece of lotus paste and egg yolk mooncake.",
       "audioFile": "midaut-05.mp3"
     },
     {
@@ -63,10 +63,10 @@
     },
     {
       "id": "midaut-07",
-      "speaker": "local",
-      "cjk": "係囉，每年都嚟維園。呢個係我囡囡，佢最鍾意提燈籠。",
-      "jyutping": "hai6 lo3, mui5 nin4 dou1 lei4 wai4 jyun4. ni1 go3 hai6 ngo5 neoi2 neoi2, keoi5 zeoi3 zung1 ji3 tai4 dang1 lung4.",
-      "english": "Yes, we come to Victoria Park every year. This is my daughter — she loves carrying lanterns.",
+      "speaker": "neighbour",
+      "cjk": "係囉，每年都嚟維園。呢個係我個女，佢最鍾意提燈籠。",
+      "jyutping": "hai6 lo3, mui5 nin4 dou1 lei4 wai4 jyun4. ni1 go3 hai6 ngo5 go3 neoi2, keoi5 zeoi3 zung1 ji3 tai4 dang1 lung4.",
+      "english": "Yes, we come to Victoria Park every year. This is my daughter. She loves carrying lanterns.",
       "audioFile": "midaut-07.mp3"
     },
     {

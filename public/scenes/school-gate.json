@@ -16,8 +16,8 @@
     {
       "id": "school-01",
       "speaker": "parent",
-      "cjk": "你個仔係幾年級㗎？",
-      "jyutping": "nei5 go3 zai2 hai6 gei2 nin4 kap1 ga3?",
+      "cjk": "你個仔讀幾年班㗎？",
+      "jyutping": "nei5 go3 zai2 duk6 gei2 nin4 baan1 gaa3?",
       "english": "What year is your son in?",
       "audioFile": "school-01.mp3"
     },
@@ -48,9 +48,9 @@
     {
       "id": "school-05",
       "speaker": "parent",
-      "cjk": "佢叫嘉嘉。你個仔叫？",
-      "jyutping": "keoi5 giu3 gaa1 gaa1. nei5 go3 zai2 giu3?",
-      "english": "She's called Ka Ka. And your son?",
+      "cjk": "佢叫嘉嘉。你個仔叫咩名呀？",
+      "jyutping": "keoi5 giu3 gaa1 gaa1. nei5 go3 zai2 giu3 me1 meng2 aa3?",
+      "english": "She's called Ka Ka. What's your son's name?",
       "audioFile": "school-05.mp3"
     },
     {
@@ -64,9 +64,9 @@
     {
       "id": "school-07",
       "speaker": "parent",
-      "cjk": "佢去學鋼琴，又去補習。好忙㗎，小朋友。",
-      "jyutping": "keoi5 heoi3 hok6 gong3 kam4, jau6 heoi3 bou2 zaap6. hou2 mong4 ga3, siu2 pang4 jau5.",
-      "english": "She does piano, and also tutoring. Kids are so busy these days.",
+      "cjk": "佢學鋼琴，又要補習。而家啲小朋友真係好忙㗎。",
+      "jyutping": "keoi5 hok6 gong3 kam4, jau6 jiu3 bou2 zaap6. ji4 gaa1 di1 siu2 pang4 jau5 zan1 hai6 hou2 mong4 gaa3.",
+      "english": "She does piano, and tutoring too. Kids these days are so busy.",
       "audioFile": "school-07.mp3"
     },
     {

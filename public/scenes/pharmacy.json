@@ -16,9 +16,9 @@
     {
       "id": "pharm-01",
       "speaker": "you",
-      "cjk": "唔該，我喉嚨痛，有冇嘢食？",
-      "jyutping": "m4 goi1, ngo5 hau4 lung4 tung3, jau5 mou5 je5 sik6?",
-      "english": "Excuse me, I have a sore throat — is there something I can take?",
+      "cjk": "唔該，我喉嚨痛，有冇藥可以食？",
+      "jyutping": "m4 goi1, ngo5 hau4 lung4 tung3, jau5 mou5 joek6 ho2 ji5 sik6?",
+      "english": "Excuse me, I have a sore throat. Is there something I can take?",
       "audioFile": "pharm-01.mp3"
     },
     {
@@ -40,9 +40,9 @@
     {
       "id": "pharm-04",
       "speaker": "pharmacist",
-      "cjk": "噉我建議你買呢套傷風藥，日食兩粒，夜食兩粒。",
-      "jyutping": "gam2 ngo5 gin3 ji5 nei5 maai5 ni1 tou3 soeng1 fung1 joek6, jat6 sik6 loeng5 lap1, je6 sik6 loeng5 lap1.",
-      "english": "In that case I'd suggest this cold medicine — two tablets in the day, two at night.",
+      "cjk": "噉我建議你買呢隻傷風藥，朝早食兩粒，夜晚食兩粒。",
+      "jyutping": "gam2 ngo5 gin3 ji5 nei5 maai5 ni1 zek3 soeng1 fung1 joek6, ziu1 zou2 sik6 loeng5 nap1, je6 maan5 sik6 loeng5 nap1.",
+      "english": "In that case I'd suggest this cold medicine. Two tablets in the morning, two at night.",
       "audioFile": "pharm-04.mp3"
     },
     {
@@ -56,9 +56,9 @@
     {
       "id": "pharm-06",
       "speaker": "pharmacist",
-      "cjk": "有啲人食完會瞌睡，最好唔好開車。",
-      "jyutping": "jau5 di1 jan4 sik6 jyun4 wui5 hap1 seoi6, zeoi3 hou2 m4 hou2 hoi1 ce1.",
-      "english": "Some people feel drowsy after taking it — best not to drive.",
+      "cjk": "有啲人食完會眼瞓，最好唔好揸車。",
+      "jyutping": "jau5 di1 jan4 sik6 jyun4 wui5 ngaan5 fan3, zeoi3 hou2 m4 hou2 zaa1 ce1.",
+      "english": "Some people feel drowsy after taking it. Best not to drive.",
       "audioFile": "pharm-06.mp3"
     },
     {
