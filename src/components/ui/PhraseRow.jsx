@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import styles from './PhraseRow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
+import { staticWordAudio } from '../../services/staticAudio.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -45,9 +46,10 @@ export function PhraseRow({
     score >= 70 ? styles.scoreGood :
     styles.scoreFair;
 
-  async function playAudio(text, onDone) {
+  async function playAudio(text, onDone, isWord = false) {
     try {
-      const blob = await textToSpeech(text, { language, turbo: true });
+      const blob = (isWord ? await staticWordAudio(text) : null)
+        ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       if (audioRef.current) audioRef.current.pause();
       const audio = new Audio(url);
@@ -80,7 +82,7 @@ export function PhraseRow({
       return;
     }
     setPlayingWordIdx(idx);
-    playAudio(chars, () => setPlayingWordIdx(null));
+    playAudio(chars, () => setPlayingWordIdx(null), true);
   }
 
   async function fetchWordGroups() {

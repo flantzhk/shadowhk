@@ -9,7 +9,7 @@ import { join } from 'node:path';
 const API_URL = 'https://cantonese.ai/api/tts';
 const SCENES_DIR = 'public/scenes';
 const OUT_DIR = 'public/audio/cantonese';
-const DELAY_MS = 1200;
+const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 1200;
 
 const apiKey = process.env.CANTONESE_AI_KEY;
 const voiceId = process.env.CANTONESE_AI_VOICE; // optional: pass a specific voice_id

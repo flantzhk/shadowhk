@@ -6,6 +6,7 @@ import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { textToSpeech } from '../../services/api.js';
+import { staticWordAudio } from '../../services/staticAudio.js';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
 const REFERENCE_SETS = [
@@ -128,7 +129,7 @@ export default function LibraryScreen({ onNavigate }) {
     audioRef.current?.pause();
     setPlayingWord(key);
     try {
-      const blob = await textToSpeech(text, { language });
+      const blob = (await staticWordAudio(text)) ?? await textToSpeech(text, { language });
       if (!blob || blob.size === 0) { setPlayingWord(null); return; }
       const blobUrl = URL.createObjectURL(blob);
       const audio = new Audio(blobUrl);

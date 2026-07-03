@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef } from 'react';
 import { saveLibraryEntry, getLibraryEntry } from '../../services/storage';
 import { textToSpeech } from '../../services/api';
+import { staticWordAudio } from '../../services/staticAudio.js';
 import { getCachedAudio, cacheAudioBlob, padAudioBlob } from '../../services/audio';
 import { isAuthenticated } from '../../services/auth';
 import { useAudio } from '../../contexts/AudioContext';
@@ -183,7 +184,8 @@ export default function PhraseCard({ phrase, libraryEntry, language = 'cantonese
     e?.stopPropagation();
     if (isAuthenticated()) {
       try {
-        let blob = await textToSpeech(wordChinese, { language, speed: 1.0, outputExtension: 'mp3' });
+        let blob = await staticWordAudio(wordChinese);
+        if (!blob) blob = await textToSpeech(wordChinese, { language, speed: 1.0, outputExtension: 'mp3' });
         if (blob && blob.size > 0) {
           blob = await padAudioBlob(blob);
           const url = URL.createObjectURL(blob);

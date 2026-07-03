@@ -5,6 +5,7 @@ import { useAppContext } from '../../contexts/AppContext';
 import { useRecorder } from '../../hooks/useRecorder';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 import { speechToText, scorePronunciation, textToSpeech } from '../../services/api';
+import { staticPhraseAudio } from '../../services/staticAudio.js';
 import { isAuthenticated } from '../../services/auth';
 import { updateAfterPractice } from '../../services/srs';
 import { buildLesson } from '../../services/lessonBuilder';
@@ -69,12 +70,14 @@ export default function PromptDrill({ onBack, onComplete }) {
       let isMounted = true;
       (async () => {
         try {
-          const blob = await textToSpeech(phrase.chinese, {
+          const staticBlob = await staticPhraseAudio(phrase.id, settings.currentLanguage);
+          const blob = staticBlob ?? await textToSpeech(phrase.chinese, {
             language: settings.currentLanguage, speed: 0.85, outputExtension: 'mp3',
           });
           if (!isMounted) return;
           blobUrl = URL.createObjectURL(blob);
           audioRef.current.src = blobUrl;
+          audioRef.current.playbackRate = staticBlob ? 0.85 : 1.0;
           await audioRef.current.play();
           audioRef.current.onended = () => {
             if (blobUrl) { URL.revokeObjectURL(blobUrl); blobUrl = null; }
@@ -243,11 +246,13 @@ export default function PromptDrill({ onBack, onComplete }) {
               if (!phrase || !isAuthenticated()) return;
               (async () => {
                 try {
-                  const blob = await textToSpeech(phrase.chinese, {
+                  const staticBlob = await staticPhraseAudio(phrase.id, settings.currentLanguage);
+                  const blob = staticBlob ?? await textToSpeech(phrase.chinese, {
                     language: settings.currentLanguage, speed: 0.85, outputExtension: 'mp3',
                   });
                   const url = URL.createObjectURL(blob);
                   audioRef.current.src = url;
+                  audioRef.current.playbackRate = staticBlob ? 0.85 : 1.0;
                   audioRef.current.onended = () => URL.revokeObjectURL(url);
                   audioRef.current.onerror = () => URL.revokeObjectURL(url);
                   await audioRef.current.play();

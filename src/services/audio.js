@@ -242,7 +242,7 @@ class AudioEngine {
 
     // 1. Speak English translation via Web Speech API
     if (phrase.english) {
-      await this._speakEnglish(phrase.english);
+      await this._speakEnglish(phrase.english, phrase.id);
       if (this._destroyed) return;
       await this._sleep(SHADOW_ENGLISH_GAP_MS);
     }
@@ -257,11 +257,26 @@ class AudioEngine {
   }
 
   /**
-   * Speak English text — tries ElevenLabs first, falls back to Web Speech API.
+   * Speak English text — static pre-generated file first (works offline),
+   * then ElevenLabs, then the browser's Web Speech API.
    * @param {string} text
+   * @param {string} [phraseId] - when known, used to find the static MP3
    */
-  async _speakEnglish(text) {
+  async _speakEnglish(text, phraseId) {
     if (!text) return;
+    if (phraseId) {
+      try {
+        const basePath = import.meta.env.BASE_URL || '/';
+        const resp = await fetch(`${basePath}audio/english/${phraseId}.mp3`);
+        if (resp.ok) {
+          const blob = await resp.blob();
+          if (blob.size > 500) {
+            await this._playEnglishBlob(blob);
+            return;
+          }
+        }
+      } catch (e) { /* static not available, fall through */ }
+    }
     try {
       const blob = await englishTTS(text);
       if (blob && blob.size > 0) {

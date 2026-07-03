@@ -8,6 +8,7 @@ import { getLibraryEntry, saveLibraryEntry, deleteLibraryEntry } from '../../ser
 import { getSchedule } from '../../services/srs.js';
 import { getSceneById } from '../../services/sceneLoader.js';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
+import { staticPhraseAudio, staticWordAudio } from '../../services/staticAudio.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -70,7 +71,10 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
     try {
       if (charIdx !== null) setPlayingCharIdx(charIdx); else setPlaying(true);
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-      const blob = await textToSpeech(text, { language, turbo: true });
+      const staticBlob = charIdx !== null
+        ? await staticWordAudio(text)
+        : await staticPhraseAudio(phrase?.id, language);
+      const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
       audioRef.current = audio;

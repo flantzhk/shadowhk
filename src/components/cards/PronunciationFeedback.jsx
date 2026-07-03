@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { textToSpeech } from '../../services/api';
+import { staticWordAudio } from '../../services/staticAudio.js';
 import { padAudioBlob } from '../../services/audio';
 import { SCORE_THRESHOLDS } from '../../utils/constants';
 import styles from './PronunciationFeedback.module.css';
@@ -35,11 +36,14 @@ export default function PronunciationFeedback({ phrase, scoreResult, onHearPhras
     if (playingWord === index) return;
     setPlayingWord(index);
     try {
-      let blob = await textToSpeech(word.chinese, {
-        language: 'cantonese',
-        speed: 0.85,
-        outputExtension: 'mp3',
-      });
+      let blob = await staticWordAudio(word.chinese);
+      if (!blob) {
+        blob = await textToSpeech(word.chinese, {
+          language: 'cantonese',
+          speed: 0.85,
+          outputExtension: 'mp3',
+        });
+      }
       blob = await padAudioBlob(blob);
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
