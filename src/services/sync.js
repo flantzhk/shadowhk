@@ -96,7 +96,7 @@ async function pullLibraryFromFirestore() {
     const result = mergeLibrary(allKeys, remoteByKey, localByKey);
 
     await Promise.all([
-      ...result.writesToLocal.map((entry) => idbSaveLibraryEntry(entry)),
+      ...result.writesToLocal.map((entry) => idbSaveLibraryEntry(entry, { skipSync: true })),
       ...result.writesToRemote.map((entry) =>
         libraryCollection(userId).doc(String(entry.phraseId)).set(entry, { merge: true })
           .catch((err) => logger.warn('Seed push failed', entry.phraseId, err?.message || err))

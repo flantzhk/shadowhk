@@ -49,6 +49,9 @@ function calculateNextReview(entry, quality, pronunciationScore = null) {
     interval,
     easeFactor,
     practiceCount,
+    // The library display derives growth state from `reps`; keep it in step
+    // with practiceCount so practice visibly advances new -> growing -> strong.
+    reps: practiceCount,
     nextReviewAt,
     lastPracticedAt: now,
     status,

@@ -101,11 +101,27 @@ async function getLibraryEntry(phraseId) {
 }
 
 /** @param {Object} entry */
-async function saveLibraryEntry(entry) {
-  const stamped = { ...entry, _updatedAt: Date.now() };
+async function saveLibraryEntry(entry, { skipSync = false } = {}) {
+  // Merge with the existing record: several screens save partial entries
+  // (id + text fields only), and a raw put would silently erase SRS state,
+  // score history, and lived_at for an already-learned phrase — locally and,
+  // via the sync push, on every other device. New fields always win.
+  const existing = entry.phraseId
+    ? await dbOp('Failed to read entry before save', (db) => db.get('library', entry.phraseId), null)
+    : null;
+  const merged = existing ? { ...existing, ...entry } : entry;
+  // skipSync: used by sync.js when writing a pulled remote entry locally.
+  // Preserves the remote _updatedAt and does not echo the entry back up —
+  // re-stamping here would make stale remote content look newest and let it
+  // overwrite a genuinely newer edit from another device.
+  const stamped = skipSync && merged._updatedAt
+    ? { ...merged }
+    : { ...merged, _updatedAt: Date.now() };
   const result = await dbOp('Failed to save entry', (db) => db.put('library', stamped));
-  // Fire-and-forget sync to Firestore. Dynamic import avoids circular dep.
-  import('./sync').then(({ pushLibraryEntry }) => pushLibraryEntry(stamped)).catch(() => {});
+  if (!skipSync) {
+    // Fire-and-forget sync to Firestore. Dynamic import avoids circular dep.
+    import('./sync').then(({ pushLibraryEntry }) => pushLibraryEntry(stamped)).catch(() => {});
+  }
   // Fire-and-forget analytics. Dynamic import keeps this tree-shake friendly.
   import('./posthog').then(({ phCapture }) => phCapture('phrase_saved', {
     scene_id: stamped.scene_id ?? stamped.sceneId ?? null,
