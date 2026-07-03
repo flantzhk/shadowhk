@@ -11,16 +11,16 @@ const PLANS = [
   {
     id: 'annual',
     label: 'Annual',
-    price: '£54.99',
+    price: 'HK$488',
     period: 'per year',
-    sub: '7-day free trial, then £4.58/month. Cancel anytime.',
+    sub: '7-day free trial, then HK$40.67/month. Cancel anytime.',
     badge: 'Most popular',
     cta: 'Start 7-day free trial',
   },
   {
     id: 'monthly',
     label: 'Monthly',
-    price: '£9.99',
+    price: 'HK$68',
     period: 'per month',
     sub: 'Billed monthly. Cancel anytime.',
     badge: null,
@@ -29,20 +29,11 @@ const PLANS = [
   {
     id: 'lifetime',
     label: 'Lifetime',
-    price: '£149',
+    price: 'HK$1,488',
     period: 'one time',
     sub: 'Pay once, own it forever. Limited launch pricing.',
     badge: 'Launch offer',
     cta: 'Get Lifetime Access',
-  },
-  {
-    id: 'family',
-    label: 'Family',
-    price: '£79.99',
-    period: 'per year',
-    sub: 'Up to 5 members. Shared subscription.',
-    badge: null,
-    cta: 'Get Family Plan',
   },
 ];
 
@@ -406,8 +397,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
         lineHeight: 1.6,
       }}>
         Cancel anytime before trial ends. Payment taken at end of trial period.
-        Annual billing charged in full. Family plan covers up to 5 members.
-        Processed securely by Stripe.
+        Annual billing charged in full. Processed securely by Stripe.
       </p>
     </div>
   );

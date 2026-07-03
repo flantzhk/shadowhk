@@ -70,6 +70,12 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
     else onComplete?.();
   };
 
+  const browseScenes = () => {
+    phCapture('firstrun_browse_scenes');
+    updateSettings({ firstrunCompleted: true }).catch(err => logger.warn('[FirstRunFlow] browseScenes settings failed', err?.message));
+    onNavigate?.('scenes');
+  };
+
   const toggleReason = (id) => {
     setReasons(prev => {
       const next = new Set(prev);
@@ -107,7 +113,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           <button className={`${styles.primaryBtn} ${styles.primaryBtnPulse}`} onClick={finish}>
             Start shadowing
           </button>
-          <button className={styles.browseLink} onClick={() => onNavigate?.('scenes')}>
+          <button className={styles.browseLink} onClick={browseScenes}>
             Browse other scenes
           </button>
         </div>
@@ -147,13 +153,15 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
       {/* Content */}
       <div className={styles.content}>
-        {/* Per-step page header (eyebrow shows step counter) */}
-        <div className={styles.pageHeader}>
-          <span className={styles.pageEyebrow}>
-            <span className={styles.pageEyebrowDot} />
-            STEP {step + 1} OF {TOTAL_STEPS}
-          </span>
-        </div>
+        {/* Per-step page header (eyebrow shows step counter — hidden on cover screen) */}
+        {step > 0 && (
+          <div className={styles.pageHeader}>
+            <span className={styles.pageEyebrow}>
+              <span className={styles.pageEyebrowDot} />
+              STEP {step + 1} OF {TOTAL_STEPS}
+            </span>
+          </div>
+        )}
         {/* Step 1 — Welcome (PDF Plate 10) */}
         {step === 0 && (
           <div className={styles.step1}>

@@ -3,8 +3,26 @@ main = "src/index.js"
 compatibility_date = "2026-04-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Secrets (set via `wrangler secret put`, not declared here):
-#   STRIPE_WEBHOOK_SECRET
-#   FIRESTORE_SERVICE_ACCOUNT_JSON
+# Secrets — set via `wrangler secret put <NAME>` (never commit values):
 #
-# Add `[vars]` here for any non-secret config (e.g. environment names).
+#   Stripe:
+#     STRIPE_WEBHOOK_SECRET           whsec_... from Stripe > Webhooks
+#     STRIPE_API_KEY                  sk_live_... or sk_test_...
+#     STRIPE_PRICE_ANNUAL             price_... for HK$488/year
+#     STRIPE_PRICE_MONTHLY            price_... for HK$68/month
+#     STRIPE_PRICE_LIFETIME           price_... for HK$1488 one-time
+#
+#   Firebase:
+#     FIRESTORE_SERVICE_ACCOUNT_JSON  full service account JSON from GCP console
+#     FIREBASE_PROJECT_ID             your Firebase project ID string
+#
+#   RevenueCat (Apple IAP):
+#     REVENUECAT_WEBHOOK_AUTH_HEADER  value from RevenueCat > Project > Webhooks > Authorization header
+#
+# Stripe webhook events to enable in Stripe dashboard:
+#   checkout.session.completed
+#   customer.subscription.updated
+#   customer.subscription.deleted
+#
+# RevenueCat webhook URL to set in RevenueCat dashboard:
+#   https://shadowspeak-api.<subdomain>.workers.dev/revenuecat-webhook
