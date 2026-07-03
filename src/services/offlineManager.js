@@ -42,6 +42,13 @@ async function executeQueuedAction(item) {
       const { audioBase64, expectedText, language, phraseId } = item.data;
       const blob = base64ToBlob(audioBase64, 'audio/ogg');
       const result = await scorePronunciation(blob, expectedText, language);
+      // Apply the score to the phrase's review schedule — without this the
+      // offline session scored the user's speech and then threw it away.
+      if (phraseId && typeof result?.score === 'number') {
+        const { updateAfterPractice } = await import('./srs');
+        await updateAfterPractice(phraseId, result.score).catch((e) =>
+          logger.warn(`Queued score for ${phraseId} not applied`, e?.message));
+      }
       logger.info(`Scored queued phrase ${phraseId}:`, result.score);
       return result;
     }

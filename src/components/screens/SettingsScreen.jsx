@@ -164,7 +164,7 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
         <h1 className={styles.title}>Settings</h1>
       </div>
 
-      <div className={styles.section}>
+      {languages.length > 0 && <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Language</h2>
         <div className={styles.langRow}>
           {languages.map(lang => (
@@ -176,7 +176,7 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
             </button>
           ))}
         </div>
-      </div>
+      </div>}
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Profile</h2>
