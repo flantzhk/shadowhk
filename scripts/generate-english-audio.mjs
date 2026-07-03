@@ -73,9 +73,15 @@ async function generate(line, attempt = 1) {
   }
   if (!res.ok) {
     const body = await res.text();
-    if (res.status === 429 && attempt <= 3) {
-      await sleep(30000 * attempt);
-      return generate(line, attempt + 1);
+    // The worker allows 100 requests per user per hour (clock-hour windows).
+    // On 429, sleep until the next window opens, then continue. Not counted
+    // as a retry attempt — this is expected pacing, not a failure.
+    if (res.status === 429) {
+      const msToNextHour = 3600000 - (Date.now() % 3600000) + 60000;
+      console.log(`  rate window used — sleeping ${Math.ceil(msToNextHour / 60000)} min until the next hour`);
+      await sleep(msToNextHour);
+      await login(); // token likely expired during the wait
+      return generate(line, attempt);
     }
     if (attempt === 1) {
       await sleep(2000);
