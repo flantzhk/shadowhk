@@ -60,8 +60,8 @@ export default function DownloadAllModal({ language, onClose }) {
         <div className={styles.modal} onClick={e => e.stopPropagation()}>
           <div className={styles.doneEmoji}>✓</div>
           <h2 className={styles.title}>Download complete</h2>
-          <p className={styles.statusMain}>{progress.total} phrases downloaded</p>
-          <p className={styles.info}>All audio is available offline.</p>
+          <p className={styles.statusMain}>{progress.total} recordings checked</p>
+          <p className={styles.info}>Everything published so far is on this device. Airplane mode away.</p>
           <button className={styles.primaryBtn} onClick={onClose}>Done</button>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function DownloadAllModal({ language, onClose }) {
           <span className={styles.pct}>{pct}%</span>
         </div>
 
-        <p className={styles.statusMain}>{progress.done} of {progress.total} phrases</p>
+        <p className={styles.statusMain}>{progress.done} of {progress.total} recordings</p>
         <p className={styles.statusMeta}>
           {progress.done < progress.total ? `Estimated: ${mins} minute${mins !== 1 ? 's' : ''} left` : 'Finishing up…'}
         </p>

@@ -252,12 +252,12 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Offline</h2>
-        <p className={styles.hint}>Download all audio so lessons work without internet.</p>
+        <p className={styles.hint}>Download every recording so the whole app works offline, plane included. Roughly 70 MB, best on Wi-Fi.</p>
         {downloadInBackground && (
           <p className={styles.hint} style={{ color: 'var(--accent)', fontWeight: 600 }}>Downloading in background…</p>
         )}
         <button className={styles.downloadBtn} onClick={() => setShowDownloadModal(true)}>
-          Download all audio
+          Download everything
         </button>
       </div>
 

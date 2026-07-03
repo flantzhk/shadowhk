@@ -15,6 +15,21 @@ clientsClaim();
 precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();
 
+// Runtime cache: pre-generated static audio (scenes, reference sets, English,
+// words). Cache-first and long-lived — these files never change once
+// generated. The "Download everything" button fills this same cache up front
+// so the whole app works offline (e.g. on a plane).
+registerRoute(
+  ({ url, sameOrigin }) => sameOrigin && url.pathname.includes('/audio/'),
+  new CacheFirst({
+    cacheName: 'shadowhk-static-audio',
+    plugins: [
+      new ExpirationPlugin({ maxEntries: 4000, maxAgeSeconds: 365 * 24 * 60 * 60 }),
+      new CacheableResponsePlugin({ statuses: [0, 200] }),
+    ],
+  })
+);
+
 // Runtime cache: audio TTS responses
 registerRoute(
   ({ url }) =>

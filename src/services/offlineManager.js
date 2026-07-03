@@ -2,8 +2,6 @@
 
 import { getQueueItems, deleteQueueItem, updateQueueItem } from './storage';
 import { scorePronunciation } from './api';
-import { cacheAudioForPhrase } from './audio';
-import { getAllPhrasesForLanguage } from './languageManager';
 import { logger } from '../utils/logger';
 
 const MAX_QUEUE_ATTEMPTS = 3;
@@ -94,28 +92,100 @@ function initOfflineQueueListener() {
   });
 }
 
+// Data files at public/*.json that carry phrases. Keep in sync with the
+// files shipped in public/ (scripts/generate-scene-audio.mjs walks the same set).
+const DATA_FILES = [
+  'survival', 'numbers', 'colours', 'calendar', 'time',
+  'the-very-basics', 'everyday-essentials', 'food-and-drink',
+  'getting-around', 'home-and-family', 'social-life', 'at-a-coffee-shop',
+];
+
+const STATIC_AUDIO_CACHE = 'shadowhk-static-audio'; // same cache the service worker route reads
+const CJK = /[\u4e00-\u9fff]/;
+
+async function fetchJson(url) {
+  try {
+    const resp = await fetch(url);
+    if (resp.ok) return await resp.json();
+  } catch (e) { /* precached in the SW, so this only fails on first-ever offline visit */ }
+  return null;
+}
+
 /**
- * Download all audio for a language to the cache.
+ * Collect the URL of every pre-generated audio file the app can play:
+ * Cantonese + English per scene line and phrase, plus every word/character.
+ */
+async function collectAudioUrls() {
+  const base = import.meta.env.BASE_URL || '/';
+  const ids = [];
+  const words = new Set();
+
+  const addWords = (list, text) => {
+    for (const w of list || []) if (w.chinese?.trim()) words.add(w.chinese.trim());
+    for (const c of text || '') if (CJK.test(c)) words.add(c);
+  };
+
+  const index = (await fetchJson(`${base}scenes/index.json`)) || [];
+  for (const entry of index) {
+    const scene = await fetchJson(`${base}scenes/${entry.id}.json`);
+    for (const l of scene?.lines || []) {
+      ids.push(l.id);
+      addWords(l.words, l.cjk);
+    }
+  }
+
+  for (const name of DATA_FILES) {
+    const data = await fetchJson(`${base}${name}.json`);
+    const sets = Array.isArray(data) ? data : data ? [data] : [];
+    for (const s of sets) {
+      for (const p of s.phrases || []) {
+        ids.push(p.id);
+        addWords(p.words, p.chinese);
+      }
+    }
+  }
+
+  return [
+    ...ids.map((id) => ({ url: `${base}audio/cantonese/${id}.mp3`, section: 'Cantonese recordings' })),
+    ...ids.map((id) => ({ url: `${base}audio/english/${id}.mp3`, section: 'English narration' })),
+    ...[...words].map((w) => ({ url: `${base}audio/cantonese-words/${encodeURIComponent(w)}.mp3`, section: 'Word-by-word audio' })),
+  ];
+}
+
+/**
+ * Download every pre-generated recording into the static audio cache so the
+ * whole app works offline. Already-cached and not-yet-published files are
+ * skipped. The `language` param is unused (everything is fetched) but kept
+ * for the existing call signature.
  * @param {string} language
- * @param {(progress: {done: number, total: number, phraseId: string}) => void} onProgress
+ * @param {(progress: {done: number, total: number, currentTopic: string}) => void} onProgress
  * @param {{ cancelled: boolean }} cancelRef - Set .cancelled = true to abort
  */
 async function downloadAllAudio(language, onProgress, cancelRef = { cancelled: false }) {
-  const phrases = getAllPhrasesForLanguage(language);
-  const total = phrases.length;
+  const items = await collectAudioUrls();
+  const cache = await caches.open(STATIC_AUDIO_CACHE);
+  const total = items.length;
+  let done = 0;
 
-  for (let i = 0; i < phrases.length; i++) {
+  const CONCURRENCY = 4;
+  for (let i = 0; i < items.length; i += CONCURRENCY) {
     if (cancelRef.cancelled) {
       logger.info('Download cancelled');
       break;
     }
-    const phrase = phrases[i];
-    try {
-      await cacheAudioForPhrase(phrase, language);
-    } catch (e) {
-      logger.warn(`Failed to cache ${phrase.id}`, e);
-    }
-    onProgress?.({ done: i + 1, total, phraseId: phrase.id, currentTopic: phrase.topicName || phrase.topic || '' });
+    const batch = items.slice(i, i + CONCURRENCY);
+    await Promise.all(batch.map(async (item) => {
+      try {
+        const hit = await cache.match(item.url);
+        if (!hit) {
+          const resp = await fetch(item.url);
+          // 404 = file not generated/published yet — skip, a later run picks it up
+          if (resp.ok && resp.status === 200) await cache.put(item.url, resp);
+        }
+      } catch (e) { /* single-file failure never kills the run */ }
+      done += 1;
+    }));
+    onProgress?.({ done, total, currentTopic: batch[batch.length - 1]?.section || '' });
   }
 }
 
