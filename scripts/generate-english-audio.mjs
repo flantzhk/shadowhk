@@ -15,10 +15,14 @@ const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 1500;
 
 const email = process.env.GEN_EMAIL;
 const password = process.env.GEN_PASSWORD;
+// Direct mode: with ELEVENLABS_KEY set, call ElevenLabs straight (no worker,
+// no 100/hr limit). Mirrors the worker's exact call: Rachel voice, turbo v2.5.
+const elevenKey = process.env.ELEVENLABS_KEY;
+const ELEVEN_URL = 'https://api.elevenlabs.io/v1/text-to-speech/XrExE9yKIg1WjnnlVkGX';
 const dryRun = process.argv.includes('--dry-run');
 
-if ((!email || !password) && !dryRun) {
-  console.error('Missing GEN_EMAIL / GEN_PASSWORD env vars.');
+if (!elevenKey && (!email || !password) && !dryRun) {
+  console.error('Set ELEVENLABS_KEY, or GEN_EMAIL + GEN_PASSWORD for worker mode.');
   process.exit(1);
 }
 
@@ -58,16 +62,26 @@ async function login() {
 }
 
 async function generate(line, attempt = 1) {
-  const res = await fetch(WORKER_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Origin': ORIGIN,
-      'Authorization': `Bearer ${idToken}`,
-    },
-    body: JSON.stringify({ text: line.text }),
-  });
-  if (res.status === 401 && attempt === 1) {
+  const res = elevenKey
+    ? await fetch(ELEVEN_URL, {
+        method: 'POST',
+        headers: { 'xi-api-key': elevenKey, 'Content-Type': 'application/json', 'Accept': 'audio/mpeg' },
+        body: JSON.stringify({
+          text: line.text,
+          model_id: 'eleven_turbo_v2_5',
+          voice_settings: { stability: 0.5, similarity_boost: 0.75 },
+        }),
+      })
+    : await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': ORIGIN,
+          'Authorization': `Bearer ${idToken}`,
+        },
+        body: JSON.stringify({ text: line.text }),
+      });
+  if (res.status === 401 && attempt === 1 && !elevenKey) {
     await login();
     return generate(line, 2);
   }
@@ -77,11 +91,15 @@ async function generate(line, attempt = 1) {
     // On 429, sleep until the next window opens, then continue. Not counted
     // as a retry attempt — this is expected pacing, not a failure.
     if (res.status === 429) {
-      const msToNextHour = 3600000 - (Date.now() % 3600000) + 60000;
-      console.log(`  rate window used — sleeping ${Math.ceil(msToNextHour / 60000)} min until the next hour`);
-      await sleep(msToNextHour);
-      await login(); // token likely expired during the wait
-      return generate(line, attempt);
+      if (elevenKey) {
+        if (attempt <= 3) { await sleep(15000 * attempt); return generate(line, attempt + 1); }
+      } else {
+        const msToNextHour = 3600000 - (Date.now() % 3600000) + 60000;
+        console.log(`  rate window used — sleeping ${Math.ceil(msToNextHour / 60000)} min until the next hour`);
+        await sleep(msToNextHour);
+        await login(); // token likely expired during the wait
+        return generate(line, attempt);
+      }
     }
     if (attempt === 1) {
       await sleep(2000);
@@ -94,7 +112,7 @@ async function generate(line, attempt = 1) {
   writeFileSync(join(OUT_DIR, `${line.id}.mp3`), buf);
 }
 
-await login();
+if (!elevenKey) await login();
 const failed = [];
 let consecutiveFails = 0;
 for (const [i, line] of todo.entries()) {
