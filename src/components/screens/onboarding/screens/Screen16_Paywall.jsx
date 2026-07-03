@@ -4,6 +4,7 @@ import { isAuthenticated } from '../../../../services/auth';
 import { phCapture } from '../../../../services/posthog';
 import { ROUTES } from '../../../../utils/constants';
 import { logger } from '../../../../utils/logger';
+import { isNativeApp } from '../../../../utils/platform';
 
 const FONT = "'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif";
 
@@ -43,7 +44,7 @@ const FEATURES = [
   'Cantonese and Mandarin lesson plans',
   'AI conversation practice',
   'Spaced repetition review system',
-  'Streak tracking and gamified progress',
+  'Streak tracking and progress stats',
   'Offline mode for downloaded phrases',
 ];
 
@@ -63,6 +64,14 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
     if (loading) return;
     setError(null);
     phCapture('paywall_clicked', { plan_id: selected });
+
+    // Native builds must use in-app purchase, never Stripe web checkout
+    // (Apple 3.1.1 / Google Play Billing). RevenueCat wiring lands with the
+    // native shells; until then the redirect is blocked outright.
+    if (isNativeApp()) {
+      setError('In-app purchases are coming to this version soon.');
+      return;
+    }
 
     // If not authenticated (email path without account creation), route to register first
     if (!isAuthenticated()) {
@@ -131,7 +140,7 @@ export default function Screen16_Paywall({ onComplete, answers, updateSettings }
         lineHeight: 1.1,
         letterSpacing: '-0.02em',
       }}>
-        Unlock all of <em>Hong Kong</em>.
+        All of <em>Hong Kong</em>, in your pocket.
       </h1>
 
       <p style={{

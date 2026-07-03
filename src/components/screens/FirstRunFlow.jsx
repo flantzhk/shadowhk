@@ -175,7 +175,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
               Most people never hear them.
             </h1>
             <p className={styles.stepBody}>
-              ShadowHK is built on real conversations — the ones overheard at wet markets, in taxis, at cha chaan tengs at four in the morning. Not phrasebook-Cantonese. The Cantonese that works.
+              ShadowHK is built on real conversations: the ones overheard at wet markets, in taxis, at cha chaan tengs at four in the morning. Not phrasebook-Cantonese. The Cantonese that works.
             </p>
           </div>
         )}

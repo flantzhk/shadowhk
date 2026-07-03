@@ -26,7 +26,7 @@ export function TopicMasteredCelebration({ topicName, phraseCount, onNextTopic, 
         <h1 className={styles.title}>Topic mastered!</h1>
         <p className={styles.topicName}>"{topicName}"</p>
         <p className={styles.body}>
-          You've mastered all {phraseCount} phrase{phraseCount !== 1 ? 's' : ''} in this topic. That's how fluency is built.
+          You've mastered all {phraseCount} phrase{phraseCount !== 1 ? 's' : ''} in this topic. That's how it sticks.
         </p>
 
         <div className={styles.callout}>

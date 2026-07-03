@@ -9,9 +9,10 @@ import { join } from 'node:path';
 const API_URL = 'https://cantonese.ai/api/tts';
 const SCENES_DIR = 'public/scenes';
 const OUT_DIR = 'public/audio/cantonese';
-const DELAY_MS = 300;
+const DELAY_MS = 1200;
 
 const apiKey = process.env.CANTONESE_AI_KEY;
+const voiceId = process.env.CANTONESE_AI_VOICE; // optional: pass a specific voice_id
 const force = process.argv.includes('--force');
 const dryRun = process.argv.includes('--dry-run');
 
@@ -49,20 +50,30 @@ mkdirSync(OUT_DIR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function generate(line, attempt = 1) {
+  const payload = {
+    api_key: apiKey,
+    text: line.text,
+    language: 'cantonese',
+    speed: 1.0,
+    output_extension: 'mp3',
+    should_use_turbo_model: false,
+  };
+  if (voiceId) payload.voice_id = voiceId;
+
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: apiKey,
-      text: line.text,
-      language: 'cantonese',
-      speed: 1.0,
-      output_extension: 'mp3',
-      should_use_turbo_model: false,
-    }),
+    body: JSON.stringify(payload),
   });
   if (!res.ok) {
     const body = await res.text();
+    // 400 = voice/permission problem: retrying cannot help, fail fast
+    if (res.status === 400) throw new Error(`${res.status} ${body.slice(0, 200)}`);
+    // 429 = rate limited: back off and retry up to 3 times
+    if (res.status === 429 && attempt <= 3) {
+      await sleep(30000 * attempt);
+      return generate(line, attempt + 1);
+    }
     if (attempt === 1) {
       await sleep(2000);
       return generate(line, 2);
@@ -75,13 +86,20 @@ async function generate(line, attempt = 1) {
 }
 
 const failed = [];
+let consecutiveFails = 0;
 for (const [i, line] of todo.entries()) {
   try {
     await generate(line);
+    consecutiveFails = 0;
     console.log(`[${i + 1}/${todo.length}] ${line.id} ok`);
   } catch (err) {
     failed.push(line.id);
+    consecutiveFails += 1;
     console.error(`[${i + 1}/${todo.length}] ${line.id} FAILED: ${err.message}`);
+    if (consecutiveFails >= 5) {
+      console.error('5 consecutive failures. Aborting: fix the account/key/voice before rerunning.');
+      break;
+    }
   }
   await sleep(DELAY_MS);
 }

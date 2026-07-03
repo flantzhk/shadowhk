@@ -182,7 +182,7 @@ export default function ToneTrainer({ onBack }) {
         {phase === 'record' && (
           <div className={styles.recordControls}>
             <Wave active={isRecording} />
-            {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
+            {micError && <p className={styles.micError}>Mic not detected. Check permissions</p>}
             <button className={styles.stopBtn} onMouseUp={handleStop} onTouchEnd={handleStop}>
               <StopIcon />
               Done

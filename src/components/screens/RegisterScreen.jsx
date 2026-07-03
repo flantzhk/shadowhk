@@ -56,7 +56,7 @@ export default function RegisterScreen({ navigate }) {
 
         <div className={styles.titleBlock}>
           <p className={styles.eyebrow}>Create account</p>
-          <h1 className={styles.title}>Begin your <span className={styles.titleItalic}>journey</span>.</h1>
+          <h1 className={styles.title}>Sound like you <span className={styles.titleItalic}>live here</span>.</h1>
           <p className={styles.subtitle}>Three minutes a day. Twelve weeks until you bargain at the wet market.</p>
         </div>
 

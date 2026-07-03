@@ -69,7 +69,7 @@ export default function LoginScreen({ navigate }) {
 
         <div className={styles.titleBlock}>
           <p className={styles.eyebrow}>Welcome back</p>
-          <h1 className={styles.title}>Welcome back to <span className={styles.titleItalic}>Hong Kong</span>.</h1>
+          <h1 className={styles.title}>Hong Kong hasn't stopped <span className={styles.titleItalic}>talking</span>.</h1>
         </div>
 
         <form onSubmit={handleSubmit} className={shaking ? styles.shakeError : ''}>

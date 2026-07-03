@@ -116,7 +116,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
           </div>
-          <h2 className={styles.gateTitle}>Unlock AI Conversation</h2>
+          <h2 className={styles.gateTitle}>AI Conversation comes with Pro</h2>
           <p className={styles.gateSubtitle}>
             Practice real conversations with an AI tutor. Upgrade to Pro to get full access.
           </p>

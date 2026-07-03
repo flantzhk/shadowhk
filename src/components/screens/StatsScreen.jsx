@@ -305,7 +305,7 @@ export default function StatsScreen({ onBack, onNavigate }) {
 
         {locked.length > 3 && (
           <button className={styles.showMoreBtn} onClick={() => setShowAllAchievements(v => !v)}>
-            {showAllAchievements ? 'Show less' : `See ${locked.length - 3} more to unlock`}
+            {showAllAchievements ? 'Show less' : `See ${locked.length - 3} more to earn`}
           </button>
         )}
       </section>

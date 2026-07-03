@@ -73,7 +73,7 @@ export function RealLifeCelebration({ phrase, onDone }) {
 
         <p className={styles.eyebrow}>Real world</p>
         <h2 className={styles.headline}>You actually said it.</h2>
-        <p className={styles.sub}>In Hong Kong. In the wild. That's how fluency happens.</p>
+        <p className={styles.sub}>In Hong Kong. In the wild. That's the whole point.</p>
 
         {phrase && (
           <div className={styles.phraseCard}>

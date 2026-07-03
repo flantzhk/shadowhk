@@ -137,7 +137,7 @@ export function PhraseRow({
           {wordGroups === null ? (
             <span className={styles.loadingText}>Loading…</span>
           ) : wordGroups === false ? (
-            <span className={styles.loadingText}>Couldn't load — tap ▾ to retry</span>
+            <span className={styles.loadingText}>Couldn't load. Tap ▾ to retry</span>
           ) : wordGroups.map((group, i) => (
             <button
               key={i}

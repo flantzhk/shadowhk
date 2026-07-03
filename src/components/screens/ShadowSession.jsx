@@ -406,7 +406,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <ArrowRightIcon />
             </button>
           </div>
-          {micError && <p className={styles.micError}>Mic not detected — check permissions</p>}
+          {micError && <p className={styles.micError}>Mic not detected. Check permissions</p>}
         </div>
       </div>
     </div>
