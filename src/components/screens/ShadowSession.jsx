@@ -40,6 +40,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [toneResult, setToneResult] = useState(null);
   const [sessionStart] = useState(Date.now());
   const [showCelebration, setShowCelebration] = useState(false);
+  const [silentTake, setSilentTake] = useState(false);
   const [showPhrasebookToast, setShowPhrasebookToast] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
@@ -155,6 +156,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
   const handleRecord = useCallback(async () => {
     audio.pause();
+    setSilentTake(false);
     setPhase('record');
     await startRecording();
   }, [audio, startRecording]);
@@ -162,6 +164,15 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const handleStopRecording = useCallback(async () => {
     const blob = await stopRecording();
     if (!blob || !currentYouLine) return;
+    // A silent take means the mic isn't feeding the browser (wrong input
+    // device, muted input). The scorer gives silence a misleading ~32 —
+    // catch it here and tell the user instead of pretending to grade them.
+    if (!(await blobIsAudible(blob))) {
+      setSilentTake(true);
+      setPhase('ready');
+      return;
+    }
+    setSilentTake(false);
     setPhase('scoring');
     setCurrentScore(null);
     setToneResult(null);
@@ -412,7 +423,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <ArrowLeftIcon />
             </button>
             <p className={styles.holdLabel}>
-              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'TAP TO RECORD · SWIPE → NEXT'}
+              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "COULDN'T HEAR YOU · CHECK YOUR MIC" : 'TAP TO RECORD · SWIPE → NEXT'}
             </p>
             <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />
@@ -441,6 +452,29 @@ const ArrowRightIcon = () => (
     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
   </svg>
 );
+/**
+ * True when the recording contains actual signal. Sampled peak check —
+ * silence from a dead input device decodes as near-zero amplitude.
+ * Decode failures return true so the server still gets a chance.
+ */
+async function blobIsAudible(blob) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const buf = await ctx.decodeAudioData(await blob.arrayBuffer());
+    ctx.close();
+    const data = buf.getChannelData(0);
+    let peak = 0;
+    for (let i = 0; i < data.length; i += 64) {
+      const v = Math.abs(data[i]);
+      if (v > peak) peak = v;
+      if (peak > 0.02) return true;
+    }
+    return peak > 0.02;
+  } catch (_) {
+    return true;
+  }
+}
+
 const MicIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm6-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
