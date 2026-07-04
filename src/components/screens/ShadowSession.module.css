@@ -662,3 +662,28 @@
     margin: 0 auto;
   }
 }
+
+/* What the scorer heard vs expected — turns a bare number into coaching */
+.heardWrap {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+.heardLine {
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(247, 244, 236, 0.85);
+  max-width: 340px;
+  text-align: center;
+}
+.heardLabel {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(247, 244, 236, 0.45);
+  margin-right: 6px;
+}

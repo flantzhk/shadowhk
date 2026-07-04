@@ -370,6 +370,12 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
                   <span className={styles.scoreNum} style={{ color: scoreColor }}>
                     {currentScore !== null ? currentScore : '—'}
                   </span>
+                  {toneResult?.transcribedJyutping && currentScore !== null && currentScore < 90 && (
+                    <div className={styles.heardWrap}>
+                      <p className={styles.heardLine}><span className={styles.heardLabel}>EXPECTED</span> {toneResult.expectedJyutping || currentYouLine?.romanization}</p>
+                      <p className={styles.heardLine}><span className={styles.heardLabel}>WE HEARD</span> {toneResult.transcribedJyutping}</p>
+                    </div>
+                  )}
                   {toneResult?.toneContours && (
                     <div className={styles.toneTrackWrap}>
                       <ToneTrack
