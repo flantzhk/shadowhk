@@ -7,6 +7,7 @@ import { useRecorder } from '../../hooks/useRecorder.js';
 import { scorePronunciation } from '../../services/api.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { updateAfterPractice } from '../../services/srs.js';
+import { blobIsAudible } from '../../utils/audioSignal.js';
 
 const REPS = 10;
 
@@ -20,6 +21,7 @@ export default function ToneTrainer({ onBack }) {
   const [scores, setScores] = useState([]);
   const [currentScore, setCurrentScore] = useState(null);
   const [toneResult, setToneResult] = useState(null);
+  const [silentTake, setSilentTake] = useState(false);
   const [isScoring, setIsScoring] = useState(false);
   const [phase, setPhase] = useState('ready'); // ready | record | scored | done
 
@@ -44,14 +46,22 @@ export default function ToneTrainer({ onBack }) {
   async function handleStop() {
     const blob = await stopRecording();
     if (!blob || !phrase) return;
+    // Dead-mic guard: silence scores a misleading ~32; tell the user instead
+    if (!(await blobIsAudible(blob))) {
+      setSilentTake(true);
+      setPhase('ready');
+      return;
+    }
+    setSilentTake(false);
     setIsScoring(true);
     setCurrentScore(null);
     setToneResult(null);
     try {
-      const result = await scorePronunciation(blob, phrase.cjk, language);
+      const result = await scorePronunciation(blob, phrase.cjk ?? phrase.chinese, language);
       setCurrentScore(result.score);
       setToneResult(result);
-      await updateAfterPractice(phrase.id, result.score);
+      // Library entries key on phraseId (storage keyPath), not id
+      await updateAfterPractice(phrase.phraseId ?? phrase.id, result.score);
       setScores(prev => [...prev, result.score]);
     } catch (_) {
       setScores(prev => [...prev, null]);
@@ -182,6 +192,7 @@ export default function ToneTrainer({ onBack }) {
         {phase === 'record' && (
           <div className={styles.recordControls}>
             <Wave active={isRecording} />
+            {silentTake && !micError && <p className={styles.micError}>Couldn't hear you. Check your mic and try again</p>}
             {micError && <p className={styles.micError}>Mic not detected. Check permissions</p>}
             <button className={styles.stopBtn} onMouseUp={handleStop} onTouchEnd={handleStop}>
               <StopIcon />

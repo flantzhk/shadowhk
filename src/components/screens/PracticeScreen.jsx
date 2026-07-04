@@ -37,7 +37,7 @@ export default function PracticeScreen({ onNavigate }) {
             type: 'tone',
             label: 'Work on your tones',
             detail: 'Tone Gym targets your real library.',
-            action: () => onNavigate('drill/tone'),
+            action: () => onNavigate('drill-tone'),
           });
         }
       } catch (_) {}
@@ -46,7 +46,7 @@ export default function PracticeScreen({ onNavigate }) {
 
   function start() {
     switch (focus) {
-      case 'tones':    return onNavigate('drill/tone');
+      case 'tones':    return onNavigate('drill-tone');
       case 'speaking': return onNavigate('shadow', null);
       case 'recall':   return onNavigate('prompt');
       default:         return onNavigate('shadow', null);
@@ -117,7 +117,7 @@ export default function PracticeScreen({ onNavigate }) {
           <ModeRow emoji="🗣" label="Shadow a scene"    desc="Listen, then say it back"                   onClick={() => onNavigate('scenes')} />
           <ModeRow emoji="💬" label="Free chat"         desc="Open conversation with AI"                  onClick={() => onNavigate('ai')} />
           <ModeRow emoji="⚡" label="Speed run"         desc="60 seconds, as many phrases as possible"    onClick={() => onNavigate('speedrun')} />
-          <ModeRow emoji="🎯" label="Tone Gym"          desc="10 reps on your hardest tones"              onClick={() => onNavigate('drill/tone')} />
+          <ModeRow emoji="🎯" label="Tone Gym"          desc="10 reps on your hardest tones"              onClick={() => onNavigate('drill-tone')} />
           <ModeRow emoji="🧠" label="Prompt drill"      desc="Hear English, produce Cantonese"            onClick={() => onNavigate('prompt')} />
         </div>
       </div>

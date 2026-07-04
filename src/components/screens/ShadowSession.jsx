@@ -5,6 +5,7 @@ import { useRecorder } from '../../hooks/useRecorder.js';
 import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { logger } from '../../utils/logger.js';
 import { updateAfterPractice } from '../../services/srs.js';
+import { blobIsAudible } from '../../utils/audioSignal.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
 import { isAuthenticated } from '../../services/auth.js';
@@ -458,28 +459,6 @@ const ArrowRightIcon = () => (
     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
   </svg>
 );
-/**
- * True when the recording contains actual signal. Sampled peak check —
- * silence from a dead input device decodes as near-zero amplitude.
- * Decode failures return true so the server still gets a chance.
- */
-async function blobIsAudible(blob) {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const buf = await ctx.decodeAudioData(await blob.arrayBuffer());
-    ctx.close();
-    const data = buf.getChannelData(0);
-    let peak = 0;
-    for (let i = 0; i < data.length; i += 64) {
-      const v = Math.abs(data[i]);
-      if (v > peak) peak = v;
-      if (peak > 0.02) return true;
-    }
-    return peak > 0.02;
-  } catch (_) {
-    return true;
-  }
-}
 
 const MicIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">

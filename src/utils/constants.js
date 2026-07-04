@@ -65,7 +65,7 @@ export const ROUTES = {
   LISTEN: 'listen',
   LIBRARY: 'library',
   PRACTICE: 'practice',
-  DRILL_TONE: 'drill/tone',
+  DRILL_TONE: 'drill-tone',
   PHRASE_DETAIL: 'phrase',
   SEARCH: 'search',
   SHADOW: 'shadow',
