@@ -262,3 +262,6 @@
 .lg .jyutping    { font-size: 24px; }
 .lg .english     { font-size: 16px; }
 .lg .chineseText { font-size: 18px; }
+
+/* Breakdown trigger: a real touch target, not a 27px text sliver */
+.chineseBtn { min-height: 40px; display: inline-flex; align-items: center; }

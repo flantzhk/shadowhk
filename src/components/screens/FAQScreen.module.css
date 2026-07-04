@@ -85,3 +85,6 @@
   margin-top: 8px;
   text-decoration: underline;
 }
+
+
+.contactLink { display: inline-flex; align-items: center; min-height: 44px; }

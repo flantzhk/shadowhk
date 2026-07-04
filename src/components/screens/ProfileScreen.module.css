@@ -590,3 +590,9 @@
   .statsGrid { grid-template-columns: repeat(4, 1fr); }
   .heatmapSection { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 }
+
+
+.tab { min-height: 44px; padding-left: 10px; padding-right: 10px; }
+
+
+.editBtn { min-height: 36px; display: inline-flex; align-items: center; }

@@ -330,6 +330,7 @@
 .playBtn {
   width: 52px;
   height: 52px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--accent);
   border: none;
@@ -503,3 +504,6 @@
     font-size: 36px;
   }
 }
+
+
+.backBtnHero { min-height: 44px; }

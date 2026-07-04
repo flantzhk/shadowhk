@@ -5,7 +5,7 @@ import styles from './BottomTabBar.module.css';
 const TABS = [
   {
     id: 'home',
-    label: 'My Study Guide',
+    label: 'Study Guide',
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
         <path d="M3 9.5L11 3l8 6.5V19a1 1 0 01-1 1H14v-5h-4v5H4a1 1 0 01-1-1V9.5z"

@@ -4,7 +4,7 @@ import { isAuthenticated } from '../../services/auth.js';
 const TABS = [
   {
     id: 'home',
-    label: 'Today',
+    label: 'Study Guide',
     icon: (
       <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <path d="M3 9.5L11 3l8 6.5V19a1 1 0 01-1 1H14v-5h-4v5H4a1 1 0 01-1-1V9.5z"
@@ -34,7 +34,7 @@ const TABS = [
   },
   {
     id: 'profile',
-    label: 'You',
+    label: 'Profile',
     icon: (
       <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>

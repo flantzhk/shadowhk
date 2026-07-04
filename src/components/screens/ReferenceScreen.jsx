@@ -158,7 +158,7 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
           </svg>
         </button>
         <div className={styles.headerText}>
-          <p className={styles.eyebrow}>{chapters.length} CHAPTERS · {totalPhrases} PHRASES</p>
+          <p className={styles.eyebrow}>{chapters.length} {chapters.length === 1 ? 'CHAPTER' : 'CHAPTERS'} · {totalPhrases} {totalPhrases === 1 ? 'PHRASE' : 'PHRASES'}</p>
           <h1 className={styles.title}>{title}</h1>
         </div>
       </div>
