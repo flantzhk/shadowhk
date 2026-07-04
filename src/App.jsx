@@ -326,9 +326,11 @@ function MainLayout() {
       }
       <main className="app-main">
         <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : undefined}>
-          <Suspense fallback={<Loader />}>
-            {renderScreen(route, navigate, goBack, showToast)}
-          </Suspense>
+          <ErrorBoundary resetKey={route.path}>
+            <Suspense fallback={<Loader />}>
+              {renderScreen(route, navigate, goBack, showToast)}
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </main>
       {ToastComponent}

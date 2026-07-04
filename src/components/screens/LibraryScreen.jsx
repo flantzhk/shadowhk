@@ -227,7 +227,7 @@ export default function LibraryScreen({ onNavigate }) {
         <p className={styles.pinHint}>📍 {saidInPersonCount} said to a real person. The app asks after each session.</p>
       )}
 
-      {activeFilter === 'all' && !searchQuery && (
+      {!searchQuery && (
         <>
           <div className={styles.refHeader}>
             <span className={styles.refLabel}>— REFERENCE SETS</span>

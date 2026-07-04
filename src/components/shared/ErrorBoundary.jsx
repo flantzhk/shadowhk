@@ -12,6 +12,13 @@ export class ErrorBoundary extends React.Component {
     logger.error('[ErrorBoundary] render crash', err?.message, info?.componentStack?.slice(0, 300));
   }
 
+  componentDidUpdate(prevProps) {
+    // Navigating away from a crashed screen gives the next screen a clean start
+    if (this.state.crashed && prevProps.resetKey !== this.props.resetKey) {
+      this.setState({ crashed: false });
+    }
+  }
+
   render() {
     if (this.state.crashed) {
       return (

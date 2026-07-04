@@ -742,3 +742,11 @@
     gap: 16px;
   }
 }
+
+
+@media (min-width: 900px) {
+  .heroSection {
+    max-height: 440px;
+    overflow: hidden;
+  }
+}
