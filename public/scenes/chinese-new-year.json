@@ -19,7 +19,29 @@
       "cjk": "新年快樂，恭喜發財！",
       "jyutping": "san1 nin4 faai3 lok6, gung1 hei2 faat3 coi4!",
       "english": "Happy New Year, wishing you prosperity!",
-      "audioFile": "cny-01.mp3"
+      "audioFile": "cny-01.mp3",
+      "words": [
+        {
+          "chinese": "新年",
+          "jyutping": "san1 nin4",
+          "english": "new year"
+        },
+        {
+          "chinese": "快樂",
+          "jyutping": "faai3 lok6",
+          "english": "happy"
+        },
+        {
+          "chinese": "恭喜",
+          "jyutping": "gung1 hei2",
+          "english": "congratulations"
+        },
+        {
+          "chinese": "發財",
+          "jyutping": "faat3 coi4",
+          "english": "prosperity"
+        }
+      ]
     },
     {
       "id": "cny-02",
@@ -27,7 +49,39 @@
       "cjk": "恭喜恭喜！身體健康，萬事如意！",
       "jyutping": "gung1 hei2 gung1 hei2! san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3!",
       "english": "Congratulations! Wishing you good health and all the best!",
-      "audioFile": "cny-02.mp3"
+      "audioFile": "cny-02.mp3",
+      "words": [
+        {
+          "chinese": "恭喜",
+          "jyutping": "gung1 hei2",
+          "english": "congratulations"
+        },
+        {
+          "chinese": "恭喜",
+          "jyutping": "gung1 hei2",
+          "english": "congratulations"
+        },
+        {
+          "chinese": "身體",
+          "jyutping": "san1 tai2",
+          "english": "body"
+        },
+        {
+          "chinese": "健康",
+          "jyutping": "gin6 hong1",
+          "english": "healthy"
+        },
+        {
+          "chinese": "萬事",
+          "jyutping": "maan6 si6",
+          "english": "all things"
+        },
+        {
+          "chinese": "如意",
+          "jyutping": "jyu4 ji3",
+          "english": "as you wish"
+        }
+      ]
     },
     {
       "id": "cny-03",
@@ -35,7 +89,44 @@
       "cjk": "多謝！祝你身體健康，萬事如意！",
       "jyutping": "do1 ze6! zuk1 nei5 san1 tai2 gin6 hong1, maan6 si6 jyu4 ji3!",
       "english": "Thank you! Wishing you good health and all the best!",
-      "audioFile": "cny-03.mp3"
+      "audioFile": "cny-03.mp3",
+      "words": [
+        {
+          "chinese": "多謝",
+          "jyutping": "do1 ze6",
+          "english": "thank you"
+        },
+        {
+          "chinese": "祝",
+          "jyutping": "zuk1",
+          "english": "wish"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "身體",
+          "jyutping": "san1 tai2",
+          "english": "body"
+        },
+        {
+          "chinese": "健康",
+          "jyutping": "gin6 hong1",
+          "english": "healthy"
+        },
+        {
+          "chinese": "萬事",
+          "jyutping": "maan6 si6",
+          "english": "all things"
+        },
+        {
+          "chinese": "如意",
+          "jyutping": "jyu4 ji3",
+          "english": "as you wish"
+        }
+      ]
     },
     {
       "id": "cny-04",
@@ -43,7 +134,34 @@
       "cjk": "嚟，呢封利是俾你。",
       "jyutping": "lai4, ni1 fung1 lai6 si6 bei2 nei5.",
       "english": "Here, a red packet for you.",
-      "audioFile": "cny-04.mp3"
+      "audioFile": "cny-04.mp3",
+      "words": [
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "呢封",
+          "jyutping": "ni1 fung1",
+          "english": "this (envelope)"
+        },
+        {
+          "chinese": "利是",
+          "jyutping": "lai6 si6",
+          "english": "red packet"
+        },
+        {
+          "chinese": "俾",
+          "jyutping": "bei2",
+          "english": "give"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        }
+      ]
     },
     {
       "id": "cny-05",
@@ -51,7 +169,44 @@
       "cjk": "多謝晒！噉我唔客氣喇。",
       "jyutping": "do1 ze6 saai3! gam2 ngo5 m4 haak3 hei3 laa3.",
       "english": "Thank you so much! I won't be shy then.",
-      "audioFile": "cny-05.mp3"
+      "audioFile": "cny-05.mp3",
+      "words": [
+        {
+          "chinese": "多謝",
+          "jyutping": "do1 ze6",
+          "english": "thank you"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        },
+        {
+          "chinese": "噉",
+          "jyutping": "gam2",
+          "english": "then"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "唔",
+          "jyutping": "m4",
+          "english": "not"
+        },
+        {
+          "chinese": "客氣",
+          "jyutping": "haak3 hei3",
+          "english": "be polite"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        }
+      ]
     },
     {
       "id": "cny-06",
@@ -59,7 +214,34 @@
       "cjk": "你今年有咩打算？",
       "jyutping": "nei5 gam1 nin4 jau5 me1 daa2 syun3?",
       "english": "What are your plans for this year?",
-      "audioFile": "cny-06.mp3"
+      "audioFile": "cny-06.mp3",
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "今年",
+          "jyutping": "gam1 nin4",
+          "english": "this year"
+        },
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "咩",
+          "jyutping": "me1",
+          "english": "what"
+        },
+        {
+          "chinese": "打算",
+          "jyutping": "daa2 syun3",
+          "english": "plans"
+        }
+      ]
     },
     {
       "id": "cny-07",
@@ -67,7 +249,69 @@
       "cjk": "希望今年廣東話講得好啲，識多啲香港朋友。",
       "jyutping": "hei1 mong6 gam1 nin4 gwong2 dung1 waa2 gong2 dak1 hou2 di1, sik1 do1 di1 hoeng1 gong2 pang4 jau5.",
       "english": "I hope to speak better Cantonese this year and make more Hong Kong friends.",
-      "audioFile": "cny-07.mp3"
+      "audioFile": "cny-07.mp3",
+      "words": [
+        {
+          "chinese": "希望",
+          "jyutping": "hei1 mong6",
+          "english": "hope"
+        },
+        {
+          "chinese": "今年",
+          "jyutping": "gam1 nin4",
+          "english": "this year"
+        },
+        {
+          "chinese": "廣東話",
+          "jyutping": "gwong2 dung1 waa2",
+          "english": "Cantonese"
+        },
+        {
+          "chinese": "講",
+          "jyutping": "gong2",
+          "english": "speak"
+        },
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "(degree particle)"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(a bit)"
+        },
+        {
+          "chinese": "識",
+          "jyutping": "sik1",
+          "english": "know"
+        },
+        {
+          "chinese": "多",
+          "jyutping": "do1",
+          "english": "more"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(a bit)"
+        },
+        {
+          "chinese": "香港",
+          "jyutping": "hoeng1 gong2",
+          "english": "Hong Kong"
+        },
+        {
+          "chinese": "朋友",
+          "jyutping": "pang4 jau5",
+          "english": "friends"
+        }
+      ]
     },
     {
       "id": "cny-08",
@@ -75,7 +319,54 @@
       "cjk": "好嘢！你廣東話越講越好㗎喇！",
       "jyutping": "hou2 je5! nei5 gwong2 dung1 waa2 jyut6 gong2 jyut6 hou2 ga3 laa3!",
       "english": "Excellent! Your Cantonese just keeps getting better!",
-      "audioFile": "cny-08.mp3"
+      "audioFile": "cny-08.mp3",
+      "words": [
+        {
+          "chinese": "好嘢",
+          "jyutping": "hou2 je5",
+          "english": "great"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "廣東話",
+          "jyutping": "gwong2 dung1 waa2",
+          "english": "Cantonese"
+        },
+        {
+          "chinese": "越",
+          "jyutping": "jyut6",
+          "english": "the more"
+        },
+        {
+          "chinese": "講",
+          "jyutping": "gong2",
+          "english": "speak"
+        },
+        {
+          "chinese": "越",
+          "jyutping": "jyut6",
+          "english": "the more"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "better"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "ga3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        }
+      ]
     }
   ]
 }

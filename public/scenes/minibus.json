@@ -19,7 +19,39 @@
       "cjk": "唔該，呢架係咪去旺角㗎？",
       "jyutping": "m4 goi1, ni1 gaa3 hai6 mai6 heoi3 wong6 gok3 gaa3?",
       "english": "Excuse me, does this one go to Mong Kok?",
-      "audioFile": "minibus-01.mp3"
+      "audioFile": "minibus-01.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "呢架",
+          "jyutping": "ni1 gaa3",
+          "english": "this (vehicle)"
+        },
+        {
+          "chinese": "係咪",
+          "jyutping": "hai6 mai6",
+          "english": "is it?"
+        },
+        {
+          "chinese": "去",
+          "jyutping": "heoi3",
+          "english": "go"
+        },
+        {
+          "chinese": "旺角",
+          "jyutping": "wong6 gok3",
+          "english": "Mong Kok"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "minibus-02",
@@ -27,7 +59,34 @@
       "cjk": "有，上嚟啦，九蚊。",
       "jyutping": "jau5, soeng5 lei4 laa1, gau2 man1.",
       "english": "Yes, hop on, nine dollars.",
-      "audioFile": "minibus-02.mp3"
+      "audioFile": "minibus-02.mp3",
+      "words": [
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "上嚟",
+          "jyutping": "soeng5 lei4",
+          "english": "come up"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        },
+        {
+          "chinese": "九",
+          "jyutping": "gau2",
+          "english": "nine"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        }
+      ]
     },
     {
       "id": "minibus-03",
@@ -35,7 +94,24 @@
       "cjk": "用八達通得唔得？",
       "jyutping": "jung6 baat3 daat6 tung1 dak1 m4 dak1?",
       "english": "Can I pay with Octopus?",
-      "audioFile": "minibus-03.mp3"
+      "audioFile": "minibus-03.mp3",
+      "words": [
+        {
+          "chinese": "用",
+          "jyutping": "jung6",
+          "english": "use"
+        },
+        {
+          "chinese": "八達通",
+          "jyutping": "baat3 daat6 tung1",
+          "english": "Octopus card"
+        },
+        {
+          "chinese": "得唔得",
+          "jyutping": "dak1 m4 dak1",
+          "english": "is that OK?"
+        }
+      ]
     },
     {
       "id": "minibus-04",
@@ -43,7 +119,49 @@
       "cjk": "得㗎，嘟喺個機度啦。",
       "jyutping": "dak1 gaa3, dyut1 hai2 go3 gei1 dou6 laa1.",
       "english": "Yes, tap it on the machine here.",
-      "audioFile": "minibus-04.mp3"
+      "audioFile": "minibus-04.mp3",
+      "words": [
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "sure"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "嘟",
+          "jyutping": "dyut1",
+          "english": "tap"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "機",
+          "jyutping": "gei1",
+          "english": "machine"
+        },
+        {
+          "chinese": "度",
+          "jyutping": "dou6",
+          "english": "(place)"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        }
+      ]
     },
     {
       "id": "minibus-05",
@@ -51,7 +169,29 @@
       "cjk": "唔該，旺角西洋菜街有落！",
       "jyutping": "m4 goi1, wong6 gok3 sai1 joeng4 coi3 gaai1 jau5 lok6!",
       "english": "Excuse me, I'm getting off at Sai Yeung Choi Street, Mong Kok!",
-      "audioFile": "minibus-05.mp3"
+      "audioFile": "minibus-05.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "旺角",
+          "jyutping": "wong6 gok3",
+          "english": "Mong Kok"
+        },
+        {
+          "chinese": "西洋菜街",
+          "jyutping": "sai1 joeng4 coi3 gaai1",
+          "english": "Sai Yeung Choi Street"
+        },
+        {
+          "chinese": "有落",
+          "jyutping": "jau5 lok6",
+          "english": "getting off!"
+        }
+      ]
     },
     {
       "id": "minibus-06",
@@ -59,7 +199,29 @@
       "cjk": "知道喇，等陣停。",
       "jyutping": "zi1 dou6 laa3, dang2 zan6 ting4.",
       "english": "Got it, stopping shortly.",
-      "audioFile": "minibus-06.mp3"
+      "audioFile": "minibus-06.mp3",
+      "words": [
+        {
+          "chinese": "知道",
+          "jyutping": "zi1 dou6",
+          "english": "got it"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "等陣",
+          "jyutping": "dang2 zan6",
+          "english": "in a moment"
+        },
+        {
+          "chinese": "停",
+          "jyutping": "ting4",
+          "english": "stop"
+        }
+      ]
     },
     {
       "id": "minibus-07",
@@ -67,7 +229,14 @@
       "cjk": "唔該！",
       "jyutping": "m4 goi1!",
       "english": "Thanks!",
-      "audioFile": "minibus-07.mp3"
+      "audioFile": "minibus-07.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        }
+      ]
     }
   ]
 }

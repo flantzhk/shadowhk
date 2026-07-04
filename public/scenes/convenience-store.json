@@ -19,7 +19,29 @@
       "cjk": "唔該，呢個幾多錢？",
       "jyutping": "m4 goi1, ni1 go3 gei2 do1 cin2?",
       "english": "Excuse me, how much is this?",
-      "audioFile": "conv-01.mp3"
+      "audioFile": "conv-01.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "呢個",
+          "jyutping": "ni1 go3",
+          "english": "this one"
+        },
+        {
+          "chinese": "幾多",
+          "jyutping": "gei2 do1",
+          "english": "how much"
+        },
+        {
+          "chinese": "錢",
+          "jyutping": "cin2",
+          "english": "money"
+        }
+      ]
     },
     {
       "id": "conv-02",
@@ -27,7 +49,24 @@
       "cjk": "七蚊半。",
       "jyutping": "cat1 man1 bun3.",
       "english": "Seven dollars fifty.",
-      "audioFile": "conv-02.mp3"
+      "audioFile": "conv-02.mp3",
+      "words": [
+        {
+          "chinese": "七",
+          "jyutping": "cat1",
+          "english": "seven"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        },
+        {
+          "chinese": "半",
+          "jyutping": "bun3",
+          "english": "half"
+        }
+      ]
     },
     {
       "id": "conv-03",
@@ -35,7 +74,39 @@
       "cjk": "好，仲要一支水。",
       "jyutping": "hou2, zung6 jiu3 jat1 zi1 seoi2.",
       "english": "OK, and a bottle of water too.",
-      "audioFile": "conv-03.mp3"
+      "audioFile": "conv-03.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "仲",
+          "jyutping": "zung6",
+          "english": "still; also"
+        },
+        {
+          "chinese": "要",
+          "jyutping": "jiu3",
+          "english": "want"
+        },
+        {
+          "chinese": "一",
+          "jyutping": "jat1",
+          "english": "one"
+        },
+        {
+          "chinese": "支",
+          "jyutping": "zi1",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "水",
+          "jyutping": "seoi2",
+          "english": "water"
+        }
+      ]
     },
     {
       "id": "conv-04",
@@ -43,7 +114,29 @@
       "cjk": "一共十四蚊半。",
       "jyutping": "jat1 gung6 sap6 sei3 man1 bun3.",
       "english": "Fourteen dollars fifty altogether.",
-      "audioFile": "conv-04.mp3"
+      "audioFile": "conv-04.mp3",
+      "words": [
+        {
+          "chinese": "一共",
+          "jyutping": "jat1 gung6",
+          "english": "altogether"
+        },
+        {
+          "chinese": "十四",
+          "jyutping": "sap6 sei3",
+          "english": "fourteen"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        },
+        {
+          "chinese": "半",
+          "jyutping": "bun3",
+          "english": "half"
+        }
+      ]
     },
     {
       "id": "conv-05",
@@ -51,7 +144,24 @@
       "cjk": "用八達通得唔得？",
       "jyutping": "jung6 baat3 daat6 tung1 dak1 m4 dak1?",
       "english": "Can I pay with Octopus card?",
-      "audioFile": "conv-05.mp3"
+      "audioFile": "conv-05.mp3",
+      "words": [
+        {
+          "chinese": "用",
+          "jyutping": "jung6",
+          "english": "use"
+        },
+        {
+          "chinese": "八達通",
+          "jyutping": "baat3 daat6 tung1",
+          "english": "Octopus card"
+        },
+        {
+          "chinese": "得唔得",
+          "jyutping": "dak1 m4 dak1",
+          "english": "is that OK?"
+        }
+      ]
     },
     {
       "id": "conv-06",
@@ -59,7 +169,39 @@
       "cjk": "得㗎，嘟一嘟啦。",
       "jyutping": "dak1 gaa3, dyut1 jat1 dyut1 laa1.",
       "english": "Yes, go ahead and tap it.",
-      "audioFile": "conv-06.mp3"
+      "audioFile": "conv-06.mp3",
+      "words": [
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "sure"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "嘟",
+          "jyutping": "dyut1",
+          "english": "tap"
+        },
+        {
+          "chinese": "一",
+          "jyutping": "jat1",
+          "english": "one"
+        },
+        {
+          "chinese": "嘟",
+          "jyutping": "dyut1",
+          "english": "tap"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        }
+      ]
     },
     {
       "id": "conv-07",
@@ -67,7 +209,14 @@
       "cjk": "多謝！",
       "jyutping": "do1 ze6!",
       "english": "Thank you!",
-      "audioFile": "conv-07.mp3"
+      "audioFile": "conv-07.mp3",
+      "words": [
+        {
+          "chinese": "多謝",
+          "jyutping": "do1 ze6",
+          "english": "thank you"
+        }
+      ]
     }
   ]
 }

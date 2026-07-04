@@ -19,7 +19,44 @@
       "cjk": "喂，你好！你係新嚟嘅？",
       "jyutping": "wai3, nei5 hou2! nei5 hai6 san1 lai4 ge3?",
       "english": "Hey, hi! Are you new here?",
-      "audioFile": "msn-01.mp3"
+      "audioFile": "msn-01.mp3",
+      "words": [
+        {
+          "chinese": "喂",
+          "jyutping": "wai3",
+          "english": "hello"
+        },
+        {
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "新",
+          "jyutping": "san1",
+          "english": "newly"
+        },
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
+        }
+      ]
     },
     {
       "id": "msn-02",
@@ -29,7 +66,49 @@
       "english": "Yes, I'm [your name]. Great to meet you!",
       "audioFile": "msn-02.mp3",
       "scenario": "This is your opening. Swap [your name] for your own name — your personal intro scene will have this phrase built and ready for you.",
-      "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5) — 'great to meet you'. Warm and natural."
+      "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5) — 'great to meet you'. Warm and natural.",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "yes"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "你的名字",
+          "jyutping": "nei5 ge3 meng2",
+          "english": "(your name)"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "高興",
+          "jyutping": "gou1 hing3",
+          "english": "glad"
+        },
+        {
+          "chinese": "認識",
+          "jyutping": "jing6 sik1",
+          "english": "meet"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        }
+      ]
     },
     {
       "id": "msn-03",
@@ -59,6 +138,33 @@
           "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.",
           "english": "I'm Canadian."
         }
+      ],
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "邊度",
+          "jyutping": "bin1 dou6",
+          "english": "where"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
       ]
     },
     {
@@ -69,7 +175,49 @@
       "english": "I'm British — I grew up in London.",
       "audioFile": "msn-04.mp3",
       "scenario": "The key pattern: 我係 [nationality] 人，喺 [hometown] 大嘅. Your personal intro scene will have your own version of this phrase ready to go.",
-      "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy."
+      "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy.",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "英國",
+          "jyutping": "jing1 gwok3",
+          "english": "Britain"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "倫敦",
+          "jyutping": "leon4 deon1",
+          "english": "London"
+        },
+        {
+          "chinese": "長大",
+          "jyutping": "zoeng2 daai6",
+          "english": "grow up"
+        },
+        {
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
+        }
+      ]
     },
     {
       "id": "msn-05",
@@ -77,7 +225,29 @@
       "cjk": "嚟香港幾耐喇？",
       "jyutping": "lai4 hoeng1 gong2 gei2 noi6 laa3?",
       "english": "How long have you been in Hong Kong?",
-      "audioFile": "msn-05.mp3"
+      "audioFile": "msn-05.mp3",
+      "words": [
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "香港",
+          "jyutping": "hoeng1 gong2",
+          "english": "Hong Kong"
+        },
+        {
+          "chinese": "幾耐",
+          "jyutping": "gei2 noi6",
+          "english": "how long"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        }
+      ]
     },
     {
       "id": "msn-06",
@@ -87,7 +257,49 @@
       "english": "I've been here three years. What about you?",
       "audioFile": "msn-06.mp3",
       "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1) — 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
-      "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years)."
+      "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years).",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "咗",
+          "jyutping": "zo2",
+          "english": "(completed action)"
+        },
+        {
+          "chinese": "三",
+          "jyutping": "saam1",
+          "english": "three"
+        },
+        {
+          "chinese": "年",
+          "jyutping": "nin4",
+          "english": "year"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "呢",
+          "jyutping": "ne1",
+          "english": "(and you?)"
+        }
+      ]
     },
     {
       "id": "msn-07",
@@ -95,7 +307,69 @@
       "cjk": "我係本地人，土生土長喺香港㗎。你住喺邊度？",
       "jyutping": "ngo5 hai6 bun2 dei6 jan4, tou2 saang1 tou2 zoeng2 hai2 hoeng1 gong2 gaa3. nei5 zyu6 hai2 bin1 dou6?",
       "english": "I'm a local — born and raised in Hong Kong. Where do you live?",
-      "audioFile": "msn-07.mp3"
+      "audioFile": "msn-07.mp3",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "本地",
+          "jyutping": "bun2 dei6",
+          "english": "local"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "土生土長",
+          "jyutping": "tou2 saang1 tou2 zoeng2",
+          "english": "born and raised"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "香港",
+          "jyutping": "hoeng1 gong2",
+          "english": "Hong Kong"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "住",
+          "jyutping": "zyu6",
+          "english": "live"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "邊度",
+          "jyutping": "bin1 dou6",
+          "english": "where"
+        }
+      ]
     },
     {
       "id": "msn-08",
@@ -105,7 +379,44 @@
       "english": "I live in Sai Wan — right near the MTR.",
       "audioFile": "msn-08.mp3",
       "scenario": "Tell them your neighbourhood. Your personal intro scene will have your own district phrase built for you.",
-      "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true."
+      "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true.",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "住",
+          "jyutping": "zyu6",
+          "english": "live"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "西環",
+          "jyutping": "sai1 waan4",
+          "english": "Sai Wan"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "近",
+          "jyutping": "kan5",
+          "english": "near"
+        },
+        {
+          "chinese": "地鐵站",
+          "jyutping": "dei6 tit3 zaam6",
+          "english": "MTR station"
+        }
+      ]
     }
   ]
 }

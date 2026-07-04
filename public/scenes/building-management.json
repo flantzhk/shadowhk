@@ -19,7 +19,74 @@
       "cjk": "唔該，我係三零六室嘅住客。我想報告一個問題。",
       "jyutping": "m4 goi1, ngo5 hai6 saam1 ling4 luk6 sat1 ge3 zyu6 haak3. ngo5 soeng2 bou3 gou3 jat1 go3 man6 tai4.",
       "english": "Excuse me, I'm a resident of flat 306. I'd like to report a problem.",
-      "audioFile": "bldg-01.mp3"
+      "audioFile": "bldg-01.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "三零六",
+          "jyutping": "saam1 ling4 luk6",
+          "english": "three zero six"
+        },
+        {
+          "chinese": "室",
+          "jyutping": "sat1",
+          "english": "room"
+        },
+        {
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
+        },
+        {
+          "chinese": "住客",
+          "jyutping": "zyu6 haak3",
+          "english": "resident"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "想",
+          "jyutping": "soeng2",
+          "english": "want to"
+        },
+        {
+          "chinese": "報告",
+          "jyutping": "bou3 gou3",
+          "english": "report"
+        },
+        {
+          "chinese": "一",
+          "jyutping": "jat1",
+          "english": "one"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "問題",
+          "jyutping": "man6 tai4",
+          "english": "problem"
+        }
+      ]
     },
     {
       "id": "bldg-02",
@@ -27,7 +94,24 @@
       "cjk": "咩問題㗎？",
       "jyutping": "me1 man6 tai4 ga3?",
       "english": "What's the problem?",
-      "audioFile": "bldg-02.mp3"
+      "audioFile": "bldg-02.mp3",
+      "words": [
+        {
+          "chinese": "咩",
+          "jyutping": "me1",
+          "english": "what"
+        },
+        {
+          "chinese": "問題",
+          "jyutping": "man6 tai4",
+          "english": "problem"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "ga3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "bldg-03",
@@ -35,7 +119,44 @@
       "cjk": "走廊盞燈壞咗，黑晒。",
       "jyutping": "zau2 long4 zaan2 dang1 waai6 zo2, hak1 saai3.",
       "english": "The corridor light is broken — it's completely dark.",
-      "audioFile": "bldg-03.mp3"
+      "audioFile": "bldg-03.mp3",
+      "words": [
+        {
+          "chinese": "走廊",
+          "jyutping": "zau2 long4",
+          "english": "corridor"
+        },
+        {
+          "chinese": "盞",
+          "jyutping": "zaan2",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "燈",
+          "jyutping": "dang1",
+          "english": "light"
+        },
+        {
+          "chinese": "壞",
+          "jyutping": "waai6",
+          "english": "broken"
+        },
+        {
+          "chinese": "咗",
+          "jyutping": "zo2",
+          "english": "(completed action)"
+        },
+        {
+          "chinese": "黑",
+          "jyutping": "hak1",
+          "english": "dark"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        }
+      ]
     },
     {
       "id": "bldg-04",
@@ -43,7 +164,34 @@
       "cjk": "係幾樓走廊㗎？",
       "jyutping": "hai6 gei2 lau4 zau2 long4 ga3?",
       "english": "Which floor's corridor?",
-      "audioFile": "bldg-04.mp3"
+      "audioFile": "bldg-04.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "幾",
+          "jyutping": "gei2",
+          "english": "which"
+        },
+        {
+          "chinese": "樓",
+          "jyutping": "lau4",
+          "english": "floor"
+        },
+        {
+          "chinese": "走廊",
+          "jyutping": "zau2 long4",
+          "english": "corridor"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "ga3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "bldg-05",
@@ -51,7 +199,49 @@
       "cjk": "係三樓，電梯出嚟轉右個走廊。",
       "jyutping": "hai6 saam1 lau4, din6 tai1 ceot1 lei4 zyun3 jau6 go3 zau2 long4.",
       "english": "Third floor, the corridor to the right when you exit the lift.",
-      "audioFile": "bldg-05.mp3"
+      "audioFile": "bldg-05.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "三",
+          "jyutping": "saam1",
+          "english": "three"
+        },
+        {
+          "chinese": "樓",
+          "jyutping": "lau4",
+          "english": "floor"
+        },
+        {
+          "chinese": "電梯",
+          "jyutping": "din6 tai1",
+          "english": "lift"
+        },
+        {
+          "chinese": "出嚟",
+          "jyutping": "ceot1 lei4",
+          "english": "come out"
+        },
+        {
+          "chinese": "轉右",
+          "jyutping": "zyun3 jau6",
+          "english": "turn right"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "走廊",
+          "jyutping": "zau2 long4",
+          "english": "corridor"
+        }
+      ]
     },
     {
       "id": "bldg-06",
@@ -59,7 +249,59 @@
       "cjk": "明白，我幫你記低，即刻叫人去睇。",
       "jyutping": "ming4 baak6, ngo5 bong1 nei5 gei3 dai1, zik1 hak1 giu3 jan4 heoi3 tai2.",
       "english": "Got it, I'll make a note and send someone to take a look right away.",
-      "audioFile": "bldg-06.mp3"
+      "audioFile": "bldg-06.mp3",
+      "words": [
+        {
+          "chinese": "明白",
+          "jyutping": "ming4 baak6",
+          "english": "understand"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "幫",
+          "jyutping": "bong1",
+          "english": "help"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "記低",
+          "jyutping": "gei3 dai1",
+          "english": "note down"
+        },
+        {
+          "chinese": "即刻",
+          "jyutping": "zik1 hak1",
+          "english": "right away"
+        },
+        {
+          "chinese": "叫",
+          "jyutping": "giu3",
+          "english": "call"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "去",
+          "jyutping": "heoi3",
+          "english": "go"
+        },
+        {
+          "chinese": "睇",
+          "jyutping": "tai2",
+          "english": "look"
+        }
+      ]
     },
     {
       "id": "bldg-07",
@@ -67,7 +309,49 @@
       "cjk": "好，唔該晒。大概幾時整好呀？",
       "jyutping": "hou2, m4 goi1 saai3. daai6 koi3 gei2 si4 zing2 hou2 aa3?",
       "english": "Great, thank you. Roughly when will it be fixed?",
-      "audioFile": "bldg-07.mp3"
+      "audioFile": "bldg-07.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        },
+        {
+          "chinese": "大概",
+          "jyutping": "daai6 koi3",
+          "english": "roughly"
+        },
+        {
+          "chinese": "幾時",
+          "jyutping": "gei2 si4",
+          "english": "when"
+        },
+        {
+          "chinese": "整",
+          "jyutping": "zing2",
+          "english": "make; fix"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "(done)"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        }
+      ]
     },
     {
       "id": "bldg-08",
@@ -75,7 +359,29 @@
       "cjk": "今日下午應該得。",
       "jyutping": "gam1 jat6 haa6 zau3 jing1 goi1 dak1.",
       "english": "Should be done this afternoon.",
-      "audioFile": "bldg-08.mp3"
+      "audioFile": "bldg-08.mp3",
+      "words": [
+        {
+          "chinese": "今日",
+          "jyutping": "gam1 jat6",
+          "english": "today"
+        },
+        {
+          "chinese": "下午",
+          "jyutping": "haa6 zau3",
+          "english": "afternoon"
+        },
+        {
+          "chinese": "應該",
+          "jyutping": "jing1 goi1",
+          "english": "should"
+        },
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "doable"
+        }
+      ]
     }
   ]
 }

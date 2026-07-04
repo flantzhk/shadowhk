@@ -19,7 +19,39 @@
       "cjk": "老闆，呢件衫幾多錢呀？",
       "jyutping": "lou5 baan2, ni1 gin6 saam1 gei2 do1 cin2 aa3?",
       "english": "Boss, how much is this shirt?",
-      "audioFile": "brg-01.mp3"
+      "audioFile": "brg-01.mp3",
+      "words": [
+        {
+          "chinese": "老闆",
+          "jyutping": "lou5 baan2",
+          "english": "boss"
+        },
+        {
+          "chinese": "呢件",
+          "jyutping": "ni1 gin6",
+          "english": "this one"
+        },
+        {
+          "chinese": "衫",
+          "jyutping": "saam1",
+          "english": "shirt"
+        },
+        {
+          "chinese": "幾多",
+          "jyutping": "gei2 do1",
+          "english": "how much"
+        },
+        {
+          "chinese": "錢",
+          "jyutping": "cin2",
+          "english": "money"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        }
+      ]
     },
     {
       "id": "brg-02",
@@ -27,7 +59,39 @@
       "cjk": "一百二十蚊，靚嘢嚟㗎。",
       "jyutping": "jat1 baak3 ji6 sap6 man1, leng3 je5 lai4 gaa3.",
       "english": "A hundred and twenty. Good stuff.",
-      "audioFile": "brg-02.mp3"
+      "audioFile": "brg-02.mp3",
+      "words": [
+        {
+          "chinese": "一百二十",
+          "jyutping": "jat1 baak3 ji6 sap6",
+          "english": "one hundred twenty"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        },
+        {
+          "chinese": "靚",
+          "jyutping": "leng3",
+          "english": "pretty"
+        },
+        {
+          "chinese": "嘢",
+          "jyutping": "je5",
+          "english": "thing(s)"
+        },
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "(emphasis)"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "brg-03",
@@ -35,7 +99,49 @@
       "cjk": "咁貴！平啲啦，一百蚊好唔好？",
       "jyutping": "gam3 gwai3! peng4 di1 laa1, jat1 baak3 man1 hou2 m4 hou2?",
       "english": "That's steep! Cheaper please. How about a hundred?",
-      "audioFile": "brg-03.mp3"
+      "audioFile": "brg-03.mp3",
+      "words": [
+        {
+          "chinese": "咁",
+          "jyutping": "gam3",
+          "english": "so"
+        },
+        {
+          "chinese": "貴",
+          "jyutping": "gwai3",
+          "english": "expensive"
+        },
+        {
+          "chinese": "平",
+          "jyutping": "peng4",
+          "english": "cheaper"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(a bit)"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        },
+        {
+          "chinese": "一百",
+          "jyutping": "jat1 baak3",
+          "english": "one hundred"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        },
+        {
+          "chinese": "好唔好",
+          "jyutping": "hou2 m4 hou2",
+          "english": "how about?"
+        }
+      ]
     },
     {
       "id": "brg-04",
@@ -43,7 +149,49 @@
       "cjk": "一百唔得喎，蝕本㗎。一百一啦。",
       "jyutping": "jat1 baak3 m4 dak1 wo3, sit6 bun2 gaa3. jat1 baak3 jat1 laa1.",
       "english": "Can't do a hundred, I'd lose money. One-ten.",
-      "audioFile": "brg-04.mp3"
+      "audioFile": "brg-04.mp3",
+      "words": [
+        {
+          "chinese": "一百",
+          "jyutping": "jat1 baak3",
+          "english": "one hundred"
+        },
+        {
+          "chinese": "唔",
+          "jyutping": "m4",
+          "english": "not"
+        },
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "can"
+        },
+        {
+          "chinese": "喎",
+          "jyutping": "wo3",
+          "english": "(you know)"
+        },
+        {
+          "chinese": "蝕本",
+          "jyutping": "sit6 bun2",
+          "english": "losing money"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "一百一",
+          "jyutping": "jat1 baak3 jat1",
+          "english": "one hundred ten"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        }
+      ]
     },
     {
       "id": "brg-05",
@@ -51,7 +199,34 @@
       "cjk": "好啦好啦，一百一。",
       "jyutping": "hou2 laa1 hou2 laa1, jat1 baak3 jat1.",
       "english": "Fine, fine, one-ten.",
-      "audioFile": "brg-05.mp3"
+      "audioFile": "brg-05.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "fine"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "fine"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        },
+        {
+          "chinese": "一百一",
+          "jyutping": "jat1 baak3 jat1",
+          "english": "one hundred ten"
+        }
+      ]
     },
     {
       "id": "brg-06",
@@ -59,7 +234,24 @@
       "cjk": "爽快！唔該一百一。",
       "jyutping": "song2 faai3! m4 goi1 jat1 baak3 jat1.",
       "english": "That's the spirit! One-ten please.",
-      "audioFile": "brg-06.mp3"
+      "audioFile": "brg-06.mp3",
+      "words": [
+        {
+          "chinese": "爽快",
+          "jyutping": "song2 faai3",
+          "english": "deal!"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "一百一",
+          "jyutping": "jat1 baak3 jat1",
+          "english": "one hundred ten"
+        }
+      ]
     }
   ]
 }

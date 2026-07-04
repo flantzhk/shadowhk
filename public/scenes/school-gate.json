@@ -19,7 +19,44 @@
       "cjk": "你個仔讀幾年班㗎？",
       "jyutping": "nei5 go3 zai2 duk6 gei2 nin4 baan1 gaa3?",
       "english": "What year is your son in?",
-      "audioFile": "school-01.mp3"
+      "audioFile": "school-01.mp3",
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "仔",
+          "jyutping": "zai2",
+          "english": "son"
+        },
+        {
+          "chinese": "讀",
+          "jyutping": "duk6",
+          "english": "attend"
+        },
+        {
+          "chinese": "幾",
+          "jyutping": "gei2",
+          "english": "which"
+        },
+        {
+          "chinese": "年班",
+          "jyutping": "nin4 baan1",
+          "english": "grade"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "school-02",
@@ -27,7 +64,24 @@
       "cjk": "小三，你呢？",
       "jyutping": "siu2 saam1, nei5 ne1?",
       "english": "Primary Three, and yours?",
-      "audioFile": "school-02.mp3"
+      "audioFile": "school-02.mp3",
+      "words": [
+        {
+          "chinese": "小三",
+          "jyutping": "siu2 saam1",
+          "english": "Primary Three"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "呢",
+          "jyutping": "ne1",
+          "english": "(and you?)"
+        }
+      ]
     },
     {
       "id": "school-03",
@@ -35,7 +89,79 @@
       "cjk": "我個女係小四。佢哋係同一間學校呀，可能識㗎。",
       "jyutping": "ngo5 go3 neoi2 hai6 siu2 sei3. keoi5 dei6 hai6 tung4 jat1 gaan1 hok6 haau6 aa3, ho2 nang4 sik1 ga3.",
       "english": "My daughter is in Primary Four. They're in the same school, they might know each other.",
-      "audioFile": "school-03.mp3"
+      "audioFile": "school-03.mp3",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "女",
+          "jyutping": "neoi2",
+          "english": "daughter"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "小四",
+          "jyutping": "siu2 sei3",
+          "english": "Primary Four"
+        },
+        {
+          "chinese": "佢哋",
+          "jyutping": "keoi5 dei6",
+          "english": "they"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "同一",
+          "jyutping": "tung4 jat1",
+          "english": "the same"
+        },
+        {
+          "chinese": "間",
+          "jyutping": "gaan1",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "學校",
+          "jyutping": "hok6 haau6",
+          "english": "school"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        },
+        {
+          "chinese": "可能",
+          "jyutping": "ho2 nang4",
+          "english": "maybe"
+        },
+        {
+          "chinese": "識",
+          "jyutping": "sik1",
+          "english": "know"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "ga3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "school-04",
@@ -43,7 +169,49 @@
       "cjk": "係囉！你個女叫咩名？",
       "jyutping": "hai6 lo3! nei5 go3 neoi2 giu3 me1 meng2?",
       "english": "Oh really! What's your daughter's name?",
-      "audioFile": "school-04.mp3"
+      "audioFile": "school-04.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "right"
+        },
+        {
+          "chinese": "囉",
+          "jyutping": "lo3",
+          "english": "(agreement particle)"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "女",
+          "jyutping": "neoi2",
+          "english": "daughter"
+        },
+        {
+          "chinese": "叫",
+          "jyutping": "giu3",
+          "english": "call"
+        },
+        {
+          "chinese": "咩",
+          "jyutping": "me1",
+          "english": "what"
+        },
+        {
+          "chinese": "名",
+          "jyutping": "meng2",
+          "english": "name"
+        }
+      ]
     },
     {
       "id": "school-05",
@@ -51,7 +219,59 @@
       "cjk": "佢叫嘉嘉。你個仔叫咩名呀？",
       "jyutping": "keoi5 giu3 gaa1 gaa1. nei5 go3 zai2 giu3 me1 meng2 aa3?",
       "english": "She's called Ka Ka. What's your son's name?",
-      "audioFile": "school-05.mp3"
+      "audioFile": "school-05.mp3",
+      "words": [
+        {
+          "chinese": "佢",
+          "jyutping": "keoi5",
+          "english": "he; she"
+        },
+        {
+          "chinese": "叫",
+          "jyutping": "giu3",
+          "english": "call"
+        },
+        {
+          "chinese": "嘉嘉",
+          "jyutping": "gaa1 gaa1",
+          "english": "Ka Ka"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "仔",
+          "jyutping": "zai2",
+          "english": "son"
+        },
+        {
+          "chinese": "叫",
+          "jyutping": "giu3",
+          "english": "call"
+        },
+        {
+          "chinese": "咩",
+          "jyutping": "me1",
+          "english": "what"
+        },
+        {
+          "chinese": "名",
+          "jyutping": "meng2",
+          "english": "name"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        }
+      ]
     },
     {
       "id": "school-06",
@@ -59,7 +279,64 @@
       "cjk": "佢叫阿明。佢放學鍾意打波，你個女呢？",
       "jyutping": "keoi5 giu3 aa3 ming4. keoi5 fong3 hok6 zung1 ji3 daa2 bo1, nei5 go3 neoi2 ne1?",
       "english": "He's called Ming. After school he loves playing ball. What about your daughter?",
-      "audioFile": "school-06.mp3"
+      "audioFile": "school-06.mp3",
+      "words": [
+        {
+          "chinese": "佢",
+          "jyutping": "keoi5",
+          "english": "he; she"
+        },
+        {
+          "chinese": "叫",
+          "jyutping": "giu3",
+          "english": "call"
+        },
+        {
+          "chinese": "阿明",
+          "jyutping": "aa3 ming4",
+          "english": "Ah Ming"
+        },
+        {
+          "chinese": "佢",
+          "jyutping": "keoi5",
+          "english": "he; she"
+        },
+        {
+          "chinese": "放學",
+          "jyutping": "fong3 hok6",
+          "english": "after school"
+        },
+        {
+          "chinese": "鍾意",
+          "jyutping": "zung1 ji3",
+          "english": "loves"
+        },
+        {
+          "chinese": "打波",
+          "jyutping": "daa2 bo1",
+          "english": "play ball"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "女",
+          "jyutping": "neoi2",
+          "english": "daughter"
+        },
+        {
+          "chinese": "呢",
+          "jyutping": "ne1",
+          "english": "(and you?)"
+        }
+      ]
     },
     {
       "id": "school-07",
@@ -67,7 +344,74 @@
       "cjk": "佢學鋼琴，又要補習。而家啲小朋友真係好忙㗎。",
       "jyutping": "keoi5 hok6 gong3 kam4, jau6 jiu3 bou2 zaap6. ji4 gaa1 di1 siu2 pang4 jau5 zan1 hai6 hou2 mong4 gaa3.",
       "english": "She does piano, and tutoring too. Kids these days are so busy.",
-      "audioFile": "school-07.mp3"
+      "audioFile": "school-07.mp3",
+      "words": [
+        {
+          "chinese": "佢",
+          "jyutping": "keoi5",
+          "english": "he; she"
+        },
+        {
+          "chinese": "學",
+          "jyutping": "hok6",
+          "english": "learn"
+        },
+        {
+          "chinese": "鋼琴",
+          "jyutping": "gong3 kam4",
+          "english": "piano"
+        },
+        {
+          "chinese": "又",
+          "jyutping": "jau6",
+          "english": "also"
+        },
+        {
+          "chinese": "要",
+          "jyutping": "jiu3",
+          "english": "has to"
+        },
+        {
+          "chinese": "補習",
+          "jyutping": "bou2 zaap6",
+          "english": "tutoring"
+        },
+        {
+          "chinese": "而家",
+          "jyutping": "ji4 gaa1",
+          "english": "now"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(these)"
+        },
+        {
+          "chinese": "小朋友",
+          "jyutping": "siu2 pang4 jau5",
+          "english": "kids"
+        },
+        {
+          "chinese": "真係",
+          "jyutping": "zan1 hai6",
+          "english": "really"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "忙",
+          "jyutping": "mong4",
+          "english": "busy"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "school-08",
@@ -75,7 +419,69 @@
       "cjk": "係呀。好喇，啱啱見到我個仔出嚟喇。拜拜！",
       "jyutping": "hai6 aa3. hou2 laa3, ngaam1 ngaam1 gin3 dou2 ngo5 go3 zai2 ceot1 lei4 laa3. baai1 baai3!",
       "english": "Yes, indeed. OK, I can see my son coming out now. Bye bye!",
-      "audioFile": "school-08.mp3"
+      "audioFile": "school-08.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "yes"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "alright"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "啱啱",
+          "jyutping": "ngaam1 ngaam1",
+          "english": "just now"
+        },
+        {
+          "chinese": "見到",
+          "jyutping": "gin3 dou2",
+          "english": "see"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "仔",
+          "jyutping": "zai2",
+          "english": "son"
+        },
+        {
+          "chinese": "出嚟",
+          "jyutping": "ceot1 lei4",
+          "english": "come out"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "拜拜",
+          "jyutping": "baai1 baai3",
+          "english": "bye bye"
+        }
+      ]
     }
   ]
 }

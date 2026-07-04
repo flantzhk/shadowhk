@@ -19,7 +19,19 @@
       "cjk": "唔該，埋單！",
       "jyutping": "m4 goi1, maai4 daan1!",
       "english": "Excuse me, the bill please!",
-      "audioFile": "bill-01.mp3"
+      "audioFile": "bill-01.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "埋單",
+          "jyutping": "maai4 daan1",
+          "english": "the bill please"
+        }
+      ]
     },
     {
       "id": "bill-02",
@@ -27,7 +39,24 @@
       "cjk": "好，等一陣。",
       "jyutping": "hou2, dang2 jat1 zan6.",
       "english": "Sure, just a moment.",
-      "audioFile": "bill-02.mp3"
+      "audioFile": "bill-02.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "等",
+          "jyutping": "dang2",
+          "english": "wait"
+        },
+        {
+          "chinese": "一陣",
+          "jyutping": "jat1 zan6",
+          "english": "a moment"
+        }
+      ]
     },
     {
       "id": "bill-03",
@@ -35,7 +64,24 @@
       "cjk": "一共二百四十蚊。",
       "jyutping": "jat1 gung6 ji6 baak3 sei3 sap6 man1.",
       "english": "That's two hundred and forty altogether.",
-      "audioFile": "bill-03.mp3"
+      "audioFile": "bill-03.mp3",
+      "words": [
+        {
+          "chinese": "一共",
+          "jyutping": "jat1 gung6",
+          "english": "altogether"
+        },
+        {
+          "chinese": "二百四十",
+          "jyutping": "ji6 baak3 sei3 sap6",
+          "english": "two hundred forty"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        }
+      ]
     },
     {
       "id": "bill-04",
@@ -43,7 +89,34 @@
       "cjk": "AA啦，一人一百二。",
       "jyutping": "AA laa1, jat1 jan4 jat1 baak3 ji6.",
       "english": "Let's split it. A hundred and twenty each.",
-      "audioFile": "bill-04.mp3"
+      "audioFile": "bill-04.mp3",
+      "words": [
+        {
+          "chinese": "AA",
+          "jyutping": "AA",
+          "english": "split the bill"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        },
+        {
+          "chinese": "一",
+          "jyutping": "jat1",
+          "english": "one"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "一百二",
+          "jyutping": "jat1 baak3 ji6",
+          "english": "one hundred twenty"
+        }
+      ]
     },
     {
       "id": "bill-05",
@@ -51,7 +124,34 @@
       "cjk": "好呀。唔該，可唔可以碌卡？",
       "jyutping": "hou2 aa3. m4 goi1, ho2 m4 ho2 ji5 luk1 kaat1?",
       "english": "Sure. Excuse me, can I pay by card?",
-      "audioFile": "bill-05.mp3"
+      "audioFile": "bill-05.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "可唔可以",
+          "jyutping": "ho2 m4 ho2 ji5",
+          "english": "can you?"
+        },
+        {
+          "chinese": "碌卡",
+          "jyutping": "luk1 kaat1",
+          "english": "pay by card"
+        }
+      ]
     },
     {
       "id": "bill-06",
@@ -59,7 +159,39 @@
       "cjk": "可以，VISA同Mastercard都得。",
       "jyutping": "ho2 ji5, VISA tung4 Mastercard dou1 dak1.",
       "english": "Yes, VISA and Mastercard both fine.",
-      "audioFile": "bill-06.mp3"
+      "audioFile": "bill-06.mp3",
+      "words": [
+        {
+          "chinese": "可以",
+          "jyutping": "ho2 ji5",
+          "english": "can"
+        },
+        {
+          "chinese": "VISA",
+          "jyutping": "VISA",
+          "english": "Visa"
+        },
+        {
+          "chinese": "同",
+          "jyutping": "tung4",
+          "english": "and"
+        },
+        {
+          "chinese": "Mastercard",
+          "jyutping": "Mastercard",
+          "english": "Mastercard"
+        },
+        {
+          "chinese": "都",
+          "jyutping": "dou1",
+          "english": "also; all"
+        },
+        {
+          "chinese": "得",
+          "jyutping": "dak1",
+          "english": "can"
+        }
+      ]
     },
     {
       "id": "bill-07",
@@ -67,7 +199,24 @@
       "cjk": "好，唔該晒。",
       "jyutping": "hou2, m4 goi1 saai3.",
       "english": "Great, thank you.",
-      "audioFile": "bill-07.mp3"
+      "audioFile": "bill-07.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        }
+      ]
     }
   ]
 }

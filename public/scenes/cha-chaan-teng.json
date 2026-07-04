@@ -38,6 +38,33 @@
           "romanization": "mou5 wai2 wo3",
           "english": "No seats right now."
         }
+      ],
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "位",
+          "jyutping": "wai2",
+          "english": "seat"
+        },
+        {
+          "chinese": "坐",
+          "jyutping": "co5",
+          "english": "sit"
+        },
+        {
+          "chinese": "冇",
+          "jyutping": "mou5",
+          "english": "not have"
+        }
       ]
     },
     {
@@ -46,7 +73,29 @@
       "cjk": "有，入嚟坐啦。",
       "jyutping": "jau5, jap6 lei4 co5 laa1.",
       "english": "Yes, come in and sit down.",
-      "audioFile": "cct-02.mp3"
+      "audioFile": "cct-02.mp3",
+      "words": [
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "入嚟",
+          "jyutping": "jap6 lei4",
+          "english": "come in"
+        },
+        {
+          "chinese": "坐",
+          "jyutping": "co5",
+          "english": "sit"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        }
+      ]
     },
     {
       "id": "cct-03",
@@ -54,7 +103,49 @@
       "cjk": "要一杯奶茶同兩件多士。",
       "jyutping": "jiu3 jat1 bui1 naai5 caa4 tung4 loeng5 gin6 do1 si2.",
       "english": "I'd like a milk tea and two pieces of toast.",
-      "audioFile": "cct-03.mp3"
+      "audioFile": "cct-03.mp3",
+      "words": [
+        {
+          "chinese": "要",
+          "jyutping": "jiu3",
+          "english": "want"
+        },
+        {
+          "chinese": "一",
+          "jyutping": "jat1",
+          "english": "one"
+        },
+        {
+          "chinese": "杯",
+          "jyutping": "bui1",
+          "english": "cup of"
+        },
+        {
+          "chinese": "奶茶",
+          "jyutping": "naai5 caa4",
+          "english": "milk tea"
+        },
+        {
+          "chinese": "同",
+          "jyutping": "tung4",
+          "english": "and"
+        },
+        {
+          "chinese": "兩",
+          "jyutping": "loeng5",
+          "english": "two"
+        },
+        {
+          "chinese": "件",
+          "jyutping": "gin6",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "多士",
+          "jyutping": "do1 si2",
+          "english": "toast"
+        }
+      ]
     },
     {
       "id": "cct-04",
@@ -62,7 +153,24 @@
       "cjk": "凍定熱？",
       "jyutping": "dung3 ding6 jit6?",
       "english": "Cold or hot?",
-      "audioFile": "cct-04.mp3"
+      "audioFile": "cct-04.mp3",
+      "words": [
+        {
+          "chinese": "凍",
+          "jyutping": "dung3",
+          "english": "iced"
+        },
+        {
+          "chinese": "定",
+          "jyutping": "ding6",
+          "english": "or"
+        },
+        {
+          "chinese": "熱",
+          "jyutping": "jit6",
+          "english": "hot"
+        }
+      ]
     },
     {
       "id": "cct-05",
@@ -70,7 +178,24 @@
       "cjk": "凍嘅，唔該。",
       "jyutping": "dung3 ge3, m4 goi1.",
       "english": "Cold, please.",
-      "audioFile": "cct-05.mp3"
+      "audioFile": "cct-05.mp3",
+      "words": [
+        {
+          "chinese": "凍",
+          "jyutping": "dung3",
+          "english": "iced"
+        },
+        {
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        }
+      ]
     },
     {
       "id": "cct-06",
@@ -78,7 +203,19 @@
       "cjk": "好，等陣。",
       "jyutping": "hou2, dang2 zan6.",
       "english": "OK, just a moment.",
-      "audioFile": "cct-06.mp3"
+      "audioFile": "cct-06.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "等陣",
+          "jyutping": "dang2 zan6",
+          "english": "in a moment"
+        }
+      ]
     },
     {
       "id": "cct-07",
@@ -86,7 +223,19 @@
       "cjk": "唔該，埋單。",
       "jyutping": "m4 goi1, maai4 daan1.",
       "english": "Excuse me, the bill please.",
-      "audioFile": "cct-07.mp3"
+      "audioFile": "cct-07.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "埋單",
+          "jyutping": "maai4 daan1",
+          "english": "the bill please"
+        }
+      ]
     },
     {
       "id": "cct-08",
@@ -94,7 +243,24 @@
       "cjk": "係三十二蚊。",
       "jyutping": "hai6 saam1 sap6 ji6 man1.",
       "english": "That's 32 dollars.",
-      "audioFile": "cct-08.mp3"
+      "audioFile": "cct-08.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "三十二",
+          "jyutping": "saam1 sap6 ji6",
+          "english": "thirty-two"
+        },
+        {
+          "chinese": "蚊",
+          "jyutping": "man1",
+          "english": "dollars"
+        }
+      ]
     }
   ]
 }

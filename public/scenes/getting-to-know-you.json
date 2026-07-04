@@ -19,7 +19,34 @@
       "cjk": "你做乜嘢工作㗎？",
       "jyutping": "nei5 zou6 mat1 je5 gung1 zok3 gaa3?",
       "english": "What do you do for work?",
-      "audioFile": "gtk-01.mp3"
+      "audioFile": "gtk-01.mp3",
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "做",
+          "jyutping": "zou6",
+          "english": "do"
+        },
+        {
+          "chinese": "乜嘢",
+          "jyutping": "mat1 je5",
+          "english": "what"
+        },
+        {
+          "chinese": "工作",
+          "jyutping": "gung1 zok3",
+          "english": "job"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "gtk-02",
@@ -27,7 +54,44 @@
       "cjk": "我係老師，喺國際學校教書。",
       "jyutping": "ngo5 hai6 lou5 si1, hai2 gwok3 zai3 hok6 haau6 gaau3 syu1.",
       "english": "I'm a teacher — I work at an international school.",
-      "audioFile": "gtk-02.mp3"
+      "audioFile": "gtk-02.mp3",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "老師",
+          "jyutping": "lou5 si1",
+          "english": "teacher"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "國際",
+          "jyutping": "gwok3 zai3",
+          "english": "international"
+        },
+        {
+          "chinese": "學校",
+          "jyutping": "hok6 haau6",
+          "english": "school"
+        },
+        {
+          "chinese": "教書",
+          "jyutping": "gaau3 syu1",
+          "english": "teach"
+        }
+      ]
     },
     {
       "id": "gtk-03",
@@ -35,7 +99,54 @@
       "cjk": "你廣東話好叻喎！學咗幾耐㗎？",
       "jyutping": "nei5 gwong2 dung1 waa2 hou2 lek1 wo3! hok6 zo2 gei2 noi6 gaa3?",
       "english": "Your Cantonese is great! How long have you been learning?",
-      "audioFile": "gtk-03.mp3"
+      "audioFile": "gtk-03.mp3",
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "廣東話",
+          "jyutping": "gwong2 dung1 waa2",
+          "english": "Cantonese"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "叻",
+          "jyutping": "lek1",
+          "english": "skilled"
+        },
+        {
+          "chinese": "喎",
+          "jyutping": "wo3",
+          "english": "(you know)"
+        },
+        {
+          "chinese": "學",
+          "jyutping": "hok6",
+          "english": "learn"
+        },
+        {
+          "chinese": "咗",
+          "jyutping": "zo2",
+          "english": "(completed action)"
+        },
+        {
+          "chinese": "幾耐",
+          "jyutping": "gei2 noi6",
+          "english": "how long"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
     },
     {
       "id": "gtk-04",
@@ -43,7 +154,64 @@
       "cjk": "邊度係呀！學咗半年咋，仲差好遠！",
       "jyutping": "bin1 dou6 hai6 aa3! hok6 zo2 bun3 nin4 zaa3, zung6 caa1 hou2 jyun5!",
       "english": "Not at all! I've only been learning six months. Still a long way to go!",
-      "audioFile": "gtk-04.mp3"
+      "audioFile": "gtk-04.mp3",
+      "words": [
+        {
+          "chinese": "邊度",
+          "jyutping": "bin1 dou6",
+          "english": "where"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        },
+        {
+          "chinese": "學",
+          "jyutping": "hok6",
+          "english": "learn"
+        },
+        {
+          "chinese": "咗",
+          "jyutping": "zo2",
+          "english": "(completed action)"
+        },
+        {
+          "chinese": "半年",
+          "jyutping": "bun3 nin4",
+          "english": "half a year"
+        },
+        {
+          "chinese": "咋",
+          "jyutping": "zaa3",
+          "english": "(only)"
+        },
+        {
+          "chinese": "仲",
+          "jyutping": "zung6",
+          "english": "still; also"
+        },
+        {
+          "chinese": "差",
+          "jyutping": "caa1",
+          "english": "far behind"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "遠",
+          "jyutping": "jyun5",
+          "english": "far"
+        }
+      ]
     },
     {
       "id": "gtk-05",
@@ -51,7 +219,34 @@
       "cjk": "有冇WhatsApp？保持聯絡啦！",
       "jyutping": "jau5 mou5 WhatsApp? bou2 ci4 lyun4 lok3 laa1!",
       "english": "Got WhatsApp? Let's keep in touch!",
-      "audioFile": "gtk-05.mp3"
+      "audioFile": "gtk-05.mp3",
+      "words": [
+        {
+          "chinese": "有冇",
+          "jyutping": "jau5 mou5",
+          "english": "have any?"
+        },
+        {
+          "chinese": "WhatsApp",
+          "jyutping": "WhatsApp",
+          "english": "WhatsApp"
+        },
+        {
+          "chinese": "保持",
+          "jyutping": "bou2 ci4",
+          "english": "keep in"
+        },
+        {
+          "chinese": "聯絡",
+          "jyutping": "lyun4 lok3",
+          "english": "touch"
+        },
+        {
+          "chinese": "啦",
+          "jyutping": "laa1",
+          "english": "(suggestion particle)"
+        }
+      ]
     },
     {
       "id": "gtk-06",
@@ -59,7 +254,39 @@
       "cjk": "有呀！好高興識到你。",
       "jyutping": "jau5 aa3! hou2 gou1 hing3 sik1 dou2 nei5.",
       "english": "Of course! Really glad to have met you.",
-      "audioFile": "gtk-06.mp3"
+      "audioFile": "gtk-06.mp3",
+      "words": [
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "高興",
+          "jyutping": "gou1 hing3",
+          "english": "glad"
+        },
+        {
+          "chinese": "識到",
+          "jyutping": "sik1 dou2",
+          "english": "get to know"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        }
+      ]
     }
   ]
 }
