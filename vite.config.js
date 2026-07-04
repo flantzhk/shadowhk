@@ -22,6 +22,7 @@ export default defineConfig({
       srcDir: 'src',
       filename: 'sw.js',
       registerType: 'autoUpdate',
+      injectRegister: null, // registration lives in main.jsx (adds reload-on-update)
       includeAssets: ['icons/*.png'],
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,json,png,svg,jpg}'],
