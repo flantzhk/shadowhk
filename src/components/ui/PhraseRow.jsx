@@ -25,6 +25,7 @@ export function PhraseRow({
   jyutping,
   english,
   chinese,
+  words,
   role,
   score,
   isActive = false,
@@ -91,6 +92,11 @@ export function PhraseRow({
   }
 
   async function fetchWordGroups() {
+    // Precomputed breakdown shipped with the data: no network, works offline
+    if (Array.isArray(words) && words.length > 0) {
+      setWordGroups(words.map(w => ({ chars: w.chinese, meaning: w.english, jyutping: w.jyutping })));
+      return;
+    }
     if (!chinese) return;
     try {
       const res = await fetchWithAuth(`${API_BASE_URL}${API_ENDPOINTS.AI_CHAT}`, {

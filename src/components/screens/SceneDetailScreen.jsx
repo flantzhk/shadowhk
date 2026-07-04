@@ -240,6 +240,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
               <div className={isYou ? styles.youBubble : styles.npcBubble}>
                 <PhraseRow
                   phraseId={line.id}
+                  words={line.words}
                   jyutping={line.romanization}
                   english={line.english}
                   chinese={line.cjk}
