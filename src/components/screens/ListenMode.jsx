@@ -1,11 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+// src/components/screens/ListenMode.jsx — karaoke-style scene listening.
+// Plays the per-line recordings sequentially through one audio element:
+// line ends -> short beat -> next line. Highlighting follows the real line,
+// not estimated timestamps.
+
+import { useState, useEffect, useRef, useCallback } from 'react';
 import styles from './ListenMode.module.css';
+import { getSceneById } from '../../services/sceneLoader';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getSceneById } from '../../services/sceneLoader.js';
-import { phCapture } from '../../services/posthog.js';
-import { logger } from '../../utils/logger.js';
+import { phCapture } from '../../services/posthog';
+import { logger } from '../../utils/logger';
 
 const SPEEDS = [0.75, 1, 1.25];
+const LINE_GAP_MS = 350;
 
 export default function ListenMode({ sceneId, onBack, onNavigate }) {
   const { settings } = useAppContext();
@@ -14,112 +20,164 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
   const [scene, setScene] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [lineFraction, setLineFraction] = useState(0); // 0-1 within current line
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [speed, setSpeed] = useState(1);
   const [loopingIndex, setLoopingIndex] = useState(null);
+  const [speed, setSpeed] = useState(1);
 
   const audioRef = useRef(null);
-  const lineTimesRef = useRef([]);
   const activeLineRef = useRef(null);
   const listenStartedRef = useRef(false);
+  const gapTimerRef = useRef(null);
+  // Refs mirror state the audio callbacks need, avoiding stale closures
+  const indexRef = useRef(0);
+  const loopingRef = useRef(null);
+  const speedRef = useRef(1);
+  const linesRef = useRef([]);
 
   useEffect(() => {
     if (!sceneId) return;
     getSceneById(sceneId)
       .then(s => {
         setScene(s);
-        const times = (s.lines ?? []).reduce((acc, _, i) => { acc.push(i * 2); return acc; }, []);
-        lineTimesRef.current = times;
+        linesRef.current = s?.lines ?? [];
       })
       .catch(err => logger.error('[ListenMode] scene load failed', err?.message))
       .finally(() => setLoading(false));
   }, [sceneId]);
 
+  useEffect(() => () => clearTimeout(gapTimerRef.current), []);
+
+  useEffect(() => {
+    activeLineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [currentLineIndex, loopingIndex]);
+
+  const lineSrc = useCallback((i) => {
+    const line = linesRef.current[i];
+    return line ? `/shadowhk/audio/${language}/${line.id}.mp3` : null;
+  }, [language]);
+
+  /** Load and play line i. The single audio element's src swaps per line. */
+  const playLine = useCallback((i) => {
+    const el = audioRef.current;
+    const src = lineSrc(i);
+    if (!el || !src) return;
+    clearTimeout(gapTimerRef.current);
+    indexRef.current = i;
+    setCurrentLineIndex(i);
+    setLineFraction(0);
+
+    const absolute = new URL(src, window.location.origin).href;
+    if (el.src !== absolute) el.src = src;
+    el.playbackRate = loopingRef.current !== null ? 0.75 : speedRef.current;
+    el.play()
+      .then(() => setIsPlaying(true))
+      .catch((err) => {
+        logger.warn('[ListenMode] play failed', err?.message);
+        setIsPlaying(false);
+      });
+  }, [lineSrc]);
+
+  // Wire the element's lifecycle once
   useEffect(() => {
     const el = audioRef.current;
     if (!el) return;
     function onTimeUpdate() {
-      const t = el.currentTime;
-      setProgress(el.duration > 0 ? t / el.duration : 0);
-      const times = lineTimesRef.current;
-      let active = 0;
-      for (let i = 0; i < times.length; i++) { if (t >= times[i]) active = i; }
-      setCurrentLineIndex(active);
+      if (el.duration > 0) setLineFraction(el.currentTime / el.duration);
     }
-    function onLoadedMetadata() { setDuration(el.duration); }
-    function onEnded() { setIsPlaying(false); setCurrentLineIndex(0); setProgress(0); }
+    function onEnded() {
+      const i = indexRef.current;
+      if (loopingRef.current !== null) {
+        // Loop the same line with a beat of silence between repeats
+        gapTimerRef.current = setTimeout(() => playLine(loopingRef.current), LINE_GAP_MS);
+        return;
+      }
+      if (i + 1 < linesRef.current.length) {
+        gapTimerRef.current = setTimeout(() => playLine(i + 1), LINE_GAP_MS);
+      } else {
+        setIsPlaying(false);
+        setCurrentLineIndex(0);
+        setLineFraction(0);
+        indexRef.current = 0;
+      }
+    }
     el.addEventListener('timeupdate', onTimeUpdate);
-    el.addEventListener('loadedmetadata', onLoadedMetadata);
     el.addEventListener('ended', onEnded);
     return () => {
       el.removeEventListener('timeupdate', onTimeUpdate);
-      el.removeEventListener('loadedmetadata', onLoadedMetadata);
       el.removeEventListener('ended', onEnded);
     };
-  }, []);
-
-  useEffect(() => {
-    const el = audioRef.current;
-    if (el) el.playbackRate = speed;
-  }, [speed]);
-
-  useEffect(() => {
-    activeLineRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, [currentLineIndex]);
+  }, [playLine]);
 
   function togglePlay() {
     const el = audioRef.current;
     if (!el) return;
-    if (isPlaying) { el.pause(); setIsPlaying(false); }
-    else {
+    if (isPlaying) {
+      clearTimeout(gapTimerRef.current);
+      el.pause();
+      setIsPlaying(false);
+    } else {
       if (!listenStartedRef.current) {
         listenStartedRef.current = true;
         phCapture('listen_started', { scene_id: sceneId });
       }
-      el.play().then(() => setIsPlaying(true)).catch(() => {});
+      // Resume mid-line if possible, otherwise (re)start the current line
+      if (el.src && el.currentTime > 0 && !el.ended) {
+        el.play().then(() => setIsPlaying(true)).catch(() => {});
+      } else {
+        playLine(indexRef.current);
+      }
     }
   }
 
+  /** Scrubber is line-based: clicking 60% of the bar jumps to the line 60% in. */
   function seek(e) {
-    const el = audioRef.current;
-    if (!el || !el.duration) return;
+    const total = linesRef.current.length;
+    if (!total) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
-    el.currentTime = ratio * el.duration;
+    const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 0.999);
+    const target = Math.floor(ratio * total);
+    setLoopingIndex(null);
+    loopingRef.current = null;
+    playLine(target);
+  }
+
+  function jumpToLine(i) {
+    setLoopingIndex(null);
+    loopingRef.current = null;
+    playLine(i);
   }
 
   function loopLine(index) {
-    const el = audioRef.current;
-    if (!el) return;
     setLoopingIndex(index);
-    el.currentTime = lineTimesRef.current[index] ?? 0;
-    el.playbackRate = 0.75;
+    loopingRef.current = index;
     setSpeed(0.75);
-    el.play().then(() => setIsPlaying(true)).catch(() => {});
+    speedRef.current = 0.75;
+    playLine(index);
   }
 
   function stopLoop() {
     setLoopingIndex(null);
+    loopingRef.current = null;
     const el = audioRef.current;
-    if (el) el.playbackRate = speed;
+    if (el) el.playbackRate = speedRef.current;
+  }
+
+  function changeSpeed(s) {
+    setSpeed(s);
+    speedRef.current = s;
+    stopLoop();
+    const el = audioRef.current;
+    if (el) el.playbackRate = s;
   }
 
   const lines = scene?.lines ?? [];
-  const firstLineAudioFile = lines[0]?.audioFile;
-  const audioSrc = firstLineAudioFile ? `/shadowhk/audio/${language}/${firstLineAudioFile}` : null;
-
-  const formatTime = (s) => {
-    if (!s || isNaN(s)) return '0:00';
-    const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60);
-    return `${m}:${sec.toString().padStart(2, '0')}`;
-  };
+  const totalLines = lines.length;
+  const progress = totalLines > 0 ? (currentLineIndex + lineFraction) / totalLines : 0;
 
   return (
     <div className={styles.screen}>
-      <audio ref={audioRef} src={audioSrc ?? undefined} preload="metadata" />
+      <audio ref={audioRef} preload="auto" />
 
       {/* Hero */}
       <div
@@ -137,7 +195,7 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
             <span className={styles.listenDot} />
             LISTEN
           </span>
-          <h1 className={styles.sceneTitle}>{loading ? ' ' : (scene?.title ?? '')}</h1>
+          <h1 className={styles.sceneTitle}>{loading ? ' ' : (scene?.title ?? '')}</h1>
           {scene?.location && <p className={styles.sceneLocation}>{scene.location}</p>}
         </div>
       </div>
@@ -171,6 +229,10 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
               className={`${styles.messageRow} ${isYou ? styles.youRow : styles.themRow}`}
             >
               <div
+                role="button"
+                tabIndex={0}
+                onClick={() => jumpToLine(i)}
+                onKeyDown={(e) => { if (e.key === 'Enter') jumpToLine(i); }}
                 className={[
                   styles.bubble,
                   isYou ? styles.youBubble : styles.themBubble,
@@ -209,9 +271,9 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
 
         <div className={styles.playerRow}>
           <div className={styles.timeDisplay}>
-            <span>{formatTime(duration * progress)}</span>
+            <span>LINE {totalLines ? currentLineIndex + 1 : 0}</span>
             <span className={styles.timeSep}>/</span>
-            <span>{formatTime(duration)}</span>
+            <span>{totalLines}</span>
           </div>
 
           <button className={styles.playBtn} onClick={togglePlay} aria-label={isPlaying ? 'Pause' : 'Play'}>
@@ -223,7 +285,7 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
               <button
                 key={s}
                 className={`${styles.speedBtn} ${speed === s ? styles.speedOn : ''}`}
-                onClick={() => { setSpeed(s); stopLoop(); }}
+                onClick={() => changeSpeed(s)}
               >
                 {s}×
               </button>
