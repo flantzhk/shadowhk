@@ -708,3 +708,37 @@
   .screen { max-width: 960px; margin-left: auto; margin-right: auto; }
   .practiceGrid { grid-template-columns: repeat(4, 1fr); }
 }
+
+
+/* ── Desktop: newspaper front page ─────────────────────────────────── */
+@media (min-width: 900px) {
+  :global(.desktop-content) > .screen {
+    max-width: 1064px;
+    margin: 0 auto;
+  }
+  .greetingTitle {
+    font-size: 38px;
+  }
+  .heroSection :global(h1),
+  .heroTitle {
+    font-size: 40px;
+    line-height: 1.08;
+  }
+  /* Pick back up: horizontal thumb-scroll becomes a 4-across spread */
+  .pickBackScroll {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    overflow: visible;
+    padding-right: 0;
+  }
+  .pickBackCard {
+    width: auto;
+  }
+  .pickBackPhoto {
+    height: 150px;
+  }
+  .practiceGrid {
+    gap: 16px;
+  }
+}

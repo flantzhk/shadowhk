@@ -488,3 +488,18 @@
   .hero { height: 360px; }
   .heroTitle { font-size: clamp(28px, 4vw, 40px); }
 }
+
+
+/* ── Desktop ───────────────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  :global(.desktop-content) > .screen {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .hero {
+    height: 340px;
+  }
+  .heroTitle {
+    font-size: 36px;
+  }
+}
