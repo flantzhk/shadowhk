@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import styles from './PhraseRow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
-import { staticWordAudio } from '../../services/staticAudio.js';
+import { staticPhraseAudio, staticWordAudio } from '../../services/staticAudio.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -21,6 +21,7 @@ function BookmarkIcon({ filled }) {
 }
 
 export function PhraseRow({
+  phraseId,
   jyutping,
   english,
   chinese,
@@ -48,8 +49,12 @@ export function PhraseRow({
 
   async function playAudio(text, onDone, isWord = false) {
     try {
-      const blob = (isWord ? await staticWordAudio(text) : null)
-        ?? await textToSpeech(text, { language, turbo: true });
+      // Pre-recorded file first (works offline, no API dependency);
+      // live TTS only as a fallback for rows without a known phrase id.
+      const staticBlob = isWord
+        ? await staticWordAudio(text)
+        : await staticPhraseAudio(phraseId, language);
+      const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       if (audioRef.current) audioRef.current.pause();
       const audio = new Audio(url);
