@@ -687,3 +687,47 @@
   color: rgba(247, 244, 236, 0.45);
   margin-right: 6px;
 }
+
+
+/* Hear-it step: the missing first beat of the shadow loop */
+.hearBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px auto 0;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  background: rgba(200, 57, 43, 0.12);
+  color: #F4F1EC;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.hearBtn:active { transform: scale(0.97); }
+.hearIcon { color: var(--accent); font-size: 12px; }
+
+/* Word breakdown panel on the dark stage */
+.bdPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  max-width: 460px;
+}
+.bdTile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(244, 241, 236, 0.07);
+}
+.bdCjk { font-size: 20px; color: #F4F1EC; }
+.bdJyut { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); }
+.bdGloss { font-size: 11px; color: rgba(244, 241, 236, 0.6); }
+.bdEmpty { margin-top: 14px; font-size: 13px; color: rgba(244, 241, 236, 0.5); }

@@ -17,13 +17,6 @@ const REFERENCE_SETS = [
   { id: 'time',     title: 'Telling the Time' },
 ];
 
-const FILTERS = [
-  { id: 'all', label: 'ALL' },
-  { id: 'said', label: '📍 SAID IN PERSON' },
-  { id: 'needs-work', label: 'NEEDS WORK' },
-  { id: 'mastered', label: 'MASTERED' },
-];
-
 export default function LibraryScreen({ onNavigate }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
@@ -31,7 +24,6 @@ export default function LibraryScreen({ onNavigate }) {
   const [library, setLibrary] = useState([]);
   const [scenes, setScenes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
@@ -188,9 +180,6 @@ export default function LibraryScreen({ onNavigate }) {
 
   function filterPhrases(phrases) {
     let result = phrases;
-    if (activeFilter === 'said') result = result.filter(p => p.lived_at);
-    else if (activeFilter === 'needs-work') result = result.filter(p => p.growth_state !== GROWTH_STATE.MASTERED && !p.lived_at);
-    else if (activeFilter === 'mastered') result = result.filter(p => p.growth_state === GROWTH_STATE.MASTERED);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       result = result.filter(p =>
@@ -234,17 +223,9 @@ export default function LibraryScreen({ onNavigate }) {
         )}
       </div>
 
-      <div className={styles.filterChips}>
-        {FILTERS.map(f => (
-          <button
-            key={f.id}
-            className={`${styles.filterChip} ${activeFilter === f.id ? styles.filterChipActive : ''}`}
-            onClick={() => setActiveFilter(f.id)}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
+      {saidInPersonCount > 0 && (
+        <p className={styles.pinHint}>📍 {saidInPersonCount} said to a real person. The app asks after each session.</p>
+      )}
 
       {activeFilter === 'all' && !searchQuery && (
         <>

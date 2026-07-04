@@ -42,6 +42,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [sessionStart] = useState(Date.now());
   const [showCelebration, setShowCelebration] = useState(false);
   const [silentTake, setSilentTake] = useState(false);
+  const [heard, setHeard] = useState(false);
+  const [showBreakdown, setShowBreakdown] = useState(false);
   const [showPhrasebookToast, setShowPhrasebookToast] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
@@ -204,6 +206,11 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   // Safety net: lines are 2-4 seconds, so auto-stop a recording nobody
   // stopped. Without this, a user who doesn't realise the button toggles
   // is stuck on RECORDING forever.
+  // New line: fresh listen state, breakdown closed
+  useEffect(() => { setHeard(false); setShowBreakdown(false); }, [currentLineIndex]);
+  // Autoplay sometimes succeeds (browser allows it) — count that as heard
+  useEffect(() => { if (audio.isPlaying) setHeard(true); }, [audio.isPlaying]);
+
   useEffect(() => {
     if (phase !== 'record') return;
     const t = setTimeout(() => { handleStopRecording(); }, 10000);
@@ -356,10 +363,34 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <span /><span /><span />
             </button>
             {/* Breakdown */}
-            <button className={styles.breakdownBtn} onClick={() => {}} aria-label="Breakdown">
+            <button className={styles.breakdownBtn} onClick={() => setShowBreakdown(v => !v)} aria-label="Breakdown">
               📖 Breakdown
             </button>
           </div>
+
+          {showBreakdown && (currentYouLine?.words?.length > 0 ? (
+            <div className={styles.bdPanel}>
+              {currentYouLine.words.map((w, i) => (
+                <div key={i} className={styles.bdTile}>
+                  <span className={styles.bdCjk}>{w.chinese}</span>
+                  <span className={styles.bdJyut}>{w.jyutping}</span>
+                  <span className={styles.bdGloss}>{w.english}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className={styles.bdEmpty}>No breakdown for this line yet.</p>
+          ))}
+
+          {(phase === 'ready' || phase === 'scored') && (
+            <button
+              className={styles.hearBtn}
+              onClick={() => { setHeard(true); audio.play(); }}
+            >
+              <span className={styles.hearIcon}>▶</span>
+              {heard ? 'Hear it again' : 'Hear it'}
+            </button>
+          )}
 
           {/* Score reveal */}
           {(phase === 'scoring' || phase === 'scored') && (
@@ -430,7 +461,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <ArrowLeftIcon />
             </button>
             <p className={styles.holdLabel}>
-              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "COULDN'T HEAR YOU · CHECK YOUR MIC" : 'TAP TO RECORD · SWIPE → NEXT'}
+              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "COULDN'T HEAR YOU · CHECK YOUR MIC" : heard ? 'YOUR TURN · TAP THE MIC' : '1 · HEAR IT   2 · SAY IT   3 · GET SCORED'}
             </p>
             <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />

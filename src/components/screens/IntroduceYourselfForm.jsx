@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './IntroduceYourselfForm.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
+import { textToSpeech } from '../../services/api';
+import { staticPhraseAudio } from '../../services/staticAudio.js';
 import { countPhrases, buildGenerationPrompt, savePersonalScene, buildPersonalSceneObject, PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { fetchWithAuth } from '../../services/api.js';
@@ -40,7 +42,7 @@ const EMPTY_FORM = {
 };
 
 export default function IntroduceYourselfForm({ onComplete, onBack }) {
-  const { settings } = useAppContext();
+  const { settings, updateSettings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
   const [form, setForm] = useState({ ...EMPTY_FORM, kids: [] });
@@ -48,6 +50,16 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState(null);
   const [existingPhrases, setExistingPhrases] = useState([]);
+  const [playingIdx, setPlayingIdx] = useState(null);
+  const playerRef = useRef(null);
+  const touchedRef = useRef(false);
+
+  // Remember previous answers — a returning user should never retype
+  useEffect(() => {
+    if (touchedRef.current) return;
+    const saved = settings?.personalIntroForm;
+    if (saved && typeof saved === 'object') setForm(f => ({ ...f, ...saved }));
+  }, [settings?.personalIntroForm]);
 
   useEffect(() => {
     getLibraryEntries(language)
@@ -57,7 +69,24 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
 
   const phraseCount = countPhrases(form);
 
+  async function playPhrase(p, i) {
+    if (playingIdx === i) { playerRef.current?.pause(); setPlayingIdx(null); return; }
+    playerRef.current?.pause();
+    setPlayingIdx(i);
+    try {
+      const blob = (await staticPhraseAudio(p.phraseId, language))
+        ?? await textToSpeech(p.cjk, { language });
+      const url = URL.createObjectURL(blob);
+      const a = new Audio(url);
+      playerRef.current = a;
+      a.onended = () => { setPlayingIdx(null); URL.revokeObjectURL(url); };
+      a.onerror = () => { setPlayingIdx(null); URL.revokeObjectURL(url); };
+      await a.play();
+    } catch (_) { setPlayingIdx(null); }
+  }
+
   function setField(key, value) {
+    touchedRef.current = true;
     setForm(prev => ({ ...prev, [key]: value }));
   }
 
@@ -87,6 +116,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
     setError(null);
 
     try {
+      updateSettings({ personalIntroForm: form }).catch(() => {});
       const prompt = buildGenerationPrompt(form, language);
       const response = await fetchWithAuth(`${API_BASE_URL}/ai-chat`, {
         method: 'POST',
@@ -177,6 +207,13 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
             <ul className={styles.phraseList}>
               {existingPhrases.map((p, i) => (
                 <li key={i} className={styles.phraseItem}>
+                  <button
+                    className={styles.phrasePlay}
+                    onClick={() => playPhrase(p, i)}
+                    aria-label={playingIdx === i ? 'Stop' : 'Play'}
+                  >
+                    {playingIdx === i ? '⏸' : '▶'}
+                  </button>
                   <div className={styles.phraseLeft}>
                     <span className={styles.phraseCjk}>{p.cjk}</span>
                     <span className={styles.phraseRoman}>{p.romanization}</span>
@@ -367,14 +404,17 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           className={styles.generateBtn}
           onClick={handleGenerate}
           disabled={!form.name.trim() || generating}
+          title={!form.name.trim() ? 'Add your name in the first section' : undefined}
         >
           {generating
             ? 'Building your scene...'
-            : phraseCount > 0
-              ? existingPhrases.length > 0
-                ? `Rebuild scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
-                : `Build scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
-              : 'Add your name to start'}
+            : !form.name.trim()
+              ? 'Add your name (first section) to build'
+              : phraseCount > 0
+                ? existingPhrases.length > 0
+                  ? `Rebuild scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
+                  : `Build scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
+                : 'Fill in a field or two to start'}
         </button>
       </div>
     </div>

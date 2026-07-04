@@ -571,3 +571,10 @@
   }
   .phraseRow { border-bottom: 1px solid var(--border-0); }
 }
+
+
+.pinHint {
+  margin: 10px 0 4px;
+  font-size: 13px;
+  color: var(--fg-2);
+}
