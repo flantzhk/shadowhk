@@ -59,9 +59,6 @@ export default function SessionSummary({ summary, onDone }) {
   }
 
   const avg = summary.averageScore !== null ? Math.round(summary.averageScore) : null;
-  const pron = avg !== null ? Math.min(100, Math.round(avg + 4)) : null;
-  const tone = avg !== null ? Math.max(0, Math.round(avg - 3)) : null;
-  const speed = avg !== null ? Math.min(100, Math.round(avg - 1)) : null;
 
   const scored = (summary.phraseResults ?? []).filter(r => r.score != null);
   const best = scored.length ? scored.reduce((a, b) => b.score > a.score ? b : a) : null;
@@ -89,9 +86,6 @@ export default function SessionSummary({ summary, onDone }) {
               ? <>You scored {avg}%{avg >= 85 ? ' — strong session.' : avg >= 65 ? ' — solid work.' : ' — keep pushing.'}</>
               : <>Session done, {firstName}.</>
             }
-            {tone !== null && tone < 75 && (
-              <> <span className={styles.headlineWeak}>Your tone accuracy still has room to grow.</span></>
-            )}
           </h1>
 
           {/* Lived it prompt */}
@@ -121,14 +115,14 @@ export default function SessionSummary({ summary, onDone }) {
             </div>
           )}
 
-          {/* 3-column bars */}
-          {pron !== null && (
+          {/* Per-line scores — real measurements, one bar per line spoken */}
+          {scored.length > 0 && (
             <div className={styles.barsGrid}>
-              {[['Pron.', pron], ['Tone', tone], ['Speed', speed]].map(([label, val]) => (
-                <div key={label}>
-                  <span className={styles.barLabel}>{label} {val}</span>
+              {scored.map((r) => (
+                <div key={r.phraseId}>
+                  <span className={styles.barLabel}>{(r.romanization ?? '').split(' ').slice(0, 2).join(' ')} {r.score}</span>
                   <div className={styles.barTrack}>
-                    <div className={styles.barFill} style={{ width: `${val}%` }} />
+                    <div className={styles.barFill} style={{ width: `${r.score}%` }} />
                   </div>
                 </div>
               ))}
