@@ -21,6 +21,15 @@ export function staticPhraseAudio(id, language = 'cantonese') {
   return fetchAudioBlob(`${base()}audio/${language}/${id}.mp3`);
 }
 
+/** Warm the cache for a set of breakdown words so taps play instantly.
+ * Fire-and-forget: the service worker's cache-first route stores each hit. */
+export function prefetchWordAudio(words) {
+  for (const w of words || []) {
+    const text = typeof w === 'string' ? w : w?.chinese;
+    if (text) fetch(`${base()}audio/cantonese-words/${encodeURIComponent(text)}.mp3`).catch(() => {});
+  }
+}
+
 /** Pre-recorded single word/character audio: audio/cantonese-words/{word}.mp3 */
 export function staticWordAudio(word) {
   if (!word) return Promise.resolve(null);

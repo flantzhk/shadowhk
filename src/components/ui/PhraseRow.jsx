@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import styles from './PhraseRow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { textToSpeech, fetchWithAuth } from '../../services/api.js';
-import { staticPhraseAudio, staticWordAudio } from '../../services/staticAudio.js';
+import { staticPhraseAudio, staticWordAudio, prefetchWordAudio } from '../../services/staticAudio.js';
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -95,6 +95,7 @@ export function PhraseRow({
     // Precomputed breakdown shipped with the data: no network, works offline
     if (Array.isArray(words) && words.length > 0) {
       setWordGroups(words.map(w => ({ chars: w.chinese, meaning: w.english, jyutping: w.jyutping })));
+      prefetchWordAudio(words);
       return;
     }
     if (!chinese) return;
@@ -109,6 +110,7 @@ export function PhraseRow({
         ? data.groups.filter(g => g.chars && g.meaning)
         : [];
       setWordGroups(groups.length ? groups : false);
+      if (groups.length) prefetchWordAudio(groups.map(g => g.chars));
     } catch (err) {
       logger.error('[PhraseRow] word breakdown failed', err?.message ?? err);
       setWordGroups(false);

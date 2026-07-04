@@ -6,6 +6,7 @@ import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { logger } from '../../utils/logger.js';
 import { updateAfterPractice } from '../../services/srs.js';
 import { blobIsAudible } from '../../utils/audioSignal.js';
+import { prefetchWordAudio } from '../../services/staticAudio.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
 import { scorePronunciation } from '../../services/api.js';
 import { isAuthenticated } from '../../services/auth.js';
@@ -363,7 +364,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <span /><span /><span />
             </button>
             {/* Breakdown */}
-            <button className={styles.breakdownBtn} onClick={() => setShowBreakdown(v => !v)} aria-label="Breakdown">
+            <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words); return !v; }); }} aria-label="Breakdown">
               📖 Breakdown
             </button>
           </div>

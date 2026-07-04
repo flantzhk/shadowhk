@@ -163,11 +163,13 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
 
       {/* Tabs */}
       <div className={styles.tabs}>
+        {/* Progress opens the full stats screen (achievements, history) —
+            the You tab already carries the summary */}
         {[['you', 'You'], ['progress', 'Progress'], ['settings', 'Settings']].map(([id, label]) => (
           <button
             key={id}
             className={`${styles.tab} ${activeTab === id ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab(id)}
+            onClick={() => id === 'progress' ? navigate(ROUTES.STATS) : setActiveTab(id)}
           >
             {label}
           </button>
@@ -209,8 +211,8 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
         </div>
       )}
 
-      {/* Settings + progress tabs wrap all remaining content */}
-      {(activeTab === 'settings' || activeTab === 'progress') && (
+      {/* Settings tab */}
+      {activeTab === 'settings' && (
       <div className={styles.tabContent}>
       {/* Learning */}
       <p className={styles.sectionLabel}>LEARNING</p>
