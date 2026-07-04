@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ReferenceScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
-import { textToSpeech } from '../../services/api.js';
-import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
+import { PhraseRow } from '../ui/PhraseRow.jsx';
 
 export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
   const { settings } = useAppContext();
@@ -13,29 +12,7 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(true);
   const [expandedChapter, setExpandedChapter] = useState(null);
-  const [playingId, setPlayingId] = useState(null);
-  // Per-phrase audio state ('loading' | 'playing' | 'error') so the play
-  // button can show a spinner / bars / warning glyph instead of just toggling.
-  const [audioState, setAudioState] = useState({});
   const [savedIds, setSavedIds] = useState(new Set());
-  const [livedIds, setLivedIds] = useState(new Set());
-  const audioRef = useRef(null);
-  const errorTimerRef = useRef(null);
-
-  function setPhraseAudioState(id, state) {
-    setAudioState(prev => {
-      const next = { ...prev };
-      if (state == null) delete next[id];
-      else next[id] = state;
-      return next;
-    });
-  }
-
-  function flashError(id) {
-    setPhraseAudioState(id, 'error');
-    clearTimeout(errorTimerRef.current);
-    errorTimerRef.current = setTimeout(() => setPhraseAudioState(id, null), 2000);
-  }
 
   useEffect(() => {
     if (!referenceId) return;
@@ -52,58 +29,19 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
       .finally(() => setLoading(false));
   }, [referenceId]);
 
-  // Check which phrases are already saved / lived
+  // Check which phrases are already saved
   useEffect(() => {
     const allPhraseIds = chapters.flatMap(c => (c.phrases ?? []).map(p => p.id));
     if (!allPhraseIds.length) return;
     Promise.all(allPhraseIds.map(id => getLibraryEntry(id))).then(entries => {
       const saved = new Set();
-      const lived = new Set();
-      entries.forEach(e => {
-        if (e) { saved.add(e.id); if (e.lived_at) lived.add(e.id); }
-      });
+      entries.forEach(e => { if (e) saved.add(e.id); });
       setSavedIds(saved);
-      setLivedIds(lived);
     }).catch(() => {});
   }, [chapters]);
 
-  async function playInline(e, phrase) {
-    e.stopPropagation();
-    if (playingId === phrase.id) {
-      audioRef.current?.pause();
-      audioRef.current = null;
-      setPlayingId(null);
-      setPhraseAudioState(phrase.id, null);
-      return;
-    }
-    audioRef.current?.pause();
-    setPlayingId(phrase.id);
-    setPhraseAudioState(phrase.id, 'loading');
-    try {
-      const base = import.meta.env.BASE_URL || '/';
-      let blobUrl = null;
-      try {
-        const resp = await fetch(`${base}audio/${language}/${phrase.id}.mp3`);
-        if (resp.ok) {
-          const blob = await resp.blob();
-          if (blob.size > 500) blobUrl = URL.createObjectURL(blob);
-        }
-      } catch (_) {}
-      if (!blobUrl) {
-        const blob = await textToSpeech(phrase.chinese, { language });
-        if (blob && blob.size > 0) blobUrl = URL.createObjectURL(blob);
-      }
-      if (!blobUrl) { setPlayingId(null); flashError(phrase.id); return; }
-      const audio = new Audio(blobUrl);
-      audioRef.current = audio;
-      audio.oncanplay = () => setPhraseAudioState(phrase.id, 'playing');
-      audio.onended = () => { setPlayingId(null); setPhraseAudioState(phrase.id, null); URL.revokeObjectURL(blobUrl); };
-      audio.onerror = () => { setPlayingId(null); flashError(phrase.id); URL.revokeObjectURL(blobUrl); };
-      audio.play().catch(() => { setPlayingId(null); flashError(phrase.id); });
-    } catch (_) { setPlayingId(null); flashError(phrase.id); }
-  }
-
   async function toggleSaved(phrase) {
+    if (savedIds.has(phrase.id)) return;
     const entry = {
       id: phrase.id,
       cjk: phrase.chinese,
@@ -117,19 +55,6 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
     };
     await saveLibraryEntry(entry);
     setSavedIds(prev => new Set([...prev, phrase.id]));
-  }
-
-  async function toggleLived(e, phraseId) {
-    e.stopPropagation();
-    const entry = await getLibraryEntry(phraseId);
-    if (!entry) return;
-    const updated = { ...entry, lived_at: entry.lived_at ? null : Date.now() };
-    await saveLibraryEntry(updated);
-    setLivedIds(prev => {
-      const next = new Set(prev);
-      updated.lived_at ? next.add(phraseId) : next.delete(phraseId);
-      return next;
-    });
   }
 
   const CHAPTER_COLORS = [
@@ -180,46 +105,23 @@ export default function ReferenceScreen({ referenceId, onBack, onNavigate }) {
         ))}
       </div>
 
-      {/* Expanded chapter phrases */}
+      {/* Expanded chapter phrases — same PhraseRow used by scenes and the
+          library, so reference sets no longer look like a different app. */}
       {expandedChapter !== null && chapters[expandedChapter] && (
         <div className={styles.phrasePanel}>
           <p className={styles.phrasePanelDesc}>{chapters[expandedChapter].description}</p>
           {(chapters[expandedChapter].phrases ?? []).map(phrase => (
-            <div key={phrase.id} className={styles.phraseRow}>
-              <div className={styles.phraseTile}>
-                <p className={styles.phraseCjk}>{phrase.chinese}</p>
-                <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                <p className={styles.phraseEnglish}>{phrase.english}</p>
-                {phrase.context && <p className={styles.phraseContext}>{phrase.context}</p>}
-              </div>
-              <div className={styles.phraseActions}>
-                <button
-                  className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                  onClick={e => playInline(e, phrase)}
-                  aria-label="Play"
-                >
-                  {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
-                    ? <AudioStateIndicator state={audioState[phrase.id]} />
-                    : playingId === phrase.id ? '■' : '▶'}
-                </button>
-                <button
-                  className={`${styles.saveBtn} ${savedIds.has(phrase.id) ? styles.saveBtnActive : ''}`}
-                  onClick={() => toggleSaved(phrase)}
-                  aria-label="Save to library"
-                >
-                  {savedIds.has(phrase.id) ? '✓' : '+'}
-                </button>
-              </div>
-              {phrase.words && phrase.words.length > 1 && (
-                <div className={styles.wordRow}>
-                  {phrase.words.map((w, i) => (
-                    <div key={i} className={styles.wordChip}>
-                      <span className={styles.wordCjk}>{w.chinese}</span>
-                      <span className={styles.wordMeaning}>{w.english}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+            <div key={phrase.id} className={styles.phraseRowWrap}>
+              <PhraseRow
+                phraseId={phrase.id}
+                chinese={phrase.chinese}
+                jyutping={phrase.romanization}
+                english={phrase.english}
+                words={phrase.words}
+                saved={savedIds.has(phrase.id)}
+                onHeartToggle={() => toggleSaved(phrase)}
+              />
+              {phrase.context && <p className={styles.phraseContext}>{phrase.context}</p>}
             </div>
           ))}
         </div>

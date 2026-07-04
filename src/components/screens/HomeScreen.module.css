@@ -541,6 +541,16 @@
   line-height: 1.4;
 }
 
+.tourSceneList {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--fg-3);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
 .tourExploreBtn {
   background: none;
   border: none;
@@ -740,6 +750,11 @@
   }
   .practiceGrid {
     gap: 16px;
+  }
+  /* Today's Lesson hero: cap height so it can't balloon at wide viewports
+     (aspect-ratio alone made it grow with container width unbounded). */
+  .todayPhoto {
+    max-height: 420px;
   }
 }
 

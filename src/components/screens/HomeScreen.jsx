@@ -106,10 +106,14 @@ export default function HomeScreen({ onNavigate }) {
 
       <div className={styles.sectionBar}>
         <span className={styles.sectionNum}>02</span>
-        <span className={styles.sectionLabel}>This week's tour</span>
+        <span className={styles.sectionLabel}>Themed playlist</span>
       </div>
       <ThisWeeksTour scenes={allScenes} onNavigate={onNavigate} />
 
+      <div className={styles.sectionBar}>
+        <span className={styles.sectionNum}>03</span>
+        <span className={styles.sectionLabel}>Quick practice</span>
+      </div>
       <PracticeGrid onNavigate={onNavigate} />
 
       <div className={styles.bottomPad} />
@@ -206,14 +210,26 @@ function PickBackUpRow({ scenes, progress, onNavigate }) {
 
 function ThisWeeksTour({ scenes, onNavigate }) {
   const playlist = PLAYLISTS[0];
+  const playlistScenes = playlist.sceneIds
+    .map(id => scenes.find(s => s.id === id))
+    .filter(Boolean);
+
   return (
     <section className={styles.tourSection}>
       <div className={styles.tourText}>
-        <h3 className={styles.tourTitle}>This week's path</h3>
-        <p className={styles.tourDesc}>{playlist.sceneIds.length} scenes across Hong Kong</p>
+        <h3 className={styles.tourTitle}>{playlist.label}</h3>
+        <p className={styles.tourDesc}>{playlist.desc}</p>
+        {playlistScenes.length > 0 && (
+          <p className={styles.tourSceneList}>
+            {playlistScenes.map(s => s.title).join(' · ')}
+          </p>
+        )}
       </div>
-      <button className={styles.tourExploreBtn} onClick={() => onNavigate('scenes')}>
-        Explore →
+      <button
+        className={styles.tourExploreBtn}
+        onClick={() => playlistScenes[0] ? onNavigate('scene', playlistScenes[0].id) : onNavigate('scenes')}
+      >
+        Start playlist →
       </button>
     </section>
   );

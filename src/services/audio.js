@@ -119,13 +119,14 @@ class AudioEngine {
         this._audio.src = this._currentBlobUrl;
       } else if (isAuthenticated()) {
         // Fallback: TTS API
-        let blob = await textToSpeech(phrase.chinese, {
+        let blob = await textToSpeech(phrase.cjk ?? phrase.chinese, {
           language: this._language,
           speed: speedNum,
           outputExtension: 'mp3',
         });
         if (!blob || blob.size === 0) {
           logger.error('TTS returned empty blob for', phrase.id);
+          this._audio.removeAttribute('src'); // don't leave the previous phrase's audio playable
           this._onStateChange?.('error');
           this._onPhraseChange?.(phrase, this._currentIndex);
           return;
@@ -136,6 +137,7 @@ class AudioEngine {
         this._audio.src = this._currentBlobUrl;
       } else {
         logger.error('No audio source available for', phrase.id);
+        this._audio.removeAttribute('src');
         this._onStateChange?.('error');
         this._onPhraseChange?.(phrase, this._currentIndex);
         return;
@@ -148,6 +150,7 @@ class AudioEngine {
       this._prefetchUpcoming(speedNum);
     } catch (error) {
       logger.error('Failed to load audio for phrase', phrase.id, ':', error?.message || error);
+      this._audio.removeAttribute('src'); // don't leave the previous phrase's audio playable
       this._onStateChange?.('error');
       this._onPhraseChange?.(phrase, this._currentIndex);
     }
@@ -188,7 +191,7 @@ class AudioEngine {
 
       // Fetch from TTS API and cache
       if (!isAuthenticated()) return;
-      const blob = await textToSpeech(phrase.chinese, {
+      const blob = await textToSpeech(phrase.cjk ?? phrase.chinese, {
         language: this._language,
         speed,
         outputExtension: 'mp3',
@@ -402,7 +405,7 @@ class AudioEngine {
     if (!phrase) return;
 
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: phrase.romanization || phrase.chinese || 'ShadowSpeak',
+      title: phrase.romanization || phrase.cjk || phrase.chinese || 'ShadowSpeak',
       artist: phrase.english || 'Cantonese',
       album: 'ShadowSpeak',
     });
@@ -548,7 +551,7 @@ async function cacheAudioForPhrase(phrase, language) {
     if (existing) continue;
 
     try {
-      const audioBlob = await textToSpeech(phrase.chinese, {
+      const audioBlob = await textToSpeech(phrase.cjk ?? phrase.chinese, {
         language,
         speed,
         outputExtension: 'mp3',

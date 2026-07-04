@@ -11,6 +11,9 @@ import { fbAuth, fbDb } from '../services/firebase';
 
 const CACHE_KEY = 'shadowspeak_sub_status';
 
+// App owner — unlocked everywhere for testing without a Stripe subscription.
+const OWNER_EMAILS = ['faith.lantz@gmail.com'];
+
 function readCache() {
   try {
     return localStorage.getItem(CACHE_KEY) || null;
@@ -66,6 +69,12 @@ export function useSubscription() {
 
       if (!user) {
         setState({ isPro: false, isLoading: false, status: 'free' });
+        return;
+      }
+
+      // Owner account: always Pro, so Faith can test gated features.
+      if (OWNER_EMAILS.includes(user.email)) {
+        setState({ isPro: true, isLoading: false, status: 'pro' });
         return;
       }
 

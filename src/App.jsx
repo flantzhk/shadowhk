@@ -33,7 +33,6 @@ const SessionSummary     = lazy(() => import('./components/screens/SessionSummar
 const FirstRunFlow       = lazy(() => import('./components/screens/FirstRunFlow'));
 const ProfileScreen      = lazy(() => import('./components/screens/ProfileScreen'));
 const SettingsScreen     = lazy(() => import('./components/screens/SettingsScreen'));
-const StatsScreen        = lazy(() => import('./components/screens/StatsScreen'));
 const DayDetailScreen    = lazy(() => import('./components/screens/DayDetailScreen'));
 const LoginScreen        = lazy(() => import('./components/screens/LoginScreen'));
 const RegisterScreen     = lazy(() => import('./components/screens/RegisterScreen'));
@@ -148,7 +147,6 @@ function renderScreen(route, navigate, goBack, showToast) {
     case ROUTES.SESSION_END:     return <SessionSummary summary={(() => { try { return JSON.parse(sessionStorage.getItem('shadowSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} />;
     case ROUTES.PROFILE:         return <ProfileScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.SETTINGS:        return <SettingsScreen navigate={navigate} goBack={goBack} />;
-    case ROUTES.STATS:           return <StatsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.DAY_DETAIL:      return <DayDetailScreen date={id} navigate={navigate} goBack={goBack} />;
     case ROUTES.AI_CHAT:         return <AIConversation onBack={goBack} onNavigate={navigate} />;
     case ROUTES.AI_SCENARIO:     return <AIScenarioPicker onBack={goBack} onNavigate={navigate} onSelectScenario={(s) => { try { sessionStorage.setItem('aiScenario', JSON.stringify(s)); } catch {} navigate(ROUTES.AI_CHAT); }} />;

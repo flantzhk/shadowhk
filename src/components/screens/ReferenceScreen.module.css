@@ -138,134 +138,17 @@
   border-bottom: 1px solid var(--border-0);
 }
 
-.phraseRow {
-  padding: 14px 0;
+.phraseRowWrap {
+  padding: 10px 0;
   border-bottom: 1px solid var(--border-0);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 0 12px;
-}
-
-.phraseTile {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.phraseActions {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.wordRow {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.wordChip {
-  background: var(--bg-2);
-  border-radius: 8px;
-  padding: 6px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-width: 48px;
-}
-
-.wordCjk {
-  font-family: var(--font-cjk);
-  font-size: 18px;
-  color: var(--fg-0);
-}
-
-.wordMeaning {
-  font-family: var(--font-ui);
-  font-size: 11px;
-  color: var(--fg-2);
-  text-align: center;
-}
-
-.phraseCjk {
-  font-family: var(--font-cjk);
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--fg-0);
-  margin: 0 0 2px;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-}
-
-.phraseRoman {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--accent);
-  margin: 0 0 2px;
-}
-
-.phraseEnglish {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-style: italic;
-  color: var(--fg-2);
-  margin: 0;
 }
 
 .phraseContext {
   font-family: var(--font-ui);
   font-size: 13px;
   color: var(--fg-3);
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   line-height: 1.4;
-}
-
-.playBtn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--jade-soft, #D8E8E0);
-  color: var(--jade, #3F8F73);
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s, color 0.15s;
-}
-.playBtnActive {
-  background: var(--jade, #3F8F73);
-  color: #fff;
-}
-
-.saveBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg-2);
-  border: 1px solid var(--border-1);
-  font-size: 18px;
-  color: var(--fg-2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s, color 0.15s;
-}
-.saveBtnActive {
-  background: var(--accent-muted);
-  color: var(--accent);
-  border-color: var(--accent);
 }
 
 /* ─── Loading / misc ─────────────────── */

@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { saveSession, getRecentScoredSessions } from '../../services/storage';
+import { staticWordAudio } from '../../services/staticAudio';
+import { textToSpeech } from '../../services/api';
 import { updateStreak, getTodayString } from '../../services/streak';
 import { logEvent, isStreakMilestone, calculatePersonalPercentile } from '../../services/analytics';
 import { phCapture } from '../../services/posthog';
@@ -57,20 +59,28 @@ export default function ToneGym({ onBack, onComplete }) {
     }
   }, [phase]);
 
-  // Wrap playChar so the UI knows when speech is in flight and can show a
-  // listening indicator. Uses utterance lifecycle events; falls back to a
-  // safety reset if the platform never fires `end`.
-  const speak = useCallback((char) => {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(char);
-    u.lang = 'zh-HK';
-    u.rate = 0.7;
-    u.onstart = () => setSpeaking(true);
-    u.onend = () => setSpeaking(false);
-    u.onerror = () => setSpeaking(false);
-    window.speechSynthesis.speak(u);
+  // Play a single character with the app's real Cantonese voice: static
+  // pre-recorded word audio first, live TTS fallback. (Browser
+  // speechSynthesis was unreliable — many devices have no zh-HK voice at
+  // all, which made the whole game silent.)
+  const audioElRef = useRef(null);
+  const speak = useCallback(async (char) => {
+    audioElRef.current?.pause();
+    setSpeaking(true);
+    try {
+      const blob = (await staticWordAudio(char)) ?? await textToSpeech(char, { language: 'cantonese' });
+      if (!blob || blob.size === 0) { setSpeaking(false); return; }
+      const url = URL.createObjectURL(blob);
+      const el = new Audio(url);
+      audioElRef.current = el;
+      el.onended = () => { setSpeaking(false); URL.revokeObjectURL(url); };
+      el.onerror = () => { setSpeaking(false); URL.revokeObjectURL(url); };
+      await el.play();
+    } catch {
+      setSpeaking(false);
+    }
   }, []);
+  useEffect(() => () => audioElRef.current?.pause(), []);
 
   const setupRound = useCallback((r) => {
     const pair = sessionPairs[r % sessionPairs.length];

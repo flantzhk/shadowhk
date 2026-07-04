@@ -4,6 +4,7 @@ import { API_BASE_URL, API_ENDPOINTS, MAX_RETRIES, API_TIMEOUT_MS } from '../uti
 import { ApiError } from '../utils/errors';
 import { logger } from '../utils/logger';
 import { getAuthToken, refreshTokenIfNeeded, signOut } from './auth';
+import { TTS_SACRIFICIAL_TAIL, needsTtsPadding, trimTtsTail } from '../utils/trimTtsAudio';
 
 /**
  * Fetch with retry logic and timeout.
@@ -126,8 +127,12 @@ async function textToSpeech(text, options = {}) {
     turbo = false,
   } = options;
 
+  // cantonese.ai truncates audio to a per-character duration budget, cutting
+  // the endings off short phrases (1-char words come back silent). Pad short
+  // texts with a sacrificial tail, then trim it back off locally.
+  const padded = needsTtsPadding(text);
   const body = {
-    text,
+    text: padded ? text + TTS_SACRIFICIAL_TAIL : text,
     language,
     speed,
     output_extension: outputExtension,
@@ -145,7 +150,8 @@ async function textToSpeech(text, options = {}) {
     }
   );
 
-  return response.blob();
+  const blob = await response.blob();
+  return padded ? trimTtsTail(blob) : blob;
 }
 
 /**

@@ -338,7 +338,7 @@
 }
 
 
-/* ── Desktop: category rows become 3-across grids ──────────────────── */
+/* ── Desktop: category rows become 4-across grids ──────────────────── */
 @media (min-width: 900px) {
   :global(.desktop-content) > .screen {
     max-width: 1064px;
@@ -346,14 +346,16 @@
   }
   .catScroll {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     overflow: visible;
   }
   .hCard {
-    width: auto;
+    width: 100%;
   }
   .hPhoto {
-    height: 170px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 }

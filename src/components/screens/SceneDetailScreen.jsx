@@ -24,7 +24,6 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const [masteryPct, setMasteryPct] = useState(0);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [allSaved, setAllSaved] = useState(false);
-  const [showMore, setShowMore] = useState(false);
   const heroRef = useRef(null);
 
   useEffect(() => {
@@ -130,7 +129,6 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           <BackArrow /> Back
         </button>
         <span className={styles.stickyTitle}>{scene.title}</span>
-        <button className={styles.moreBtn}>⋯</button>
       </div>
 
       {/* Hero */}
@@ -168,7 +166,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         </section>
       )}
 
-      {/* Controls row */}
+      {/* Controls row — labelled chips so heart vs plus is self-explanatory */}
       <div className={styles.controls}>
         <div className={styles.controlsLeft}>
           <button
@@ -179,36 +177,27 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
               const existing = await getAllSceneProgress().then(r => r.find(p => p.sceneId === sceneId)).catch(() => null);
               await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
             }}
-            aria-label="Save scene"
+            aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
           >
-            {sceneSaved ? '♥' : '♡'}
+            {sceneSaved ? '♥' : '♡'} <span className={styles.controlLabel}>{sceneSaved ? 'Scene saved' : 'Save scene'}</span>
           </button>
           <button
             className={`${styles.controlBtn} ${allSaved ? styles.controlBtnSaved : ''}`}
             onClick={saveAllLines}
-            title="Save all phrases to library"
+            aria-label="Add all phrases to your phrasebook"
           >
-            {allSaved ? '✓' : '+'}
+            {allSaved ? '✓' : '+'} <span className={styles.controlLabel}>{allSaved ? 'Added' : 'Add all phrases'}</span>
           </button>
-          <div className={styles.moreWrap}>
-            <button className={styles.controlBtn} onClick={() => setShowMore(v => !v)}>⋯</button>
-            {showMore && (
-              <div className={styles.moreMenu} onClick={() => setShowMore(false)}>
-                <button className={styles.moreItem} onClick={() => onNavigate('listen', sceneId)}>🔊 Listen mode</button>
-                {navigator.share && (
-                  <button className={styles.moreItem} onClick={() => navigator.share({ title: scene.title, text: `Practice ${scene.title} in ShadowHK` }).catch(() => {})}>↗ Share</button>
-                )}
-              </div>
-            )}
-          </div>
+          {navigator.share && (
+            <button
+              className={styles.controlBtn}
+              onClick={() => navigator.share({ title: scene.title, text: `Practice ${scene.title} in ShadowHK` }).catch(() => {})}
+              aria-label="Share scene"
+            >
+              ↗ <span className={styles.controlLabel}>Share</span>
+            </button>
+          )}
         </div>
-        <button
-          className={styles.playBtn}
-          onClick={() => onNavigate('shadow', sceneId)}
-          aria-label="Start shadowing"
-        >
-          <PlayIcon />
-        </button>
       </div>
 
       {/* Mastery bar */}
@@ -259,13 +248,15 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         })}
       </div>
 
-      {/* Sticky CTA bar */}
+      {/* Sticky CTA bar — sublabels explain the two practice modes */}
       <div className={styles.ctaBar}>
         <button className={styles.ctaSecondary} onClick={() => onNavigate('listen', sceneId)}>
-          🔊 Listen
+          <span>🔊 Listen</span>
+          <span className={styles.ctaSub}>Hands-free, just hear it</span>
         </button>
         <button className={styles.ctaPrimary} onClick={() => onNavigate('shadow', sceneId)}>
-          ▶ Shadow this
+          <span>▶ Shadow this</span>
+          <span className={styles.ctaSub}>Speak each line, get scored</span>
         </button>
       </div>
     </div>
@@ -278,8 +269,3 @@ const BackArrow = () => (
   </svg>
 );
 
-const PlayIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="6 3 20 12 6 21 6 3"/>
-  </svg>
-);

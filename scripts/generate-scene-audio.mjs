@@ -7,9 +7,24 @@ import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 
 import { join } from 'node:path';
 
 const API_URL = 'https://cantonese.ai/api/tts';
+
+// cantonese.ai truncates output audio to a duration budget derived from the
+// input character count (~0.235s/char). Short phrases need more time than
+// their budget, so their endings get chopped — one-char words come back as
+// pure silence. Workaround: append a sacrificial tail phrase to buy budget,
+// save the result as {id}.raw.mp3, then run scripts/trim-tts-tail.py to cut
+// the tail back off (whisper-anchored) and produce the final {id}.mp3.
+// 蘋果 never appears in the phrase corpus, so the trimmer can't confuse the
+// tail with the end of a real phrase (many phrases end in digits).
+const SACRIFICIAL_TAIL = '。蘋果蘋果蘋果';
 const SCENES_DIR = 'public/scenes';
 const OUT_DIR = 'public/audio/cantonese';
+const WORDS_DIR = 'public/audio/cantonese-words';
 const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 1200;
+
+// Tone Gym single characters (keep in sync with TONE_PAIRS in
+// src/components/screens/ToneGym.jsx) — played via staticWordAudio.
+const TONE_GYM_CHARS = [...'媽麻好號飛肥詩時分粉買賣大帶知紙花化書樹魚語水睡雞計糖燙九夠'];
 
 const apiKey = process.env.CANTONESE_AI_KEY;
 const voiceId = process.env.CANTONESE_AI_VOICE; // optional: pass a specific voice_id
@@ -37,22 +52,45 @@ const refLines = readdirSync('public')
     return sets.flatMap((s) => (s.phrases || []).map((p) => ({ id: p.id, text: p.chinese, scene: f })));
   });
 
-const lines = [...sceneLines, ...refLines];
+// Word-by-word audio: every breakdown word in scenes + reference sets +
+// Tone Gym characters. Filename is the word text itself
+// (audio/cantonese-words/{word}.mp3, resolved by staticWordAudio).
+const wordTexts = new Set(TONE_GYM_CHARS);
+for (const f of readdirSync(SCENES_DIR).filter((f) => f.endsWith('.json') && f !== 'index.json')) {
+  const scene = JSON.parse(readFileSync(join(SCENES_DIR, f), 'utf8'));
+  for (const l of scene.lines || []) for (const w of l.words || []) if (w.chinese) wordTexts.add(w.chinese);
+}
+for (const f of readdirSync('public').filter((f) => f.endsWith('.json'))) {
+  const data = JSON.parse(readFileSync(join('public', f), 'utf8'));
+  for (const s of Array.isArray(data) ? data : [data]) {
+    for (const p of s.phrases || []) for (const w of p.words || []) if (w.chinese) wordTexts.add(w.chinese);
+  }
+}
+const wordLines = [...wordTexts]
+  .filter((w) => !w.includes('/') && !w.includes('.')) // unsafe as filenames
+  .map((w) => ({ id: w, text: w, outDir: WORDS_DIR }));
 
-const todo = lines.filter((l) => force || !existsSync(join(OUT_DIR, `${l.id}.mp3`)));
-console.log(`${lines.length} scene lines, ${todo.length} to generate.`);
+const lines = [
+  ...[...sceneLines, ...refLines].map((l) => ({ ...l, outDir: OUT_DIR })),
+  ...wordLines,
+];
+
+const todo = lines.filter((l) =>
+  force || !(existsSync(join(l.outDir, `${l.id}.mp3`)) || existsSync(join(l.outDir, `${l.id}.raw.mp3`))));
+console.log(`${lines.length} lines/words, ${todo.length} to generate.`);
 if (dryRun) {
   todo.forEach((l) => console.log(`  ${l.id}  ${l.text}`));
   process.exit(0);
 }
 
 mkdirSync(OUT_DIR, { recursive: true });
+mkdirSync(WORDS_DIR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function generate(line, attempt = 1) {
   const payload = {
     api_key: apiKey,
-    text: line.text,
+    text: line.text + SACRIFICIAL_TAIL,
     language: 'cantonese',
     speed: 1.0,
     output_extension: 'mp3',
@@ -82,7 +120,7 @@ async function generate(line, attempt = 1) {
   }
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 1000) throw new Error(`suspiciously small file (${buf.length} bytes)`);
-  writeFileSync(join(OUT_DIR, `${line.id}.mp3`), buf);
+  writeFileSync(join(line.outDir, `${line.id}.raw.mp3`), buf);
 }
 
 const failed = [];
@@ -105,6 +143,7 @@ for (const [i, line] of todo.entries()) {
 }
 
 console.log(`\nDone. ${todo.length - failed.length} generated, ${failed.length} failed.`);
+if (todo.length - failed.length > 0) console.log('Now run: python3.12 scripts/trim-tts-tail.py');
 if (failed.length) {
   console.log('Failed ids:', failed.join(', '));
   process.exit(1);

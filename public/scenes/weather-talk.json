@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Office / street / lift — anywhere",
   "context": "Hong Kong weather is extreme — blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
-  "cultural_note": "The Hong Kong Observatory's typhoon signal system is one of the most-checked pieces of public information in the city. Signal 1 means a storm is nearby. Signal 3 means strong winds. Signal 8, the 八號風球 (baat3 hou6 fung1 kau4), closes schools, offices, and transport, and is greeted by the city's schoolchildren with an enthusiasm usually reserved for Christmas. The highest is Signal 10, which means the typhoon centre is passing directly over Hong Kong.",
+  "cultural_note": "The Hong Kong Observatory's typhoon signal system is one of the most-checked pieces of public information in the city. Signal 1 means a storm is nearby. Signal 3 means strong winds. Signal 8, the 八號風球 (baat3 hou6 fung1 kau4), closes schools, offices, and transport, and is greeted by the city's schoolchildren with an enthusiasm usually reserved for Christmas. The highest is Signal 10: hurricane-force winds, usually because the eye of the typhoon is passing close to Hong Kong.",
   "lines": [
     {
       "id": "wx-01",

@@ -34,7 +34,9 @@ function streakMessage(streak) {
   return { headline: `${streak} days`, sub: "A month of daily practice. Most people never get here." };
 }
 
-export default function StatsScreen({ onBack, onNavigate }) {
+// Embedded inline in ProfileScreen's "You" tab — no header/back button of its
+// own, since it lives inside Profile's existing screen chrome and tab bar.
+export default function StatsScreen() {
   const { settings } = useAppContext();
   const [stats, setStats] = useState(null);
   const [showAllAchievements, setShowAllAchievements] = useState(false);
@@ -49,6 +51,13 @@ export default function StatsScreen({ onBack, onNavigate }) {
       const scores = sessions.filter(s => s.averageScore != null).map(s => s.averageScore);
       const avgScore = scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null;
       const sessionDates = new Set(sessions.map(s => s.date));
+
+      // Tone accuracy: Tone Gym is the one mode that scores tone discrimination
+      // specifically (Shadow's score blends pronunciation as a whole).
+      const toneScores = sessions.filter(s => s.mode === 'tone-gym' && s.averageScore != null).map(s => s.averageScore);
+      const toneAccuracy = toneScores.length > 0
+        ? Math.round(toneScores.reduce((a, b) => a + b, 0) / toneScores.length)
+        : null;
 
       const todayStr = new Date().toISOString().slice(0, 10);
       const todaySessions = sessions.filter(s => s.date === todayStr);
@@ -72,7 +81,7 @@ export default function StatsScreen({ onBack, onNavigate }) {
         totalSessions: sessions.length, avgScore, sessionDates,
         totalTime: settings.totalPracticeSeconds,
         streak: settings.streakCount,
-        bestStreak, totalPhrasesPracticed,
+        bestStreak, totalPhrasesPracticed, toneAccuracy,
         todayPhrases, todayTime,
       });
     })();
@@ -116,17 +125,7 @@ export default function StatsScreen({ onBack, onNavigate }) {
   const nextToUnlock = locked.slice(0, showAllAchievements ? locked.length : 3);
 
   return (
-    <div className={styles.screen}>
-
-      {/* ── Header ── */}
-      <div className={styles.header}>
-        <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <h1 className={styles.title}>Your Progress</h1>
-      </div>
+    <div className={styles.panel}>
 
       {/* ── Streak Hero ── */}
       <div className={styles.streakHero}>
@@ -216,6 +215,10 @@ export default function StatsScreen({ onBack, onNavigate }) {
         <div className={styles.statTile}>
           <span className={styles.statNum}>{stats.totalTime > 0 ? formatTime(stats.totalTime) : '—'}</span>
           <span className={styles.statLabel}>Time practiced</span>
+        </div>
+        <div className={styles.statTile}>
+          <span className={styles.statNum}>{stats.toneAccuracy != null ? `${stats.toneAccuracy}%` : '—'}</span>
+          <span className={styles.statLabel}>Tone accuracy</span>
         </div>
       </div>
 

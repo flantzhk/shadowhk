@@ -11,7 +11,7 @@
   "estimatedMinutes": 5,
   "location": "Red taxi, Hong Kong Island",
   "context": "Hong Kong taxis are colour-coded: red for urban areas, green for the New Territories, blue for Lantau. Red taxis are the most common. Drivers appreciate it if you know your destination and can give cross-street landmarks. Always have the Chinese characters for your destination ready.",
-  "cultural_note": "Hong Kong taxis are colour-coded by territory: red cabs operate on Hong Kong Island and Kowloon; green cabs cover the New Territories; blue cabs serve Lantau Island only. A red taxi cannot legally pick up a passenger in Sha Tin and vice versa. Crossing boundaries incurs extra tolls, which is why drivers sometimes refuse passengers heading to the wrong zone. Sit in the back, not beside the driver.",
+  "cultural_note": "Hong Kong taxis are colour-coded: red urban taxis can roam almost the whole territory; green taxis are confined to the New Territories; blue taxis serve Lantau only. A green cab cannot legally pick up a passenger in Central, which is why drivers sometimes refuse trips that strand them outside their zone. On cross-harbour trips you pay the tunnel toll both ways, unless you find a cab at a cross-harbour rank already heading home.",
   "lines": [
     {
       "id": "taxi-01",

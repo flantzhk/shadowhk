@@ -1,20 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getLibraryEntries, getLibraryEntry, saveLibraryEntry } from '../../services/storage.js';
+import { getLibraryEntries, getLibraryEntry, saveLibraryEntry, getAllSceneProgress } from '../../services/storage.js';
 import { growthStateFromInterval } from '../../services/sceneLoader.js';
 import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
+import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { textToSpeech } from '../../services/api.js';
 import { staticWordAudio } from '../../services/staticAudio.js';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
 const REFERENCE_SETS = [
-  { id: 'survival', title: 'Survival Words' },
-  { id: 'numbers',  title: 'Numbers' },
-  { id: 'colours',  title: 'Colours' },
-  { id: 'calendar', title: 'Calendar' },
-  { id: 'time',     title: 'Telling the Time' },
+  { id: 'survival', title: 'Survival Words', icon: '🆘' },
+  { id: 'numbers',  title: 'Numbers', icon: '🔢' },
+  { id: 'colours',  title: 'Colours', icon: '🎨' },
+  { id: 'calendar', title: 'Calendar', icon: '📅' },
+  { id: 'time',     title: 'Telling the Time', icon: '🕐' },
 ];
 
 export default function LibraryScreen({ onNavigate }) {
@@ -23,6 +24,7 @@ export default function LibraryScreen({ onNavigate }) {
 
   const [library, setLibrary] = useState([]);
   const [scenes, setScenes] = useState([]);
+  const [savedScenes, setSavedScenes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
@@ -146,23 +148,34 @@ export default function LibraryScreen({ onNavigate }) {
   async function reload() {
     setLoading(true);
     try {
-      const [entries, loadedScenes] = await Promise.all([
+      const [entries, loadedScenes, progress] = await Promise.all([
         getLibraryEntries(language),
         getAllScenes(language),
+        getAllSceneProgress().catch(() => []),
       ]);
-      const enriched = entries.map(e => ({
-        ...e,
-        growth_state: growthStateFromInterval(e.interval ?? 0, e.reps ?? 0),
-      }));
+      // Dedupe by id — a phrase saved from two different screens must appear
+      // once, or expand/play state (keyed by id) toggles every copy at once.
+      const seen = new Set();
+      const enriched = [];
+      for (const e of entries) {
+        if (!e.cjk || seen.has(e.id)) continue; // skip corrupt + duplicate rows
+        seen.add(e.id);
+        enriched.push({ ...e, growth_state: growthStateFromInterval(e.interval ?? 0, e.reps ?? 0) });
+      }
       setLibrary(enriched);
       setScenes(loadedScenes);
+      const hearted = progress.filter(p => p.bookmarked).map(p => p.sceneId);
+      setSavedScenes(loadedScenes.filter(s => hearted.includes(s.id)));
     } catch (_) {}
     finally { setLoading(false); }
   }
 
+  // Group phrases: personal intro phrases get their own named section, all
+  // scene-less or unknown-scene phrases merge into a single "Other phrases".
   const groups = new Map();
   for (const phrase of library) {
-    const key = phrase.scene_id ?? 'unsorted';
+    let key = phrase.scene_id ?? 'unsorted';
+    if (key !== PERSONAL_SCENE_ID && key !== 'unsorted' && !scenes.some(s => s.id === key)) key = 'unsorted';
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(phrase);
   }
@@ -172,7 +185,14 @@ export default function LibraryScreen({ onNavigate }) {
       sceneId,
       phrases,
     }))
-    .sort((a, b) => b.phrases.length - a.phrases.length);
+    .sort((a, b) => {
+      // Personal phrases first, then biggest scenes, "Other phrases" last
+      if (a.sceneId === PERSONAL_SCENE_ID) return -1;
+      if (b.sceneId === PERSONAL_SCENE_ID) return 1;
+      if (a.sceneId === 'unsorted') return 1;
+      if (b.sceneId === 'unsorted') return -1;
+      return b.phrases.length - a.phrases.length;
+    });
 
   const totalPhrases = library.length;
   const totalScenes = groupedScenes.filter(g => g.scene).length;
@@ -230,9 +250,14 @@ export default function LibraryScreen({ onNavigate }) {
       {!searchQuery && (
         <>
           <div className={styles.refHeader}>
-            <span className={styles.refLabel}>— REFERENCE SETS</span>
+            <span className={styles.refLabel}>— QUICK LOOKUP</span>
             <span className={styles.refTapHint}>TAP TO BROWSE</span>
           </div>
+          <p className={styles.refDesc}>
+            Cheat sheets for the words you need on the spot — numbers, colours,
+            dates, time. Every entry has audio, and you can save any of them to
+            your phrasebook.
+          </p>
           <div className={styles.refGrid}>
             {REFERENCE_SETS.map(s => (
               <button
@@ -240,8 +265,32 @@ export default function LibraryScreen({ onNavigate }) {
                 className={styles.refCard}
                 onClick={() => onNavigate?.('reference', s.id)}
               >
+                <span className={styles.refIcon}>{s.icon}</span>
                 <span className={styles.refTitle}>{s.title}</span>
                 <span className={styles.refArrow}>→</span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
+      {!searchQuery && savedScenes.length > 0 && (
+        <>
+          <div className={styles.refHeader}>
+            <span className={styles.refLabel}>— SAVED SCENES ♥</span>
+          </div>
+          <div className={styles.savedSceneList}>
+            {savedScenes.map(s => (
+              <button key={s.id} className={styles.savedSceneRow} onClick={() => onNavigate('scene', s.id)}>
+                <div
+                  className={styles.sceneThumb}
+                  style={{
+                    backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined,
+                    backgroundColor: s.tint ? s.tint + '88' : 'var(--bg-3)',
+                  }}
+                />
+                <span className={styles.savedSceneTitle}>{s.title}</span>
+                <span className={styles.chevron}>›</span>
               </button>
             ))}
           </div>
@@ -276,7 +325,9 @@ export default function LibraryScreen({ onNavigate }) {
                 }}
               />
               <div className={styles.sceneText}>
-                <p className={styles.sceneName}>{scene?.title ?? 'Other phrases'}</p>
+                <p className={styles.sceneName}>
+                  {scene?.title ?? (sceneId === PERSONAL_SCENE_ID ? 'Your personal phrases' : 'Other phrases')}
+                </p>
                 <p className={styles.sceneMeta}>
                   {phrases.length} {phrases.length === 1 ? 'PHRASE' : 'PHRASES'}
                   {saidCount > 0 && (

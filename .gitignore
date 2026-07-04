@@ -27,3 +27,5 @@ _archive/
 .claude/worktrees/
 .env
 .overnight.log
+.overnight-cron.log
+scripts/overnight-qa-prompt.txt

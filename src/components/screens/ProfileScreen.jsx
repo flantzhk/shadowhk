@@ -10,14 +10,8 @@ import { getSettings, getAllLibraryEntries, getAllSessions } from '../../service
 import { ConfirmModal } from '../shared/ConfirmModal';
 import { BottomSheet } from '../shared/BottomSheet';
 import DownloadAllModal from '../shared/DownloadAllModal';
+import StatsPanel from './StatsScreen';
 import styles from './ProfileScreen.module.css';
-
-function getLevelLabel(phraseCount) {
-  if (phraseCount >= 500) return 'B2 · Upper-Intermediate';
-  if (phraseCount >= 200) return 'B1 · Intermediate';
-  if (phraseCount >= 50) return 'A2 · Elementary';
-  return 'A1 · Beginner';
-}
 
 function getJoinMonths(user) {
   if (!user?.metadata?.creationTime) return null;
@@ -50,7 +44,6 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
 
   const [activeTab, setActiveTab] = useState('you');
   const [last90, setLast90] = useState([]);
-  const [phraseCount, setPhraseCount] = useState(0);
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -64,24 +57,12 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const [exportLoading, setExportLoading] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      getAllLibraryEntries().catch(() => []),
-      getAllSessions().catch(() => []),
-    ]).then(([entries, sessions]) => {
-      setPhraseCount(entries.length);
-      setLast90(getLast90Days(sessions));
-    });
+    getAllSessions().catch(() => []).then(sessions => setLast90(getLast90Days(sessions)));
   }, []);
 
   const initial = (settings.name || user?.displayName || user?.email || 'U')[0].toUpperCase();
   const displayName = settings.name || user?.displayName || user?.email?.split('@')[0] || 'Learner';
   const joinMonths = getJoinMonths(user);
-  const totalMinutes = settings.totalPracticeSeconds > 0
-    ? Math.round(settings.totalPracticeSeconds / 60) : 0;
-  const toneAccuracy = settings.toneAccuracy ?? 0;
-  const level = getLevelLabel(phraseCount);
-
-  const maxMins = Math.max(1, ...last90.map(d => d.mins));
 
   const handleSignOut = async () => {
     await signOut();
@@ -154,45 +135,30 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
             </button>
           </div>
           <span className={styles.heroBrow}>
-            {joinMonths ? `${joinMonths} MONTH${joinMonths !== 1 ? 'S' : ''}` : '1 MONTH'}
-            {' · '}DAY {settings.streakCount ?? 0}
+            {joinMonths ? `${joinMonths} MO MEMBER` : 'NEW MEMBER'}
+            {' · '}DAY {settings.streakCount ?? 0} STREAK
             {' · '}{(settings.currentLanguage ?? 'cantonese').toUpperCase()}
           </span>
         </div>
       </div>
 
-      {/* Tabs */}
+      {/* Tabs — Progress folded into You: one continuous scroll, no dead page */}
       <div className={styles.tabs}>
-        {/* Progress opens the full stats screen (achievements, history) —
-            the You tab already carries the summary */}
-        {[['you', 'You'], ['progress', 'Progress'], ['settings', 'Settings']].map(([id, label]) => (
+        {[['you', 'You'], ['settings', 'Settings']].map(([id, label]) => (
           <button
             key={id}
             className={`${styles.tab} ${activeTab === id ? styles.tabActive : ''}`}
-            onClick={() => id === 'progress' ? navigate(ROUTES.STATS) : setActiveTab(id)}
+            onClick={() => setActiveTab(id)}
           >
             {label}
           </button>
         ))}
       </div>
 
-      {/* You tab: stats + milestones */}
+      {/* You tab: streak, today/week, lifetime stats, level, achievements, heatmap */}
       {activeTab === 'you' && (
         <div className={styles.tabContent}>
-          <div className={styles.statsRows}>
-            <div className={styles.statRow}>
-              <span className={styles.statNum}>{phraseCount}</span>
-              <span className={styles.statLabel}>PHRASES LEARNED</span>
-            </div>
-            <div className={styles.statRow}>
-              <span className={styles.statNum}>{totalMinutes}</span>
-              <span className={styles.statLabel}>MINUTES SHADOWED</span>
-            </div>
-            <div className={styles.statRow}>
-              <span className={styles.statNum}>{toneAccuracy}%</span>
-              <span className={styles.statLabel}>TONE ACCURACY</span>
-            </div>
-          </div>
+          <StatsPanel />
 
           {last90.length > 0 && (
             <div className={styles.heatmapSection}>

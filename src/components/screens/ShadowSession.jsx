@@ -22,6 +22,17 @@ import { PhrasebookToast } from '../shared/PhrasebookToast.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
 
+// Word-by-word breakdown, falling back to a char/syllable split when the
+// scene data has no `words` array (e.g. personal intro lines).
+function deriveBreakdown(line) {
+  if (!line) return [];
+  if (line.words?.length > 0) return line.words;
+  const chars = (line.cjk ?? '').split('').filter(c => /\p{Script=Han}/u.test(c));
+  const sylls = (line.romanization ?? '').split(/\s+/).filter(Boolean);
+  if (chars.length === 0) return [];
+  return chars.map((c, i) => ({ chinese: c, jyutping: sylls[i] ?? '', english: '' }));
+}
+
 export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const { settings, updateSettings } = useAppContext();
   const audio = useAudio();
@@ -293,7 +304,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const isSaved = savedLines[currentYouLine?.id];
   const showJyutping = settings?.showRomanization ?? true;
   const showEnglishToggle = settings?.showEnglish ?? true;
-  const cjkChars = (currentYouLine?.cjk ?? '').split('');
+  const breakdown = deriveBreakdown(currentYouLine);
 
   return (
     <div className={styles.screen}>
@@ -347,11 +358,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           )}
 
           {currentYouLine?.cjk && (
-            <p className={styles.focusCjk}>
-              {cjkChars.map((ch, i) => (
-                <span key={i} className={i === 0 ? styles.focusCjkAccent : undefined}>{ch}</span>
-              ))}
-            </p>
+            <p className={styles.focusCjk}>{currentYouLine.cjk}</p>
           )}
 
           {showEnglishToggle && (
@@ -360,18 +367,21 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
 
           <div className={styles.focusActions}>
             {/* Replay audio */}
-            <button className={styles.audioIcon} onClick={handleReplay} aria-label="Play audio">
-              <span /><span /><span />
+            <button className={styles.audioIcon} onClick={handleReplay} aria-label="Replay audio">
+              <SpeakerIcon />
             </button>
-            {/* Breakdown */}
-            <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words); return !v; }); }} aria-label="Breakdown">
-              📖 Breakdown
-            </button>
+            {/* Breakdown — hidden entirely when there's nothing to show, rather
+                than opening to a "no breakdown yet" dead end */}
+            {breakdown.length > 0 && (
+              <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words); return !v; }); }} aria-label="Word-by-word breakdown">
+                📖 Breakdown
+              </button>
+            )}
           </div>
 
-          {showBreakdown && (currentYouLine?.words?.length > 0 ? (
+          {showBreakdown && breakdown.length > 0 && (
             <div className={styles.bdPanel}>
-              {currentYouLine.words.map((w, i) => (
+              {breakdown.map((w, i) => (
                 <div key={i} className={styles.bdTile}>
                   <span className={styles.bdCjk}>{w.chinese}</span>
                   <span className={styles.bdJyut}>{w.jyutping}</span>
@@ -379,9 +389,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
                 </div>
               ))}
             </div>
-          ) : (
-            <p className={styles.bdEmpty}>No breakdown for this line yet.</p>
-          ))}
+          )}
 
           {(phase === 'ready' || phase === 'scored') && (
             <button
@@ -461,8 +469,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             <button className={styles.skipBtn} onClick={handlePrev} disabled={currentLineIndex === 0} aria-label="Previous">
               <ArrowLeftIcon />
             </button>
-            <p className={styles.holdLabel}>
-              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "COULDN'T HEAR YOU · CHECK YOUR MIC" : heard ? 'YOUR TURN · TAP THE MIC' : '1 · HEAR IT   2 · SAY IT   3 · GET SCORED'}
+            <p className={`${styles.holdLabel} ${silentTake ? styles.holdLabelWarn : ''}`}>
+              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "⚠ COULDN'T HEAR YOU · CHECK YOUR MIC AND TRY AGAIN" : heard ? 'YOUR TURN · TAP THE MIC' : '1 · HEAR IT   2 · SAY IT   3 · GET SCORED'}
             </p>
             <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />
@@ -501,6 +509,14 @@ const MicIcon = () => (
 const StopIcon = () => (
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
     <rect x="6" y="6" width="12" height="12" rx="2" />
+  </svg>
+);
+
+const SpeakerIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="3 9 8 9 13 4 13 20 8 15 3 15 3 9" fill="currentColor" stroke="none" />
+    <path d="M16 8.5a5 5 0 0 1 0 7" />
+    <path d="M18.5 6a8.5 8.5 0 0 1 0 12" />
   </svg>
 );
 

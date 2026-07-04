@@ -120,10 +120,6 @@
   margin: 0;
 }
 
-.focusCjkAccent {
-  color: rgba(200,57,43,0.8);
-}
-
 .focusEnglish {
   font-family: var(--font-serif);
   font-style: italic;
@@ -143,29 +139,16 @@
 
 .audioIcon {
   background: none;
-  border: none;
   cursor: pointer;
-  padding: 8px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  gap: 4px;
   height: 42px;
   width: 42px;
   border-radius: 50%;
   border: 1px solid rgba(237,231,223,0.2);
+  color: rgba(237,231,223,0.85);
 }
-
-.audioIcon span {
-  display: block;
-  width: 4px;
-  background: rgba(237,231,223,0.8);
-  border-radius: 1px;
-}
-
-.audioIcon span:nth-child(1) { height: 12px; }
-.audioIcon span:nth-child(2) { height: 22px; }
-.audioIcon span:nth-child(3) { height: 16px; }
 
 .breakdownBtn {
   background: rgba(237,231,223,0.08);
@@ -332,6 +315,11 @@
   margin: 0;
   flex: 1;
   text-align: center;
+}
+
+.holdLabelWarn {
+  color: #E8A87C;
+  font-weight: 700;
 }
 
 .micError {

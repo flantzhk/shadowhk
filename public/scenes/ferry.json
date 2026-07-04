@@ -11,7 +11,7 @@
   "estimatedMinutes": 4,
   "location": "Star Ferry Pier, Tsim Sha Tsui",
   "context": "The Star Ferry has crossed Victoria Harbour since 1888. It links Tsim Sha Tsui (Kowloon) to Central and Wan Chai on Hong Kong Island. The upper deck costs a little more but the view is one of the best in the world. Trips take about 8 minutes.",
-  "cultural_note": "The Star Ferry (天星小輪) has crossed Victoria Harbour since 1888, but it almost disappeared in 1966. A 1-cent fare increase sparked a three-day riot. This is now seen as the first stirring of a distinctly Hong Kong political consciousness, separate from both colonial Britain and mainland China. The fare increase was reversed. The ferry still runs.",
+  "cultural_note": "The Star Ferry (天星小輪) has crossed Victoria Harbour since 1888, but its most turbulent moment came in 1966, when a proposed 5-cent fare increase sparked protests and several nights of rioting in Kowloon. This is now seen as the first stirring of a distinctly Hong Kong political consciousness, separate from both colonial Britain and mainland China. The rise went ahead, but only on first class. The ferry still runs.",
   "lines": [
     {
       "id": "ferry-01",

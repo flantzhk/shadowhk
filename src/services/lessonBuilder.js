@@ -142,9 +142,9 @@ function normaliseEntry(e) {
 
 async function buildLesson(goalMinutes, language) {
   const { getDueEntries, getAllLibraryEntries } = await import('./storage.js');
-  const due = await getDueEntries();
+  const due = (await getDueEntries()).filter(e => e.cjk);
   const all = await getAllLibraryEntries();
-  const pool = due.length > 0 ? due : all.filter(e => !e.language || e.language === language);
+  const pool = due.length > 0 ? due : all.filter(e => e.cjk && (!e.language || e.language === language));
   const maxPhrases = Math.max(5, Math.floor((goalMinutes || 10) * 1.5));
   return pool.slice(0, maxPhrases).map(normaliseEntry);
 }
@@ -152,7 +152,9 @@ async function buildLesson(goalMinutes, language) {
 async function loadAllPhrases(language) {
   const { getAllLibraryEntries } = await import('./storage.js');
   const all = await getAllLibraryEntries();
-  return all.filter(e => !e.language || e.language === language).map(normaliseEntry);
+  return all
+    .filter(e => e.cjk && (!e.language || e.language === language))
+    .map(normaliseEntry);
 }
 
 export { buildSceneLesson, buildPhraseQueueFromScene, buildLesson, loadAllPhrases };

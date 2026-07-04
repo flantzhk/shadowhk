@@ -1,34 +1,5 @@
-.screen {
-  flex: 1;
-  overflow-y: auto;
-  background: var(--bg-0);
-  padding: 20px 20px;
-  padding-bottom: 48px;
-}
-
-/* ── Header ── */
-.header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.backBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-.title {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--fg-0);
-  letter-spacing: -0.02em;
+.panel {
+  padding-bottom: 8px;
 }
 
 /* ── Streak Hero ── */
@@ -640,6 +611,5 @@
 .showMoreBtn:active { opacity: 0.7; }
 
 @media (min-width: 768px) {
-  .screen { max-width: 960px; margin: 0 auto; }
-  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+  .statsGrid { grid-template-columns: repeat(5, 1fr); }
 }
