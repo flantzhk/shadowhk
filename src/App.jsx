@@ -319,13 +319,13 @@ function MainLayout() {
   const hideChrome = CHROME_HIDDEN_ROUTES.has(route.path);
 
   return (
-    <div className={`app-shell ${isDesktop ? 'app-shell--desktop' : 'app-shell--mobile'}`}>
+    <div className={`app-shell ${isDesktop ? 'app-shell--desktop' : 'app-shell--mobile'}${hideChrome ? ' app-shell--immersive' : ''}`}>
       {isDesktop && !hideChrome
         ? <Sidebar activeTab={route.path} onNavigate={navigate} />
         : !isDesktop && !hideChrome && <TopBar onNavigate={navigate} />
       }
       <main className="app-main">
-        <div className={isDesktop && !hideChrome ? 'desktop-content' : undefined}>
+        <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : undefined}>
           <Suspense fallback={<Loader />}>
             {renderScreen(route, navigate, goBack, showToast)}
           </Suspense>
