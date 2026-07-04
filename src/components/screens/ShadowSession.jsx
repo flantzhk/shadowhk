@@ -189,6 +189,16 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     setPhase('scored');
   }, [stopRecording, currentYouLine, language, isOnline]);
 
+  // Safety net: lines are 2-4 seconds, so auto-stop a recording nobody
+  // stopped. Without this, a user who doesn't realise the button toggles
+  // is stuck on RECORDING forever.
+  useEffect(() => {
+    if (phase !== 'record') return;
+    const t = setTimeout(() => { handleStopRecording(); }, 10000);
+    return () => clearTimeout(t);
+  }, [phase, handleStopRecording]);
+
+
   const handleSaveLine = useCallback(async () => {
     if (!currentYouLine) return;
     const id = currentYouLine.id;
@@ -373,6 +383,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           >
             {phase === 'scoring' ? (
               <div className={styles.micSpinner} />
+            ) : phase === 'record' ? (
+              <StopIcon />
             ) : (
               <MicIcon />
             )}
@@ -400,7 +412,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <ArrowLeftIcon />
             </button>
             <p className={styles.holdLabel}>
-              {phase === 'record' ? 'RECORDING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'TAP TO RECORD · SWIPE → NEXT'}
+              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : 'TAP TO RECORD · SWIPE → NEXT'}
             </p>
             <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />
@@ -432,6 +444,12 @@ const ArrowRightIcon = () => (
 const MicIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm6-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+  </svg>
+);
+
+const StopIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <rect x="6" y="6" width="12" height="12" rx="2" />
   </svg>
 );
 
