@@ -58,6 +58,7 @@ const CheckoutSuccess    = lazy(() => import('./components/screens/CheckoutSucce
 const Paywall            = lazy(() => import('./components/screens/onboarding/screens/Screen16_Paywall'));
 const IntroduceYourselfForm = lazy(() => import('./components/screens/IntroduceYourselfForm'));
 const ReferenceScreen       = lazy(() => import('./components/screens/ReferenceScreen'));
+const JyutpingGuide         = lazy(() => import('./components/screens/JyutpingGuide'));
 
 // ── Router ─────────────────────────────────────────────────────────────────
 
@@ -185,6 +186,7 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings) {
     case ROUTES.CHECKOUT_SUCCESS: return <CheckoutSuccess onDone={() => navigate(ROUTES.HOME)} />;
     case ROUTES.INTRODUCE_YOURSELF: return <IntroduceYourselfForm onBack={goBack} onComplete={() => navigate(ROUTES.SHADOW, 'personal-introduce-yourself')} />;
     case ROUTES.REFERENCE:         return <ReferenceScreen referenceId={id} onBack={goBack} onNavigate={navigate} />;
+    case ROUTES.JYUTPING_GUIDE:  return <JyutpingGuide onBack={goBack} onNavigate={navigate} />;
     default:                     return <HomeScreen onNavigate={navigate} />;
   }
 }

@@ -194,6 +194,37 @@
   letter-spacing: -0.3px;
 }
 
+.todayDueBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 10px;
+  background: rgba(200,57,43,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 99px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.todayNote {
+  background: var(--bg-1);
+  border-top: 1px solid var(--border-0);
+  padding: 9px 18px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-1);
+}
+
+.todayNote b {
+  color: var(--fg-0);
+  font-weight: 600;
+}
+
 /* ─── Station path ────────────────────── */
 .todayStations {
   background: #FAFAF7;
@@ -360,50 +391,69 @@
 /* ─── Personal intro card ─────────────── */
 .personalSection { padding: 12px 20px 0; }
 
-.personalFilled {
+.madeForYou {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--border-0, var(--bg-3));
+  gap: 14px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--ink) 0%, #12100e 75%);
+  border: none;
   border-radius: 14px;
   padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
 }
-.personalFilledLeft { flex: 1; }
-.personalEyebrow {
+.madeForYouAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), #8f251b);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.madeForYouBody { flex: 1; min-width: 0; }
+.madeForYouEyebrow {
   display: block;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--fg-2);
-  margin-bottom: 4px;
+  color: var(--gold);
+  margin-bottom: 3px;
 }
-.personalTitle {
+.madeForYouTitle {
   font-family: var(--font-serif);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--fg-0);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
   margin: 0 0 3px;
   letter-spacing: -0.01em;
 }
-.personalMeta {
+.madeForYouSample {
   font-family: var(--font-ui);
-  font-size: 14px;
-  color: var(--fg-2);
+  font-style: italic;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.72);
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.personalShadowBtn {
-  background: none;
-  color: var(--fg-0);
-  border: 1px solid var(--border-1, var(--bg-3));
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px 16px;
-  cursor: pointer;
+.madeForYouGo {
   flex-shrink: 0;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
 }
 .personalEmpty {
   display: flex;
@@ -442,22 +492,100 @@
   align-self: center;
 }
 
-/* ─── Pick back up row ────────────────── */
-.pickBackSection { padding: 10px 0 0; }
+/* ─── Continue (mastery progress) ─────── */
+.continueSection { padding: 10px 20px 0; }
 
-.pickBackScroll {
-  display: flex;
+.continueGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.continueCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0, var(--bg-3));
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+}
+
+.continueThumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-2);
+  display: grid;
+  place-items: center;
+}
+
+.continueEmoji { font-size: 22px; }
+
+.continueBody { flex: 1; min-width: 0; }
+
+.continueTitle {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-0);
+  margin: 0 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.continueMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.continueBar {
+  flex: 1;
+  max-width: 70px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--bg-3);
+  overflow: hidden;
+}
+
+.continueFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--fg-1), var(--accent));
+}
+
+.continuePct {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--fg-2);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ─── Playlists for you ───────────────── */
+.playlistsSection { padding: 10px 0 0; }
+
+.playlistsScroll {
+  display: flex;
+  gap: 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 0 20px 4px;
 }
-.pickBackScroll::-webkit-scrollbar { display: none; }
+.playlistsScroll::-webkit-scrollbar { display: none; }
 
-.pickBackCard {
-  flex: 0 0 148px;
-  width: 148px;
+.playlistCard {
+  flex: 0 0 152px;
+  width: 152px;
   background: none;
   border: none;
   padding: 0;
@@ -465,114 +593,77 @@
   text-align: left;
 }
 
-.pickBackPhoto {
-  width: 148px;
-  height: 148px;
+.playlistCover {
+  width: 152px;
+  height: 152px;
   border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--bg-2);
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 6px;
+  align-items: flex-end;
+  padding: 10px;
 }
 
-.pickBackPhotoOverlay {
+.playlistCoverGrad {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.12);
+  background: linear-gradient(180deg, rgba(11,20,23,0.05) 40%, rgba(11,20,23,0.75) 100%);
 }
 
-.pickBackEmoji {
-  font-size: 28px;
-  position: relative;
+.playlistChip {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(20,16,12,0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  border-radius: 99px;
+  padding: 3px 8px;
   z-index: 1;
 }
 
-.pickBackProgress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  background: var(--jade, #4A6B46);
-  z-index: 2;
-  border-radius: 0 0 12px 12px;
+.playlistCoverTitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.15;
 }
 
-.pickBackTitle {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 14px;
-  font-weight: 500;
+.playlistSub {
+  font-family: var(--font-ui);
+  font-size: 12px;
   color: var(--fg-1);
   margin: 8px 0 0;
-  line-height: 1.25;
-}
-
-/* ─── This week's tour ────────────────── */
-.tourSection {
-  margin: 10px 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-}
-
-.tourText { flex: 1; }
-
-.tourTitle {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--fg-0);
-  margin: 0 0 4px;
-  letter-spacing: -0.3px;
-}
-
-.tourDesc {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 14px;
-  color: var(--fg-2);
-  margin: 0;
   line-height: 1.4;
 }
 
-.tourSceneList {
-  font-family: var(--font-mono);
+.playlistStarts {
+  font-family: var(--font-ui);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--fg-3);
-  margin: 6px 0 0;
-  line-height: 1.5;
+  color: var(--fg-2);
+  margin: 2px 0 0;
 }
+.playlistStarts b { color: var(--accent); font-weight: 600; }
 
-.tourExploreBtn {
-  background: none;
-  border: none;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  cursor: pointer;
-  padding: 8px 0;
-  white-space: nowrap;
-  flex-shrink: 0;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
+.playlistFill_arrival { background: linear-gradient(135deg,#101820 0%,#1a2c34 70%); }
+.playlistFill_foodie  { background: linear-gradient(135deg,#1a0e08 0%,#3d1417 60%); }
+.playlistFill_weekend { background: linear-gradient(135deg,#0a1418 0%,#16242a 60%); }
+.playlistFill_tones   { background: radial-gradient(ellipse at 60% 60%, rgba(200,57,43,.5) 0%, transparent 55%), linear-gradient(135deg,#0e0a14 0%,#1a0e1a 60%); }
 
-/* ─── 3-column practice grid ──────────── */
+/* ─── Practice grid (2×2 on phone, 4-across from tablet up) ──── */
 .practiceGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin: 18px 20px 0;
   gap: 8px;
   padding-top: 0;
@@ -580,34 +671,80 @@
 }
 
 .practiceCell {
-  background: var(--bg-1);
-  border: 1px solid var(--border-0);
+  position: relative;
+  border: 1.5px solid var(--gold);
   border-radius: 12px;
+  overflow: hidden;
   cursor: pointer;
-  padding: 14px 10px;
+  padding: 12px 12px 10px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  min-height: 72px;
-  transition: background var(--transition-fast);
+  justify-content: flex-end;
+  gap: 3px;
+  min-height: 88px;
+  transition: transform var(--transition-fast);
 }
-.practiceCell:active { background: var(--bg-2); }
+.practiceCell:active { transform: scale(0.98); }
+
+/* diagonal hatch texture signals "abstract drill", not a photographed place */
+.practiceCell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(-45deg, #fff 0 1.5px, transparent 1.5px 9px);
+}
+.practiceCell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,8,6,0) 30%, rgba(10,8,6,0.78) 100%);
+}
+
+.practiceCellBadge {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(201,162,74,0.22);
+  border: 1px solid rgba(201,162,74,0.6);
+  backdrop-filter: blur(4px);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 99px;
+  padding: 3px 7px;
+  margin-bottom: 4px;
+}
 
 .practiceCellLabel {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--fg-0);
+  color: #fff;
 }
 
 .practiceCellSub {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 12px;
-  color: var(--fg-2);
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: rgba(255,255,255,0.78);
 }
+
+.practiceFill_tonegym  { background: radial-gradient(ellipse at 30% 30%, rgba(201,162,74,.45) 0%, transparent 55%), linear-gradient(135deg,#141a10 0%,#24301a 70%); }
+.practiceFill_freechat { background: radial-gradient(ellipse at 70% 30%, rgba(200,57,43,.4) 0%, transparent 55%), linear-gradient(135deg,#160e14 0%,#2a1420 70%); }
+.practiceFill_speedrun { background: radial-gradient(ellipse at 50% 70%, rgba(168,100,42,.4) 0%, transparent 55%), linear-gradient(135deg,#0e1418 0%,#1a242c 70%); }
+.practiceFill_jyutping { background: radial-gradient(ellipse at 50% 40%, rgba(200,57,43,.4) 0%, transparent 55%), linear-gradient(135deg,#18100c 0%,#2c1a12 70%); }
 
 /* ─── Streak banner (at-risk) ─────────── */
 .riskBanner {
@@ -734,22 +871,31 @@
     font-size: 40px;
     line-height: 1.08;
   }
-  /* Pick back up: horizontal thumb-scroll becomes a 4-across spread */
-  .pickBackScroll {
+  /* Continue: 2-across becomes a 4-across spread */
+  .continueGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  /* Playlists: horizontal thumb-scroll becomes a 4-across spread */
+  .playlistsScroll {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     overflow: visible;
-    padding-right: 0;
+    padding: 0;
   }
-  .pickBackCard {
+  .playlistCard {
     width: auto;
   }
-  .pickBackPhoto {
-    height: 150px;
+  .playlistCover {
+    width: 100%;
+    height: 170px;
   }
   .practiceGrid {
     gap: 16px;
+  }
+  .practiceCell {
+    min-height: 120px;
   }
   /* Today's Lesson hero: cap height so it can't balloon at wide viewports
      (aspect-ratio alone made it grow with container width unbounded). */

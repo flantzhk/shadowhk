@@ -24,6 +24,7 @@ export default function HomeScreen({ onNavigate }) {
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
   const [personalPhraseCount, setPersonalPhraseCount] = useState(null);
+  const [personalSample, setPersonalSample] = useState(null);
   const [allScenes, setAllScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
   const [dueCount, setDueCount] = useState(0);
@@ -44,7 +45,9 @@ export default function HomeScreen({ onNavigate }) {
   useEffect(() => {
     buildSceneLesson(language).then(setLesson).catch(() => setLesson(null)).finally(() => setLoading(false));
     getLibraryEntries(language).then(entries => {
-      setPersonalPhraseCount(entries.filter(e => e.scene_id === PERSONAL_SCENE_ID).length);
+      const personal = entries.filter(e => e.scene_id === PERSONAL_SCENE_ID);
+      setPersonalPhraseCount(personal.length);
+      setPersonalSample(personal[0] ?? null);
     }).catch(() => setPersonalPhraseCount(0));
     getAllScenes(language).then(setAllScenes).catch(() => {});
     getAllSceneProgress().then(records => {
@@ -88,6 +91,7 @@ export default function HomeScreen({ onNavigate }) {
       {personalPhraseCount !== null && (
         <PersonalSceneCard
           phraseCount={personalPhraseCount}
+          sample={personalSample}
           name={userName}
           onNavigate={onNavigate}
         />
@@ -97,18 +101,18 @@ export default function HomeScreen({ onNavigate }) {
         <>
           <div className={styles.sectionBar}>
             <span className={styles.sectionNum}>01</span>
-            <span className={styles.sectionLabel}>Pick back up</span>
+            <span className={styles.sectionLabel}>Continue</span>
             <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>ALL →</button>
           </div>
-          <PickBackUpRow scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
+          <ContinueGrid scenes={allScenes} progress={sceneProgress} onNavigate={onNavigate} />
         </>
       )}
 
       <div className={styles.sectionBar}>
         <span className={styles.sectionNum}>02</span>
-        <span className={styles.sectionLabel}>Themed playlist</span>
+        <span className={styles.sectionLabel}>Playlists for you</span>
       </div>
-      <ThisWeeksTour scenes={allScenes} onNavigate={onNavigate} />
+      <PlaylistsRail scenes={allScenes} onNavigate={onNavigate} />
 
       <div className={styles.sectionBar}>
         <span className={styles.sectionNum}>03</span>
@@ -150,8 +154,15 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
           <span className={styles.todayBadgeDot} />
           <span className={styles.todayBadgeText}>TODAY'S LESSON</span>
         </div>
+        {dueCount > 0 && <div className={styles.todayDueBadge}>{dueCount} DUE</div>}
         <h2 className={styles.todayPhotoTitle}>{scene.title}</h2>
       </div>
+
+      {dueCount > 0 && (
+        <div className={styles.todayNote}>
+          Starts with <b>{dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} due for review</b> before today's new scene
+        </div>
+      )}
 
       <button className={styles.todayBeginBtn} onClick={handleBegin}>
         <span className={styles.todayBeginLeft}>
@@ -176,30 +187,36 @@ function EmptyHero({ onNavigate }) {
   );
 }
 
-function PickBackUpRow({ scenes, progress, onNavigate }) {
+function ContinueGrid({ scenes, progress, onNavigate }) {
   const recent = scenes
     .filter(s => progress?.[s.id]?.lastSessionAt)
     .sort((a, b) => (progress[b.id]?.lastSessionAt ?? 0) - (progress[a.id]?.lastSessionAt ?? 0))
-    .slice(0, 5);
+    .slice(0, 6);
 
-  const cards = recent.length > 0 ? recent : scenes.slice(0, 5);
+  const cards = recent.length > 0 ? recent : scenes.slice(0, 6);
 
   return (
-    <section className={styles.pickBackSection}>
-      <div className={styles.pickBackScroll}>
+    <section className={styles.continueSection}>
+      <div className={styles.continueGrid}>
         {cards.map(s => {
           const pct = progress[s.id]?.masteryPct ?? 0;
           return (
-            <button key={s.id} className={styles.pickBackCard} onClick={() => onNavigate('scene', s.id)}>
+            <button key={s.id} className={styles.continueCard} onClick={() => onNavigate('scene', s.id)}>
               <div
-                className={styles.pickBackPhoto}
+                className={styles.continueThumb}
                 style={{ backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined }}
               >
-                {!s.imageUrl && <span className={styles.pickBackEmoji}>{s.emoji}</span>}
-                <div className={styles.pickBackPhotoOverlay} />
-                {pct > 0 && <div className={styles.pickBackProgress} style={{ width: `${pct}%` }} />}
+                {!s.imageUrl && <span className={styles.continueEmoji}>{s.emoji}</span>}
               </div>
-              <p className={styles.pickBackTitle}>{s.title}</p>
+              <div className={styles.continueBody}>
+                <p className={styles.continueTitle}>{s.title}</p>
+                <div className={styles.continueMeta}>
+                  <span className={styles.continueBar}>
+                    <span className={styles.continueFill} style={{ width: `${pct}%` }} />
+                  </span>
+                  <span className={styles.continuePct}>{Math.round(pct)}% mastered</span>
+                </div>
+              </div>
             </button>
           );
         })}
@@ -208,43 +225,58 @@ function PickBackUpRow({ scenes, progress, onNavigate }) {
   );
 }
 
-function ThisWeeksTour({ scenes, onNavigate }) {
-  const playlist = PLAYLISTS[0];
-  const playlistScenes = playlist.sceneIds
-    .map(id => scenes.find(s => s.id === id))
-    .filter(Boolean);
-
+function PlaylistsRail({ scenes, onNavigate }) {
   return (
-    <section className={styles.tourSection}>
-      <div className={styles.tourText}>
-        <h3 className={styles.tourTitle}>{playlist.label}</h3>
-        <p className={styles.tourDesc}>{playlist.desc}</p>
-        {playlistScenes.length > 0 && (
-          <p className={styles.tourSceneList}>
-            {playlistScenes.map(s => s.title).join(' · ')}
-          </p>
-        )}
+    <section className={styles.playlistsSection}>
+      <div className={styles.playlistsScroll}>
+        {PLAYLISTS.map(playlist => {
+          const playlistScenes = playlist.sceneIds
+            .map(id => scenes.find(s => s.id === id))
+            .filter(Boolean);
+          const first = playlistScenes[0];
+
+          return (
+            <button
+              key={playlist.id}
+              className={styles.playlistCard}
+              onClick={() => first ? onNavigate('scene', first.id) : onNavigate('scenes')}
+            >
+              <div
+                className={`${styles.playlistCover} ${styles[`playlistFill_${playlist.id}`] ?? ''}`}
+                style={{ backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined }}
+              >
+                <div className={styles.playlistCoverGrad} />
+                <span className={styles.playlistChip}>{playlist.sceneIds.length} scenes</span>
+                <p className={styles.playlistCoverTitle}>{playlist.label}</p>
+              </div>
+              <p className={styles.playlistSub}>{playlist.desc}</p>
+              {first && (
+                <p className={styles.playlistStarts}>Starts with <b>{first.title}</b></p>
+              )}
+            </button>
+          );
+        })}
       </div>
-      <button
-        className={styles.tourExploreBtn}
-        onClick={() => playlistScenes[0] ? onNavigate('scene', playlistScenes[0].id) : onNavigate('scenes')}
-      >
-        Start playlist →
-      </button>
     </section>
   );
 }
 
 function PracticeGrid({ onNavigate }) {
   const modes = [
-    { label: 'TONE GYM',   sub: 'Ear training',       route: 'tonegym' },
-    { label: 'FREE CHAT',  sub: 'Open conversation',   route: 'ai-scenario' },
-    { label: 'SPEED RUN',  sub: 'Drills',              route: 'speedrun' },
+    { label: 'TONE GYM',        sub: 'Ear training',        route: 'tonegym',        fill: 'tonegym' },
+    { label: 'FREE CHAT',       sub: 'Open conversation',   route: 'ai-scenario',    fill: 'freechat' },
+    { label: 'SPEED RUN',       sub: 'Drills',               route: 'speedrun',       fill: 'speedrun' },
+    { label: 'READ JYUTPING',   sub: 'Tones & sounds',       route: 'jyutping-guide', fill: 'jyutping', star: true },
   ];
   return (
     <div className={styles.practiceGrid}>
-      {modes.map((m, i) => (
-        <button key={m.route} className={styles.practiceCell} onClick={() => onNavigate(m.route)}>
+      {modes.map((m) => (
+        <button
+          key={m.route}
+          className={`${styles.practiceCell} ${styles[`practiceFill_${m.fill}`]}`}
+          onClick={() => onNavigate(m.route)}
+        >
+          <span className={styles.practiceCellBadge}>{m.star ? '★ NEW' : '◆ DRILL'}</span>
           <span className={styles.practiceCellLabel}>{m.label}</span>
           <span className={styles.practiceCellSub}>{m.sub}</span>
         </button>
@@ -253,20 +285,22 @@ function PracticeGrid({ onNavigate }) {
   );
 }
 
-function PersonalSceneCard({ phraseCount, name, onNavigate }) {
+function PersonalSceneCard({ phraseCount, sample, name, onNavigate }) {
   if (phraseCount > 0) {
+    const initial = name ? name.trim().charAt(0).toUpperCase() : 'U';
     return (
       <section className={styles.personalSection}>
-        <div className={styles.personalFilled}>
-          <div className={styles.personalFilledLeft}>
-            <span className={styles.personalEyebrow}>👋 INTRODUCE YOURSELF</span>
-            <p className={styles.personalTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
-            <p className={styles.personalMeta}>{phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'} · shadow how you'd introduce yourself in real life</p>
+        <button className={styles.madeForYou} onClick={() => onNavigate('introduce-yourself')}>
+          <span className={styles.madeForYouAvatar}>{initial}</span>
+          <div className={styles.madeForYouBody}>
+            <span className={styles.madeForYouEyebrow}>Made for you · {phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'}</span>
+            <p className={styles.madeForYouTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
+            {sample && (
+              <p className={styles.madeForYouSample}>"{sample.cjk}" — {sample.english}</p>
+            )}
           </div>
-          <button className={styles.personalShadowBtn} onClick={() => onNavigate('introduce-yourself')}>
-            Shadow →
-          </button>
-        </div>
+          <span className={styles.madeForYouGo}>Shadow →</span>
+        </button>
       </section>
     );
   }

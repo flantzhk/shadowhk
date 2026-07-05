@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import styles from './FirstRunFlow.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { saveLibraryEntry } from '../../services/storage.js';
@@ -6,8 +6,11 @@ import { getAllScenes, getYouLines } from '../../services/sceneLoader.js';
 import { phCapture } from '../../services/posthog.js';
 import { logger } from '../../utils/logger.js';
 import { SOURCE_TAGS, GROWTH_STATE, ROUTES } from '../../utils/constants.js';
+import { SIX_TONES } from '../../utils/toneData.js';
+import { staticWordAudio } from '../../services/staticAudio.js';
+import { textToSpeech } from '../../services/api.js';
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 7;
 const HARBOUR_URL = '/shadowhk/images/scenes/firstrun-harbour.jpg';
 const DIMSUM_URL = '/shadowhk/images/scenes/firstrun-dimsum.jpg';
 
@@ -45,19 +48,38 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   const [goal, setGoal] = useState(5);
   const [reminderTime, setReminderTime] = useState('09:00');
   const [firstScene, setFirstScene] = useState(null);
+  const audioElRef = useRef(null);
+  const [playingChar, setPlayingChar] = useState(null);
 
   useEffect(() => {
     phCapture('firstrun_step_viewed', { step: step + 1 });
   }, [step]);
 
+  const speakTone = useCallback(async (char) => {
+    audioElRef.current?.pause();
+    setPlayingChar(char);
+    try {
+      const blob = (await staticWordAudio(char)) ?? await textToSpeech(char, { language: 'cantonese' });
+      if (!blob || blob.size === 0) { setPlayingChar(null); return; }
+      const url = URL.createObjectURL(blob);
+      const el = new Audio(url);
+      audioElRef.current = el;
+      el.onended = () => { setPlayingChar(null); URL.revokeObjectURL(url); };
+      el.onerror = () => { setPlayingChar(null); URL.revokeObjectURL(url); };
+      await el.play();
+    } catch {
+      setPlayingChar(null);
+    }
+  }, []);
+
   const goForward = async () => {
-    if (step === 4) {
-      // Save goal + load first scene before showing step 5
+    if (step === 5) {
+      // Save goal + load first scene before showing the final step
       await updateSettings({ dailyGoalMinutes: goal, reminderTime }).catch(err => logger.warn('[FirstRunFlow] settings save failed', err?.message));
       const scenes = await getAllScenes(language).catch(() => []);
       setFirstScene(scenes.find(s => s.id === 'dim-sum') ?? scenes[0] ?? null);
     }
-    if (step === 5) { finish(); return; }
+    if (step === 6) { finish(); return; }
     setStep(s => s + 1);
   };
 
@@ -85,10 +107,10 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
 
   const showBack = step > 0;
-  const showSkip = step > 0 && step < 5;
+  const showSkip = step > 0 && step < 6;
 
-  // Step 6 is a full-screen override
-  if (step === 5) {
+  // Final step is a full-screen override
+  if (step === 6) {
     const scene = firstScene;
     return (
       <div className={styles.finalScreen} style={{ backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : `url(${DIMSUM_URL})` }}>
@@ -170,8 +192,31 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           </div>
         )}
 
-        {/* Step 2 — Level */}
+        {/* Step 2 — How to read Jyutping (6 tones) */}
         {step === 1 && (
+          <div className={styles.step2}>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>Cantonese has 6 tones</h2>
+            <p className={styles.reminderSub}>
+              Jyutping spells each syllable with a number for its tone — same letters, different number, different word entirely. Tap to hear it.
+            </p>
+            <div className={styles.toneList}>
+              {SIX_TONES.map(t => (
+                <button key={t.tone} type="button" className={styles.toneRow} onClick={() => speakTone(t.char)}>
+                  <span className={styles.toneNum}>{t.tone}</span>
+                  <span className={styles.toneJyut}>{t.jyutping}</span>
+                  <span className={styles.toneChar} lang="yue">{t.char}</span>
+                  <span className={styles.toneDesc}>{t.desc}</span>
+                  <span className={styles.toneMeaning}>{t.meaning}</span>
+                  <span className={`${styles.tonePlay} ${playingChar === t.char ? styles.tonePlaying : ''}`}>▶</span>
+                </button>
+              ))}
+            </div>
+            <p className={styles.stepFootnote}>You can revisit this anytime from Home → Read Jyutping.</p>
+          </div>
+        )}
+
+        {/* Step 3 — Level */}
+        {step === 2 && (
           <div className={styles.step2}>
             <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>Where are you starting from?</h2>
             <div className={styles.levelCards}>
@@ -192,8 +237,8 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           </div>
         )}
 
-        {/* Step 3 — Reasons */}
-        {step === 2 && (
+        {/* Step 4 — Reasons */}
+        {step === 3 && (
           <div className={styles.step3}>
             <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>What brought you here?</h2>
             <div className={styles.reasonGrid}>
@@ -211,8 +256,8 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           </div>
         )}
 
-        {/* Step 4 — Daily goal */}
-        {step === 3 && (
+        {/* Step 5 — Daily goal */}
+        {step === 4 && (
           <div className={styles.step4}>
             <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>How much time per day?</h2>
             <div className={styles.goalChips}>
@@ -235,8 +280,8 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           </div>
         )}
 
-        {/* Step 5 — Reminder */}
-        {step === 4 && (
+        {/* Step 6 — Reminder */}
+        {step === 5 && (
           <div className={styles.step5}>
             <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>When should we nudge you?</h2>
             <p className={styles.reminderSub}>Pick a time that works every day.</p>
@@ -257,11 +302,11 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
         <button
           className={styles.primaryBtn}
           onClick={goForward}
-          disabled={step === 1 && !level || step === 2 && reasons.size === 0}
+          disabled={step === 2 && !level || step === 3 && reasons.size === 0}
         >
-          {step === 0 ? 'Get started' : step === 4 ? 'Turn on reminders' : 'Next'}
+          {step === 0 ? 'Get started' : step === 5 ? 'Turn on reminders' : 'Next'}
         </button>
-        {step === 4 && (
+        {step === 5 && (
           <button className={styles.ghostLink} onClick={goForward}>Skip for now</button>
         )}
       </div>
