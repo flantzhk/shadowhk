@@ -3,6 +3,7 @@ import styles from './IntroduceYourselfForm.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { textToSpeech } from '../../services/api';
 import { staticPhraseAudio } from '../../services/staticAudio.js';
+import { getCachedAudio, cacheAudioBlob, cacheAudioForPhrase } from '../../services/audio.js';
 import { countPhrases, buildGenerationPrompt, savePersonalScene, buildPersonalSceneObject, PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { fetchWithAuth } from '../../services/api.js';
@@ -58,8 +59,14 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   useEffect(() => {
     if (touchedRef.current) return;
     const saved = settings?.personalIntroForm;
-    if (saved && typeof saved === 'object') setForm(f => ({ ...f, ...saved }));
-  }, [settings?.personalIntroForm]);
+    if (saved && typeof saved === 'object') {
+      setForm(f => ({ ...f, ...saved }));
+    } else if (settings?.name) {
+      // No saved form yet, but the app already knows the user's name
+      // (from onboarding) — don't make them type it again.
+      setForm(f => ({ ...f, name: f.name || settings.name }));
+    }
+  }, [settings?.personalIntroForm, settings?.name]);
 
   useEffect(() => {
     getLibraryEntries(language)
@@ -74,8 +81,12 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
     playerRef.current?.pause();
     setPlayingIdx(i);
     try {
-      const blob = (await staticPhraseAudio(p.phraseId, language))
-        ?? await textToSpeech(p.cjk, { language });
+      let blob = (await staticPhraseAudio(p.phraseId, language))
+        ?? (await getCachedAudio(p.phraseId, language, 1.0));
+      if (!blob) {
+        blob = await textToSpeech(p.cjk, { language });
+        cacheAudioBlob(p.phraseId, language, 1.0, blob).catch(() => {});
+      }
       const url = URL.createObjectURL(blob);
       const a = new Audio(url);
       playerRef.current = a;
@@ -145,8 +156,14 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
 
       if (!phrases.length) throw new Error('No phrases generated. Try adding more details.');
 
-      await savePersonalScene(phrases, language);
+      const savedEntries = await savePersonalScene(phrases, language);
       const scene = buildPersonalSceneObject(phrases, form.name);
+
+      // Warm the audio cache in the background so playback is instant
+      // once the user reaches the phrase list — don't block on it.
+      Promise.allSettled(
+        savedEntries.map(entry => cacheAudioForPhrase({ id: entry.phraseId, cjk: entry.cjk }, language))
+      ).catch(() => {});
 
       onComplete?.({ scene, phraseCount: phrases.length });
     } catch (err) {
@@ -244,7 +261,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           open={openSections.about}
           onToggle={() => toggleSection('about')}
         >
-          <Field label="Your name *" required>
+          <Field label="Your name" required>
             <input className={styles.input} placeholder="e.g. Sarah" value={form.name} onChange={e => setField('name', e.target.value)} />
           </Field>
           <Row>

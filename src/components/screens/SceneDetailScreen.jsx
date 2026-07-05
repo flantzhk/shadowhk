@@ -7,6 +7,8 @@ import { getSceneById } from '../../services/sceneLoader.js';
 import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
 import { getCurrentUser } from '../../services/auth.js';
 import { phCapture } from '../../services/posthog.js';
+import { textToSpeech } from '../../services/api.js';
+import { staticWordAudio, prefetchWordAudio } from '../../services/staticAudio.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
@@ -38,6 +40,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           if (entry) ids.add(line.id);
         }
         setSavedIds(ids);
+        if (s.vocabulary?.length) prefetchWordAudio(s.vocabulary.flatMap(g => g.words ?? []));
       })
       .catch(err => logger.error('[SceneDetail] scene load failed', err?.message))
       .finally(() => setLoading(false));
@@ -166,6 +169,11 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         </section>
       )}
 
+      {/* Vocabulary — key HK-specific terms for this scene */}
+      {scene.vocabulary?.length > 0 && (
+        <VocabSection groups={scene.vocabulary} language={language} />
+      )}
+
       {/* Controls row — labelled chips so heart vs plus is self-explanatory */}
       <div className={styles.controls}>
         <div className={styles.controlsLeft}>
@@ -178,6 +186,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
               await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
             }}
             aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
+            title={sceneSaved ? 'Saved — shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
           >
             {sceneSaved ? '♥' : '♡'} <span className={styles.controlLabel}>{sceneSaved ? 'Scene saved' : 'Save scene'}</span>
           </button>
@@ -185,14 +194,20 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
             className={`${styles.controlBtn} ${allSaved ? styles.controlBtnSaved : ''}`}
             onClick={saveAllLines}
             aria-label="Add all phrases to your phrasebook"
+            title="Add every phrase in this scene to your Library for spaced-repetition review"
           >
             {allSaved ? '✓' : '+'} <span className={styles.controlLabel}>{allSaved ? 'Added' : 'Add all phrases'}</span>
           </button>
           {navigator.share && (
             <button
               className={styles.controlBtn}
-              onClick={() => navigator.share({ title: scene.title, text: `Practice ${scene.title} in ShadowHK` }).catch(() => {})}
+              onClick={() => navigator.share({
+                title: scene.title,
+                text: `Practice "${scene.title}" in ShadowHK`,
+                url: `${window.location.origin}${import.meta.env.BASE_URL}#scene/${sceneId}`,
+              }).catch(() => {})}
               aria-label="Share scene"
+              title="Share a link to this scene"
             >
               ↗ <span className={styles.controlLabel}>Share</span>
             </button>
@@ -200,6 +215,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           <button
             className={styles.controlBtn}
             onClick={() => onNavigate('dialogue', sceneId)}
+            title="Practice this scene as a scripted back-and-forth conversation instead of shadowing line by line"
             aria-label="Practice as a scripted conversation"
           >
             💬 <span className={styles.controlLabel}>Dialogue mode</span>
@@ -275,4 +291,78 @@ const BackArrow = () => (
     <path d="M10 4L6 8l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
+
+function VocabSection({ groups, language }) {
+  const [openCategory, setOpenCategory] = useState(groups.length === 1 ? groups[0].category : null);
+  const [playingWord, setPlayingWord] = useState(null);
+  const audioRef = useRef(null);
+
+  async function play(word) {
+    if (playingWord === word.chinese) { audioRef.current?.pause(); setPlayingWord(null); return; }
+    audioRef.current?.pause();
+    setPlayingWord(word.chinese);
+    try {
+      const blob = (await staticWordAudio(word.chinese)) ?? await textToSpeech(word.chinese, { language, turbo: true });
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
+      await audio.play();
+    } catch {
+      setPlayingWord(null);
+    }
+  }
+
+  return (
+    <section className={styles.culturalSection}>
+      <div className={styles.culturalDivider}>
+        <span className={styles.culturalDividerDash}>—</span>
+        <span className={styles.culturalDividerLabel}>VOCABULARY</span>
+      </div>
+      <div className={styles.vocabCategoryList}>
+        {groups.map(group => {
+          const isOpen = openCategory === group.category;
+          return (
+            <div key={group.category} className={styles.vocabCategory}>
+              <button
+                className={styles.vocabCategoryHeader}
+                onClick={() => setOpenCategory(isOpen ? null : group.category)}
+                aria-expanded={isOpen}
+              >
+                <span className={styles.vocabCategoryName}>{group.category}</span>
+                <span className={styles.vocabCategoryCount}>{group.words.length}</span>
+                <span className={`${styles.vocabChevron} ${isOpen ? styles.vocabChevronOpen : ''}`}>▾</span>
+              </button>
+              {isOpen && (
+                <div className={styles.vocabGrid}>
+                  {group.words.map(w => (
+                    <button
+                      key={w.chinese}
+                      className={`${styles.vocabChip} ${playingWord === w.chinese ? styles.vocabChipActive : ''}`}
+                      onClick={() => play(w)}
+                      aria-label={`Play ${w.chinese} — ${w.english}`}
+                    >
+                      <span className={styles.vocabPlayBtn}>
+                        {playingWord === w.chinese
+                          ? <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
+                          : <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
+                        }
+                      </span>
+                      <span className={styles.vocabBody}>
+                        <span className={styles.vocabCjk}>{w.chinese}</span>
+                        <span className={styles.vocabJyutping}>{w.jyutping}</span>
+                        <span className={styles.vocabEnglish}>{w.english}</span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
 

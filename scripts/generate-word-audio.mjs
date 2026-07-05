@@ -30,6 +30,9 @@ for (const f of readdirSync('public/scenes').filter((f) => f.endsWith('.json') &
     for (const w of l.words || []) if (w.chinese?.trim()) words.add(w.chinese.trim());
     for (const c of l.cjk || '') if (CJK.test(c)) words.add(c);
   }
+  for (const group of scene.vocabulary || []) {
+    for (const w of group.words || []) if (w.chinese?.trim()) words.add(w.chinese.trim());
+  }
 }
 for (const f of readdirSync('public').filter((f) => f.endsWith('.json'))) {
   const data = JSON.parse(readFileSync(join('public', f), 'utf8'));

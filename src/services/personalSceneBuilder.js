@@ -56,8 +56,9 @@ export async function savePersonalScene(phrases, language) {
   const { GROWTH_STATE, SOURCE_TAGS } = await import('../utils/constants.js');
 
   const now = Date.now();
+  const saved = [];
   for (const phrase of phrases) {
-    await saveLibraryEntry({
+    const entry = {
       phraseId: `${PERSONAL_SCENE_ID}-${crypto.randomUUID()}`,
       cjk: phrase.cjk,
       romanization: phrase.romanization,
@@ -74,8 +75,11 @@ export async function savePersonalScene(phrases, language) {
       lived_at: null,
       _createdAt: now,
       _updatedAt: now,
-    });
+    };
+    await saveLibraryEntry(entry);
+    saved.push(entry);
   }
+  return saved;
 }
 
 /**

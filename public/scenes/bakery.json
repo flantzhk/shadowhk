@@ -1,307 +1,344 @@
 {
-  "id": "bakery",
-  "language": "cantonese",
-  "emoji": "🍞",
-  "imageUrl": "/shadowhk/images/scenes/bakery.jpg",
-  "tint": "#E8A030",
-  "title": "Ordering at a HK bakery",
-  "description": "Order buns fresh out of the oven and pay with Octopus",
-  "category": "food",
-  "difficulty": "starter",
-  "estimatedMinutes": 4,
-  "location": "Tai Cheong Bakery, Central",
-  "context": "Hong Kong bakeries (餅店) are a blend of Chinese and Western influences. Pineapple buns (菠蘿包) are arguably HK's most iconic pastry — despite the name, there's no pineapple in them. Wife cakes (老婆餅) are a sweet flaky pastry with winter melon filling.",
-  "cultural_note": "The pineapple bun (菠蘿包, bo1 lo4 baau1) has no pineapple in it. The cracked golden crust just happens to look like pineapple skin. Split while hot and stuffed with a thick slab of cold butter, its making technique was added to Hong Kong's first Intangible Cultural Heritage Inventory in 2014, alongside milk tea and the egg tart.",
-  "lines": [
-    {
-      "id": "bakery-01",
-      "speaker": "you",
-      "cjk": "唔該，菠蘿包仲有冇呀？",
-      "jyutping": "m4 goi1, bo1 lo4 baau1 zung6 jau5 mou5 aa3?",
-      "english": "Excuse me, do you still have pineapple buns?",
-      "audioFile": "bakery-01.mp3",
-      "words": [
+    "id": "bakery",
+    "language": "cantonese",
+    "emoji": "🍞",
+    "imageUrl": "/shadowhk/images/scenes/bakery.jpg",
+    "tint": "#E8A030",
+    "title": "Ordering at a HK bakery",
+    "description": "Order buns fresh out of the oven and pay with Octopus",
+    "category": "food",
+    "difficulty": "starter",
+    "estimatedMinutes": 4,
+    "location": "Tai Cheong Bakery, Central",
+    "context": "Hong Kong bakeries (餅店) are a blend of Chinese and Western influences. Pineapple buns (菠蘿包) are arguably HK's most iconic pastry — despite the name, there's no pineapple in them. Wife cakes (老婆餅) are a sweet flaky pastry with winter melon filling.",
+    "cultural_note": "The pineapple bun (菠蘿包, bo1 lo4 baau1) has no pineapple in it. The cracked golden crust just happens to look like pineapple skin. Split while hot and stuffed with a thick slab of cold butter, its making technique was added to Hong Kong's first Intangible Cultural Heritage Inventory in 2014, alongside milk tea and the egg tart.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "bakery-01",
+            "speaker": "you",
+            "cjk": "唔該，菠蘿包仲有冇呀？",
+            "jyutping": "m4 goi1, bo1 lo4 baau1 zung6 jau5 mou5 aa3?",
+            "english": "Excuse me, do you still have pineapple buns?",
+            "audioFile": "bakery-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "菠蘿包",
+                    "jyutping": "bo1 lo4 baau1",
+                    "english": "pineapple bun"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "有冇",
+                    "jyutping": "jau5 mou5",
+                    "english": "have any?"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "菠蘿包",
-          "jyutping": "bo1 lo4 baau1",
-          "english": "pineapple bun"
+            "id": "bakery-02",
+            "speaker": "staff",
+            "cjk": "有，啱啱出爐，嗰邊自己夾。",
+            "jyutping": "jau5, ngaam1 ngaam1 ceot1 lou4, go2 bin1 zi6 gei2 gaap3.",
+            "english": "Yes, just out of the oven. Help yourself over there.",
+            "audioFile": "bakery-02.mp3",
+            "words": [
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "啱啱",
+                    "jyutping": "ngaam1 ngaam1",
+                    "english": "just now"
+                },
+                {
+                    "chinese": "出爐",
+                    "jyutping": "ceot1 lou4",
+                    "english": "out of the oven"
+                },
+                {
+                    "chinese": "嗰邊",
+                    "jyutping": "go2 bin1",
+                    "english": "over there"
+                },
+                {
+                    "chinese": "自己",
+                    "jyutping": "zi6 gei2",
+                    "english": "oneself"
+                },
+                {
+                    "chinese": "夾",
+                    "jyutping": "gaap3",
+                    "english": "pick up"
+                }
+            ]
         },
         {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
+            "id": "bakery-03",
+            "speaker": "you",
+            "cjk": "好嘢。呢啲係咩包嚟㗎？",
+            "jyutping": "hou2 je5. ni1 di1 hai6 me1 baau1 lai4 gaa3?",
+            "english": "Great. What buns are these?",
+            "audioFile": "bakery-03.mp3",
+            "words": [
+                {
+                    "chinese": "好嘢",
+                    "jyutping": "hou2 je5",
+                    "english": "great"
+                },
+                {
+                    "chinese": "呢啲",
+                    "jyutping": "ni1 di1",
+                    "english": "these"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                },
+                {
+                    "chinese": "包",
+                    "jyutping": "baau1",
+                    "english": "bun"
+                },
+                {
+                    "chinese": "嚟",
+                    "jyutping": "lai4",
+                    "english": "(emphasis)"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "有冇",
-          "jyutping": "jau5 mou5",
-          "english": "have any?"
+            "id": "bakery-04",
+            "speaker": "staff",
+            "cjk": "雞尾包，入面有椰絲，好香㗎。",
+            "jyutping": "gai1 mei5 baau1, jap6 min6 jau5 je4 si1, hou2 hoeng1 gaa3.",
+            "english": "Cocktail buns, coconut filling. Really fragrant.",
+            "audioFile": "bakery-04.mp3",
+            "words": [
+                {
+                    "chinese": "雞尾包",
+                    "jyutping": "gai1 mei5 baau1",
+                    "english": "cocktail bun"
+                },
+                {
+                    "chinese": "入面",
+                    "jyutping": "jap6 min6",
+                    "english": "inside"
+                },
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "椰絲",
+                    "jyutping": "je4 si1",
+                    "english": "shredded coconut"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "香",
+                    "jyutping": "hoeng1",
+                    "english": "fragrant"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
+            "id": "bakery-05",
+            "speaker": "you",
+            "cjk": "要兩個菠蘿包，一個雞尾包，唔該。",
+            "jyutping": "jiu3 loeng5 go3 bo1 lo4 baau1, jat1 go3 gai1 mei5 baau1, m4 goi1.",
+            "english": "Two pineapple buns and one cocktail bun please.",
+            "audioFile": "bakery-05.mp3",
+            "words": [
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "兩",
+                    "jyutping": "loeng5",
+                    "english": "two"
+                },
+                {
+                    "chinese": "個",
+                    "jyutping": "go3",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "菠蘿包",
+                    "jyutping": "bo1 lo4 baau1",
+                    "english": "pineapple bun"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "個",
+                    "jyutping": "go3",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "雞尾包",
+                    "jyutping": "gai1 mei5 baau1",
+                    "english": "cocktail bun"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                }
+            ]
+        },
+        {
+            "id": "bakery-06",
+            "speaker": "staff",
+            "cjk": "一共十六蚊。",
+            "jyutping": "jat1 gung6 sap6 luk6 man1.",
+            "english": "Sixteen dollars altogether.",
+            "audioFile": "bakery-06.mp3",
+            "words": [
+                {
+                    "chinese": "一共",
+                    "jyutping": "jat1 gung6",
+                    "english": "altogether"
+                },
+                {
+                    "chinese": "十六",
+                    "jyutping": "sap6 luk6",
+                    "english": "sixteen"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                }
+            ]
+        },
+        {
+            "id": "bakery-07",
+            "speaker": "you",
+            "cjk": "八達通得唔得？",
+            "jyutping": "baat3 daat6 tung1 dak1 m4 dak1?",
+            "english": "Octopus OK?",
+            "audioFile": "bakery-07.mp3",
+            "words": [
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "得唔得",
+                    "jyutping": "dak1 m4 dak1",
+                    "english": "is that OK?"
+                }
+            ]
+        },
+        {
+            "id": "bakery-08",
+            "speaker": "staff",
+            "cjk": "得，嘟啦。多謝。",
+            "jyutping": "dak1, dyut1 laa1. do1 ze6.",
+            "english": "Yes, tap away. Thanks.",
+            "audioFile": "bakery-08.mp3",
+            "words": [
+                {
+                    "chinese": "得",
+                    "jyutping": "dak1",
+                    "english": "sure"
+                },
+                {
+                    "chinese": "嘟",
+                    "jyutping": "dyut1",
+                    "english": "tap"
+                },
+                {
+                    "chinese": "啦",
+                    "jyutping": "laa1",
+                    "english": "(suggestion particle)"
+                },
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "bakery-02",
-      "speaker": "staff",
-      "cjk": "有，啱啱出爐，嗰邊自己夾。",
-      "jyutping": "jau5, ngaam1 ngaam1 ceot1 lou4, go2 bin1 zi6 gei2 gaap3.",
-      "english": "Yes, just out of the oven. Help yourself over there.",
-      "audioFile": "bakery-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
+            "category": "Buns",
+            "words": [
+                {
+                    "chinese": "菠蘿包",
+                    "jyutping": "bo1 lo4 baau1",
+                    "english": "pineapple bun — no pineapple in it, just a cracked golden crust"
+                },
+                {
+                    "chinese": "叉燒包",
+                    "jyutping": "caa1 siu1 baau1",
+                    "english": "BBQ pork bun"
+                },
+                {
+                    "chinese": "雞尾包",
+                    "jyutping": "gai1 mei5 baau1",
+                    "english": "cocktail bun — sweet, coconut-filled"
+                }
+            ]
         },
         {
-          "chinese": "啱啱",
-          "jyutping": "ngaam1 ngaam1",
-          "english": "just now"
-        },
-        {
-          "chinese": "出爐",
-          "jyutping": "ceot1 lou4",
-          "english": "out of the oven"
-        },
-        {
-          "chinese": "嗰邊",
-          "jyutping": "go2 bin1",
-          "english": "over there"
-        },
-        {
-          "chinese": "自己",
-          "jyutping": "zi6 gei2",
-          "english": "oneself"
-        },
-        {
-          "chinese": "夾",
-          "jyutping": "gaap3",
-          "english": "pick up"
+            "category": "Pastries & Cakes",
+            "words": [
+                {
+                    "chinese": "蛋撻",
+                    "jyutping": "daan2 taat3",
+                    "english": "egg tart"
+                },
+                {
+                    "chinese": "老婆餅",
+                    "jyutping": "lou5 po4 beng2",
+                    "english": "wife cake — flaky pastry with winter melon filling"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "bakery-03",
-      "speaker": "you",
-      "cjk": "好嘢。呢啲係咩包嚟㗎？",
-      "jyutping": "hou2 je5. ni1 di1 hai6 me1 baau1 lai4 gaa3?",
-      "english": "Great. What buns are these?",
-      "audioFile": "bakery-03.mp3",
-      "words": [
-        {
-          "chinese": "好嘢",
-          "jyutping": "hou2 je5",
-          "english": "great"
-        },
-        {
-          "chinese": "呢啲",
-          "jyutping": "ni1 di1",
-          "english": "these"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
-        },
-        {
-          "chinese": "包",
-          "jyutping": "baau1",
-          "english": "bun"
-        },
-        {
-          "chinese": "嚟",
-          "jyutping": "lai4",
-          "english": "(emphasis)"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "bakery-04",
-      "speaker": "staff",
-      "cjk": "雞尾包，入面有椰絲，好香㗎。",
-      "jyutping": "gai1 mei5 baau1, jap6 min6 jau5 je4 si1, hou2 hoeng1 gaa3.",
-      "english": "Cocktail buns, coconut filling. Really fragrant.",
-      "audioFile": "bakery-04.mp3",
-      "words": [
-        {
-          "chinese": "雞尾包",
-          "jyutping": "gai1 mei5 baau1",
-          "english": "cocktail bun"
-        },
-        {
-          "chinese": "入面",
-          "jyutping": "jap6 min6",
-          "english": "inside"
-        },
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "椰絲",
-          "jyutping": "je4 si1",
-          "english": "shredded coconut"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "香",
-          "jyutping": "hoeng1",
-          "english": "fragrant"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "bakery-05",
-      "speaker": "you",
-      "cjk": "要兩個菠蘿包，一個雞尾包，唔該。",
-      "jyutping": "jiu3 loeng5 go3 bo1 lo4 baau1, jat1 go3 gai1 mei5 baau1, m4 goi1.",
-      "english": "Two pineapple buns and one cocktail bun please.",
-      "audioFile": "bakery-05.mp3",
-      "words": [
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "兩",
-          "jyutping": "loeng5",
-          "english": "two"
-        },
-        {
-          "chinese": "個",
-          "jyutping": "go3",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "菠蘿包",
-          "jyutping": "bo1 lo4 baau1",
-          "english": "pineapple bun"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "個",
-          "jyutping": "go3",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "雞尾包",
-          "jyutping": "gai1 mei5 baau1",
-          "english": "cocktail bun"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        }
-      ]
-    },
-    {
-      "id": "bakery-06",
-      "speaker": "staff",
-      "cjk": "一共十六蚊。",
-      "jyutping": "jat1 gung6 sap6 luk6 man1.",
-      "english": "Sixteen dollars altogether.",
-      "audioFile": "bakery-06.mp3",
-      "words": [
-        {
-          "chinese": "一共",
-          "jyutping": "jat1 gung6",
-          "english": "altogether"
-        },
-        {
-          "chinese": "十六",
-          "jyutping": "sap6 luk6",
-          "english": "sixteen"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        }
-      ]
-    },
-    {
-      "id": "bakery-07",
-      "speaker": "you",
-      "cjk": "八達通得唔得？",
-      "jyutping": "baat3 daat6 tung1 dak1 m4 dak1?",
-      "english": "Octopus OK?",
-      "audioFile": "bakery-07.mp3",
-      "words": [
-        {
-          "chinese": "八達通",
-          "jyutping": "baat3 daat6 tung1",
-          "english": "Octopus card"
-        },
-        {
-          "chinese": "得唔得",
-          "jyutping": "dak1 m4 dak1",
-          "english": "is that OK?"
-        }
-      ]
-    },
-    {
-      "id": "bakery-08",
-      "speaker": "staff",
-      "cjk": "得，嘟啦。多謝。",
-      "jyutping": "dak1, dyut1 laa1. do1 ze6.",
-      "english": "Yes, tap away. Thanks.",
-      "audioFile": "bakery-08.mp3",
-      "words": [
-        {
-          "chinese": "得",
-          "jyutping": "dak1",
-          "english": "sure"
-        },
-        {
-          "chinese": "嘟",
-          "jyutping": "dyut1",
-          "english": "tap"
-        },
-        {
-          "chinese": "啦",
-          "jyutping": "laa1",
-          "english": "(suggestion particle)"
-        },
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        }
-      ]
-    }
-  ]
+    ]
 }

@@ -1,427 +1,524 @@
 {
-  "id": "wet-market",
-  "language": "cantonese",
-  "emoji": "🥬",
-  "imageUrl": "/shadowhk/images/scenes/wet-market.jpg",
-  "tint": "#C5E85A",
-  "title": "Buying vegetables at the wet market",
-  "description": "Pick out fresh veg, ask the price, and haggle a little",
-  "category": "food",
-  "difficulty": "everyday",
-  "estimatedMinutes": 5,
-  "location": "Wet market, Sham Shui Po",
-  "context": "Hong Kong wet markets (街市) sell fresh produce, meat, and fish every morning. Vendors are fast-talking and friendly — they appreciate customers who try Cantonese. Get there before 10am for the best picks.",
-  "cultural_note": "The \"wet\" in wet market refers to the constant hosing-down of floors to keep fish and meat fresh: the sound of running water is the ambient soundtrack of every Hong Kong market morning. Older Hongkongers refuse to buy fish that isn't still swimming in a tank. The concept of 新鮮 (san1 sin1, freshness) is a standard, not a preference. Many wet market vendors have held the same stall across three generations, and a loyal customer who greets them by name will often find something extra slipped into the bag.",
-  "lines": [
-    {
-      "id": "wet-mkt-01",
-      "speaker": "you",
-      "cjk": "唔該，呢啲菜幾多錢一斤？",
-      "jyutping": "m4 goi1, ni1 di1 coi3 gei2 do1 cin2 jat1 gan1?",
-      "english": "Excuse me, how much is this vegetable per catty?",
-      "audioFile": "wet-mkt-01.mp3",
-      "words": [
+    "id": "wet-market",
+    "language": "cantonese",
+    "emoji": "🥬",
+    "imageUrl": "/shadowhk/images/scenes/wet-market.jpg",
+    "tint": "#C5E85A",
+    "title": "Buying vegetables at the wet market",
+    "description": "Pick out fresh veg, ask the price, and haggle a little",
+    "category": "food",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Wet market, Sham Shui Po",
+    "context": "Hong Kong wet markets (街市) sell fresh produce, meat, and fish every morning. Vendors are fast-talking and friendly — they appreciate customers who try Cantonese. Get there before 10am for the best picks.",
+    "cultural_note": "The \"wet\" in wet market refers to the constant hosing-down of floors to keep fish and meat fresh: the sound of running water is the ambient soundtrack of every Hong Kong market morning. Older Hongkongers refuse to buy fish that isn't still swimming in a tank. The concept of 新鮮 (san1 sin1, freshness) is a standard, not a preference. Many wet market vendors have held the same stall across three generations, and a loyal customer who greets them by name will often find something extra slipped into the bag.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "wet-mkt-01",
+            "speaker": "you",
+            "cjk": "唔該，呢啲菜幾多錢一斤？",
+            "jyutping": "m4 goi1, ni1 di1 coi3 gei2 do1 cin2 jat1 gan1?",
+            "english": "Excuse me, how much is this vegetable per catty?",
+            "audioFile": "wet-mkt-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "呢啲",
+                    "jyutping": "ni1 di1",
+                    "english": "these"
+                },
+                {
+                    "chinese": "菜",
+                    "jyutping": "coi3",
+                    "english": "vegetables"
+                },
+                {
+                    "chinese": "幾多",
+                    "jyutping": "gei2 do1",
+                    "english": "how much"
+                },
+                {
+                    "chinese": "錢",
+                    "jyutping": "cin2",
+                    "english": "money"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "斤",
+                    "jyutping": "gan1",
+                    "english": "catty"
+                }
+            ]
         },
         {
-          "chinese": "呢啲",
-          "jyutping": "ni1 di1",
-          "english": "these"
+            "id": "wet-mkt-02",
+            "speaker": "vendor",
+            "cjk": "六蚊一斤，新鮮㗎，今朝啱啱返。",
+            "jyutping": "luk6 man1 jat1 gan1, san1 sin1 gaa3, gam1 ziu1 ngaam1 ngaam1 faan1.",
+            "english": "Six dollars a catty. Very fresh, came in this morning.",
+            "audioFile": "wet-mkt-02.mp3",
+            "words": [
+                {
+                    "chinese": "六",
+                    "jyutping": "luk6",
+                    "english": "six"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "斤",
+                    "jyutping": "gan1",
+                    "english": "catty"
+                },
+                {
+                    "chinese": "新鮮",
+                    "jyutping": "san1 sin1",
+                    "english": "fresh"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "今朝",
+                    "jyutping": "gam1 ziu1",
+                    "english": "this morning"
+                },
+                {
+                    "chinese": "啱啱",
+                    "jyutping": "ngaam1 ngaam1",
+                    "english": "just now"
+                },
+                {
+                    "chinese": "返",
+                    "jyutping": "faan1",
+                    "english": "arrive back"
+                }
+            ]
         },
         {
-          "chinese": "菜",
-          "jyutping": "coi3",
-          "english": "vegetables"
+            "id": "wet-mkt-03",
+            "speaker": "you",
+            "cjk": "要兩斤，唔該。",
+            "jyutping": "jiu3 loeng5 gan1, m4 goi1.",
+            "english": "Two catties please.",
+            "audioFile": "wet-mkt-03.mp3",
+            "words": [
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "兩",
+                    "jyutping": "loeng5",
+                    "english": "two"
+                },
+                {
+                    "chinese": "斤",
+                    "jyutping": "gan1",
+                    "english": "catty"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                }
+            ]
         },
         {
-          "chinese": "幾多",
-          "jyutping": "gei2 do1",
-          "english": "how much"
+            "id": "wet-mkt-04",
+            "speaker": "vendor",
+            "cjk": "好，我幫你執靚啲。仲要啲咩？",
+            "jyutping": "hou2, ngo5 bong1 nei5 zap1 leng3 di1. zung6 jiu3 di1 me1?",
+            "english": "OK, I'll pick the nice ones for you. Anything else?",
+            "audioFile": "wet-mkt-04.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "幫",
+                    "jyutping": "bong1",
+                    "english": "help"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "執",
+                    "jyutping": "zap1",
+                    "english": "pick out"
+                },
+                {
+                    "chinese": "靚",
+                    "jyutping": "leng3",
+                    "english": "pretty"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(some)"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                }
+            ]
         },
         {
-          "chinese": "錢",
-          "jyutping": "cin2",
-          "english": "money"
+            "id": "wet-mkt-05",
+            "speaker": "you",
+            "cjk": "有冇番茄？",
+            "jyutping": "jau5 mou5 faan1 ke2?",
+            "english": "Do you have tomatoes?",
+            "audioFile": "wet-mkt-05.mp3",
+            "words": [
+                {
+                    "chinese": "有冇",
+                    "jyutping": "jau5 mou5",
+                    "english": "have any?"
+                },
+                {
+                    "chinese": "番茄",
+                    "jyutping": "faan1 ke2",
+                    "english": "tomatoes"
+                }
+            ]
         },
         {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
+            "id": "wet-mkt-06",
+            "speaker": "vendor",
+            "cjk": "有，喺後面。一盒十蚊，甜㗎。",
+            "jyutping": "jau5, hai2 hau6 min6. jat1 hap2 sap6 man1, tim4 ga3.",
+            "english": "Yes, at the back. Ten dollars a box, they're sweet.",
+            "audioFile": "wet-mkt-06.mp3",
+            "words": [
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "喺",
+                    "jyutping": "hai2",
+                    "english": "at"
+                },
+                {
+                    "chinese": "後面",
+                    "jyutping": "hau6 min6",
+                    "english": "at the back"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "盒",
+                    "jyutping": "hap2",
+                    "english": "box"
+                },
+                {
+                    "chinese": "十",
+                    "jyutping": "sap6",
+                    "english": "ten"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "甜",
+                    "jyutping": "tim4",
+                    "english": "sweet"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "ga3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "斤",
-          "jyutping": "gan1",
-          "english": "catty"
+            "id": "wet-mkt-07",
+            "speaker": "you",
+            "cjk": "好，要一盒。一共幾多錢？",
+            "jyutping": "hou2, jiu3 jat1 hap2. jat1 gung6 gei2 do1 cin2?",
+            "english": "OK, one box. How much is it altogether?",
+            "audioFile": "wet-mkt-07.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "盒",
+                    "jyutping": "hap2",
+                    "english": "box"
+                },
+                {
+                    "chinese": "一共",
+                    "jyutping": "jat1 gung6",
+                    "english": "altogether"
+                },
+                {
+                    "chinese": "幾多",
+                    "jyutping": "gei2 do1",
+                    "english": "how much"
+                },
+                {
+                    "chinese": "錢",
+                    "jyutping": "cin2",
+                    "english": "money"
+                }
+            ]
+        },
+        {
+            "id": "wet-mkt-08",
+            "speaker": "vendor",
+            "cjk": "二十二蚊，俾二十蚊得㗎喇，算你平啲。",
+            "jyutping": "ji6 sap6 ji6 man1, bei2 ji6 sap6 man1 dak1 ga3 laa3, syun3 nei5 peng4 di1.",
+            "english": "Twenty-two dollars — just give me twenty, I'll give you a deal.",
+            "audioFile": "wet-mkt-08.mp3",
+            "words": [
+                {
+                    "chinese": "二十二",
+                    "jyutping": "ji6 sap6 ji6",
+                    "english": "twenty-two"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "俾",
+                    "jyutping": "bei2",
+                    "english": "give"
+                },
+                {
+                    "chinese": "二十",
+                    "jyutping": "ji6 sap6",
+                    "english": "twenty"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "得",
+                    "jyutping": "dak1",
+                    "english": "is fine"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "ga3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "算",
+                    "jyutping": "syun3",
+                    "english": "counting it"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "平",
+                    "jyutping": "peng4",
+                    "english": "cheaper"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                }
+            ]
+        },
+        {
+            "id": "wet-mkt-09",
+            "speaker": "you",
+            "cjk": "好，多謝晒！",
+            "jyutping": "hou2, do1 ze6 saai3!",
+            "english": "Great, thank you so much!",
+            "audioFile": "wet-mkt-09.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "wet-mkt-02",
-      "speaker": "vendor",
-      "cjk": "六蚊一斤，新鮮㗎，今朝啱啱返。",
-      "jyutping": "luk6 man1 jat1 gan1, san1 sin1 gaa3, gam1 ziu1 ngaam1 ngaam1 faan1.",
-      "english": "Six dollars a catty. Very fresh, came in this morning.",
-      "audioFile": "wet-mkt-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "六",
-          "jyutping": "luk6",
-          "english": "six"
+            "category": "Weights & Prices",
+            "words": [
+                {
+                    "chinese": "斤",
+                    "jyutping": "gan1",
+                    "english": "catty — Hong Kong's traditional unit for weighing produce and meat, about 604g"
+                },
+                {
+                    "chinese": "兩",
+                    "jyutping": "loeng2",
+                    "english": "tael — 1/16 of a catty, used for smaller quantities"
+                },
+                {
+                    "chinese": "平",
+                    "jyutping": "peng4",
+                    "english": "cheap"
+                },
+                {
+                    "chinese": "貴",
+                    "jyutping": "gwai3",
+                    "english": "expensive"
+                }
+            ]
         },
         {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
+            "category": "Fruit",
+            "words": [
+                {
+                    "chinese": "生果",
+                    "jyutping": "saang1 gwo2",
+                    "english": "fruit"
+                },
+                {
+                    "chinese": "橙",
+                    "jyutping": "caang2",
+                    "english": "orange"
+                },
+                {
+                    "chinese": "蘋果",
+                    "jyutping": "ping4 gwo2",
+                    "english": "apple"
+                },
+                {
+                    "chinese": "香蕉",
+                    "jyutping": "hoeng1 ziu1",
+                    "english": "banana"
+                }
+            ]
         },
         {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
+            "category": "Vegetables",
+            "words": [
+                {
+                    "chinese": "番茄",
+                    "jyutping": "faan1 ke2",
+                    "english": "tomato"
+                },
+                {
+                    "chinese": "菜心",
+                    "jyutping": "coi3 sam1",
+                    "english": "choy sum — the everyday leafy green at every HK dinner table"
+                },
+                {
+                    "chinese": "薯仔",
+                    "jyutping": "syu4 zai2",
+                    "english": "potato"
+                }
+            ]
         },
         {
-          "chinese": "斤",
-          "jyutping": "gan1",
-          "english": "catty"
-        },
-        {
-          "chinese": "新鮮",
-          "jyutping": "san1 sin1",
-          "english": "fresh"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "今朝",
-          "jyutping": "gam1 ziu1",
-          "english": "this morning"
-        },
-        {
-          "chinese": "啱啱",
-          "jyutping": "ngaam1 ngaam1",
-          "english": "just now"
-        },
-        {
-          "chinese": "返",
-          "jyutping": "faan1",
-          "english": "arrive back"
+            "category": "Meat & Seafood",
+            "words": [
+                {
+                    "chinese": "豬肉",
+                    "jyutping": "zyu1 juk6",
+                    "english": "pork"
+                },
+                {
+                    "chinese": "牛肉",
+                    "jyutping": "ngau4 juk6",
+                    "english": "beef"
+                },
+                {
+                    "chinese": "魚",
+                    "jyutping": "jyu4",
+                    "english": "fish"
+                },
+                {
+                    "chinese": "蝦",
+                    "jyutping": "haa1",
+                    "english": "shrimp"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "wet-mkt-03",
-      "speaker": "you",
-      "cjk": "要兩斤，唔該。",
-      "jyutping": "jiu3 loeng5 gan1, m4 goi1.",
-      "english": "Two catties please.",
-      "audioFile": "wet-mkt-03.mp3",
-      "words": [
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "兩",
-          "jyutping": "loeng5",
-          "english": "two"
-        },
-        {
-          "chinese": "斤",
-          "jyutping": "gan1",
-          "english": "catty"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-04",
-      "speaker": "vendor",
-      "cjk": "好，我幫你執靚啲。仲要啲咩？",
-      "jyutping": "hou2, ngo5 bong1 nei5 zap1 leng3 di1. zung6 jiu3 di1 me1?",
-      "english": "OK, I'll pick the nice ones for you. Anything else?",
-      "audioFile": "wet-mkt-04.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "幫",
-          "jyutping": "bong1",
-          "english": "help"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "執",
-          "jyutping": "zap1",
-          "english": "pick out"
-        },
-        {
-          "chinese": "靚",
-          "jyutping": "leng3",
-          "english": "pretty"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        },
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(some)"
-        },
-        {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-05",
-      "speaker": "you",
-      "cjk": "有冇番茄？",
-      "jyutping": "jau5 mou5 faan1 ke2?",
-      "english": "Do you have tomatoes?",
-      "audioFile": "wet-mkt-05.mp3",
-      "words": [
-        {
-          "chinese": "有冇",
-          "jyutping": "jau5 mou5",
-          "english": "have any?"
-        },
-        {
-          "chinese": "番茄",
-          "jyutping": "faan1 ke2",
-          "english": "tomatoes"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-06",
-      "speaker": "vendor",
-      "cjk": "有，喺後面。一盒十蚊，甜㗎。",
-      "jyutping": "jau5, hai2 hau6 min6. jat1 hap2 sap6 man1, tim4 ga3.",
-      "english": "Yes, at the back. Ten dollars a box, they're sweet.",
-      "audioFile": "wet-mkt-06.mp3",
-      "words": [
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "喺",
-          "jyutping": "hai2",
-          "english": "at"
-        },
-        {
-          "chinese": "後面",
-          "jyutping": "hau6 min6",
-          "english": "at the back"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "盒",
-          "jyutping": "hap2",
-          "english": "box"
-        },
-        {
-          "chinese": "十",
-          "jyutping": "sap6",
-          "english": "ten"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        },
-        {
-          "chinese": "甜",
-          "jyutping": "tim4",
-          "english": "sweet"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "ga3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-07",
-      "speaker": "you",
-      "cjk": "好，要一盒。一共幾多錢？",
-      "jyutping": "hou2, jiu3 jat1 hap2. jat1 gung6 gei2 do1 cin2?",
-      "english": "OK, one box. How much is it altogether?",
-      "audioFile": "wet-mkt-07.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "盒",
-          "jyutping": "hap2",
-          "english": "box"
-        },
-        {
-          "chinese": "一共",
-          "jyutping": "jat1 gung6",
-          "english": "altogether"
-        },
-        {
-          "chinese": "幾多",
-          "jyutping": "gei2 do1",
-          "english": "how much"
-        },
-        {
-          "chinese": "錢",
-          "jyutping": "cin2",
-          "english": "money"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-08",
-      "speaker": "vendor",
-      "cjk": "二十二蚊，俾二十蚊得㗎喇，算你平啲。",
-      "jyutping": "ji6 sap6 ji6 man1, bei2 ji6 sap6 man1 dak1 ga3 laa3, syun3 nei5 peng4 di1.",
-      "english": "Twenty-two dollars — just give me twenty, I'll give you a deal.",
-      "audioFile": "wet-mkt-08.mp3",
-      "words": [
-        {
-          "chinese": "二十二",
-          "jyutping": "ji6 sap6 ji6",
-          "english": "twenty-two"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        },
-        {
-          "chinese": "俾",
-          "jyutping": "bei2",
-          "english": "give"
-        },
-        {
-          "chinese": "二十",
-          "jyutping": "ji6 sap6",
-          "english": "twenty"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        },
-        {
-          "chinese": "得",
-          "jyutping": "dak1",
-          "english": "is fine"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "ga3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "算",
-          "jyutping": "syun3",
-          "english": "counting it"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "平",
-          "jyutping": "peng4",
-          "english": "cheaper"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        }
-      ]
-    },
-    {
-      "id": "wet-mkt-09",
-      "speaker": "you",
-      "cjk": "好，多謝晒！",
-      "jyutping": "hou2, do1 ze6 saai3!",
-      "english": "Great, thank you so much!",
-      "audioFile": "wet-mkt-09.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        }
-      ]
-    }
-  ]
+    ]
 }
