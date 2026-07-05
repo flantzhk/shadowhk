@@ -35,8 +35,14 @@ export default function LibraryScreen({ onNavigate }) {
   // button render an AudioStateIndicator that reflects what's actually
   // happening instead of just toggling between play/stop icons.
   const [audioState, setAudioState] = useState({});
+  const [pinCoachSeen, setPinCoachSeen] = useState(() => localStorage.getItem('pin_coach_seen') === '1');
   const audioRef = useRef(null);
   const errorTimerRef = useRef(null);
+
+  function dismissPinCoach() {
+    localStorage.setItem('pin_coach_seen', '1');
+    setPinCoachSeen(true);
+  }
 
   function setPhraseAudioState(id, state) {
     setAudioState(prev => {
@@ -219,6 +225,12 @@ export default function LibraryScreen({ onNavigate }) {
     return result;
   }
 
+  // Anchors the one-time pin coachmark to whichever phrase actually renders
+  // first, so it always points at a real, visible row.
+  const firstPhraseId = !pinCoachSeen
+    ? groupedScenes.map(g => filterPhrases(g.phrases)[0]).find(Boolean)?.id ?? null
+    : null;
+
   return (
     <div className={styles.screen}>
       <p className={styles.eyebrow}>
@@ -251,8 +263,12 @@ export default function LibraryScreen({ onNavigate }) {
         )}
       </div>
 
-      {saidInPersonCount > 0 && (
-        <p className={styles.pinHint}>📍 {saidInPersonCount} said to a real person. The app asks after each session.</p>
+      {totalPhrases > 0 && (
+        <p className={styles.pinHint}>
+          {saidInPersonCount > 0
+            ? `📍 ${saidInPersonCount} said to a real person. The app asks after each session.`
+            : '📍 Tap the pin on any phrase once you\'ve said it to a real person. The app also asks after each session.'}
+        </p>
       )}
 
       {!searchQuery && (
@@ -357,6 +373,7 @@ export default function LibraryScreen({ onNavigate }) {
                       onClick={() => onNavigate('phrase', phrase.id)}
                       role="button"
                       tabIndex={0}
+                      title="Open this phrase for more detail (culture note, how to reply, review history)"
                     >
                       <PhraseDot phrase={phrase} styles={styles} />
                       <div className={styles.phraseText}>
@@ -365,18 +382,27 @@ export default function LibraryScreen({ onNavigate }) {
                         <p className={styles.phraseEnglish}>{phrase.english}</p>
                       </div>
                       <div className={styles.phraseActions}>
-                        <button
-                          className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
-                          onClick={e => toggleLived(e, phrase)}
-                          aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
-                          title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
-                        >
-                          📍
-                        </button>
+                        <div className={styles.pinCoachAnchor}>
+                          <button
+                            className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
+                            onClick={e => { toggleLived(e, phrase); dismissPinCoach(); }}
+                            aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
+                            title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
+                          >
+                            <PinIcon filled={!!phrase.lived_at} />
+                          </button>
+                          {!pinCoachSeen && phrase.id === firstPhraseId && (
+                            <div className={styles.pinCoach} onClick={e => e.stopPropagation()}>
+                              <p>Said this to a real person? Tap the pin to mark it.</p>
+                              <button onClick={dismissPinCoach}>Got it</button>
+                            </div>
+                          )}
+                        </div>
                         <button
                           className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
                           onClick={e => playInline(e, phrase)}
                           aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
+                          title={playingId === phrase.id ? 'Stop playback' : 'Play this phrase'}
                         >
                           {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
                             ? <AudioStateIndicator state={audioState[phrase.id]} />
@@ -387,6 +413,7 @@ export default function LibraryScreen({ onNavigate }) {
                           onClick={e => { e.stopPropagation(); setExpandedId(isExpanded ? null : phrase.id); }}
                           aria-label={isExpanded ? 'Hide breakdown' : 'Show breakdown'}
                           aria-expanded={isExpanded}
+                          title={isExpanded ? 'Hide word-by-word breakdown' : 'Show word-by-word breakdown'}
                         >
                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -435,13 +462,25 @@ export default function LibraryScreen({ onNavigate }) {
 
 function PhraseDot({ phrase, styles }) {
   if (phrase.lived_at) {
-    return <span className={styles.dotPin}>📍</span>;
+    return <span className={styles.dotPin}><PinIcon filled /></span>;
   }
   const gs = phrase.growth_state;
   if (gs === GROWTH_STATE.MASTERED || gs === GROWTH_STATE.STRONG) {
     return <span className={styles.dotFilled} />;
   }
   return <span className={styles.dotEmpty} />;
+}
+
+// Same pin-drop mark as the real-world celebration screen — "you stood
+// somewhere and said this out loud" — drawn as line art instead of the OS
+// pushpin emoji, which renders too small and faint to read as a pin at all.
+function PinIcon({ filled = false }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" fill={filled ? 'var(--bg-1, #FAFAF7)' : 'none'} />
+    </svg>
+  );
 }
 
 const PlayIcon = () => (

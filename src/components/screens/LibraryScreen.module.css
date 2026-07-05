@@ -347,11 +347,14 @@
 
 /* Dot indicators */
 .dotPin {
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
   flex-shrink: 0;
   width: 20px;
-  text-align: center;
 }
+.dotPin svg { width: 13px; height: 13px; }
 
 .dotFilled {
   display: block;
@@ -418,22 +421,64 @@
   flex-shrink: 0;
 }
 
+/* Line-art pin instead of the OS pushpin emoji, which reads as an
+   unrecognizable smudge at small sizes — color signals state instead of
+   opacity, so the shape stays legible even when inactive. */
 .livedToggle {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  opacity: 0.25;
+  color: var(--fg-2);
   padding: 8px;
   min-width: 44px;
   min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.15s;
+  transition: color 0.15s;
   line-height: 1;
 }
-.livedToggleActive { opacity: 1; }
+.livedToggleActive { color: var(--accent); }
+
+.pinCoachAnchor { position: relative; }
+
+.pinCoach {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 5;
+  width: 190px;
+  background: var(--fg-0);
+  color: var(--bg-1);
+  border-radius: var(--radius-sm, 10px);
+  padding: 10px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.pinCoach::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 14px;
+  border: 6px solid transparent;
+  border-bottom-color: var(--fg-0);
+}
+.pinCoach p {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+.pinCoach button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 5px 12px;
+  cursor: pointer;
+}
 
 .playBtn {
   background: var(--jade-soft, #D8E8E0);
