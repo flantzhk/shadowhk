@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAudio } from '../../contexts/AudioContext.jsx';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
@@ -6,9 +6,9 @@ import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { logger } from '../../utils/logger.js';
 import { updateAfterPractice } from '../../services/srs.js';
 import { blobIsAudible } from '../../utils/audioSignal.js';
-import { prefetchWordAudio } from '../../services/staticAudio.js';
+import { prefetchWordAudio, staticWordAudio } from '../../services/staticAudio.js';
 import { saveSession, addToQueue, saveLibraryEntry } from '../../services/storage.js';
-import { scorePronunciation } from '../../services/api.js';
+import { scorePronunciation, textToSpeech } from '../../services/api.js';
 import { isAuthenticated } from '../../services/auth.js';
 import { updateStreak, getTodayString } from '../../services/streak.js';
 import { blobToBase64 } from '../../services/offlineManager.js';
@@ -42,8 +42,10 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [scene, setScene] = useState(null);
   const [youLines, setYouLines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const speed = settings?.playbackSpeed ?? 1;
+  const speed = audio.speed;
   const [savedLines, setSavedLines] = useState({});
+  const [playingWord, setPlayingWord] = useState(null);
+  const wordAudioRef = useRef(null);
 
   const [phase, setPhase] = useState('ready');
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
@@ -129,7 +131,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       audio.prime();
       try {
         const queue = [...(contextNpcLine ? [contextNpcLine] : []), currentYouLine].filter(Boolean);
-        await audio.loadQueue(queue, language, speed === 1 ? 'natural' : speed < 1 ? 'slow' : 'fast');
+        await audio.loadQueue(queue, language, speed < 1 ? 'slower' : 'natural');
         await audio.play();
       } catch (_) {}
       return;
@@ -141,11 +143,32 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const handleReplay = useCallback(async () => {
     audio.prime();
     try {
-      await audio.loadQueue([currentYouLine], language, speed === 1 ? 'natural' : speed < 1 ? 'slow' : 'fast');
+      await audio.loadQueue([currentYouLine], language, speed < 1 ? 'slower' : 'natural');
       await audio.play();
       if (phase !== 'listen') setPhase('listen');
     } catch (_) {}
   }, [audio, currentYouLine, language, speed, phase]);
+
+  const handleToggleSpeed = useCallback(() => {
+    audio.setSpeed(speed < 1 ? 1 : 0.75);
+  }, [audio, speed]);
+
+  const playBreakdownWord = useCallback(async (w) => {
+    if (playingWord === w.chinese) { wordAudioRef.current?.pause(); setPlayingWord(null); return; }
+    wordAudioRef.current?.pause();
+    setPlayingWord(w.chinese);
+    try {
+      const blob = (await staticWordAudio(w.chinese)) ?? await textToSpeech(w.chinese, { language, turbo: true });
+      const url = URL.createObjectURL(blob);
+      const wordAudio = new Audio(url);
+      wordAudioRef.current = wordAudio;
+      wordAudio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
+      wordAudio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
+      await wordAudio.play();
+    } catch (_) {
+      setPlayingWord(null);
+    }
+  }, [playingWord, language]);
 
   const handlePrev = useCallback(() => {
     if (currentLineIndex > 0) {
@@ -378,23 +401,38 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           {showBreakdown && breakdown.length > 0 && (
             <div className={styles.bdPanel}>
               {breakdown.map((w, i) => (
-                <div key={i} className={styles.bdTile}>
+                <button
+                  key={i}
+                  type="button"
+                  className={`${styles.bdTile} ${playingWord === w.chinese ? styles.bdTilePlaying : ''}`}
+                  onClick={() => playBreakdownWord(w)}
+                  aria-label={`Play ${w.chinese}`}
+                >
                   <span className={styles.bdCjk}>{w.chinese}</span>
                   <span className={styles.bdJyut}>{w.jyutping}</span>
                   <span className={styles.bdGloss}>{w.english}</span>
-                </div>
+                </button>
               ))}
             </div>
           )}
 
           {(phase === 'ready' || phase === 'scored') && (
-            <button
-              className={styles.hearBtn}
-              onClick={() => { setHeard(true); handleReplay(); }}
-            >
-              <SpeakerIcon />
-              {heard ? 'Hear it again' : 'Hear it'}
-            </button>
+            <div className={styles.hearRow}>
+              <button
+                className={styles.hearBtn}
+                onClick={() => { setHeard(true); handleReplay(); }}
+              >
+                <SpeakerIcon />
+                {heard ? 'Hear it again' : 'Hear it'}
+              </button>
+              <button
+                className={`${styles.speedBtn} ${speed < 1 ? styles.speedBtnActive : ''}`}
+                onClick={handleToggleSpeed}
+                aria-label={speed < 1 ? 'Switch to normal speed' : 'Switch to slow speed'}
+              >
+                🐢 {speed < 1 ? '0.75×' : '1×'}
+              </button>
+            </div>
           )}
 
           {/* Score reveal */}

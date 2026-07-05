@@ -666,11 +666,17 @@
 
 /* Hear-it step: the missing first beat of the shadow loop — the single,
    unambiguous primary CTA before recording (no duplicate replay icon) */
+.hearRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
 .hearBtn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin: 18px auto 0;
   padding: 14px 30px;
   border-radius: 999px;
   border: none;
@@ -686,6 +692,28 @@
 }
 .hearBtn svg { width: 18px; height: 18px; }
 .hearBtn:active { transform: scale(0.97); }
+
+.speedBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(237,231,223,0.18);
+  background: rgba(237,231,223,0.08);
+  color: rgba(237,231,223,0.7);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.speedBtn:active { transform: scale(0.96); }
+.speedBtnActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
 
 /* Word breakdown panel on the dark stage */
 .bdPanel {
@@ -703,7 +731,15 @@
   gap: 2px;
   padding: 8px 12px;
   border-radius: 10px;
+  border: none;
   background: rgba(244, 241, 236, 0.07);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.bdTile:active { transform: scale(0.96); }
+.bdTilePlaying {
+  background: rgba(200, 57, 43, 0.22);
 }
 .bdCjk { font-size: 20px; color: #F4F1EC; }
 .bdJyut { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); }
