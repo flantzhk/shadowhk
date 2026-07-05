@@ -365,19 +365,15 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             <p className={styles.focusEnglish}>"{currentYouLine?.english}"</p>
           )}
 
-          <div className={styles.focusActions}>
-            {/* Replay audio */}
-            <button className={styles.audioIcon} onClick={handleReplay} aria-label="Replay audio">
-              <SpeakerIcon />
-            </button>
-            {/* Breakdown — hidden entirely when there's nothing to show, rather
-                than opening to a "no breakdown yet" dead end */}
-            {breakdown.length > 0 && (
+          {/* Breakdown — hidden entirely when there's nothing to show, rather
+              than opening to a "no breakdown yet" dead end */}
+          {breakdown.length > 0 && (
+            <div className={styles.focusActions}>
               <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words); return !v; }); }} aria-label="Word-by-word breakdown">
                 📖 Breakdown
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {showBreakdown && breakdown.length > 0 && (
             <div className={styles.bdPanel}>
@@ -394,9 +390,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
           {(phase === 'ready' || phase === 'scored') && (
             <button
               className={styles.hearBtn}
-              onClick={() => { setHeard(true); audio.play(); }}
+              onClick={() => { setHeard(true); handleReplay(); }}
             >
-              <span className={styles.hearIcon}>▶</span>
+              <SpeakerIcon />
               {heard ? 'Hear it again' : 'Hear it'}
             </button>
           )}

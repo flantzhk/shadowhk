@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #0B1417;
+  background: linear-gradient(180deg, var(--ink) 0%, #10181c 55%, var(--oxblood) 130%);
   position: relative;
   overflow: hidden;
 }
@@ -101,22 +101,22 @@
 }
 
 .focusJyutping {
-  font-family: var(--font-ui);
-  font-size: 38px;
-  font-weight: 700;
-  color: #FAFAF7;
-  letter-spacing: -0.6px;
-  line-height: 1.2;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(237,231,223,0.5);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
   margin: 0;
 }
 
 .focusCjk {
   font-family: var(--font-cjk);
-  font-size: 26px;
+  font-size: 40px;
   font-weight: 500;
-  letter-spacing: -0.2px;
-  color: rgba(237,231,223,0.62);
-  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #FAFAF7;
+  line-height: 1.35;
   margin: 0;
 }
 
@@ -135,19 +135,6 @@
   justify-content: center;
   gap: 14px;
   margin-top: 4px;
-}
-
-.audioIcon {
-  background: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 42px;
-  width: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(237,231,223,0.2);
-  color: rgba(237,231,223,0.85);
 }
 
 .breakdownBtn {
@@ -677,25 +664,28 @@
 }
 
 
-/* Hear-it step: the missing first beat of the shadow loop */
+/* Hear-it step: the missing first beat of the shadow loop — the single,
+   unambiguous primary CTA before recording (no duplicate replay icon) */
 .hearBtn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   margin: 18px auto 0;
-  padding: 12px 28px;
+  padding: 14px 30px;
   border-radius: 999px;
-  border: 1.5px solid var(--accent);
-  background: rgba(200, 57, 43, 0.12);
-  color: #F4F1EC;
-  font-family: 'DM Sans', sans-serif;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(200, 57, 43, 0.28);
+  transition: transform 0.12s ease;
 }
+.hearBtn svg { width: 18px; height: 18px; }
 .hearBtn:active { transform: scale(0.97); }
-.hearIcon { color: var(--accent); font-size: 12px; }
 
 /* Word breakdown panel on the dark stage */
 .bdPanel {
