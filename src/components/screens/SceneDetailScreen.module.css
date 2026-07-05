@@ -73,13 +73,39 @@
 .vocabCategoryHeader {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   width: 100%;
-  padding: 12px 14px;
+  padding: 6px 8px 6px 14px;
+}
+
+.vocabCategoryToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  padding: 6px 0;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
+}
+
+.vocabPlayAllBtn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  border: 1px solid transparent;
+  color: var(--accent);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.vocabPlayAllBtnActive {
+  background: var(--accent);
+  color: #fff;
 }
 
 .vocabCategoryName {

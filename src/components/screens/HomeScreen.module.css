@@ -750,6 +750,34 @@
 .practiceFill_speedrun { background: radial-gradient(ellipse at 50% 70%, rgba(168,100,42,.4) 0%, transparent 55%), linear-gradient(135deg,#0e1418 0%,#1a242c 70%); }
 .practiceFill_jyutping { background: radial-gradient(ellipse at 50% 40%, rgba(200,57,43,.4) 0%, transparent 55%), linear-gradient(135deg,#18100c 0%,#2c1a12 70%); }
 
+/* A large faint glyph per drill gives each tile visual texture without
+   pretending to be a photographed place — these are modes, not scenes. */
+.practiceCell { position: relative; overflow: hidden; }
+.practiceCell::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  bottom: -14px;
+  width: 72px;
+  height: 72px;
+  opacity: 0.16;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+.practiceFill_tonegym::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 55 Q20 20 30 55 T50 55 T70 55 T90 55' stroke='white' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.practiceFill_freechat::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M15 20h55a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8H45l-18 16V64H15a8 8 0 0 1-8-8V28a8 8 0 0 1 8-8z' fill='white'/%3E%3C/svg%3E");
+}
+.practiceFill_speedrun::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M55 8 20 58h22l-9 34 38-50H49z' fill='white'/%3E%3C/svg%3E");
+}
+.practiceFill_jyutping::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='68' font-size='64' text-anchor='middle' fill='white' font-family='serif'%3E%E9%9F%B3%3C/text%3E%3C/svg%3E");
+}
+
 /* ─── Streak banner (at-risk) ─────────── */
 .riskBanner {
   display: flex;

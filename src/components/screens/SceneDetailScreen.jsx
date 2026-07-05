@@ -340,23 +340,55 @@ const BackArrow = () => (
 function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
   const [openCategory, setOpenCategory] = useState(groups.length === 1 ? groups[0].category : null);
   const [playingWord, setPlayingWord] = useState(null);
+  const [playingCategory, setPlayingCategory] = useState(null);
   const audioRef = useRef(null);
+  const stopRequestedRef = useRef(false);
+
+  // Returns a promise that resolves once the word finishes playing (or errors),
+  // so playCategory() can await each word in turn instead of firing overlapping clips.
+  function playOne(word) {
+    return new Promise(async (resolve) => {
+      audioRef.current?.pause();
+      setPlayingWord(word.chinese);
+      try {
+        const blob = (await staticWordAudio(word.chinese)) ?? await textToSpeech(word.chinese, { language, turbo: true });
+        const url = URL.createObjectURL(blob);
+        const audio = new Audio(url);
+        audioRef.current = audio;
+        const done = () => { setPlayingWord(null); URL.revokeObjectURL(url); resolve(); };
+        audio.onended = done;
+        audio.onerror = done;
+        await audio.play();
+      } catch {
+        setPlayingWord(null);
+        resolve();
+      }
+    });
+  }
 
   async function play(word) {
     if (playingWord === word.chinese) { audioRef.current?.pause(); setPlayingWord(null); return; }
-    audioRef.current?.pause();
-    setPlayingWord(word.chinese);
-    try {
-      const blob = (await staticWordAudio(word.chinese)) ?? await textToSpeech(word.chinese, { language, turbo: true });
-      const url = URL.createObjectURL(blob);
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      audio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
-      audio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
-      await audio.play();
-    } catch {
+    await playOne(word);
+  }
+
+  async function playCategory(group) {
+    if (playingCategory === group.category) {
+      // stop mid-playlist
+      stopRequestedRef.current = true;
+      audioRef.current?.pause();
+      setPlayingCategory(null);
       setPlayingWord(null);
+      return;
     }
+    stopRequestedRef.current = false;
+    setPlayingCategory(group.category);
+    for (const word of group.words) {
+      if (stopRequestedRef.current) break;
+      await playOne(word);
+      if (stopRequestedRef.current) break;
+      await new Promise(r => setTimeout(r, 350)); // brief gap between words
+    }
+    setPlayingCategory(null);
   }
 
   return (
@@ -370,15 +402,28 @@ function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
           const isOpen = openCategory === group.category;
           return (
             <div key={group.category} className={styles.vocabCategory}>
-              <button
-                className={styles.vocabCategoryHeader}
-                onClick={() => setOpenCategory(isOpen ? null : group.category)}
-                aria-expanded={isOpen}
-              >
-                <span className={styles.vocabCategoryName}>{group.category}</span>
-                <span className={styles.vocabCategoryCount}>{group.words.length}</span>
-                <span className={`${styles.vocabChevron} ${isOpen ? styles.vocabChevronOpen : ''}`}>▾</span>
-              </button>
+              <div className={styles.vocabCategoryHeader}>
+                <button
+                  className={styles.vocabCategoryToggle}
+                  onClick={() => setOpenCategory(isOpen ? null : group.category)}
+                  aria-expanded={isOpen}
+                >
+                  <span className={styles.vocabCategoryName}>{group.category}</span>
+                  <span className={styles.vocabCategoryCount}>{group.words.length}</span>
+                  <span className={`${styles.vocabChevron} ${isOpen ? styles.vocabChevronOpen : ''}`}>▾</span>
+                </button>
+                <button
+                  className={`${styles.vocabPlayAllBtn} ${playingCategory === group.category ? styles.vocabPlayAllBtnActive : ''}`}
+                  onClick={() => playCategory(group)}
+                  aria-label={playingCategory === group.category ? `Stop playing ${group.category}` : `Play all ${group.words.length} words in ${group.category}`}
+                  title={playingCategory === group.category ? 'Stop' : 'Play through every word in this category'}
+                >
+                  {playingCategory === group.category
+                    ? <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
+                    : <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
+                  }
+                </button>
+              </div>
               {isOpen && (
                 <div className={styles.vocabGrid}>
                   {group.words.map(w => {

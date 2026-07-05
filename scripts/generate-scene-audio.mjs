@@ -59,6 +59,7 @@ const wordTexts = new Set(TONE_GYM_CHARS);
 for (const f of readdirSync(SCENES_DIR).filter((f) => f.endsWith('.json') && f !== 'index.json')) {
   const scene = JSON.parse(readFileSync(join(SCENES_DIR, f), 'utf8'));
   for (const l of scene.lines || []) for (const w of l.words || []) if (w.chinese) wordTexts.add(w.chinese);
+  for (const g of scene.vocabulary || []) for (const w of g.words || []) if (w.chinese) wordTexts.add(w.chinese);
 }
 for (const f of readdirSync('public').filter((f) => f.endsWith('.json'))) {
   const data = JSON.parse(readFileSync(join('public', f), 'utf8'));

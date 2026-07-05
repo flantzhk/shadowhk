@@ -482,6 +482,41 @@
                     "chinese": "提子",
                     "jyutping": "tai4 zi2",
                     "english": "grapes"
+                },
+                {
+                    "chinese": "西瓜",
+                    "jyutping": "sai1 gwaa1",
+                    "english": "watermelon"
+                },
+                {
+                    "chinese": "士多啤梨",
+                    "jyutping": "si6 do1 be1 lei2",
+                    "english": "strawberry"
+                },
+                {
+                    "chinese": "芒果",
+                    "jyutping": "mong1 gwo2",
+                    "english": "mango"
+                },
+                {
+                    "chinese": "木瓜",
+                    "jyutping": "muk6 gwaa1",
+                    "english": "papaya"
+                },
+                {
+                    "chinese": "檸檬",
+                    "jyutping": "ning4 mung1",
+                    "english": "lemon"
+                },
+                {
+                    "chinese": "荔枝",
+                    "jyutping": "lai6 zi1",
+                    "english": "lychee"
+                },
+                {
+                    "chinese": "梨",
+                    "jyutping": "lei4",
+                    "english": "pear"
                 }
             ]
         },
@@ -512,6 +547,41 @@
                     "chinese": "蔥",
                     "jyutping": "cung1",
                     "english": "spring onion"
+                },
+                {
+                    "chinese": "通菜",
+                    "jyutping": "tung1 coi3",
+                    "english": "water spinach"
+                },
+                {
+                    "chinese": "芥蘭",
+                    "jyutping": "gaai3 laan4",
+                    "english": "Chinese broccoli (kai-lan)"
+                },
+                {
+                    "chinese": "青瓜",
+                    "jyutping": "cing1 gwaa1",
+                    "english": "cucumber"
+                },
+                {
+                    "chinese": "茄子",
+                    "jyutping": "ke4 zi2",
+                    "english": "eggplant"
+                },
+                {
+                    "chinese": "蘿蔔",
+                    "jyutping": "lo4 baak6",
+                    "english": "radish; daikon"
+                },
+                {
+                    "chinese": "冬瓜",
+                    "jyutping": "dung1 gwaa1",
+                    "english": "winter melon"
+                },
+                {
+                    "chinese": "粟米",
+                    "jyutping": "suk1 mai5",
+                    "english": "corn"
                 }
             ]
         },
@@ -542,6 +612,71 @@
                     "chinese": "雞",
                     "jyutping": "gai1",
                     "english": "chicken"
+                },
+                {
+                    "chinese": "鴨",
+                    "jyutping": "aap3",
+                    "english": "duck"
+                },
+                {
+                    "chinese": "蟹",
+                    "jyutping": "haai5",
+                    "english": "crab"
+                },
+                {
+                    "chinese": "魷魚",
+                    "jyutping": "jau4 jyu4",
+                    "english": "squid"
+                },
+                {
+                    "chinese": "蜆",
+                    "jyutping": "hin2",
+                    "english": "clams"
+                },
+                {
+                    "chinese": "排骨",
+                    "jyutping": "paai4 gwat1",
+                    "english": "pork ribs"
+                },
+                {
+                    "chinese": "雞蛋",
+                    "jyutping": "gai1 daan2",
+                    "english": "egg"
+                }
+            ]
+        },
+        {
+            "category": "Herbs & Dried Goods",
+            "words": [
+                {
+                    "chinese": "蒜頭",
+                    "jyutping": "syun3 tau4",
+                    "english": "garlic"
+                },
+                {
+                    "chinese": "薑",
+                    "jyutping": "goeng1",
+                    "english": "ginger"
+                },
+                {
+                    "chinese": "豆腐",
+                    "jyutping": "dau6 fu6",
+                    "english": "tofu"
+                },
+                {
+                    "chinese": "冬菇",
+                    "jyutping": "dung1 gu1",
+                    "english": "dried shiitake mushroom"
+                },
+                {
+                    "chinese": "蝦米",
+                    "jyutping": "haa1 mai5",
+                    "english": "dried shrimp"
+                },
+                {
+                    "chinese": "米",
+                    "jyutping": "mai5",
+                    "english": "rice"
                 }
             ]
         }

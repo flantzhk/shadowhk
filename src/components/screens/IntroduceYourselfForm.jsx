@@ -123,6 +123,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
 
   async function handleGenerate() {
     if (!form.name.trim()) return;
+    const isRebuild = existingPhrases.length > 0;
     setGenerating(true);
     setError(null);
 
@@ -165,7 +166,14 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
         savedEntries.map(entry => cacheAudioForPhrase({ id: entry.phraseId, cjk: entry.cjk }, language))
       ).catch(() => {});
 
-      onComplete?.({ scene, phraseCount: phrases.length });
+      if (isRebuild) {
+        // Rebuilding an existing scene: refresh the phrase list in place
+        // rather than jumping into practice — the user didn't ask to shadow yet.
+        const entries = await getLibraryEntries(language);
+        setExistingPhrases(entries.filter(e => e.scene_id === PERSONAL_SCENE_ID));
+      } else {
+        onComplete?.({ scene, phraseCount: phrases.length });
+      }
     } catch (err) {
       setError(err.message ?? 'Something went wrong. Check your connection.');
     } finally {
