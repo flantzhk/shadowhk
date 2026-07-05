@@ -432,6 +432,116 @@
                     "chinese": "邊度嚟",
                     "jyutping": "bin1 dou6 lei4",
                     "english": "where are you from"
+                },
+                {
+                    "chinese": "你好嗎",
+                    "jyutping": "nei5 hou2 maa3",
+                    "english": "how are you"
+                },
+                {
+                    "chinese": "好耐冇見",
+                    "jyutping": "hou2 noi6 mou5 gin3",
+                    "english": "long time no see"
+                }
+            ]
+        },
+        {
+            "category": "Introductions",
+            "words": [
+                {
+                    "chinese": "我叫",
+                    "jyutping": "ngo5 giu3",
+                    "english": "my name is"
+                },
+                {
+                    "chinese": "識咗幾耐",
+                    "jyutping": "sik1 zo2 gei2 noi6",
+                    "english": "how long have you known each other"
+                },
+                {
+                    "chinese": "介紹",
+                    "jyutping": "gaai3 siu6",
+                    "english": "to introduce"
+                },
+                {
+                    "chinese": "朋友",
+                    "jyutping": "pang4 jau5",
+                    "english": "friend"
+                }
+            ]
+        },
+        {
+            "category": "Where You're From",
+            "words": [
+                {
+                    "chinese": "香港人",
+                    "jyutping": "hoeng1 gong2 jan4",
+                    "english": "Hongkonger"
+                },
+                {
+                    "chinese": "外國人",
+                    "jyutping": "ngoi6 gwok3 jan4",
+                    "english": "foreigner"
+                },
+                {
+                    "chinese": "邊個國家",
+                    "jyutping": "bin1 go3 gwok3 gaa1",
+                    "english": "which country"
+                },
+                {
+                    "chinese": "嚟咗幾耐",
+                    "jyutping": "lai4 zo2 gei2 noi6",
+                    "english": "how long have you been here"
+                },
+                {
+                    "chinese": "住喺邊",
+                    "jyutping": "zyu6 hai2 bin1",
+                    "english": "where do you live"
+                }
+            ]
+        },
+        {
+            "category": "Continuing the Conversation",
+            "words": [
+                {
+                    "chinese": "有冇興趣",
+                    "jyutping": "jau5 mou5 hing3 ceoi3",
+                    "english": "are you interested in"
+                },
+                {
+                    "chinese": "得閒出嚟",
+                    "jyutping": "dak1 haan4 ceot1 lai4",
+                    "english": "free to meet up"
+                },
+                {
+                    "chinese": "遲啲見",
+                    "jyutping": "ci4 di1 gin3",
+                    "english": "see you later"
+                },
+                {
+                    "chinese": "好開心識到你",
+                    "jyutping": "hou2 hoi1 sam1 sik1 dou3 nei5",
+                    "english": "nice to have met you"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "加返個friend",
+                    "jyutping": "gaa1 faan1 go3 friend",
+                    "english": "let's add each other as friends"
+                },
+                {
+                    "chinese": "交換WhatsApp",
+                    "jyutping": "gaau1 wun6 WhatsApp",
+                    "english": "exchange WhatsApp"
+                },
+                {
+                    "chinese": "第一次嚟",
+                    "jyutping": "dai6 jat1 ci3 lai4",
+                    "english": "first time here"
                 }
             ]
         }

@@ -16,6 +16,7 @@ const REFERENCE_SETS = [
   { id: 'colours',  title: 'Colours', icon: '🎨' },
   { id: 'calendar', title: 'Calendar', icon: '📅' },
   { id: 'time',     title: 'Telling the Time', icon: '🕐' },
+  { id: 'body-parts', title: 'Body Parts', icon: '🧍' },
 ];
 
 export default function LibraryScreen({ onNavigate }) {
@@ -157,7 +158,14 @@ export default function LibraryScreen({ onNavigate }) {
       // once, or expand/play state (keyed by id) toggles every copy at once.
       const seen = new Set();
       const enriched = [];
-      for (const e of entries) {
+      for (const raw of entries) {
+        // Library records are keyed by `phraseId` in IndexedDB, not `id` —
+        // alias it here so every `phrase.id` reference below (dedup, play,
+        // expand, navigate-to-detail) resolves to the real key instead of
+        // `undefined`. Previously every entry after the first was dropped
+        // as a "duplicate" of `undefined`, and phrase rows navigated to a
+        // dead PhraseDetailScreen with no id.
+        const e = { ...raw, id: raw.phraseId };
         if (!e.cjk || seen.has(e.id)) continue; // skip corrupt + duplicate rows
         seen.add(e.id);
         enriched.push({ ...e, growth_state: growthStateFromInterval(e.interval ?? 0, e.reps ?? 0) });

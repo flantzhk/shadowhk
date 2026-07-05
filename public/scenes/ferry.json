@@ -306,7 +306,7 @@
     ],
     "vocabulary": [
         {
-            "category": "Transport Terms",
+            "category": "Ferry Terms",
             "words": [
                 {
                     "chinese": "天星小輪",
@@ -322,6 +322,106 @@
                     "chinese": "頭等",
                     "jyutping": "tau4 dang2",
                     "english": "first class (upper deck)"
+                },
+                {
+                    "chinese": "普通位",
+                    "jyutping": "pou2 tung1 wai2",
+                    "english": "standard class"
+                },
+                {
+                    "chinese": "船程",
+                    "jyutping": "syun4 cing4",
+                    "english": "the boat ride / crossing"
+                }
+            ]
+        },
+        {
+            "category": "Getting There",
+            "words": [
+                {
+                    "chinese": "開船",
+                    "jyutping": "hoi1 syun4",
+                    "english": "the boat departs"
+                },
+                {
+                    "chinese": "落船",
+                    "jyutping": "lok6 syun4",
+                    "english": "get off the boat"
+                },
+                {
+                    "chinese": "上船",
+                    "jyutping": "soeng5 syun4",
+                    "english": "board the boat"
+                },
+                {
+                    "chinese": "尾班船",
+                    "jyutping": "mei5 baan1 syun4",
+                    "english": "last ferry"
+                }
+            ]
+        },
+        {
+            "category": "At the Pier",
+            "words": [
+                {
+                    "chinese": "排隊",
+                    "jyutping": "paai4 deoi2",
+                    "english": "queue up"
+                },
+                {
+                    "chinese": "船票",
+                    "jyutping": "syun4 piu3",
+                    "english": "ferry ticket"
+                },
+                {
+                    "chinese": "維港",
+                    "jyutping": "wai4 gong2",
+                    "english": "Victoria Harbour"
+                },
+                {
+                    "chinese": "對岸",
+                    "jyutping": "deoi3 ngon6",
+                    "english": "the other side"
+                },
+                {
+                    "chinese": "船公司",
+                    "jyutping": "syun4 gung1 si1",
+                    "english": "ferry company"
+                }
+            ]
+        },
+        {
+            "category": "Onboard",
+            "words": [
+                {
+                    "chinese": "甲板",
+                    "jyutping": "gaap3 baan2",
+                    "english": "deck"
+                },
+                {
+                    "chinese": "座位",
+                    "jyutping": "zo6 wai2",
+                    "english": "seat"
+                },
+                {
+                    "chinese": "風景",
+                    "jyutping": "fung1 ging2",
+                    "english": "scenery"
+                },
+                {
+                    "chinese": "慢船",
+                    "jyutping": "maan6 syun4",
+                    "english": "slow boat"
+                },
+                {
+                    "chinese": "快船",
+                    "jyutping": "faai3 syun4",
+                    "english": "fast boat"
+                },
+                {
+                    "chinese": "渡輪碼頭",
+                    "jyutping": "dou6 leon4 maa5 tau4",
+                    "english": "ferry pier"
                 }
             ]
         }

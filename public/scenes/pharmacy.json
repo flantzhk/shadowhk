@@ -366,7 +366,37 @@
     ],
     "vocabulary": [
         {
-            "category": "Pharmacy Terms",
+            "category": "Common Ailments",
+            "words": [
+                {
+                    "chinese": "感冒",
+                    "jyutping": "gam2 mou6",
+                    "english": "cold / flu"
+                },
+                {
+                    "chinese": "頭痛",
+                    "jyutping": "tau4 tung3",
+                    "english": "headache"
+                },
+                {
+                    "chinese": "咳",
+                    "jyutping": "kat1",
+                    "english": "cough"
+                },
+                {
+                    "chinese": "肚屙",
+                    "jyutping": "tou5 o1",
+                    "english": "diarrhea"
+                },
+                {
+                    "chinese": "敏感",
+                    "jyutping": "man5 gam2",
+                    "english": "allergy"
+                }
+            ]
+        },
+        {
+            "category": "Medicine",
             "words": [
                 {
                     "chinese": "藥房",
@@ -379,14 +409,84 @@
                     "english": "headache medicine"
                 },
                 {
-                    "chinese": "感冒",
-                    "jyutping": "gam2 mou6",
-                    "english": "cold / flu"
-                },
-                {
                     "chinese": "退燒藥",
                     "jyutping": "teoi3 siu1 joek6",
                     "english": "fever reducer"
+                },
+                {
+                    "chinese": "咳水",
+                    "jyutping": "kat1 seoi2",
+                    "english": "cough syrup"
+                },
+                {
+                    "chinese": "藥膏",
+                    "jyutping": "joek6 gou1",
+                    "english": "ointment"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "有冇處方",
+                    "jyutping": "jau5 mou5 cyu3 fong1",
+                    "english": "do I need a prescription"
+                },
+                {
+                    "chinese": "食幾多次",
+                    "jyutping": "sik6 gei2 do1 ci3",
+                    "english": "how many times a day should I take it"
+                }
+            ]
+        },
+        {
+            "category": "More Ailments",
+            "words": [
+                {
+                    "chinese": "皮膚敏感",
+                    "jyutping": "pei4 fu1 man5 gam2",
+                    "english": "skin allergy"
+                },
+                {
+                    "chinese": "胃痛",
+                    "jyutping": "wai6 tung3",
+                    "english": "stomach ache"
+                },
+                {
+                    "chinese": "失眠",
+                    "jyutping": "sat1 min4",
+                    "english": "insomnia"
+                },
+                {
+                    "chinese": "鼻塞",
+                    "jyutping": "bei6 sak1",
+                    "english": "stuffy nose"
+                }
+            ]
+        },
+        {
+            "category": "More Medicine",
+            "words": [
+                {
+                    "chinese": "眼藥水",
+                    "jyutping": "ngaan5 joek6 seoi2",
+                    "english": "eye drops"
+                },
+                {
+                    "chinese": "維他命",
+                    "jyutping": "wai4 taa1 ming6",
+                    "english": "vitamins"
+                },
+                {
+                    "chinese": "口罩",
+                    "jyutping": "hau2 zaau3",
+                    "english": "face mask"
+                },
+                {
+                    "chinese": "綳帶",
+                    "jyutping": "baang1 daai2",
+                    "english": "bandage"
                 }
             ]
         }

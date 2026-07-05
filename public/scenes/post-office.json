@@ -392,6 +392,106 @@
                     "chinese": "掛號",
                     "jyutping": "gwaa3 hou6",
                     "english": "registered mail"
+                },
+                {
+                    "chinese": "信封",
+                    "jyutping": "seon3 fung1",
+                    "english": "envelope"
+                }
+            ]
+        },
+        {
+            "category": "Sending Mail",
+            "words": [
+                {
+                    "chinese": "寄去邊度",
+                    "jyutping": "gei3 heoi3 bin1 dou6",
+                    "english": "where is it being sent"
+                },
+                {
+                    "chinese": "幾多日到",
+                    "jyutping": "gei2 do1 jat6 dou3",
+                    "english": "how many days until it arrives"
+                },
+                {
+                    "chinese": "重量",
+                    "jyutping": "cung5 loeng6",
+                    "english": "weight"
+                },
+                {
+                    "chinese": "速遞",
+                    "jyutping": "cuk1 dai6",
+                    "english": "courier / express delivery"
+                }
+            ]
+        },
+        {
+            "category": "Delivery Options",
+            "words": [
+                {
+                    "chinese": "平郵",
+                    "jyutping": "ping4 jau4",
+                    "english": "surface mail"
+                },
+                {
+                    "chinese": "空郵",
+                    "jyutping": "hung1 jau4",
+                    "english": "airmail"
+                },
+                {
+                    "chinese": "到付",
+                    "jyutping": "dou3 fu6",
+                    "english": "cash on delivery"
+                },
+                {
+                    "chinese": "派件",
+                    "jyutping": "paai3 gin6",
+                    "english": "to deliver a parcel"
+                }
+            ]
+        },
+        {
+            "category": "At the Counter",
+            "words": [
+                {
+                    "chinese": "磅重",
+                    "jyutping": "pong6 cung5",
+                    "english": "weigh it"
+                },
+                {
+                    "chinese": "填地址",
+                    "jyutping": "tin4 dei6 zi2",
+                    "english": "fill in the address"
+                },
+                {
+                    "chinese": "易碎品",
+                    "jyutping": "ji6 seoi3 ban2",
+                    "english": "fragile item"
+                },
+                {
+                    "chinese": "追蹤編號",
+                    "jyutping": "zeoi1 zung1 pin1 hou6",
+                    "english": "tracking number"
+                },
+                {
+                    "chinese": "郵費",
+                    "jyutping": "jau4 fai3",
+                    "english": "postage fee"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "集運",
+                    "jyutping": "zaap6 wan6",
+                    "english": "consolidated shipping"
+                },
+                {
+                    "chinese": "易碎",
+                    "jyutping": "ji6 seoi3",
+                    "english": "fragile"
                 }
             ]
         }

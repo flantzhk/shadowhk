@@ -67,7 +67,13 @@ function parseHash(hash) {
   if (!clean) return { path: ROUTES.HOME, id: null };
   const slash = clean.indexOf('/');
   if (slash === -1) return { path: clean, id: null };
-  return { path: clean.slice(0, slash), id: clean.slice(slash + 1) };
+  // Assigning to location.hash auto-encodes non-ASCII characters (our vocab
+  // word ids embed raw CJK text, e.g. "wet-market-vocab-斤"), but reading it
+  // back never decodes them — every id with non-ASCII characters silently
+  // failed every lookup. Decode here, once, at the source.
+  let id = clean.slice(slash + 1);
+  try { id = decodeURIComponent(id); } catch { /* malformed escape, use as-is */ }
+  return { path: clean.slice(0, slash), id };
 }
 
 function useRouter() {

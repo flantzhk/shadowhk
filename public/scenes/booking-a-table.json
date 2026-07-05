@@ -347,6 +347,101 @@
                     "chinese": "電話號碼",
                     "jyutping": "din6 waa2 hou6 maa5",
                     "english": "phone number"
+                },
+                {
+                    "chinese": "卡位",
+                    "jyutping": "kaat1 wai2",
+                    "english": "booth seating"
+                }
+            ]
+        },
+        {
+            "category": "Time & Party",
+            "words": [
+                {
+                    "chinese": "今晚",
+                    "jyutping": "gam1 maan5",
+                    "english": "tonight"
+                },
+                {
+                    "chinese": "聽日",
+                    "jyutping": "ting1 jat6",
+                    "english": "tomorrow"
+                },
+                {
+                    "chinese": "幾點",
+                    "jyutping": "gei2 dim2",
+                    "english": "what time"
+                },
+                {
+                    "chinese": "遲到",
+                    "jyutping": "ci4 dou3",
+                    "english": "to be late"
+                },
+                {
+                    "chinese": "取消",
+                    "jyutping": "ceoi2 siu1",
+                    "english": "to cancel"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "有冇位",
+                    "jyutping": "jau5 mou5 wai2",
+                    "english": "do you have a table available"
+                },
+                {
+                    "chinese": "要等幾耐",
+                    "jyutping": "jiu3 dang2 gei2 noi6",
+                    "english": "how long is the wait"
+                },
+                {
+                    "chinese": "窗邊",
+                    "jyutping": "coeng1 bin1",
+                    "english": "by the window"
+                },
+                {
+                    "chinese": "大枱",
+                    "jyutping": "daai6 toi2",
+                    "english": "big table"
+                }
+            ]
+        },
+        {
+            "category": "Special Requests",
+            "words": [
+                {
+                    "chinese": "有冇兒童椅",
+                    "jyutping": "jau5 mou5 ji4 tung4 ji2",
+                    "english": "is there a high chair"
+                },
+                {
+                    "chinese": "過敏",
+                    "jyutping": "man5 gam2",
+                    "english": "(food) allergy"
+                },
+                {
+                    "chinese": "生日",
+                    "jyutping": "saang1 jat6",
+                    "english": "birthday"
+                },
+                {
+                    "chinese": "慶祝",
+                    "jyutping": "hing3 zuk1",
+                    "english": "celebrate"
+                },
+                {
+                    "chinese": "靠窗",
+                    "jyutping": "kaau3 coeng1",
+                    "english": "by the window"
+                },
+                {
+                    "chinese": "唔該早到",
+                    "jyutping": "m4 goi1 zou2 dou3",
+                    "english": "please arrive early"
                 }
             ]
         }

@@ -512,6 +512,111 @@
                     "chinese": "賞月",
                     "jyutping": "soeng2 jyut6",
                     "english": "moon-viewing"
+                },
+                {
+                    "chinese": "中秋節",
+                    "jyutping": "zung1 cau1 zit3",
+                    "english": "Mid-Autumn Festival"
+                },
+                {
+                    "chinese": "玉兔",
+                    "jyutping": "juk6 tou3",
+                    "english": "jade rabbit"
+                }
+            ]
+        },
+        {
+            "category": "Festival Food",
+            "words": [
+                {
+                    "chinese": "蓮蓉",
+                    "jyutping": "lin4 jung4",
+                    "english": "lotus seed paste"
+                },
+                {
+                    "chinese": "鹹蛋黃",
+                    "jyutping": "haam4 daan2 wong4",
+                    "english": "salted egg yolk"
+                },
+                {
+                    "chinese": "冰皮月餅",
+                    "jyutping": "bing1 pei4 jyut6 beng2",
+                    "english": "snow-skin mooncake"
+                },
+                {
+                    "chinese": "柚子",
+                    "jyutping": "jau2 zi2",
+                    "english": "pomelo"
+                }
+            ]
+        },
+        {
+            "category": "Park Activities",
+            "words": [
+                {
+                    "chinese": "玩燈籠",
+                    "jyutping": "waan2 dang1 lung4",
+                    "english": "play with lanterns"
+                },
+                {
+                    "chinese": "野餐",
+                    "jyutping": "je5 caan1",
+                    "english": "picnic"
+                },
+                {
+                    "chinese": "猜燈謎",
+                    "jyutping": "caai1 dang1 mai4",
+                    "english": "lantern riddle guessing"
+                },
+                {
+                    "chinese": "熒光棒",
+                    "jyutping": "jing4 gwong1 paang5",
+                    "english": "glow stick"
+                }
+            ]
+        },
+        {
+            "category": "Family & Tradition",
+            "words": [
+                {
+                    "chinese": "一家團圓",
+                    "jyutping": "jat1 gaa1 tyun4 jyun4",
+                    "english": "family reunion"
+                },
+                {
+                    "chinese": "傳統",
+                    "jyutping": "cyun4 tung2",
+                    "english": "tradition"
+                },
+                {
+                    "chinese": "滿月",
+                    "jyutping": "mun5 jyut6",
+                    "english": "full moon"
+                },
+                {
+                    "chinese": "賞燈",
+                    "jyutping": "soeng2 dang1",
+                    "english": "lantern viewing"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "中秋節快樂",
+                    "jyutping": "zung1 cau1 zit3 faai3 lok6",
+                    "english": "happy Mid-Autumn Festival"
+                },
+                {
+                    "chinese": "秋天",
+                    "jyutping": "cau1 tin1",
+                    "english": "autumn"
+                },
+                {
+                    "chinese": "綵燈會",
+                    "jyutping": "coi2 dang1 wui2",
+                    "english": "lantern carnival"
                 }
             ]
         }

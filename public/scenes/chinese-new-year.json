@@ -392,6 +392,101 @@
                     "chinese": "逗利是",
                     "jyutping": "dau6 lai6 si6",
                     "english": "to ask for / receive red packets"
+                },
+                {
+                    "chinese": "年廿八",
+                    "jyutping": "nin4 jaa6 baat3",
+                    "english": "the 28th day before New Year (cleaning day)"
+                }
+            ]
+        },
+        {
+            "category": "Greetings",
+            "words": [
+                {
+                    "chinese": "新年快樂",
+                    "jyutping": "san1 nin4 faai3 lok6",
+                    "english": "happy new year"
+                },
+                {
+                    "chinese": "身體健康",
+                    "jyutping": "san1 tai2 gin6 hong1",
+                    "english": "wishing you good health"
+                },
+                {
+                    "chinese": "龍馬精神",
+                    "jyutping": "lung4 maa5 zing1 san4",
+                    "english": "full of energy and spirit"
+                },
+                {
+                    "chinese": "步步高陞",
+                    "jyutping": "bou6 bou6 gou1 sing1",
+                    "english": "rising higher with every step"
+                }
+            ]
+        },
+        {
+            "category": "Traditions",
+            "words": [
+                {
+                    "chinese": "年花",
+                    "jyutping": "nin4 faa1",
+                    "english": "New Year flowers"
+                },
+                {
+                    "chinese": "揮春",
+                    "jyutping": "fai1 ceon1",
+                    "english": "New Year couplets"
+                },
+                {
+                    "chinese": "年糕",
+                    "jyutping": "nin4 gou1",
+                    "english": "New Year cake"
+                },
+                {
+                    "chinese": "舞獅",
+                    "jyutping": "mou5 si1",
+                    "english": "lion dance"
+                },
+                {
+                    "chinese": "拜年",
+                    "jyutping": "baai3 nin4",
+                    "english": "to pay a New Year visit"
+                }
+            ]
+        },
+        {
+            "category": "More Traditions",
+            "words": [
+                {
+                    "chinese": "開年飯",
+                    "jyutping": "hoi1 nin4 faan6",
+                    "english": "first meal of the new year"
+                },
+                {
+                    "chinese": "財神",
+                    "jyutping": "coi4 san4",
+                    "english": "god of wealth"
+                },
+                {
+                    "chinese": "年宵市場",
+                    "jyutping": "nin4 siu1 si5 coeng4",
+                    "english": "New Year flower market"
+                },
+                {
+                    "chinese": "桃花",
+                    "jyutping": "tou4 faa1",
+                    "english": "peach blossom"
+                },
+                {
+                    "chinese": "大掃除",
+                    "jyutping": "daai6 sou3 ceoi4",
+                    "english": "spring cleaning"
+                },
+                {
+                    "chinese": "逛花市",
+                    "jyutping": "gwaang3 faa1 si5",
+                    "english": "stroll the flower market"
                 }
             ]
         }

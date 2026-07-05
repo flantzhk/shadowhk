@@ -257,6 +257,111 @@
                     "chinese": "有落",
                     "jyutping": "jau5 lok6",
                     "english": "stop here please (call to the driver)"
+                },
+                {
+                    "chinese": "頭班車",
+                    "jyutping": "tau4 baan1 ce1",
+                    "english": "first bus of the day"
+                },
+                {
+                    "chinese": "尾班車",
+                    "jyutping": "mei5 baan1 ce1",
+                    "english": "last bus of the day"
+                }
+            ]
+        },
+        {
+            "category": "On Board",
+            "words": [
+                {
+                    "chinese": "上車",
+                    "jyutping": "soeng5 ce1",
+                    "english": "get on the vehicle"
+                },
+                {
+                    "chinese": "車費",
+                    "jyutping": "ce1 fai3",
+                    "english": "fare"
+                },
+                {
+                    "chinese": "找錢",
+                    "jyutping": "zaau2 cin2",
+                    "english": "give change"
+                },
+                {
+                    "chinese": "八達通拍卡",
+                    "jyutping": "baat3 daat6 tung1 paak3 kaat1",
+                    "english": "tap the Octopus card"
+                }
+            ]
+        },
+        {
+            "category": "Fares & Payment",
+            "words": [
+                {
+                    "chinese": "現金",
+                    "jyutping": "jin6 gam1",
+                    "english": "cash"
+                },
+                {
+                    "chinese": "車資表",
+                    "jyutping": "ce1 zi1 biu2",
+                    "english": "fare chart"
+                },
+                {
+                    "chinese": "學生優惠",
+                    "jyutping": "hok6 saang1 jau1 wai6",
+                    "english": "student discount"
+                }
+            ]
+        },
+        {
+            "category": "Green vs Red",
+            "words": [
+                {
+                    "chinese": "綠色小巴",
+                    "jyutping": "luk6 sik1 siu2 baa1",
+                    "english": "green minibus (fixed routes)"
+                },
+                {
+                    "chinese": "紅色小巴",
+                    "jyutping": "hung4 sik1 siu2 baa1",
+                    "english": "red minibus (flexible routes)"
+                },
+                {
+                    "chinese": "路線",
+                    "jyutping": "lou6 sin3",
+                    "english": "route"
+                },
+                {
+                    "chinese": "客滿",
+                    "jyutping": "haak3 mun5",
+                    "english": "fully booked"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "班次",
+                    "jyutping": "baan1 ci3",
+                    "english": "frequency"
+                },
+                {
+                    "chinese": "下一站",
+                    "jyutping": "haa6 jat1 zaam6",
+                    "english": "the next stop"
+                },
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "停站",
+                    "jyutping": "ting4 zaam6",
+                    "english": "the stop"
                 }
             ]
         }

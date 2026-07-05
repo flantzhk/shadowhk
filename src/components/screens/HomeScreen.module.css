@@ -497,7 +497,11 @@
 
 .continueGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* auto-fit (not auto-fill) collapses empty tracks and stretches real
+     cards to fill the row — with fewer than a full grid's worth of
+     "continue" cards, a fixed column count left a trailing gap while
+     every other section (always fully populated) filled the row. */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
 }
 
@@ -871,9 +875,10 @@
     font-size: 40px;
     line-height: 1.08;
   }
-  /* Continue: 2-across becomes a 4-across spread */
+  /* Continue: fewer than 4 cards stretch to fill the row instead of
+     leaving empty trailing columns (see base rule for why auto-fit). */
   .continueGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
   /* Playlists: horizontal thumb-scroll becomes a 4-across spread */

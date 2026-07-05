@@ -105,6 +105,7 @@ const DATA_FILES = [
   'survival', 'numbers', 'colours', 'calendar', 'time',
   'the-very-basics', 'everyday-essentials', 'food-and-drink',
   'getting-around', 'home-and-family', 'social-life', 'at-a-coffee-shop',
+  'body-parts',
 ];
 
 const STATIC_AUDIO_CACHE = 'shadowhk-static-audio'; // same cache the service worker route reads

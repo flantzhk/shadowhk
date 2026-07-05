@@ -404,6 +404,21 @@
                     "english": "go straight"
                 },
                 {
+                    "chinese": "轉彎",
+                    "jyutping": "zyun3 waan1",
+                    "english": "turn a corner"
+                },
+                {
+                    "chinese": "返轉頭",
+                    "jyutping": "fan1 zyun2 tau4",
+                    "english": "go back the way you came"
+                }
+            ]
+        },
+        {
+            "category": "Landmarks",
+            "words": [
+                {
                     "chinese": "紅綠燈",
                     "jyutping": "hung4 luk6 dang1",
                     "english": "traffic light"
@@ -412,6 +427,86 @@
                     "chinese": "天橋",
                     "jyutping": "tin1 kiu4",
                     "english": "footbridge"
+                },
+                {
+                    "chinese": "出口",
+                    "jyutping": "ceot1 hau2",
+                    "english": "exit"
+                },
+                {
+                    "chinese": "巴士站",
+                    "jyutping": "baa1 si6 zaam6",
+                    "english": "bus stop"
+                },
+                {
+                    "chinese": "港鐵站",
+                    "jyutping": "gong2 tit3 zaam6",
+                    "english": "MTR station"
+                },
+                {
+                    "chinese": "對面",
+                    "jyutping": "deoi3 min6",
+                    "english": "across the street"
+                }
+            ]
+        },
+        {
+            "category": "Distance",
+            "words": [
+                {
+                    "chinese": "好近",
+                    "jyutping": "hou2 kan5",
+                    "english": "very close"
+                },
+                {
+                    "chinese": "好遠",
+                    "jyutping": "hou2 jyun5",
+                    "english": "very far"
+                },
+                {
+                    "chinese": "十分鐘",
+                    "jyutping": "sap6 fan1 zung1",
+                    "english": "ten minutes"
+                },
+                {
+                    "chinese": "就喺呢度",
+                    "jyutping": "zau6 hai2 ni1 dou6",
+                    "english": "it's right here"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "唔該借問",
+                    "jyutping": "m4 goi1 ze3 man6",
+                    "english": "excuse me, may I ask"
+                },
+                {
+                    "chinese": "點去",
+                    "jyutping": "dim2 heoi3",
+                    "english": "how do I get to"
+                },
+                {
+                    "chinese": "行路",
+                    "jyutping": "haang4 lou6",
+                    "english": "to walk (there)"
+                },
+                {
+                    "chinese": "搭車",
+                    "jyutping": "daap3 ce1",
+                    "english": "to take a vehicle"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "向",
+                    "jyutping": "hoeng3",
+                    "english": "towards / direction"
                 }
             ]
         }

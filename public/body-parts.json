@@ -1,0 +1,33 @@
+[
+  {
+    "id": "body-parts-head",
+    "name": "Head & face",
+    "description": "The parts of the face and head",
+    "phraseCount": 7,
+    "phrases": [
+      { "id": "body-head", "chinese": "頭", "romanization": "tau4", "jyutping": "tau4", "english": "head", "words": [{ "chinese": "頭", "jyutping": "tau4", "english": "head" }] },
+      { "id": "body-face", "chinese": "面", "romanization": "min6", "jyutping": "min6", "english": "face", "words": [{ "chinese": "面", "jyutping": "min6", "english": "face" }] },
+      { "id": "body-eye", "chinese": "眼睛", "romanization": "ngaan5 zing1", "jyutping": "ngaan5 zing1", "english": "eye", "words": [{ "chinese": "眼", "jyutping": "ngaan5", "english": "eye" }, { "chinese": "睛", "jyutping": "zing1", "english": "eyeball" }] },
+      { "id": "body-ear", "chinese": "耳仔", "romanization": "ji5 zai2", "jyutping": "ji5 zai2", "english": "ear", "words": [{ "chinese": "耳", "jyutping": "ji5", "english": "ear" }, { "chinese": "仔", "jyutping": "zai2", "english": "(diminutive)" }] },
+      { "id": "body-nose", "chinese": "鼻哥", "romanization": "bei6 go1", "jyutping": "bei6 go1", "english": "nose", "words": [{ "chinese": "鼻", "jyutping": "bei6", "english": "nose" }, { "chinese": "哥", "jyutping": "go1", "english": "(colloquial suffix)" }] },
+      { "id": "body-mouth", "chinese": "嘴", "romanization": "zeoi2", "jyutping": "zeoi2", "english": "mouth", "words": [{ "chinese": "嘴", "jyutping": "zeoi2", "english": "mouth" }] },
+      { "id": "body-neck", "chinese": "頸", "romanization": "geng2", "jyutping": "geng2", "english": "neck", "words": [{ "chinese": "頸", "jyutping": "geng2", "english": "neck" }] }
+    ]
+  },
+  {
+    "id": "body-parts-body",
+    "name": "Arms, legs & body",
+    "description": "Talk about the rest of the body",
+    "phraseCount": 8,
+    "phrases": [
+      { "id": "body-shoulder", "chinese": "肩頭", "romanization": "gin1 tau4", "jyutping": "gin1 tau4", "english": "shoulder", "words": [{ "chinese": "肩", "jyutping": "gin1", "english": "shoulder" }, { "chinese": "頭", "jyutping": "tau4", "english": "(head/top)" }] },
+      { "id": "body-arm", "chinese": "手臂", "romanization": "sau2 bei3", "jyutping": "sau2 bei3", "english": "arm", "words": [{ "chinese": "手", "jyutping": "sau2", "english": "hand" }, { "chinese": "臂", "jyutping": "bei3", "english": "arm" }] },
+      { "id": "body-hand", "chinese": "手", "romanization": "sau2", "jyutping": "sau2", "english": "hand", "words": [{ "chinese": "手", "jyutping": "sau2", "english": "hand" }] },
+      { "id": "body-finger", "chinese": "手指", "romanization": "sau2 zi2", "jyutping": "sau2 zi2", "english": "finger", "words": [{ "chinese": "手", "jyutping": "sau2", "english": "hand" }, { "chinese": "指", "jyutping": "zi2", "english": "finger" }] },
+      { "id": "body-back", "chinese": "背脊", "romanization": "bui3 zek3", "jyutping": "bui3 zek3", "english": "back", "words": [{ "chinese": "背脊", "jyutping": "bui3 zek3", "english": "back" }] },
+      { "id": "body-stomach", "chinese": "肚", "romanization": "tou5", "jyutping": "tou5", "english": "stomach; belly", "context": "肚 also shows up in 肚餓 (hungry) and 肚痛 (stomach ache)", "words": [{ "chinese": "肚", "jyutping": "tou5", "english": "stomach; belly" }] },
+      { "id": "body-knee", "chinese": "膝頭", "romanization": "sat1 tau4", "jyutping": "sat1 tau4", "english": "knee", "words": [{ "chinese": "膝頭", "jyutping": "sat1 tau4", "english": "knee" }] },
+      { "id": "body-leg", "chinese": "腳", "romanization": "goek3", "jyutping": "goek3", "english": "leg; foot", "context": "Cantonese uses 腳 for both leg and foot — context makes it clear", "words": [{ "chinese": "腳", "jyutping": "goek3", "english": "leg; foot" }] }
+    ]
+  }
+]

@@ -302,6 +302,116 @@
                     "chinese": "傾偈",
                     "jyutping": "king1 gai2",
                     "english": "to chat"
+                },
+                {
+                    "chinese": "有冇WhatsApp",
+                    "jyutping": "jau5 mou5 WhatsApp",
+                    "english": "do you have WhatsApp"
+                },
+                {
+                    "chinese": "加返個friend",
+                    "jyutping": "gaa1 faan1 go3 friend",
+                    "english": "let's add each other as friends"
+                }
+            ]
+        },
+        {
+            "category": "Talking About Yourself",
+            "words": [
+                {
+                    "chinese": "興趣",
+                    "jyutping": "hing3 ceoi3",
+                    "english": "hobby / interest"
+                },
+                {
+                    "chinese": "做開",
+                    "jyutping": "zou6 hoi1",
+                    "english": "to usually do (for work)"
+                },
+                {
+                    "chinese": "讀緊書",
+                    "jyutping": "duk6 gan2 syu1",
+                    "english": "currently studying"
+                },
+                {
+                    "chinese": "放假",
+                    "jyutping": "fong3 gaa3",
+                    "english": "on holiday / day off"
+                }
+            ]
+        },
+        {
+            "category": "Work & Life",
+            "words": [
+                {
+                    "chinese": "返工",
+                    "jyutping": "faan1 gung1",
+                    "english": "go to work"
+                },
+                {
+                    "chinese": "讀書",
+                    "jyutping": "duk6 syu1",
+                    "english": "to study"
+                },
+                {
+                    "chinese": "公司",
+                    "jyutping": "gung1 si1",
+                    "english": "company"
+                },
+                {
+                    "chinese": "老闆",
+                    "jyutping": "lou5 baan2",
+                    "english": "boss"
+                },
+                {
+                    "chinese": "同事",
+                    "jyutping": "tung4 si6",
+                    "english": "colleague"
+                }
+            ]
+        },
+        {
+            "category": "Staying in Touch",
+            "words": [
+                {
+                    "chinese": "電話號碼",
+                    "jyutping": "din6 waa2 hou6 maa5",
+                    "english": "phone number"
+                },
+                {
+                    "chinese": "電郵",
+                    "jyutping": "din6 jau4",
+                    "english": "email"
+                },
+                {
+                    "chinese": "交換聯絡方式",
+                    "jyutping": "gaau1 wun6 lyun4 lok3 fong1 sik1",
+                    "english": "exchange contact info"
+                },
+                {
+                    "chinese": "遲啲再約",
+                    "jyutping": "ci4 di1 zoi3 joek3",
+                    "english": "let's meet up again later"
+                },
+                {
+                    "chinese": "保持聯絡",
+                    "jyutping": "bou2 ci4 lyun4 lok3",
+                    "english": "keep in touch"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "識咗幾耐",
+                    "jyutping": "sik1 zo2 gei2 noi6",
+                    "english": "how long have you known each other"
+                },
+                {
+                    "chinese": "興趣班",
+                    "jyutping": "hing3 ceoi3 baan1",
+                    "english": "hobby class"
                 }
             ]
         }

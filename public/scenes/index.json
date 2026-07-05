@@ -201,5 +201,12 @@
     "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
     "tint": "#5AC8E8",
     "emoji": "🌧️"
+  },
+  {
+    "id": "yoga-class",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/yoga-class.jpg",
+    "tint": "#C5E85A",
+    "emoji": "🧘"
   }
 ]

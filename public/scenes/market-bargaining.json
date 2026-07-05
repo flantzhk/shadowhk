@@ -277,6 +277,106 @@
                     "chinese": "現金",
                     "jyutping": "jin6 gam1",
                     "english": "cash"
+                },
+                {
+                    "chinese": "平返少少",
+                    "jyutping": "peng4 faan1 siu2 siu2",
+                    "english": "a little bit cheaper please"
+                }
+            ]
+        },
+        {
+            "category": "Shopping Terms",
+            "words": [
+                {
+                    "chinese": "試下",
+                    "jyutping": "si3 haa5",
+                    "english": "try it on / try it"
+                },
+                {
+                    "chinese": "呢件",
+                    "jyutping": "ni1 gin6",
+                    "english": "this item"
+                },
+                {
+                    "chinese": "有冇折",
+                    "jyutping": "jau5 mou5 zit3",
+                    "english": "is there a discount"
+                },
+                {
+                    "chinese": "買一送一",
+                    "jyutping": "maai5 jat1 sung3 jat1",
+                    "english": "buy one get one free"
+                }
+            ]
+        },
+        {
+            "category": "Clothes & Accessories",
+            "words": [
+                {
+                    "chinese": "手袋",
+                    "jyutping": "sau2 doi2",
+                    "english": "handbag"
+                },
+                {
+                    "chinese": "銀包",
+                    "jyutping": "ngan4 baau1",
+                    "english": "wallet"
+                },
+                {
+                    "chinese": "鞋",
+                    "jyutping": "haai4",
+                    "english": "shoes"
+                },
+                {
+                    "chinese": "手鏈",
+                    "jyutping": "sau2 lin2",
+                    "english": "bracelet"
+                },
+                {
+                    "chinese": "太陽眼鏡",
+                    "jyutping": "taai3 joeng4 ngaan5 geng2",
+                    "english": "sunglasses"
+                }
+            ]
+        },
+        {
+            "category": "Bargaining Phrases",
+            "words": [
+                {
+                    "chinese": "平啲得唔得",
+                    "jyutping": "peng4 di1 dak1 m4 dak1",
+                    "english": "can it be cheaper"
+                },
+                {
+                    "chinese": "唔該畀個折",
+                    "jyutping": "m4 goi1 bei2 go3 zit3",
+                    "english": "please give me a discount"
+                },
+                {
+                    "chinese": "太貴喇",
+                    "jyutping": "taai3 gwai3 laa3",
+                    "english": "too expensive"
+                },
+                {
+                    "chinese": "買兩件平啲",
+                    "jyutping": "maai5 loeng5 gin6 peng4 di1",
+                    "english": "cheaper if I buy two"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "頸鏈",
+                    "jyutping": "geng2 lin2",
+                    "english": "necklace"
+                },
+                {
+                    "chinese": "包平啲",
+                    "jyutping": "baau1 peng4 di1",
+                    "english": "cheaper if bought together"
                 }
             ]
         }

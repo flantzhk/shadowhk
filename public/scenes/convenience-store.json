@@ -237,6 +237,106 @@
                     "chinese": "樽裝水",
                     "jyutping": "zeon1 zong1 seoi2",
                     "english": "bottled water"
+                },
+                {
+                    "chinese": "收銀機",
+                    "jyutping": "sau1 ngan4 gei1",
+                    "english": "cash register"
+                },
+                {
+                    "chinese": "會員卡",
+                    "jyutping": "wui6 jyun4 kaat1",
+                    "english": "membership card"
+                }
+            ]
+        },
+        {
+            "category": "Common Snacks",
+            "words": [
+                {
+                    "chinese": "杯麵",
+                    "jyutping": "bui1 min6",
+                    "english": "cup noodles"
+                },
+                {
+                    "chinese": "魚蛋",
+                    "jyutping": "jyu4 daan2",
+                    "english": "fish balls"
+                },
+                {
+                    "chinese": "香腸",
+                    "jyutping": "hoeng1 coeng2",
+                    "english": "sausage"
+                },
+                {
+                    "chinese": "薯片",
+                    "jyutping": "syu4 pin2",
+                    "english": "potato chips"
+                },
+                {
+                    "chinese": "雪糕",
+                    "jyutping": "syut3 gou1",
+                    "english": "ice cream"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "要唔要袋",
+                    "jyutping": "jiu3 m4 jiu3 doi2",
+                    "english": "do you need a bag"
+                },
+                {
+                    "chinese": "焗返熱",
+                    "jyutping": "guk6 faan1 jit6",
+                    "english": "heat it up"
+                },
+                {
+                    "chinese": "有冇優惠",
+                    "jyutping": "jau5 mou5 jau1 wai6",
+                    "english": "is there a discount"
+                }
+            ]
+        },
+        {
+            "category": "More Items",
+            "words": [
+                {
+                    "chinese": "樽裝飲品",
+                    "jyutping": "zeon1 zong1 jam2 ban2",
+                    "english": "bottled drinks"
+                },
+                {
+                    "chinese": "麵包",
+                    "jyutping": "min6 baau1",
+                    "english": "bread"
+                },
+                {
+                    "chinese": "香口膠",
+                    "jyutping": "hoeng1 hau2 gaau1",
+                    "english": "chewing gum"
+                },
+                {
+                    "chinese": "充電器",
+                    "jyutping": "cung1 din6 hei3",
+                    "english": "charger"
+                },
+                {
+                    "chinese": "雨傘",
+                    "jyutping": "jyu5 saan3",
+                    "english": "umbrella"
+                },
+                {
+                    "chinese": "紙巾",
+                    "jyutping": "zi2 gan1",
+                    "english": "tissue"
+                },
+                {
+                    "chinese": "打火機",
+                    "jyutping": "daa2 fo2 gei1",
+                    "english": "lighter"
                 }
             ]
         }

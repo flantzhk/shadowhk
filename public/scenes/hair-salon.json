@@ -347,6 +347,101 @@
                     "chinese": "染髮",
                     "jyutping": "jim5 faat3",
                     "english": "dye hair"
+                },
+                {
+                    "chinese": "吹頭",
+                    "jyutping": "ceoi1 tau4",
+                    "english": "blow-dry"
+                }
+            ]
+        },
+        {
+            "category": "Describing the Cut",
+            "words": [
+                {
+                    "chinese": "剷青",
+                    "jyutping": "caan2 ceng1",
+                    "english": "undercut"
+                },
+                {
+                    "chinese": "瀏海",
+                    "jyutping": "lau4 hoi2",
+                    "english": "fringe / bangs"
+                },
+                {
+                    "chinese": "剪短啲",
+                    "jyutping": "zin2 dyun2 di1",
+                    "english": "cut it shorter"
+                },
+                {
+                    "chinese": "keep長",
+                    "jyutping": "keep coeng4",
+                    "english": "keep it long"
+                },
+                {
+                    "chinese": "修剪",
+                    "jyutping": "sau1 zin2",
+                    "english": "trim"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "剪成點",
+                    "jyutping": "zin2 sing4 dim2",
+                    "english": "how would you like it cut"
+                },
+                {
+                    "chinese": "咪剪太短",
+                    "jyutping": "mai5 zin2 taai3 dyun2",
+                    "english": "don't cut it too short"
+                },
+                {
+                    "chinese": "幾多錢",
+                    "jyutping": "gei2 do1 cin2",
+                    "english": "how much does it cost"
+                }
+            ]
+        },
+        {
+            "category": "More Salon Terms",
+            "words": [
+                {
+                    "chinese": "電髮水",
+                    "jyutping": "din6 faat3 seoi2",
+                    "english": "perm solution"
+                },
+                {
+                    "chinese": "頭皮",
+                    "jyutping": "tau4 pei4",
+                    "english": "scalp"
+                },
+                {
+                    "chinese": "護髮素",
+                    "jyutping": "wu6 faat3 sou3",
+                    "english": "conditioner"
+                },
+                {
+                    "chinese": "剪劉海",
+                    "jyutping": "zin2 lau4 hoi2",
+                    "english": "cut the fringe"
+                },
+                {
+                    "chinese": "燙直",
+                    "jyutping": "tong3 zik6",
+                    "english": "hair straightening"
+                },
+                {
+                    "chinese": "焗油",
+                    "jyutping": "guk6 jau4",
+                    "english": "hair treatment"
+                },
+                {
+                    "chinese": "造型",
+                    "jyutping": "zou6 jing4",
+                    "english": "hairstyle"
                 }
             ]
         }

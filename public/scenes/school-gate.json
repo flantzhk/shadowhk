@@ -502,6 +502,111 @@
                     "chinese": "幼稚園",
                     "jyutping": "jau3 zi6 jyun4",
                     "english": "kindergarten"
+                },
+                {
+                    "chinese": "小學",
+                    "jyutping": "siu2 hok6",
+                    "english": "primary school"
+                },
+                {
+                    "chinese": "老師",
+                    "jyutping": "lou5 si1",
+                    "english": "teacher"
+                }
+            ]
+        },
+        {
+            "category": "School Life",
+            "words": [
+                {
+                    "chinese": "測驗",
+                    "jyutping": "cak1 jim6",
+                    "english": "quiz / test"
+                },
+                {
+                    "chinese": "默書",
+                    "jyutping": "mak6 syu1",
+                    "english": "dictation test"
+                },
+                {
+                    "chinese": "興趣班",
+                    "jyutping": "hing3 ceoi3 baan1",
+                    "english": "extracurricular class"
+                },
+                {
+                    "chinese": "接放學",
+                    "jyutping": "zip3 fong3 hok6",
+                    "english": "pick up from school"
+                }
+            ]
+        },
+        {
+            "category": "School Subjects",
+            "words": [
+                {
+                    "chinese": "中文",
+                    "jyutping": "zung1 man4",
+                    "english": "Chinese"
+                },
+                {
+                    "chinese": "英文",
+                    "jyutping": "jing1 man4",
+                    "english": "English"
+                },
+                {
+                    "chinese": "數學",
+                    "jyutping": "sou3 hok6",
+                    "english": "mathematics"
+                },
+                {
+                    "chinese": "體育",
+                    "jyutping": "tai2 juk6",
+                    "english": "PE"
+                },
+                {
+                    "chinese": "考試",
+                    "jyutping": "haau2 si5",
+                    "english": "exam"
+                }
+            ]
+        },
+        {
+            "category": "School Logistics",
+            "words": [
+                {
+                    "chinese": "校車",
+                    "jyutping": "haau6 ce1",
+                    "english": "school bus"
+                },
+                {
+                    "chinese": "校服",
+                    "jyutping": "haau6 fuk6",
+                    "english": "school uniform"
+                },
+                {
+                    "chinese": "家長會",
+                    "jyutping": "gaa1 zoeng2 wui2",
+                    "english": "parents' meeting"
+                },
+                {
+                    "chinese": "班主任",
+                    "jyutping": "baan1 zyu2 jam6",
+                    "english": "class teacher"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "小息",
+                    "jyutping": "siu2 sik1",
+                    "english": "recess / break time"
+                },
+                {
+                    "chinese": "書包",
+                    "jyutping": "syu1 baau1",
+                    "english": "school bag"
                 }
             ]
         }

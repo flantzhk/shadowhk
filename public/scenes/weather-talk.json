@@ -472,6 +472,111 @@
                     "chinese": "八號風球",
                     "jyutping": "baat3 hou6 fung1 kau4",
                     "english": "signal no. 8 (typhoon warning)"
+                },
+                {
+                    "chinese": "熱到爆",
+                    "jyutping": "jit6 dou3 baau3",
+                    "english": "extremely hot"
+                },
+                {
+                    "chinese": "翻風",
+                    "jyutping": "faan1 fung1",
+                    "english": "turning windy / cooling down"
+                }
+            ]
+        },
+        {
+            "category": "Talking About Weather",
+            "words": [
+                {
+                    "chinese": "落雨都要帶遮",
+                    "jyutping": "lok6 jyu5 dou1 jiu3 daai3 ze1",
+                    "english": "bring an umbrella even if it rains a little"
+                },
+                {
+                    "chinese": "好焗",
+                    "jyutping": "hou2 guk6",
+                    "english": "stuffy and humid"
+                },
+                {
+                    "chinese": "凍親",
+                    "jyutping": "dung3 can1",
+                    "english": "catch a chill"
+                }
+            ]
+        },
+        {
+            "category": "Weather Conditions",
+            "words": [
+                {
+                    "chinese": "潮濕",
+                    "jyutping": "ciu4 sap1",
+                    "english": "humid"
+                },
+                {
+                    "chinese": "天晴",
+                    "jyutping": "tin1 cing4",
+                    "english": "sunny / clear sky"
+                },
+                {
+                    "chinese": "陰天",
+                    "jyutping": "jam1 tin1",
+                    "english": "overcast"
+                },
+                {
+                    "chinese": "大霧",
+                    "jyutping": "daai6 mou6",
+                    "english": "heavy fog"
+                },
+                {
+                    "chinese": "凍到震",
+                    "jyutping": "dung3 dou3 zan3",
+                    "english": "freezing cold"
+                }
+            ]
+        },
+        {
+            "category": "Seasons & Small Talk",
+            "words": [
+                {
+                    "chinese": "夏天",
+                    "jyutping": "haa6 tin1",
+                    "english": "summer"
+                },
+                {
+                    "chinese": "冬天",
+                    "jyutping": "dung1 tin1",
+                    "english": "winter"
+                },
+                {
+                    "chinese": "天氣預報",
+                    "jyutping": "tin1 hei3 jyu6 bou3",
+                    "english": "weather forecast"
+                },
+                {
+                    "chinese": "帶遮",
+                    "jyutping": "daai3 ze1",
+                    "english": "bring an umbrella"
+                },
+                {
+                    "chinese": "涼爽",
+                    "jyutping": "loeng4 song2",
+                    "english": "cool and pleasant"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "焗熱",
+                    "jyutping": "guk6 jit6",
+                    "english": "hot and stuffy"
+                },
+                {
+                    "chinese": "回南天",
+                    "jyutping": "wui4 naam4 tin1",
+                    "english": "damp reversal-weather season in spring"
                 }
             ]
         }

@@ -416,13 +416,38 @@
     ],
     "vocabulary": [
         {
-            "category": "Banking Terms",
+            "category": "Accounts",
             "words": [
                 {
                     "chinese": "戶口",
                     "jyutping": "wu6 hau2",
                     "english": "bank account"
                 },
+                {
+                    "chinese": "儲蓄戶口",
+                    "jyutping": "cyu5 cuk1 wu6 hau2",
+                    "english": "savings account"
+                },
+                {
+                    "chinese": "往來戶口",
+                    "jyutping": "wong5 loi4 wu6 hau2",
+                    "english": "current account"
+                },
+                {
+                    "chinese": "存摺",
+                    "jyutping": "cyun4 zip3",
+                    "english": "passbook"
+                },
+                {
+                    "chinese": "結單",
+                    "jyutping": "git3 daan1",
+                    "english": "bank statement"
+                }
+            ]
+        },
+        {
+            "category": "Cards & Security",
+            "words": [
                 {
                     "chinese": "提款卡",
                     "jyutping": "tai4 fun2 kaat1",
@@ -434,6 +459,21 @@
                     "english": "PIN / password"
                 },
                 {
+                    "chinese": "信用卡",
+                    "jyutping": "seon3 jung6 kaat1",
+                    "english": "credit card"
+                },
+                {
+                    "chinese": "身份證",
+                    "jyutping": "san1 fan2 zing3",
+                    "english": "ID card"
+                }
+            ]
+        },
+        {
+            "category": "Transactions",
+            "words": [
+                {
                     "chinese": "存錢",
                     "jyutping": "cyun4 cin2",
                     "english": "deposit money"
@@ -442,6 +482,61 @@
                     "chinese": "提錢",
                     "jyutping": "tai4 cin2",
                     "english": "withdraw money"
+                },
+                {
+                    "chinese": "轉數",
+                    "jyutping": "zyun2 sou3",
+                    "english": "transfer money"
+                },
+                {
+                    "chinese": "找換",
+                    "jyutping": "zaau2 wun6",
+                    "english": "currency exchange"
+                },
+                {
+                    "chinese": "手續費",
+                    "jyutping": "sau2 zuk6 fai3",
+                    "english": "service fee"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "開戶口",
+                    "jyutping": "hoi1 wu6 hau2",
+                    "english": "open an account"
+                },
+                {
+                    "chinese": "填表格",
+                    "jyutping": "tin4 biu2 gaak3",
+                    "english": "fill in a form"
+                },
+                {
+                    "chinese": "排隊",
+                    "jyutping": "paai4 deoi2",
+                    "english": "queue up"
+                },
+                {
+                    "chinese": "櫃員",
+                    "jyutping": "gwai6 jyun4",
+                    "english": "teller"
+                }
+            ]
+        },
+        {
+            "category": "More Terms",
+            "words": [
+                {
+                    "chinese": "利息",
+                    "jyutping": "lei6 sik1",
+                    "english": "interest"
+                },
+                {
+                    "chinese": "分行",
+                    "jyutping": "fan1 hong4",
+                    "english": "branch"
                 }
             ]
         }

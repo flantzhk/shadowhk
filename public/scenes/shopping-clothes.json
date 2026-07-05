@@ -362,6 +362,106 @@
                     "chinese": "換",
                     "jyutping": "wun6",
                     "english": "exchange / return"
+                },
+                {
+                    "chinese": "退錢",
+                    "jyutping": "teoi3 cin2",
+                    "english": "refund"
+                },
+                {
+                    "chinese": "收據",
+                    "jyutping": "sau1 geoi3",
+                    "english": "receipt"
+                }
+            ]
+        },
+        {
+            "category": "Describing Fit",
+            "words": [
+                {
+                    "chinese": "大碼",
+                    "jyutping": "daai6 maa5",
+                    "english": "large size"
+                },
+                {
+                    "chinese": "細碼",
+                    "jyutping": "sai3 maa5",
+                    "english": "small size"
+                },
+                {
+                    "chinese": "啱身",
+                    "jyutping": "ngaam1 san1",
+                    "english": "fits well"
+                },
+                {
+                    "chinese": "太緊",
+                    "jyutping": "taai3 gan2",
+                    "english": "too tight"
+                },
+                {
+                    "chinese": "太鬆",
+                    "jyutping": "taai3 sung1",
+                    "english": "too loose"
+                }
+            ]
+        },
+        {
+            "category": "Clothing Items",
+            "words": [
+                {
+                    "chinese": "裙",
+                    "jyutping": "kwan4",
+                    "english": "dress"
+                },
+                {
+                    "chinese": "褲",
+                    "jyutping": "fu3",
+                    "english": "trousers"
+                },
+                {
+                    "chinese": "恤衫",
+                    "jyutping": "seot1 saam1",
+                    "english": "shirt"
+                },
+                {
+                    "chinese": "外套",
+                    "jyutping": "ngoi6 tou3",
+                    "english": "jacket"
+                },
+                {
+                    "chinese": "鞋",
+                    "jyutping": "haai4",
+                    "english": "shoes"
+                },
+                {
+                    "chinese": "襪",
+                    "jyutping": "mat6",
+                    "english": "socks"
+                }
+            ]
+        },
+        {
+            "category": "Colours & Style",
+            "words": [
+                {
+                    "chinese": "顏色",
+                    "jyutping": "ngaan4 sik1",
+                    "english": "colour"
+                },
+                {
+                    "chinese": "深色",
+                    "jyutping": "sam1 sik1",
+                    "english": "dark colour"
+                },
+                {
+                    "chinese": "淺色",
+                    "jyutping": "cin2 sik1",
+                    "english": "light colour"
+                },
+                {
+                    "chinese": "時興",
+                    "jyutping": "si4 hing1",
+                    "english": "trendy / in style"
                 }
             ]
         }

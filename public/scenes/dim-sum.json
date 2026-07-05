@@ -329,9 +329,104 @@
                     "english": "chicken feet"
                 },
                 {
+                    "chinese": "叉燒包",
+                    "jyutping": "caa1 siu1 baau1",
+                    "english": "BBQ pork bun"
+                },
+                {
+                    "chinese": "蘿蔔糕",
+                    "jyutping": "lo4 baak6 gou1",
+                    "english": "turnip cake"
+                }
+            ]
+        },
+        {
+            "category": "Ordering Dim Sum",
+            "words": [
+                {
                     "chinese": "點心紙",
                     "jyutping": "dim2 sam1 zi2",
                     "english": "dim sum order sheet"
+                },
+                {
+                    "chinese": "一籠",
+                    "jyutping": "jat1 lung4",
+                    "english": "one steamer basket"
+                },
+                {
+                    "chinese": "飲茶",
+                    "jyutping": "jam2 caa4",
+                    "english": "yum cha"
+                },
+                {
+                    "chinese": "加水",
+                    "jyutping": "gaa1 seoi2",
+                    "english": "top up the hot water"
+                },
+                {
+                    "chinese": "茶芥",
+                    "jyutping": "caa4 gaai3",
+                    "english": "tea and mustard (table setting)"
+                }
+            ]
+        },
+        {
+            "category": "Tea Choices",
+            "words": [
+                {
+                    "chinese": "普洱",
+                    "jyutping": "pou2 lei5",
+                    "english": "pu-erh tea"
+                },
+                {
+                    "chinese": "香片",
+                    "jyutping": "hoeng1 pin3",
+                    "english": "jasmine tea"
+                },
+                {
+                    "chinese": "鐵觀音",
+                    "jyutping": "tit3 gun1 jam1",
+                    "english": "tie guan yin tea"
+                },
+                {
+                    "chinese": "壽眉",
+                    "jyutping": "sau6 mei4",
+                    "english": "shou mei tea"
+                }
+            ]
+        },
+        {
+            "category": "More Dishes",
+            "words": [
+                {
+                    "chinese": "蝦腸",
+                    "jyutping": "haa1 coeng2",
+                    "english": "shrimp rice noodle roll"
+                },
+                {
+                    "chinese": "糯米雞",
+                    "jyutping": "no6 mai5 gai1",
+                    "english": "sticky rice in lotus leaf"
+                },
+                {
+                    "chinese": "馬拉糕",
+                    "jyutping": "maa5 laai1 gou1",
+                    "english": "Malay sponge cake"
+                },
+                {
+                    "chinese": "叉燒酥",
+                    "jyutping": "caa1 siu1 sou1",
+                    "english": "BBQ pork pastry"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "蝦餃皮",
+                    "jyutping": "haa1 gaau2 pei4",
+                    "english": "dumpling wrapper (fun fact term)"
                 }
             ]
         }

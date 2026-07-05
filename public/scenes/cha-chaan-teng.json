@@ -265,13 +265,68 @@
     ],
     "vocabulary": [
         {
-            "category": "Menu Basics",
+            "category": "Drinks",
             "words": [
                 {
                     "chinese": "奶茶",
                     "jyutping": "naai5 caa4",
                     "english": "milk tea"
                 },
+                {
+                    "chinese": "檸檬茶",
+                    "jyutping": "ning4 mung1 caa4",
+                    "english": "lemon tea"
+                },
+                {
+                    "chinese": "凍檸茶",
+                    "jyutping": "dung3 ning4 caa4",
+                    "english": "iced lemon tea"
+                },
+                {
+                    "chinese": "鴛鴦",
+                    "jyutping": "jyun1 joeng1",
+                    "english": "coffee-and-tea blend"
+                },
+                {
+                    "chinese": "阿華田",
+                    "jyutping": "aa3 waa4 tin4",
+                    "english": "Ovaltine"
+                },
+                {
+                    "chinese": "好立克",
+                    "jyutping": "hou2 laap6 hak1",
+                    "english": "Horlicks"
+                }
+            ]
+        },
+        {
+            "category": "Toast & Snacks",
+            "words": [
+                {
+                    "chinese": "多士",
+                    "jyutping": "do1 si2",
+                    "english": "toast"
+                },
+                {
+                    "chinese": "西多士",
+                    "jyutping": "sai1 do1 si2",
+                    "english": "French toast"
+                },
+                {
+                    "chinese": "餐蛋治",
+                    "jyutping": "caan1 daan2 zi6",
+                    "english": "spam and egg sandwich"
+                },
+                {
+                    "chinese": "菠蘿油",
+                    "jyutping": "bo1 lo4 jau4",
+                    "english": "pineapple bun with butter"
+                }
+            ]
+        },
+        {
+            "category": "Rice & Noodles",
+            "words": [
                 {
                     "chinese": "常餐",
                     "jyutping": "soeng4 caan1",
@@ -283,14 +338,49 @@
                     "english": "macaroni soup"
                 },
                 {
-                    "chinese": "多士",
-                    "jyutping": "do1 si2",
-                    "english": "toast"
+                    "chinese": "揚州炒飯",
+                    "jyutping": "joeng4 zau1 caau2 faan6",
+                    "english": "Yangzhou fried rice"
                 },
                 {
-                    "chinese": "凍檸茶",
-                    "jyutping": "dung3 ning4 caa4",
-                    "english": "iced lemon tea"
+                    "chinese": "干炒牛河",
+                    "jyutping": "gon1 caau2 ngau4 ho2",
+                    "english": "beef chow fun"
+                },
+                {
+                    "chinese": "公仔麵",
+                    "jyutping": "gung1 zai2 min6",
+                    "english": "instant noodles"
+                }
+            ]
+        },
+        {
+            "category": "Ordering Terms",
+            "words": [
+                {
+                    "chinese": "走冰",
+                    "jyutping": "zau2 bing1",
+                    "english": "no ice"
+                },
+                {
+                    "chinese": "少甜",
+                    "jyutping": "siu2 tim4",
+                    "english": "less sweet"
+                },
+                {
+                    "chinese": "加大",
+                    "jyutping": "gaa1 daai6",
+                    "english": "upsize"
+                },
+                {
+                    "chinese": "打包",
+                    "jyutping": "daa2 baau1",
+                    "english": "takeaway"
+                },
+                {
+                    "chinese": "埋單",
+                    "jyutping": "maai4 daan1",
+                    "english": "get the bill"
                 }
             ]
         }

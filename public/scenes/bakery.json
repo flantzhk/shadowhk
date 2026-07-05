@@ -322,6 +322,16 @@
                     "chinese": "雞尾包",
                     "jyutping": "gai1 mei5 baau1",
                     "english": "cocktail bun — sweet, coconut-filled"
+                },
+                {
+                    "chinese": "腸仔包",
+                    "jyutping": "coeng2 zai2 baau1",
+                    "english": "sausage bun"
+                },
+                {
+                    "chinese": "奶黃包",
+                    "jyutping": "naai5 wong4 baau1",
+                    "english": "custard bun"
                 }
             ]
         },
@@ -337,6 +347,86 @@
                     "chinese": "老婆餅",
                     "jyutping": "lou5 po4 beng2",
                     "english": "wife cake — flaky pastry with winter melon filling"
+                },
+                {
+                    "chinese": "蛋卷",
+                    "jyutping": "daan2 gyun2",
+                    "english": "egg roll biscuit"
+                },
+                {
+                    "chinese": "曲奇",
+                    "jyutping": "kuk1 kei4",
+                    "english": "cookies"
+                }
+            ]
+        },
+        {
+            "category": "Bread & Drinks",
+            "words": [
+                {
+                    "chinese": "方包",
+                    "jyutping": "fong1 baau1",
+                    "english": "sliced white bread"
+                },
+                {
+                    "chinese": "熱奶茶",
+                    "jyutping": "jit6 naai5 caa4",
+                    "english": "hot milk tea"
+                },
+                {
+                    "chinese": "齋啡",
+                    "jyutping": "zaai1 fe1",
+                    "english": "black coffee"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "剛出爐",
+                    "jyutping": "gong1 ceot1 lou4",
+                    "english": "fresh out of the oven"
+                },
+                {
+                    "chinese": "唔該幫我裝",
+                    "jyutping": "m4 goi1 bong1 ngo5 zong1",
+                    "english": "please bag it up"
+                }
+            ]
+        },
+        {
+            "category": "More Treats",
+            "words": [
+                {
+                    "chinese": "提子包",
+                    "jyutping": "tai4 zi2 baau1",
+                    "english": "raisin bun"
+                },
+                {
+                    "chinese": "芝士蛋糕",
+                    "jyutping": "zi1 si2 daan2 gou1",
+                    "english": "cheesecake"
+                },
+                {
+                    "chinese": "椰撻",
+                    "jyutping": "je4 taat3",
+                    "english": "coconut tart"
+                },
+                {
+                    "chinese": "甜甜圈",
+                    "jyutping": "tim4 tim4 hyun1",
+                    "english": "donut"
+                },
+                {
+                    "chinese": "法包",
+                    "jyutping": "faat3 baau1",
+                    "english": "baguette"
+                },
+                {
+                    "chinese": "牛角包",
+                    "jyutping": "ngau4 gok3 baau1",
+                    "english": "croissant"
                 }
             ]
         }

@@ -447,6 +447,11 @@
                     "chinese": "貴",
                     "jyutping": "gwai3",
                     "english": "expensive"
+                },
+                {
+                    "chinese": "幾多錢",
+                    "jyutping": "gei2 do1 cin2",
+                    "english": "how much does it cost"
                 }
             ]
         },
@@ -472,6 +477,11 @@
                     "chinese": "香蕉",
                     "jyutping": "hoeng1 ziu1",
                     "english": "banana"
+                },
+                {
+                    "chinese": "提子",
+                    "jyutping": "tai4 zi2",
+                    "english": "grapes"
                 }
             ]
         },
@@ -492,6 +502,16 @@
                     "chinese": "薯仔",
                     "jyutping": "syu4 zai2",
                     "english": "potato"
+                },
+                {
+                    "chinese": "椰菜",
+                    "jyutping": "je4 coi3",
+                    "english": "cabbage"
+                },
+                {
+                    "chinese": "蔥",
+                    "jyutping": "cung1",
+                    "english": "spring onion"
                 }
             ]
         },
@@ -517,6 +537,11 @@
                     "chinese": "蝦",
                     "jyutping": "haa1",
                     "english": "shrimp"
+                },
+                {
+                    "chinese": "雞",
+                    "jyutping": "gai1",
+                    "english": "chicken"
                 }
             ]
         }

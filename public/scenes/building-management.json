@@ -386,7 +386,7 @@
     ],
     "vocabulary": [
         {
-            "category": "Building & Maintenance",
+            "category": "Building Roles",
             "words": [
                 {
                     "chinese": "管理員",
@@ -399,19 +399,119 @@
                     "english": "management office"
                 },
                 {
-                    "chinese": "𨋢",
-                    "jyutping": "lip1",
-                    "english": "lift — HK slang borrowed from English"
+                    "chinese": "保安",
+                    "jyutping": "bou2 on1",
+                    "english": "security guard"
                 },
+                {
+                    "chinese": "清潔工",
+                    "jyutping": "cing1 git3 gung1",
+                    "english": "cleaner"
+                },
+                {
+                    "chinese": "業主",
+                    "jyutping": "jip6 zyu2",
+                    "english": "property owner"
+                }
+            ]
+        },
+        {
+            "category": "Maintenance",
+            "words": [
                 {
                     "chinese": "維修",
                     "jyutping": "wai4 sau1",
                     "english": "repair"
                 },
                 {
-                    "chinese": "保安",
-                    "jyutping": "bou2 on1",
-                    "english": "security guard"
+                    "chinese": "𨋢",
+                    "jyutping": "lip1",
+                    "english": "lift — HK slang borrowed from English"
+                },
+                {
+                    "chinese": "漏水",
+                    "jyutping": "lau6 seoi2",
+                    "english": "water leak"
+                },
+                {
+                    "chinese": "冷氣",
+                    "jyutping": "laang5 hei3",
+                    "english": "air conditioning"
+                },
+                {
+                    "chinese": "停電",
+                    "jyutping": "ting4 din6",
+                    "english": "power outage"
+                }
+            ]
+        },
+        {
+            "category": "Building Life",
+            "words": [
+                {
+                    "chinese": "管理費",
+                    "jyutping": "gun2 lei5 fai3",
+                    "english": "management fee"
+                },
+                {
+                    "chinese": "垃圾房",
+                    "jyutping": "laap6 saap3 fong2",
+                    "english": "refuse room"
+                },
+                {
+                    "chinese": "大廈",
+                    "jyutping": "daai6 haa6",
+                    "english": "building"
+                },
+                {
+                    "chinese": "樓層",
+                    "jyutping": "lau4 cang4",
+                    "english": "floor / storey"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "報修",
+                    "jyutping": "bou3 sau1",
+                    "english": "report a repair"
+                },
+                {
+                    "chinese": "投訴",
+                    "jyutping": "tau4 sou3",
+                    "english": "to complain"
+                },
+                {
+                    "chinese": "幾時嚟修",
+                    "jyutping": "gei2 si4 lai4 sau1",
+                    "english": "when will someone come to fix it"
+                }
+            ]
+        },
+        {
+            "category": "More Terms",
+            "words": [
+                {
+                    "chinese": "通告",
+                    "jyutping": "tung1 gou3",
+                    "english": "notice / announcement"
+                },
+                {
+                    "chinese": "消防",
+                    "jyutping": "siu1 fong4",
+                    "english": "fire safety"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "大廈公契",
+                    "jyutping": "daai6 haa6 gung1 kai3",
+                    "english": "building deed of mutual covenant"
                 }
             ]
         }

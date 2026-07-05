@@ -407,6 +407,101 @@
                     "chinese": "鑊氣",
                     "jyutping": "wok6 hei3",
                     "english": "wok hei — the smoky char of high-heat stir-frying"
+                },
+                {
+                    "chinese": "正",
+                    "jyutping": "zeng3",
+                    "english": "excellent, awesome"
+                }
+            ]
+        },
+        {
+            "category": "Describing Taste",
+            "words": [
+                {
+                    "chinese": "香",
+                    "jyutping": "hoeng1",
+                    "english": "fragrant"
+                },
+                {
+                    "chinese": "鮮",
+                    "jyutping": "sin1",
+                    "english": "fresh-tasting"
+                },
+                {
+                    "chinese": "香口",
+                    "jyutping": "hoeng1 hau2",
+                    "english": "savoury and moreish"
+                },
+                {
+                    "chinese": "彈牙",
+                    "jyutping": "daan6 ngaa4",
+                    "english": "springy / chewy texture"
+                },
+                {
+                    "chinese": "入味",
+                    "jyutping": "jap6 mei6",
+                    "english": "well-seasoned throughout"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "食多啲",
+                    "jyutping": "sik6 do1 di1",
+                    "english": "eat some more"
+                },
+                {
+                    "chinese": "我食飽喇",
+                    "jyutping": "ngo5 sik6 baau2 laa3",
+                    "english": "I'm full"
+                },
+                {
+                    "chinese": "邊個煮㗎",
+                    "jyutping": "bin1 go3 zyu2 gaa3",
+                    "english": "who cooked this"
+                },
+                {
+                    "chinese": "好耐冇食過咁好味",
+                    "jyutping": "hou2 noi6 mou5 sik6 gwo3 gam3 hou2 mei6",
+                    "english": "haven't eaten anything this good in ages"
+                }
+            ]
+        },
+        {
+            "category": "More Descriptors",
+            "words": [
+                {
+                    "chinese": "好正",
+                    "jyutping": "hou2 zeng3",
+                    "english": "really great"
+                },
+                {
+                    "chinese": "有心機整",
+                    "jyutping": "jau5 sam1 gei1 zing2",
+                    "english": "made with care and effort"
+                },
+                {
+                    "chinese": "賣相好",
+                    "jyutping": "maai6 soeng2 hou2",
+                    "english": "looks great (presentation)"
+                },
+                {
+                    "chinese": "唔肥膩",
+                    "jyutping": "m4 fei4 nei6",
+                    "english": "not greasy"
+                },
+                {
+                    "chinese": "剛剛好",
+                    "jyutping": "gong1 gong1 hou2",
+                    "english": "just right"
+                },
+                {
+                    "chinese": "想食多次",
+                    "jyutping": "soeng2 sik6 do1 ci3",
+                    "english": "want to eat this again"
                 }
             ]
         }

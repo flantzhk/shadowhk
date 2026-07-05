@@ -357,6 +357,106 @@
                     "chinese": "轉線",
                     "jyutping": "zyun3 sin3",
                     "english": "transfer line"
+                },
+                {
+                    "chinese": "入閘",
+                    "jyutping": "jap6 zaap6",
+                    "english": "enter the gate"
+                }
+            ]
+        },
+        {
+            "category": "Getting Around",
+            "words": [
+                {
+                    "chinese": "班次",
+                    "jyutping": "baan1 ci3",
+                    "english": "train frequency"
+                },
+                {
+                    "chinese": "落一站",
+                    "jyutping": "lok6 jat1 zaam6",
+                    "english": "get off at the next stop"
+                },
+                {
+                    "chinese": "月台層",
+                    "jyutping": "jyut6 toi4 cang4",
+                    "english": "platform level"
+                },
+                {
+                    "chinese": "尾班車",
+                    "jyutping": "mei5 baan1 ce1",
+                    "english": "last train"
+                }
+            ]
+        },
+        {
+            "category": "Fares & Cards",
+            "words": [
+                {
+                    "chinese": "增值",
+                    "jyutping": "zang1 zik6",
+                    "english": "top up"
+                },
+                {
+                    "chinese": "單程票",
+                    "jyutping": "daan1 cing4 piu3",
+                    "english": "single journey ticket"
+                },
+                {
+                    "chinese": "八達通餘額",
+                    "jyutping": "baat3 daat6 tung1 jyu4 ngaak6",
+                    "english": "Octopus card balance"
+                },
+                {
+                    "chinese": "加零錢",
+                    "jyutping": "gaa1 ling4 cin2",
+                    "english": "add small change"
+                }
+            ]
+        },
+        {
+            "category": "Navigating the Station",
+            "words": [
+                {
+                    "chinese": "扶手電梯",
+                    "jyutping": "fu4 sau2 din6 tai1",
+                    "english": "escalator"
+                },
+                {
+                    "chinese": "客務中心",
+                    "jyutping": "haak3 mou6 zung1 sam1",
+                    "english": "customer service centre"
+                },
+                {
+                    "chinese": "月台門",
+                    "jyutping": "jyut6 toi4 mun4",
+                    "english": "platform screen door"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "車廂",
+                    "jyutping": "ce1 soeng1",
+                    "english": "train carriage"
+                },
+                {
+                    "chinese": "轉車",
+                    "jyutping": "zyun3 ce1",
+                    "english": "change trains"
+                },
+                {
+                    "chinese": "route圖",
+                    "jyutping": "route tou4",
+                    "english": "route map"
+                },
+                {
+                    "chinese": "班次表",
+                    "jyutping": "baan1 ci3 biu2",
+                    "english": "train schedule"
                 }
             ]
         }

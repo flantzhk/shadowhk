@@ -287,6 +287,111 @@
                     "chinese": "樓下",
                     "jyutping": "lau4 haa6",
                     "english": "downstairs"
+                },
+                {
+                    "chinese": "𨋢",
+                    "jyutping": "lip1",
+                    "english": "lift"
+                }
+            ]
+        },
+        {
+            "category": "Small Talk",
+            "words": [
+                {
+                    "chinese": "放工",
+                    "jyutping": "fong3 gung1",
+                    "english": "finish work"
+                },
+                {
+                    "chinese": "返工",
+                    "jyutping": "faan1 gung1",
+                    "english": "go to work"
+                },
+                {
+                    "chinese": "咁啱",
+                    "jyutping": "gam3 ngaam1",
+                    "english": "what a coincidence"
+                },
+                {
+                    "chinese": "幾樓",
+                    "jyutping": "gei2 lau4",
+                    "english": "which floor"
+                }
+            ]
+        },
+        {
+            "category": "Around the Building",
+            "words": [
+                {
+                    "chinese": "大堂",
+                    "jyutping": "daai6 tong4",
+                    "english": "lobby"
+                },
+                {
+                    "chinese": "信箱",
+                    "jyutping": "seon3 seong1",
+                    "english": "mailbox"
+                },
+                {
+                    "chinese": "天台",
+                    "jyutping": "tin1 toi4",
+                    "english": "rooftop"
+                },
+                {
+                    "chinese": "停車場",
+                    "jyutping": "ting4 ce1 coeng4",
+                    "english": "car park"
+                },
+                {
+                    "chinese": "保安",
+                    "jyutping": "bou2 on1",
+                    "english": "security guard"
+                }
+            ]
+        },
+        {
+            "category": "Small Talk Topics",
+            "words": [
+                {
+                    "chinese": "買餸",
+                    "jyutping": "maai5 sung3",
+                    "english": "buy groceries"
+                },
+                {
+                    "chinese": "遛狗",
+                    "jyutping": "lau6 gau2",
+                    "english": "walk the dog"
+                },
+                {
+                    "chinese": "早晨",
+                    "jyutping": "zou2 san4",
+                    "english": "good morning"
+                },
+                {
+                    "chinese": "拎垃圾",
+                    "jyutping": "ling1 laap6 saap3",
+                    "english": "take out the rubbish"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "花園",
+                    "jyutping": "faa1 jyun4",
+                    "english": "garden"
+                },
+                {
+                    "chinese": "好天氣",
+                    "jyutping": "hou2 tin1 hei3",
+                    "english": "nice weather"
+                },
+                {
+                    "chinese": "鄰里",
+                    "jyutping": "leon4 lei5",
+                    "english": "neighbourhood community"
                 }
             ]
         }

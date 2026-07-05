@@ -13,10 +13,13 @@ export async function blobIsAudible(blob) {
     for (let i = 0; i < data.length; i += 64) {
       const v = Math.abs(data[i]);
       if (v > peak) peak = v;
-      if (peak > 0.02) return true;
     }
+    // Logged unconditionally (not just on failure) so a borderline pass is
+    // visible too — peak sitting just above 0.02 still points at a mic issue.
+    console.info('[audioSignal] peak amplitude', peak, 'blob size', blob.size, 'type', blob.type);
     return peak > 0.02;
-  } catch (_) {
+  } catch (err) {
+    console.error('[audioSignal] decode failed, treating as audible', err?.message);
     return true;
   }
 }

@@ -547,6 +547,111 @@
                     "chinese": "上香",
                     "jyutping": "soeng5 hoeng1",
                     "english": "offer incense"
+                },
+                {
+                    "chinese": "還神",
+                    "jyutping": "waan4 san4",
+                    "english": "fulfil a religious vow"
+                },
+                {
+                    "chinese": "解籤",
+                    "jyutping": "gaai2 cim1",
+                    "english": "interpret a fortune stick"
+                }
+            ]
+        },
+        {
+            "category": "Temple Etiquette",
+            "words": [
+                {
+                    "chinese": "拜神",
+                    "jyutping": "baai3 san4",
+                    "english": "to worship / pray"
+                },
+                {
+                    "chinese": "許願",
+                    "jyutping": "heoi2 jyun6",
+                    "english": "make a wish"
+                },
+                {
+                    "chinese": "香爐",
+                    "jyutping": "hoeng1 lou4",
+                    "english": "incense burner"
+                }
+            ]
+        },
+        {
+            "category": "Offerings",
+            "words": [
+                {
+                    "chinese": "香",
+                    "jyutping": "hoeng1",
+                    "english": "incense"
+                },
+                {
+                    "chinese": "蠟燭",
+                    "jyutping": "laap6 zuk1",
+                    "english": "candle"
+                },
+                {
+                    "chinese": "金銀衣紙",
+                    "jyutping": "gam1 ngan4 ji1 zi2",
+                    "english": "joss paper"
+                },
+                {
+                    "chinese": "供品",
+                    "jyutping": "gung1 ban2",
+                    "english": "offerings"
+                }
+            ]
+        },
+        {
+            "category": "Temple Vocabulary",
+            "words": [
+                {
+                    "chinese": "廟",
+                    "jyutping": "miu6",
+                    "english": "temple"
+                },
+                {
+                    "chinese": "神像",
+                    "jyutping": "san4 zoeng6",
+                    "english": "deity statue"
+                },
+                {
+                    "chinese": "誠心",
+                    "jyutping": "sing4 sam1",
+                    "english": "sincerity"
+                },
+                {
+                    "chinese": "保佑",
+                    "jyutping": "bou2 jau6",
+                    "english": "to bless / protect"
+                },
+                {
+                    "chinese": "靈驗",
+                    "jyutping": "ling4 jim6",
+                    "english": "efficacious (answers prayers)"
+                },
+                {
+                    "chinese": "參拜",
+                    "jyutping": "caam1 baai3",
+                    "english": "to pay one's respects"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "靈簽",
+                    "jyutping": "ling4 cim1",
+                    "english": "an accurate fortune stick reading"
+                },
+                {
+                    "chinese": "菩薩",
+                    "jyutping": "pou4 saat3",
+                    "english": "bodhisattva"
                 }
             ]
         }

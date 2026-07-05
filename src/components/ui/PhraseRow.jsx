@@ -161,6 +161,7 @@ export function PhraseRow({
               aria-label={`Play ${group.chars} — ${group.meaning}`}
             >
               <span className={styles.wordCjk}>{group.chars}</span>
+              {group.jyutping && <span className={styles.wordJyutping}>{group.jyutping}</span>}
               <span className={styles.wordMeaning}>{group.meaning}</span>
               <span className={`${styles.wordPlayBtn} ${playingWordIdx === i ? styles.wordPlayBtnActive : ''}`}>
                 {playingWordIdx === i

@@ -1,0 +1,180 @@
+{
+    "id": "yoga-class",
+    "language": "cantonese",
+    "emoji": "🧘",
+    "imageUrl": "/shadowhk/images/scenes/yoga-class.jpg",
+    "tint": "#C5E85A",
+    "title": "Going to a yoga class",
+    "description": "Sign in for your first class and follow the instructor's cues",
+    "category": "services",
+    "difficulty": "everyday",
+    "estimatedMinutes": 6,
+    "location": "Yoga studio, Sheung Wan",
+    "context": "Yoga studios have spread fast across Hong Kong in the last decade, especially through Central, Sheung Wan and Wan Chai, often filling converted industrial units with big windows. Instruction is usually bilingual, but knowing the Cantonese pose cues helps you actually follow along instead of just copying your neighbour.",
+    "cultural_note": "Long before yoga arrived, Hong Kong already had its own morning movement ritual: 太極 (taai3 gik6, tai chi), practised by elders in parks and podium gardens at dawn, often to the same corner every single day for decades. Yoga studios charge by the class or the month; tai chi in the park costs nothing but showing up.",
+    "lines": [
+        {
+            "id": "yoga-01",
+            "speaker": "you",
+            "cjk": "你好，我想上呢堂瑜伽班。",
+            "jyutping": "nei5 hou2, ngo5 soeng2 soeng5 ni1 tong4 jyu4 kaa1 baan1.",
+            "english": "Hello, I'd like to join this yoga class.",
+            "audioFile": "yoga-01.mp3",
+            "words": [
+                { "chinese": "你好", "jyutping": "nei5 hou2", "english": "hello" },
+                { "chinese": "我", "jyutping": "ngo5", "english": "I; me" },
+                { "chinese": "想", "jyutping": "soeng2", "english": "want to" },
+                { "chinese": "上", "jyutping": "soeng5", "english": "attend (a class)" },
+                { "chinese": "呢堂", "jyutping": "ni1 tong4", "english": "this class" },
+                { "chinese": "瑜伽班", "jyutping": "jyu4 kaa1 baan1", "english": "yoga class" }
+            ]
+        },
+        {
+            "id": "yoga-02",
+            "speaker": "instructor",
+            "cjk": "好呀，你係咪第一次嚟？",
+            "jyutping": "hou2 aa3, nei5 hai6 mai6 dai6 jat1 ci3 lai4?",
+            "english": "Sure, is this your first time here?",
+            "audioFile": "yoga-02.mp3",
+            "words": [
+                { "chinese": "好呀", "jyutping": "hou2 aa3", "english": "sure" },
+                { "chinese": "你", "jyutping": "nei5", "english": "you" },
+                { "chinese": "係咪", "jyutping": "hai6 mai6", "english": "is it (question marker)" },
+                { "chinese": "第一次", "jyutping": "dai6 jat1 ci3", "english": "first time" },
+                { "chinese": "嚟", "jyutping": "lai4", "english": "come" }
+            ]
+        },
+        {
+            "id": "yoga-03",
+            "speaker": "you",
+            "cjk": "係呀，第一次。",
+            "jyutping": "hai6 aa3, dai6 jat1 ci3.",
+            "english": "Yes, first time.",
+            "audioFile": "yoga-03.mp3",
+            "words": [
+                { "chinese": "係呀", "jyutping": "hai6 aa3", "english": "yes" },
+                { "chinese": "第一次", "jyutping": "dai6 jat1 ci3", "english": "first time" }
+            ]
+        },
+        {
+            "id": "yoga-04",
+            "speaker": "instructor",
+            "cjk": "冇問題，換咗衫就入去啦，瑜伽墊喺入面。",
+            "jyutping": "mou5 man6 tai4, wun6 zo2 saam1 zau6 jap6 heoi3 laa1, jyu4 kaa1 zin3 hai2 jap6 min6.",
+            "english": "No problem, change and head in, the yoga mats are inside.",
+            "audioFile": "yoga-04.mp3",
+            "words": [
+                { "chinese": "冇問題", "jyutping": "mou5 man6 tai4", "english": "no problem" },
+                { "chinese": "換衫", "jyutping": "wun6 saam1", "english": "change clothes" },
+                { "chinese": "就", "jyutping": "zau6", "english": "then" },
+                { "chinese": "入去", "jyutping": "jap6 heoi3", "english": "go in" },
+                { "chinese": "瑜伽墊", "jyutping": "jyu4 kaa1 zin3", "english": "yoga mat" },
+                { "chinese": "入面", "jyutping": "jap6 min6", "english": "inside" }
+            ]
+        },
+        {
+            "id": "yoga-05",
+            "speaker": "instructor",
+            "cjk": "深呼吸，慢慢舉起雙手。",
+            "jyutping": "sam1 fu1 kap1, maan6 maan2 geoi2 hei2 soeng1 sau2.",
+            "english": "Breathe deeply, slowly raise both arms.",
+            "audioFile": "yoga-05.mp3",
+            "words": [
+                { "chinese": "深呼吸", "jyutping": "sam1 fu1 kap1", "english": "breathe deeply" },
+                { "chinese": "慢慢", "jyutping": "maan6 maan2", "english": "slowly" },
+                { "chinese": "舉起", "jyutping": "geoi2 hei2", "english": "raise" },
+                { "chinese": "雙手", "jyutping": "soeng1 sau2", "english": "both hands/arms" }
+            ]
+        },
+        {
+            "id": "yoga-06",
+            "speaker": "instructor",
+            "cjk": "依家做戰士式，膝頭曲多啲。",
+            "jyutping": "ji1 gaa1 zou6 zin3 si6 sik1, sat1 tau4 kuk1 do1 di1.",
+            "english": "Now let's do warrior pose, bend your knee a bit more.",
+            "audioFile": "yoga-06.mp3",
+            "words": [
+                { "chinese": "依家", "jyutping": "ji1 gaa1", "english": "now" },
+                { "chinese": "做", "jyutping": "zou6", "english": "do" },
+                { "chinese": "戰士式", "jyutping": "zin3 si6 sik1", "english": "warrior pose" },
+                { "chinese": "膝頭", "jyutping": "sat1 tau4", "english": "knee" },
+                { "chinese": "曲", "jyutping": "kuk1", "english": "bend" },
+                { "chinese": "多啲", "jyutping": "do1 di1", "english": "a bit more" }
+            ]
+        },
+        {
+            "id": "yoga-07",
+            "speaker": "you",
+            "cjk": "呢個動作有啲難，可唔可以慢啲教？",
+            "jyutping": "ni1 go3 dung6 zok3 jau5 di1 naan4, ho2 m4 ho2 ji5 maan6 di1 gaau3?",
+            "english": "This move is a bit hard, could you teach it slower?",
+            "audioFile": "yoga-07.mp3",
+            "words": [
+                { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
+                { "chinese": "動作", "jyutping": "dung6 zok3", "english": "movement; pose" },
+                { "chinese": "有啲難", "jyutping": "jau5 di1 naan4", "english": "a bit hard" },
+                { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji5", "english": "could you" },
+                { "chinese": "慢啲", "jyutping": "maan6 di1", "english": "slower" },
+                { "chinese": "教", "jyutping": "gaau3", "english": "teach" }
+            ]
+        },
+        {
+            "id": "yoga-08",
+            "speaker": "instructor",
+            "cjk": "慢慢嚟，唔使急。",
+            "jyutping": "maan6 maan2 lai4, m4 sai2 gap1.",
+            "english": "Take it slow, no need to rush.",
+            "audioFile": "yoga-08.mp3",
+            "words": [
+                { "chinese": "慢慢嚟", "jyutping": "maan6 maan2 lai4", "english": "take it slow" },
+                { "chinese": "唔使急", "jyutping": "m4 sai2 gap1", "english": "no need to rush" }
+            ]
+        },
+        {
+            "id": "yoga-09",
+            "speaker": "you",
+            "cjk": "今日堂好正呀，唔該晒！",
+            "jyutping": "gam1 jat6 tong4 hou2 zeng3 aa3, m4 goi1 saai3!",
+            "english": "Today's class was great, thank you so much!",
+            "audioFile": "yoga-09.mp3",
+            "words": [
+                { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
+                { "chinese": "堂", "jyutping": "tong4", "english": "class" },
+                { "chinese": "好正", "jyutping": "hou2 zeng3", "english": "really great" },
+                { "chinese": "唔該晒", "jyutping": "m4 goi1 saai3", "english": "thank you so much" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Yoga Poses",
+            "words": [
+                { "chinese": "戰士式", "jyutping": "zin3 si6 sik1", "english": "warrior pose" },
+                { "chinese": "下犬式", "jyutping": "haa6 hyun2 sik1", "english": "downward dog" },
+                { "chinese": "貓式", "jyutping": "maau1 sik1", "english": "cat pose" },
+                { "chinese": "樹式", "jyutping": "syu6 sik1", "english": "tree pose" },
+                { "chinese": "攤屍式", "jyutping": "taan1 si1 sik1", "english": "corpse pose (final relaxation)" }
+            ]
+        },
+        {
+            "category": "Class Terms",
+            "words": [
+                { "chinese": "瑜伽墊", "jyutping": "jyu4 kaa1 zin3", "english": "yoga mat" },
+                { "chinese": "瑜伽班", "jyutping": "jyu4 kaa1 baan1", "english": "yoga class" },
+                { "chinese": "導師", "jyutping": "dou6 si1", "english": "instructor" },
+                { "chinese": "深呼吸", "jyutping": "sam1 fu1 kap1", "english": "deep breath" },
+                { "chinese": "伸展", "jyutping": "san1 zin2", "english": "stretch" },
+                { "chinese": "拉筋", "jyutping": "laai1 gan1", "english": "loosen the muscles" }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                { "chinese": "慢慢嚟", "jyutping": "maan6 maan2 lai4", "english": "take it slow" },
+                { "chinese": "唔使急", "jyutping": "m4 sai2 gap1", "english": "no need to rush" },
+                { "chinese": "有啲難", "jyutping": "jau5 di1 naan4", "english": "a bit hard" },
+                { "chinese": "可唔可以慢啲教", "jyutping": "ho2 m4 ho2 ji5 maan6 di1 gaau3", "english": "could you teach it slower" }
+            ]
+        }
+    ]
+}

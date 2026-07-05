@@ -396,13 +396,8 @@
     ],
     "vocabulary": [
         {
-            "category": "Medical Terms",
+            "category": "Symptoms",
             "words": [
-                {
-                    "chinese": "睇醫生",
-                    "jyutping": "tai2 ji1 sang1",
-                    "english": "see a doctor"
-                },
                 {
                     "chinese": "發燒",
                     "jyutping": "faat3 siu1",
@@ -414,14 +409,109 @@
                     "english": "cough"
                 },
                 {
-                    "chinese": "藥",
-                    "jyutping": "joek6",
-                    "english": "medicine"
+                    "chinese": "頭痛",
+                    "jyutping": "tau4 tung3",
+                    "english": "headache"
+                },
+                {
+                    "chinese": "肚痛",
+                    "jyutping": "tou5 tung3",
+                    "english": "stomach ache"
+                },
+                {
+                    "chinese": "喉嚨痛",
+                    "jyutping": "hau4 lung4 tung3",
+                    "english": "sore throat"
+                },
+                {
+                    "chinese": "流鼻水",
+                    "jyutping": "lau4 bei6 seoi2",
+                    "english": "runny nose"
+                }
+            ]
+        },
+        {
+            "category": "At the Clinic",
+            "words": [
+                {
+                    "chinese": "睇醫生",
+                    "jyutping": "tai2 ji1 sang1",
+                    "english": "see a doctor"
+                },
+                {
+                    "chinese": "量體溫",
+                    "jyutping": "loeng4 tai2 wan1",
+                    "english": "take your temperature"
                 },
                 {
                     "chinese": "覆診",
                     "jyutping": "fuk6 can2",
                     "english": "follow-up appointment"
+                },
+                {
+                    "chinese": "病假紙",
+                    "jyutping": "beng6 gaa3 zi2",
+                    "english": "sick leave certificate"
+                },
+                {
+                    "chinese": "驗血",
+                    "jyutping": "jim6 hyut3",
+                    "english": "blood test"
+                }
+            ]
+        },
+        {
+            "category": "Medicine",
+            "words": [
+                {
+                    "chinese": "藥",
+                    "jyutping": "joek6",
+                    "english": "medicine"
+                },
+                {
+                    "chinese": "藥水",
+                    "jyutping": "joek6 seoi2",
+                    "english": "liquid medicine"
+                },
+                {
+                    "chinese": "藥丸",
+                    "jyutping": "joek6 jyun2",
+                    "english": "pill"
+                },
+                {
+                    "chinese": "消炎藥",
+                    "jyutping": "siu1 jim4 joek6",
+                    "english": "anti-inflammatory medicine"
+                }
+            ]
+        },
+        {
+            "category": "More Medical Terms",
+            "words": [
+                {
+                    "chinese": "打針",
+                    "jyutping": "daa2 zam1",
+                    "english": "get an injection"
+                },
+                {
+                    "chinese": "X光",
+                    "jyutping": "X gwong1",
+                    "english": "X-ray"
+                },
+                {
+                    "chinese": "專科",
+                    "jyutping": "zyun1 fo1",
+                    "english": "specialist"
+                },
+                {
+                    "chinese": "急症室",
+                    "jyutping": "gap1 zing3 sat1",
+                    "english": "emergency room"
+                },
+                {
+                    "chinese": "康復",
+                    "jyutping": "hong1 fuk6",
+                    "english": "recovery"
                 }
             ]
         }

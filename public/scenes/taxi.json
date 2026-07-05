@@ -272,6 +272,106 @@
                     "chinese": "咪錶",
                     "jyutping": "mai1 biu1",
                     "english": "taxi meter"
+                },
+                {
+                    "chinese": "隧道費",
+                    "jyutping": "seoi6 dou6 fai3",
+                    "english": "tunnel toll"
+                },
+                {
+                    "chinese": "紅的",
+                    "jyutping": "hung4 dik1",
+                    "english": "red (urban) taxi"
+                }
+            ]
+        },
+        {
+            "category": "Giving Directions",
+            "words": [
+                {
+                    "chinese": "去邊度",
+                    "jyutping": "heoi3 bin1 dou6",
+                    "english": "where to"
+                },
+                {
+                    "chinese": "喺呢度停",
+                    "jyutping": "hai2 ni1 dou6 ting4",
+                    "english": "stop here"
+                },
+                {
+                    "chinese": "快啲得唔得",
+                    "jyutping": "faai3 di1 dak1 m4 dak1",
+                    "english": "can you go a bit faster"
+                },
+                {
+                    "chinese": "該找",
+                    "jyutping": "goi1 zaau2",
+                    "english": "keep the change"
+                },
+                {
+                    "chinese": "前面",
+                    "jyutping": "cin4 min6",
+                    "english": "ahead"
+                },
+                {
+                    "chinese": "掉頭",
+                    "jyutping": "diu6 tau4",
+                    "english": "turn around"
+                },
+                {
+                    "chinese": "塞車",
+                    "jyutping": "sak1 ce1",
+                    "english": "traffic jam"
+                },
+                {
+                    "chinese": "抄近路",
+                    "jyutping": "caau1 kan5 lou6",
+                    "english": "take a shortcut"
+                }
+            ]
+        },
+        {
+            "category": "Fares",
+            "words": [
+                {
+                    "chinese": "車費",
+                    "jyutping": "ce1 fai3",
+                    "english": "fare"
+                },
+                {
+                    "chinese": "起錶",
+                    "jyutping": "hei2 biu1",
+                    "english": "starting fare"
+                },
+                {
+                    "chinese": "附加費",
+                    "jyutping": "fu6 gaa1 fai3",
+                    "english": "surcharge"
+                },
+                {
+                    "chinese": "行李",
+                    "jyutping": "hang4 lei5",
+                    "english": "luggage"
+                },
+                {
+                    "chinese": "電召的士",
+                    "jyutping": "din6 ziu6 dik1 si2",
+                    "english": "call a taxi"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "轉車",
+                    "jyutping": "zyun3 ce1",
+                    "english": "change vehicles"
+                },
+                {
+                    "chinese": "塞車費",
+                    "jyutping": "sak1 ce1 fai3",
+                    "english": "traffic-jam surcharge"
                 }
             ]
         }

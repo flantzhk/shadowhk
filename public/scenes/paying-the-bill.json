@@ -237,6 +237,111 @@
                     "chinese": "找續",
                     "jyutping": "zaau2 zuk6",
                     "english": "change (money returned)"
+                },
+                {
+                    "chinese": "卡數",
+                    "jyutping": "kaat1 sou3",
+                    "english": "card payment"
+                },
+                {
+                    "chinese": "加一",
+                    "jyutping": "gaa1 jat1",
+                    "english": "10% service charge"
+                }
+            ]
+        },
+        {
+            "category": "Useful Phrases",
+            "words": [
+                {
+                    "chinese": "唔該埋單",
+                    "jyutping": "m4 goi1 maai4 daan1",
+                    "english": "bill please"
+                },
+                {
+                    "chinese": "可唔可以碌卡",
+                    "jyutping": "ho2 m4 ho2 ji5 luk1 kaat1",
+                    "english": "can I pay by card"
+                },
+                {
+                    "chinese": "洗手間喺邊",
+                    "jyutping": "sai2 sau2 gaan1 hai2 bin1",
+                    "english": "where's the bathroom"
+                }
+            ]
+        },
+        {
+            "category": "Ways to Pay",
+            "words": [
+                {
+                    "chinese": "現金",
+                    "jyutping": "jin6 gam1",
+                    "english": "cash"
+                },
+                {
+                    "chinese": "信用卡",
+                    "jyutping": "seon3 jung6 kaat1",
+                    "english": "credit card"
+                },
+                {
+                    "chinese": "電子支付",
+                    "jyutping": "din6 zi2 zi1 fu6",
+                    "english": "mobile payment"
+                },
+                {
+                    "chinese": "支票",
+                    "jyutping": "zi1 piu3",
+                    "english": "cheque"
+                }
+            ]
+        },
+        {
+            "category": "Splitting & Tipping",
+            "words": [
+                {
+                    "chinese": "貼士",
+                    "jyutping": "tip1 si2",
+                    "english": "tip"
+                },
+                {
+                    "chinese": "平均分",
+                    "jyutping": "ping4 gwan1 fan1",
+                    "english": "divide equally"
+                },
+                {
+                    "chinese": "我請客",
+                    "jyutping": "ngo5 cing2 haak3",
+                    "english": "my treat"
+                },
+                {
+                    "chinese": "下次你請",
+                    "jyutping": "haa6 ci3 nei5 cing2",
+                    "english": "next time it's your treat"
+                }
+            ]
+        },
+        {
+            "category": "More Useful Words",
+            "words": [
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "小費",
+                    "jyutping": "siu2 fai3",
+                    "english": "gratuity"
+                },
+                {
+                    "chinese": "埋單紙",
+                    "jyutping": "maai4 daan1 zi2",
+                    "english": "the bill / receipt"
+                },
+                {
+                    "chinese": "賬單",
+                    "jyutping": "zoeng3 daan1",
+                    "english": "invoice / bill"
                 }
             ]
         }
