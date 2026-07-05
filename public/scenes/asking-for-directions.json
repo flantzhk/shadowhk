@@ -1,387 +1,419 @@
 {
-  "id": "asking-for-directions",
-  "language": "cantonese",
-  "emoji": "🗺️",
-  "imageUrl": "/shadowhk/images/scenes/asking-for-directions.jpg",
-  "tint": "#5AC8E8",
-  "title": "Asking for directions",
-  "description": "Find your way around HK — ask a stranger for help getting to the MTR",
-  "category": "transport",
-  "difficulty": "everyday",
-  "estimatedMinutes": 5,
-  "location": "Street, Mongkok",
-  "context": "Hong Kong streets can be confusing — overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
-  "cultural_note": "Outside a few gridded pockets of Kowloon, Hong Kong refuses to behave like a street grid. The same address might sit on an elevated walkway, down a hillside staircase, or inside a shopping mall that passes straight through a building. Locals navigate by landmarks (opposite the 7-Eleven, up one floor), not compass points or street numbers.",
-  "lines": [
-    {
-      "id": "dir-01",
-      "speaker": "you",
-      "cjk": "唔該，請問去旺角地鐵站點行？",
-      "jyutping": "m4 goi1, cing2 man6 heoi3 wong6 gok3 dei6 tit3 zaam6 dim2 haang4?",
-      "english": "Excuse me, how do I get to Mongkok MTR station?",
-      "audioFile": "dir-01.mp3",
-      "words": [
+    "id": "asking-for-directions",
+    "language": "cantonese",
+    "emoji": "🗺️",
+    "imageUrl": "/shadowhk/images/scenes/asking-for-directions.jpg",
+    "tint": "#5AC8E8",
+    "title": "Asking for directions",
+    "description": "Find your way around HK — ask a stranger for help getting to the MTR",
+    "category": "transport",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Street, Mongkok",
+    "context": "Hong Kong streets can be confusing — overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
+    "cultural_note": "Outside a few gridded pockets of Kowloon, Hong Kong refuses to behave like a street grid. The same address might sit on an elevated walkway, down a hillside staircase, or inside a shopping mall that passes straight through a building. Locals navigate by landmarks (opposite the 7-Eleven, up one floor), not compass points or street numbers.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "dir-01",
+            "speaker": "you",
+            "cjk": "唔該，請問去旺角地鐵站點行？",
+            "jyutping": "m4 goi1, cing2 man6 heoi3 wong6 gok3 dei6 tit3 zaam6 dim2 haang4?",
+            "english": "Excuse me, how do I get to Mongkok MTR station?",
+            "audioFile": "dir-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "請問",
+                    "jyutping": "cing2 man6",
+                    "english": "may I ask"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "旺角",
+                    "jyutping": "wong6 gok3",
+                    "english": "Mong Kok"
+                },
+                {
+                    "chinese": "地鐵站",
+                    "jyutping": "dei6 tit3 zaam6",
+                    "english": "MTR station"
+                },
+                {
+                    "chinese": "點",
+                    "jyutping": "dim2",
+                    "english": "how"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "walk"
+                }
+            ]
         },
         {
-          "chinese": "請問",
-          "jyutping": "cing2 man6",
-          "english": "may I ask"
+            "id": "dir-02",
+            "speaker": "stranger",
+            "cjk": "直行，過咗個天橋再左轉。",
+            "jyutping": "zik6 haang4, gwo3 zo2 go3 tin1 kiu4 zoi3 zo2 zyun3.",
+            "english": "Go straight, then turn left after the pedestrian bridge.",
+            "audioFile": "dir-02.mp3",
+            "words": [
+                {
+                    "chinese": "直行",
+                    "jyutping": "zik6 haang4",
+                    "english": "go straight"
+                },
+                {
+                    "chinese": "過",
+                    "jyutping": "gwo3",
+                    "english": "cross"
+                },
+                {
+                    "chinese": "咗",
+                    "jyutping": "zo2",
+                    "english": "(completed action)"
+                },
+                {
+                    "chinese": "個",
+                    "jyutping": "go3",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "天橋",
+                    "jyutping": "tin1 kiu4",
+                    "english": "footbridge"
+                },
+                {
+                    "chinese": "再",
+                    "jyutping": "zoi3",
+                    "english": "then"
+                },
+                {
+                    "chinese": "左轉",
+                    "jyutping": "zo2 zyun3",
+                    "english": "turn left"
+                }
+            ]
         },
         {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
+            "id": "dir-03",
+            "speaker": "you",
+            "cjk": "係咪行上天橋嗰度呀？",
+            "jyutping": "hai6 mai6 haang4 soeng5 tin1 kiu4 go2 dou6 aa3?",
+            "english": "Do I go up onto the footbridge there?",
+            "audioFile": "dir-03.mp3",
+            "words": [
+                {
+                    "chinese": "係咪",
+                    "jyutping": "hai6 mai6",
+                    "english": "is it?"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "walk"
+                },
+                {
+                    "chinese": "上",
+                    "jyutping": "soeng5",
+                    "english": "up"
+                },
+                {
+                    "chinese": "天橋",
+                    "jyutping": "tin1 kiu4",
+                    "english": "footbridge"
+                },
+                {
+                    "chinese": "嗰度",
+                    "jyutping": "go2 dou6",
+                    "english": "there"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "旺角",
-          "jyutping": "wong6 gok3",
-          "english": "Mong Kok"
+            "id": "dir-04",
+            "speaker": "stranger",
+            "cjk": "係，上咗天橋落返嚟再左轉，行五分鐘度。",
+            "jyutping": "hai6, soeng5 zo2 tin1 kiu4 lok6 faan1 lai4 zoi3 zo2 zyun3, haang4 ng5 fan1 zung1 dou2.",
+            "english": "Yes, over the bridge, back down, then turn left. About five minutes.",
+            "audioFile": "dir-04.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "上",
+                    "jyutping": "soeng5",
+                    "english": "up"
+                },
+                {
+                    "chinese": "咗",
+                    "jyutping": "zo2",
+                    "english": "(completed action)"
+                },
+                {
+                    "chinese": "天橋",
+                    "jyutping": "tin1 kiu4",
+                    "english": "footbridge"
+                },
+                {
+                    "chinese": "落",
+                    "jyutping": "lok6",
+                    "english": "go down"
+                },
+                {
+                    "chinese": "返嚟",
+                    "jyutping": "faan1 lai4",
+                    "english": "come back"
+                },
+                {
+                    "chinese": "再",
+                    "jyutping": "zoi3",
+                    "english": "then"
+                },
+                {
+                    "chinese": "左轉",
+                    "jyutping": "zo2 zyun3",
+                    "english": "turn left"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "walk"
+                },
+                {
+                    "chinese": "五",
+                    "jyutping": "ng5",
+                    "english": "five"
+                },
+                {
+                    "chinese": "分鐘",
+                    "jyutping": "fan1 zung1",
+                    "english": "minutes"
+                },
+                {
+                    "chinese": "度",
+                    "jyutping": "dou2",
+                    "english": "(or so)"
+                }
+            ]
         },
         {
-          "chinese": "地鐵站",
-          "jyutping": "dei6 tit3 zaam6",
-          "english": "MTR station"
+            "id": "dir-05",
+            "speaker": "you",
+            "cjk": "唔好意思，我學緊廣東話，聽唔晒。可唔可以講慢啲？",
+            "jyutping": "m4 hou2 ji3 si1, ngo5 hok6 gan2 gwong2 dung1 waa2, teng1 m4 saai3. ho2 m4 ho2 ji5 gong2 maan6 di1?",
+            "english": "Sorry, I'm still learning Cantonese and didn't catch all of that. Could you say it more slowly?",
+            "audioFile": "dir-05.mp3",
+            "words": [
+                {
+                    "chinese": "唔好意思",
+                    "jyutping": "m4 hou2 ji3 si1",
+                    "english": "excuse me"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "學",
+                    "jyutping": "hok6",
+                    "english": "learn"
+                },
+                {
+                    "chinese": "緊",
+                    "jyutping": "gan2",
+                    "english": "(ongoing)"
+                },
+                {
+                    "chinese": "廣東話",
+                    "jyutping": "gwong2 dung1 waa2",
+                    "english": "Cantonese"
+                },
+                {
+                    "chinese": "聽",
+                    "jyutping": "teng1",
+                    "english": "hear"
+                },
+                {
+                    "chinese": "唔",
+                    "jyutping": "m4",
+                    "english": "not"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                },
+                {
+                    "chinese": "可唔可以",
+                    "jyutping": "ho2 m4 ho2 ji5",
+                    "english": "can you?"
+                },
+                {
+                    "chinese": "講",
+                    "jyutping": "gong2",
+                    "english": "speak"
+                },
+                {
+                    "chinese": "慢",
+                    "jyutping": "maan6",
+                    "english": "slow"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                }
+            ]
         },
         {
-          "chinese": "點",
-          "jyutping": "dim2",
-          "english": "how"
+            "id": "dir-06",
+            "speaker": "stranger",
+            "cjk": "冇問題！直行，左轉，五分鐘。",
+            "jyutping": "mou5 man6 tai4! zik6 haang4, zo2 zyun3, ng5 fan1 zung1.",
+            "english": "No problem! Straight, turn left, five minutes.",
+            "audioFile": "dir-06.mp3",
+            "words": [
+                {
+                    "chinese": "冇",
+                    "jyutping": "mou5",
+                    "english": "not have"
+                },
+                {
+                    "chinese": "問題",
+                    "jyutping": "man6 tai4",
+                    "english": "problem"
+                },
+                {
+                    "chinese": "直行",
+                    "jyutping": "zik6 haang4",
+                    "english": "go straight"
+                },
+                {
+                    "chinese": "左轉",
+                    "jyutping": "zo2 zyun3",
+                    "english": "turn left"
+                },
+                {
+                    "chinese": "五",
+                    "jyutping": "ng5",
+                    "english": "five"
+                },
+                {
+                    "chinese": "分鐘",
+                    "jyutping": "fan1 zung1",
+                    "english": "minutes"
+                }
+            ]
         },
         {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "walk"
+            "id": "dir-07",
+            "speaker": "you",
+            "cjk": "真係唔該晒你！",
+            "jyutping": "zan1 hai6 m4 goi1 saai3 nei5!",
+            "english": "Thank you so much, I really appreciate it!",
+            "audioFile": "dir-07.mp3",
+            "words": [
+                {
+                    "chinese": "真係",
+                    "jyutping": "zan1 hai6",
+                    "english": "really"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                }
+            ]
+        },
+        {
+            "id": "dir-08",
+            "speaker": "stranger",
+            "cjk": "唔使客氣，慢慢行！",
+            "jyutping": "m4 sai2 haak3 hei3, maan6 maan2 haang4!",
+            "english": "No worries at all — take your time!",
+            "audioFile": "dir-08.mp3",
+            "words": [
+                {
+                    "chinese": "唔使",
+                    "jyutping": "m4 sai2",
+                    "english": "no need"
+                },
+                {
+                    "chinese": "客氣",
+                    "jyutping": "haak3 hei3",
+                    "english": "be polite"
+                },
+                {
+                    "chinese": "慢慢",
+                    "jyutping": "maan6 maan2",
+                    "english": "slowly"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "walk"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "dir-02",
-      "speaker": "stranger",
-      "cjk": "直行，過咗個天橋再左轉。",
-      "jyutping": "zik6 haang4, gwo3 zo2 go3 tin1 kiu4 zoi3 zo2 zyun3.",
-      "english": "Go straight, then turn left after the pedestrian bridge.",
-      "audioFile": "dir-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "直行",
-          "jyutping": "zik6 haang4",
-          "english": "go straight"
-        },
-        {
-          "chinese": "過",
-          "jyutping": "gwo3",
-          "english": "cross"
-        },
-        {
-          "chinese": "咗",
-          "jyutping": "zo2",
-          "english": "(completed action)"
-        },
-        {
-          "chinese": "個",
-          "jyutping": "go3",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "天橋",
-          "jyutping": "tin1 kiu4",
-          "english": "footbridge"
-        },
-        {
-          "chinese": "再",
-          "jyutping": "zoi3",
-          "english": "then"
-        },
-        {
-          "chinese": "左轉",
-          "jyutping": "zo2 zyun3",
-          "english": "turn left"
+            "category": "Directions",
+            "words": [
+                {
+                    "chinese": "左轉",
+                    "jyutping": "zo2 zyun3",
+                    "english": "turn left"
+                },
+                {
+                    "chinese": "右轉",
+                    "jyutping": "jau6 zyun3",
+                    "english": "turn right"
+                },
+                {
+                    "chinese": "直行",
+                    "jyutping": "zik6 haang4",
+                    "english": "go straight"
+                },
+                {
+                    "chinese": "紅綠燈",
+                    "jyutping": "hung4 luk6 dang1",
+                    "english": "traffic light"
+                },
+                {
+                    "chinese": "天橋",
+                    "jyutping": "tin1 kiu4",
+                    "english": "footbridge"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "dir-03",
-      "speaker": "you",
-      "cjk": "係咪行上天橋嗰度呀？",
-      "jyutping": "hai6 mai6 haang4 soeng5 tin1 kiu4 go2 dou6 aa3?",
-      "english": "Do I go up onto the footbridge there?",
-      "audioFile": "dir-03.mp3",
-      "words": [
-        {
-          "chinese": "係咪",
-          "jyutping": "hai6 mai6",
-          "english": "is it?"
-        },
-        {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "walk"
-        },
-        {
-          "chinese": "上",
-          "jyutping": "soeng5",
-          "english": "up"
-        },
-        {
-          "chinese": "天橋",
-          "jyutping": "tin1 kiu4",
-          "english": "footbridge"
-        },
-        {
-          "chinese": "嗰度",
-          "jyutping": "go2 dou6",
-          "english": "there"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "dir-04",
-      "speaker": "stranger",
-      "cjk": "係，上咗天橋落返嚟再左轉，行五分鐘度。",
-      "jyutping": "hai6, soeng5 zo2 tin1 kiu4 lok6 faan1 lai4 zoi3 zo2 zyun3, haang4 ng5 fan1 zung1 dou2.",
-      "english": "Yes, over the bridge, back down, then turn left. About five minutes.",
-      "audioFile": "dir-04.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "上",
-          "jyutping": "soeng5",
-          "english": "up"
-        },
-        {
-          "chinese": "咗",
-          "jyutping": "zo2",
-          "english": "(completed action)"
-        },
-        {
-          "chinese": "天橋",
-          "jyutping": "tin1 kiu4",
-          "english": "footbridge"
-        },
-        {
-          "chinese": "落",
-          "jyutping": "lok6",
-          "english": "go down"
-        },
-        {
-          "chinese": "返嚟",
-          "jyutping": "faan1 lai4",
-          "english": "come back"
-        },
-        {
-          "chinese": "再",
-          "jyutping": "zoi3",
-          "english": "then"
-        },
-        {
-          "chinese": "左轉",
-          "jyutping": "zo2 zyun3",
-          "english": "turn left"
-        },
-        {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "walk"
-        },
-        {
-          "chinese": "五",
-          "jyutping": "ng5",
-          "english": "five"
-        },
-        {
-          "chinese": "分鐘",
-          "jyutping": "fan1 zung1",
-          "english": "minutes"
-        },
-        {
-          "chinese": "度",
-          "jyutping": "dou2",
-          "english": "(or so)"
-        }
-      ]
-    },
-    {
-      "id": "dir-05",
-      "speaker": "you",
-      "cjk": "唔好意思，我學緊廣東話，聽唔晒。可唔可以講慢啲？",
-      "jyutping": "m4 hou2 ji3 si1, ngo5 hok6 gan2 gwong2 dung1 waa2, teng1 m4 saai3. ho2 m4 ho2 ji5 gong2 maan6 di1?",
-      "english": "Sorry, I'm still learning Cantonese and didn't catch all of that. Could you say it more slowly?",
-      "audioFile": "dir-05.mp3",
-      "words": [
-        {
-          "chinese": "唔好意思",
-          "jyutping": "m4 hou2 ji3 si1",
-          "english": "excuse me"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "學",
-          "jyutping": "hok6",
-          "english": "learn"
-        },
-        {
-          "chinese": "緊",
-          "jyutping": "gan2",
-          "english": "(ongoing)"
-        },
-        {
-          "chinese": "廣東話",
-          "jyutping": "gwong2 dung1 waa2",
-          "english": "Cantonese"
-        },
-        {
-          "chinese": "聽",
-          "jyutping": "teng1",
-          "english": "hear"
-        },
-        {
-          "chinese": "唔",
-          "jyutping": "m4",
-          "english": "not"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        },
-        {
-          "chinese": "可唔可以",
-          "jyutping": "ho2 m4 ho2 ji5",
-          "english": "can you?"
-        },
-        {
-          "chinese": "講",
-          "jyutping": "gong2",
-          "english": "speak"
-        },
-        {
-          "chinese": "慢",
-          "jyutping": "maan6",
-          "english": "slow"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        }
-      ]
-    },
-    {
-      "id": "dir-06",
-      "speaker": "stranger",
-      "cjk": "冇問題！直行，左轉，五分鐘。",
-      "jyutping": "mou5 man6 tai4! zik6 haang4, zo2 zyun3, ng5 fan1 zung1.",
-      "english": "No problem! Straight, turn left, five minutes.",
-      "audioFile": "dir-06.mp3",
-      "words": [
-        {
-          "chinese": "冇",
-          "jyutping": "mou5",
-          "english": "not have"
-        },
-        {
-          "chinese": "問題",
-          "jyutping": "man6 tai4",
-          "english": "problem"
-        },
-        {
-          "chinese": "直行",
-          "jyutping": "zik6 haang4",
-          "english": "go straight"
-        },
-        {
-          "chinese": "左轉",
-          "jyutping": "zo2 zyun3",
-          "english": "turn left"
-        },
-        {
-          "chinese": "五",
-          "jyutping": "ng5",
-          "english": "five"
-        },
-        {
-          "chinese": "分鐘",
-          "jyutping": "fan1 zung1",
-          "english": "minutes"
-        }
-      ]
-    },
-    {
-      "id": "dir-07",
-      "speaker": "you",
-      "cjk": "真係唔該晒你！",
-      "jyutping": "zan1 hai6 m4 goi1 saai3 nei5!",
-      "english": "Thank you so much, I really appreciate it!",
-      "audioFile": "dir-07.mp3",
-      "words": [
-        {
-          "chinese": "真係",
-          "jyutping": "zan1 hai6",
-          "english": "really"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        }
-      ]
-    },
-    {
-      "id": "dir-08",
-      "speaker": "stranger",
-      "cjk": "唔使客氣，慢慢行！",
-      "jyutping": "m4 sai2 haak3 hei3, maan6 maan2 haang4!",
-      "english": "No worries at all — take your time!",
-      "audioFile": "dir-08.mp3",
-      "words": [
-        {
-          "chinese": "唔使",
-          "jyutping": "m4 sai2",
-          "english": "no need"
-        },
-        {
-          "chinese": "客氣",
-          "jyutping": "haak3 hei3",
-          "english": "be polite"
-        },
-        {
-          "chinese": "慢慢",
-          "jyutping": "maan6 maan2",
-          "english": "slowly"
-        },
-        {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "walk"
-        }
-      ]
-    }
-  ]
+    ]
 }

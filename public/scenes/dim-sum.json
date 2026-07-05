@@ -1,307 +1,339 @@
 {
-  "id": "dim-sum",
-  "language": "cantonese",
-  "emoji": "🥟",
-  "imageUrl": "/shadowhk/images/scenes/dim-sum.jpg",
-  "tint": "#E8A030",
-  "title": "Ordering dim sum with family",
-  "description": "Sunday yum cha — order your favourites from the trolley and check the bill",
-  "category": "food",
-  "difficulty": "everyday",
-  "estimatedMinutes": 6,
-  "location": "Dim sum restaurant, Jordan",
-  "context": "Yum cha (飲茶) on Sunday morning is a Hong Kong institution. Whole families gather — three generations at one table is normal. You order from a checklist sheet or flag down the trolley lady and shout what you want.",
-  "cultural_note": "When someone refills your tea at a yum cha table, the correct response is to tap two bent fingers on the table. Legend traces the gesture to the Qianlong Emperor, who travelled incognito and poured tea for his companions; unable to kowtow without revealing him, they tapped bent fingers to mimic a kneeling bow. Every dim sum table in Hong Kong is quietly re-enacting that story.",
-  "lines": [
-    {
-      "id": "dim-sum-01",
-      "speaker": "you",
-      "cjk": "唔該，有冇位呀？",
-      "jyutping": "m4 goi1, jau5 mou5 wai2 aa3?",
-      "english": "Excuse me, do you have a table?",
-      "audioFile": "dim-sum-01.mp3",
-      "words": [
+    "id": "dim-sum",
+    "language": "cantonese",
+    "emoji": "🥟",
+    "imageUrl": "/shadowhk/images/scenes/dim-sum.jpg",
+    "tint": "#E8A030",
+    "title": "Ordering dim sum with family",
+    "description": "Sunday yum cha — order your favourites from the trolley and check the bill",
+    "category": "food",
+    "difficulty": "everyday",
+    "estimatedMinutes": 6,
+    "location": "Dim sum restaurant, Jordan",
+    "context": "Yum cha (飲茶) on Sunday morning is a Hong Kong institution. Whole families gather — three generations at one table is normal. You order from a checklist sheet or flag down the trolley lady and shout what you want.",
+    "cultural_note": "When someone refills your tea at a yum cha table, the correct response is to tap two bent fingers on the table. Legend traces the gesture to the Qianlong Emperor, who travelled incognito and poured tea for his companions; unable to kowtow without revealing him, they tapped bent fingers to mimic a kneeling bow. Every dim sum table in Hong Kong is quietly re-enacting that story.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "dim-sum-01",
+            "speaker": "you",
+            "cjk": "唔該，有冇位呀？",
+            "jyutping": "m4 goi1, jau5 mou5 wai2 aa3?",
+            "english": "Excuse me, do you have a table?",
+            "audioFile": "dim-sum-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "有冇",
+                    "jyutping": "jau5 mou5",
+                    "english": "have any?"
+                },
+                {
+                    "chinese": "位",
+                    "jyutping": "wai2",
+                    "english": "seat"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "有冇",
-          "jyutping": "jau5 mou5",
-          "english": "have any?"
+            "id": "dim-sum-02",
+            "speaker": "staff",
+            "cjk": "幾多位？",
+            "jyutping": "gei2 do1 wai2?",
+            "english": "How many people?",
+            "audioFile": "dim-sum-02.mp3",
+            "words": [
+                {
+                    "chinese": "幾多",
+                    "jyutping": "gei2 do1",
+                    "english": "how much"
+                },
+                {
+                    "chinese": "位",
+                    "jyutping": "wai2",
+                    "english": "(people)"
+                }
+            ]
         },
         {
-          "chinese": "位",
-          "jyutping": "wai2",
-          "english": "seat"
+            "id": "dim-sum-03",
+            "speaker": "you",
+            "cjk": "四位，麻煩晒。",
+            "jyutping": "sei3 wai2, maa4 faan4 saai3.",
+            "english": "Four people, thank you.",
+            "audioFile": "dim-sum-03.mp3",
+            "words": [
+                {
+                    "chinese": "四",
+                    "jyutping": "sei3",
+                    "english": "four"
+                },
+                {
+                    "chinese": "位",
+                    "jyutping": "wai2",
+                    "english": "(people)"
+                },
+                {
+                    "chinese": "麻煩",
+                    "jyutping": "maa4 faan4",
+                    "english": "trouble you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                }
+            ]
         },
         {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
+            "id": "dim-sum-04",
+            "speaker": "staff",
+            "cjk": "飲咩茶？",
+            "jyutping": "jam2 me1 caa4?",
+            "english": "What tea would you like?",
+            "audioFile": "dim-sum-04.mp3",
+            "words": [
+                {
+                    "chinese": "飲",
+                    "jyutping": "jam2",
+                    "english": "drink"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                },
+                {
+                    "chinese": "茶",
+                    "jyutping": "caa4",
+                    "english": "tea"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-05",
+            "speaker": "you",
+            "cjk": "普洱，唔該。仲要蝦餃同燒賣。",
+            "jyutping": "pou2 lei5, m4 goi1. zung6 jiu3 haa1 gaau2 tung4 siu1 maai2.",
+            "english": "Pu-erh tea please. Also har gow and siu mai.",
+            "audioFile": "dim-sum-05.mp3",
+            "words": [
+                {
+                    "chinese": "普洱",
+                    "jyutping": "pou2 lei5",
+                    "english": "pu-erh tea"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "蝦餃",
+                    "jyutping": "haa1 gaau2",
+                    "english": "shrimp dumplings"
+                },
+                {
+                    "chinese": "同",
+                    "jyutping": "tung4",
+                    "english": "and"
+                },
+                {
+                    "chinese": "燒賣",
+                    "jyutping": "siu1 maai2",
+                    "english": "siu mai"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-06",
+            "speaker": "staff",
+            "cjk": "好，仲要咩？",
+            "jyutping": "hou2, zung6 jiu3 me1?",
+            "english": "Sure, anything else?",
+            "audioFile": "dim-sum-06.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-07",
+            "speaker": "you",
+            "cjk": "要一籠叉燒包，同埋腸粉。",
+            "jyutping": "jiu3 jat1 lung4 caa1 siu1 baau1, tung4 maai4 coeng4 fan2.",
+            "english": "One basket of char siu bao, and cheung fun.",
+            "audioFile": "dim-sum-07.mp3",
+            "words": [
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "籠",
+                    "jyutping": "lung4",
+                    "english": "basket of"
+                },
+                {
+                    "chinese": "叉燒包",
+                    "jyutping": "caa1 siu1 baau1",
+                    "english": "BBQ pork buns"
+                },
+                {
+                    "chinese": "同埋",
+                    "jyutping": "tung4 maai4",
+                    "english": "and also"
+                },
+                {
+                    "chinese": "腸粉",
+                    "jyutping": "coeng4 fan2",
+                    "english": "rice noodle rolls"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-08",
+            "speaker": "staff",
+            "cjk": "明白，等陣上嚟。",
+            "jyutping": "ming4 baak6, dang2 zan6 soeng5 lei4.",
+            "english": "Understood, it'll be up shortly.",
+            "audioFile": "dim-sum-08.mp3",
+            "words": [
+                {
+                    "chinese": "明白",
+                    "jyutping": "ming4 baak6",
+                    "english": "understand"
+                },
+                {
+                    "chinese": "等陣",
+                    "jyutping": "dang2 zan6",
+                    "english": "in a moment"
+                },
+                {
+                    "chinese": "上嚟",
+                    "jyutping": "soeng5 lei4",
+                    "english": "come up"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-09",
+            "speaker": "you",
+            "cjk": "唔該，埋單。",
+            "jyutping": "m4 goi1, maai4 daan1.",
+            "english": "Excuse me, the bill please.",
+            "audioFile": "dim-sum-09.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "埋單",
+                    "jyutping": "maai4 daan1",
+                    "english": "the bill please"
+                }
+            ]
+        },
+        {
+            "id": "dim-sum-10",
+            "speaker": "staff",
+            "cjk": "係一百二十蚊。",
+            "jyutping": "hai6 jat1 baak3 ji6 sap6 man1.",
+            "english": "That's one hundred and twenty dollars.",
+            "audioFile": "dim-sum-10.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "一百二十",
+                    "jyutping": "jat1 baak3 ji6 sap6",
+                    "english": "one hundred twenty"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "dim-sum-02",
-      "speaker": "staff",
-      "cjk": "幾多位？",
-      "jyutping": "gei2 do1 wai2?",
-      "english": "How many people?",
-      "audioFile": "dim-sum-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "幾多",
-          "jyutping": "gei2 do1",
-          "english": "how much"
-        },
-        {
-          "chinese": "位",
-          "jyutping": "wai2",
-          "english": "(people)"
+            "category": "Dim Sum Dishes",
+            "words": [
+                {
+                    "chinese": "蝦餃",
+                    "jyutping": "haa1 gaau2",
+                    "english": "shrimp dumpling"
+                },
+                {
+                    "chinese": "燒賣",
+                    "jyutping": "siu1 maai2",
+                    "english": "siu mai"
+                },
+                {
+                    "chinese": "腸粉",
+                    "jyutping": "coeng2 fan2",
+                    "english": "rice noodle roll"
+                },
+                {
+                    "chinese": "鳳爪",
+                    "jyutping": "fung6 zaau2",
+                    "english": "chicken feet"
+                },
+                {
+                    "chinese": "點心紙",
+                    "jyutping": "dim2 sam1 zi2",
+                    "english": "dim sum order sheet"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "dim-sum-03",
-      "speaker": "you",
-      "cjk": "四位，麻煩晒。",
-      "jyutping": "sei3 wai2, maa4 faan4 saai3.",
-      "english": "Four people, thank you.",
-      "audioFile": "dim-sum-03.mp3",
-      "words": [
-        {
-          "chinese": "四",
-          "jyutping": "sei3",
-          "english": "four"
-        },
-        {
-          "chinese": "位",
-          "jyutping": "wai2",
-          "english": "(people)"
-        },
-        {
-          "chinese": "麻煩",
-          "jyutping": "maa4 faan4",
-          "english": "trouble you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-04",
-      "speaker": "staff",
-      "cjk": "飲咩茶？",
-      "jyutping": "jam2 me1 caa4?",
-      "english": "What tea would you like?",
-      "audioFile": "dim-sum-04.mp3",
-      "words": [
-        {
-          "chinese": "飲",
-          "jyutping": "jam2",
-          "english": "drink"
-        },
-        {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
-        },
-        {
-          "chinese": "茶",
-          "jyutping": "caa4",
-          "english": "tea"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-05",
-      "speaker": "you",
-      "cjk": "普洱，唔該。仲要蝦餃同燒賣。",
-      "jyutping": "pou2 lei5, m4 goi1. zung6 jiu3 haa1 gaau2 tung4 siu1 maai2.",
-      "english": "Pu-erh tea please. Also har gow and siu mai.",
-      "audioFile": "dim-sum-05.mp3",
-      "words": [
-        {
-          "chinese": "普洱",
-          "jyutping": "pou2 lei5",
-          "english": "pu-erh tea"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "蝦餃",
-          "jyutping": "haa1 gaau2",
-          "english": "shrimp dumplings"
-        },
-        {
-          "chinese": "同",
-          "jyutping": "tung4",
-          "english": "and"
-        },
-        {
-          "chinese": "燒賣",
-          "jyutping": "siu1 maai2",
-          "english": "siu mai"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-06",
-      "speaker": "staff",
-      "cjk": "好，仲要咩？",
-      "jyutping": "hou2, zung6 jiu3 me1?",
-      "english": "Sure, anything else?",
-      "audioFile": "dim-sum-06.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-07",
-      "speaker": "you",
-      "cjk": "要一籠叉燒包，同埋腸粉。",
-      "jyutping": "jiu3 jat1 lung4 caa1 siu1 baau1, tung4 maai4 coeng4 fan2.",
-      "english": "One basket of char siu bao, and cheung fun.",
-      "audioFile": "dim-sum-07.mp3",
-      "words": [
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "籠",
-          "jyutping": "lung4",
-          "english": "basket of"
-        },
-        {
-          "chinese": "叉燒包",
-          "jyutping": "caa1 siu1 baau1",
-          "english": "BBQ pork buns"
-        },
-        {
-          "chinese": "同埋",
-          "jyutping": "tung4 maai4",
-          "english": "and also"
-        },
-        {
-          "chinese": "腸粉",
-          "jyutping": "coeng4 fan2",
-          "english": "rice noodle rolls"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-08",
-      "speaker": "staff",
-      "cjk": "明白，等陣上嚟。",
-      "jyutping": "ming4 baak6, dang2 zan6 soeng5 lei4.",
-      "english": "Understood, it'll be up shortly.",
-      "audioFile": "dim-sum-08.mp3",
-      "words": [
-        {
-          "chinese": "明白",
-          "jyutping": "ming4 baak6",
-          "english": "understand"
-        },
-        {
-          "chinese": "等陣",
-          "jyutping": "dang2 zan6",
-          "english": "in a moment"
-        },
-        {
-          "chinese": "上嚟",
-          "jyutping": "soeng5 lei4",
-          "english": "come up"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-09",
-      "speaker": "you",
-      "cjk": "唔該，埋單。",
-      "jyutping": "m4 goi1, maai4 daan1.",
-      "english": "Excuse me, the bill please.",
-      "audioFile": "dim-sum-09.mp3",
-      "words": [
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "埋單",
-          "jyutping": "maai4 daan1",
-          "english": "the bill please"
-        }
-      ]
-    },
-    {
-      "id": "dim-sum-10",
-      "speaker": "staff",
-      "cjk": "係一百二十蚊。",
-      "jyutping": "hai6 jat1 baak3 ji6 sap6 man1.",
-      "english": "That's one hundred and twenty dollars.",
-      "audioFile": "dim-sum-10.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "一百二十",
-          "jyutping": "jat1 baak3 ji6 sap6",
-          "english": "one hundred twenty"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        }
-      ]
-    }
-  ]
+    ]
 }

@@ -1,327 +1,354 @@
 {
-  "id": "hair-salon",
-  "language": "cantonese",
-  "emoji": "✂️",
-  "imageUrl": "/shadowhk/images/scenes/hair-salon.jpg",
-  "tint": "#E8703A",
-  "title": "Getting a haircut at a local salon",
-  "description": "Tell the stylist what cut you want and chat while they work",
-  "category": "social",
-  "difficulty": "everyday",
-  "estimatedMinutes": 6,
-  "location": "Local hair salon, Sheung Wan",
-  "context": "Neighbourhood hair salons (髮廊) in Hong Kong are a social hub as much as a service. The stylist will chat throughout your cut — it's considered friendly. Be clear about what you want: length, style, fringe or no fringe.",
-  "cultural_note": "Alongside modern salons, Hong Kong still has traditional 理髮廳 (lei5 faat3 teng1), old-style barbershops marked by the rotating red-white-blue pole. Some of these barbers have worked the same chair for forty years. The standard service includes a close shave, ear cleaning, and a scalp massage that feels like a medical procedure. A cut typically costs around HK$80, a fraction of a modern salon's price.",
-  "lines": [
-    {
-      "id": "salon-01",
-      "speaker": "you",
-      "cjk": "唔該，我想剪頭髮。",
-      "jyutping": "m4 goi1, ngo5 soeng2 zin2 tau4 faat3.",
-      "english": "Excuse me, I'd like a haircut.",
-      "audioFile": "salon-01.mp3",
-      "words": [
+    "id": "hair-salon",
+    "language": "cantonese",
+    "emoji": "✂️",
+    "imageUrl": "/shadowhk/images/scenes/hair-salon.jpg",
+    "tint": "#E8703A",
+    "title": "Getting a haircut at a local salon",
+    "description": "Tell the stylist what cut you want and chat while they work",
+    "category": "social",
+    "difficulty": "everyday",
+    "estimatedMinutes": 6,
+    "location": "Local hair salon, Sheung Wan",
+    "context": "Neighbourhood hair salons (髮廊) in Hong Kong are a social hub as much as a service. The stylist will chat throughout your cut — it's considered friendly. Be clear about what you want: length, style, fringe or no fringe.",
+    "cultural_note": "Alongside modern salons, Hong Kong still has traditional 理髮廳 (lei5 faat3 teng1), old-style barbershops marked by the rotating red-white-blue pole. Some of these barbers have worked the same chair for forty years. The standard service includes a close shave, ear cleaning, and a scalp massage that feels like a medical procedure. A cut typically costs around HK$80, a fraction of a modern salon's price.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "salon-01",
+            "speaker": "you",
+            "cjk": "唔該，我想剪頭髮。",
+            "jyutping": "m4 goi1, ngo5 soeng2 zin2 tau4 faat3.",
+            "english": "Excuse me, I'd like a haircut.",
+            "audioFile": "salon-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "剪",
+                    "jyutping": "zin2",
+                    "english": "cut"
+                },
+                {
+                    "chinese": "頭髮",
+                    "jyutping": "tau4 faat3",
+                    "english": "hair"
+                }
+            ]
         },
         {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
+            "id": "salon-02",
+            "speaker": "stylist",
+            "cjk": "好，坐低先。想點剪？",
+            "jyutping": "hou2, co5 dai1 sin1. soeng2 dim2 zin2?",
+            "english": "Sure, have a seat. How would you like it cut?",
+            "audioFile": "salon-02.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "坐低",
+                    "jyutping": "co5 dai1",
+                    "english": "sit down"
+                },
+                {
+                    "chinese": "先",
+                    "jyutping": "sin1",
+                    "english": "first"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "點",
+                    "jyutping": "dim2",
+                    "english": "how"
+                },
+                {
+                    "chinese": "剪",
+                    "jyutping": "zin2",
+                    "english": "cut"
+                }
+            ]
         },
         {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
+            "id": "salon-03",
+            "speaker": "you",
+            "cjk": "剪短啲，但係唔好太短。兩邊打薄啲。",
+            "jyutping": "zin2 dyun2 di1, daan6 hai6 m4 hou2 taai3 dyun2. loeng5 bin1 daa2 bok6 di1.",
+            "english": "Shorter, but not too short. Thin out the sides.",
+            "audioFile": "salon-03.mp3",
+            "words": [
+                {
+                    "chinese": "剪",
+                    "jyutping": "zin2",
+                    "english": "cut"
+                },
+                {
+                    "chinese": "短",
+                    "jyutping": "dyun2",
+                    "english": "short"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "但係",
+                    "jyutping": "daan6 hai6",
+                    "english": "but"
+                },
+                {
+                    "chinese": "唔好",
+                    "jyutping": "m4 hou2",
+                    "english": "don't"
+                },
+                {
+                    "chinese": "太",
+                    "jyutping": "taai3",
+                    "english": "too"
+                },
+                {
+                    "chinese": "短",
+                    "jyutping": "dyun2",
+                    "english": "short"
+                },
+                {
+                    "chinese": "兩邊",
+                    "jyutping": "loeng5 bin1",
+                    "english": "both sides"
+                },
+                {
+                    "chinese": "打薄",
+                    "jyutping": "daa2 bok6",
+                    "english": "thin out"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                }
+            ]
         },
         {
-          "chinese": "剪",
-          "jyutping": "zin2",
-          "english": "cut"
+            "id": "salon-04",
+            "speaker": "stylist",
+            "cjk": "好，留唔留瀏海？",
+            "jyutping": "hou2, lau4 m4 lau4 lau4 hoi2?",
+            "english": "OK, do you want a fringe?",
+            "audioFile": "salon-04.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "留唔留",
+                    "jyutping": "lau4 m4 lau4",
+                    "english": "keep it or not?"
+                },
+                {
+                    "chinese": "瀏海",
+                    "jyutping": "lau4 hoi2",
+                    "english": "fringe"
+                }
+            ]
         },
         {
-          "chinese": "頭髮",
-          "jyutping": "tau4 faat3",
-          "english": "hair"
+            "id": "salon-05",
+            "speaker": "you",
+            "cjk": "唔使留瀏海，唔該。",
+            "jyutping": "m4 sai2 lau4 lau4 hoi2, m4 goi1.",
+            "english": "No fringe please.",
+            "audioFile": "salon-05.mp3",
+            "words": [
+                {
+                    "chinese": "唔使",
+                    "jyutping": "m4 sai2",
+                    "english": "no need"
+                },
+                {
+                    "chinese": "留",
+                    "jyutping": "lau4",
+                    "english": "keep"
+                },
+                {
+                    "chinese": "瀏海",
+                    "jyutping": "lau4 hoi2",
+                    "english": "fringe"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                }
+            ]
+        },
+        {
+            "id": "salon-06",
+            "speaker": "stylist",
+            "cjk": "剪好喇，睇吓點呀？",
+            "jyutping": "zin2 hou2 laa3, tai2 haa5 dim2 aa3?",
+            "english": "All done. Have a look, what do you think?",
+            "audioFile": "salon-06.mp3",
+            "words": [
+                {
+                    "chinese": "剪",
+                    "jyutping": "zin2",
+                    "english": "cut"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "(done)"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "睇",
+                    "jyutping": "tai2",
+                    "english": "look"
+                },
+                {
+                    "chinese": "吓",
+                    "jyutping": "haa5",
+                    "english": "(briefly)"
+                },
+                {
+                    "chinese": "點",
+                    "jyutping": "dim2",
+                    "english": "how"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
+        },
+        {
+            "id": "salon-07",
+            "speaker": "you",
+            "cjk": "好靚呀！幾多錢？",
+            "jyutping": "hou2 leng3 aa3! gei2 do1 cin2?",
+            "english": "It looks great! How much?",
+            "audioFile": "salon-07.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "靚",
+                    "jyutping": "leng3",
+                    "english": "pretty"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "幾多",
+                    "jyutping": "gei2 do1",
+                    "english": "how much"
+                },
+                {
+                    "chinese": "錢",
+                    "jyutping": "cin2",
+                    "english": "money"
+                }
+            ]
+        },
+        {
+            "id": "salon-08",
+            "speaker": "stylist",
+            "cjk": "八十蚊。",
+            "jyutping": "baat3 sap6 man1.",
+            "english": "Eighty dollars.",
+            "audioFile": "salon-08.mp3",
+            "words": [
+                {
+                    "chinese": "八十",
+                    "jyutping": "baat3 sap6",
+                    "english": "eighty"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                }
+            ]
+        },
+        {
+            "id": "salon-09",
+            "speaker": "you",
+            "cjk": "唔該晒！",
+            "jyutping": "m4 goi1 saai3!",
+            "english": "Thank you!",
+            "audioFile": "salon-09.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "salon-02",
-      "speaker": "stylist",
-      "cjk": "好，坐低先。想點剪？",
-      "jyutping": "hou2, co5 dai1 sin1. soeng2 dim2 zin2?",
-      "english": "Sure, have a seat. How would you like it cut?",
-      "audioFile": "salon-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "坐低",
-          "jyutping": "co5 dai1",
-          "english": "sit down"
-        },
-        {
-          "chinese": "先",
-          "jyutping": "sin1",
-          "english": "first"
-        },
-        {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
-        },
-        {
-          "chinese": "點",
-          "jyutping": "dim2",
-          "english": "how"
-        },
-        {
-          "chinese": "剪",
-          "jyutping": "zin2",
-          "english": "cut"
+            "category": "Salon Terms",
+            "words": [
+                {
+                    "chinese": "剪頭髮",
+                    "jyutping": "zin2 tau4 faat3",
+                    "english": "haircut"
+                },
+                {
+                    "chinese": "洗頭",
+                    "jyutping": "sai2 tau4",
+                    "english": "wash hair"
+                },
+                {
+                    "chinese": "電髮",
+                    "jyutping": "din6 faat3",
+                    "english": "perm"
+                },
+                {
+                    "chinese": "染髮",
+                    "jyutping": "jim5 faat3",
+                    "english": "dye hair"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "salon-03",
-      "speaker": "you",
-      "cjk": "剪短啲，但係唔好太短。兩邊打薄啲。",
-      "jyutping": "zin2 dyun2 di1, daan6 hai6 m4 hou2 taai3 dyun2. loeng5 bin1 daa2 bok6 di1.",
-      "english": "Shorter, but not too short. Thin out the sides.",
-      "audioFile": "salon-03.mp3",
-      "words": [
-        {
-          "chinese": "剪",
-          "jyutping": "zin2",
-          "english": "cut"
-        },
-        {
-          "chinese": "短",
-          "jyutping": "dyun2",
-          "english": "short"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        },
-        {
-          "chinese": "但係",
-          "jyutping": "daan6 hai6",
-          "english": "but"
-        },
-        {
-          "chinese": "唔好",
-          "jyutping": "m4 hou2",
-          "english": "don't"
-        },
-        {
-          "chinese": "太",
-          "jyutping": "taai3",
-          "english": "too"
-        },
-        {
-          "chinese": "短",
-          "jyutping": "dyun2",
-          "english": "short"
-        },
-        {
-          "chinese": "兩邊",
-          "jyutping": "loeng5 bin1",
-          "english": "both sides"
-        },
-        {
-          "chinese": "打薄",
-          "jyutping": "daa2 bok6",
-          "english": "thin out"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        }
-      ]
-    },
-    {
-      "id": "salon-04",
-      "speaker": "stylist",
-      "cjk": "好，留唔留瀏海？",
-      "jyutping": "hou2, lau4 m4 lau4 lau4 hoi2?",
-      "english": "OK, do you want a fringe?",
-      "audioFile": "salon-04.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "留唔留",
-          "jyutping": "lau4 m4 lau4",
-          "english": "keep it or not?"
-        },
-        {
-          "chinese": "瀏海",
-          "jyutping": "lau4 hoi2",
-          "english": "fringe"
-        }
-      ]
-    },
-    {
-      "id": "salon-05",
-      "speaker": "you",
-      "cjk": "唔使留瀏海，唔該。",
-      "jyutping": "m4 sai2 lau4 lau4 hoi2, m4 goi1.",
-      "english": "No fringe please.",
-      "audioFile": "salon-05.mp3",
-      "words": [
-        {
-          "chinese": "唔使",
-          "jyutping": "m4 sai2",
-          "english": "no need"
-        },
-        {
-          "chinese": "留",
-          "jyutping": "lau4",
-          "english": "keep"
-        },
-        {
-          "chinese": "瀏海",
-          "jyutping": "lau4 hoi2",
-          "english": "fringe"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        }
-      ]
-    },
-    {
-      "id": "salon-06",
-      "speaker": "stylist",
-      "cjk": "剪好喇，睇吓點呀？",
-      "jyutping": "zin2 hou2 laa3, tai2 haa5 dim2 aa3?",
-      "english": "All done. Have a look, what do you think?",
-      "audioFile": "salon-06.mp3",
-      "words": [
-        {
-          "chinese": "剪",
-          "jyutping": "zin2",
-          "english": "cut"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "(done)"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "睇",
-          "jyutping": "tai2",
-          "english": "look"
-        },
-        {
-          "chinese": "吓",
-          "jyutping": "haa5",
-          "english": "(briefly)"
-        },
-        {
-          "chinese": "點",
-          "jyutping": "dim2",
-          "english": "how"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "salon-07",
-      "speaker": "you",
-      "cjk": "好靚呀！幾多錢？",
-      "jyutping": "hou2 leng3 aa3! gei2 do1 cin2?",
-      "english": "It looks great! How much?",
-      "audioFile": "salon-07.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "靚",
-          "jyutping": "leng3",
-          "english": "pretty"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "幾多",
-          "jyutping": "gei2 do1",
-          "english": "how much"
-        },
-        {
-          "chinese": "錢",
-          "jyutping": "cin2",
-          "english": "money"
-        }
-      ]
-    },
-    {
-      "id": "salon-08",
-      "speaker": "stylist",
-      "cjk": "八十蚊。",
-      "jyutping": "baat3 sap6 man1.",
-      "english": "Eighty dollars.",
-      "audioFile": "salon-08.mp3",
-      "words": [
-        {
-          "chinese": "八十",
-          "jyutping": "baat3 sap6",
-          "english": "eighty"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        }
-      ]
-    },
-    {
-      "id": "salon-09",
-      "speaker": "you",
-      "cjk": "唔該晒！",
-      "jyutping": "m4 goi1 saai3!",
-      "english": "Thank you!",
-      "audioFile": "salon-09.mp3",
-      "words": [
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        }
-      ]
-    }
-  ]
+    ]
 }

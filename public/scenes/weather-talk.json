@@ -1,457 +1,479 @@
 {
-  "id": "weather-talk",
-  "language": "cantonese",
-  "emoji": "🌧️",
-  "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
-  "tint": "#5AC8E8",
-  "title": "Talking about the weather",
-  "description": "HK's most reliable small talk — heat, rain, typhoons, and survival tips",
-  "category": "social",
-  "difficulty": "everyday",
-  "estimatedMinutes": 5,
-  "location": "Office / street / lift — anywhere",
-  "context": "Hong Kong weather is extreme — blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
-  "cultural_note": "The Hong Kong Observatory's typhoon signal system is one of the most-checked pieces of public information in the city. Signal 1 means a storm is nearby. Signal 3 means strong winds. Signal 8, the 八號風球 (baat3 hou6 fung1 kau4), closes schools, offices, and transport, and is greeted by the city's schoolchildren with an enthusiasm usually reserved for Christmas. The highest is Signal 10: hurricane-force winds, usually because the eye of the typhoon is passing close to Hong Kong.",
-  "lines": [
-    {
-      "id": "wx-01",
-      "speaker": "colleague",
-      "cjk": "今日好熱呀！",
-      "jyutping": "gam1 jat6 hou2 jit6 aa3!",
-      "english": "It's so hot today!",
-      "audioFile": "wx-01.mp3",
-      "words": [
+    "id": "weather-talk",
+    "language": "cantonese",
+    "emoji": "🌧️",
+    "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
+    "tint": "#5AC8E8",
+    "title": "Talking about the weather",
+    "description": "HK's most reliable small talk — heat, rain, typhoons, and survival tips",
+    "category": "social",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Office / street / lift — anywhere",
+    "context": "Hong Kong weather is extreme — blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
+    "cultural_note": "The Hong Kong Observatory's typhoon signal system is one of the most-checked pieces of public information in the city. Signal 1 means a storm is nearby. Signal 3 means strong winds. Signal 8, the 八號風球 (baat3 hou6 fung1 kau4), closes schools, offices, and transport, and is greeted by the city's schoolchildren with an enthusiasm usually reserved for Christmas. The highest is Signal 10: hurricane-force winds, usually because the eye of the typhoon is passing close to Hong Kong.",
+    "lines": [
         {
-          "chinese": "今日",
-          "jyutping": "gam1 jat6",
-          "english": "today"
+            "id": "wx-01",
+            "speaker": "colleague",
+            "cjk": "今日好熱呀！",
+            "jyutping": "gam1 jat6 hou2 jit6 aa3!",
+            "english": "It's so hot today!",
+            "audioFile": "wx-01.mp3",
+            "words": [
+                {
+                    "chinese": "今日",
+                    "jyutping": "gam1 jat6",
+                    "english": "today"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "熱",
+                    "jyutping": "jit6",
+                    "english": "hot"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
+            "id": "wx-02",
+            "speaker": "you",
+            "cjk": "係呀，熱到唔想出街。",
+            "jyutping": "hai6 aa3, jit6 dou3 m4 soeng2 ceot1 gaai1.",
+            "english": "I know — so hot I don't even want to go outside.",
+            "audioFile": "wx-02.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "熱",
+                    "jyutping": "jit6",
+                    "english": "hot"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou3",
+                    "english": "(to the point)"
+                },
+                {
+                    "chinese": "唔",
+                    "jyutping": "m4",
+                    "english": "not"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "出街",
+                    "jyutping": "ceot1 gaai1",
+                    "english": "go out"
+                }
+            ]
         },
         {
-          "chinese": "熱",
-          "jyutping": "jit6",
-          "english": "hot"
+            "id": "wx-03",
+            "speaker": "colleague",
+            "cjk": "聽日話落雨㗎，記得帶遮。",
+            "jyutping": "ting1 jat6 waa6 lok6 jyu5 gaa3, gei3 dak1 daai3 ze1.",
+            "english": "They say it'll rain tomorrow — remember to bring an umbrella.",
+            "audioFile": "wx-03.mp3",
+            "words": [
+                {
+                    "chinese": "聽日",
+                    "jyutping": "ting1 jat6",
+                    "english": "tomorrow"
+                },
+                {
+                    "chinese": "話",
+                    "jyutping": "waa6",
+                    "english": "say"
+                },
+                {
+                    "chinese": "落雨",
+                    "jyutping": "lok6 jyu5",
+                    "english": "rain"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "記得",
+                    "jyutping": "gei3 dak1",
+                    "english": "remember"
+                },
+                {
+                    "chinese": "帶",
+                    "jyutping": "daai3",
+                    "english": "bring"
+                },
+                {
+                    "chinese": "遮",
+                    "jyutping": "ze1",
+                    "english": "umbrella"
+                }
+            ]
         },
         {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
+            "id": "wx-04",
+            "speaker": "you",
+            "cjk": "真係？噉要早啲出門口喇。",
+            "jyutping": "zan1 hai6? gam2 jiu3 zou2 di1 ceot1 mun4 hau2 laa3.",
+            "english": "Really? Better leave home earlier then.",
+            "audioFile": "wx-04.mp3",
+            "words": [
+                {
+                    "chinese": "真係",
+                    "jyutping": "zan1 hai6",
+                    "english": "really"
+                },
+                {
+                    "chinese": "噉",
+                    "jyutping": "gam2",
+                    "english": "then"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "need to"
+                },
+                {
+                    "chinese": "早",
+                    "jyutping": "zou2",
+                    "english": "early"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "出",
+                    "jyutping": "ceot1",
+                    "english": "go out"
+                },
+                {
+                    "chinese": "門口",
+                    "jyutping": "mun4 hau2",
+                    "english": "door"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                }
+            ]
+        },
+        {
+            "id": "wx-05",
+            "speaker": "colleague",
+            "cjk": "係，而且而家話可能打風㗎喎！",
+            "jyutping": "hai6, ji4 ce2 ji4 gaa1 waa6 ho2 nang4 daa2 fung1 gaa3 wo3!",
+            "english": "Yes, and there's even talk of a typhoon coming!",
+            "audioFile": "wx-05.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "而且",
+                    "jyutping": "ji4 ce2",
+                    "english": "what's more"
+                },
+                {
+                    "chinese": "而家",
+                    "jyutping": "ji4 gaa1",
+                    "english": "now"
+                },
+                {
+                    "chinese": "話",
+                    "jyutping": "waa6",
+                    "english": "say"
+                },
+                {
+                    "chinese": "可能",
+                    "jyutping": "ho2 nang4",
+                    "english": "maybe"
+                },
+                {
+                    "chinese": "打風",
+                    "jyutping": "daa2 fung1",
+                    "english": "typhoon coming"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "喎",
+                    "jyutping": "wo3",
+                    "english": "(you know)"
+                }
+            ]
+        },
+        {
+            "id": "wx-06",
+            "speaker": "you",
+            "cjk": "幾號風球？",
+            "jyutping": "gei2 hou6 fung1 kau4?",
+            "english": "What typhoon signal number?",
+            "audioFile": "wx-06.mp3",
+            "words": [
+                {
+                    "chinese": "幾號",
+                    "jyutping": "gei2 hou6",
+                    "english": "which number"
+                },
+                {
+                    "chinese": "風球",
+                    "jyutping": "fung1 kau4",
+                    "english": "typhoon signal"
+                }
+            ]
+        },
+        {
+            "id": "wx-07",
+            "speaker": "colleague",
+            "cjk": "聽講八號。你屋企準備好未？",
+            "jyutping": "ting1 gong2 baat3 hou6. nei5 uk1 kei2 zeon2 bei6 hou2 mei6?",
+            "english": "They're saying Signal 8. Is your place stocked up?",
+            "audioFile": "wx-07.mp3",
+            "words": [
+                {
+                    "chinese": "聽講",
+                    "jyutping": "ting1 gong2",
+                    "english": "I heard"
+                },
+                {
+                    "chinese": "八號",
+                    "jyutping": "baat3 hou6",
+                    "english": "number eight"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "屋企",
+                    "jyutping": "uk1 kei2",
+                    "english": "home"
+                },
+                {
+                    "chinese": "準備",
+                    "jyutping": "zeon2 bei6",
+                    "english": "prepare"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "(ready)"
+                },
+                {
+                    "chinese": "未",
+                    "jyutping": "mei6",
+                    "english": "not yet"
+                }
+            ]
+        },
+        {
+            "id": "wx-08",
+            "speaker": "you",
+            "cjk": "仲未！要去買定啲嘢食先。",
+            "jyutping": "zung6 mei6! jiu3 heoi3 maai5 ding6 di1 je5 sik6 sin1.",
+            "english": "Not yet! I need to go stock up on food first.",
+            "audioFile": "wx-08.mp3",
+            "words": [
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "未",
+                    "jyutping": "mei6",
+                    "english": "not yet"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "need to"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "買",
+                    "jyutping": "maai5",
+                    "english": "buy"
+                },
+                {
+                    "chinese": "定",
+                    "jyutping": "ding6",
+                    "english": "(in advance)"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(some)"
+                },
+                {
+                    "chinese": "嘢食",
+                    "jyutping": "je5 sik6",
+                    "english": "food"
+                },
+                {
+                    "chinese": "先",
+                    "jyutping": "sin1",
+                    "english": "first"
+                }
+            ]
+        },
+        {
+            "id": "wx-09",
+            "speaker": "colleague",
+            "cjk": "快啲呀，超市嘅嘢好快賣晒㗎！",
+            "jyutping": "faai3 di1 aa3, ciu1 si5 ge3 je5 hou2 faai3 maai6 saai3 gaa3!",
+            "english": "Hurry up — supermarket shelves empty out fast!",
+            "audioFile": "wx-09.mp3",
+            "words": [
+                {
+                    "chinese": "快",
+                    "jyutping": "faai3",
+                    "english": "fast"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "超市",
+                    "jyutping": "ciu1 si5",
+                    "english": "supermarket"
+                },
+                {
+                    "chinese": "嘅",
+                    "jyutping": "ge3",
+                    "english": "(linking particle)"
+                },
+                {
+                    "chinese": "嘢",
+                    "jyutping": "je5",
+                    "english": "thing(s)"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "快",
+                    "jyutping": "faai3",
+                    "english": "fast"
+                },
+                {
+                    "chinese": "賣",
+                    "jyutping": "maai6",
+                    "english": "sell"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
+        },
+        {
+            "id": "wx-10",
+            "speaker": "you",
+            "cjk": "多謝提醒！我即刻去。",
+            "jyutping": "do1 ze6 tai4 sing2! ngo5 zik1 haak1 heoi3.",
+            "english": "Thanks for the heads up! I'm going right now.",
+            "audioFile": "wx-10.mp3",
+            "words": [
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                },
+                {
+                    "chinese": "提醒",
+                    "jyutping": "tai4 sing2",
+                    "english": "reminding"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "即刻",
+                    "jyutping": "zik1 haak1",
+                    "english": "right away"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "wx-02",
-      "speaker": "you",
-      "cjk": "係呀，熱到唔想出街。",
-      "jyutping": "hai6 aa3, jit6 dou3 m4 soeng2 ceot1 gaai1.",
-      "english": "I know — so hot I don't even want to go outside.",
-      "audioFile": "wx-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "熱",
-          "jyutping": "jit6",
-          "english": "hot"
-        },
-        {
-          "chinese": "到",
-          "jyutping": "dou3",
-          "english": "(to the point)"
-        },
-        {
-          "chinese": "唔",
-          "jyutping": "m4",
-          "english": "not"
-        },
-        {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
-        },
-        {
-          "chinese": "出街",
-          "jyutping": "ceot1 gaai1",
-          "english": "go out"
+            "category": "Weather Terms",
+            "words": [
+                {
+                    "chinese": "打風",
+                    "jyutping": "daa2 fung1",
+                    "english": "typhoon (lit. \"hit wind\")"
+                },
+                {
+                    "chinese": "落雨",
+                    "jyutping": "lok6 jyu5",
+                    "english": "rain"
+                },
+                {
+                    "chinese": "八號風球",
+                    "jyutping": "baat3 hou6 fung1 kau4",
+                    "english": "signal no. 8 (typhoon warning)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "wx-03",
-      "speaker": "colleague",
-      "cjk": "聽日話落雨㗎，記得帶遮。",
-      "jyutping": "ting1 jat6 waa6 lok6 jyu5 gaa3, gei3 dak1 daai3 ze1.",
-      "english": "They say it'll rain tomorrow — remember to bring an umbrella.",
-      "audioFile": "wx-03.mp3",
-      "words": [
-        {
-          "chinese": "聽日",
-          "jyutping": "ting1 jat6",
-          "english": "tomorrow"
-        },
-        {
-          "chinese": "話",
-          "jyutping": "waa6",
-          "english": "say"
-        },
-        {
-          "chinese": "落雨",
-          "jyutping": "lok6 jyu5",
-          "english": "rain"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "記得",
-          "jyutping": "gei3 dak1",
-          "english": "remember"
-        },
-        {
-          "chinese": "帶",
-          "jyutping": "daai3",
-          "english": "bring"
-        },
-        {
-          "chinese": "遮",
-          "jyutping": "ze1",
-          "english": "umbrella"
-        }
-      ]
-    },
-    {
-      "id": "wx-04",
-      "speaker": "you",
-      "cjk": "真係？噉要早啲出門口喇。",
-      "jyutping": "zan1 hai6? gam2 jiu3 zou2 di1 ceot1 mun4 hau2 laa3.",
-      "english": "Really? Better leave home earlier then.",
-      "audioFile": "wx-04.mp3",
-      "words": [
-        {
-          "chinese": "真係",
-          "jyutping": "zan1 hai6",
-          "english": "really"
-        },
-        {
-          "chinese": "噉",
-          "jyutping": "gam2",
-          "english": "then"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "need to"
-        },
-        {
-          "chinese": "早",
-          "jyutping": "zou2",
-          "english": "early"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        },
-        {
-          "chinese": "出",
-          "jyutping": "ceot1",
-          "english": "go out"
-        },
-        {
-          "chinese": "門口",
-          "jyutping": "mun4 hau2",
-          "english": "door"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        }
-      ]
-    },
-    {
-      "id": "wx-05",
-      "speaker": "colleague",
-      "cjk": "係，而且而家話可能打風㗎喎！",
-      "jyutping": "hai6, ji4 ce2 ji4 gaa1 waa6 ho2 nang4 daa2 fung1 gaa3 wo3!",
-      "english": "Yes, and there's even talk of a typhoon coming!",
-      "audioFile": "wx-05.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "而且",
-          "jyutping": "ji4 ce2",
-          "english": "what's more"
-        },
-        {
-          "chinese": "而家",
-          "jyutping": "ji4 gaa1",
-          "english": "now"
-        },
-        {
-          "chinese": "話",
-          "jyutping": "waa6",
-          "english": "say"
-        },
-        {
-          "chinese": "可能",
-          "jyutping": "ho2 nang4",
-          "english": "maybe"
-        },
-        {
-          "chinese": "打風",
-          "jyutping": "daa2 fung1",
-          "english": "typhoon coming"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "喎",
-          "jyutping": "wo3",
-          "english": "(you know)"
-        }
-      ]
-    },
-    {
-      "id": "wx-06",
-      "speaker": "you",
-      "cjk": "幾號風球？",
-      "jyutping": "gei2 hou6 fung1 kau4?",
-      "english": "What typhoon signal number?",
-      "audioFile": "wx-06.mp3",
-      "words": [
-        {
-          "chinese": "幾號",
-          "jyutping": "gei2 hou6",
-          "english": "which number"
-        },
-        {
-          "chinese": "風球",
-          "jyutping": "fung1 kau4",
-          "english": "typhoon signal"
-        }
-      ]
-    },
-    {
-      "id": "wx-07",
-      "speaker": "colleague",
-      "cjk": "聽講八號。你屋企準備好未？",
-      "jyutping": "ting1 gong2 baat3 hou6. nei5 uk1 kei2 zeon2 bei6 hou2 mei6?",
-      "english": "They're saying Signal 8. Is your place stocked up?",
-      "audioFile": "wx-07.mp3",
-      "words": [
-        {
-          "chinese": "聽講",
-          "jyutping": "ting1 gong2",
-          "english": "I heard"
-        },
-        {
-          "chinese": "八號",
-          "jyutping": "baat3 hou6",
-          "english": "number eight"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "屋企",
-          "jyutping": "uk1 kei2",
-          "english": "home"
-        },
-        {
-          "chinese": "準備",
-          "jyutping": "zeon2 bei6",
-          "english": "prepare"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "(ready)"
-        },
-        {
-          "chinese": "未",
-          "jyutping": "mei6",
-          "english": "not yet"
-        }
-      ]
-    },
-    {
-      "id": "wx-08",
-      "speaker": "you",
-      "cjk": "仲未！要去買定啲嘢食先。",
-      "jyutping": "zung6 mei6! jiu3 heoi3 maai5 ding6 di1 je5 sik6 sin1.",
-      "english": "Not yet! I need to go stock up on food first.",
-      "audioFile": "wx-08.mp3",
-      "words": [
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "未",
-          "jyutping": "mei6",
-          "english": "not yet"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "need to"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "買",
-          "jyutping": "maai5",
-          "english": "buy"
-        },
-        {
-          "chinese": "定",
-          "jyutping": "ding6",
-          "english": "(in advance)"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(some)"
-        },
-        {
-          "chinese": "嘢食",
-          "jyutping": "je5 sik6",
-          "english": "food"
-        },
-        {
-          "chinese": "先",
-          "jyutping": "sin1",
-          "english": "first"
-        }
-      ]
-    },
-    {
-      "id": "wx-09",
-      "speaker": "colleague",
-      "cjk": "快啲呀，超市嘅嘢好快賣晒㗎！",
-      "jyutping": "faai3 di1 aa3, ciu1 si5 ge3 je5 hou2 faai3 maai6 saai3 gaa3!",
-      "english": "Hurry up — supermarket shelves empty out fast!",
-      "audioFile": "wx-09.mp3",
-      "words": [
-        {
-          "chinese": "快",
-          "jyutping": "faai3",
-          "english": "fast"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "超市",
-          "jyutping": "ciu1 si5",
-          "english": "supermarket"
-        },
-        {
-          "chinese": "嘅",
-          "jyutping": "ge3",
-          "english": "(linking particle)"
-        },
-        {
-          "chinese": "嘢",
-          "jyutping": "je5",
-          "english": "thing(s)"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "快",
-          "jyutping": "faai3",
-          "english": "fast"
-        },
-        {
-          "chinese": "賣",
-          "jyutping": "maai6",
-          "english": "sell"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "wx-10",
-      "speaker": "you",
-      "cjk": "多謝提醒！我即刻去。",
-      "jyutping": "do1 ze6 tai4 sing2! ngo5 zik1 haak1 heoi3.",
-      "english": "Thanks for the heads up! I'm going right now.",
-      "audioFile": "wx-10.mp3",
-      "words": [
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        },
-        {
-          "chinese": "提醒",
-          "jyutping": "tai4 sing2",
-          "english": "reminding"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "即刻",
-          "jyutping": "zik1 haak1",
-          "english": "right away"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        }
-      ]
-    }
-  ]
+    ]
 }

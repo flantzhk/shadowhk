@@ -1,257 +1,279 @@
 {
-  "id": "taxi",
-  "language": "cantonese",
-  "emoji": "🚕",
-  "imageUrl": "/shadowhk/images/scenes/taxi.jpg",
-  "tint": "#E84040",
-  "title": "Giving directions to a taxi driver",
-  "description": "Flag down a red taxi and direct the driver to your destination",
-  "category": "transport",
-  "difficulty": "everyday",
-  "estimatedMinutes": 5,
-  "location": "Red taxi, Hong Kong Island",
-  "context": "Hong Kong taxis are colour-coded: red for urban areas, green for the New Territories, blue for Lantau. Red taxis are the most common. Drivers appreciate it if you know your destination and can give cross-street landmarks. Always have the Chinese characters for your destination ready.",
-  "cultural_note": "Hong Kong taxis are colour-coded: red urban taxis can roam almost the whole territory; green taxis are confined to the New Territories; blue taxis serve Lantau only. A green cab cannot legally pick up a passenger in Central, which is why drivers sometimes refuse trips that strand them outside their zone. On cross-harbour trips you pay the tunnel toll both ways, unless you find a cab at a cross-harbour rank already heading home.",
-  "lines": [
-    {
-      "id": "taxi-01",
-      "speaker": "you",
-      "cjk": "唔該，去銅鑼灣。",
-      "jyutping": "m4 goi1, heoi3 tung4 lo4 waan1.",
-      "english": "Excuse me, to Causeway Bay please.",
-      "audioFile": "taxi-01.mp3",
-      "words": [
+    "id": "taxi",
+    "language": "cantonese",
+    "emoji": "🚕",
+    "imageUrl": "/shadowhk/images/scenes/taxi.jpg",
+    "tint": "#E84040",
+    "title": "Giving directions to a taxi driver",
+    "description": "Flag down a red taxi and direct the driver to your destination",
+    "category": "transport",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Red taxi, Hong Kong Island",
+    "context": "Hong Kong taxis are colour-coded: red for urban areas, green for the New Territories, blue for Lantau. Red taxis are the most common. Drivers appreciate it if you know your destination and can give cross-street landmarks. Always have the Chinese characters for your destination ready.",
+    "cultural_note": "Hong Kong taxis are colour-coded: red urban taxis can roam almost the whole territory; green taxis are confined to the New Territories; blue taxis serve Lantau only. A green cab cannot legally pick up a passenger in Central, which is why drivers sometimes refuse trips that strand them outside their zone. On cross-harbour trips you pay the tunnel toll both ways, unless you find a cab at a cross-harbour rank already heading home.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "taxi-01",
+            "speaker": "you",
+            "cjk": "唔該，去銅鑼灣。",
+            "jyutping": "m4 goi1, heoi3 tung4 lo4 waan1.",
+            "english": "Excuse me, to Causeway Bay please.",
+            "audioFile": "taxi-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "銅鑼灣",
+                    "jyutping": "tung4 lo4 waan1",
+                    "english": "Causeway Bay"
+                }
+            ]
         },
         {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
+            "id": "taxi-02",
+            "speaker": "driver",
+            "cjk": "去銅鑼灣邊度？",
+            "jyutping": "heoi3 tung4 lo4 waan1 bin1 dou6?",
+            "english": "Which part of Causeway Bay?",
+            "audioFile": "taxi-02.mp3",
+            "words": [
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "銅鑼灣",
+                    "jyutping": "tung4 lo4 waan1",
+                    "english": "Causeway Bay"
+                },
+                {
+                    "chinese": "邊度",
+                    "jyutping": "bin1 dou6",
+                    "english": "where"
+                }
+            ]
         },
         {
-          "chinese": "銅鑼灣",
-          "jyutping": "tung4 lo4 waan1",
-          "english": "Causeway Bay"
+            "id": "taxi-03",
+            "speaker": "you",
+            "cjk": "去時代廣場附近，謝斐道。",
+            "jyutping": "heoi3 si4 doi6 gwong2 coeng4 fu6 gan6, ze6 fei1 dou6.",
+            "english": "Near Times Square, Jaffe Road.",
+            "audioFile": "taxi-03.mp3",
+            "words": [
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "時代廣場",
+                    "jyutping": "si4 doi6 gwong2 coeng4",
+                    "english": "Times Square"
+                },
+                {
+                    "chinese": "附近",
+                    "jyutping": "fu6 gan6",
+                    "english": "near"
+                },
+                {
+                    "chinese": "謝斐道",
+                    "jyutping": "ze6 fei1 dou6",
+                    "english": "Jaffe Road"
+                }
+            ]
+        },
+        {
+            "id": "taxi-04",
+            "speaker": "driver",
+            "cjk": "好，行紅隧定係西隧？",
+            "jyutping": "hou2, haang4 hung4 seoi6 ding6 hai6 sai1 seoi6?",
+            "english": "OK. Cross Harbour Tunnel or Western Harbour Tunnel?",
+            "audioFile": "taxi-04.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "go via"
+                },
+                {
+                    "chinese": "紅隧",
+                    "jyutping": "hung4 seoi6",
+                    "english": "Cross-Harbour Tunnel"
+                },
+                {
+                    "chinese": "定係",
+                    "jyutping": "ding6 hai6",
+                    "english": "or"
+                },
+                {
+                    "chinese": "西隧",
+                    "jyutping": "sai1 seoi6",
+                    "english": "Western Harbour Tunnel"
+                }
+            ]
+        },
+        {
+            "id": "taxi-05",
+            "speaker": "you",
+            "cjk": "紅隧啦，唔該。",
+            "jyutping": "hung4 seoi6 laa1, m4 goi1.",
+            "english": "Cross Harbour Tunnel please.",
+            "audioFile": "taxi-05.mp3",
+            "words": [
+                {
+                    "chinese": "紅隧",
+                    "jyutping": "hung4 seoi6",
+                    "english": "Cross-Harbour Tunnel"
+                },
+                {
+                    "chinese": "啦",
+                    "jyutping": "laa1",
+                    "english": "(suggestion particle)"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                }
+            ]
+        },
+        {
+            "id": "taxi-06",
+            "speaker": "driver",
+            "cjk": "好，到㗎喇，一百一十蚊。",
+            "jyutping": "hou2, dou3 gaa3 laa3, jat1 baak3 jat1 sap6 man1.",
+            "english": "Here we are, one hundred and ten dollars.",
+            "audioFile": "taxi-06.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou3",
+                    "english": "arrived"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "一百一十",
+                    "jyutping": "jat1 baak3 jat1 sap6",
+                    "english": "one hundred ten"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                }
+            ]
+        },
+        {
+            "id": "taxi-07",
+            "speaker": "you",
+            "cjk": "呢度一百二十蚊，唔使找喇。",
+            "jyutping": "ni1 dou6 jat1 baak3 ji6 sap6 man1, m4 sai2 zaau2 laa3.",
+            "english": "Here's one hundred and twenty, keep the change.",
+            "audioFile": "taxi-07.mp3",
+            "words": [
+                {
+                    "chinese": "呢度",
+                    "jyutping": "ni1 dou6",
+                    "english": "here"
+                },
+                {
+                    "chinese": "一百二十",
+                    "jyutping": "jat1 baak3 ji6 sap6",
+                    "english": "one hundred twenty"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "唔使",
+                    "jyutping": "m4 sai2",
+                    "english": "no need"
+                },
+                {
+                    "chinese": "找",
+                    "jyutping": "zaau2",
+                    "english": "give change"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                }
+            ]
+        },
+        {
+            "id": "taxi-08",
+            "speaker": "driver",
+            "cjk": "多謝，慢走。",
+            "jyutping": "do1 ze6, maan6 zau2.",
+            "english": "Thank you, take care.",
+            "audioFile": "taxi-08.mp3",
+            "words": [
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                },
+                {
+                    "chinese": "慢走",
+                    "jyutping": "maan6 zau2",
+                    "english": "take care"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "taxi-02",
-      "speaker": "driver",
-      "cjk": "去銅鑼灣邊度？",
-      "jyutping": "heoi3 tung4 lo4 waan1 bin1 dou6?",
-      "english": "Which part of Causeway Bay?",
-      "audioFile": "taxi-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "銅鑼灣",
-          "jyutping": "tung4 lo4 waan1",
-          "english": "Causeway Bay"
-        },
-        {
-          "chinese": "邊度",
-          "jyutping": "bin1 dou6",
-          "english": "where"
+            "category": "Taxi Terms",
+            "words": [
+                {
+                    "chinese": "的士",
+                    "jyutping": "dik1 si2",
+                    "english": "taxi"
+                },
+                {
+                    "chinese": "過海",
+                    "jyutping": "gwo3 hoi2",
+                    "english": "cross the harbour"
+                },
+                {
+                    "chinese": "咪錶",
+                    "jyutping": "mai1 biu1",
+                    "english": "taxi meter"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "taxi-03",
-      "speaker": "you",
-      "cjk": "去時代廣場附近，謝斐道。",
-      "jyutping": "heoi3 si4 doi6 gwong2 coeng4 fu6 gan6, ze6 fei1 dou6.",
-      "english": "Near Times Square, Jaffe Road.",
-      "audioFile": "taxi-03.mp3",
-      "words": [
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "時代廣場",
-          "jyutping": "si4 doi6 gwong2 coeng4",
-          "english": "Times Square"
-        },
-        {
-          "chinese": "附近",
-          "jyutping": "fu6 gan6",
-          "english": "near"
-        },
-        {
-          "chinese": "謝斐道",
-          "jyutping": "ze6 fei1 dou6",
-          "english": "Jaffe Road"
-        }
-      ]
-    },
-    {
-      "id": "taxi-04",
-      "speaker": "driver",
-      "cjk": "好，行紅隧定係西隧？",
-      "jyutping": "hou2, haang4 hung4 seoi6 ding6 hai6 sai1 seoi6?",
-      "english": "OK. Cross Harbour Tunnel or Western Harbour Tunnel?",
-      "audioFile": "taxi-04.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "go via"
-        },
-        {
-          "chinese": "紅隧",
-          "jyutping": "hung4 seoi6",
-          "english": "Cross-Harbour Tunnel"
-        },
-        {
-          "chinese": "定係",
-          "jyutping": "ding6 hai6",
-          "english": "or"
-        },
-        {
-          "chinese": "西隧",
-          "jyutping": "sai1 seoi6",
-          "english": "Western Harbour Tunnel"
-        }
-      ]
-    },
-    {
-      "id": "taxi-05",
-      "speaker": "you",
-      "cjk": "紅隧啦，唔該。",
-      "jyutping": "hung4 seoi6 laa1, m4 goi1.",
-      "english": "Cross Harbour Tunnel please.",
-      "audioFile": "taxi-05.mp3",
-      "words": [
-        {
-          "chinese": "紅隧",
-          "jyutping": "hung4 seoi6",
-          "english": "Cross-Harbour Tunnel"
-        },
-        {
-          "chinese": "啦",
-          "jyutping": "laa1",
-          "english": "(suggestion particle)"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        }
-      ]
-    },
-    {
-      "id": "taxi-06",
-      "speaker": "driver",
-      "cjk": "好，到㗎喇，一百一十蚊。",
-      "jyutping": "hou2, dou3 gaa3 laa3, jat1 baak3 jat1 sap6 man1.",
-      "english": "Here we are, one hundred and ten dollars.",
-      "audioFile": "taxi-06.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "到",
-          "jyutping": "dou3",
-          "english": "arrived"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "一百一十",
-          "jyutping": "jat1 baak3 jat1 sap6",
-          "english": "one hundred ten"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        }
-      ]
-    },
-    {
-      "id": "taxi-07",
-      "speaker": "you",
-      "cjk": "呢度一百二十蚊，唔使找喇。",
-      "jyutping": "ni1 dou6 jat1 baak3 ji6 sap6 man1, m4 sai2 zaau2 laa3.",
-      "english": "Here's one hundred and twenty, keep the change.",
-      "audioFile": "taxi-07.mp3",
-      "words": [
-        {
-          "chinese": "呢度",
-          "jyutping": "ni1 dou6",
-          "english": "here"
-        },
-        {
-          "chinese": "一百二十",
-          "jyutping": "jat1 baak3 ji6 sap6",
-          "english": "one hundred twenty"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        },
-        {
-          "chinese": "唔使",
-          "jyutping": "m4 sai2",
-          "english": "no need"
-        },
-        {
-          "chinese": "找",
-          "jyutping": "zaau2",
-          "english": "give change"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        }
-      ]
-    },
-    {
-      "id": "taxi-08",
-      "speaker": "driver",
-      "cjk": "多謝，慢走。",
-      "jyutping": "do1 ze6, maan6 zau2.",
-      "english": "Thank you, take care.",
-      "audioFile": "taxi-08.mp3",
-      "words": [
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        },
-        {
-          "chinese": "慢走",
-          "jyutping": "maan6 zau2",
-          "english": "take care"
-        }
-      ]
-    }
-  ]
+    ]
 }

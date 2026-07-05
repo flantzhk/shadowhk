@@ -1,307 +1,329 @@
 {
-  "id": "ferry",
-  "language": "cantonese",
-  "emoji": "⛴️",
-  "imageUrl": "/shadowhk/images/scenes/ferry.jpg",
-  "tint": "#3A8FE8",
-  "title": "Taking the Star Ferry",
-  "description": "Find your gate, pick your deck, and catch the next boat",
-  "category": "transport",
-  "difficulty": "starter",
-  "estimatedMinutes": 4,
-  "location": "Star Ferry Pier, Tsim Sha Tsui",
-  "context": "The Star Ferry has crossed Victoria Harbour since 1888. It links Tsim Sha Tsui (Kowloon) to Central and Wan Chai on Hong Kong Island. The upper deck costs a little more but the view is one of the best in the world. Trips take about 8 minutes.",
-  "cultural_note": "The Star Ferry (天星小輪) has crossed Victoria Harbour since 1888, but its most turbulent moment came in 1966, when a proposed 5-cent fare increase sparked protests and several nights of rioting in Kowloon. This is now seen as the first stirring of a distinctly Hong Kong political consciousness, separate from both colonial Britain and mainland China. The rise went ahead, but only on first class. The ferry still runs.",
-  "lines": [
-    {
-      "id": "ferry-01",
-      "speaker": "you",
-      "cjk": "唔該，去尖沙咀係咪喺呢度搭？",
-      "jyutping": "m4 goi1, heoi3 zim1 saa1 zeoi2 hai6 mai6 hai2 ni1 dou6 daap3?",
-      "english": "Excuse me, is this where I catch the ferry to Tsim Sha Tsui?",
-      "audioFile": "ferry-01.mp3",
-      "words": [
+    "id": "ferry",
+    "language": "cantonese",
+    "emoji": "⛴️",
+    "imageUrl": "/shadowhk/images/scenes/ferry.jpg",
+    "tint": "#3A8FE8",
+    "title": "Taking the Star Ferry",
+    "description": "Find your gate, pick your deck, and catch the next boat",
+    "category": "transport",
+    "difficulty": "starter",
+    "estimatedMinutes": 4,
+    "location": "Star Ferry Pier, Tsim Sha Tsui",
+    "context": "The Star Ferry has crossed Victoria Harbour since 1888. It links Tsim Sha Tsui (Kowloon) to Central and Wan Chai on Hong Kong Island. The upper deck costs a little more but the view is one of the best in the world. Trips take about 8 minutes.",
+    "cultural_note": "The Star Ferry (天星小輪) has crossed Victoria Harbour since 1888, but its most turbulent moment came in 1966, when a proposed 5-cent fare increase sparked protests and several nights of rioting in Kowloon. This is now seen as the first stirring of a distinctly Hong Kong political consciousness, separate from both colonial Britain and mainland China. The rise went ahead, but only on first class. The ferry still runs.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "ferry-01",
+            "speaker": "you",
+            "cjk": "唔該，去尖沙咀係咪喺呢度搭？",
+            "jyutping": "m4 goi1, heoi3 zim1 saa1 zeoi2 hai6 mai6 hai2 ni1 dou6 daap3?",
+            "english": "Excuse me, is this where I catch the ferry to Tsim Sha Tsui?",
+            "audioFile": "ferry-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "尖沙咀",
+                    "jyutping": "zim1 saa1 zeoi2",
+                    "english": "Tsim Sha Tsui"
+                },
+                {
+                    "chinese": "係咪",
+                    "jyutping": "hai6 mai6",
+                    "english": "is it?"
+                },
+                {
+                    "chinese": "喺",
+                    "jyutping": "hai2",
+                    "english": "at"
+                },
+                {
+                    "chinese": "呢度",
+                    "jyutping": "ni1 dou6",
+                    "english": "here"
+                },
+                {
+                    "chinese": "搭",
+                    "jyutping": "daap3",
+                    "english": "board"
+                }
+            ]
         },
         {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
+            "id": "ferry-02",
+            "speaker": "staff",
+            "cjk": "係，拍八達通入閘就得。",
+            "jyutping": "hai6, paak3 baat3 daat6 tung1 jap6 zaap6 zau6 dak1.",
+            "english": "Yes, just tap your Octopus at the gate.",
+            "audioFile": "ferry-02.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "拍",
+                    "jyutping": "paak3",
+                    "english": "tap"
+                },
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "入閘",
+                    "jyutping": "jap6 zaap6",
+                    "english": "enter the gate"
+                },
+                {
+                    "chinese": "就",
+                    "jyutping": "zau6",
+                    "english": "then"
+                },
+                {
+                    "chinese": "得",
+                    "jyutping": "dak1",
+                    "english": "can"
+                }
+            ]
         },
         {
-          "chinese": "尖沙咀",
-          "jyutping": "zim1 saa1 zeoi2",
-          "english": "Tsim Sha Tsui"
+            "id": "ferry-03",
+            "speaker": "you",
+            "cjk": "上層係咪貴啲㗎？",
+            "jyutping": "soeng6 cang4 hai6 mai6 gwai3 di1 gaa3?",
+            "english": "Is the upper deck more expensive?",
+            "audioFile": "ferry-03.mp3",
+            "words": [
+                {
+                    "chinese": "上層",
+                    "jyutping": "soeng6 cang4",
+                    "english": "upper deck"
+                },
+                {
+                    "chinese": "係咪",
+                    "jyutping": "hai6 mai6",
+                    "english": "is it?"
+                },
+                {
+                    "chinese": "貴",
+                    "jyutping": "gwai3",
+                    "english": "expensive"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "係咪",
-          "jyutping": "hai6 mai6",
-          "english": "is it?"
+            "id": "ferry-04",
+            "speaker": "staff",
+            "cjk": "係，貴一蚊咋，風景靚好多。",
+            "jyutping": "hai6, gwai3 jat1 man1 zaa3, fung1 ging2 leng3 hou2 do1.",
+            "english": "Yes, just a dollar more, and the view is much better.",
+            "audioFile": "ferry-04.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "貴",
+                    "jyutping": "gwai3",
+                    "english": "dearer by"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                },
+                {
+                    "chinese": "咋",
+                    "jyutping": "zaa3",
+                    "english": "(only)"
+                },
+                {
+                    "chinese": "風景",
+                    "jyutping": "fung1 ging2",
+                    "english": "view"
+                },
+                {
+                    "chinese": "靚",
+                    "jyutping": "leng3",
+                    "english": "pretty"
+                },
+                {
+                    "chinese": "好多",
+                    "jyutping": "hou2 do1",
+                    "english": "a lot"
+                }
+            ]
         },
         {
-          "chinese": "喺",
-          "jyutping": "hai2",
-          "english": "at"
+            "id": "ferry-05",
+            "speaker": "you",
+            "cjk": "幾耐一班船呀？",
+            "jyutping": "gei2 noi6 jat1 baan1 syun4 aa3?",
+            "english": "How often do the boats run?",
+            "audioFile": "ferry-05.mp3",
+            "words": [
+                {
+                    "chinese": "幾耐",
+                    "jyutping": "gei2 noi6",
+                    "english": "how long"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "班",
+                    "jyutping": "baan1",
+                    "english": "(classifier for trips)"
+                },
+                {
+                    "chinese": "船",
+                    "jyutping": "syun4",
+                    "english": "ferry"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "呢度",
-          "jyutping": "ni1 dou6",
-          "english": "here"
+            "id": "ferry-06",
+            "speaker": "staff",
+            "cjk": "大概十分鐘一班，啱啱開咗一班。",
+            "jyutping": "daai6 koi3 sap6 fan1 zung1 jat1 baan1, ngaam1 ngaam1 hoi1 zo2 jat1 baan1.",
+            "english": "About every ten minutes. One just left.",
+            "audioFile": "ferry-06.mp3",
+            "words": [
+                {
+                    "chinese": "大概",
+                    "jyutping": "daai6 koi3",
+                    "english": "roughly"
+                },
+                {
+                    "chinese": "十",
+                    "jyutping": "sap6",
+                    "english": "ten"
+                },
+                {
+                    "chinese": "分鐘",
+                    "jyutping": "fan1 zung1",
+                    "english": "minutes"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "班",
+                    "jyutping": "baan1",
+                    "english": "(classifier for trips)"
+                },
+                {
+                    "chinese": "啱啱",
+                    "jyutping": "ngaam1 ngaam1",
+                    "english": "just now"
+                },
+                {
+                    "chinese": "開",
+                    "jyutping": "hoi1",
+                    "english": "departed"
+                },
+                {
+                    "chinese": "咗",
+                    "jyutping": "zo2",
+                    "english": "(completed action)"
+                },
+                {
+                    "chinese": "一",
+                    "jyutping": "jat1",
+                    "english": "one"
+                },
+                {
+                    "chinese": "班",
+                    "jyutping": "baan1",
+                    "english": "(classifier for trips)"
+                }
+            ]
         },
         {
-          "chinese": "搭",
-          "jyutping": "daap3",
-          "english": "board"
+            "id": "ferry-07",
+            "speaker": "you",
+            "cjk": "好，唔該晒！",
+            "jyutping": "hou2, m4 goi1 saai3!",
+            "english": "Great, thank you so much!",
+            "audioFile": "ferry-07.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "OK"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "ferry-02",
-      "speaker": "staff",
-      "cjk": "係，拍八達通入閘就得。",
-      "jyutping": "hai6, paak3 baat3 daat6 tung1 jap6 zaap6 zau6 dak1.",
-      "english": "Yes, just tap your Octopus at the gate.",
-      "audioFile": "ferry-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "拍",
-          "jyutping": "paak3",
-          "english": "tap"
-        },
-        {
-          "chinese": "八達通",
-          "jyutping": "baat3 daat6 tung1",
-          "english": "Octopus card"
-        },
-        {
-          "chinese": "入閘",
-          "jyutping": "jap6 zaap6",
-          "english": "enter the gate"
-        },
-        {
-          "chinese": "就",
-          "jyutping": "zau6",
-          "english": "then"
-        },
-        {
-          "chinese": "得",
-          "jyutping": "dak1",
-          "english": "can"
+            "category": "Transport Terms",
+            "words": [
+                {
+                    "chinese": "天星小輪",
+                    "jyutping": "tin1 sing1 siu2 leon4",
+                    "english": "Star Ferry"
+                },
+                {
+                    "chinese": "碼頭",
+                    "jyutping": "maa5 tau4",
+                    "english": "pier"
+                },
+                {
+                    "chinese": "頭等",
+                    "jyutping": "tau4 dang2",
+                    "english": "first class (upper deck)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "ferry-03",
-      "speaker": "you",
-      "cjk": "上層係咪貴啲㗎？",
-      "jyutping": "soeng6 cang4 hai6 mai6 gwai3 di1 gaa3?",
-      "english": "Is the upper deck more expensive?",
-      "audioFile": "ferry-03.mp3",
-      "words": [
-        {
-          "chinese": "上層",
-          "jyutping": "soeng6 cang4",
-          "english": "upper deck"
-        },
-        {
-          "chinese": "係咪",
-          "jyutping": "hai6 mai6",
-          "english": "is it?"
-        },
-        {
-          "chinese": "貴",
-          "jyutping": "gwai3",
-          "english": "expensive"
-        },
-        {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "ferry-04",
-      "speaker": "staff",
-      "cjk": "係，貴一蚊咋，風景靚好多。",
-      "jyutping": "hai6, gwai3 jat1 man1 zaa3, fung1 ging2 leng3 hou2 do1.",
-      "english": "Yes, just a dollar more, and the view is much better.",
-      "audioFile": "ferry-04.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "貴",
-          "jyutping": "gwai3",
-          "english": "dearer by"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        },
-        {
-          "chinese": "咋",
-          "jyutping": "zaa3",
-          "english": "(only)"
-        },
-        {
-          "chinese": "風景",
-          "jyutping": "fung1 ging2",
-          "english": "view"
-        },
-        {
-          "chinese": "靚",
-          "jyutping": "leng3",
-          "english": "pretty"
-        },
-        {
-          "chinese": "好多",
-          "jyutping": "hou2 do1",
-          "english": "a lot"
-        }
-      ]
-    },
-    {
-      "id": "ferry-05",
-      "speaker": "you",
-      "cjk": "幾耐一班船呀？",
-      "jyutping": "gei2 noi6 jat1 baan1 syun4 aa3?",
-      "english": "How often do the boats run?",
-      "audioFile": "ferry-05.mp3",
-      "words": [
-        {
-          "chinese": "幾耐",
-          "jyutping": "gei2 noi6",
-          "english": "how long"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "班",
-          "jyutping": "baan1",
-          "english": "(classifier for trips)"
-        },
-        {
-          "chinese": "船",
-          "jyutping": "syun4",
-          "english": "ferry"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "ferry-06",
-      "speaker": "staff",
-      "cjk": "大概十分鐘一班，啱啱開咗一班。",
-      "jyutping": "daai6 koi3 sap6 fan1 zung1 jat1 baan1, ngaam1 ngaam1 hoi1 zo2 jat1 baan1.",
-      "english": "About every ten minutes. One just left.",
-      "audioFile": "ferry-06.mp3",
-      "words": [
-        {
-          "chinese": "大概",
-          "jyutping": "daai6 koi3",
-          "english": "roughly"
-        },
-        {
-          "chinese": "十",
-          "jyutping": "sap6",
-          "english": "ten"
-        },
-        {
-          "chinese": "分鐘",
-          "jyutping": "fan1 zung1",
-          "english": "minutes"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "班",
-          "jyutping": "baan1",
-          "english": "(classifier for trips)"
-        },
-        {
-          "chinese": "啱啱",
-          "jyutping": "ngaam1 ngaam1",
-          "english": "just now"
-        },
-        {
-          "chinese": "開",
-          "jyutping": "hoi1",
-          "english": "departed"
-        },
-        {
-          "chinese": "咗",
-          "jyutping": "zo2",
-          "english": "(completed action)"
-        },
-        {
-          "chinese": "一",
-          "jyutping": "jat1",
-          "english": "one"
-        },
-        {
-          "chinese": "班",
-          "jyutping": "baan1",
-          "english": "(classifier for trips)"
-        }
-      ]
-    },
-    {
-      "id": "ferry-07",
-      "speaker": "you",
-      "cjk": "好，唔該晒！",
-      "jyutping": "hou2, m4 goi1 saai3!",
-      "english": "Great, thank you so much!",
-      "audioFile": "ferry-07.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "OK"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        }
-      ]
-    }
-  ]
+    ]
 }

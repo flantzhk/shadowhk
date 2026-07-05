@@ -1,337 +1,364 @@
 {
-  "id": "mtr-station",
-  "language": "cantonese",
-  "emoji": "🚇",
-  "imageUrl": "/shadowhk/images/scenes/mtr-station.jpg",
-  "tint": "#5AC8E8",
-  "title": "At the MTR station",
-  "description": "Your Octopus won't let you through. Sort it out and find your exit",
-  "category": "transport",
-  "difficulty": "starter",
-  "estimatedMinutes": 4,
-  "location": "Causeway Bay MTR Station",
-  "context": "The MTR is Hong Kong's metro system — clean, fast, and punctual to the minute. Every journey uses an Octopus card (八達通). Top-up machines are everywhere. If you're lost, station staff at the customer service counter (客務中心) will help.",
-  "cultural_note": "The MTR's Octopus card (八達通, baat3 daat6 tung1, from the idiom 四通八達, \"reachable in all directions\") was launched in 1997, the same year as the Handover, and is now so embedded in daily life that it works at 7-Eleven, McDonald's, laundromats, vending machines, and parking meters. Foreigners sometimes describe learning that everything runs on a single contactless card as the moment they understood what kind of city this is.",
-  "lines": [
-    {
-      "id": "mtr-01",
-      "speaker": "you",
-      "cjk": "唔該，我張八達通出唔到閘。",
-      "jyutping": "m4 goi1, ngo5 zoeng1 baat3 daat6 tung1 ceot1 m4 dou2 zaap6.",
-      "english": "Excuse me, my Octopus won't let me through the gate.",
-      "audioFile": "mtr-01.mp3",
-      "words": [
+    "id": "mtr-station",
+    "language": "cantonese",
+    "emoji": "🚇",
+    "imageUrl": "/shadowhk/images/scenes/mtr-station.jpg",
+    "tint": "#5AC8E8",
+    "title": "At the MTR station",
+    "description": "Your Octopus won't let you through. Sort it out and find your exit",
+    "category": "transport",
+    "difficulty": "starter",
+    "estimatedMinutes": 4,
+    "location": "Causeway Bay MTR Station",
+    "context": "The MTR is Hong Kong's metro system — clean, fast, and punctual to the minute. Every journey uses an Octopus card (八達通). Top-up machines are everywhere. If you're lost, station staff at the customer service counter (客務中心) will help.",
+    "cultural_note": "The MTR's Octopus card (八達通, baat3 daat6 tung1, from the idiom 四通八達, \"reachable in all directions\") was launched in 1997, the same year as the Handover, and is now so embedded in daily life that it works at 7-Eleven, McDonald's, laundromats, vending machines, and parking meters. Foreigners sometimes describe learning that everything runs on a single contactless card as the moment they understood what kind of city this is.",
+    "lines": [
         {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
+            "id": "mtr-01",
+            "speaker": "you",
+            "cjk": "唔該，我張八達通出唔到閘。",
+            "jyutping": "m4 goi1, ngo5 zoeng1 baat3 daat6 tung1 ceot1 m4 dou2 zaap6.",
+            "english": "Excuse me, my Octopus won't let me through the gate.",
+            "audioFile": "mtr-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "張",
+                    "jyutping": "zoeng1",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "出",
+                    "jyutping": "ceot1",
+                    "english": "get out"
+                },
+                {
+                    "chinese": "唔",
+                    "jyutping": "m4",
+                    "english": "not"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou2",
+                    "english": "(manage to)"
+                },
+                {
+                    "chinese": "閘",
+                    "jyutping": "zaap6",
+                    "english": "gate"
+                }
+            ]
         },
         {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
+            "id": "mtr-02",
+            "speaker": "staff",
+            "cjk": "俾我睇吓。哦，唔夠錢，要增值。",
+            "jyutping": "bei2 ngo5 tai2 haa5. o4, m4 gau3 cin2, jiu3 zang1 zik6.",
+            "english": "Let me have a look. Ah, not enough balance, you need to top up.",
+            "audioFile": "mtr-02.mp3",
+            "words": [
+                {
+                    "chinese": "俾",
+                    "jyutping": "bei2",
+                    "english": "give"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "睇",
+                    "jyutping": "tai2",
+                    "english": "look"
+                },
+                {
+                    "chinese": "吓",
+                    "jyutping": "haa5",
+                    "english": "(briefly)"
+                },
+                {
+                    "chinese": "哦",
+                    "jyutping": "o4",
+                    "english": "oh"
+                },
+                {
+                    "chinese": "唔",
+                    "jyutping": "m4",
+                    "english": "not"
+                },
+                {
+                    "chinese": "夠",
+                    "jyutping": "gau3",
+                    "english": "enough"
+                },
+                {
+                    "chinese": "錢",
+                    "jyutping": "cin2",
+                    "english": "money"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "增值",
+                    "jyutping": "zang1 zik6",
+                    "english": "top up"
+                }
+            ]
         },
         {
-          "chinese": "張",
-          "jyutping": "zoeng1",
-          "english": "(classifier)"
+            "id": "mtr-03",
+            "speaker": "you",
+            "cjk": "喺邊度增值呀？",
+            "jyutping": "hai2 bin1 dou6 zang1 zik6 aa3?",
+            "english": "Where do I top up?",
+            "audioFile": "mtr-03.mp3",
+            "words": [
+                {
+                    "chinese": "喺",
+                    "jyutping": "hai2",
+                    "english": "at"
+                },
+                {
+                    "chinese": "邊度",
+                    "jyutping": "bin1 dou6",
+                    "english": "where"
+                },
+                {
+                    "chinese": "增值",
+                    "jyutping": "zang1 zik6",
+                    "english": "top up"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "八達通",
-          "jyutping": "baat3 daat6 tung1",
-          "english": "Octopus card"
+            "id": "mtr-04",
+            "speaker": "staff",
+            "cjk": "增值機喺嗰邊，或者去客務中心都得。",
+            "jyutping": "zang1 zik6 gei1 hai2 go2 bin1, waak6 ze2 heoi3 haak3 mou6 zung1 sam1 dou1 dak1.",
+            "english": "The machines are over there, or the customer service centre.",
+            "audioFile": "mtr-04.mp3",
+            "words": [
+                {
+                    "chinese": "增值",
+                    "jyutping": "zang1 zik6",
+                    "english": "top up"
+                },
+                {
+                    "chinese": "機",
+                    "jyutping": "gei1",
+                    "english": "machine"
+                },
+                {
+                    "chinese": "喺",
+                    "jyutping": "hai2",
+                    "english": "at"
+                },
+                {
+                    "chinese": "嗰邊",
+                    "jyutping": "go2 bin1",
+                    "english": "over there"
+                },
+                {
+                    "chinese": "或者",
+                    "jyutping": "waak6 ze2",
+                    "english": "or"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "客務中心",
+                    "jyutping": "haak3 mou6 zung1 sam1",
+                    "english": "customer service centre"
+                },
+                {
+                    "chinese": "都",
+                    "jyutping": "dou1",
+                    "english": "also; all"
+                },
+                {
+                    "chinese": "得",
+                    "jyutping": "dak1",
+                    "english": "can"
+                }
+            ]
         },
         {
-          "chinese": "出",
-          "jyutping": "ceot1",
-          "english": "get out"
+            "id": "mtr-05",
+            "speaker": "you",
+            "cjk": "唔該。仲想問，去維多利亞公園邊個出口呀？",
+            "jyutping": "m4 goi1. zung6 soeng2 man6, heoi3 wai4 do1 lei6 aa3 gung1 jyun2 bin1 go3 ceot1 hau2 aa3?",
+            "english": "Thanks. One more thing, which exit for Victoria Park?",
+            "audioFile": "mtr-05.mp3",
+            "words": [
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "問",
+                    "jyutping": "man6",
+                    "english": "ask"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "維多利亞公園",
+                    "jyutping": "wai4 do1 lei6 aa3 gung1 jyun2",
+                    "english": "Victoria Park"
+                },
+                {
+                    "chinese": "邊個",
+                    "jyutping": "bin1 go3",
+                    "english": "which"
+                },
+                {
+                    "chinese": "出口",
+                    "jyutping": "ceot1 hau2",
+                    "english": "exit"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
         },
         {
-          "chinese": "唔",
-          "jyutping": "m4",
-          "english": "not"
+            "id": "mtr-06",
+            "speaker": "staff",
+            "cjk": "E出口，上到去直行就見到。",
+            "jyutping": "E ceot1 hau2, soeng5 dou3 heoi3 zik6 haang4 zau6 gin3 dou2.",
+            "english": "Exit E. Go up, straight ahead, and you'll see it.",
+            "audioFile": "mtr-06.mp3",
+            "words": [
+                {
+                    "chinese": "E出口",
+                    "jyutping": "E ceot1 hau2",
+                    "english": "Exit E"
+                },
+                {
+                    "chinese": "上到",
+                    "jyutping": "soeng5 dou3",
+                    "english": "get up there"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "直行",
+                    "jyutping": "zik6 haang4",
+                    "english": "go straight"
+                },
+                {
+                    "chinese": "就",
+                    "jyutping": "zau6",
+                    "english": "then"
+                },
+                {
+                    "chinese": "見到",
+                    "jyutping": "gin3 dou2",
+                    "english": "see"
+                }
+            ]
         },
         {
-          "chinese": "到",
-          "jyutping": "dou2",
-          "english": "(manage to)"
-        },
-        {
-          "chinese": "閘",
-          "jyutping": "zaap6",
-          "english": "gate"
+            "id": "mtr-07",
+            "speaker": "you",
+            "cjk": "明白喇，唔該晒！",
+            "jyutping": "ming4 baak6 laa3, m4 goi1 saai3!",
+            "english": "Got it, thank you so much!",
+            "audioFile": "mtr-07.mp3",
+            "words": [
+                {
+                    "chinese": "明白",
+                    "jyutping": "ming4 baak6",
+                    "english": "understand"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "唔該",
+                    "jyutping": "m4 goi1",
+                    "english": "please; thank you"
+                },
+                {
+                    "chinese": "晒",
+                    "jyutping": "saai3",
+                    "english": "(completely)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "mtr-02",
-      "speaker": "staff",
-      "cjk": "俾我睇吓。哦，唔夠錢，要增值。",
-      "jyutping": "bei2 ngo5 tai2 haa5. o4, m4 gau3 cin2, jiu3 zang1 zik6.",
-      "english": "Let me have a look. Ah, not enough balance, you need to top up.",
-      "audioFile": "mtr-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "俾",
-          "jyutping": "bei2",
-          "english": "give"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "睇",
-          "jyutping": "tai2",
-          "english": "look"
-        },
-        {
-          "chinese": "吓",
-          "jyutping": "haa5",
-          "english": "(briefly)"
-        },
-        {
-          "chinese": "哦",
-          "jyutping": "o4",
-          "english": "oh"
-        },
-        {
-          "chinese": "唔",
-          "jyutping": "m4",
-          "english": "not"
-        },
-        {
-          "chinese": "夠",
-          "jyutping": "gau3",
-          "english": "enough"
-        },
-        {
-          "chinese": "錢",
-          "jyutping": "cin2",
-          "english": "money"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "增值",
-          "jyutping": "zang1 zik6",
-          "english": "top up"
+            "category": "MTR Terms",
+            "words": [
+                {
+                    "chinese": "八達通",
+                    "jyutping": "baat3 daat6 tung1",
+                    "english": "Octopus card"
+                },
+                {
+                    "chinese": "出閘",
+                    "jyutping": "ceot1 zaap6",
+                    "english": "exit the gate"
+                },
+                {
+                    "chinese": "月台",
+                    "jyutping": "jyut6 toi4",
+                    "english": "platform"
+                },
+                {
+                    "chinese": "轉線",
+                    "jyutping": "zyun3 sin3",
+                    "english": "transfer line"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "mtr-03",
-      "speaker": "you",
-      "cjk": "喺邊度增值呀？",
-      "jyutping": "hai2 bin1 dou6 zang1 zik6 aa3?",
-      "english": "Where do I top up?",
-      "audioFile": "mtr-03.mp3",
-      "words": [
-        {
-          "chinese": "喺",
-          "jyutping": "hai2",
-          "english": "at"
-        },
-        {
-          "chinese": "邊度",
-          "jyutping": "bin1 dou6",
-          "english": "where"
-        },
-        {
-          "chinese": "增值",
-          "jyutping": "zang1 zik6",
-          "english": "top up"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "mtr-04",
-      "speaker": "staff",
-      "cjk": "增值機喺嗰邊，或者去客務中心都得。",
-      "jyutping": "zang1 zik6 gei1 hai2 go2 bin1, waak6 ze2 heoi3 haak3 mou6 zung1 sam1 dou1 dak1.",
-      "english": "The machines are over there, or the customer service centre.",
-      "audioFile": "mtr-04.mp3",
-      "words": [
-        {
-          "chinese": "增值",
-          "jyutping": "zang1 zik6",
-          "english": "top up"
-        },
-        {
-          "chinese": "機",
-          "jyutping": "gei1",
-          "english": "machine"
-        },
-        {
-          "chinese": "喺",
-          "jyutping": "hai2",
-          "english": "at"
-        },
-        {
-          "chinese": "嗰邊",
-          "jyutping": "go2 bin1",
-          "english": "over there"
-        },
-        {
-          "chinese": "或者",
-          "jyutping": "waak6 ze2",
-          "english": "or"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "客務中心",
-          "jyutping": "haak3 mou6 zung1 sam1",
-          "english": "customer service centre"
-        },
-        {
-          "chinese": "都",
-          "jyutping": "dou1",
-          "english": "also; all"
-        },
-        {
-          "chinese": "得",
-          "jyutping": "dak1",
-          "english": "can"
-        }
-      ]
-    },
-    {
-      "id": "mtr-05",
-      "speaker": "you",
-      "cjk": "唔該。仲想問，去維多利亞公園邊個出口呀？",
-      "jyutping": "m4 goi1. zung6 soeng2 man6, heoi3 wai4 do1 lei6 aa3 gung1 jyun2 bin1 go3 ceot1 hau2 aa3?",
-      "english": "Thanks. One more thing, which exit for Victoria Park?",
-      "audioFile": "mtr-05.mp3",
-      "words": [
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
-        },
-        {
-          "chinese": "問",
-          "jyutping": "man6",
-          "english": "ask"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "維多利亞公園",
-          "jyutping": "wai4 do1 lei6 aa3 gung1 jyun2",
-          "english": "Victoria Park"
-        },
-        {
-          "chinese": "邊個",
-          "jyutping": "bin1 go3",
-          "english": "which"
-        },
-        {
-          "chinese": "出口",
-          "jyutping": "ceot1 hau2",
-          "english": "exit"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "mtr-06",
-      "speaker": "staff",
-      "cjk": "E出口，上到去直行就見到。",
-      "jyutping": "E ceot1 hau2, soeng5 dou3 heoi3 zik6 haang4 zau6 gin3 dou2.",
-      "english": "Exit E. Go up, straight ahead, and you'll see it.",
-      "audioFile": "mtr-06.mp3",
-      "words": [
-        {
-          "chinese": "E出口",
-          "jyutping": "E ceot1 hau2",
-          "english": "Exit E"
-        },
-        {
-          "chinese": "上到",
-          "jyutping": "soeng5 dou3",
-          "english": "get up there"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "直行",
-          "jyutping": "zik6 haang4",
-          "english": "go straight"
-        },
-        {
-          "chinese": "就",
-          "jyutping": "zau6",
-          "english": "then"
-        },
-        {
-          "chinese": "見到",
-          "jyutping": "gin3 dou2",
-          "english": "see"
-        }
-      ]
-    },
-    {
-      "id": "mtr-07",
-      "speaker": "you",
-      "cjk": "明白喇，唔該晒！",
-      "jyutping": "ming4 baak6 laa3, m4 goi1 saai3!",
-      "english": "Got it, thank you so much!",
-      "audioFile": "mtr-07.mp3",
-      "words": [
-        {
-          "chinese": "明白",
-          "jyutping": "ming4 baak6",
-          "english": "understand"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "唔該",
-          "jyutping": "m4 goi1",
-          "english": "please; thank you"
-        },
-        {
-          "chinese": "晒",
-          "jyutping": "saai3",
-          "english": "(completely)"
-        }
-      ]
-    }
-  ]
+    ]
 }

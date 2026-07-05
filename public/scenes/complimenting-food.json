@@ -1,387 +1,414 @@
 {
-  "id": "complimenting-food",
-  "language": "cantonese",
-  "emoji": "😋",
-  "imageUrl": "/shadowhk/images/scenes/complimenting-food.jpg",
-  "tint": "#C5E85A",
-  "title": "Complimenting food",
-  "description": "Dinner at a friend's home — warm up the host with genuine Cantonese compliments",
-  "category": "social",
-  "difficulty": "everyday",
-  "estimatedMinutes": 5,
-  "location": "A friend's home, Sham Shui Po",
-  "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full — 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
-  "cultural_note": "In Cantonese culture, food is the primary language of love. A grandmother may never say 我愛你 (I love you), but she will spend three hours making congee and insist you finish it. Complimenting the cooking, and specifically the effort (心機, sam1 gei1) that went into it, carries real emotional weight. A sincere 好好食 is not small talk.",
-  "lines": [
-    {
-      "id": "comp-01",
-      "speaker": "host",
-      "cjk": "食多啲啦！仲有好多㗎！",
-      "jyutping": "sik6 do1 di1 laa1! zung6 jau5 hou2 do1 gaa3!",
-      "english": "Eat more! There's plenty!",
-      "audioFile": "comp-01.mp3",
-      "words": [
+    "id": "complimenting-food",
+    "language": "cantonese",
+    "emoji": "😋",
+    "imageUrl": "/shadowhk/images/scenes/complimenting-food.jpg",
+    "tint": "#C5E85A",
+    "title": "Complimenting food",
+    "description": "Dinner at a friend's home — warm up the host with genuine Cantonese compliments",
+    "category": "social",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "A friend's home, Sham Shui Po",
+    "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full — 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
+    "cultural_note": "In Cantonese culture, food is the primary language of love. A grandmother may never say 我愛你 (I love you), but she will spend three hours making congee and insist you finish it. Complimenting the cooking, and specifically the effort (心機, sam1 gei1) that went into it, carries real emotional weight. A sincere 好好食 is not small talk.",
+    "lines": [
         {
-          "chinese": "食",
-          "jyutping": "sik6",
-          "english": "eat"
+            "id": "comp-01",
+            "speaker": "host",
+            "cjk": "食多啲啦！仲有好多㗎！",
+            "jyutping": "sik6 do1 di1 laa1! zung6 jau5 hou2 do1 gaa3!",
+            "english": "Eat more! There's plenty!",
+            "audioFile": "comp-01.mp3",
+            "words": [
+                {
+                    "chinese": "食",
+                    "jyutping": "sik6",
+                    "english": "eat"
+                },
+                {
+                    "chinese": "多",
+                    "jyutping": "do1",
+                    "english": "more"
+                },
+                {
+                    "chinese": "啲",
+                    "jyutping": "di1",
+                    "english": "(a bit)"
+                },
+                {
+                    "chinese": "啦",
+                    "jyutping": "laa1",
+                    "english": "(suggestion particle)"
+                },
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "好多",
+                    "jyutping": "hou2 do1",
+                    "english": "a lot"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "多",
-          "jyutping": "do1",
-          "english": "more"
+            "id": "comp-02",
+            "speaker": "you",
+            "cjk": "好食呀！係你整㗎？",
+            "jyutping": "hou2 sik6 aa3! hai6 nei5 zing2 gaa3?",
+            "english": "This is delicious! Did you make it yourself?",
+            "audioFile": "comp-02.mp3",
+            "words": [
+                {
+                    "chinese": "好食",
+                    "jyutping": "hou2 sik6",
+                    "english": "delicious"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "整",
+                    "jyutping": "zing2",
+                    "english": "make; fix"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "啲",
-          "jyutping": "di1",
-          "english": "(a bit)"
+            "id": "comp-03",
+            "speaker": "host",
+            "cjk": "係呀，呢個係我阿媽教落嚟㗎。",
+            "jyutping": "hai6 aa3, ni1 go3 hai6 ngo5 aa3 maa1 gaau3 lok6 lei4 gaa3.",
+            "english": "Yes, this recipe was passed down from my mum.",
+            "audioFile": "comp-03.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "呢個",
+                    "jyutping": "ni1 go3",
+                    "english": "this one"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "阿媽",
+                    "jyutping": "aa3 maa1",
+                    "english": "mum"
+                },
+                {
+                    "chinese": "教",
+                    "jyutping": "gaau3",
+                    "english": "teach"
+                },
+                {
+                    "chinese": "落嚟",
+                    "jyutping": "lok6 lei4",
+                    "english": "(passed) down"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "gaa3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "啦",
-          "jyutping": "laa1",
-          "english": "(suggestion particle)"
+            "id": "comp-04",
+            "speaker": "you",
+            "cjk": "好好味呀！我未食過咁好食嘅魚。",
+            "jyutping": "hou2 hou2 mei6 aa3! ngo5 mei6 sik6 gwo3 gam3 hou2 sik6 ge3 jyu2.",
+            "english": "It's delicious! I've never had fish this good before.",
+            "audioFile": "comp-04.mp3",
+            "words": [
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "so"
+                },
+                {
+                    "chinese": "好味",
+                    "jyutping": "hou2 mei6",
+                    "english": "tasty"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "未",
+                    "jyutping": "mei6",
+                    "english": "not yet"
+                },
+                {
+                    "chinese": "食",
+                    "jyutping": "sik6",
+                    "english": "eat"
+                },
+                {
+                    "chinese": "過",
+                    "jyutping": "gwo3",
+                    "english": "(ever)"
+                },
+                {
+                    "chinese": "咁",
+                    "jyutping": "gam3",
+                    "english": "so"
+                },
+                {
+                    "chinese": "好食",
+                    "jyutping": "hou2 sik6",
+                    "english": "delicious"
+                },
+                {
+                    "chinese": "嘅",
+                    "jyutping": "ge3",
+                    "english": "(linking particle)"
+                },
+                {
+                    "chinese": "魚",
+                    "jyutping": "jyu2",
+                    "english": "fish"
+                }
+            ]
         },
         {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
+            "id": "comp-05",
+            "speaker": "host",
+            "cjk": "唔係呀，你過獎喇！",
+            "jyutping": "m4 hai6 aa3, nei5 gwo3 zoeng2 laa3!",
+            "english": "Oh stop it, you're too kind!",
+            "audioFile": "comp-05.mp3",
+            "words": [
+                {
+                    "chinese": "唔係",
+                    "jyutping": "m4 hai6",
+                    "english": "is not"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "過獎",
+                    "jyutping": "gwo3 zoeng2",
+                    "english": "flatter"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                }
+            ]
         },
         {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
+            "id": "comp-06",
+            "speaker": "you",
+            "cjk": "真係，下次可唔可以教我煮？",
+            "jyutping": "zan1 hai6, haa6 ci3 ho2 m4 ho2 ji5 gaau3 ngo5 zyu2?",
+            "english": "I mean it — could you teach me to cook it next time?",
+            "audioFile": "comp-06.mp3",
+            "words": [
+                {
+                    "chinese": "真係",
+                    "jyutping": "zan1 hai6",
+                    "english": "really"
+                },
+                {
+                    "chinese": "下次",
+                    "jyutping": "haa6 ci3",
+                    "english": "next time"
+                },
+                {
+                    "chinese": "可唔可以",
+                    "jyutping": "ho2 m4 ho2 ji5",
+                    "english": "can you?"
+                },
+                {
+                    "chinese": "教",
+                    "jyutping": "gaau3",
+                    "english": "teach"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "煮",
+                    "jyutping": "zyu2",
+                    "english": "cook"
+                }
+            ]
         },
         {
-          "chinese": "好多",
-          "jyutping": "hou2 do1",
-          "english": "a lot"
+            "id": "comp-07",
+            "speaker": "host",
+            "cjk": "梗係得！歡迎你隨時嚟。",
+            "jyutping": "gang2 hai6 dak1! fun1 jing4 nei5 ceoi4 si4 lei4.",
+            "english": "Of course! You're welcome any time.",
+            "audioFile": "comp-07.mp3",
+            "words": [
+                {
+                    "chinese": "梗係",
+                    "jyutping": "gang2 hai6",
+                    "english": "of course"
+                },
+                {
+                    "chinese": "得",
+                    "jyutping": "dak1",
+                    "english": "can"
+                },
+                {
+                    "chinese": "歡迎",
+                    "jyutping": "fun1 jing4",
+                    "english": "welcome"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "隨時",
+                    "jyutping": "ceoi4 si4",
+                    "english": "anytime"
+                },
+                {
+                    "chinese": "嚟",
+                    "jyutping": "lei4",
+                    "english": "come"
+                }
+            ]
         },
         {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
+            "id": "comp-08",
+            "speaker": "you",
+            "cjk": "今晚真係好開心，多謝你款待。",
+            "jyutping": "gam1 maan5 zan1 hai6 hou2 hoi1 sam1, do1 ze6 nei5 fun2 doi6.",
+            "english": "Tonight has been really lovely — thank you for having me.",
+            "audioFile": "comp-08.mp3",
+            "words": [
+                {
+                    "chinese": "今晚",
+                    "jyutping": "gam1 maan5",
+                    "english": "tonight"
+                },
+                {
+                    "chinese": "真係",
+                    "jyutping": "zan1 hai6",
+                    "english": "really"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "開心",
+                    "jyutping": "hoi1 sam1",
+                    "english": "happy"
+                },
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "款待",
+                    "jyutping": "fun2 doi6",
+                    "english": "hospitality"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "comp-02",
-      "speaker": "you",
-      "cjk": "好食呀！係你整㗎？",
-      "jyutping": "hou2 sik6 aa3! hai6 nei5 zing2 gaa3?",
-      "english": "This is delicious! Did you make it yourself?",
-      "audioFile": "comp-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "好食",
-          "jyutping": "hou2 sik6",
-          "english": "delicious"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "整",
-          "jyutping": "zing2",
-          "english": "make; fix"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
+            "category": "Compliments",
+            "words": [
+                {
+                    "chinese": "好味",
+                    "jyutping": "hou2 mei6",
+                    "english": "delicious"
+                },
+                {
+                    "chinese": "手勢好",
+                    "jyutping": "sau2 sai3 hou2",
+                    "english": "good cooking skills"
+                },
+                {
+                    "chinese": "惹味",
+                    "jyutping": "je5 mei6",
+                    "english": "appetizing, full of flavour"
+                },
+                {
+                    "chinese": "鑊氣",
+                    "jyutping": "wok6 hei3",
+                    "english": "wok hei — the smoky char of high-heat stir-frying"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "comp-03",
-      "speaker": "host",
-      "cjk": "係呀，呢個係我阿媽教落嚟㗎。",
-      "jyutping": "hai6 aa3, ni1 go3 hai6 ngo5 aa3 maa1 gaau3 lok6 lei4 gaa3.",
-      "english": "Yes, this recipe was passed down from my mum.",
-      "audioFile": "comp-03.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "呢個",
-          "jyutping": "ni1 go3",
-          "english": "this one"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "阿媽",
-          "jyutping": "aa3 maa1",
-          "english": "mum"
-        },
-        {
-          "chinese": "教",
-          "jyutping": "gaau3",
-          "english": "teach"
-        },
-        {
-          "chinese": "落嚟",
-          "jyutping": "lok6 lei4",
-          "english": "(passed) down"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "gaa3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "comp-04",
-      "speaker": "you",
-      "cjk": "好好味呀！我未食過咁好食嘅魚。",
-      "jyutping": "hou2 hou2 mei6 aa3! ngo5 mei6 sik6 gwo3 gam3 hou2 sik6 ge3 jyu2.",
-      "english": "It's delicious! I've never had fish this good before.",
-      "audioFile": "comp-04.mp3",
-      "words": [
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "so"
-        },
-        {
-          "chinese": "好味",
-          "jyutping": "hou2 mei6",
-          "english": "tasty"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "未",
-          "jyutping": "mei6",
-          "english": "not yet"
-        },
-        {
-          "chinese": "食",
-          "jyutping": "sik6",
-          "english": "eat"
-        },
-        {
-          "chinese": "過",
-          "jyutping": "gwo3",
-          "english": "(ever)"
-        },
-        {
-          "chinese": "咁",
-          "jyutping": "gam3",
-          "english": "so"
-        },
-        {
-          "chinese": "好食",
-          "jyutping": "hou2 sik6",
-          "english": "delicious"
-        },
-        {
-          "chinese": "嘅",
-          "jyutping": "ge3",
-          "english": "(linking particle)"
-        },
-        {
-          "chinese": "魚",
-          "jyutping": "jyu2",
-          "english": "fish"
-        }
-      ]
-    },
-    {
-      "id": "comp-05",
-      "speaker": "host",
-      "cjk": "唔係呀，你過獎喇！",
-      "jyutping": "m4 hai6 aa3, nei5 gwo3 zoeng2 laa3!",
-      "english": "Oh stop it, you're too kind!",
-      "audioFile": "comp-05.mp3",
-      "words": [
-        {
-          "chinese": "唔係",
-          "jyutping": "m4 hai6",
-          "english": "is not"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "過獎",
-          "jyutping": "gwo3 zoeng2",
-          "english": "flatter"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        }
-      ]
-    },
-    {
-      "id": "comp-06",
-      "speaker": "you",
-      "cjk": "真係，下次可唔可以教我煮？",
-      "jyutping": "zan1 hai6, haa6 ci3 ho2 m4 ho2 ji5 gaau3 ngo5 zyu2?",
-      "english": "I mean it — could you teach me to cook it next time?",
-      "audioFile": "comp-06.mp3",
-      "words": [
-        {
-          "chinese": "真係",
-          "jyutping": "zan1 hai6",
-          "english": "really"
-        },
-        {
-          "chinese": "下次",
-          "jyutping": "haa6 ci3",
-          "english": "next time"
-        },
-        {
-          "chinese": "可唔可以",
-          "jyutping": "ho2 m4 ho2 ji5",
-          "english": "can you?"
-        },
-        {
-          "chinese": "教",
-          "jyutping": "gaau3",
-          "english": "teach"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "煮",
-          "jyutping": "zyu2",
-          "english": "cook"
-        }
-      ]
-    },
-    {
-      "id": "comp-07",
-      "speaker": "host",
-      "cjk": "梗係得！歡迎你隨時嚟。",
-      "jyutping": "gang2 hai6 dak1! fun1 jing4 nei5 ceoi4 si4 lei4.",
-      "english": "Of course! You're welcome any time.",
-      "audioFile": "comp-07.mp3",
-      "words": [
-        {
-          "chinese": "梗係",
-          "jyutping": "gang2 hai6",
-          "english": "of course"
-        },
-        {
-          "chinese": "得",
-          "jyutping": "dak1",
-          "english": "can"
-        },
-        {
-          "chinese": "歡迎",
-          "jyutping": "fun1 jing4",
-          "english": "welcome"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "隨時",
-          "jyutping": "ceoi4 si4",
-          "english": "anytime"
-        },
-        {
-          "chinese": "嚟",
-          "jyutping": "lei4",
-          "english": "come"
-        }
-      ]
-    },
-    {
-      "id": "comp-08",
-      "speaker": "you",
-      "cjk": "今晚真係好開心，多謝你款待。",
-      "jyutping": "gam1 maan5 zan1 hai6 hou2 hoi1 sam1, do1 ze6 nei5 fun2 doi6.",
-      "english": "Tonight has been really lovely — thank you for having me.",
-      "audioFile": "comp-08.mp3",
-      "words": [
-        {
-          "chinese": "今晚",
-          "jyutping": "gam1 maan5",
-          "english": "tonight"
-        },
-        {
-          "chinese": "真係",
-          "jyutping": "zan1 hai6",
-          "english": "really"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "開心",
-          "jyutping": "hoi1 sam1",
-          "english": "happy"
-        },
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "款待",
-          "jyutping": "fun2 doi6",
-          "english": "hospitality"
-        }
-      ]
-    }
-  ]
+    ]
 }

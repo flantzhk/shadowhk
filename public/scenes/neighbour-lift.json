@@ -1,272 +1,294 @@
 {
-  "id": "neighbour-lift",
-  "language": "cantonese",
-  "emoji": "🛗",
-  "imageUrl": "/shadowhk/images/scenes/neighbour-lift.jpg",
-  "tint": "#8F6AE8",
-  "title": "Small talk in the lift",
-  "description": "Chat briefly with your neighbour on the way up in the building lift",
-  "category": "social",
-  "difficulty": "starter",
-  "estimatedMinutes": 3,
-  "location": "Residential building lift, Tai Koo",
-  "context": "Most Hong Kongers live in high-rise apartments and share a lift with dozens of neighbours. Lift encounters are short and friendly — just enough to be neighbourly without overstaying your welcome. A smile and basic pleasantries go a long way.",
-  "cultural_note": "In many Hong Kong buildings, the lift buttons skip the number 4, jumping from 3 to 5, because 四 (sei3, four) sounds like 死 (sei2, death). Buildings also omit 14, 24, 34, and any floor ending in 4, replacing them with 3A, 13A, and so on. Some towers also remove 13 for Western reasons. The result is a 50-floor building where no one can quite agree what floor they live on.",
-  "lines": [
-    {
-      "id": "lift-01",
-      "speaker": "neighbour",
-      "cjk": "早晨！",
-      "jyutping": "zou2 san4!",
-      "english": "Good morning!",
-      "audioFile": "lift-01.mp3",
-      "words": [
+    "id": "neighbour-lift",
+    "language": "cantonese",
+    "emoji": "🛗",
+    "imageUrl": "/shadowhk/images/scenes/neighbour-lift.jpg",
+    "tint": "#8F6AE8",
+    "title": "Small talk in the lift",
+    "description": "Chat briefly with your neighbour on the way up in the building lift",
+    "category": "social",
+    "difficulty": "starter",
+    "estimatedMinutes": 3,
+    "location": "Residential building lift, Tai Koo",
+    "context": "Most Hong Kongers live in high-rise apartments and share a lift with dozens of neighbours. Lift encounters are short and friendly — just enough to be neighbourly without overstaying your welcome. A smile and basic pleasantries go a long way.",
+    "cultural_note": "In many Hong Kong buildings, the lift buttons skip the number 4, jumping from 3 to 5, because 四 (sei3, four) sounds like 死 (sei2, death). Buildings also omit 14, 24, 34, and any floor ending in 4, replacing them with 3A, 13A, and so on. Some towers also remove 13 for Western reasons. The result is a 50-floor building where no one can quite agree what floor they live on.",
+    "lines": [
         {
-          "chinese": "早晨",
-          "jyutping": "zou2 san4",
-          "english": "good morning"
+            "id": "lift-01",
+            "speaker": "neighbour",
+            "cjk": "早晨！",
+            "jyutping": "zou2 san4!",
+            "english": "Good morning!",
+            "audioFile": "lift-01.mp3",
+            "words": [
+                {
+                    "chinese": "早晨",
+                    "jyutping": "zou2 san4",
+                    "english": "good morning"
+                }
+            ]
+        },
+        {
+            "id": "lift-02",
+            "speaker": "you",
+            "cjk": "早晨！食咗飯未？",
+            "jyutping": "zou2 san4! sik6 zo2 faan6 mei6?",
+            "english": "Good morning! Have you eaten yet?",
+            "audioFile": "lift-02.mp3",
+            "words": [
+                {
+                    "chinese": "早晨",
+                    "jyutping": "zou2 san4",
+                    "english": "good morning"
+                },
+                {
+                    "chinese": "食",
+                    "jyutping": "sik6",
+                    "english": "eat"
+                },
+                {
+                    "chinese": "咗",
+                    "jyutping": "zo2",
+                    "english": "(completed action)"
+                },
+                {
+                    "chinese": "飯",
+                    "jyutping": "faan6",
+                    "english": "rice; a meal"
+                },
+                {
+                    "chinese": "未",
+                    "jyutping": "mei6",
+                    "english": "not yet"
+                }
+            ]
+        },
+        {
+            "id": "lift-03",
+            "speaker": "neighbour",
+            "cjk": "食咗喇，你呢？",
+            "jyutping": "sik6 zo2 laa3, nei5 ne1?",
+            "english": "Yes I have, and you?",
+            "audioFile": "lift-03.mp3",
+            "words": [
+                {
+                    "chinese": "食",
+                    "jyutping": "sik6",
+                    "english": "eat"
+                },
+                {
+                    "chinese": "咗",
+                    "jyutping": "zo2",
+                    "english": "(completed action)"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "呢",
+                    "jyutping": "ne1",
+                    "english": "(and you?)"
+                }
+            ]
+        },
+        {
+            "id": "lift-04",
+            "speaker": "you",
+            "cjk": "仲未，等陣去飲茶。今日天氣好好喎。",
+            "jyutping": "zung6 mei6, dang2 zan6 heoi3 jam2 caa4. gam1 jat6 tin1 hei3 hou2 hou2 wo3.",
+            "english": "Not yet, I'm going for yum cha shortly. Lovely weather today.",
+            "audioFile": "lift-04.mp3",
+            "words": [
+                {
+                    "chinese": "仲",
+                    "jyutping": "zung6",
+                    "english": "still; also"
+                },
+                {
+                    "chinese": "未",
+                    "jyutping": "mei6",
+                    "english": "not yet"
+                },
+                {
+                    "chinese": "等陣",
+                    "jyutping": "dang2 zan6",
+                    "english": "in a moment"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "飲茶",
+                    "jyutping": "jam2 caa4",
+                    "english": "go for dim sum"
+                },
+                {
+                    "chinese": "今日",
+                    "jyutping": "gam1 jat6",
+                    "english": "today"
+                },
+                {
+                    "chinese": "天氣",
+                    "jyutping": "tin1 hei3",
+                    "english": "weather"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "good"
+                },
+                {
+                    "chinese": "喎",
+                    "jyutping": "wo3",
+                    "english": "(you know)"
+                }
+            ]
+        },
+        {
+            "id": "lift-05",
+            "speaker": "neighbour",
+            "cjk": "係呀，出去行吓幾好。哦，到你喇。",
+            "jyutping": "hai6 aa3, ceot1 heoi3 haang4 haa5 gei2 hou2. o4, dou3 nei5 laa3.",
+            "english": "Yes, a good day for a walk. Oh, this is your floor.",
+            "audioFile": "lift-05.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "出去",
+                    "jyutping": "ceot1 heoi3",
+                    "english": "go out"
+                },
+                {
+                    "chinese": "行",
+                    "jyutping": "haang4",
+                    "english": "walk"
+                },
+                {
+                    "chinese": "吓",
+                    "jyutping": "haa5",
+                    "english": "(briefly)"
+                },
+                {
+                    "chinese": "幾",
+                    "jyutping": "gei2",
+                    "english": "quite"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "哦",
+                    "jyutping": "o4",
+                    "english": "oh"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou3",
+                    "english": "(your turn)"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                }
+            ]
+        },
+        {
+            "id": "lift-06",
+            "speaker": "you",
+            "cjk": "係呀，我走先喇，拜拜！",
+            "jyutping": "hai6 aa3, ngo5 zau2 sin1 laa3, baai1 baai3!",
+            "english": "Yes, I'm off. Bye bye!",
+            "audioFile": "lift-06.mp3",
+            "words": [
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "yes"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "走",
+                    "jyutping": "zau2",
+                    "english": "leave"
+                },
+                {
+                    "chinese": "先",
+                    "jyutping": "sin1",
+                    "english": "first"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                },
+                {
+                    "chinese": "拜拜",
+                    "jyutping": "baai1 baai3",
+                    "english": "bye bye"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "lift-02",
-      "speaker": "you",
-      "cjk": "早晨！食咗飯未？",
-      "jyutping": "zou2 san4! sik6 zo2 faan6 mei6?",
-      "english": "Good morning! Have you eaten yet?",
-      "audioFile": "lift-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "早晨",
-          "jyutping": "zou2 san4",
-          "english": "good morning"
-        },
-        {
-          "chinese": "食",
-          "jyutping": "sik6",
-          "english": "eat"
-        },
-        {
-          "chinese": "咗",
-          "jyutping": "zo2",
-          "english": "(completed action)"
-        },
-        {
-          "chinese": "飯",
-          "jyutping": "faan6",
-          "english": "rice; a meal"
-        },
-        {
-          "chinese": "未",
-          "jyutping": "mei6",
-          "english": "not yet"
+            "category": "Building Terms",
+            "words": [
+                {
+                    "chinese": "鄰居",
+                    "jyutping": "leon4 geoi1",
+                    "english": "neighbour"
+                },
+                {
+                    "chinese": "樓上",
+                    "jyutping": "lau4 soeng6",
+                    "english": "upstairs"
+                },
+                {
+                    "chinese": "樓下",
+                    "jyutping": "lau4 haa6",
+                    "english": "downstairs"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "lift-03",
-      "speaker": "neighbour",
-      "cjk": "食咗喇，你呢？",
-      "jyutping": "sik6 zo2 laa3, nei5 ne1?",
-      "english": "Yes I have, and you?",
-      "audioFile": "lift-03.mp3",
-      "words": [
-        {
-          "chinese": "食",
-          "jyutping": "sik6",
-          "english": "eat"
-        },
-        {
-          "chinese": "咗",
-          "jyutping": "zo2",
-          "english": "(completed action)"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "呢",
-          "jyutping": "ne1",
-          "english": "(and you?)"
-        }
-      ]
-    },
-    {
-      "id": "lift-04",
-      "speaker": "you",
-      "cjk": "仲未，等陣去飲茶。今日天氣好好喎。",
-      "jyutping": "zung6 mei6, dang2 zan6 heoi3 jam2 caa4. gam1 jat6 tin1 hei3 hou2 hou2 wo3.",
-      "english": "Not yet, I'm going for yum cha shortly. Lovely weather today.",
-      "audioFile": "lift-04.mp3",
-      "words": [
-        {
-          "chinese": "仲",
-          "jyutping": "zung6",
-          "english": "still; also"
-        },
-        {
-          "chinese": "未",
-          "jyutping": "mei6",
-          "english": "not yet"
-        },
-        {
-          "chinese": "等陣",
-          "jyutping": "dang2 zan6",
-          "english": "in a moment"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "飲茶",
-          "jyutping": "jam2 caa4",
-          "english": "go for dim sum"
-        },
-        {
-          "chinese": "今日",
-          "jyutping": "gam1 jat6",
-          "english": "today"
-        },
-        {
-          "chinese": "天氣",
-          "jyutping": "tin1 hei3",
-          "english": "weather"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "good"
-        },
-        {
-          "chinese": "喎",
-          "jyutping": "wo3",
-          "english": "(you know)"
-        }
-      ]
-    },
-    {
-      "id": "lift-05",
-      "speaker": "neighbour",
-      "cjk": "係呀，出去行吓幾好。哦，到你喇。",
-      "jyutping": "hai6 aa3, ceot1 heoi3 haang4 haa5 gei2 hou2. o4, dou3 nei5 laa3.",
-      "english": "Yes, a good day for a walk. Oh, this is your floor.",
-      "audioFile": "lift-05.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "出去",
-          "jyutping": "ceot1 heoi3",
-          "english": "go out"
-        },
-        {
-          "chinese": "行",
-          "jyutping": "haang4",
-          "english": "walk"
-        },
-        {
-          "chinese": "吓",
-          "jyutping": "haa5",
-          "english": "(briefly)"
-        },
-        {
-          "chinese": "幾",
-          "jyutping": "gei2",
-          "english": "quite"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "哦",
-          "jyutping": "o4",
-          "english": "oh"
-        },
-        {
-          "chinese": "到",
-          "jyutping": "dou3",
-          "english": "(your turn)"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        }
-      ]
-    },
-    {
-      "id": "lift-06",
-      "speaker": "you",
-      "cjk": "係呀，我走先喇，拜拜！",
-      "jyutping": "hai6 aa3, ngo5 zau2 sin1 laa3, baai1 baai3!",
-      "english": "Yes, I'm off. Bye bye!",
-      "audioFile": "lift-06.mp3",
-      "words": [
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "yes"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "走",
-          "jyutping": "zau2",
-          "english": "leave"
-        },
-        {
-          "chinese": "先",
-          "jyutping": "sin1",
-          "english": "first"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        },
-        {
-          "chinese": "拜拜",
-          "jyutping": "baai1 baai3",
-          "english": "bye bye"
-        }
-      ]
-    }
-  ]
+    ]
 }

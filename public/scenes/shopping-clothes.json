@@ -1,347 +1,369 @@
 {
-  "id": "shopping-clothes",
-  "language": "cantonese",
-  "emoji": "👕",
-  "imageUrl": "/shadowhk/images/scenes/shopping-clothes.jpg",
-  "tint": "#8F6AE8",
-  "title": "Shopping for clothes",
-  "description": "Find your size, try it on, and buy it: mall shopping, fixed prices",
-  "category": "services",
-  "difficulty": "everyday",
-  "estimatedMinutes": 6,
-  "location": "Clothing shop, Mong Kok Ladies' Market area",
-  "context": "Mall shops and chain stores in Hong Kong have fixed prices, fitting rooms, and card payment. Sizes are labelled S/M/L or by chest and waist. No bargaining here; that belongs to the street markets.",
-  "cultural_note": "The concept of 開市 (hoi1 si5, \"opening the market\") shapes the start of trading at Hong Kong's street stalls and wet markets: the first sale of the day is considered auspicious, bringing luck for all business that follows. Vendors are more willing to negotiate in the first hour of trading, whenever that falls, midday at Mong Kok's Ladies' Market, late afternoon at Temple Street. Arriving as the stalls open and making a polite offer is considered entirely proper.",
-  "lines": [
-    {
-      "id": "shop-01",
-      "speaker": "staff",
-      "cjk": "歡迎！想搵咩？",
-      "jyutping": "fun1 jing4! soeng2 wan2 me1?",
-      "english": "Welcome! What are you looking for?",
-      "audioFile": "shop-01.mp3",
-      "words": [
+    "id": "shopping-clothes",
+    "language": "cantonese",
+    "emoji": "👕",
+    "imageUrl": "/shadowhk/images/scenes/shopping-clothes.jpg",
+    "tint": "#8F6AE8",
+    "title": "Shopping for clothes",
+    "description": "Find your size, try it on, and buy it: mall shopping, fixed prices",
+    "category": "services",
+    "difficulty": "everyday",
+    "estimatedMinutes": 6,
+    "location": "Clothing shop, Mong Kok Ladies' Market area",
+    "context": "Mall shops and chain stores in Hong Kong have fixed prices, fitting rooms, and card payment. Sizes are labelled S/M/L or by chest and waist. No bargaining here; that belongs to the street markets.",
+    "cultural_note": "The concept of 開市 (hoi1 si5, \"opening the market\") shapes the start of trading at Hong Kong's street stalls and wet markets: the first sale of the day is considered auspicious, bringing luck for all business that follows. Vendors are more willing to negotiate in the first hour of trading, whenever that falls, midday at Mong Kok's Ladies' Market, late afternoon at Temple Street. Arriving as the stalls open and making a polite offer is considered entirely proper.",
+    "lines": [
         {
-          "chinese": "歡迎",
-          "jyutping": "fun1 jing4",
-          "english": "welcome"
+            "id": "shop-01",
+            "speaker": "staff",
+            "cjk": "歡迎！想搵咩？",
+            "jyutping": "fun1 jing4! soeng2 wan2 me1?",
+            "english": "Welcome! What are you looking for?",
+            "audioFile": "shop-01.mp3",
+            "words": [
+                {
+                    "chinese": "歡迎",
+                    "jyutping": "fun1 jing4",
+                    "english": "welcome"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "搵",
+                    "jyutping": "wan2",
+                    "english": "look for"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                }
+            ]
         },
         {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
+            "id": "shop-02",
+            "speaker": "you",
+            "cjk": "我想搵件T-shirt，深色嘅。",
+            "jyutping": "ngo5 soeng2 wan2 gin6 T-shirt, sam1 sik1 ge3.",
+            "english": "I'm looking for a T-shirt — something dark coloured.",
+            "audioFile": "shop-02.mp3",
+            "words": [
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "搵",
+                    "jyutping": "wan2",
+                    "english": "look for"
+                },
+                {
+                    "chinese": "件",
+                    "jyutping": "gin6",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "T-shirt",
+                    "jyutping": "T-shirt",
+                    "english": "T-shirt"
+                },
+                {
+                    "chinese": "深色",
+                    "jyutping": "sam1 sik1",
+                    "english": "dark-coloured"
+                },
+                {
+                    "chinese": "嘅",
+                    "jyutping": "ge3",
+                    "english": "(linking particle)"
+                }
+            ]
         },
         {
-          "chinese": "搵",
-          "jyutping": "wan2",
-          "english": "look for"
+            "id": "shop-03",
+            "speaker": "staff",
+            "cjk": "呢邊有幾款，睇吓鍾唔鍾意。",
+            "jyutping": "ni1 bin1 jau5 gei2 fun2, tai2 haa5 zung1 m4 zung1 ji3.",
+            "english": "We have a few styles over here. See if you like any.",
+            "audioFile": "shop-03.mp3",
+            "words": [
+                {
+                    "chinese": "呢邊",
+                    "jyutping": "ni1 bin1",
+                    "english": "this side"
+                },
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "幾",
+                    "jyutping": "gei2",
+                    "english": "how many"
+                },
+                {
+                    "chinese": "款",
+                    "jyutping": "fun2",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "睇",
+                    "jyutping": "tai2",
+                    "english": "look"
+                },
+                {
+                    "chinese": "吓",
+                    "jyutping": "haa5",
+                    "english": "(briefly)"
+                },
+                {
+                    "chinese": "鍾唔鍾意",
+                    "jyutping": "zung1 m4 zung1 ji3",
+                    "english": "like it or not?"
+                }
+            ]
         },
         {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
+            "id": "shop-04",
+            "speaker": "you",
+            "cjk": "呢件幾好睇，有冇細碼呀？",
+            "jyutping": "ni1 gin6 gei2 hou2 tai2, jau5 mou5 sai3 maa5 aa3?",
+            "english": "This one looks nice. Do you have it in a small?",
+            "audioFile": "shop-04.mp3",
+            "words": [
+                {
+                    "chinese": "呢件",
+                    "jyutping": "ni1 gin6",
+                    "english": "this one"
+                },
+                {
+                    "chinese": "幾",
+                    "jyutping": "gei2",
+                    "english": "quite"
+                },
+                {
+                    "chinese": "好睇",
+                    "jyutping": "hou2 tai2",
+                    "english": "nice-looking"
+                },
+                {
+                    "chinese": "有冇",
+                    "jyutping": "jau5 mou5",
+                    "english": "have any?"
+                },
+                {
+                    "chinese": "細碼",
+                    "jyutping": "sai3 maa5",
+                    "english": "small size"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
+        },
+        {
+            "id": "shop-05",
+            "speaker": "staff",
+            "cjk": "有，等我攞俾你。",
+            "jyutping": "jau5, dang2 ngo5 lo2 bei2 nei5.",
+            "english": "Yes, let me get it for you.",
+            "audioFile": "shop-05.mp3",
+            "words": [
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "等",
+                    "jyutping": "dang2",
+                    "english": "wait"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "攞",
+                    "jyutping": "lo2",
+                    "english": "fetch"
+                },
+                {
+                    "chinese": "俾",
+                    "jyutping": "bei2",
+                    "english": "give"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                }
+            ]
+        },
+        {
+            "id": "shop-06",
+            "speaker": "you",
+            "cjk": "可唔可以試吓？",
+            "jyutping": "ho2 m4 ho2 ji5 si3 haa5?",
+            "english": "Can I try it on?",
+            "audioFile": "shop-06.mp3",
+            "words": [
+                {
+                    "chinese": "可唔可以",
+                    "jyutping": "ho2 m4 ho2 ji5",
+                    "english": "can you?"
+                },
+                {
+                    "chinese": "試",
+                    "jyutping": "si3",
+                    "english": "try"
+                },
+                {
+                    "chinese": "吓",
+                    "jyutping": "haa5",
+                    "english": "(briefly)"
+                }
+            ]
+        },
+        {
+            "id": "shop-07",
+            "speaker": "staff",
+            "cjk": "試身室喺右手邊。",
+            "jyutping": "si3 san1 sat1 hai2 jau6 sau2 bin1.",
+            "english": "The fitting room is on your right.",
+            "audioFile": "shop-07.mp3",
+            "words": [
+                {
+                    "chinese": "試身室",
+                    "jyutping": "si3 san1 sat1",
+                    "english": "fitting room"
+                },
+                {
+                    "chinese": "喺",
+                    "jyutping": "hai2",
+                    "english": "at"
+                },
+                {
+                    "chinese": "右手邊",
+                    "jyutping": "jau6 sau2 bin1",
+                    "english": "on the right"
+                }
+            ]
+        },
+        {
+            "id": "shop-08",
+            "speaker": "you",
+            "cjk": "幾錢呀？",
+            "jyutping": "gei2 cin2 aa3?",
+            "english": "How much is it?",
+            "audioFile": "shop-08.mp3",
+            "words": [
+                {
+                    "chinese": "幾",
+                    "jyutping": "gei2",
+                    "english": "how much"
+                },
+                {
+                    "chinese": "錢",
+                    "jyutping": "cin2",
+                    "english": "money"
+                },
+                {
+                    "chinese": "呀",
+                    "jyutping": "aa3",
+                    "english": "(softener)"
+                }
+            ]
+        },
+        {
+            "id": "shop-09",
+            "speaker": "staff",
+            "cjk": "二百八十蚊。",
+            "jyutping": "ji6 baak3 baat3 sap6 man1.",
+            "english": "Two hundred and eighty dollars.",
+            "audioFile": "shop-09.mp3",
+            "words": [
+                {
+                    "chinese": "二百八十",
+                    "jyutping": "ji6 baak3 baat3 sap6",
+                    "english": "two hundred eighty"
+                },
+                {
+                    "chinese": "蚊",
+                    "jyutping": "man1",
+                    "english": "dollars"
+                }
+            ]
+        },
+        {
+            "id": "shop-10",
+            "speaker": "you",
+            "cjk": "啱著，我要呢件喇。",
+            "jyutping": "ngaam1 zoek3, ngo5 jiu3 ni1 gin6 laa3.",
+            "english": "Fits well, I'll take this one.",
+            "audioFile": "shop-10.mp3",
+            "words": [
+                {
+                    "chinese": "啱著",
+                    "jyutping": "ngaam1 zoek3",
+                    "english": "fits well"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "要",
+                    "jyutping": "jiu3",
+                    "english": "want"
+                },
+                {
+                    "chinese": "呢件",
+                    "jyutping": "ni1 gin6",
+                    "english": "this one"
+                },
+                {
+                    "chinese": "喇",
+                    "jyutping": "laa3",
+                    "english": "(final particle)"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "shop-02",
-      "speaker": "you",
-      "cjk": "我想搵件T-shirt，深色嘅。",
-      "jyutping": "ngo5 soeng2 wan2 gin6 T-shirt, sam1 sik1 ge3.",
-      "english": "I'm looking for a T-shirt — something dark coloured.",
-      "audioFile": "shop-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
-        },
-        {
-          "chinese": "搵",
-          "jyutping": "wan2",
-          "english": "look for"
-        },
-        {
-          "chinese": "件",
-          "jyutping": "gin6",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "T-shirt",
-          "jyutping": "T-shirt",
-          "english": "T-shirt"
-        },
-        {
-          "chinese": "深色",
-          "jyutping": "sam1 sik1",
-          "english": "dark-coloured"
-        },
-        {
-          "chinese": "嘅",
-          "jyutping": "ge3",
-          "english": "(linking particle)"
+            "category": "Clothing Terms",
+            "words": [
+                {
+                    "chinese": "試身室",
+                    "jyutping": "si3 san1 sat1",
+                    "english": "fitting room"
+                },
+                {
+                    "chinese": "碼",
+                    "jyutping": "maa5",
+                    "english": "size"
+                },
+                {
+                    "chinese": "換",
+                    "jyutping": "wun6",
+                    "english": "exchange / return"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "shop-03",
-      "speaker": "staff",
-      "cjk": "呢邊有幾款，睇吓鍾唔鍾意。",
-      "jyutping": "ni1 bin1 jau5 gei2 fun2, tai2 haa5 zung1 m4 zung1 ji3.",
-      "english": "We have a few styles over here. See if you like any.",
-      "audioFile": "shop-03.mp3",
-      "words": [
-        {
-          "chinese": "呢邊",
-          "jyutping": "ni1 bin1",
-          "english": "this side"
-        },
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "幾",
-          "jyutping": "gei2",
-          "english": "how many"
-        },
-        {
-          "chinese": "款",
-          "jyutping": "fun2",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "睇",
-          "jyutping": "tai2",
-          "english": "look"
-        },
-        {
-          "chinese": "吓",
-          "jyutping": "haa5",
-          "english": "(briefly)"
-        },
-        {
-          "chinese": "鍾唔鍾意",
-          "jyutping": "zung1 m4 zung1 ji3",
-          "english": "like it or not?"
-        }
-      ]
-    },
-    {
-      "id": "shop-04",
-      "speaker": "you",
-      "cjk": "呢件幾好睇，有冇細碼呀？",
-      "jyutping": "ni1 gin6 gei2 hou2 tai2, jau5 mou5 sai3 maa5 aa3?",
-      "english": "This one looks nice. Do you have it in a small?",
-      "audioFile": "shop-04.mp3",
-      "words": [
-        {
-          "chinese": "呢件",
-          "jyutping": "ni1 gin6",
-          "english": "this one"
-        },
-        {
-          "chinese": "幾",
-          "jyutping": "gei2",
-          "english": "quite"
-        },
-        {
-          "chinese": "好睇",
-          "jyutping": "hou2 tai2",
-          "english": "nice-looking"
-        },
-        {
-          "chinese": "有冇",
-          "jyutping": "jau5 mou5",
-          "english": "have any?"
-        },
-        {
-          "chinese": "細碼",
-          "jyutping": "sai3 maa5",
-          "english": "small size"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "shop-05",
-      "speaker": "staff",
-      "cjk": "有，等我攞俾你。",
-      "jyutping": "jau5, dang2 ngo5 lo2 bei2 nei5.",
-      "english": "Yes, let me get it for you.",
-      "audioFile": "shop-05.mp3",
-      "words": [
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "等",
-          "jyutping": "dang2",
-          "english": "wait"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "攞",
-          "jyutping": "lo2",
-          "english": "fetch"
-        },
-        {
-          "chinese": "俾",
-          "jyutping": "bei2",
-          "english": "give"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        }
-      ]
-    },
-    {
-      "id": "shop-06",
-      "speaker": "you",
-      "cjk": "可唔可以試吓？",
-      "jyutping": "ho2 m4 ho2 ji5 si3 haa5?",
-      "english": "Can I try it on?",
-      "audioFile": "shop-06.mp3",
-      "words": [
-        {
-          "chinese": "可唔可以",
-          "jyutping": "ho2 m4 ho2 ji5",
-          "english": "can you?"
-        },
-        {
-          "chinese": "試",
-          "jyutping": "si3",
-          "english": "try"
-        },
-        {
-          "chinese": "吓",
-          "jyutping": "haa5",
-          "english": "(briefly)"
-        }
-      ]
-    },
-    {
-      "id": "shop-07",
-      "speaker": "staff",
-      "cjk": "試身室喺右手邊。",
-      "jyutping": "si3 san1 sat1 hai2 jau6 sau2 bin1.",
-      "english": "The fitting room is on your right.",
-      "audioFile": "shop-07.mp3",
-      "words": [
-        {
-          "chinese": "試身室",
-          "jyutping": "si3 san1 sat1",
-          "english": "fitting room"
-        },
-        {
-          "chinese": "喺",
-          "jyutping": "hai2",
-          "english": "at"
-        },
-        {
-          "chinese": "右手邊",
-          "jyutping": "jau6 sau2 bin1",
-          "english": "on the right"
-        }
-      ]
-    },
-    {
-      "id": "shop-08",
-      "speaker": "you",
-      "cjk": "幾錢呀？",
-      "jyutping": "gei2 cin2 aa3?",
-      "english": "How much is it?",
-      "audioFile": "shop-08.mp3",
-      "words": [
-        {
-          "chinese": "幾",
-          "jyutping": "gei2",
-          "english": "how much"
-        },
-        {
-          "chinese": "錢",
-          "jyutping": "cin2",
-          "english": "money"
-        },
-        {
-          "chinese": "呀",
-          "jyutping": "aa3",
-          "english": "(softener)"
-        }
-      ]
-    },
-    {
-      "id": "shop-09",
-      "speaker": "staff",
-      "cjk": "二百八十蚊。",
-      "jyutping": "ji6 baak3 baat3 sap6 man1.",
-      "english": "Two hundred and eighty dollars.",
-      "audioFile": "shop-09.mp3",
-      "words": [
-        {
-          "chinese": "二百八十",
-          "jyutping": "ji6 baak3 baat3 sap6",
-          "english": "two hundred eighty"
-        },
-        {
-          "chinese": "蚊",
-          "jyutping": "man1",
-          "english": "dollars"
-        }
-      ]
-    },
-    {
-      "id": "shop-10",
-      "speaker": "you",
-      "cjk": "啱著，我要呢件喇。",
-      "jyutping": "ngaam1 zoek3, ngo5 jiu3 ni1 gin6 laa3.",
-      "english": "Fits well, I'll take this one.",
-      "audioFile": "shop-10.mp3",
-      "words": [
-        {
-          "chinese": "啱著",
-          "jyutping": "ngaam1 zoek3",
-          "english": "fits well"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "要",
-          "jyutping": "jiu3",
-          "english": "want"
-        },
-        {
-          "chinese": "呢件",
-          "jyutping": "ni1 gin6",
-          "english": "this one"
-        },
-        {
-          "chinese": "喇",
-          "jyutping": "laa3",
-          "english": "(final particle)"
-        }
-      ]
-    }
-  ]
+    ]
 }

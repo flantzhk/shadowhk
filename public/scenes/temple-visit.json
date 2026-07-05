@@ -1,532 +1,554 @@
 {
-  "id": "temple-visit",
-  "language": "cantonese",
-  "emoji": "🛕",
-  "imageUrl": "/shadowhk/images/scenes/temple-visit.jpg",
-  "tint": "#E8A030",
-  "title": "Visiting Wong Tai Sin Temple",
-  "description": "Ask a local about offerings and how to use the fortune sticks",
-  "category": "social",
-  "difficulty": "confident",
-  "estimatedMinutes": 6,
-  "location": "Wong Tai Sin Temple, Kowloon",
-  "context": "Wong Tai Sin Temple (黃大仙祠) is one of Hong Kong's most visited temples, dedicated to the Taoist deity Wong Tai Sin. Visitors come to pray, consult fortune sticks (籤), and make offerings. A friendly local can show you the ropes.",
-  "cultural_note": "Wong Tai Sin Temple (黃大仙祠) serves Taoist, Buddhist, and Confucian worshippers simultaneously, three traditions operating without apparent contradiction on the same site since 1921. The temple is Hong Kong's great home of kau cim (求籤, kau4 cim1), fortune-telling by shaking a bamboo cylinder of numbered sticks until one falls out, then matching the number to a printed oracle. Its reputation, 有求必應, \"every request answered\", keeps a whole arcade of soothsayers in business beside the main hall.",
-  "lines": [
-    {
-      "id": "temple-01",
-      "speaker": "you",
-      "cjk": "唔好意思，我係第一次嚟呢度，可唔可以教我點拜？",
-      "jyutping": "m4 hou2 ji3 si1, ngo5 hai6 dai6 jat1 ci3 lei4 ni1 dou6, ho2 m4 ho2 ji5 gaau3 ngo5 dim2 baai3?",
-      "english": "Excuse me, this is my first time here — could you show me how to pay respects?",
-      "audioFile": "temple-01.mp3",
-      "words": [
+    "id": "temple-visit",
+    "language": "cantonese",
+    "emoji": "🛕",
+    "imageUrl": "/shadowhk/images/scenes/temple-visit.jpg",
+    "tint": "#E8A030",
+    "title": "Visiting Wong Tai Sin Temple",
+    "description": "Ask a local about offerings and how to use the fortune sticks",
+    "category": "social",
+    "difficulty": "confident",
+    "estimatedMinutes": 6,
+    "location": "Wong Tai Sin Temple, Kowloon",
+    "context": "Wong Tai Sin Temple (黃大仙祠) is one of Hong Kong's most visited temples, dedicated to the Taoist deity Wong Tai Sin. Visitors come to pray, consult fortune sticks (籤), and make offerings. A friendly local can show you the ropes.",
+    "cultural_note": "Wong Tai Sin Temple (黃大仙祠) serves Taoist, Buddhist, and Confucian worshippers simultaneously, three traditions operating without apparent contradiction on the same site since 1921. The temple is Hong Kong's great home of kau cim (求籤, kau4 cim1), fortune-telling by shaking a bamboo cylinder of numbered sticks until one falls out, then matching the number to a printed oracle. Its reputation, 有求必應, \"every request answered\", keeps a whole arcade of soothsayers in business beside the main hall.",
+    "lines": [
         {
-          "chinese": "唔好意思",
-          "jyutping": "m4 hou2 ji3 si1",
-          "english": "excuse me"
+            "id": "temple-01",
+            "speaker": "you",
+            "cjk": "唔好意思，我係第一次嚟呢度，可唔可以教我點拜？",
+            "jyutping": "m4 hou2 ji3 si1, ngo5 hai6 dai6 jat1 ci3 lei4 ni1 dou6, ho2 m4 ho2 ji5 gaau3 ngo5 dim2 baai3?",
+            "english": "Excuse me, this is my first time here — could you show me how to pay respects?",
+            "audioFile": "temple-01.mp3",
+            "words": [
+                {
+                    "chinese": "唔好意思",
+                    "jyutping": "m4 hou2 ji3 si1",
+                    "english": "excuse me"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "第一次",
+                    "jyutping": "dai6 jat1 ci3",
+                    "english": "first time"
+                },
+                {
+                    "chinese": "嚟",
+                    "jyutping": "lei4",
+                    "english": "come"
+                },
+                {
+                    "chinese": "呢度",
+                    "jyutping": "ni1 dou6",
+                    "english": "here"
+                },
+                {
+                    "chinese": "可唔可以",
+                    "jyutping": "ho2 m4 ho2 ji5",
+                    "english": "can you?"
+                },
+                {
+                    "chinese": "教",
+                    "jyutping": "gaau3",
+                    "english": "teach"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "點",
+                    "jyutping": "dim2",
+                    "english": "how"
+                },
+                {
+                    "chinese": "拜",
+                    "jyutping": "baai3",
+                    "english": "bow"
+                }
+            ]
         },
         {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
+            "id": "temple-02",
+            "speaker": "local",
+            "cjk": "可以㗎，好簡單。先買香，然後面向黃大仙拜三拜。",
+            "jyutping": "ho2 ji5 ga3, hou2 gaan2 daan1. sin1 maai5 hoeng1, jin4 hau6 min6 heung3 wong4 daai6 sin1 baai3 saam1 baai3.",
+            "english": "Of course, it's simple. First buy incense, then bow three times facing Wong Tai Sin.",
+            "audioFile": "temple-02.mp3",
+            "words": [
+                {
+                    "chinese": "可以",
+                    "jyutping": "ho2 ji5",
+                    "english": "can"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "ga3",
+                    "english": "(emphasis particle)"
+                },
+                {
+                    "chinese": "好",
+                    "jyutping": "hou2",
+                    "english": "very; good"
+                },
+                {
+                    "chinese": "簡單",
+                    "jyutping": "gaan2 daan1",
+                    "english": "simple"
+                },
+                {
+                    "chinese": "先",
+                    "jyutping": "sin1",
+                    "english": "first"
+                },
+                {
+                    "chinese": "買",
+                    "jyutping": "maai5",
+                    "english": "buy"
+                },
+                {
+                    "chinese": "香",
+                    "jyutping": "hoeng1",
+                    "english": "incense"
+                },
+                {
+                    "chinese": "然後",
+                    "jyutping": "jin4 hau6",
+                    "english": "then"
+                },
+                {
+                    "chinese": "面向",
+                    "jyutping": "min6 heung3",
+                    "english": "face towards"
+                },
+                {
+                    "chinese": "黃大仙",
+                    "jyutping": "wong4 daai6 sin1",
+                    "english": "Wong Tai Sin"
+                },
+                {
+                    "chinese": "拜",
+                    "jyutping": "baai3",
+                    "english": "bow"
+                },
+                {
+                    "chinese": "三",
+                    "jyutping": "saam1",
+                    "english": "three"
+                },
+                {
+                    "chinese": "拜",
+                    "jyutping": "baai3",
+                    "english": "bow"
+                }
+            ]
         },
         {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
+            "id": "temple-03",
+            "speaker": "you",
+            "cjk": "籤係點搖㗎？",
+            "jyutping": "cim1 hai6 dim2 jiu4 ga3?",
+            "english": "How do you shake the fortune sticks?",
+            "audioFile": "temple-03.mp3",
+            "words": [
+                {
+                    "chinese": "籤",
+                    "jyutping": "cim1",
+                    "english": "fortune stick"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "點",
+                    "jyutping": "dim2",
+                    "english": "how"
+                },
+                {
+                    "chinese": "搖",
+                    "jyutping": "jiu4",
+                    "english": "shake"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "ga3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "第一次",
-          "jyutping": "dai6 jat1 ci3",
-          "english": "first time"
+            "id": "temple-04",
+            "speaker": "local",
+            "cjk": "跪低，心入面諗住你想問嘅嘢，然後搖個筒，搖到有支籤跌出嚟。",
+            "jyutping": "gwai6 dai1, sam1 jap6 min6 nam2 zyu6 nei5 soeng2 man6 ge3 je5, jin4 hau6 jiu4 go3 tung2, jiu4 dou3 jau5 zi1 cim1 dit3 ceot1 lai4.",
+            "english": "Kneel down, hold your question in your mind, then shake the tube until a stick falls out.",
+            "audioFile": "temple-04.mp3",
+            "words": [
+                {
+                    "chinese": "跪低",
+                    "jyutping": "gwai6 dai1",
+                    "english": "kneel down"
+                },
+                {
+                    "chinese": "心",
+                    "jyutping": "sam1",
+                    "english": "mind"
+                },
+                {
+                    "chinese": "入面",
+                    "jyutping": "jap6 min6",
+                    "english": "inside"
+                },
+                {
+                    "chinese": "諗",
+                    "jyutping": "nam2",
+                    "english": "think"
+                },
+                {
+                    "chinese": "住",
+                    "jyutping": "zyu6",
+                    "english": "(in mind)"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "想",
+                    "jyutping": "soeng2",
+                    "english": "want to"
+                },
+                {
+                    "chinese": "問",
+                    "jyutping": "man6",
+                    "english": "ask"
+                },
+                {
+                    "chinese": "嘅",
+                    "jyutping": "ge3",
+                    "english": "(linking particle)"
+                },
+                {
+                    "chinese": "嘢",
+                    "jyutping": "je5",
+                    "english": "thing(s)"
+                },
+                {
+                    "chinese": "然後",
+                    "jyutping": "jin4 hau6",
+                    "english": "then"
+                },
+                {
+                    "chinese": "搖",
+                    "jyutping": "jiu4",
+                    "english": "shake"
+                },
+                {
+                    "chinese": "個",
+                    "jyutping": "go3",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "筒",
+                    "jyutping": "tung2",
+                    "english": "canister"
+                },
+                {
+                    "chinese": "搖",
+                    "jyutping": "jiu4",
+                    "english": "shake"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou3",
+                    "english": "until"
+                },
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "支",
+                    "jyutping": "zi1",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "籤",
+                    "jyutping": "cim1",
+                    "english": "fortune stick"
+                },
+                {
+                    "chinese": "跌",
+                    "jyutping": "dit3",
+                    "english": "fall"
+                },
+                {
+                    "chinese": "出嚟",
+                    "jyutping": "ceot1 lai4",
+                    "english": "come out"
+                }
+            ]
         },
         {
-          "chinese": "嚟",
-          "jyutping": "lei4",
-          "english": "come"
+            "id": "temple-05",
+            "speaker": "you",
+            "cjk": "籤上面嘅號碼係咩意思？",
+            "jyutping": "cim1 soeng6 min6 ge3 hou6 maa5 hai6 me1 ji3 si1?",
+            "english": "What does the number on the stick mean?",
+            "audioFile": "temple-05.mp3",
+            "words": [
+                {
+                    "chinese": "籤",
+                    "jyutping": "cim1",
+                    "english": "fortune stick"
+                },
+                {
+                    "chinese": "上面",
+                    "jyutping": "soeng6 min6",
+                    "english": "on top"
+                },
+                {
+                    "chinese": "嘅",
+                    "jyutping": "ge3",
+                    "english": "(linking particle)"
+                },
+                {
+                    "chinese": "號碼",
+                    "jyutping": "hou6 maa5",
+                    "english": "number"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "咩",
+                    "jyutping": "me1",
+                    "english": "what"
+                },
+                {
+                    "chinese": "意思",
+                    "jyutping": "ji3 si1",
+                    "english": "meaning"
+                }
+            ]
         },
         {
-          "chinese": "呢度",
-          "jyutping": "ni1 dou6",
-          "english": "here"
+            "id": "temple-06",
+            "speaker": "local",
+            "cjk": "攞住個號去解籤亭，有人幫你解釋。收費係自願㗎。",
+            "jyutping": "lo2 zyu6 go3 hou6 heoi3 gaai2 cim1 ting4, jau5 jan4 bong1 nei5 gaai2 sik1. sau1 fai3 hai6 zi6 jyun6 ga3.",
+            "english": "Take the number to the fortune-telling booth and someone will interpret it for you. The fee is voluntary.",
+            "audioFile": "temple-06.mp3",
+            "words": [
+                {
+                    "chinese": "攞",
+                    "jyutping": "lo2",
+                    "english": "fetch"
+                },
+                {
+                    "chinese": "住",
+                    "jyutping": "zyu6",
+                    "english": "(holding)"
+                },
+                {
+                    "chinese": "個",
+                    "jyutping": "go3",
+                    "english": "(classifier)"
+                },
+                {
+                    "chinese": "號",
+                    "jyutping": "hou6",
+                    "english": "number"
+                },
+                {
+                    "chinese": "去",
+                    "jyutping": "heoi3",
+                    "english": "go"
+                },
+                {
+                    "chinese": "解籤亭",
+                    "jyutping": "gaai2 cim1 ting4",
+                    "english": "interpretation booth"
+                },
+                {
+                    "chinese": "有",
+                    "jyutping": "jau5",
+                    "english": "have"
+                },
+                {
+                    "chinese": "人",
+                    "jyutping": "jan4",
+                    "english": "person"
+                },
+                {
+                    "chinese": "幫",
+                    "jyutping": "bong1",
+                    "english": "help"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "解釋",
+                    "jyutping": "gaai2 sik1",
+                    "english": "explain"
+                },
+                {
+                    "chinese": "收費",
+                    "jyutping": "sau1 fai3",
+                    "english": "fee"
+                },
+                {
+                    "chinese": "係",
+                    "jyutping": "hai6",
+                    "english": "is"
+                },
+                {
+                    "chinese": "自願",
+                    "jyutping": "zi6 jyun6",
+                    "english": "voluntary"
+                },
+                {
+                    "chinese": "㗎",
+                    "jyutping": "ga3",
+                    "english": "(emphasis particle)"
+                }
+            ]
         },
         {
-          "chinese": "可唔可以",
-          "jyutping": "ho2 m4 ho2 ji5",
-          "english": "can you?"
+            "id": "temple-07",
+            "speaker": "you",
+            "cjk": "多謝你教我，真係幫到我好多。",
+            "jyutping": "do1 ze6 nei5 gaau3 ngo5, zan1 hai6 bong1 dou3 ngo5 hou2 do1.",
+            "english": "Thank you for teaching me, you've been a great help.",
+            "audioFile": "temple-07.mp3",
+            "words": [
+                {
+                    "chinese": "多謝",
+                    "jyutping": "do1 ze6",
+                    "english": "thank you"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                },
+                {
+                    "chinese": "教",
+                    "jyutping": "gaau3",
+                    "english": "teach"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "真係",
+                    "jyutping": "zan1 hai6",
+                    "english": "really"
+                },
+                {
+                    "chinese": "幫",
+                    "jyutping": "bong1",
+                    "english": "help"
+                },
+                {
+                    "chinese": "到",
+                    "jyutping": "dou3",
+                    "english": "(manage to)"
+                },
+                {
+                    "chinese": "我",
+                    "jyutping": "ngo5",
+                    "english": "I; me"
+                },
+                {
+                    "chinese": "好多",
+                    "jyutping": "hou2 do1",
+                    "english": "a lot"
+                }
+            ]
         },
         {
-          "chinese": "教",
-          "jyutping": "gaau3",
-          "english": "teach"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "點",
-          "jyutping": "dim2",
-          "english": "how"
-        },
-        {
-          "chinese": "拜",
-          "jyutping": "baai3",
-          "english": "bow"
+            "id": "temple-08",
+            "speaker": "local",
+            "cjk": "唔使客氣，希望黃大仙保佑你。",
+            "jyutping": "m4 sai2 haak3 hei3, hei1 mong6 wong4 daai6 sin1 bou2 jau6 nei5.",
+            "english": "Don't mention it — may Wong Tai Sin bless you.",
+            "audioFile": "temple-08.mp3",
+            "words": [
+                {
+                    "chinese": "唔使",
+                    "jyutping": "m4 sai2",
+                    "english": "no need"
+                },
+                {
+                    "chinese": "客氣",
+                    "jyutping": "haak3 hei3",
+                    "english": "be polite"
+                },
+                {
+                    "chinese": "希望",
+                    "jyutping": "hei1 mong6",
+                    "english": "hope"
+                },
+                {
+                    "chinese": "黃大仙",
+                    "jyutping": "wong4 daai6 sin1",
+                    "english": "Wong Tai Sin"
+                },
+                {
+                    "chinese": "保佑",
+                    "jyutping": "bou2 jau6",
+                    "english": "bless"
+                },
+                {
+                    "chinese": "你",
+                    "jyutping": "nei5",
+                    "english": "you"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "temple-02",
-      "speaker": "local",
-      "cjk": "可以㗎，好簡單。先買香，然後面向黃大仙拜三拜。",
-      "jyutping": "ho2 ji5 ga3, hou2 gaan2 daan1. sin1 maai5 hoeng1, jin4 hau6 min6 heung3 wong4 daai6 sin1 baai3 saam1 baai3.",
-      "english": "Of course, it's simple. First buy incense, then bow three times facing Wong Tai Sin.",
-      "audioFile": "temple-02.mp3",
-      "words": [
+    ],
+    "vocabulary": [
         {
-          "chinese": "可以",
-          "jyutping": "ho2 ji5",
-          "english": "can"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "ga3",
-          "english": "(emphasis particle)"
-        },
-        {
-          "chinese": "好",
-          "jyutping": "hou2",
-          "english": "very; good"
-        },
-        {
-          "chinese": "簡單",
-          "jyutping": "gaan2 daan1",
-          "english": "simple"
-        },
-        {
-          "chinese": "先",
-          "jyutping": "sin1",
-          "english": "first"
-        },
-        {
-          "chinese": "買",
-          "jyutping": "maai5",
-          "english": "buy"
-        },
-        {
-          "chinese": "香",
-          "jyutping": "hoeng1",
-          "english": "incense"
-        },
-        {
-          "chinese": "然後",
-          "jyutping": "jin4 hau6",
-          "english": "then"
-        },
-        {
-          "chinese": "面向",
-          "jyutping": "min6 heung3",
-          "english": "face towards"
-        },
-        {
-          "chinese": "黃大仙",
-          "jyutping": "wong4 daai6 sin1",
-          "english": "Wong Tai Sin"
-        },
-        {
-          "chinese": "拜",
-          "jyutping": "baai3",
-          "english": "bow"
-        },
-        {
-          "chinese": "三",
-          "jyutping": "saam1",
-          "english": "three"
-        },
-        {
-          "chinese": "拜",
-          "jyutping": "baai3",
-          "english": "bow"
+            "category": "Temple Terms",
+            "words": [
+                {
+                    "chinese": "黃大仙",
+                    "jyutping": "wong4 daai6 sin1",
+                    "english": "Wong Tai Sin (deity / temple)"
+                },
+                {
+                    "chinese": "求籤",
+                    "jyutping": "kau4 cim1",
+                    "english": "draw a fortune stick"
+                },
+                {
+                    "chinese": "上香",
+                    "jyutping": "soeng5 hoeng1",
+                    "english": "offer incense"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "temple-03",
-      "speaker": "you",
-      "cjk": "籤係點搖㗎？",
-      "jyutping": "cim1 hai6 dim2 jiu4 ga3?",
-      "english": "How do you shake the fortune sticks?",
-      "audioFile": "temple-03.mp3",
-      "words": [
-        {
-          "chinese": "籤",
-          "jyutping": "cim1",
-          "english": "fortune stick"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "點",
-          "jyutping": "dim2",
-          "english": "how"
-        },
-        {
-          "chinese": "搖",
-          "jyutping": "jiu4",
-          "english": "shake"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "ga3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "temple-04",
-      "speaker": "local",
-      "cjk": "跪低，心入面諗住你想問嘅嘢，然後搖個筒，搖到有支籤跌出嚟。",
-      "jyutping": "gwai6 dai1, sam1 jap6 min6 nam2 zyu6 nei5 soeng2 man6 ge3 je5, jin4 hau6 jiu4 go3 tung2, jiu4 dou3 jau5 zi1 cim1 dit3 ceot1 lai4.",
-      "english": "Kneel down, hold your question in your mind, then shake the tube until a stick falls out.",
-      "audioFile": "temple-04.mp3",
-      "words": [
-        {
-          "chinese": "跪低",
-          "jyutping": "gwai6 dai1",
-          "english": "kneel down"
-        },
-        {
-          "chinese": "心",
-          "jyutping": "sam1",
-          "english": "mind"
-        },
-        {
-          "chinese": "入面",
-          "jyutping": "jap6 min6",
-          "english": "inside"
-        },
-        {
-          "chinese": "諗",
-          "jyutping": "nam2",
-          "english": "think"
-        },
-        {
-          "chinese": "住",
-          "jyutping": "zyu6",
-          "english": "(in mind)"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "想",
-          "jyutping": "soeng2",
-          "english": "want to"
-        },
-        {
-          "chinese": "問",
-          "jyutping": "man6",
-          "english": "ask"
-        },
-        {
-          "chinese": "嘅",
-          "jyutping": "ge3",
-          "english": "(linking particle)"
-        },
-        {
-          "chinese": "嘢",
-          "jyutping": "je5",
-          "english": "thing(s)"
-        },
-        {
-          "chinese": "然後",
-          "jyutping": "jin4 hau6",
-          "english": "then"
-        },
-        {
-          "chinese": "搖",
-          "jyutping": "jiu4",
-          "english": "shake"
-        },
-        {
-          "chinese": "個",
-          "jyutping": "go3",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "筒",
-          "jyutping": "tung2",
-          "english": "canister"
-        },
-        {
-          "chinese": "搖",
-          "jyutping": "jiu4",
-          "english": "shake"
-        },
-        {
-          "chinese": "到",
-          "jyutping": "dou3",
-          "english": "until"
-        },
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "支",
-          "jyutping": "zi1",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "籤",
-          "jyutping": "cim1",
-          "english": "fortune stick"
-        },
-        {
-          "chinese": "跌",
-          "jyutping": "dit3",
-          "english": "fall"
-        },
-        {
-          "chinese": "出嚟",
-          "jyutping": "ceot1 lai4",
-          "english": "come out"
-        }
-      ]
-    },
-    {
-      "id": "temple-05",
-      "speaker": "you",
-      "cjk": "籤上面嘅號碼係咩意思？",
-      "jyutping": "cim1 soeng6 min6 ge3 hou6 maa5 hai6 me1 ji3 si1?",
-      "english": "What does the number on the stick mean?",
-      "audioFile": "temple-05.mp3",
-      "words": [
-        {
-          "chinese": "籤",
-          "jyutping": "cim1",
-          "english": "fortune stick"
-        },
-        {
-          "chinese": "上面",
-          "jyutping": "soeng6 min6",
-          "english": "on top"
-        },
-        {
-          "chinese": "嘅",
-          "jyutping": "ge3",
-          "english": "(linking particle)"
-        },
-        {
-          "chinese": "號碼",
-          "jyutping": "hou6 maa5",
-          "english": "number"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "咩",
-          "jyutping": "me1",
-          "english": "what"
-        },
-        {
-          "chinese": "意思",
-          "jyutping": "ji3 si1",
-          "english": "meaning"
-        }
-      ]
-    },
-    {
-      "id": "temple-06",
-      "speaker": "local",
-      "cjk": "攞住個號去解籤亭，有人幫你解釋。收費係自願㗎。",
-      "jyutping": "lo2 zyu6 go3 hou6 heoi3 gaai2 cim1 ting4, jau5 jan4 bong1 nei5 gaai2 sik1. sau1 fai3 hai6 zi6 jyun6 ga3.",
-      "english": "Take the number to the fortune-telling booth and someone will interpret it for you. The fee is voluntary.",
-      "audioFile": "temple-06.mp3",
-      "words": [
-        {
-          "chinese": "攞",
-          "jyutping": "lo2",
-          "english": "fetch"
-        },
-        {
-          "chinese": "住",
-          "jyutping": "zyu6",
-          "english": "(holding)"
-        },
-        {
-          "chinese": "個",
-          "jyutping": "go3",
-          "english": "(classifier)"
-        },
-        {
-          "chinese": "號",
-          "jyutping": "hou6",
-          "english": "number"
-        },
-        {
-          "chinese": "去",
-          "jyutping": "heoi3",
-          "english": "go"
-        },
-        {
-          "chinese": "解籤亭",
-          "jyutping": "gaai2 cim1 ting4",
-          "english": "interpretation booth"
-        },
-        {
-          "chinese": "有",
-          "jyutping": "jau5",
-          "english": "have"
-        },
-        {
-          "chinese": "人",
-          "jyutping": "jan4",
-          "english": "person"
-        },
-        {
-          "chinese": "幫",
-          "jyutping": "bong1",
-          "english": "help"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "解釋",
-          "jyutping": "gaai2 sik1",
-          "english": "explain"
-        },
-        {
-          "chinese": "收費",
-          "jyutping": "sau1 fai3",
-          "english": "fee"
-        },
-        {
-          "chinese": "係",
-          "jyutping": "hai6",
-          "english": "is"
-        },
-        {
-          "chinese": "自願",
-          "jyutping": "zi6 jyun6",
-          "english": "voluntary"
-        },
-        {
-          "chinese": "㗎",
-          "jyutping": "ga3",
-          "english": "(emphasis particle)"
-        }
-      ]
-    },
-    {
-      "id": "temple-07",
-      "speaker": "you",
-      "cjk": "多謝你教我，真係幫到我好多。",
-      "jyutping": "do1 ze6 nei5 gaau3 ngo5, zan1 hai6 bong1 dou3 ngo5 hou2 do1.",
-      "english": "Thank you for teaching me, you've been a great help.",
-      "audioFile": "temple-07.mp3",
-      "words": [
-        {
-          "chinese": "多謝",
-          "jyutping": "do1 ze6",
-          "english": "thank you"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        },
-        {
-          "chinese": "教",
-          "jyutping": "gaau3",
-          "english": "teach"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "真係",
-          "jyutping": "zan1 hai6",
-          "english": "really"
-        },
-        {
-          "chinese": "幫",
-          "jyutping": "bong1",
-          "english": "help"
-        },
-        {
-          "chinese": "到",
-          "jyutping": "dou3",
-          "english": "(manage to)"
-        },
-        {
-          "chinese": "我",
-          "jyutping": "ngo5",
-          "english": "I; me"
-        },
-        {
-          "chinese": "好多",
-          "jyutping": "hou2 do1",
-          "english": "a lot"
-        }
-      ]
-    },
-    {
-      "id": "temple-08",
-      "speaker": "local",
-      "cjk": "唔使客氣，希望黃大仙保佑你。",
-      "jyutping": "m4 sai2 haak3 hei3, hei1 mong6 wong4 daai6 sin1 bou2 jau6 nei5.",
-      "english": "Don't mention it — may Wong Tai Sin bless you.",
-      "audioFile": "temple-08.mp3",
-      "words": [
-        {
-          "chinese": "唔使",
-          "jyutping": "m4 sai2",
-          "english": "no need"
-        },
-        {
-          "chinese": "客氣",
-          "jyutping": "haak3 hei3",
-          "english": "be polite"
-        },
-        {
-          "chinese": "希望",
-          "jyutping": "hei1 mong6",
-          "english": "hope"
-        },
-        {
-          "chinese": "黃大仙",
-          "jyutping": "wong4 daai6 sin1",
-          "english": "Wong Tai Sin"
-        },
-        {
-          "chinese": "保佑",
-          "jyutping": "bou2 jau6",
-          "english": "bless"
-        },
-        {
-          "chinese": "你",
-          "jyutping": "nei5",
-          "english": "you"
-        }
-      ]
-    }
-  ]
+    ]
 }
