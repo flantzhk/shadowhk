@@ -897,9 +897,12 @@
   .practiceCell {
     min-height: 120px;
   }
-  /* Today's Lesson hero: cap height so it can't balloon at wide viewports
-     (aspect-ratio alone made it grow with container width unbounded). */
+  /* Today's Lesson hero: cap height so it can't balloon at wide viewports.
+     width:100% is required alongside max-height — with width left auto,
+     aspect-ratio derives the box's width FROM the capped height instead of
+     stretching to fill the card, which silently shrank the whole hero. */
   .todayPhoto {
+    width: 100%;
     max-height: 420px;
   }
 }
