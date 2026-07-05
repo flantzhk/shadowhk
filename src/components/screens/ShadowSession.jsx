@@ -44,7 +44,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   const [loading, setLoading] = useState(true);
   const speed = audio.speed;
   const [savedLines, setSavedLines] = useState({});
-  const [playingWord, setPlayingWord] = useState(null);
+  const [playingWordIndex, setPlayingWordIndex] = useState(null);
   const wordAudioRef = useRef(null);
 
   const [phase, setPhase] = useState('ready');
@@ -153,22 +153,22 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     audio.setSpeed(speed < 1 ? 1 : 0.75);
   }, [audio, speed]);
 
-  const playBreakdownWord = useCallback(async (w) => {
-    if (playingWord === w.chinese) { wordAudioRef.current?.pause(); setPlayingWord(null); return; }
+  const playBreakdownWord = useCallback(async (w, i) => {
+    if (playingWordIndex === i) { wordAudioRef.current?.pause(); setPlayingWordIndex(null); return; }
     wordAudioRef.current?.pause();
-    setPlayingWord(w.chinese);
+    setPlayingWordIndex(i);
     try {
       const blob = (await staticWordAudio(w.chinese)) ?? await textToSpeech(w.chinese, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       const wordAudio = new Audio(url);
       wordAudioRef.current = wordAudio;
-      wordAudio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
-      wordAudio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(url); };
+      wordAudio.onended = () => { setPlayingWordIndex(null); URL.revokeObjectURL(url); };
+      wordAudio.onerror = () => { setPlayingWordIndex(null); URL.revokeObjectURL(url); };
       await wordAudio.play();
     } catch (_) {
-      setPlayingWord(null);
+      setPlayingWordIndex(null);
     }
-  }, [playingWord, language]);
+  }, [playingWordIndex, language]);
 
   const handlePrev = useCallback(() => {
     if (currentLineIndex > 0) {
@@ -242,7 +242,12 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
   // stopped. Without this, a user who doesn't realise the button toggles
   // is stuck on RECORDING forever.
   // New line: fresh listen state, breakdown closed
-  useEffect(() => { setHeard(false); setShowBreakdown(false); }, [currentLineIndex]);
+  useEffect(() => {
+    setHeard(false);
+    setShowBreakdown(false);
+    wordAudioRef.current?.pause();
+    setPlayingWordIndex(null);
+  }, [currentLineIndex]);
   // Autoplay sometimes succeeds (browser allows it) — count that as heard
   useEffect(() => { if (audio.isPlaying) setHeard(true); }, [audio.isPlaying]);
 
@@ -377,11 +382,27 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         {/* Centered focus content */}
         <div className={styles.focus}>
           {showJyutping && (
-            <p className={styles.focusJyutping}>{currentYouLine?.romanization ?? '—'}</p>
+            <p className={styles.focusJyutping}>
+              {breakdown.length > 0
+                ? breakdown.map((w, i) => (
+                    <span key={i} className={`${styles.focusSyll} ${playingWordIndex === i ? styles.focusWordPlaying : ''}`}>
+                      {w.jyutping}{i < breakdown.length - 1 ? ' ' : ''}
+                    </span>
+                  ))
+                : (currentYouLine?.romanization ?? '—')}
+            </p>
           )}
 
           {currentYouLine?.cjk && (
-            <p className={styles.focusCjk}>{currentYouLine.cjk}</p>
+            <p className={styles.focusCjk}>
+              {breakdown.length > 0
+                ? breakdown.map((w, i) => (
+                    <span key={i} className={`${styles.focusWord} ${playingWordIndex === i ? styles.focusWordPlaying : ''}`}>
+                      {w.chinese}
+                    </span>
+                  ))
+                : currentYouLine.cjk}
+            </p>
           )}
 
           {showEnglishToggle && (
@@ -404,8 +425,8 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
                 <button
                   key={i}
                   type="button"
-                  className={`${styles.bdTile} ${playingWord === w.chinese ? styles.bdTilePlaying : ''}`}
-                  onClick={() => playBreakdownWord(w)}
+                  className={`${styles.bdTile} ${playingWordIndex === i ? styles.bdTilePlaying : ''}`}
+                  onClick={() => playBreakdownWord(w, i)}
                   aria-label={`Play ${w.chinese}`}
                 >
                   <span className={styles.bdCjk}>{w.chinese}</span>
@@ -416,7 +437,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
             </div>
           )}
 
-          {(phase === 'ready' || phase === 'scored') && (
+          {(phase !== 'record' && phase !== 'scoring') && (
             <div className={styles.hearRow}>
               <button
                 className={styles.hearBtn}
