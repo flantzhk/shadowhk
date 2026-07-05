@@ -316,8 +316,8 @@ function HistoryTimeline({ schedule, phrase }) {
   if (phrase._createdAt) {
     events.push({ label: 'Added to library', date: new Date(phrase._createdAt) });
   }
-  if (phrase.lastPracticed) {
-    events.push({ label: 'Last practiced', date: new Date(phrase.lastPracticed) });
+  if (phrase.lastPracticedAt) {
+    events.push({ label: 'Last practiced', date: new Date(phrase.lastPracticedAt) });
   }
   if (schedule?.nextReview) {
     events.push({ label: 'Next review', date: new Date(schedule.nextReview), upcoming: true });

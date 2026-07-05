@@ -54,7 +54,8 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
 
   const lineSrc = useCallback((i) => {
     const line = linesRef.current[i];
-    return line ? `/shadowhk/audio/${language}/${line.id}.mp3` : null;
+    const base = import.meta.env.BASE_URL || '/';
+    return line ? `${base}audio/${language}/${line.id}.mp3` : null;
   }, [language]);
 
   /** Load and play line i. The single audio element's src swaps per line. */
@@ -101,11 +102,19 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
         indexRef.current = 0;
       }
     }
+    // A missing/unloadable audio file must not silently stall the sequence —
+    // skip to the next line the same way a finished line would advance.
+    function onError() {
+      logger.warn('[ListenMode] audio failed to load for line', linesRef.current[indexRef.current]?.id);
+      onEnded();
+    }
     el.addEventListener('timeupdate', onTimeUpdate);
     el.addEventListener('ended', onEnded);
+    el.addEventListener('error', onError);
     return () => {
       el.removeEventListener('timeupdate', onTimeUpdate);
       el.removeEventListener('ended', onEnded);
+      el.removeEventListener('error', onError);
     };
   }, [playLine]);
 

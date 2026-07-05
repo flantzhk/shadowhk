@@ -131,7 +131,7 @@ const Loader = () => (
 
 // ── Screen renderer ────────────────────────────────────────────────────────
 
-function renderScreen(route, navigate, goBack, showToast) {
+function renderScreen(route, navigate, goBack, showToast, updateSettings) {
   const { path, id } = route;
   switch (path) {
     case ROUTES.HOME:            return <HomeScreen onNavigate={navigate} />;
@@ -156,7 +156,7 @@ function renderScreen(route, navigate, goBack, showToast) {
     case ROUTES.TONE_GYM_RESULTS: return <ToneGymResults summary={(() => { try { return JSON.parse(sessionStorage.getItem('toneGymSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} onPlayAgain={() => navigate(ROUTES.TONE_GYM)} />;
     case ROUTES.DIALOGUE:        return <DialogueScene sceneId={id} navigate={navigate} goBack={goBack} />;
     case ROUTES.SCENE_END:       return <SceneSummary navigate={navigate} goBack={goBack} />;
-    case ROUTES.PAYWALL:         return <Paywall navigate={navigate} goBack={goBack} />;
+    case ROUTES.PAYWALL:         return <Paywall onComplete={() => navigate(ROUTES.HOME)} updateSettings={updateSettings} />;
     case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
     case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} />;
     case ROUTES.FORGOT_PASSWORD: return <ForgotPasswordScreen navigate={navigate} goBack={goBack} />;
@@ -290,7 +290,7 @@ function MainLayout() {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack, showToast)}
+          {renderScreen(route, navigate, goBack, showToast, updateSettings)}
         </Suspense>
       );
     }
@@ -306,7 +306,7 @@ function MainLayout() {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack, showToast)}
+          {renderScreen(route, navigate, goBack, showToast, updateSettings)}
         </Suspense>
       );
     }
@@ -326,7 +326,7 @@ function MainLayout() {
         <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : undefined}>
           <ErrorBoundary resetKey={route.path}>
             <Suspense fallback={<Loader />}>
-              {renderScreen(route, navigate, goBack, showToast)}
+              {renderScreen(route, navigate, goBack, showToast, updateSettings)}
             </Suspense>
           </ErrorBoundary>
         </div>

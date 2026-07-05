@@ -71,7 +71,7 @@ export default function PromptDrill({ onBack, onComplete }) {
       (async () => {
         try {
           const staticBlob = await staticPhraseAudio(phrase.id, settings.currentLanguage);
-          const blob = staticBlob ?? await textToSpeech(phrase.chinese, {
+          const blob = staticBlob ?? await textToSpeech(phrase.cjk, {
             language: settings.currentLanguage, speed: 0.85, outputExtension: 'mp3',
           });
           if (!isMounted) return;
@@ -107,7 +107,7 @@ export default function PromptDrill({ onBack, onComplete }) {
       try {
         const [sttResult, scoreResult] = await Promise.all([
           speechToText(blob),
-          scorePronunciation(blob, phrase.chinese, settings.currentLanguage),
+          scorePronunciation(blob, phrase.cjk, settings.currentLanguage),
         ]);
         setTranscription(sttResult.text || '');
         const s = scoreResult.score;
@@ -247,7 +247,7 @@ export default function PromptDrill({ onBack, onComplete }) {
               (async () => {
                 try {
                   const staticBlob = await staticPhraseAudio(phrase.id, settings.currentLanguage);
-                  const blob = staticBlob ?? await textToSpeech(phrase.chinese, {
+                  const blob = staticBlob ?? await textToSpeech(phrase.cjk, {
                     language: settings.currentLanguage, speed: 0.85, outputExtension: 'mp3',
                   });
                   const url = URL.createObjectURL(blob);
@@ -270,12 +270,11 @@ export default function PromptDrill({ onBack, onComplete }) {
           <>
             <span className={styles.label}>Say this in Cantonese:</span>
             <p className={styles.english}>{phrase.english}</p>
-            {level === 1 && phrase.jyutping && (
+            {level === 1 && phrase.romanization && (
               <p style={{ fontSize: '14px', fontFamily: 'var(--font-mono)', color: 'var(--accent)', marginTop: '4px', fontWeight: 600, fontStyle: 'italic' }}>
-                {phrase.jyutping}
+                {phrase.romanization}
               </p>
             )}
-            <p className={styles.context}>{phrase.context}</p>
           </>
         )}
       </div>
@@ -293,8 +292,8 @@ export default function PromptDrill({ onBack, onComplete }) {
           <div className={styles.comparison}>
             <div className={styles.expected}>
               <span className={styles.compLabel}>Expected</span>
-              <span className={styles.compJyutping}>{phrase.jyutping}</span>
-              <span className={styles.compText} lang="yue">{phrase.chinese}</span>
+              <span className={styles.compJyutping}>{phrase.romanization}</span>
+              <span className={styles.compText} lang="yue">{phrase.cjk}</span>
             </div>
             <div className={styles.actual}>
               <span className={styles.compLabel}>You said</span>

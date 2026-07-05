@@ -216,8 +216,8 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
     const phraseId = `ai-${Date.now()}`;
     try {
       await saveLibraryEntry({
-        phraseId, type: 'phrase', addedAt: Date.now(), source: 'ai-conversation',
-        customData: { chinese: msg.chinese, jyutping: msg.jyutping, english: msg.english },
+        phraseId, addedAt: Date.now(), source: 'ai-conversation',
+        cjk: msg.chinese, romanization: msg.jyutping || msg.romanization, english: msg.english,
         interval: 0, easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
         lastPracticedAt: null, practiceCount: 0, status: 'learning',
         bestScore: null, lastScore: null, scoreHistory: [],

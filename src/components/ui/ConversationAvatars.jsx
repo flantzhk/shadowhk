@@ -1,8 +1,20 @@
 import styles from './ConversationAvatars.module.css';
 
+// Real portrait photos instead of cartoon avatars. A small fixed cast,
+// deterministically assigned per scene id so the same scene always shows
+// the same "person" (mirrors the old seeded-hash behaviour).
+const NPC_AVATAR_COUNT = 4;
+
+function hashToIndex(str, count) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) hash = (hash * 31 + str.charCodeAt(i)) | 0;
+  return Math.abs(hash) % count;
+}
+
 export function NpcAvatar({ scene }) {
-  const seed = encodeURIComponent(scene?.id ?? 'npc');
-  const src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${seed}&backgroundColor=b6e3f4,c0aede,d1d4f9`;
+  const base = import.meta.env.BASE_URL || '/';
+  const idx = hashToIndex(scene?.id ?? 'npc', NPC_AVATAR_COUNT) + 1;
+  const src = `${base}images/avatars/avatar-${idx}.jpg`;
   return (
     <div className={styles.avatarWrap}>
       <img className={styles.avatarImg} src={src} alt="Speaker" onError={e => { e.target.style.display = 'none'; }} />

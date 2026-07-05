@@ -34,7 +34,6 @@ const GOALS = [
   { id: 15, label: '15 min · Committed',dots: 18 },
 ];
 
-const DAYS = ['M','T','W','T','F','S','S'];
 
 export default function FirstRunFlow({ onComplete, onNavigate }) {
   const { settings, updateSettings } = useAppContext();
@@ -45,7 +44,6 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   const [reasons, setReasons] = useState(new Set());
   const [goal, setGoal] = useState(5);
   const [reminderTime, setReminderTime] = useState('09:00');
-  const [activeDays, setActiveDays] = useState(new Set([0,1,2,3,4,5,6]));
   const [firstScene, setFirstScene] = useState(null);
 
   useEffect(() => {
@@ -85,14 +83,6 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
     });
   };
 
-  const toggleDay = (i) => {
-    setActiveDays(prev => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
-      return next;
-    });
-  };
 
   const showBack = step > 0;
   const showSkip = step > 0 && step < 5;
@@ -257,17 +247,6 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
                 value={reminderTime}
                 onChange={e => setReminderTime(e.target.value)}
               />
-            </div>
-            <div className={styles.dayChips}>
-              {DAYS.map((d, i) => (
-                <button
-                  key={i}
-                  className={`${styles.dayChip} ${activeDays.has(i) ? styles.dayChipOn : ''}`}
-                  onClick={() => toggleDay(i)}
-                >
-                  {d}
-                </button>
-              ))}
             </div>
           </div>
         )}

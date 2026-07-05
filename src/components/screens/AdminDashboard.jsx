@@ -13,7 +13,7 @@
 //     allow list: if request.auth.uid == '<ADMIN_UID>';
 //   }
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { fbAuth, fbDb } from '../../services/firebase';
 import styles from './AdminDashboard.module.css';
 
@@ -39,56 +39,55 @@ export default function AdminDashboard({ onBack, adminUid }) {
   const [error, setError] = useState(null);
   const [metrics, setMetrics] = useState(null);
 
+  const loadMetrics = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [usersSnap, waitlistSnap] = await Promise.all([
+        fbDb.collection('users').get(),
+        fbDb.collection('waitlist').get(),
+      ]);
+
+      const now = Date.now();
+      let totalUsers = 0;
+      let dauCount = 0;
+      let freeCount = 0;
+      let proCount = 0;
+
+      usersSnap.forEach((doc) => {
+        totalUsers++;
+        const data = doc.data();
+
+        // DAU: last_active within the past 24 hours
+        const lastActive = data.last_active?.toMillis?.();
+        if (lastActive && now - lastActive <= DAU_WINDOW_MS) dauCount++;
+
+        // Subscription breakdown
+        if (data.subscription_status && data.subscription_status !== 'free') {
+          proCount++;
+        } else {
+          freeCount++;
+        }
+      });
+
+      setMetrics({
+        totalUsers,
+        dauCount,
+        freeCount,
+        proCount,
+        waitlistCount: waitlistSnap.size,
+      });
+    } catch (err) {
+      setError('Failed to load metrics. Check Firestore security rules allow admin list access.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     if (!isAdmin) return;
-
-    async function loadMetrics() {
-      setLoading(true);
-      setError(null);
-      try {
-        const [usersSnap, waitlistSnap] = await Promise.all([
-          fbDb.collection('users').get(),
-          fbDb.collection('waitlist').get(),
-        ]);
-
-        const now = Date.now();
-        let totalUsers = 0;
-        let dauCount = 0;
-        let freeCount = 0;
-        let proCount = 0;
-
-        usersSnap.forEach((doc) => {
-          totalUsers++;
-          const data = doc.data();
-
-          // DAU: last_active within the past 24 hours
-          const lastActive = data.last_active?.toMillis?.();
-          if (lastActive && now - lastActive <= DAU_WINDOW_MS) dauCount++;
-
-          // Subscription breakdown
-          if (data.subscription_status && data.subscription_status !== 'free') {
-            proCount++;
-          } else {
-            freeCount++;
-          }
-        });
-
-        setMetrics({
-          totalUsers,
-          dauCount,
-          freeCount,
-          proCount,
-          waitlistCount: waitlistSnap.size,
-        });
-      } catch (err) {
-        setError('Failed to load metrics. Check Firestore security rules allow admin list access.');
-      } finally {
-        setLoading(false);
-      }
-    }
-
     loadMetrics();
-  }, [isAdmin]);
+  }, [isAdmin, loadMetrics]);
 
   if (!currentUser) {
     return (
@@ -169,7 +168,7 @@ export default function AdminDashboard({ onBack, adminUid }) {
           Last refreshed: {new Date().toLocaleTimeString()}{' '}
           <button
             className={styles.refreshBtn}
-            onClick={() => { setMetrics(null); setLoading(true); }}
+            onClick={loadMetrics}
           >
             Refresh
           </button>
