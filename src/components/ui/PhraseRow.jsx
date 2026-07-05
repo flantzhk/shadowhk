@@ -138,12 +138,13 @@ export function PhraseRow({
         <button
           className={`${styles.chineseBtn} ${showBreakdown ? styles.chineseBtnOpen : ''}`}
           onClick={handleToggleBreakdown}
-          aria-label="Show word breakdown"
+          aria-label={showBreakdown ? 'Hide word-by-word breakdown' : 'Show word-by-word breakdown'}
           aria-expanded={showBreakdown}
         >
           <span className={styles.chineseText}>{chinese}</span>
-          <span className={styles.chevron} aria-hidden="true">
-            {showBreakdown ? '▲' : '▾'}
+          <span className={styles.breakdownTag}>
+            {showBreakdown ? 'Hide' : 'Word by word'}
+            <span className={styles.chevron} aria-hidden="true">{showBreakdown ? '▲' : '▾'}</span>
           </span>
         </button>
       )}

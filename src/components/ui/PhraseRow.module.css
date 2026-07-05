@@ -40,8 +40,9 @@
 /* === Chinese — tap to explore === */
 .chineseBtn {
   display: inline-flex;
-  align-items: baseline;
-  gap: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   background: none;
   border: none;
   padding: 2px 0 3px;
@@ -64,15 +65,33 @@
   border-bottom-color: var(--border-1);
 }
 
-.chevron {
-  font-size: 13px;
+/* The whole point of this tag is to say out loud what tapping does —
+   a bare chevron tested as too subtle for people to notice it opens
+   a word-by-word breakdown. */
+.breakdownTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--fg-2);
-  transition: color 0.15s;
+  background: var(--bg-2);
+  border-radius: var(--radius-pill);
+  padding: 4px 9px;
   flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
 }
 
-.chineseBtnOpen .chevron {
+.chineseBtnOpen .breakdownTag {
   color: var(--accent);
+  background: var(--accent-dark);
+}
+
+.chevron {
+  font-size: 11px;
 }
 
 /* === Word breakdown panel === */
