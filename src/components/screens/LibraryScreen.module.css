@@ -32,50 +32,6 @@
 
 .titleItalic { font-style: italic; }
 
-/* CTA banner */
-.ctaBanner {
-  width: calc(100% - 40px);
-  margin: 0 20px 14px;
-  background: var(--accent);
-  color: #FAFAF7;
-  border: none;
-  border-radius: 14px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.ctaBannerLeft {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-ui);
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.1px;
-}
-
-.ctaPlay {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  display: grid;
-  place-items: center;
-  font-size: 10px;
-  flex-shrink: 0;
-}
-
-.ctaMeta {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  opacity: 0.75;
-}
-
 /* Search bar */
 .searchBarWrap {
   display: flex;
@@ -116,77 +72,66 @@
   justify-content: center;
 }
 
-/* Filter chips */
-.filterChips {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 20px 16px;
-}
-.filterChips::-webkit-scrollbar { display: none; }
+/* ─── Editorial section bar (matches Home screen) ──── */
+.section { border-bottom: 1px solid var(--border-0); padding-bottom: 8px; }
 
-.filterChip {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  padding: 9px 16px;
-  border-radius: 99px;
-  background: transparent;
-  color: var(--fg-1);
-  border: 1px solid var(--bg-3);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-
-.filterChipActive {
-  background: var(--fg-0);
-  color: var(--bg-0);
-  border-color: var(--fg-0);
-}
-
-/* Reference sets */
-.refHeader {
+.sectionBar {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  margin: 0 20px 10px;
+  gap: 8px;
+  padding: 10px 20px;
+  border-top: 5px solid var(--fg-0);
+  margin: 18px 20px 0;
 }
 
-.refLabel {
+.sectionNum {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.sectionLabel {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--fg-0);
+  flex: 1;
 }
 
-.refTapHint {
+.sectionMeta {
   font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--fg-3);
 }
 
-.refDesc {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--fg-2);
-  margin: -4px 20px 12px;
-  max-width: 520px;
+/* Growth-stage legend, shown once above the phrase list */
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 10px 20px 4px;
 }
 
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  color: var(--fg-2);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Reference sets */
 .refIcon {
   font-size: 16px;
   flex-shrink: 0;
@@ -196,37 +141,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin: 0 20px 24px;
-}
-
-/* Saved (hearted) scenes */
-.savedSceneList {
-  margin: 0 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.savedSceneRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--border-0);
-  padding: 10px 14px 10px 10px;
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.15s;
-}
-.savedSceneRow:hover { background: var(--bg-2); }
-.savedSceneRow .sceneThumb { width: 40px; height: 40px; }
-
-.savedSceneTitle {
-  flex: 1;
-  font-family: var(--font-serif);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--fg-0);
+  margin: 10px 20px 20px;
 }
 
 .refCard {
@@ -260,64 +175,95 @@
   flex-shrink: 0;
 }
 
-/* ─── Scene groups ──────────────────── */
-.sceneGroup {
-  border-bottom: 1px solid var(--border-0);
-}
-
-.sceneRow {
+/* Quick Lookup teaser — the full grid only mounts once tapped, so this
+   screen's default weight favours phrases/scenes (things actually saved)
+   over reference content (things just browsed). */
+.lookupTeaser {
   display: flex;
   align-items: center;
-  gap: 14px;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 14px 20px;
+  justify-content: space-between;
+  gap: 12px;
+  width: calc(100% - 40px);
+  margin: 10px 20px 20px;
+  background: var(--bg-1);
+  border: 1px dashed var(--border-1);
+  border-radius: 12px;
+  padding: 14px 16px;
   cursor: pointer;
   text-align: left;
 }
 
+.lookupTeaserText {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--fg-1);
+  line-height: 1.4;
+}
+
+.lookupTeaserLink {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Saved (hearted) scenes */
+.savedSceneList {
+  margin: 10px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.savedSceneRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-0);
+  border-radius: 12px;
+  padding: 10px 14px 10px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.savedSceneRow:hover { background: var(--bg-2); }
+
 .sceneThumb {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 8px;
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
 }
 
-.sceneText {
+.savedSceneBody {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  min-width: 0;
+  gap: 2px;
 }
 
-.sceneName {
+.savedSceneTitle {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--fg-0);
-  margin: 0;
-  letter-spacing: -0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.sceneMeta {
+.savedSceneMeta {
   font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 11px;
   color: var(--fg-3);
-  margin: 0;
-}
-
-.saidInline {
-  color: var(--jade, #3F8F73);
 }
 
 .chevron {
@@ -328,53 +274,47 @@
   flex-shrink: 0;
 }
 
-/* ─── Phrase list (expanded) ─────────── */
+/* ─── Phrase feed ───────────────────── */
 .phraseList {
   padding: 0 20px;
   background: var(--bg-0);
+}
+
+.noResults {
+  margin: 10px 20px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--fg-2);
 }
 
 .phraseRow {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border-0);
   cursor: pointer;
 }
 .phraseRow:last-child { border-bottom: none; }
 .phraseRow:active { opacity: 0.7; }
 
-/* Dot indicators */
-.dotPin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  flex-shrink: 0;
-  width: 20px;
-}
-.dotPin svg { width: 13px; height: 13px; }
-
-.dotFilled {
-  display: block;
-  width: 8px;
-  height: 8px;
+/* Four-stage growth dot — replaces the old ambiguous binary dot with the
+   same new/growing/strong/mastered data the SRS already tracks. */
+.stageDot {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: var(--fg-1);
   flex-shrink: 0;
-  margin: 0 6px;
 }
-
-.dotEmpty {
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1.5px solid var(--fg-2);
-  flex-shrink: 0;
-  margin: 0 6px;
-}
+.stageDotNew { background: var(--bg-3); border: 1.5px solid var(--fg-3); }
+.stageDotGrowing { background: var(--amber); }
+.stageDotStrong { background: var(--jade); }
+.stageDotMastered { background: var(--gold); }
+.legendDot.stageDotNew,
+.legendDot.stageDotGrowing,
+.legendDot.stageDotStrong,
+.legendDot.stageDotMastered { border-width: 1px; }
 
 .phraseText {
   flex: 1;
@@ -386,98 +326,37 @@
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   color: var(--fg-0);
-  margin: 0 0 3px;
+  margin: 0;
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
 
 .phraseRoman {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--fg-2);
-  margin: 0 0 2px;
+  margin: 0;
   letter-spacing: 0.01em;
   line-height: 1.3;
 }
 
-.phraseEnglish {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-style: italic;
+.phraseTag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--fg-2);
-  margin: 0;
-  line-height: 1.4;
-}
-
-.phraseActions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-/* Line-art pin instead of the OS pushpin emoji, which reads as an
-   unrecognizable smudge at small sizes — color signals state instead of
-   opacity, so the shape stays legible even when inactive. */
-.livedToggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--fg-2);
-  padding: 8px;
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.15s;
-  line-height: 1;
-}
-.livedToggleActive { color: var(--accent); }
-
-.pinCoachAnchor { position: relative; }
-
-.pinCoach {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: 5;
-  width: 190px;
-  background: var(--fg-0);
-  color: var(--bg-1);
-  border-radius: var(--radius-sm, 10px);
-  padding: 10px 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-.pinCoach::before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  right: 14px;
-  border: 6px solid transparent;
-  border-bottom-color: var(--fg-0);
-}
-.pinCoach p {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 0 0 8px;
-}
-.pinCoach button {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 5px 12px;
-  cursor: pointer;
+  background: var(--bg-2);
+  border-radius: 99px;
+  padding: 2px 8px;
 }
 
 .playBtn {
@@ -497,119 +376,6 @@
 .playBtn:hover { opacity: 0.8; }
 .playBtnActive {
   background: var(--jade, #3F8F73);
-  color: #fff;
-}
-
-/* Expand chevron + word breakdown */
-.phraseRowWrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.expandBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.1);
-  color: var(--fg-2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s, background 0.15s;
-  flex-shrink: 0;
-}
-
-.expandBtnActive {
-  background: var(--accent-muted);
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: rotate(180deg);
-}
-
-.breakdown {
-  padding: 14px 20px 18px 56px;
-  background: rgba(0,0,0,0.02);
-  border-top: 1px solid var(--border-0);
-}
-
-.breakdownLabel {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-.breakdownGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 8px;
-}
-
-.wordTile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 14px 10px 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--border-1);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
-  text-align: center;
-}
-
-.wordTile:active { transform: scale(0.97); }
-
-.wordTileActive {
-  background: var(--accent-muted);
-  border-color: var(--accent);
-}
-
-.wordCjk {
-  font-family: var(--font-cjk);
-  font-size: 26px;
-  color: var(--fg-0);
-  line-height: 1.1;
-}
-
-.wordRoman {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--accent);
-  letter-spacing: 0.02em;
-}
-
-.wordMeaning {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  color: var(--fg-2);
-  line-height: 1.25;
-}
-
-.wordPlayBadge {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-1);
-  margin-top: 4px;
-}
-
-.wordTileActive .wordPlayBadge {
-  background: var(--accent);
   color: #fff;
 }
 
@@ -660,11 +426,4 @@
     gap: 0 24px;
   }
   .phraseRow { border-bottom: 1px solid var(--border-0); }
-}
-
-
-.pinHint {
-  margin: 10px 0 4px;
-  font-size: 13px;
-  color: var(--fg-2);
 }

@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getLibraryEntries, getLibraryEntry, saveLibraryEntry, getAllSceneProgress } from '../../services/storage.js';
+import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
 import { growthStateFromInterval } from '../../services/sceneLoader.js';
-import { GROWTH_STATE } from '../../utils/constants.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { textToSpeech } from '../../services/api.js';
-import { staticWordAudio } from '../../services/staticAudio.js';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
+
+const STAGE_LEGEND = [
+  { state: 'new', label: 'New', className: 'stageDotNew' },
+  { state: 'growing', label: 'Growing', className: 'stageDotGrowing' },
+  { state: 'strong', label: 'Strong', className: 'stageDotStrong' },
+  { state: 'mastered', label: 'Mastered', className: 'stageDotMastered' },
+];
 
 const REFERENCE_SETS = [
   { id: 'survival', title: 'Survival Words', icon: '🆘' },
@@ -29,20 +34,13 @@ export default function LibraryScreen({ onNavigate }) {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [playingId, setPlayingId] = useState(null);
-  const [expandedId, setExpandedId] = useState(null);
-  const [playingWord, setPlayingWord] = useState(null);
+  const [lookupOpen, setLookupOpen] = useState(false);
   // audioState: phraseId -> 'loading' | 'playing' | 'error'. Lets the play
   // button render an AudioStateIndicator that reflects what's actually
   // happening instead of just toggling between play/stop icons.
   const [audioState, setAudioState] = useState({});
-  const [pinCoachSeen, setPinCoachSeen] = useState(() => localStorage.getItem('pin_coach_seen') === '1');
   const audioRef = useRef(null);
   const errorTimerRef = useRef(null);
-
-  function dismissPinCoach() {
-    localStorage.setItem('pin_coach_seen', '1');
-    setPinCoachSeen(true);
-  }
 
   function setPhraseAudioState(id, state) {
     setAudioState(prev => {
@@ -60,15 +58,6 @@ export default function LibraryScreen({ onNavigate }) {
   }
 
   useEffect(() => { reload(); }, [language]);
-
-  async function toggleLived(e, phrase) {
-    e.stopPropagation();
-    const entry = await getLibraryEntry(phrase.id).catch(() => null);
-    if (!entry) return;
-    const updated = { ...entry, lived_at: entry.lived_at ? null : Date.now() };
-    await saveLibraryEntry(updated);
-    setLibrary(prev => prev.map(p => p.id === phrase.id ? { ...p, lived_at: updated.lived_at } : p));
-  }
 
   async function playInline(e, phrase) {
     e.stopPropagation();
@@ -120,38 +109,6 @@ export default function LibraryScreen({ onNavigate }) {
     }
   }
 
-  async function playWord(e, text, key) {
-    e.stopPropagation();
-    if (playingWord === key) {
-      audioRef.current?.pause();
-      setPlayingWord(null);
-      return;
-    }
-    audioRef.current?.pause();
-    setPlayingWord(key);
-    try {
-      const blob = (await staticWordAudio(text)) ?? await textToSpeech(text, { language });
-      if (!blob || blob.size === 0) { setPlayingWord(null); return; }
-      const blobUrl = URL.createObjectURL(blob);
-      const audio = new Audio(blobUrl);
-      audioRef.current = audio;
-      audio.onended = () => { setPlayingWord(null); URL.revokeObjectURL(blobUrl); };
-      audio.onerror = () => { setPlayingWord(null); URL.revokeObjectURL(blobUrl); };
-      audio.play().catch(() => setPlayingWord(null));
-    } catch (_) {
-      setPlayingWord(null);
-    }
-  }
-
-  function deriveBreakdown(phrase) {
-    if (phrase.words && phrase.words.length > 0) return phrase.words;
-    // Fall back: split CJK into characters, pair with romanization syllables
-    const chars = (phrase.cjk ?? '').split('').filter(c => /\p{Script=Han}/u.test(c));
-    const sylls = (phrase.romanization ?? '').split(/\s+/).filter(Boolean);
-    if (chars.length === 0) return [];
-    return chars.map((c, i) => ({ chinese: c, jyutping: sylls[i] ?? '', english: '' }));
-  }
-
   async function reload() {
     setLoading(true);
     try {
@@ -184,8 +141,8 @@ export default function LibraryScreen({ onNavigate }) {
     finally { setLoading(false); }
   }
 
-  // Group phrases: personal intro phrases get their own named section, all
-  // scene-less or unknown-scene phrases merge into a single "Other phrases".
+  // Group phrases: personal intro phrases get their own named tag, all
+  // scene-less or unknown-scene phrases merge into a single "Other" tag.
   const groups = new Map();
   for (const phrase of library) {
     let key = phrase.scene_id ?? 'unsorted';
@@ -212,24 +169,38 @@ export default function LibraryScreen({ onNavigate }) {
   const totalScenes = groupedScenes.filter(g => g.scene).length;
   const saidInPersonCount = library.filter(p => p.lived_at).length;
 
-  function filterPhrases(phrases) {
-    let result = phrases;
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(p =>
-        (p.romanization ?? '').toLowerCase().includes(q) ||
-        (p.english ?? '').toLowerCase().includes(q) ||
-        (p.cjk ?? '').includes(searchQuery)
-      );
-    }
-    return result;
+  function tagLabel(sceneId, scene) {
+    if (sceneId === PERSONAL_SCENE_ID) return 'Personal';
+    if (sceneId === 'unsorted' || !scene) return 'Other';
+    return scene.title;
   }
 
-  // Anchors the one-time pin coachmark to whichever phrase actually renders
-  // first, so it always points at a real, visible row.
-  const firstPhraseId = !pinCoachSeen
-    ? groupedScenes.map(g => filterPhrases(g.phrases)[0]).find(Boolean)?.id ?? null
-    : null;
+  function matchesSearch(phrase) {
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      (phrase.romanization ?? '').toLowerCase().includes(q) ||
+      (phrase.english ?? '').toLowerCase().includes(q) ||
+      (phrase.cjk ?? '').includes(searchQuery)
+    );
+  }
+
+  // Flatten scene groups into a single ordered list — the redesigned screen
+  // shows one phrase feed with a per-row scene tag instead of a separate
+  // header + sub-list per scene, so progress is one continuous scan instead
+  // of three stapled-together lists.
+  const flatPhrases = groupedScenes.flatMap(g =>
+    g.phrases.filter(matchesSearch).map(phrase => ({ phrase, tag: tagLabel(g.sceneId, g.scene) }))
+  );
+
+  // Percent of a saved scene's own library phrases that have reached
+  // "mastered" — gives the scene card a sense of progress instead of just a title.
+  function sceneMasteryLabel(sceneId) {
+    const phrases = groupedScenes.find(g => g.sceneId === sceneId)?.phrases ?? [];
+    if (phrases.length === 0) return null;
+    const mastered = phrases.filter(p => p.growth_state === 'mastered').length;
+    return `${phrases.length} saved · ${Math.round((mastered / phrases.length) * 100)}% mastered`;
+  }
 
   return (
     <div className={styles.screen}>
@@ -238,16 +209,6 @@ export default function LibraryScreen({ onNavigate }) {
         {saidInPersonCount > 0 && <span className={styles.saidCount}> · {saidInPersonCount} SAID IN PERSON 📍</span>}
       </p>
       <h1 className={styles.title}>Your <span className={styles.titleItalic}>phrasebook</span>.</h1>
-
-      {totalPhrases > 0 && (
-        <button className={styles.ctaBanner} onClick={() => onNavigate('shadow')}>
-          <span className={styles.ctaBannerLeft}>
-            <span className={styles.ctaPlay}>▶</span>
-            Start today's lesson
-          </span>
-          <span className={styles.ctaMeta}>12 MIN</span>
-        </button>
-      )}
 
       <div className={styles.searchBarWrap}>
         <SearchIcon />
@@ -263,45 +224,75 @@ export default function LibraryScreen({ onNavigate }) {
         )}
       </div>
 
-      {totalPhrases > 0 && (
-        <p className={styles.pinHint}>
-          {saidInPersonCount > 0
-            ? `📍 ${saidInPersonCount} said to a real person. The app asks after each session.`
-            : '📍 Tap the pin on any phrase once you\'ve said it to a real person. The app also asks after each session.'}
-        </p>
+      {loading && <div className={styles.skeleton} />}
+
+      {!loading && totalPhrases === 0 && !searchQuery && (
+        <div className={styles.empty}>
+          <p>Your library is empty.</p>
+          <button className={styles.emptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
+        </div>
       )}
 
-      {!searchQuery && (
-        <>
-          <div className={styles.refHeader}>
-            <span className={styles.refLabel}>— QUICK LOOKUP</span>
-            <span className={styles.refTapHint}>TAP TO BROWSE</span>
+      {!loading && totalPhrases > 0 && (
+        <section className={styles.section}>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>01</span>
+            <span className={styles.sectionLabel}>Your Phrases</span>
+            <span className={styles.sectionMeta}>{totalPhrases} saved</span>
           </div>
-          <p className={styles.refDesc}>
-            Cheat sheets for the words you need on the spot — numbers, colours,
-            dates, time. Every entry has audio, and you can save any of them to
-            your phrasebook.
-          </p>
-          <div className={styles.refGrid}>
-            {REFERENCE_SETS.map(s => (
-              <button
-                key={s.id}
-                className={styles.refCard}
-                onClick={() => onNavigate?.('reference', s.id)}
+          {!searchQuery && (
+            <div className={styles.legend}>
+              {STAGE_LEGEND.map(s => (
+                <span key={s.state} className={styles.legendItem}>
+                  <i className={`${styles.legendDot} ${styles[s.className]}`} />
+                  {s.label}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {flatPhrases.length === 0 && (
+            <p className={styles.noResults}>No phrases match "{searchQuery}".</p>
+          )}
+
+          <div className={styles.phraseList}>
+            {flatPhrases.map(({ phrase, tag }) => (
+              <div
+                key={phrase.id}
+                className={styles.phraseRow}
+                onClick={() => onNavigate('phrase', phrase.id)}
+                role="button"
+                tabIndex={0}
+                title="Open this phrase for more detail (culture note, how to reply, review history)"
               >
-                <span className={styles.refIcon}>{s.icon}</span>
-                <span className={styles.refTitle}>{s.title}</span>
-                <span className={styles.refArrow}>→</span>
-              </button>
+                <span className={`${styles.stageDot} ${styles[`stageDot${capitalize(phrase.growth_state)}`]}`} />
+                <div className={styles.phraseText}>
+                  <p className={styles.phraseCjk}>{phrase.cjk}</p>
+                  <p className={styles.phraseRoman}>{phrase.romanization}</p>
+                  <span className={styles.phraseTag}>{tag}</span>
+                </div>
+                <button
+                  className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                  onClick={e => playInline(e, phrase)}
+                  aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
+                  title={playingId === phrase.id ? 'Stop playback' : 'Play this phrase'}
+                >
+                  {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
+                    ? <AudioStateIndicator state={audioState[phrase.id]} />
+                    : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
+                </button>
+              </div>
             ))}
           </div>
-        </>
+        </section>
       )}
 
       {!searchQuery && savedScenes.length > 0 && (
-        <>
-          <div className={styles.refHeader}>
-            <span className={styles.refLabel}>— SAVED SCENES ♥</span>
+        <section className={styles.section}>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>02</span>
+            <span className={styles.sectionLabel}>Saved Scenes</span>
+            <span className={styles.sectionMeta}>{savedScenes.length} saved</span>
           </div>
           <div className={styles.savedSceneList}>
             {savedScenes.map(s => (
@@ -313,174 +304,57 @@ export default function LibraryScreen({ onNavigate }) {
                     backgroundColor: s.tint ? s.tint + '88' : 'var(--bg-3)',
                   }}
                 />
-                <span className={styles.savedSceneTitle}>{s.title}</span>
+                <div className={styles.savedSceneBody}>
+                  <span className={styles.savedSceneTitle}>{s.title}</span>
+                  {sceneMasteryLabel(s.id) && (
+                    <span className={styles.savedSceneMeta}>{sceneMasteryLabel(s.id)}</span>
+                  )}
+                </div>
                 <span className={styles.chevron}>›</span>
               </button>
             ))}
           </div>
-        </>
+        </section>
       )}
 
-      {loading && <div className={styles.skeleton} />}
-
-      {!loading && totalPhrases === 0 && (
-        <div className={styles.empty}>
-          <p>Your library is empty.</p>
-          <button className={styles.emptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
-        </div>
-      )}
-
-      {!loading && groupedScenes.map(({ scene, sceneId, phrases }) => {
-        const filtered = filterPhrases(phrases);
-        if (filtered.length === 0) return null;
-        const saidCount = phrases.filter(p => p.lived_at).length;
-
-        return (
-          <section key={sceneId} className={styles.sceneGroup}>
-            <button
-              className={styles.sceneRow}
-              onClick={() => scene && onNavigate('scene', scene.id)}
-            >
-              <div
-                className={styles.sceneThumb}
-                style={{
-                  backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : undefined,
-                  backgroundColor: scene?.tint ? scene.tint + '88' : 'var(--bg-3)',
-                }}
-              />
-              <div className={styles.sceneText}>
-                <p className={styles.sceneName}>
-                  {scene?.title ?? (sceneId === PERSONAL_SCENE_ID ? 'Your personal phrases' : 'Other phrases')}
-                </p>
-                <p className={styles.sceneMeta}>
-                  {phrases.length} {phrases.length === 1 ? 'PHRASE' : 'PHRASES'}
-                  {saidCount > 0 && (
-                    <span className={styles.saidInline}> · {saidCount} SAID IN PERSON 📍</span>
-                  )}
-                </p>
-              </div>
-              <span className={styles.chevron}>›</span>
+      {!searchQuery && (
+        <section className={styles.section}>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>{savedScenes.length > 0 ? '03' : '02'}</span>
+            <span className={styles.sectionLabel}>Quick Lookup</span>
+          </div>
+          {!lookupOpen ? (
+            <button className={styles.lookupTeaser} onClick={() => setLookupOpen(true)}>
+              <span className={styles.lookupTeaserText}>
+                Cheat sheets: numbers, colours, dates, time &amp; more
+              </span>
+              <span className={styles.lookupTeaserLink}>Browse →</span>
             </button>
-
-            <div className={styles.phraseList}>
-              {filtered.map(phrase => {
-                const isExpanded = expandedId === phrase.id;
-                const breakdown = isExpanded ? deriveBreakdown(phrase) : [];
-                return (
-                  <div key={phrase.id} className={styles.phraseRowWrap}>
-                    <div
-                      className={styles.phraseRow}
-                      onClick={() => onNavigate('phrase', phrase.id)}
-                      role="button"
-                      tabIndex={0}
-                      title="Open this phrase for more detail (culture note, how to reply, review history)"
-                    >
-                      <PhraseDot phrase={phrase} styles={styles} />
-                      <div className={styles.phraseText}>
-                        <p className={styles.phraseCjk}>{phrase.cjk}</p>
-                        <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                        <p className={styles.phraseEnglish}>{phrase.english}</p>
-                      </div>
-                      <div className={styles.phraseActions}>
-                        <div className={styles.pinCoachAnchor}>
-                          <button
-                            className={`${styles.livedToggle} ${phrase.lived_at ? styles.livedToggleActive : ''}`}
-                            onClick={e => { toggleLived(e, phrase); dismissPinCoach(); }}
-                            aria-label={phrase.lived_at ? 'Unmark said in person' : 'Mark as said in person'}
-                            title={phrase.lived_at ? 'Said in person ✓' : 'Mark as said in person'}
-                          >
-                            <PinIcon filled={!!phrase.lived_at} />
-                          </button>
-                          {!pinCoachSeen && phrase.id === firstPhraseId && (
-                            <div className={styles.pinCoach} onClick={e => e.stopPropagation()}>
-                              <p>Said this to a real person? Tap the pin to mark it.</p>
-                              <button onClick={dismissPinCoach}>Got it</button>
-                            </div>
-                          )}
-                        </div>
-                        <button
-                          className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                          onClick={e => playInline(e, phrase)}
-                          aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
-                          title={playingId === phrase.id ? 'Stop playback' : 'Play this phrase'}
-                        >
-                          {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
-                            ? <AudioStateIndicator state={audioState[phrase.id]} />
-                            : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
-                        </button>
-                        <button
-                          className={`${styles.expandBtn} ${isExpanded ? styles.expandBtnActive : ''}`}
-                          onClick={e => { e.stopPropagation(); setExpandedId(isExpanded ? null : phrase.id); }}
-                          aria-label={isExpanded ? 'Hide breakdown' : 'Show breakdown'}
-                          aria-expanded={isExpanded}
-                          title={isExpanded ? 'Hide word-by-word breakdown' : 'Show word-by-word breakdown'}
-                        >
-                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    {isExpanded && breakdown.length > 0 && (
-                      <div className={styles.breakdown}>
-                        <span className={styles.breakdownLabel}>WORD BY WORD</span>
-                        <div className={styles.breakdownGrid}>
-                          {breakdown.map((w, i) => {
-                            const key = `${phrase.id}-${i}`;
-                            const isWordPlaying = playingWord === key;
-                            return (
-                              <button
-                                key={key}
-                                className={`${styles.wordTile} ${isWordPlaying ? styles.wordTileActive : ''}`}
-                                onClick={e => playWord(e, w.chinese, key)}
-                                aria-label={`Play ${w.chinese}`}
-                              >
-                                <span className={styles.wordCjk}>{w.chinese}</span>
-                                {w.jyutping && <span className={styles.wordRoman}>{w.jyutping}</span>}
-                                {w.english && <span className={styles.wordMeaning}>{w.english}</span>}
-                                <span className={styles.wordPlayBadge}>
-                                  {isWordPlaying ? <StopIcon /> : <PlayIcon />}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+          ) : (
+            <div className={styles.refGrid}>
+              {REFERENCE_SETS.map(s => (
+                <button
+                  key={s.id}
+                  className={styles.refCard}
+                  onClick={() => onNavigate?.('reference', s.id)}
+                >
+                  <span className={styles.refIcon}>{s.icon}</span>
+                  <span className={styles.refTitle}>{s.title}</span>
+                  <span className={styles.refArrow}>→</span>
+                </button>
+              ))}
             </div>
-          </section>
-        );
-      })}
+          )}
+        </section>
+      )}
 
       <div className={styles.bottomPad} />
     </div>
   );
 }
 
-function PhraseDot({ phrase, styles }) {
-  if (phrase.lived_at) {
-    return <span className={styles.dotPin}><PinIcon filled /></span>;
-  }
-  const gs = phrase.growth_state;
-  if (gs === GROWTH_STATE.MASTERED || gs === GROWTH_STATE.STRONG) {
-    return <span className={styles.dotFilled} />;
-  }
-  return <span className={styles.dotEmpty} />;
-}
-
-// Same pin-drop mark as the real-world celebration screen — "you stood
-// somewhere and said this out loud" — drawn as line art instead of the OS
-// pushpin emoji, which renders too small and faint to read as a pin at all.
-function PinIcon({ filled = false }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" fill={filled ? 'var(--bg-1, #FAFAF7)' : 'none'} />
-    </svg>
-  );
+function capitalize(s) {
+  return s ? s[0].toUpperCase() + s.slice(1) : 'New';
 }
 
 const PlayIcon = () => (
