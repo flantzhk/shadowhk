@@ -142,7 +142,8 @@ function normaliseEntry(e) {
 
 async function buildLesson(goalMinutes, language) {
   const { getDueEntries, getAllLibraryEntries } = await import('./storage.js');
-  const due = (await getDueEntries()).filter(e => e.cjk);
+  // Explicit sort avoids depending on IDB's implicit index-iteration guarantee.
+  const due = (await getDueEntries()).filter(e => e.cjk).sort((a, b) => a.nextReviewAt - b.nextReviewAt);
   const all = await getAllLibraryEntries();
   const pool = due.length > 0 ? due : all.filter(e => e.cjk && (!e.language || e.language === language));
   const maxPhrases = Math.max(5, Math.floor((goalMinutes || 10) * 1.5));

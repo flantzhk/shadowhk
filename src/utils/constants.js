@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.3.76';
+export const APP_VERSION = '2.3.77';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -10,6 +10,13 @@ export const SRS_MIN_EASE = 1.3;
 export const SRS_MAX_EASE = 3.0;
 export const SRS_MAX_INTERVAL = 180;
 export const SRS_MASTERED_THRESHOLD = 21;
+export const FSRS_INITIAL_DIFFICULTY = 5;   // 1 (easiest) – 10 (hardest)
+export const FSRS_MIN_DIFFICULTY = 1;
+export const FSRS_MAX_DIFFICULTY = 10;
+export const FSRS_REVERSION_RATE = 0.1;     // fraction pulled back toward FSRS_INITIAL_DIFFICULTY per review — prevents permanent "ease hell"
+export const FSRS_INITIAL_STABILITY = 1;    // days, baseline for a phrase's first successful review
+export const FSRS_GROWTH_BASE = 3;          // scales how much a successful review grows stability
+export const FSRS_TARGET_RETENTION = 0.9;   // stability is defined as "days for recall probability to decay to this"
 export const RECORDING_MAX_SECONDS = 10;
 export const API_BASE_URL = 'https://shadowspeak-api.faith-lantz-ee8.workers.dev';
 export const API_ENDPOINTS = {

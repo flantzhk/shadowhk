@@ -1,8 +1,10 @@
-// src/services/srs.js — Spaced repetition algorithm (simplified SM-2)
+// src/services/srs.js — FSRS-lite: continuous, mean-reverting difficulty/stability model
 
 import { getDueEntries, getAllLibraryEntries, saveLibraryEntry } from './storage';
 import {
   SRS_MIN_EASE, SRS_MAX_EASE, SRS_MAX_INTERVAL, SRS_MASTERED_THRESHOLD,
+  FSRS_INITIAL_DIFFICULTY, FSRS_MIN_DIFFICULTY, FSRS_MAX_DIFFICULTY, FSRS_REVERSION_RATE,
+  FSRS_INITIAL_STABILITY, FSRS_GROWTH_BASE, FSRS_TARGET_RETENTION,
 } from '../utils/constants';
 
 /**
@@ -13,39 +15,55 @@ import {
  * @returns {Object} Updated SRS fields to merge into entry
  */
 function calculateNextReview(entry, quality, pronunciationScore = null) {
-  let { interval = 0, easeFactor = 2.5, practiceCount = 0 } = entry;
+  const now = Date.now();
+  let { stability, difficulty, practiceCount = 0, lastPracticedAt } = entry;
+  stability = stability ?? (entry.interval || 0);
+  difficulty = difficulty ?? FSRS_INITIAL_DIFFICULTY;
 
-  // Validate quality parameter
+  // score is primary; quality is a legacy fallback mapped to a representative score
   if (!['correct', 'hard', 'forgot'].includes(quality)) quality = 'hard';
-
-  if (pronunciationScore !== null) {
-    if (pronunciationScore >= 90) quality = 'correct';
-    else if (pronunciationScore >= 70) quality = 'hard';
-    else quality = 'forgot';
+  let score = pronunciationScore;
+  if (score === null) {
+    score = quality === 'correct' ? 92 : quality === 'hard' ? 80 : 50;
   }
+  const g = Math.min(1, Math.max(0, score / 100));
+
+  const elapsedDays = lastPracticedAt ? Math.max(0, (now - lastPracticedAt) / 86400000) : 0;
+  const isFirstReview = practiceCount === 0 || stability <= 0;
+  const retrievability = isFirstReview ? 1 : Math.pow(FSRS_TARGET_RETENTION, elapsedDays / stability);
+
+  // difficulty update — continuous, mean-reverting (this is what kills "ease hell")
+  const difficultyDelta = (0.85 - g) * 6;
+  const rawDifficulty = difficulty + difficultyDelta;
+  let newDifficulty = rawDifficulty + (FSRS_INITIAL_DIFFICULTY - rawDifficulty) * FSRS_REVERSION_RATE;
+  newDifficulty = Math.min(FSRS_MAX_DIFFICULTY, Math.max(FSRS_MIN_DIFFICULTY, newDifficulty));
+
+  const isLapse = g < 0.7;
+  let newStability;
+  if (isLapse) {
+    newStability = 0;
+  } else if (isFirstReview) {
+    newStability = FSRS_INITIAL_STABILITY * (0.5 + g);
+  } else {
+    const difficultyFactor = (11 - difficulty) / 10;       // use OLD (pre-update) difficulty — easier items grow faster
+    const retrievabilityFactor = Math.max(0.1, 1 - retrievability); // reviewing right before forgetting yields the biggest boost; floor keeps well-known items growing a little
+    const performanceFactor = (g - 0.5) * 2;
+    const growth = 1 + FSRS_GROWTH_BASE * difficultyFactor * retrievabilityFactor * performanceFactor;
+    newStability = stability * growth;
+  }
+  newStability = Math.min(newStability, SRS_MAX_INTERVAL);
 
   practiceCount += 1;
-
-  if (quality === 'forgot') {
-    interval = 0;
-    easeFactor = Math.max(SRS_MIN_EASE, easeFactor - 0.2);
-  } else if (quality === 'hard') {
-    interval = Math.max(1, Math.ceil(interval * 1.2));
-    easeFactor = Math.max(SRS_MIN_EASE, easeFactor - 0.1);
-  } else {
-    if (interval === 0) interval = 1;
-    else if (interval === 1) interval = 3;
-    else interval = Math.ceil(interval * easeFactor);
-    easeFactor = Math.min(SRS_MAX_EASE, easeFactor + 0.1);
-  }
-
-  interval = Math.min(interval, SRS_MAX_INTERVAL);
-
-  const now = Date.now();
+  const interval = isLapse ? 0 : Math.max(1, Math.round(newStability));
   const nextReviewAt = now + interval * 24 * 60 * 60 * 1000;
   const status = interval >= SRS_MASTERED_THRESHOLD ? 'mastered' : 'learning';
 
+  // easeFactor kept only for legacy display code that still reads entry.easeFactor — not used in scheduling math anymore
+  const easeFactor = SRS_MIN_EASE + ((FSRS_MAX_DIFFICULTY - newDifficulty) / (FSRS_MAX_DIFFICULTY - FSRS_MIN_DIFFICULTY)) * (SRS_MAX_EASE - SRS_MIN_EASE);
+
   return {
+    stability: newStability,
+    difficulty: newDifficulty,
     interval,
     easeFactor,
     practiceCount,
