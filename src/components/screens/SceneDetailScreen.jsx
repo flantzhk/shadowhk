@@ -12,6 +12,8 @@ import { staticWordAudio, prefetchWordAudio } from '../../services/staticAudio.j
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
+const vocabWordId = (sceneId, chinese) => `${sceneId}-vocab-${chinese}`;
+
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
@@ -39,8 +41,13 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           const entry = await getLibraryEntry(line.id).catch(() => null);
           if (entry) ids.add(line.id);
         }
+        const vocabWords = s.vocabulary?.flatMap(g => g.words ?? []) ?? [];
+        for (const w of vocabWords) {
+          const entry = await getLibraryEntry(vocabWordId(sceneId, w.chinese)).catch(() => null);
+          if (entry) ids.add(vocabWordId(sceneId, w.chinese));
+        }
         setSavedIds(ids);
-        if (s.vocabulary?.length) prefetchWordAudio(s.vocabulary.flatMap(g => g.words ?? []));
+        if (vocabWords.length) prefetchWordAudio(vocabWords);
       })
       .catch(err => logger.error('[SceneDetail] scene load failed', err?.message))
       .finally(() => setLoading(false));
@@ -64,6 +71,38 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     observer.observe(hero);
     return () => observer.disconnect();
   }, [scene]);
+
+  function buildVocabEntry(word) {
+    return {
+      phraseId: vocabWordId(sceneId, word.chinese),
+      cjk: word.chinese,
+      romanization: word.jyutping,
+      english: word.english,
+      language,
+      scene_id: sceneId,
+      source_tag: SOURCE_TAGS.LIBRARY,
+      growth_state: GROWTH_STATE.NEW,
+      interval: 0,
+      easeFactor: 2.5,
+      practiceCount: 0,
+      nextReviewAt: Date.now(),
+      lastPracticedAt: null,
+      lived_at: null,
+      _createdAt: Date.now(),
+      _updatedAt: Date.now(),
+    };
+  }
+
+  async function toggleSaveVocabWord(word) {
+    const id = vocabWordId(sceneId, word.chinese);
+    if (savedIds.has(id)) {
+      await removeLibraryEntry(id).catch(() => {});
+      setSavedIds(prev => { const next = new Set(prev); next.delete(id); return next; });
+    } else {
+      await saveLibraryEntry(buildVocabEntry(word)).catch(() => {});
+      setSavedIds(prev => new Set(prev).add(id));
+    }
+  }
 
   function buildLineEntry(line) {
     return {
@@ -171,7 +210,13 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
 
       {/* Vocabulary — key HK-specific terms for this scene */}
       {scene.vocabulary?.length > 0 && (
-        <VocabSection groups={scene.vocabulary} language={language} />
+        <VocabSection
+          groups={scene.vocabulary}
+          language={language}
+          sceneId={sceneId}
+          savedIds={savedIds}
+          onToggleSave={toggleSaveVocabWord}
+        />
       )}
 
       {/* Controls row — labelled chips so heart vs plus is self-explanatory */}
@@ -292,7 +337,7 @@ const BackArrow = () => (
   </svg>
 );
 
-function VocabSection({ groups, language }) {
+function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
   const [openCategory, setOpenCategory] = useState(groups.length === 1 ? groups[0].category : null);
   const [playingWord, setPlayingWord] = useState(null);
   const audioRef = useRef(null);
@@ -336,26 +381,38 @@ function VocabSection({ groups, language }) {
               </button>
               {isOpen && (
                 <div className={styles.vocabGrid}>
-                  {group.words.map(w => (
-                    <button
-                      key={w.chinese}
-                      className={`${styles.vocabChip} ${playingWord === w.chinese ? styles.vocabChipActive : ''}`}
-                      onClick={() => play(w)}
-                      aria-label={`Play ${w.chinese} — ${w.english}`}
-                    >
-                      <span className={styles.vocabPlayBtn}>
-                        {playingWord === w.chinese
-                          ? <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
-                          : <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
-                        }
-                      </span>
-                      <span className={styles.vocabBody}>
-                        <span className={styles.vocabCjk}>{w.chinese}</span>
-                        <span className={styles.vocabJyutping}>{w.jyutping}</span>
-                        <span className={styles.vocabEnglish}>{w.english}</span>
-                      </span>
-                    </button>
-                  ))}
+                  {group.words.map(w => {
+                    const saved = savedIds?.has(vocabWordId(sceneId, w.chinese));
+                    return (
+                      <div key={w.chinese} className={`${styles.vocabChip} ${playingWord === w.chinese ? styles.vocabChipActive : ''}`}>
+                        <button
+                          className={styles.vocabPlayBtn}
+                          onClick={() => play(w)}
+                          aria-label={`Play ${w.chinese} — ${w.english}`}
+                        >
+                          {playingWord === w.chinese
+                            ? <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>
+                            : <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,0 10,5 2,10"/></svg>
+                          }
+                        </button>
+                        <span className={styles.vocabBody}>
+                          <span className={styles.vocabCjk}>{w.chinese}</span>
+                          <span className={styles.vocabJyutping}>{w.jyutping}</span>
+                          <span className={styles.vocabEnglish}>{w.english}</span>
+                        </span>
+                        {onToggleSave && (
+                          <button
+                            className={`${styles.vocabSaveBtn} ${saved ? styles.vocabSaveBtnSaved : ''}`}
+                            onClick={() => onToggleSave(w)}
+                            aria-label={saved ? `Remove ${w.chinese} from library` : `Save ${w.chinese} to library`}
+                            title={saved ? 'Saved to your Library' : 'Add to your Library for spaced-repetition review'}
+                          >
+                            {saved ? '✓' : '+'}
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
