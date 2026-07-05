@@ -14,9 +14,9 @@ function getScoreColor(score) {
 }
 
 /**
- * @param {{ summary: Object, chatLog?: Array, sceneTitle?: string, onDone: Function, onReplay?: Function }} props
+ * @param {{ summary: Object, chatLog?: Array, sceneTitle?: string, onDone: Function, onReplay?: Function, showToast?: Function }} props
  */
-export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onReplay }) {
+export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onReplay, showToast }) {
   const { settings } = useAppContext();
   const [showBulkSave, setShowBulkSave] = useState(false);
   if (!summary) return null;
@@ -24,7 +24,10 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
   // Collect user turns that have a phraseId for saving
   const savablePhrases = chatLog
     ?.filter(t => t.speaker === 'user' && t.chinese)
-    .map(t => ({ id: t.phraseId || `scene-${Date.now()}-${Math.random()}`, chinese: t.chinese, english: t.english || '' })) || [];
+    .map(t => ({
+      id: t.phraseId || `scene-${Date.now()}-${Math.random()}`,
+      chinese: t.chinese, romanization: t.romanization || '', english: t.english || '',
+    })) || [];
 
   const firstName = (settings.name || '').split(' ')[0] || 'there';
   const userTurns = chatLog?.filter(t => t.speaker === 'user') || [];
@@ -127,7 +130,7 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
           onClose={() => setShowBulkSave(false)}
           onSaved={(count) => {
             setShowBulkSave(false);
-            // toast shown via parent if needed
+            showToast?.(`${count} phrase${count !== 1 ? 's' : ''} saved to library`, 'success');
           }}
         />
       )}

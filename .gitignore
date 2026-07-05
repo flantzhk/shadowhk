@@ -29,3 +29,4 @@ _archive/
 .overnight.log
 .overnight-cron.log
 scripts/overnight-qa-prompt.txt
+__pycache__/

@@ -47,28 +47,76 @@ def envelope(samples):
 
 
 def find_cut_sec(words, bars):
-    """Cut point: deepest envelope dip near whisper's first-tail-digit anchor."""
-    # The tail is the trailing run of 蘋果 tokens. Walk back from the end.
+    """Cut point: deepest envelope dip near whisper's first-tail-token anchor.
+
+    Two edge cases in very short (1-2 char) real words:
+    - the search window used to reach 0.55s past the anchor, wide enough to
+      span a full repetition of the two-syllable 蘋果 tail — on short clips
+      the deepest dip in that range is sometimes the gap *between* two tail
+      repetitions rather than the real word/tail boundary, cutting too late
+      and leaving part of the tail in. Narrowed to 0.18s (just past one
+      syllable) so it can't reach past the first tail token.
+    - whisper sometimes fails to hear a very short/light real word at all
+      (e.g. a toneless particle) and transcribes the whole clip as tail —
+      falls back to envelope-only: the first sufficiently deep, sufficiently
+      long silence gap after a brief onset skip.
+    """
     i = len(words)
     while i > 0 and is_tail_token(words[i - 1][0]):
         i -= 1
-    if i == len(words) or i == 0:
+    if i == len(words):
         raise RuntimeError(f'sacrificial tail not found in transcript: {[w[0] for w in words]}')
+    if i == 0:
+        return _find_cut_from_envelope_only(bars)
     anchor = words[i][1]  # start of first tail token (skews early: includes the pause)
+    # Look a bit past the anchor too — a sustained vowel's natural decay can
+    # still be audible right at whisper's marked word-end, so the true
+    # silence floor sometimes sits slightly later than the anchor itself.
     lo = max(0, int((anchor - 0.06) / 0.02))
-    hi = min(len(bars) - 1, int((anchor + 0.55) / 0.02))
+    hi = min(len(bars) - 1, int((anchor + 0.3) / 0.02))
     if hi <= lo:
         raise RuntimeError('anchor window empty')
+    peak = max(bars)
     dip = min(range(lo, hi + 1), key=lambda b: bars[b])
-    # widen to the low region around the dip, cut 0.1s into it
-    th = max(max(bars) * 0.05, bars[dip] * 2)
+    # Require the dip to actually be near the noise floor (not just a local
+    # minimum inside a decaying vowel) — otherwise this anchor is unusable.
+    if bars[dip] > peak * 0.05:
+        raise RuntimeError('no true silence found near anchor — likely still decaying speech')
+    th = max(peak * 0.05, bars[dip] * 2)
     start = dip
     while start > lo and bars[start - 1] < th:
         start -= 1
     end = dip
     while end < hi and bars[end + 1] < th:
         end += 1
+    # A single 20ms dip sandwiched between energetic regions is usually TTS
+    # prosody, not the real word/tail boundary — too fragile to trust.
+    if end - start < 2:
+        raise RuntimeError('silence gap too narrow to trust as a real boundary')
     return (start + min(5, max(1, end - start))) * 0.02
+
+
+def _find_cut_from_envelope_only(bars):
+    """No whisper anchor available — find the first gap (>=0.1s below 8% of
+    peak) after a brief onset skip, on the assumption the real word is a
+    single short syllable right at the start of the clip."""
+    peak = max(bars)
+    if peak < 500:
+        raise RuntimeError('audio is silent, no envelope anchor available')
+    th = peak * 0.08
+    onset_skip = 4  # 0.08s — past the real word's initial attack
+    min_gap = 5  # 0.1s
+    i = onset_skip
+    while i < len(bars):
+        if bars[i] < th:
+            start = i
+            while i < len(bars) and bars[i] < th:
+                i += 1
+            if i - start >= min_gap:
+                return (start + min(5, max(1, i - start))) * 0.02
+        else:
+            i += 1
+    raise RuntimeError('no silence gap found for envelope-only fallback')
 
 
 def encode(path, samples, cut_sec):

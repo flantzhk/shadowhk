@@ -7,6 +7,17 @@
   padding-bottom: max(env(safe-area-inset-bottom, 0px), 0px);
 }
 
+.loadingPulse {
+  flex: 1;
+  background: rgba(0,0,0,0.03);
+  animation: loadingPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
 /* === Header with progress === */
 .header {
   display: flex;
@@ -397,70 +408,3 @@
   transition: opacity 0.15s;
 }
 
-/* === Done === */
-.doneControls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-}
-
-.saveBtn {
-  width: 100%;
-  padding: 14px;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  font-family: var(--font-ui);
-  font-weight: 800;
-  font-size: 15px;
-  min-height: 48px;
-  cursor: pointer;
-  box-shadow: 0 4px 16px var(--accent-glow);
-}
-
-.savedConfirm {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 700;
-  padding: 12px;
-}
-
-.doneRow {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-.replayBtn {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid var(--border-1);
-  border-radius: 0;
-  color: var(--fg-1);
-  background: var(--bg-1);
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 14px;
-  min-height: 48px;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.doneBtn {
-  flex: 1;
-  padding: 12px;
-  background: var(--bg-2);
-  color: var(--fg-0);
-  border: 1px solid var(--border-1);
-  border-radius: 0;
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 14px;
-  min-height: 48px;
-  cursor: pointer;
-  transition: background 0.15s;
-}

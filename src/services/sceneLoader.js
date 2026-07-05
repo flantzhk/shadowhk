@@ -129,6 +129,36 @@ function clearSceneCache() {
   }
 }
 
+/**
+ * Adapt a scene (lines with speaker 'you'/npc-name) into the turn-based
+ * shape DialogueScene expects (speaker 'user'/'other' + speakerLabel).
+ * @param {Object} scene
+ * @returns {Object} { id, title, emoji, description, turns }
+ */
+function toDialogueTurns(scene) {
+  const turns = (scene.lines || []).map((l) => ({
+    speaker: l.speaker === 'you' ? 'user' : 'other',
+    speakerLabel: l.speaker === 'you' ? 'You' : capitalize(l.speaker),
+    chinese: l.cjk,
+    romanization: l.romanization,
+    english: l.english,
+    phraseId: l.id,
+    voiceId: l.voiceId,
+    pauseAfterMs: 1200,
+  }));
+  return {
+    id: scene.id,
+    title: scene.title,
+    emoji: scene.emoji,
+    description: scene.description ?? scene.cultural_note ?? null,
+    turns,
+  };
+}
+
+function capitalize(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'Them';
+}
+
 export {
   getSceneById,
   getAllScenes,
@@ -136,4 +166,5 @@ export {
   getYouLines,
   growthStateFromInterval,
   clearSceneCache,
+  toDialogueTurns,
 };

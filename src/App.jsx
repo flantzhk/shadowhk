@@ -43,7 +43,7 @@ const PromptDrill        = lazy(() => import('./components/screens/PromptDrill')
 const SpeedRun           = lazy(() => import('./components/screens/SpeedRun'));
 const ToneGym            = lazy(() => import('./components/screens/ToneGym'));
 const ToneGymResults     = lazy(() => import('./components/screens/ToneGymResults'));
-const DialogueScene      = lazy(() => import('./components/screens/DialogueScene'));
+const DialogueSceneLoader = lazy(() => import('./components/screens/DialogueSceneLoader'));
 const SceneSummary       = lazy(() => import('./components/screens/SceneSummary'));
 const AIConversation     = lazy(() => import('./components/screens/AIConversation'));
 const AIScenarioPicker   = lazy(() => import('./components/screens/AIScenarioPicker'));
@@ -154,8 +154,20 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings) {
     case ROUTES.SPEED_RUN:       return <SpeedRun onBack={goBack} onComplete={() => navigate(ROUTES.HOME)} />;
     case ROUTES.TONE_GYM:        return <ToneGym onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('toneGymSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.TONE_GYM_RESULTS); }} />;
     case ROUTES.TONE_GYM_RESULTS: return <ToneGymResults summary={(() => { try { return JSON.parse(sessionStorage.getItem('toneGymSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} onPlayAgain={() => navigate(ROUTES.TONE_GYM)} />;
-    case ROUTES.DIALOGUE:        return <DialogueScene sceneId={id} navigate={navigate} goBack={goBack} />;
-    case ROUTES.SCENE_END:       return <SceneSummary navigate={navigate} goBack={goBack} />;
+    case ROUTES.DIALOGUE:        return <DialogueSceneLoader sceneId={id} onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('dialogueSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.SCENE_END); }} />;
+    case ROUTES.SCENE_END: {
+      const dialogueSummary = (() => { try { return JSON.parse(sessionStorage.getItem('dialogueSummary') || 'null'); } catch { return null; } })();
+      return (
+        <SceneSummary
+          summary={dialogueSummary}
+          chatLog={dialogueSummary?.chatLog}
+          sceneTitle={dialogueSummary?.sceneTitle}
+          onDone={() => navigate(ROUTES.HOME)}
+          onReplay={dialogueSummary?.sceneId ? () => navigate(ROUTES.DIALOGUE, dialogueSummary.sceneId) : undefined}
+          showToast={showToast}
+        />
+      );
+    }
     case ROUTES.PAYWALL:         return <Paywall onComplete={() => navigate(ROUTES.HOME)} updateSettings={updateSettings} />;
     case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
     case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} />;

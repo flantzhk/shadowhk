@@ -7,26 +7,24 @@ import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 import { textToSpeech, scorePronunciation } from '../../services/api';
 import { isAuthenticated } from '../../services/auth';
 import { updateAfterPractice } from '../../services/srs';
-import { saveSession, saveLibraryEntry } from '../../services/storage';
+import { saveSession } from '../../services/storage';
 import { updateStreak, getTodayString } from '../../services/streak';
-import { SRS_INITIAL_EASE } from '../../utils/constants';
 import { ScoreBadge } from '../cards/ScoreBadge';
 import { RecordButton } from '../shared/RecordButton';
 import styles from './DialogueScene.module.css';
 
 /**
- * @param {{ sceneData: Object, onBack: Function, onComplete: Function, showToast: Function }} props
+ * @param {{ sceneData: Object, onBack: Function, onComplete: Function }} props
  */
-export default function DialogueScene({ sceneData, onBack, onComplete, showToast }) {
+export default function DialogueScene({ sceneData, onBack, onComplete }) {
   const { settings, updateSettings } = useAppContext();
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
   const isOnline = useOnlineStatus();
   const [turnIndex, setTurnIndex] = useState(0);
-  const [phase, setPhase] = useState('intro'); // intro | playing | recording | scored | done
+  const [phase, setPhase] = useState('intro'); // intro | playing | recording | scored
   const [score, setScore] = useState(null);
   const [chatLog, setChatLog] = useState([]);
   const [sessionStart] = useState(Date.now());
-  const [phrasesSaved, setPhrasesSaved] = useState(false);
   const [canReplay, setCanReplay] = useState(false); // show replay after other's turn
   const audioRef = useRef(new Audio());
   const lastOtherBlobRef = useRef(null);
@@ -35,7 +33,6 @@ export default function DialogueScene({ sceneData, onBack, onComplete, showToast
   const scene = sceneData;
   const turn = scene?.turns[turnIndex];
   const advanceTurnRef = useRef(null);
-  const totalTurns = scene?.turns?.length || 1;
   const userTurns = scene?.turns?.filter(t => t.speaker === 'user') || [];
 
   // Helper: use jyutping OR romanization field (data is inconsistent)
@@ -48,17 +45,20 @@ export default function DialogueScene({ sceneData, onBack, onComplete, showToast
   }, []);
 
   const finishScene = useCallback(async () => {
-    setPhase('done');
     const dur = Math.round((Date.now() - sessionStart) / 1000);
     const streak = await updateStreak();
     await updateSettings({ streakCount: streak, totalPracticeSeconds: settings.totalPracticeSeconds + dur });
     const rec = {
-      id: crypto.randomUUID(), date: getTodayString(),
+      id: crypto.randomUUID(), date: getTodayString(), sceneId: scene.id ?? null,
       startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
       mode: 'dialogue', phrasesAttempted: scene.turns.filter(t => t.speaker === 'user').length,
       phrasesMastered: 0, averageScore: null, phraseResults: [],
     };
     await saveSession(rec);
+    // Hand off to the caller's completion screen immediately (same pattern
+    // as ShadowSession -> SessionSummary) rather than showing our own
+    // done-phase UI — SceneSummary already covers save/replay/done, with
+    // richer stats than a second, more basic screen would add.
     onComplete?.({ ...rec, streakCount: streak, chatLog, sceneTitle: scene.title });
   }, [sessionStart, scene, chatLog, updateSettings, settings, onComplete]);
 
@@ -151,34 +151,6 @@ export default function DialogueScene({ sceneData, onBack, onComplete, showToast
   }, [stopRecording, turn, isOnline, addToLog]);
 
   const handleContinue = useCallback(() => { advanceTurn(); }, [advanceTurn]);
-
-  const handleReplay = useCallback(() => {
-    setTurnIndex(0); setChatLog([]); setScore(null);
-    setPhrasesSaved(false); setCanReplay(false); setPhase('playing');
-    const firstTurn = scene?.turns[0];
-    if (firstTurn?.speaker === 'other') {
-      setTimeout(() => playOtherTurn(firstTurn), 100);
-    }
-  }, [scene, playOtherTurn]);
-
-  const handleSavePhrases = useCallback(async () => {
-    const turns = chatLog.filter(t => t.speaker === 'user' && t.phraseId);
-    let saved = 0;
-    for (const t of turns) {
-      try {
-        await saveLibraryEntry({
-          phraseId: t.phraseId, type: 'phrase', addedAt: Date.now(),
-          source: 'dialogue', customData: null,
-          interval: 0, easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
-          lastPracticedAt: Date.now(), practiceCount: 1, status: 'learning',
-          bestScore: t.score, lastScore: t.score, scoreHistory: t.score != null ? [t.score] : [],
-        });
-        saved++;
-      } catch { /* skip duplicates */ }
-    }
-    setPhrasesSaved(true);
-    showToast?.(`${saved} phrase${saved !== 1 ? 's' : ''} saved to library`, 'success');
-  }, [chatLog, showToast]);
 
   if (!scene) return null;
 
@@ -323,22 +295,6 @@ export default function DialogueScene({ sceneData, onBack, onComplete, showToast
           </div>
         )}
 
-        {/* Done */}
-        {phase === 'done' && (
-          <div className={styles.doneControls}>
-            {!phrasesSaved ? (
-              <button className={styles.saveBtn} onClick={handleSavePhrases}>
-                Save phrases to library
-              </button>
-            ) : (
-              <span className={styles.savedConfirm}>Saved to library</span>
-            )}
-            <div className={styles.doneRow}>
-              <button className={styles.replayBtn} onClick={handleReplay}>Replay</button>
-              <button className={styles.doneBtn} onClick={() => onComplete?.({})}>Done</button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

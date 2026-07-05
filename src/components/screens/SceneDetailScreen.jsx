@@ -197,6 +197,13 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
               ↗ <span className={styles.controlLabel}>Share</span>
             </button>
           )}
+          <button
+            className={styles.controlBtn}
+            onClick={() => onNavigate('dialogue', sceneId)}
+            aria-label="Practice as a scripted conversation"
+          >
+            💬 <span className={styles.controlLabel}>Dialogue mode</span>
+          </button>
         </div>
       </div>
 

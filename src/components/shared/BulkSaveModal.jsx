@@ -38,9 +38,9 @@ export function BulkSaveModal({ phrases, sceneName, onClose, onSaved }) {
       if (!p?.id) continue;
       try {
         await saveLibraryEntry({
-          phraseId: p.id, type: 'phrase', addedAt: Date.now(),
-          source: 'scene', customData: null, interval: 0,
-          easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
+          phraseId: p.id, addedAt: Date.now(), source: 'scene',
+          cjk: p.chinese, romanization: p.romanization || '', english: p.english,
+          interval: 0, easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
           lastPracticedAt: null, practiceCount: 0, status: 'learning',
           bestScore: null, lastScore: null, scoreHistory: [],
         });
