@@ -911,13 +911,17 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
-  /* Try next: horizontal thumb-scroll becomes a 4-across spread */
+  /* Try next: horizontal thumb-scroll becomes a 4-across spread. Every other
+     section gets its 20px side inset from a wrapping margin/padding — this
+     one gets it from its own padding, so zeroing it out here (instead of
+     just dropping the mobile scrollbar-clearance bottom padding) left the
+     tiles sitting 20px further left than the section title above them. */
   .tryNextScroll {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     overflow: visible;
-    padding: 0;
+    padding: 0 20px;
   }
   .sceneCard {
     width: auto;
