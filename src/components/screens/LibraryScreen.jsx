@@ -21,10 +21,10 @@ const GROWTH_METER = {
 // rows from looking identical without inventing extra imagery. Adjacent
 // indices always land on different grades since they differ mod length.
 const PHOTO_GRADES = [
-  'none',
-  'brightness(0.88) contrast(1.15) saturate(1.1)',
-  'brightness(1.08) contrast(0.95) saturate(0.85) sepia(0.12)',
-  'contrast(1.1) saturate(1.25) hue-rotate(-8deg)',
+  'saturate(1.2) contrast(1.05)',
+  'brightness(0.72) contrast(1.3) saturate(1.35) hue-rotate(-15deg)',
+  'brightness(1.2) contrast(0.8) saturate(0.55) sepia(0.4)',
+  'contrast(1.25) saturate(1.5) hue-rotate(20deg) brightness(0.92)',
 ];
 
 function hexToRgb(hex) {
