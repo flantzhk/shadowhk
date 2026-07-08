@@ -44,9 +44,12 @@ if (!apiKey && !dryRun) {
   process.exit(1);
 }
 
-// Deterministic hash so the same speaker name (e.g. "waiter") always lands on
-// the same voice across runs, while different speakers in one scene (e.g.
-// "friend" + "staff") get pushed to different slots when they'd collide.
+// Deterministic hash — used to seed the voice pick from the scene filename,
+// not the speaker's role name. Generic role names (e.g. "staff", "waiter")
+// repeat across many scenes, so hashing on the name itself would give every
+// "staff" scene in the app the same voice and skew the whole set toward
+// whichever voice that name happens to hash to. Hashing on the scene instead
+// spreads NPC voice ~50/50 across the 30 scenes regardless of role name.
 function hashStr(s) {
   let h = 0;
   for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0;
@@ -55,23 +58,19 @@ function hashStr(s) {
 
 // Map each distinct non-"you" speaker in a scene to a voice id, drawn only
 // from ALT_VOICE_IDS — never BASE_VOICE_ID — so NPCs always differ from "you".
-function buildSpeakerVoiceMap(lines) {
+// The first speaker's voice is seeded from the scene file so it varies scene
+// to scene; additional speakers in the same scene (e.g. "friend" + "staff")
+// get pushed to the next slot so they never collide with each other.
+function buildSpeakerVoiceMap(lines, sceneKey) {
   const speakers = [];
   for (const l of lines) {
     if (l.speaker && l.speaker !== 'you' && !speakers.includes(l.speaker)) speakers.push(l.speaker);
   }
   const map = {};
-  const used = new Set();
-  for (const s of speakers) {
-    let idx = hashStr(s) % ALT_VOICE_IDS.length;
-    let attempts = 0;
-    while (used.has(idx) && attempts < ALT_VOICE_IDS.length) {
-      idx = (idx + 1) % ALT_VOICE_IDS.length;
-      attempts++;
-    }
-    used.add(idx);
-    map[s] = ALT_VOICE_IDS[idx];
-  }
+  const baseIdx = hashStr(sceneKey) % ALT_VOICE_IDS.length;
+  speakers.forEach((s, i) => {
+    map[s] = ALT_VOICE_IDS[(baseIdx + i) % ALT_VOICE_IDS.length];
+  });
   return map;
 }
 
@@ -79,7 +78,7 @@ const sceneLines = readdirSync(SCENES_DIR)
   .filter((f) => f.endsWith('.json') && f !== 'index.json')
   .flatMap((f) => {
     const scene = JSON.parse(readFileSync(join(SCENES_DIR, f), 'utf8'));
-    const speakerVoice = buildSpeakerVoiceMap(scene.lines || []);
+    const speakerVoice = buildSpeakerVoiceMap(scene.lines || [], f);
     return (scene.lines || []).map((l) => ({
       id: l.id,
       text: l.cjk,
