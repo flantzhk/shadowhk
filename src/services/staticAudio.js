@@ -2,10 +2,15 @@
 // public/audio/ — phrases by id, single words/characters by text.
 // Returning null means "not available statically, use the TTS fallback".
 
+import { getCachedAudio } from './storage.js';
+
 async function fetchAudioBlob(url) {
   try {
     const resp = await fetch(url);
-    if (resp.ok) {
+    // A dev-server SPA fallback (or any misconfigured host) can return 200
+    // with the index page for a missing file — guard on content-type so that
+    // never gets mistaken for a real audio hit.
+    if (resp.ok && (resp.headers.get('content-type') ?? '').startsWith('audio')) {
       const blob = await resp.blob();
       if (blob.size > 500) return blob;
     }
@@ -15,10 +20,14 @@ async function fetchAudioBlob(url) {
 
 const base = () => import.meta.env.BASE_URL || '/';
 
-/** Pre-recorded phrase/line audio: audio/{language}/{id}.mp3 */
-export function staticPhraseAudio(id, language = 'cantonese') {
-  if (!id) return Promise.resolve(null);
-  return fetchAudioBlob(`${base()}audio/${language}/${id}.mp3`);
+/** Pre-recorded phrase/line audio: audio/{language}/{id}.mp3, falling back to
+ * a locally-generated blob cached for user-authored phrases (no static file
+ * ships for those — see services/storage.js `audioCache`). */
+export async function staticPhraseAudio(id, language = 'cantonese') {
+  if (!id) return null;
+  const staticBlob = await fetchAudioBlob(`${base()}audio/${language}/${id}.mp3`);
+  if (staticBlob) return staticBlob;
+  return (await getCachedAudio(id).catch(() => undefined)) ?? null;
 }
 
 /** Warm the cache for a set of breakdown words so taps play instantly.

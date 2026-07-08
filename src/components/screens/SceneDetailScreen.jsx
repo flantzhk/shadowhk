@@ -4,15 +4,32 @@ import { useAppContext } from '../../contexts/AppContext.jsx';
 import { PhraseRow } from '../ui/PhraseRow.jsx';
 import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
-import { getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress } from '../../services/storage.js';
+import {
+  getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress,
+  getLibraryEntriesByScene, saveCachedAudio,
+} from '../../services/storage.js';
 import { getCurrentUser } from '../../services/auth.js';
 import { phCapture } from '../../services/posthog.js';
-import { textToSpeech } from '../../services/api.js';
+import { textToSpeech, generatePhrase } from '../../services/api.js';
 import { staticWordAudio, prefetchWordAudio } from '../../services/staticAudio.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
 
 const vocabWordId = (sceneId, chinese) => `${sceneId}-vocab-${chinese}`;
+
+// Scene-specific framing for the "add your own phrase" prompt — a generic
+// "type anything" invite gets ignored; naming what people actually come to
+// this scene wanting to say gets used.
+const ADD_PHRASE_PROMPTS = {
+  transport: 'Need to say something specific to get around? Type it below.',
+  food: 'Want to order or ask for something specific here? Type it below.',
+  services: 'Need to explain something specific for this errand? Type it below.',
+  social: 'Want to say something specific to someone here? Type it below.',
+  festivals: 'Want to say something specific for this occasion? Type it below.',
+};
+function addPhrasePrompt(category) {
+  return ADD_PHRASE_PROMPTS[category] ?? 'Want to learn how to say something specific in this scene? Type it below.';
+}
 
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const { settings } = useAppContext();
@@ -29,6 +46,17 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const [headerVisible, setHeaderVisible] = useState(false);
   const [allSaved, setAllSaved] = useState(false);
   const heroRef = useRef(null);
+
+  // User-authored phrases added to this scene (see "Add your own phrase"
+  // below) — stored as ordinary library entries tagged `is_custom`, merged
+  // in here at render time since scenes themselves are static JSON.
+  const [customLines, setCustomLines] = useState([]);
+  const [showAddPhrase, setShowAddPhrase] = useState(false);
+  const [addText, setAddText] = useState('');
+  const [generating, setGenerating] = useState(false);
+  const [generated, setGenerated] = useState(null);
+  const [addError, setAddError] = useState(null);
+  const [savingCustom, setSavingCustom] = useState(false);
 
   useEffect(() => {
     if (!sceneId) return;
@@ -58,6 +86,15 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         setMasteryPct(p.masteryPct ?? 0);
         setSceneSaved(p.bookmarked ?? false);
       }
+    }).catch(() => {});
+
+    getLibraryEntriesByScene(sceneId).then(entries => {
+      setCustomLines(
+        entries
+          .filter(e => e.is_custom)
+          .sort((a, b) => (a._createdAt ?? 0) - (b._createdAt ?? 0))
+          .map(e => ({ id: e.phraseId, cjk: e.cjk, romanization: e.romanization, english: e.english }))
+      );
     }).catch(() => {});
   }, [sceneId]);
 
@@ -144,6 +181,71 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       await saveLibraryEntry(buildLineEntry(line)).catch(() => {});
       setSavedIds(prev => new Set(prev).add(line.id));
     }
+  }
+
+  async function handleGenerateCustomPhrase() {
+    if (!addText.trim()) return;
+    setGenerating(true);
+    setAddError(null);
+    setGenerated(null);
+    try {
+      const result = await generatePhrase(addText.trim(), language);
+      setGenerated(result);
+    } catch (_) {
+      setAddError('Could not generate that phrase. Check your connection and try again.');
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  async function handleSaveCustomPhrase() {
+    if (!generated) return;
+    setSavingCustom(true);
+    setAddError(null);
+    const phraseId = `${sceneId}-custom-${crypto.randomUUID()}`;
+    try {
+      // Generate + cache audio up front so it plays offline. Non-fatal if it
+      // fails — playback just falls back to live TTS the next time it's tapped.
+      try {
+        const blob = await textToSpeech(generated.cjk, { language });
+        await saveCachedAudio(phraseId, blob);
+      } catch (_) { /* fall back to live TTS on playback */ }
+
+      await saveLibraryEntry({
+        phraseId,
+        cjk: generated.cjk,
+        romanization: generated.romanization,
+        english: generated.english,
+        language,
+        scene_id: sceneId,
+        source_tag: SOURCE_TAGS.MINE,
+        growth_state: GROWTH_STATE.NEW,
+        interval: 0,
+        easeFactor: 2.5,
+        practiceCount: 0,
+        nextReviewAt: Date.now(),
+        lastPracticedAt: null,
+        lived_at: null,
+        cultural_note: generated.culturalNote ?? null,
+        is_custom: true,
+        _createdAt: Date.now(),
+        _updatedAt: Date.now(),
+      });
+
+      setCustomLines(prev => [...prev, { id: phraseId, cjk: generated.cjk, romanization: generated.romanization, english: generated.english }]);
+      setAddText('');
+      setGenerated(null);
+      setShowAddPhrase(false);
+    } catch (_) {
+      setAddError('Failed to save. Try again.');
+    } finally {
+      setSavingCustom(false);
+    }
+  }
+
+  async function removeCustomPhrase(id) {
+    await removeLibraryEntry(id).catch(() => {});
+    setCustomLines(prev => prev.filter(l => l.id !== id));
   }
 
   if (loading) {
@@ -315,6 +417,88 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           );
         })}
       </div>
+
+      {/* Your own phrases — user-authored additions scoped to this scene */}
+      <section className={styles.culturalSection}>
+        <div className={styles.culturalDivider}>
+          <span className={styles.culturalDividerDash}>—</span>
+          <span className={styles.culturalDividerLabel}>YOUR PHRASES</span>
+        </div>
+
+        {customLines.length > 0 && (
+          <div className={styles.customPhraseList}>
+            {customLines.map(line => (
+              <PhraseRow
+                key={line.id}
+                phraseId={line.id}
+                jyutping={line.romanization}
+                english={line.english}
+                chinese={line.cjk}
+                size="md"
+                saved={true}
+                onHeartToggle={() => removeCustomPhrase(line.id)}
+              />
+            ))}
+          </div>
+        )}
+
+        {!showAddPhrase ? (
+          <button className={styles.addPhraseTrigger} onClick={() => setShowAddPhrase(true)}>
+            <span className={styles.addPhraseIcon}>+</span>
+            <span className={styles.addPhraseTriggerText}>
+              <span className={styles.addPhraseTitle}>Add your own phrase</span>
+              <span className={styles.addPhraseHint}>{addPhrasePrompt(scene.category)}</span>
+            </span>
+          </button>
+        ) : (
+          <div className={styles.addPhrasePanel}>
+            <input
+              className={styles.addPhraseInput}
+              placeholder="e.g. Please stop at the bus stop right ahead"
+              value={addText}
+              onChange={e => { setAddText(e.target.value); setGenerated(null); setAddError(null); }}
+              autoFocus
+            />
+
+            {addError && <p className={styles.addPhraseError}>{addError}</p>}
+
+            {!generated ? (
+              <div className={styles.addPhraseActions}>
+                <button
+                  className={styles.addPhraseCancel}
+                  onClick={() => { setShowAddPhrase(false); setAddText(''); setGenerated(null); setAddError(null); }}
+                >
+                  Cancel
+                </button>
+                <button
+                  className={styles.addPhraseGenerate}
+                  onClick={handleGenerateCustomPhrase}
+                  disabled={!addText.trim() || generating}
+                >
+                  {generating ? 'Translating…' : 'Translate'}
+                </button>
+              </div>
+            ) : (
+              <div className={styles.addPhrasePreview}>
+                <p className={styles.addPhrasePreviewRoman}>{generated.romanization}</p>
+                <p className={styles.addPhrasePreviewCjk}>{generated.cjk}</p>
+                <p className={styles.addPhrasePreviewEnglish}>{generated.english}</p>
+                {generated.culturalNote && (
+                  <p className={styles.addPhrasePreviewNote}>{generated.culturalNote}</p>
+                )}
+                <div className={styles.addPhraseActions}>
+                  <button className={styles.addPhraseCancel} onClick={() => setGenerated(null)}>
+                    Try again
+                  </button>
+                  <button className={styles.addPhraseSave} onClick={handleSaveCustomPhrase} disabled={savingCustom}>
+                    {savingCustom ? 'Saving…' : 'Save to this scene'}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </section>
 
       {/* Sticky CTA bar — sublabels explain the two practice modes */}
       <div className={styles.ctaBar}>

@@ -58,6 +58,13 @@ async function getDB() {
       if (!db.objectStoreNames.contains('topics')) {
         db.createObjectStore('topics', { keyPath: 'id' });
       }
+
+      // Generated TTS blobs for user-authored phrases (custom phrases have no
+      // pre-recorded static file under public/audio/, so this is what makes
+      // them playable offline after the first generation).
+      if (!db.objectStoreNames.contains('audioCache')) {
+        db.createObjectStore('audioCache', { keyPath: 'phraseId' });
+      }
     },
   });
 
@@ -238,7 +245,7 @@ async function cacheTopic(topic) {
  * @returns {Promise<void>}
  */
 async function clearAllData() {
-  const STORES = ['settings', 'library', 'scenes', 'sessions', 'queue', 'phrases', 'topics'];
+  const STORES = ['settings', 'library', 'scenes', 'sessions', 'queue', 'phrases', 'topics', 'audioCache'];
   const db = await getDB();
   await Promise.all(STORES.map((store) => db.clear(store)));
   dbInstance = null;
@@ -301,6 +308,19 @@ async function removeLibraryEntry(phraseId) {
   return deleteLibraryEntry(phraseId);
 }
 
+// === Audio cache (generated TTS for user-authored phrases) ===
+
+/** @param {string} phraseId @returns {Promise<Blob|undefined>} */
+async function getCachedAudio(phraseId) {
+  const record = await dbOp('Failed to get cached audio', (db) => db.get('audioCache', phraseId), undefined);
+  return record?.blob;
+}
+
+/** @param {string} phraseId @param {Blob} blob */
+async function saveCachedAudio(phraseId, blob) {
+  return dbOp('Failed to cache audio', (db) => db.put('audioCache', { phraseId, blob, _createdAt: Date.now() }));
+}
+
 async function searchLibrary(query, language) {
   const entries = await getLibraryEntriesByLanguage(language);
   const q = query.toLowerCase();
@@ -337,4 +357,6 @@ export {
   getLibraryEntriesByLanguage,
   getLibraryEntries,
   searchLibrary,
+  getCachedAudio,
+  saveCachedAudio,
 };
