@@ -9,7 +9,7 @@ import styles from './RegisterScreen.module.css';
 
 const AMBIENT_URL = '/shadowhk/images/scenes/auth-register.jpg';
 
-export default function RegisterScreen({ navigate }) {
+export default function RegisterScreen({ navigate, goBack }) {
   const { settings } = useAppContext();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -56,7 +56,7 @@ export default function RegisterScreen({ navigate }) {
 
       <div className={styles.content}>
         <div className={styles.topBar}>
-          <button className={styles.backBtn} onClick={() => navigate(ROUTES.LOGIN)}>
+          <button className={styles.backBtn} onClick={goBack ?? (() => navigate(ROUTES.LOGIN))}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="15 18 9 12 15 6"/>
             </svg>

@@ -7,20 +7,27 @@
   background: var(--bg-0);
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px 4px;
+}
+
 .backBtn {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-medium);
-  color: var(--fg-1);
-  padding: 12px 22px;
-  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--fg-0);
 }
 
 .title {
   font-size: 1.75rem;
   font-weight: var(--font-weight-bold);
   color: var(--fg-0);
-  padding: 8px 22px 4px;
   font-family: var(--font-ui);
 }
 

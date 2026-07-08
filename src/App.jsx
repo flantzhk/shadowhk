@@ -1,6 +1,6 @@
 // src/App.jsx — Root: router, context providers, layout shell
 
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { AppProvider, useAppContext } from './contexts/AppContext';
 import { AudioProvider } from './contexts/AudioContext';
 import { TopBar } from './components/layout/TopBar';
@@ -78,16 +78,21 @@ function parseHash(hash) {
 
 function useRouter() {
   const [route, setRoute] = useState(() => parseHash(window.location.hash));
+  // Stack of hashes visited via navigate(), so goBack() can return to the
+  // actual previous screen instead of always landing on home.
+  const stackRef = useRef([]);
   useEffect(() => {
     const handler = () => setRoute(parseHash(window.location.hash));
     window.addEventListener('hashchange', handler);
     return () => window.removeEventListener('hashchange', handler);
   }, []);
   const navigate = useCallback((path, id) => {
+    stackRef.current.push(window.location.hash);
     window.location.hash = id ? `#${path}/${id}` : `#${path}`;
   }, []);
   const goBack = useCallback(() => {
-    window.location.hash = `#${ROUTES.HOME}`;
+    const prev = stackRef.current.pop();
+    window.location.hash = prev || `#${ROUTES.HOME}`;
   }, []);
   return { route, navigate, goBack };
 }
@@ -186,7 +191,7 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings) {
     }
     case ROUTES.PAYWALL:         return <Paywall onComplete={() => navigate(ROUTES.HOME)} updateSettings={updateSettings} />;
     case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
-    case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} />;
+    case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.FORGOT_PASSWORD: return <ForgotPasswordScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.EMAIL_VERIFY:    return <EmailVerification onVerified={() => navigate(ROUTES.HOME)} onBack={goBack} />;
     case ROUTES.NEW_PASSWORD:    return <NewPassword onBack={goBack} showToast={showToast} />;

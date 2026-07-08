@@ -9,15 +9,13 @@
 }
 
 .backBtn {
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  padding: 0 22px;
-  min-height: 44px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 8px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text-secondary);
+  margin: 0 0 8px 12px;
 }
 
 .title {

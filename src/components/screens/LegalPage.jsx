@@ -5,7 +5,11 @@ import styles from './LegalPage.module.css';
 export function PrivacyPolicy({ onBack }) {
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>&lsaquo; Back</button>
+      <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
       <h1 className={styles.title}>Privacy Policy</h1>
       <p className={styles.updated}>Last updated: April 2026</p>
       <div className={styles.divider} />
@@ -58,7 +62,11 @@ export function PrivacyPolicy({ onBack }) {
 export function TermsOfService({ onBack }) {
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>&lsaquo; Back</button>
+      <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
       <h1 className={styles.title}>Terms of Service</h1>
       <p className={styles.updated}>Last updated: April 2026</p>
       <div className={styles.divider} />

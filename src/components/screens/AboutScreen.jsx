@@ -10,7 +10,11 @@ export default function AboutScreen({ onBack, onNavigate }) {
 
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>‹ Back</button>
+      <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
 
       <div className={styles.logoWrap}>
         <span className={styles.logoS}>S</span>

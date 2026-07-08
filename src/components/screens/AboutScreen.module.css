@@ -8,12 +8,13 @@
 }
 
 .backBtn {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 4px 0 0 12px;
   color: var(--color-text-secondary);
-  padding: 12px 22px;
-  min-height: 44px;
 }
 
 .logoWrap {

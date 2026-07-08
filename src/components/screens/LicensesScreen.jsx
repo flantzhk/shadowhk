@@ -15,8 +15,14 @@ const LICENSES = [
 export default function LicensesScreen({ onBack }) {
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>&#8249; Back</button>
-      <h1 className={styles.title}>Open Source Licenses</h1>
+      <div className={styles.header}>
+        <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <h1 className={styles.title}>Open Source Licenses</h1>
+      </div>
       <p className={styles.intro}>ShadowSpeak is built with these open source libraries.</p>
 
       <div className={styles.list}>
