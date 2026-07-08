@@ -163,7 +163,7 @@
 .hGrad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.85) 100%);
+  background: linear-gradient(180deg, rgba(11,20,23,0.05) 40%, rgba(11,20,23,0.75) 100%);
   z-index: 1;
 }
 
@@ -258,7 +258,7 @@
 .tileGrad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.85) 100%);
+  background: linear-gradient(180deg, rgba(11,20,23,0.05) 40%, rgba(11,20,23,0.75) 100%);
   z-index: 1;
 }
 
