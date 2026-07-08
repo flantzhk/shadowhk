@@ -11,7 +11,7 @@ import { isAuthenticated, waitForAuth, updateLastActive, handleGoogleRedirectRes
 import { clearAllData } from './services/storage';
 import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
-import { initPostHog, phIdentify } from './services/posthog';
+import { initPostHog, phIdentify, phCapture } from './services/posthog';
 import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sync';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
 import { useToast } from './components/shared/Toast';
@@ -259,7 +259,18 @@ function MainLayout() {
     // Handle the OAuth redirect result (Google or Apple) BEFORE continuing —
     // it creates the Firestore user doc for new sign-ups; running it in
     // parallel raced against updateLastActive and left partial user docs.
+    // handleGoogleRedirectResult() never rejects (it catches internally), so
+    // a failed redirect — e.g. mobile Safari blocking the storage handoff
+    // through the authDomain — was silently discarded here: no error shown,
+    // nothing logged in production, the user just landed back on login with
+    // no explanation and no way to tell success from failure.
     handleGoogleRedirectResult()
+      .then((result) => {
+        if (result?.error) {
+          phCapture('oauth_redirect_failed', { error: result.error });
+          showToast(result.error, 'error');
+        }
+      })
       .catch(err => logger.warn('[App] OAuth redirect result error', err))
       .then(() => waitForAuth())
       .then(async (user) => {
