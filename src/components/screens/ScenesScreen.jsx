@@ -85,6 +85,9 @@ export default function ScenesScreen({ onNavigate }) {
             />
           )}
         </div>
+        {scene.description && (
+          <p className={size === 'grid' ? styles.tileSub : styles.hSub}>{scene.description}</p>
+        )}
       </button>
     );
   }
