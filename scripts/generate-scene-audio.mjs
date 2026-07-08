@@ -27,7 +27,15 @@ const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 1200;
 const TONE_GYM_CHARS = [...'媽麻好號飛肥詩時分粉買賣大帶知紙花化書樹魚語水睡雞計糖燙九夠'];
 
 const apiKey = process.env.CANTONESE_AI_KEY;
-const voiceId = process.env.CANTONESE_AI_VOICE; // optional: pass a specific voice_id
+// Base voice for "you" lines and any scene's first/only NPC speaker.
+const BASE_VOICE_ID = process.env.CANTONESE_AI_VOICE || 'f6786fa7-f21d-4e8c-b696-26bb67fcd2ca';
+// When a scene has more than one distinct NPC speaker (e.g. "friend" + "staff"),
+// they'd otherwise all render in BASE_VOICE_ID and sound like the same person.
+// Give every speaker after the first a different voice, cycling through these.
+const ALT_VOICE_IDS = [
+  '50a9a698-1f99-437c-a07d-9cad435c5f8a', // Female
+  'f8b4470f-2321-4b59-a5b8-3877990b2881', // Male
+];
 const force = process.argv.includes('--force');
 const dryRun = process.argv.includes('--dry-run');
 
@@ -36,11 +44,31 @@ if (!apiKey && !dryRun) {
   process.exit(1);
 }
 
+// Map each distinct non-"you" speaker in a scene to a voice id, in order of
+// first appearance: speaker #1 gets BASE_VOICE_ID, speaker #2+ get ALT_VOICE_IDS.
+function buildSpeakerVoiceMap(lines) {
+  const speakers = [];
+  for (const l of lines) {
+    if (l.speaker && l.speaker !== 'you' && !speakers.includes(l.speaker)) speakers.push(l.speaker);
+  }
+  const map = {};
+  speakers.forEach((s, i) => {
+    map[s] = i === 0 ? BASE_VOICE_ID : ALT_VOICE_IDS[(i - 1) % ALT_VOICE_IDS.length];
+  });
+  return map;
+}
+
 const sceneLines = readdirSync(SCENES_DIR)
   .filter((f) => f.endsWith('.json') && f !== 'index.json')
   .flatMap((f) => {
     const scene = JSON.parse(readFileSync(join(SCENES_DIR, f), 'utf8'));
-    return (scene.lines || []).map((l) => ({ id: l.id, text: l.cjk, scene: f }));
+    const speakerVoice = buildSpeakerVoiceMap(scene.lines || []);
+    return (scene.lines || []).map((l) => ({
+      id: l.id,
+      text: l.cjk,
+      scene: f,
+      voiceId: l.speaker === 'you' ? BASE_VOICE_ID : speakerVoice[l.speaker],
+    }));
   });
 
 // Reference sets / phrase banks: public/*.json, each an array of sets with phrases
@@ -49,7 +77,7 @@ const refLines = readdirSync('public')
   .flatMap((f) => {
     const data = JSON.parse(readFileSync(join('public', f), 'utf8'));
     const sets = Array.isArray(data) ? data : [data];
-    return sets.flatMap((s) => (s.phrases || []).map((p) => ({ id: p.id, text: p.chinese, scene: f })));
+    return sets.flatMap((s) => (s.phrases || []).map((p) => ({ id: p.id, text: p.chinese, scene: f, voiceId: BASE_VOICE_ID })));
   });
 
 // Word-by-word audio: every breakdown word in scenes + reference sets +
@@ -69,7 +97,7 @@ for (const f of readdirSync('public').filter((f) => f.endsWith('.json'))) {
 }
 const wordLines = [...wordTexts]
   .filter((w) => !w.includes('/') && !w.includes('.')) // unsafe as filenames
-  .map((w) => ({ id: w, text: w, outDir: WORDS_DIR }));
+  .map((w) => ({ id: w, text: w, outDir: WORDS_DIR, voiceId: BASE_VOICE_ID }));
 
 const lines = [
   ...[...sceneLines, ...refLines].map((l) => ({ ...l, outDir: OUT_DIR })),
@@ -97,7 +125,7 @@ async function generate(line, attempt = 1) {
     output_extension: 'mp3',
     should_use_turbo_model: false,
   };
-  if (voiceId) payload.voice_id = voiceId;
+  payload.voice_id = line.voiceId || BASE_VOICE_ID;
 
   const res = await fetch(API_URL, {
     method: 'POST',
