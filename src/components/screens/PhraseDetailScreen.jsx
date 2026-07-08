@@ -61,6 +61,8 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
   const [livedAt, setLivedAt] = useState(null);
   const [playingCharIdx, setPlayingCharIdx] = useState(null);
   const [charMeanings, setCharMeanings] = useState(null);
+  const [playingReplyIdx, setPlayingReplyIdx] = useState(null);
+  const [playingReplyCharKey, setPlayingReplyCharKey] = useState(null);
   const [showMasteredToast, setShowMasteredToast] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const audioRef = useRef(null);
@@ -84,6 +86,29 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
     } catch {
       setPlaying(false);
       setPlayingCharIdx(null);
+    }
+  }
+
+  // Replies have no static audio file (they're inline scene data, not
+  // library phrases with their own id), so full-reply playback always
+  // goes through live TTS; individual characters still check the
+  // pre-recorded word cache first, same as the main breakdown.
+  async function playReplyTTS(text, replyIdx, charIdx = null) {
+    const charKey = charIdx !== null ? `${replyIdx}-${charIdx}` : null;
+    try {
+      if (charKey !== null) setPlayingReplyCharKey(charKey); else setPlayingReplyIdx(replyIdx);
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      const staticBlob = charIdx !== null ? await staticWordAudio(text) : null;
+      const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => { setPlayingReplyIdx(null); setPlayingReplyCharKey(null); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setPlayingReplyIdx(null); setPlayingReplyCharKey(null); URL.revokeObjectURL(url); };
+      audio.play();
+    } catch {
+      setPlayingReplyIdx(null);
+      setPlayingReplyCharKey(null);
     }
   }
 
@@ -228,13 +253,47 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
         {sceneLine?.replies?.length > 0 && (
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>How to reply</h2>
-            {sceneLine.replies.map((r, i) => (
-              <div key={i} className={styles.replyRow}>
-                <span className={styles.replyCjk}>{r.cjk}</span>
-                <span className={styles.replyRoman}>{r.romanization}</span>
-                <span className={styles.replyEnglish}>{r.english}</span>
-              </div>
-            ))}
+            {sceneLine.replies.map((r, i) => {
+              const replySyllables = r.romanization?.split(' ') ?? [];
+              const replyChars = (r.cjk ?? '').split('').filter(c => CJK_RE.test(c) || /[a-zA-Z]/.test(c));
+              return (
+                <div key={i} className={styles.replyRow}>
+                  <div className={styles.replyHeader}>
+                    <div>
+                      <span className={styles.replyCjk}>{r.cjk}</span>
+                      <span className={styles.replyRoman}>{r.romanization}</span>
+                    </div>
+                    <button
+                      className={`${styles.replyPlayBtn} ${playingReplyIdx === i ? styles.replyPlayBtnActive : ''}`}
+                      onClick={() => playReplyTTS(r.cjk, i)}
+                      aria-label={`Play "${r.english}"`}
+                    >
+                      {playingReplyIdx === i ? '■' : '▶'}
+                    </button>
+                  </div>
+                  <span className={styles.replyEnglish}>{r.english}</span>
+                  {replySyllables.length > 0 && (
+                    <div className={styles.replyBreakdown}>
+                      {replySyllables.map((syl, ci) => {
+                        const char = replyChars[ci] ?? '';
+                        const active = playingReplyCharKey === `${i}-${ci}`;
+                        return (
+                          <button
+                            key={ci}
+                            className={`${styles.replyBreakdownCell} ${active ? styles.replyBreakdownCellActive : ''}`}
+                            onClick={() => char && playReplyTTS(char, i, ci)}
+                            aria-label={`Play ${char}`}
+                          >
+                            <span className={styles.replyBreakdownChar}>{char}</span>
+                            <span className={styles.replyBreakdownSyl}>{syl}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </section>
         )}
 
