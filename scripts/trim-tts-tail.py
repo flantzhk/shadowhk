@@ -26,9 +26,17 @@ RATE = 24000
 WIN = int(RATE * 0.02)  # 20ms envelope windows
 def is_tail_token(word):
     """True for whisper tokens that are part of the sacrificial 蘋果 tail.
-    Ignores punctuation whisper tacks on; accepts simplified 苹果."""
+    Ignores punctuation whisper tacks on; accepts simplified 苹果 and other
+    near-homophone characters whisper sometimes substitutes for 蘋 (ping4)
+    when its confidence is low."""
     cleaned = re.sub(r'[^0-9A-Za-z一-鿿]', '', word)
-    return bool(cleaned) and all(c in '蘋苹果' for c in cleaned)
+    return bool(cleaned) and all(c in '蘋苹果萍凭平评' for c in cleaned)
+
+
+def is_punctuation_only(word):
+    """True for whisper tokens that are pure punctuation (e.g. book-title
+    marks 《》 wrapping the tail) — transparent for tail-boundary walks."""
+    return re.sub(r'[^0-9A-Za-z一-鿿]', '', word) == ''
 
 
 def decode_pcm(path):
@@ -62,7 +70,7 @@ def find_cut_sec(words, bars):
       long silence gap after a brief onset skip.
     """
     i = len(words)
-    while i > 0 and is_tail_token(words[i - 1][0]):
+    while i > 0 and (is_tail_token(words[i - 1][0]) or is_punctuation_only(words[i - 1][0])):
         i -= 1
     if i == len(words):
         raise RuntimeError(f'sacrificial tail not found in transcript: {[w[0] for w in words]}')
@@ -87,15 +95,23 @@ def find_cut_sec(words, bars):
     # little above 5% without being real speech — on very short words the
     # true gap is sometimes a single ~20ms frame bracketed by 5-8% frames.
     th = max(peak * 0.08, bars[dip] * 2)
+    # Walk out from the dip to measure the full width of this silence — using
+    # a wider bound than the anchor window itself, since the dip sometimes
+    # sits right at lo/hi and the true gap extends a bit further than the
+    # fixed anchor margin (e.g. a genuine gap starting before `anchor - 0.06s`
+    # would otherwise get clipped to a false single-frame "gap").
+    walk_lo = max(0, lo - 15)
+    walk_hi = min(len(bars) - 1, hi + 15)
     start = dip
-    while start > lo and bars[start - 1] < th:
+    while start > walk_lo and bars[start - 1] < th:
         start -= 1
     end = dip
-    while end < hi and bars[end + 1] < th:
+    while end < walk_hi and bars[end + 1] < th:
         end += 1
-    # A single 20ms dip sandwiched between energetic regions is usually TTS
-    # prosody, not the real word/tail boundary — too fragile to trust.
-    if end - start < 2:
+    # A single confirmed-near-floor frame (dip already passed the 5% true-
+    # silence check above) is trustworthy even with just one quiet neighbour;
+    # zero width (an isolated point with no quiet neighbour at all) is not.
+    if end - start < 1:
         raise RuntimeError('silence gap too narrow to trust as a real boundary')
     return (start + min(5, max(1, end - start))) * 0.02
 
@@ -147,11 +163,13 @@ def verify(model, path, samples_len_sec):
     peak = max(bars)
     if peak < 500:
         raise RuntimeError('trimmed audio is silent')
-    # Last 40ms, not 60ms: on very short (1-2 syllable) words the cut sits
-    # close enough to the word's own natural decay that a 3-bar window still
-    # catches part of it, flagging a correct cut as "abrupt".
-    tail = bars[-2:]
-    if sum(t / peak for t in tail) / len(tail) > 0.08:
+    # Last 20ms, not 40-60ms: when the cut point was placed right at a
+    # single-frame silence gap (the tightest case find_cut_sec allows), a
+    # wider window still catches the loud frame immediately before that gap,
+    # flagging a correct tight cut as "abrupt". The very last frame alone is
+    # enough evidence — a genuinely bad cut lands mid-speech and even that
+    # single frame would still read loud.
+    if bars[-1] / peak > 0.08:
         raise RuntimeError('trimmed audio still ends abruptly')
     words = transcribe(model, path)
     trailing = 0
