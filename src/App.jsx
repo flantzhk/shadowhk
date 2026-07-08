@@ -111,6 +111,15 @@ const PUBLIC_ROUTES = new Set([
   ROUTES.PRIVACY, ROUTES.TERMS, ROUTES.SUPPORT, ROUTES.FIRSTRUN,
 ]);
 
+// Sign-in-only screens. A Google/Apple redirect sign-in returns the browser
+// to whatever hash it left from (e.g. #/login) on a full page reload — with
+// nothing routing an already-authenticated user away, they'd see the login
+// form again (now wrapped in app chrome) and could re-trigger sign-in,
+// looping. Landing on one of these while authenticated means straight home.
+const AUTH_ENTRY_ROUTES = new Set([
+  ROUTES.LOGIN, ROUTES.REGISTER, ROUTES.FORGOT_PASSWORD, ROUTES.NEW_PASSWORD,
+]);
+
 // Routes that hide the app chrome (tabs/topbar/sidebar) for immersive experience
 const CHROME_HIDDEN_ROUTES = new Set([
   ROUTES.SHADOW, ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN,
@@ -335,6 +344,14 @@ function MainLayout() {
       );
     }
     navigate(ROUTES.LOGIN);
+    return null;
+  }
+
+  // Authenticated but sitting on a sign-in screen (e.g. bounced back to
+  // #/login after a redirect-based Google/Apple sign-in) — go home instead
+  // of re-rendering the login form.
+  if (AUTH_ENTRY_ROUTES.has(route.path)) {
+    navigate(ROUTES.HOME);
     return null;
   }
 
