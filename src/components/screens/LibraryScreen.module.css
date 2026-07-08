@@ -308,7 +308,6 @@
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
-  position: relative;
   overflow: hidden;
 }
 
@@ -317,16 +316,6 @@
 .phraseThumbDuotone {
   filter: sepia(0.25) saturate(1.15) contrast(1.05);
 }
-
-.phraseThumbBar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #0B0B0A;
-}
-.phraseThumbBarTop { top: 0; }
-.phraseThumbBarBottom { bottom: 0; }
 
 /* No photo at all (no scene, no profile photo) — an editorial monogram
    plate instead of a generic icon or blank swatch. */

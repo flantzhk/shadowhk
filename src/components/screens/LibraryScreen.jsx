@@ -420,10 +420,7 @@ function PhraseThumb({ scene, sceneId, index, settings }) {
         <div
           className={`${styles.phraseThumb} ${styles.phraseThumbDuotone}`}
           style={{ backgroundImage: `url(${photoURL})` }}
-        >
-          <span className={`${styles.phraseThumbBar} ${styles.phraseThumbBarTop}`} />
-          <span className={`${styles.phraseThumbBar} ${styles.phraseThumbBarBottom}`} />
-        </div>
+        />
       );
     }
     const initial = (settings?.name || 'U')[0].toUpperCase();
