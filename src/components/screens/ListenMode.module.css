@@ -1,5 +1,6 @@
 /* ─── Screen ─────────────────────────────────────── */
 .screen {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -8,9 +9,17 @@
   color: #F0EDE6;
 }
 
+/* Desktop only: the scene photo, blown up and blurred behind the phone
+   column, so the dark stage reads as a deliberate cinema backdrop instead
+   of dead space. Hidden on mobile, where the hero image already fills it. */
+.backdrop {
+  display: none;
+}
+
 /* ─── Hero ───────────────────────────────────────── */
 .hero {
   position: relative;
+  z-index: 1; /* stay above the fixed .backdrop, which paints above in-flow content otherwise */
   height: 168px;
   flex-shrink: 0;
   background-size: cover;
@@ -107,6 +116,8 @@
 
 /* ─── Conversation ───────────────────────────────── */
 .conversation {
+  position: relative;
+  z-index: 1; /* stay above the fixed .backdrop */
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -267,6 +278,8 @@
 
 /* ─── Player bar ──────────────────────────────────── */
 .playerBar {
+  position: relative;
+  z-index: 1; /* stay above the fixed .backdrop */
   flex-shrink: 0;
   background: #111109;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -437,5 +450,15 @@
   .screen {
     max-width: 428px;
     margin: 0 auto;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.15);
+    filter: blur(50px) brightness(0.38) saturate(1.15);
   }
 }

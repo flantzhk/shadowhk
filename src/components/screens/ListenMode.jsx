@@ -186,6 +186,9 @@ export default function ListenMode({ sceneId, onBack, onNavigate }) {
 
   return (
     <div className={styles.screen}>
+      {scene?.imageUrl && (
+        <div className={styles.backdrop} style={{ backgroundImage: `url(${scene.imageUrl})` }} aria-hidden="true" />
+      )}
       <audio ref={audioRef} preload="auto" />
 
       {/* Hero */}

@@ -206,6 +206,10 @@ function MainLayout() {
   const { showToast, ToastComponent } = useToast();
   const [authReady, setAuthReady] = useState(false);
   const [authError, setAuthError] = useState(null);
+  // Dev-only bypass so the app is reachable without Firebase sign-in while
+  // it's still being built. import.meta.env.DEV is false in a production
+  // build, so this never reaches real users.
+  const authed = isAuthenticated() || import.meta.env.DEV;
 
   const [checkoutResult] = useState(() => {
     const p = new URLSearchParams(window.location.search);
@@ -286,7 +290,7 @@ function MainLayout() {
 
   if (isLoading || !authReady) return <Loader />;
 
-  if (authError && !isAuthenticated()) {
+  if (authError && !authed) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: 24, textAlign: 'center', gap: 16 }}>
         <p style={{ fontSize: 15, color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>{authError}</p>
@@ -297,7 +301,7 @@ function MainLayout() {
     );
   }
 
-  if (checkoutResult === 'success' && isAuthenticated()) {
+  if (checkoutResult === 'success' && authed) {
     return (
       <Suspense fallback={<Loader />}>
         <CheckoutSuccess onDone={() => navigate(ROUTES.HOME)} />
@@ -306,7 +310,7 @@ function MainLayout() {
   }
 
   // First-run: unauthenticated + not completed first-run
-  if (!isAuthenticated() && !settings.firstrunCompleted) {
+  if (!authed && !settings.firstrunCompleted) {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
@@ -322,7 +326,7 @@ function MainLayout() {
   }
 
   // Returning unauthenticated user
-  if (!isAuthenticated()) {
+  if (!authed) {
     if (PUBLIC_ROUTES.has(route.path)) {
       return (
         <Suspense fallback={<Loader />}>
@@ -343,7 +347,7 @@ function MainLayout() {
         : !isDesktop && !hideChrome && <TopBar onNavigate={navigate} />
       }
       <main className="app-main">
-        <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : undefined}>
+        <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : 'mobile-content'}>
           <ErrorBoundary resetKey={route.path}>
             <Suspense fallback={<Loader />}>
               {renderScreen(route, navigate, goBack, showToast, updateSettings)}

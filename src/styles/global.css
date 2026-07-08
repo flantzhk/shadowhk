@@ -84,6 +84,14 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Screens rely on height:100% to fill the viewport and scroll internally
+   (e.g. a sticky player bar with a scrolling list above it). Without an
+   explicit height here, this wrapper collapses to its content's height and
+   every height:100% below it silently resolves to auto instead. */
+.mobile-content {
+  height: 100%;
+}
+
 /* Desktop: sidebar on left, content on right */
 .app-shell--desktop {
   flex-direction: row;
@@ -107,6 +115,22 @@ body {
   max-width: 100%;
   height: 100%;
   flex-shrink: 0;
+}
+
+/* ≥900px: the immersive column reads as a phone-proportioned card on the
+   dark stage, not an unstyled strip of mobile UI. Radius + shadow are the
+   only cue that the surrounding void is deliberate, not a layout bug. */
+@media (min-width: 900px) {
+  .immersive-column {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .immersive-column > * {
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
 }
 
 .desktop-content {

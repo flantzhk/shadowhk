@@ -210,7 +210,7 @@
 
 .weekRow {
   display: flex;
-  justify-content: space-between;
+  gap: 4px;
 }
 
 .weekDay {
@@ -218,11 +218,16 @@
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  flex: 1;
+  min-width: 0;
 }
 
+/* Fluid, capped at 30px — fixed dots on a fixed-width .todayCard sibling
+   overflowed .weekCard's remaining space on 320-375px viewports. */
 .weekDot {
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  max-width: 30px;
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--bg-0);
   border: 1.5px solid var(--border-0);
