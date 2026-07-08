@@ -27,11 +27,11 @@ const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 1200;
 const TONE_GYM_CHARS = [...'媽麻好號飛肥詩時分粉買賣大帶知紙花化書樹魚語水睡雞計糖燙九夠'];
 
 const apiKey = process.env.CANTONESE_AI_KEY;
-// Base voice for "you" lines and any scene's first/only NPC speaker.
+// Voice for "you" lines — the learner's own practice audio.
 const BASE_VOICE_ID = process.env.CANTONESE_AI_VOICE || 'f6786fa7-f21d-4e8c-b696-26bb67fcd2ca';
-// When a scene has more than one distinct NPC speaker (e.g. "friend" + "staff"),
-// they'd otherwise all render in BASE_VOICE_ID and sound like the same person.
-// Give every speaker after the first a different voice, cycling through these.
+// NPC speakers never use BASE_VOICE_ID, so the other person in a dialogue
+// never sounds like the learner's own line. Every distinct NPC speaker
+// (even a scene's only one) is assigned one of these instead.
 const ALT_VOICE_IDS = [
   '50a9a698-1f99-437c-a07d-9cad435c5f8a', // Female
   'f8b4470f-2321-4b59-a5b8-3877990b2881', // Male
@@ -44,17 +44,34 @@ if (!apiKey && !dryRun) {
   process.exit(1);
 }
 
-// Map each distinct non-"you" speaker in a scene to a voice id, in order of
-// first appearance: speaker #1 gets BASE_VOICE_ID, speaker #2+ get ALT_VOICE_IDS.
+// Deterministic hash so the same speaker name (e.g. "waiter") always lands on
+// the same voice across runs, while different speakers in one scene (e.g.
+// "friend" + "staff") get pushed to different slots when they'd collide.
+function hashStr(s) {
+  let h = 0;
+  for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return h;
+}
+
+// Map each distinct non-"you" speaker in a scene to a voice id, drawn only
+// from ALT_VOICE_IDS — never BASE_VOICE_ID — so NPCs always differ from "you".
 function buildSpeakerVoiceMap(lines) {
   const speakers = [];
   for (const l of lines) {
     if (l.speaker && l.speaker !== 'you' && !speakers.includes(l.speaker)) speakers.push(l.speaker);
   }
   const map = {};
-  speakers.forEach((s, i) => {
-    map[s] = i === 0 ? BASE_VOICE_ID : ALT_VOICE_IDS[(i - 1) % ALT_VOICE_IDS.length];
-  });
+  const used = new Set();
+  for (const s of speakers) {
+    let idx = hashStr(s) % ALT_VOICE_IDS.length;
+    let attempts = 0;
+    while (used.has(idx) && attempts < ALT_VOICE_IDS.length) {
+      idx = (idx + 1) % ALT_VOICE_IDS.length;
+      attempts++;
+    }
+    used.add(idx);
+    map[s] = ALT_VOICE_IDS[idx];
+  }
   return map;
 }
 
