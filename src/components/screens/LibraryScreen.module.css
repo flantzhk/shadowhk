@@ -107,30 +107,6 @@
   color: var(--fg-3);
 }
 
-/* Growth-stage legend, shown once above the phrase list */
-.legend {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin: 10px 20px 4px;
-}
-
-.legendItem {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-ui);
-  font-size: 11.5px;
-  color: var(--fg-2);
-}
-
-.legendDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
 /* Reference sets */
 .refIcon {
   font-size: 16px;
@@ -288,76 +264,157 @@
   color: var(--fg-2);
 }
 
+/* One label per scene/category — phrases are grouped underneath instead of
+   scattered through a single continuous feed, so the same category never
+   reads as split across the list. */
+.groupHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px 0 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+.groupHeader:first-child { padding-top: 2px; }
+
+.groupCount {
+  color: var(--fg-3);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
 .phraseRow {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 0;
+  gap: 12px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border-0);
   cursor: pointer;
 }
 .phraseRow:last-child { border-bottom: none; }
 .phraseRow:active { opacity: 0.7; }
 
-/* Four-stage growth dot — replaces the old ambiguous binary dot with the
-   same new/growing/strong/mastered data the SRS already tracks. */
-.stageDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+/* Scene photo, not a decorative icon — the brand reserves imagery for
+   photography, so each row anchors to its scene's real thumbnail. */
+.phraseThumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
-.stageDotNew { background: var(--bg-3); border: 1.5px solid var(--fg-3); }
-.stageDotGrowing { background: var(--amber); }
-.stageDotStrong { background: var(--jade); }
-.stageDotMastered { background: var(--gold); }
-.legendDot.stageDotNew,
-.legendDot.stageDotGrowing,
-.legendDot.stageDotStrong,
-.legendDot.stageDotMastered { border-width: 1px; }
+
+/* Personal phrases have no scene photo — the user's own photo stands in,
+   graded to match the cinematic treatment of real scene photography. */
+.phraseThumbDuotone {
+  filter: sepia(0.25) saturate(1.15) contrast(1.05);
+}
+
+.phraseThumbBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #0B0B0A;
+}
+.phraseThumbBarTop { top: 0; }
+.phraseThumbBarBottom { bottom: 0; }
+
+/* No photo at all (no scene, no profile photo) — an editorial monogram
+   plate instead of a generic icon or blank swatch. */
+.phraseThumbMonogramPlate {
+  background: linear-gradient(160deg, var(--ink), var(--oxblood) 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phraseThumbMonogram {
+  font-family: 'DM Serif Display', var(--font-serif), Georgia, serif;
+  font-size: 22px;
+  color: var(--bg-1);
+}
 
 .phraseText {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
   min-width: 0;
+}
+
+/* Jyutping is the thing being learned — it leads. Characters are a
+   secondary gloss underneath, the inverse of the old hierarchy. */
+.phraseRoman {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--fg-0);
+  margin: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.syllableSep {
+  color: var(--fg-3);
+  font-weight: 400;
+  padding: 0 1px;
 }
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--fg-0);
-  margin: 0;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--fg-2);
+  margin: 3px 0 0;
+  letter-spacing: 0.02em;
   line-height: 1.2;
 }
 
-.phraseRoman {
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--fg-2);
-  margin: 0;
-  letter-spacing: 0.01em;
-  line-height: 1.3;
+/* Growth meter — three ticks fill left to right with the stage, backed by
+   its own text label so nothing depends on reading a color. */
+.growthMeter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
 }
 
-.phraseTag {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: 2px;
+.growthTicks {
+  display: flex;
+  gap: 3px;
+}
+
+.growthTick {
+  width: 11px;
+  height: 5px;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--fg-3);
+}
+
+.growthLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--fg-2);
-  background: var(--bg-2);
-  border-radius: 99px;
-  padding: 2px 8px;
+  white-space: nowrap;
 }
+.growthLabelNew { color: var(--fg-3); }
+.growthLabelGrowing { color: var(--amber); }
+.growthLabelStrong { color: var(--jade); }
+.growthLabelMastered { color: #8C6D1E; }
 
 .playBtn {
   background: var(--jade-soft, #D8E8E0);
@@ -425,5 +482,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0 24px;
   }
+  .groupHeader { grid-column: 1 / -1; }
   .phraseRow { border-bottom: 1px solid var(--border-0); }
 }

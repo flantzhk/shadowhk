@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import styles from './LibraryScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { getLibraryEntries, getAllSceneProgress } from '../../services/storage.js';
@@ -8,12 +8,37 @@ import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { textToSpeech } from '../../services/api.js';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
 
-const STAGE_LEGEND = [
-  { state: 'new', label: 'New', className: 'stageDotNew' },
-  { state: 'growing', label: 'Growing', className: 'stageDotGrowing' },
-  { state: 'strong', label: 'Strong', className: 'stageDotStrong' },
-  { state: 'mastered', label: 'Mastered', className: 'stageDotMastered' },
+const GROWTH_METER = {
+  new: { filled: 0, color: null, label: 'New' },
+  growing: { filled: 1, color: 'var(--amber)', label: 'Growing' },
+  strong: { filled: 2, color: 'var(--jade)', label: 'Strong' },
+  mastered: { filled: 3, color: 'var(--gold)', label: 'Mastered' },
+};
+
+// Every scene has exactly one commissioned photo, shared by every phrase
+// saved from it — cycling through a few tasteful grades (not raw random
+// hue-rotate, which can clash with the brand's warm palette) keeps repeated
+// rows from looking identical without inventing extra imagery. Adjacent
+// indices always land on different grades since they differ mod length.
+const PHOTO_GRADES = [
+  'none',
+  'brightness(0.88) contrast(1.15) saturate(1.1)',
+  'brightness(1.08) contrast(0.95) saturate(0.85) sepia(0.12)',
+  'contrast(1.1) saturate(1.25) hue-rotate(-8deg)',
 ];
+
+function hexToRgb(hex) {
+  const h = hex.replace('#', '');
+  return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
+}
+
+// Scene tints are vivid brand accent colours, too bright to read as text —
+// darken by a fixed factor so any tint produces legible header text without
+// a hardcoded per-scene colour table.
+function darkenHex(hex, factor) {
+  const [r, g, b] = hexToRgb(hex);
+  return `rgb(${Math.round(r * factor)}, ${Math.round(g * factor)}, ${Math.round(b * factor)})`;
+}
 
 const REFERENCE_SETS = [
   { id: 'survival', title: 'Survival Words', icon: '🆘' },
@@ -185,13 +210,7 @@ export default function LibraryScreen({ onNavigate }) {
     );
   }
 
-  // Flatten scene groups into a single ordered list — the redesigned screen
-  // shows one phrase feed with a per-row scene tag instead of a separate
-  // header + sub-list per scene, so progress is one continuous scan instead
-  // of three stapled-together lists.
-  const flatPhrases = groupedScenes.flatMap(g =>
-    g.phrases.filter(matchesSearch).map(phrase => ({ phrase, tag: tagLabel(g.sceneId, g.scene) }))
-  );
+  const totalVisiblePhrases = groupedScenes.reduce((n, g) => n + g.phrases.filter(matchesSearch).length, 0);
 
   // Percent of a saved scene's own library phrases that have reached
   // "mastered" — gives the scene card a sense of progress instead of just a title.
@@ -240,49 +259,54 @@ export default function LibraryScreen({ onNavigate }) {
             <span className={styles.sectionLabel}>Your Phrases</span>
             <span className={styles.sectionMeta}>{totalPhrases} saved</span>
           </div>
-          {!searchQuery && (
-            <div className={styles.legend}>
-              {STAGE_LEGEND.map(s => (
-                <span key={s.state} className={styles.legendItem}>
-                  <i className={`${styles.legendDot} ${styles[s.className]}`} />
-                  {s.label}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {flatPhrases.length === 0 && (
+          {totalVisiblePhrases === 0 && (
             <p className={styles.noResults}>No phrases match "{searchQuery}".</p>
           )}
 
           <div className={styles.phraseList}>
-            {flatPhrases.map(({ phrase, tag }) => (
-              <div
-                key={phrase.id}
-                className={styles.phraseRow}
-                onClick={() => onNavigate('phrase', phrase.id)}
-                role="button"
-                tabIndex={0}
-                title="Open this phrase for more detail (culture note, how to reply, review history)"
-              >
-                <span className={`${styles.stageDot} ${styles[`stageDot${capitalize(phrase.growth_state)}`]}`} />
-                <div className={styles.phraseText}>
-                  <p className={styles.phraseCjk}>{phrase.cjk}</p>
-                  <p className={styles.phraseRoman}>{phrase.romanization}</p>
-                  <span className={styles.phraseTag}>{tag}</span>
-                </div>
-                <button
-                  className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
-                  onClick={e => playInline(e, phrase)}
-                  aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
-                  title={playingId === phrase.id ? 'Stop playback' : 'Play this phrase'}
-                >
-                  {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
-                    ? <AudioStateIndicator state={audioState[phrase.id]} />
-                    : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
-                </button>
-              </div>
-            ))}
+            {groupedScenes.map(({ scene, sceneId, phrases }) => {
+              const rows = phrases.filter(matchesSearch);
+              if (rows.length === 0) return null;
+              const headerStyle = scene?.tint
+                ? { background: scene.tint + '22', color: darkenHex(scene.tint, 0.4) }
+                : undefined;
+              const countStyle = scene?.tint ? { color: darkenHex(scene.tint, 0.6) } : undefined;
+              return (
+                <Fragment key={sceneId}>
+                  <div className={styles.groupHeader} style={headerStyle}>
+                    <span>{tagLabel(sceneId, scene)}</span>
+                    <span className={styles.groupCount} style={countStyle}>{rows.length}</span>
+                  </div>
+                  {rows.map((phrase, i) => (
+                    <div
+                      key={phrase.id}
+                      className={styles.phraseRow}
+                      onClick={() => onNavigate('phrase', phrase.id)}
+                      role="button"
+                      tabIndex={0}
+                      title="Open this phrase for more detail — word by word, culture note, how to reply, review history"
+                    >
+                      <PhraseThumb scene={scene} sceneId={sceneId} index={i} settings={settings} />
+                      <div className={styles.phraseText}>
+                        <p className={styles.phraseRoman}>{splitSyllables(phrase.romanization)}</p>
+                        <p className={styles.phraseCjk}>{phrase.cjk}</p>
+                      </div>
+                      <GrowthMeter state={phrase.growth_state} />
+                      <button
+                        className={`${styles.playBtn} ${playingId === phrase.id ? styles.playBtnActive : ''}`}
+                        onClick={e => playInline(e, phrase)}
+                        aria-label={playingId === phrase.id ? 'Stop' : 'Play'}
+                        title={playingId === phrase.id ? 'Stop playback' : 'Play this phrase'}
+                      >
+                        {audioState[phrase.id] === 'loading' || audioState[phrase.id] === 'error'
+                          ? <AudioStateIndicator state={audioState[phrase.id]} />
+                          : playingId === phrase.id ? <StopIcon /> : <PlayIcon />}
+                      </button>
+                    </div>
+                  ))}
+                </Fragment>
+              );
+            })}
           </div>
         </section>
       )}
@@ -357,14 +381,88 @@ function capitalize(s) {
   return s ? s[0].toUpperCase() + s.slice(1) : 'New';
 }
 
+// Jyutping syllables are already space-delimited in the data — splitting on
+// whitespace (not inventing word groupings) previews that each syllable is
+// individually playable, the same way the phrase detail screen breaks it down.
+function splitSyllables(romanization) {
+  if (!romanization) return null;
+  const tokens = romanization.trim().split(/\s+/);
+  return tokens.map((tok, i) => (
+    <span key={i}>
+      {tok}
+      {i < tokens.length - 1 && <span className={styles.syllableSep}> · </span>}
+    </span>
+  ));
+}
+
+// Real scene → its own photo, graded per row so repeats in the same group
+// don't look identical. Personal → the user's own photo (duotoned to match
+// the scene photography) or a monogram plate if they don't have one set.
+// Everything else (no matching scene) → a flat neutral swatch.
+function PhraseThumb({ scene, sceneId, index, settings }) {
+  if (scene?.imageUrl) {
+    return (
+      <div
+        className={styles.phraseThumb}
+        style={{
+          backgroundImage: `url(${scene.imageUrl})`,
+          backgroundColor: scene.tint ? scene.tint + '33' : 'var(--bg-3)',
+          filter: PHOTO_GRADES[index % PHOTO_GRADES.length],
+        }}
+      />
+    );
+  }
+
+  if (sceneId === PERSONAL_SCENE_ID) {
+    const photoURL = settings?.photoURL;
+    if (photoURL) {
+      return (
+        <div
+          className={`${styles.phraseThumb} ${styles.phraseThumbDuotone}`}
+          style={{ backgroundImage: `url(${photoURL})` }}
+        >
+          <span className={`${styles.phraseThumbBar} ${styles.phraseThumbBarTop}`} />
+          <span className={`${styles.phraseThumbBar} ${styles.phraseThumbBarBottom}`} />
+        </div>
+      );
+    }
+    const initial = (settings?.name || 'U')[0].toUpperCase();
+    return (
+      <div className={`${styles.phraseThumb} ${styles.phraseThumbMonogramPlate}`}>
+        <span className={styles.phraseThumbMonogram}>{initial}</span>
+      </div>
+    );
+  }
+
+  return <div className={styles.phraseThumb} style={{ backgroundColor: 'var(--bg-3)' }} />;
+}
+
+function GrowthMeter({ state }) {
+  const cfg = GROWTH_METER[state] ?? GROWTH_METER.new;
+  return (
+    <div className={styles.growthMeter}>
+      <div className={styles.growthTicks}>
+        {[0, 1, 2].map(i => (
+          <span
+            key={i}
+            className={styles.growthTick}
+            style={i < cfg.filled ? { background: cfg.color, borderColor: cfg.color } : undefined}
+          />
+        ))}
+      </div>
+      <span className={`${styles.growthLabel} ${styles[`growthLabel${capitalize(state)}`]}`}>{cfg.label}</span>
+    </div>
+  );
+}
+
 const PlayIcon = () => (
-  <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor">
+  <svg width="18" height="21" viewBox="0 0 12 14" fill="currentColor">
     <path d="M2 1l9 6-9 6V1z" />
   </svg>
 );
 
 const StopIcon = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+  <svg width="15" height="15" viewBox="0 0 10 10" fill="currentColor">
     <rect x="1" y="1" width="8" height="8" rx="1" />
   </svg>
 );
