@@ -208,5 +208,12 @@
     "imageUrl": "/shadowhk/images/scenes/yoga-class.jpg",
     "tint": "#C5E85A",
     "emoji": "🧘"
+  },
+  {
+    "id": "tai-chi-park",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/tai-chi-park.jpg",
+    "tint": "#7AA874",
+    "emoji": "🌳"
   }
 ]

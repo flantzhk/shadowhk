@@ -1,0 +1,235 @@
+{
+    "id": "tai-chi-park",
+    "language": "cantonese",
+    "emoji": "🌳",
+    "imageUrl": "/shadowhk/images/scenes/tai-chi-park.jpg",
+    "tint": "#7AA874",
+    "title": "Tai chi in the park",
+    "description": "Follow your sifu's cues for stance, arms and breathing in a morning tai chi class",
+    "category": "social",
+    "difficulty": "everyday",
+    "estimatedMinutes": 7,
+    "location": "Podium garden, dawn, Hong Kong",
+    "context": "Free community tai chi and qigong groups gather in parks and podium gardens across Hong Kong at dawn, often the same group in the same spot for decades. There's no sign-up and no fee, just showing up and following the sifu's cues for stance, arm position and breathing.",
+    "cultural_note": "太極 (taai3 gik6, tai chi) and 氣功 (hei3 gung1, qigong) are usually taught by ear and by copying, not by written instruction, so knowing the cue words for stance, hands and breathing matters more here than in a gym class. Elders in the group will often correct your form directly and kindly if you ask.",
+    "lines": [
+        {
+            "id": "tai-chi-01",
+            "speaker": "sifu",
+            "cjk": "早晨，企好個馬步，雙腳同肩膀一樣闊。",
+            "jyutping": "zou2 san4, kei5 hou2 go3 maa5 bou6, soeng1 goek3 tung4 gin1 bok3 jat1 joeng6 fut3.",
+            "english": "Morning, get into your stance, feet the same width as your shoulders.",
+            "audioFile": "tai-chi-01.mp3",
+            "words": [
+                { "chinese": "早晨", "jyutping": "zou2 san4", "english": "good morning" },
+                { "chinese": "企好", "jyutping": "kei5 hou2", "english": "stand properly" },
+                { "chinese": "馬步", "jyutping": "maa5 bou6", "english": "horse stance" },
+                { "chinese": "雙腳", "jyutping": "soeng1 goek3", "english": "both feet" },
+                { "chinese": "肩膀", "jyutping": "gin1 bok3", "english": "shoulders" },
+                { "chinese": "一樣闊", "jyutping": "jat1 joeng6 fut3", "english": "the same width" }
+            ]
+        },
+        {
+            "id": "tai-chi-02",
+            "speaker": "you",
+            "cjk": "唔好意思，隻腳應該擺喺邊度呀？",
+            "jyutping": "m4 hou2 ji3 si1, zek3 goek3 jing1 goi1 baai2 hai2 bin1 dou6 aa3?",
+            "english": "Sorry, where exactly should my foot go?",
+            "audioFile": "tai-chi-02.mp3",
+            "words": [
+                { "chinese": "唔好意思", "jyutping": "m4 hou2 ji3 si1", "english": "sorry; excuse me" },
+                { "chinese": "隻腳", "jyutping": "zek3 goek3", "english": "(this) foot" },
+                { "chinese": "應該", "jyutping": "jing1 goi1", "english": "should" },
+                { "chinese": "擺", "jyutping": "baai2", "english": "put; place" },
+                { "chinese": "邊度", "jyutping": "bin1 dou6", "english": "where" }
+            ]
+        },
+        {
+            "id": "tai-chi-03",
+            "speaker": "sifu",
+            "cjk": "呢隻腳向前踏半步，重心放喺後腳。",
+            "jyutping": "ni1 zek3 goek3 hoeng3 cin4 daap6 bun3 bou6, zung6 sam1 fong3 hai2 hau6 goek3.",
+            "english": "Step this foot forward half a step, put your weight on the back foot.",
+            "audioFile": "tai-chi-03.mp3",
+            "words": [
+                { "chinese": "向前", "jyutping": "hoeng3 cin4", "english": "forward" },
+                { "chinese": "踏半步", "jyutping": "daap6 bun3 bou6", "english": "step half a step" },
+                { "chinese": "重心", "jyutping": "zung6 sam1", "english": "weight; center of balance" },
+                { "chinese": "後腳", "jyutping": "hau6 goek3", "english": "back foot" }
+            ]
+        },
+        {
+            "id": "tai-chi-04",
+            "speaker": "sifu",
+            "cjk": "依家開始「起式」，慢慢舉起雙手。",
+            "jyutping": "ji1 gaa1 hoi1 ci2 \"hei2 sik1\", maan6 maan2 geoi2 hei2 soeng1 sau2.",
+            "english": "Now we begin the \"opening form\", slowly raise both arms.",
+            "audioFile": "tai-chi-04.mp3",
+            "words": [
+                { "chinese": "依家", "jyutping": "ji1 gaa1", "english": "now" },
+                { "chinese": "開始", "jyutping": "hoi1 ci2", "english": "begin" },
+                { "chinese": "起式", "jyutping": "hei2 sik1", "english": "opening form" },
+                { "chinese": "慢慢", "jyutping": "maan6 maan2", "english": "slowly" },
+                { "chinese": "舉起", "jyutping": "geoi2 hei2", "english": "raise" },
+                { "chinese": "雙手", "jyutping": "soeng1 sau2", "english": "both hands/arms" }
+            ]
+        },
+        {
+            "id": "tai-chi-05",
+            "speaker": "you",
+            "cjk": "咁隻手呢？擺喺邊度好？",
+            "jyutping": "gam2 zek3 sau2 ne1? baai2 hai2 bin1 dou6 hou2?",
+            "english": "What about my hand? Where should it go?",
+            "audioFile": "tai-chi-05.mp3",
+            "words": [
+                { "chinese": "咁", "jyutping": "gam2", "english": "then; so" },
+                { "chinese": "隻手", "jyutping": "zek3 sau2", "english": "(this) hand" },
+                { "chinese": "擺喺邊度好", "jyutping": "baai2 hai2 bin1 dou6 hou2", "english": "where should it go" }
+            ]
+        },
+        {
+            "id": "tai-chi-06",
+            "speaker": "sifu",
+            "cjk": "手心向下，舉到胸口咁高，手腕放鬆。",
+            "jyutping": "sau2 sam1 hoeng3 haa6, geoi2 dou3 hung1 hau2 gam3 gou1, sau2 waan2 fong3 sung1.",
+            "english": "Palm facing down, raise it to chest height, relax your wrist.",
+            "audioFile": "tai-chi-06.mp3",
+            "words": [
+                { "chinese": "手心", "jyutping": "sau2 sam1", "english": "palm" },
+                { "chinese": "向下", "jyutping": "hoeng3 haa6", "english": "facing down" },
+                { "chinese": "胸口", "jyutping": "hung1 hau2", "english": "chest" },
+                { "chinese": "手腕", "jyutping": "sau2 waan2", "english": "wrist" },
+                { "chinese": "放鬆", "jyutping": "fong3 sung1", "english": "relax" }
+            ]
+        },
+        {
+            "id": "tai-chi-07",
+            "speaker": "sifu",
+            "cjk": "沉肩墜肘，唔好聳起個膊頭。",
+            "jyutping": "cam4 gin1 zeoi6 zaau2, m4 hou2 sung2 hei2 go3 bok3 tau4.",
+            "english": "Sink your shoulders and drop your elbows, don't hunch them up.",
+            "audioFile": "tai-chi-07.mp3",
+            "words": [
+                { "chinese": "沉肩", "jyutping": "cam4 gin1", "english": "sink the shoulders" },
+                { "chinese": "墜肘", "jyutping": "zeoi6 zaau2", "english": "drop the elbows" },
+                { "chinese": "聳起", "jyutping": "sung2 hei2", "english": "hunch up" },
+                { "chinese": "膊頭", "jyutping": "bok3 tau4", "english": "shoulder" }
+            ]
+        },
+        {
+            "id": "tai-chi-08",
+            "speaker": "you",
+            "cjk": "個腰使唔使郁呀？",
+            "jyutping": "go3 jiu1 sai2 m4 sai2 juk1 aa3?",
+            "english": "Do I need to move my waist?",
+            "audioFile": "tai-chi-08.mp3",
+            "words": [
+                { "chinese": "腰", "jyutping": "jiu1", "english": "waist" },
+                { "chinese": "使唔使", "jyutping": "sai2 m4 sai2", "english": "do (I) need to" },
+                { "chinese": "郁", "jyutping": "juk1", "english": "move" }
+            ]
+        },
+        {
+            "id": "tai-chi-09",
+            "speaker": "sifu",
+            "cjk": "要，慢慢轉腰，帶動成個身。",
+            "jyutping": "jiu3, maan6 maan2 zyun3 jiu1, daai3 dung6 sing4 go3 san1.",
+            "english": "Yes, slowly turn your waist, let it lead your whole body.",
+            "audioFile": "tai-chi-09.mp3",
+            "words": [
+                { "chinese": "轉腰", "jyutping": "zyun3 jiu1", "english": "turn the waist" },
+                { "chinese": "帶動", "jyutping": "daai3 dung6", "english": "lead; drive" },
+                { "chinese": "成個身", "jyutping": "sing4 go3 san1", "english": "the whole body" }
+            ]
+        },
+        {
+            "id": "tai-chi-10",
+            "speaker": "sifu",
+            "cjk": "依家換腳，重心慢慢移到另一隻腳度。",
+            "jyutping": "ji1 gaa1 wun6 goek3, zung6 sam1 maan6 maan2 ji4 dou3 ling6 jat1 zek3 goek3 dou6.",
+            "english": "Now switch feet, slowly shift your weight onto the other foot.",
+            "audioFile": "tai-chi-10.mp3",
+            "words": [
+                { "chinese": "換腳", "jyutping": "wun6 goek3", "english": "switch feet" },
+                { "chinese": "移到", "jyutping": "ji4 dou3", "english": "shift to" },
+                { "chinese": "另一隻腳", "jyutping": "ling6 jat1 zek3 goek3", "english": "the other foot" }
+            ]
+        },
+        {
+            "id": "tai-chi-11",
+            "speaker": "sifu",
+            "cjk": "跟住做「雲手」，隻手好似畫圓圈咁郁。",
+            "jyutping": "gan1 zyu6 zou6 \"wan4 sau2\", zek3 sau2 hou2 ci5 waak6 jyun4 hyun1 gam2 juk1.",
+            "english": "Next is \"Cloud Hands\", move your hand as if drawing a circle.",
+            "audioFile": "tai-chi-11.mp3",
+            "words": [
+                { "chinese": "跟住", "jyutping": "gan1 zyu6", "english": "next; after that" },
+                { "chinese": "雲手", "jyutping": "wan4 sau2", "english": "Cloud Hands (form name)" },
+                { "chinese": "好似", "jyutping": "hou2 ci5", "english": "as if; like" },
+                { "chinese": "畫圓圈", "jyutping": "waak6 jyun4 hyun1", "english": "draw a circle" }
+            ]
+        },
+        {
+            "id": "tai-chi-12",
+            "speaker": "sifu",
+            "cjk": "好，深呼吸，氣沉丹田，準備「收式」。",
+            "jyutping": "hou2, sam1 fu1 kap1, hei3 cam4 daan1 tin4, zeon2 bei6 \"sau1 sik1\".",
+            "english": "Good, breathe deeply, sink your qi to the dantian, get ready for the \"closing form\".",
+            "audioFile": "tai-chi-12.mp3",
+            "words": [
+                { "chinese": "深呼吸", "jyutping": "sam1 fu1 kap1", "english": "breathe deeply" },
+                { "chinese": "氣沉丹田", "jyutping": "hei3 cam4 daan1 tin4", "english": "sink the qi to the dantian" },
+                { "chinese": "準備", "jyutping": "zeon2 bei6", "english": "get ready" },
+                { "chinese": "收式", "jyutping": "sau1 sik1", "english": "closing form" }
+            ]
+        },
+        {
+            "id": "tai-chi-13",
+            "speaker": "you",
+            "cjk": "多謝師傅指教！",
+            "jyutping": "do1 ze6 si1 fu6 zi2 gaau3!",
+            "english": "Thank you for the instruction, sifu!",
+            "audioFile": "tai-chi-13.mp3",
+            "words": [
+                { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" },
+                { "chinese": "師傅", "jyutping": "si1 fu6", "english": "sifu; master" },
+                { "chinese": "指教", "jyutping": "zi2 gaau3", "english": "instruction; guidance" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Stance & Footwork",
+            "words": [
+                { "chinese": "馬步", "jyutping": "maa5 bou6", "english": "horse stance" },
+                { "chinese": "踏步", "jyutping": "daap6 bou6", "english": "step" },
+                { "chinese": "重心", "jyutping": "zung6 sam1", "english": "weight; center of balance" },
+                { "chinese": "換腳", "jyutping": "wun6 goek3", "english": "switch feet" },
+                { "chinese": "前腳", "jyutping": "cin4 goek3", "english": "front foot" },
+                { "chinese": "後腳", "jyutping": "hau6 goek3", "english": "back foot" }
+            ]
+        },
+        {
+            "category": "Arms & Hands",
+            "words": [
+                { "chinese": "沉肩", "jyutping": "cam4 gin1", "english": "sink the shoulders" },
+                { "chinese": "墜肘", "jyutping": "zeoi6 zaau2", "english": "drop the elbows" },
+                { "chinese": "手心向上", "jyutping": "sau2 sam1 hoeng3 soeng6", "english": "palm facing up" },
+                { "chinese": "手心向下", "jyutping": "sau2 sam1 hoeng3 haa6", "english": "palm facing down" },
+                { "chinese": "手腕", "jyutping": "sau2 waan2", "english": "wrist" },
+                { "chinese": "放鬆", "jyutping": "fong3 sung1", "english": "relax" }
+            ]
+        },
+        {
+            "category": "Named Forms & Qigong Terms",
+            "words": [
+                { "chinese": "起式", "jyutping": "hei2 sik1", "english": "opening form" },
+                { "chinese": "收式", "jyutping": "sau1 sik1", "english": "closing form" },
+                { "chinese": "雲手", "jyutping": "wan4 sau2", "english": "Cloud Hands" },
+                { "chinese": "攬雀尾", "jyutping": "laam5 zoek3 mei5", "english": "Grasp the Sparrow's Tail" },
+                { "chinese": "白鶴亮翅", "jyutping": "baak6 hok6 loeng6 ci3", "english": "White Crane Spreads Wings" },
+                { "chinese": "氣沉丹田", "jyutping": "hei3 cam4 daan1 tin4", "english": "sink the qi to the dantian" }
+            ]
+        }
+    ]
+}
