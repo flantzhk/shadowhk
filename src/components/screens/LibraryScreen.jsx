@@ -273,10 +273,26 @@ export default function LibraryScreen({ onNavigate }) {
               const countStyle = scene?.tint ? { color: darkenHex(scene.tint, 0.6) } : undefined;
               return (
                 <Fragment key={sceneId}>
-                  <div className={styles.groupHeader} style={headerStyle}>
-                    <span>{tagLabel(sceneId, scene)}</span>
-                    <span className={styles.groupCount} style={countStyle}>{rows.length}</span>
-                  </div>
+                  {scene ? (
+                    <button
+                      type="button"
+                      className={`${styles.groupHeader} ${styles.groupHeaderClickable}`}
+                      style={headerStyle}
+                      onClick={() => onNavigate('scene', sceneId)}
+                      title={`Open ${scene.title}`}
+                    >
+                      <span>{tagLabel(sceneId, scene)}</span>
+                      <span className={styles.groupHeaderRight}>
+                        <span className={styles.groupCount} style={countStyle}>{rows.length}</span>
+                        <span className={styles.groupChevron} style={countStyle}>›</span>
+                      </span>
+                    </button>
+                  ) : (
+                    <div className={styles.groupHeader} style={headerStyle}>
+                      <span>{tagLabel(sceneId, scene)}</span>
+                      <span className={styles.groupCount} style={countStyle}>{rows.length}</span>
+                    </div>
+                  )}
                   {rows.map((phrase, i) => (
                     <div
                       key={phrase.id}

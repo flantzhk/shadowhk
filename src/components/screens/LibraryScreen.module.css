@@ -280,8 +280,32 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
+  width: calc(100% + 28px);
+  border: none;
+  background: none;
+  text-align: left;
 }
 .groupHeader:first-child { margin-top: 2px; }
+
+/* A real scene's header opens that scene — the chevron is the same
+   affordance used for saved scenes below, so it reads as "more inside"
+   rather than a plain label. */
+.groupHeaderClickable {
+  cursor: pointer;
+}
+.groupHeaderClickable:active { opacity: 0.7; }
+
+.groupHeaderRight {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.groupChevron {
+  font-size: 15px;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
 
 .groupCount {
   color: var(--fg-3);
