@@ -10,7 +10,7 @@ import { phCapture } from '../../services/posthog';
 import { LessonLoader } from '../shared/LessonLoader';
 import styles from './SpeedRun.module.css';
 
-const TIMER_SECONDS = 5;
+const TIMER_SECONDS = 8;
 const TOTAL_ROUNDS = 10;
 
 /**
