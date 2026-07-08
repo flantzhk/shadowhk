@@ -20,9 +20,9 @@ import { LessonLoader } from '../shared/LessonLoader';
 import styles from './PromptDrill.module.css';
 
 const LEVEL_LABELS = {
-  1: 'LEVEL 1 — With hints',
-  2: 'LEVEL 2 — English only',
-  3: 'LEVEL 3 — From memory',
+  1: 'LEVEL 1: With hints',
+  2: 'LEVEL 2: English only',
+  3: 'LEVEL 3: From memory',
 };
 
 const STREAK_TO_LEVEL_UP = 5;

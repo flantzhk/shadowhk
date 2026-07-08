@@ -5,7 +5,7 @@
     "imageUrl": "/shadowhk/images/scenes/booking-a-table.jpg",
     "tint": "#E8703A",
     "title": "Booking a table by phone",
-    "description": "Call ahead to reserve a table — get the date, time and party size sorted",
+    "description": "Call ahead to reserve a table: get the date, time and party size sorted",
     "category": "social",
     "difficulty": "everyday",
     "estimatedMinutes": 5,
@@ -43,7 +43,7 @@
             "speaker": "you",
             "cjk": "你好，我想訂枱，聽晚七點，三位。",
             "jyutping": "nei5 hou2, ngo5 soeng2 deng6 toi2, ting1 maan5 cat1 dim2, saam1 wai2.",
-            "english": "Hi, I'd like to book a table — tomorrow evening at seven, three people.",
+            "english": "Hi, I'd like to book a table for tomorrow evening at seven, three people.",
             "audioFile": "book-02.mp3",
             "words": [
                 {
@@ -143,7 +143,7 @@
             "speaker": "staff",
             "cjk": "陳生，聽晚七點，三位，幫你記低喇。有冇特別要求？",
             "jyutping": "can4 saang1, ting1 maan5 cat1 dim2, saam1 wai2, bong1 nei5 gei3 dai1 laa3. jau5 mou5 dak6 bit6 jiu1 kau4?",
-            "english": "Mr Chan — tomorrow at seven, table for three, noted. Any special requests?",
+            "english": "Mr Chan, tomorrow at seven, table for three, noted. Any special requests?",
             "audioFile": "book-05.mp3",
             "words": [
                 {

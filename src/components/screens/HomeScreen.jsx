@@ -90,6 +90,7 @@ export default function HomeScreen({ onNavigate }) {
           phraseCount={personalPhraseCount}
           sample={personalSample}
           name={userName}
+          photoURL={settings?.photoURL}
           onNavigate={onNavigate}
         />
       )}
@@ -279,18 +280,22 @@ function PracticeGrid({ onNavigate }) {
   );
 }
 
-function PersonalSceneCard({ phraseCount, sample, name, onNavigate }) {
+function PersonalSceneCard({ phraseCount, sample, name, photoURL, onNavigate }) {
   if (phraseCount > 0) {
     const initial = name ? name.trim().charAt(0).toUpperCase() : 'U';
     return (
       <section className={styles.personalSection}>
         <button className={styles.madeForYou} onClick={() => onNavigate('introduce-yourself')}>
-          <span className={styles.madeForYouAvatar}>{initial}</span>
+          {photoURL ? (
+            <img className={styles.madeForYouAvatarImg} src={photoURL} alt="" referrerPolicy="no-referrer" />
+          ) : (
+            <span className={styles.madeForYouAvatar}>{initial}</span>
+          )}
           <div className={styles.madeForYouBody}>
             <span className={styles.madeForYouEyebrow}>Made for you · {phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'}</span>
             <p className={styles.madeForYouTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
             {sample && (
-              <p className={styles.madeForYouSample}>"{sample.cjk}" — {sample.english}</p>
+              <p className={styles.madeForYouSample}>"{sample.cjk}": {sample.english}</p>
             )}
           </div>
           <span className={styles.madeForYouGo}>Shadow →</span>
@@ -305,7 +310,7 @@ function PersonalSceneCard({ phraseCount, sample, name, onNavigate }) {
         <span className={styles.personalEmptyEmoji}>👋</span>
         <div className={styles.personalEmptyText}>
           <p className={styles.personalEmptyTitle}>Introduce yourself in Cantonese</p>
-          <p className={styles.personalEmptyDesc}>Tell us your name, job, and a bit about your life — we'll build you a custom scene to shadow.</p>
+          <p className={styles.personalEmptyDesc}>Tell us your name, job, and a bit about your life, we'll build you a custom scene to shadow.</p>
         </div>
         <span className={styles.personalEmptyArrow}>Set it up →</span>
       </button>

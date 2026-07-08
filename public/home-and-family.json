@@ -14,7 +14,7 @@
         "jyutping": "gam1 jat6 m4 goi1 nei5 zyu2 faan6",
         "chinese": "今日唔該你煮飯",
         "english": "Could you cook dinner today",
-        "context": "Ask your helper to cook — a daily phrase in many HK households",
+        "context": "Ask your helper to cook: a daily phrase in many HK households",
         "difficulty": 2,
         "words": [
           { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
@@ -28,7 +28,7 @@
         "jyutping": "gam1 jat6 m4 sai2 zyu2 faan6",
         "chinese": "今日唔使煮飯",
         "english": "No need to cook today",
-        "context": "Let your helper know when you're eating out — saves grocery shopping",
+        "context": "Let your helper know when you're eating out: saves grocery shopping",
         "difficulty": 1,
         "words": [
           { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
@@ -82,7 +82,7 @@
         "jyutping": "m4 goi1 mat3 can4",
         "chinese": "唔該抹塵",
         "english": "Please dust the furniture",
-        "context": "Ask your helper to dust — HK air can be dusty",
+        "context": "Ask your helper to dust: HK air can be dusty",
         "difficulty": 2,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -122,7 +122,7 @@
         "romanization": "Gam¹ jat⁶ jau⁵ faai³ dei⁶, m⁴ goi¹ bong¹ ngo⁵ sau¹",
         "jyutping": "gam1 jat6 jau5 faai3 dei6, m4 goi1 bong1 ngo5 sau1",
         "chinese": "今日有快遞，唔該幫我收",
-        "english": "There's a delivery today — please accept it for me",
+        "english": "There's a delivery today: please accept it for me",
         "context": "Let your helper know to accept a parcel when you're at work",
         "difficulty": 3,
         "words": [
@@ -178,7 +178,7 @@
         "jyutping": "ngo5 uk1 kei2 lau6 seoi2",
         "chinese": "我屋企漏水",
         "english": "My flat has a water leak",
-        "context": "Report a water leak to building management — unfortunately common in HK",
+        "context": "Report a water leak to building management: unfortunately common in HK",
         "difficulty": 2,
         "words": [
           { "chinese": "我屋企", "jyutping": "ngo5 uk1 kei2", "english": "my home / my flat" },
@@ -191,7 +191,7 @@
         "jyutping": "laang5 hei3 waai6 zo2",
         "chinese": "冷氣壞咗",
         "english": "The AC is broken",
-        "context": "A critical report in HK's humid heat — report this immediately",
+        "context": "A critical report in HK's humid heat: report this immediately",
         "difficulty": 1,
         "words": [
           { "chinese": "冷氣", "jyutping": "laang5 hei3", "english": "air conditioning" },
@@ -217,7 +217,7 @@
         "jyutping": "gei2 si4 ho2 ji3 lei4 tai2",
         "chinese": "幾時可以嚟睇？",
         "english": "When can someone come to look at it?",
-        "context": "Ask when a repair person can come — follow up if they say 'later'",
+        "context": "Ask when a repair person can come: follow up if they say 'later'",
         "difficulty": 2,
         "words": [
           { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when" },
@@ -285,7 +285,7 @@
         "jyutping": "mun4 so2 waai6 zo2",
         "chinese": "門鎖壞咗",
         "english": "The door lock is broken",
-        "context": "Report a broken lock — a security priority",
+        "context": "Report a broken lock: a security priority",
         "difficulty": 2,
         "words": [
           { "chinese": "門鎖", "jyutping": "mun4 so2", "english": "door lock" },
@@ -311,7 +311,7 @@
         "jyutping": "m4 goi1 gam1 jat6 zyu2",
         "chinese": "唔該今日煮...",
         "english": "Please cook... today",
-        "context": "Specify what dish you'd like for dinner — follow with the dish name",
+        "context": "Specify what dish you'd like for dinner: follow with the dish name",
         "difficulty": 2,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -324,7 +324,7 @@
         "jyutping": "soeng2 sik6 siu1 gai1",
         "chinese": "想食燒雞",
         "english": "I'd like roast chicken",
-        "context": "Tell your helper what you'd like to eat — swap for your preference",
+        "context": "Tell your helper what you'd like to eat: swap for your preference",
         "difficulty": 2,
         "words": [
           { "chinese": "想食", "jyutping": "soeng2 sik6", "english": "would like to eat" },
@@ -349,8 +349,8 @@
         "romanization": "Gam¹ jat⁶ mou⁵ je⁵ zou⁶, fong³ gaa³ laa³",
         "jyutping": "gam1 jat6 mou5 je5 zou6, fong3 gaa3 laa3",
         "chinese": "今日冇嘢做，放假喇",
-        "english": "Nothing to do today — you have the day off",
-        "context": "Give your helper a day off — a very appreciated thing to say",
+        "english": "Nothing to do today: you have the day off",
+        "context": "Give your helper a day off: a very appreciated thing to say",
         "difficulty": 3,
         "words": [
           { "chinese": "今日冇嘢做", "jyutping": "gam1 jat6 mou5 je5 zou6", "english": "nothing to do today" },
@@ -363,7 +363,7 @@
         "jyutping": "nei5 gam1 jat6 zou6 dak1 hou2 hou2",
         "chinese": "你今日做得好好",
         "english": "You did a great job today",
-        "context": "Praise your helper — positive feedback goes a long way",
+        "context": "Praise your helper: positive feedback goes a long way",
         "difficulty": 2,
         "words": [
           { "chinese": "你今日", "jyutping": "nei5 gam1 jat6", "english": "you today" },
@@ -397,7 +397,7 @@
             "chinese": "今日唔該你煮飯，我想食燒雞。",
             "jyutping": "gam1 jat6 m4 goi1 nei5 zyu2 faan6, ngo5 soeng2 sik6 siu1 gai1.",
             "romanization": "Gam¹ jat⁶ m⁴ goi¹ nei⁵ zyu² faan⁶, ngo⁵ soeng² sik⁶ siu¹ gai¹.",
-            "english": "Could you cook dinner today — I'd like roast chicken.",
+            "english": "Could you cook dinner today: I'd like roast chicken.",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -563,7 +563,7 @@
         "jyutping": "faai3 di1",
         "chinese": "快啲！",
         "english": "Hurry up!",
-        "context": "The most-used parenting phrase — works on all ages",
+        "context": "The most-used parenting phrase: works on all ages",
         "difficulty": 1,
         "words": [
           { "chinese": "快啲", "jyutping": "faai3 di1", "english": "faster / hurry up" }
@@ -614,7 +614,7 @@
         "jyutping": "bui3 syu1 baau1",
         "chinese": "揹書包",
         "english": "Put on your school bag",
-        "context": "Get the kids ready to leave — the final step before the door",
+        "context": "Get the kids ready to leave: the final step before the door",
         "difficulty": 2,
         "words": [
           { "chinese": "揹", "jyutping": "bui3", "english": "carry on your back" },
@@ -627,7 +627,7 @@
         "jyutping": "sik6 saai3",
         "chinese": "食晒",
         "english": "Finish your food / Eat it all up",
-        "context": "Tell children to finish their plate — said at every meal",
+        "context": "Tell children to finish their plate: said at every meal",
         "difficulty": 1,
         "words": [
           { "chinese": "食", "jyutping": "sik6", "english": "eat" },
@@ -654,7 +654,7 @@
         "jyutping": "co5 ding6 ding6",
         "chinese": "坐定定",
         "english": "Sit still / Sit properly",
-        "context": "The classic HK parent phrase — said at meals, in the car, everywhere",
+        "context": "The classic HK parent phrase: said at meals, in the car, everywhere",
         "difficulty": 1,
         "words": [
           { "chinese": "坐", "jyutping": "co5", "english": "sit" },
@@ -667,7 +667,7 @@
         "jyutping": "sau1 sap1 waan4 geoi6",
         "chinese": "收拾玩具",
         "english": "Put away your toys",
-        "context": "Tidy-up time — a daily after-play routine",
+        "context": "Tidy-up time: a daily after-play routine",
         "difficulty": 2,
         "words": [
           { "chinese": "收拾", "jyutping": "sau1 sap1", "english": "tidy up / put away" },
@@ -680,7 +680,7 @@
         "jyutping": "cung1 loeng4",
         "chinese": "沖涼",
         "english": "Have a shower / bath",
-        "context": "沖涼 is the uniquely Cantonese word for bathing — don't say 洗澡 which is more Mandarin",
+        "context": "沖涼 is the uniquely Cantonese word for bathing: don't say 洗澡 which is more Mandarin",
         "difficulty": 1,
         "words": [
           { "chinese": "沖涼", "jyutping": "cung1 loeng4", "english": "shower / bathe (uniquely Cantonese)" }
@@ -692,7 +692,7 @@
         "jyutping": "caat3 ngaa4 fan3 gaau3",
         "chinese": "刷牙瞓覺",
         "english": "Brush teeth and go to sleep",
-        "context": "The bedtime double command — said together as one phrase",
+        "context": "The bedtime double command: said together as one phrase",
         "difficulty": 2,
         "words": [
           { "chinese": "刷牙", "jyutping": "caat3 ngaa4", "english": "brush teeth" },
@@ -705,7 +705,7 @@
         "jyutping": "nei5 hou2 leng3 zai2",
         "chinese": "你好叻仔！",
         "english": "You're so clever! / Well done!",
-        "context": "Praise a child — 叻仔 for boys, 叻女 for girls, or just 好叻 for either",
+        "context": "Praise a child: 叻仔 for boys, 叻女 for girls, or just 好叻 for either",
         "difficulty": 1,
         "words": [
           { "chinese": "你好", "jyutping": "nei5 hou2", "english": "you are so" },
@@ -756,7 +756,7 @@
         "jyutping": "deoi3 m4 zyu6",
         "chinese": "對唔住",
         "english": "I'm sorry",
-        "context": "Teach children to apologise — a very important phrase for kids to learn",
+        "context": "Teach children to apologise: a very important phrase for kids to learn",
         "difficulty": 1,
         "words": [
           { "chinese": "對唔住", "jyutping": "deoi3 m4 zyu6", "english": "I'm sorry / I apologise" }
@@ -768,7 +768,7 @@
         "jyutping": "m4 goi1 cing2 nei5",
         "chinese": "唔該請你",
         "english": "Please (asking for something politely)",
-        "context": "Teach children to say please — use when asking for something",
+        "context": "Teach children to say please: use when asking for something",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please / thank you" },
@@ -781,7 +781,7 @@
         "jyutping": "ngo5 oi3 nei5",
         "chinese": "我愛你",
         "english": "I love you",
-        "context": "Tell your child you love them — increasingly said in HK families",
+        "context": "Tell your child you love them: increasingly said in HK families",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -932,7 +932,7 @@
         "jyutping": "ngo5 m4 syu1 fuk6",
         "chinese": "我唔舒服",
         "english": "I'm not feeling well",
-        "context": "Tell the doctor or pharmacist you're unwell — a good starting phrase",
+        "context": "Tell the doctor or pharmacist you're unwell: a good starting phrase",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -945,7 +945,7 @@
         "jyutping": "ngo5 tau4 tung3",
         "chinese": "我頭痛",
         "english": "I have a headache",
-        "context": "Report a headache — 頭 (head) + 痛 (pain) for any head pain",
+        "context": "Report a headache: 頭 (head) + 痛 (pain) for any head pain",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -958,7 +958,7 @@
         "jyutping": "ngo5 tou5 tung3",
         "chinese": "我肚痛",
         "english": "I have a stomach ache",
-        "context": "Report stomach pain — 肚 is the Cantonese word for stomach",
+        "context": "Report stomach pain: 肚 is the Cantonese word for stomach",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -971,7 +971,7 @@
         "jyutping": "ngo5 faat3 siu1",
         "chinese": "我發燒",
         "english": "I have a fever",
-        "context": "Report a fever — the doctor will take your temperature",
+        "context": "Report a fever: the doctor will take your temperature",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -984,7 +984,7 @@
         "jyutping": "ngo5 kat1 sau3",
         "chinese": "我咳嗽",
         "english": "I have a cough",
-        "context": "Report a cough — very common in HK",
+        "context": "Report a cough: very common in HK",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -1010,7 +1010,7 @@
         "jyutping": "ngo5 zok3 ngau2",
         "chinese": "我作嘔",
         "english": "I feel nauseous",
-        "context": "Report nausea — also useful for seasickness or motion sickness",
+        "context": "Report nausea: also useful for seasickness or motion sickness",
         "difficulty": 2,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -1023,7 +1023,7 @@
         "jyutping": "ni1 dou6 tung3",
         "chinese": "呢度痛",
         "english": "It hurts here",
-        "context": "Point to where it hurts — essential when you can't name the body part",
+        "context": "Point to where it hurts: essential when you can't name the body part",
         "difficulty": 1,
         "words": [
           { "chinese": "呢度", "jyutping": "ni1 dou6", "english": "here / this place" },
@@ -1049,7 +1049,7 @@
         "jyutping": "tung3 zo2 gei2 noi6",
         "chinese": "痛咗幾耐？",
         "english": "How long has it been hurting?",
-        "context": "The doctor will ask you this — know the answer",
+        "context": "The doctor will ask you this: know the answer",
         "difficulty": 2,
         "words": [
           { "chinese": "痛咗", "jyutping": "tung3 zo2", "english": "been hurting / in pain" },
@@ -1140,7 +1140,7 @@
         "jyutping": "jyu4 gwo2 m4 hou2 zyun3 faan1 lei4",
         "chinese": "如果唔好，轉番嚟",
         "english": "If it doesn't get better, come back",
-        "context": "What the doctor says at the end of every appointment — be ready to hear this",
+        "context": "What the doctor says at the end of every appointment: be ready to hear this",
         "difficulty": 3,
         "words": [
           { "chinese": "如果唔好", "jyutping": "jyu4 gwo2 m4 hou2", "english": "if it doesn't improve" },
@@ -1218,7 +1218,7 @@
             "chinese": "我俾藥你，一日食三次，食完飯先食。如果唔好，轉番嚟。",
             "jyutping": "ngo5 bei2 joek6 nei5, jat1 jat6 sik6 saam1 ci3, sik6 zo2 faan6 sin1 sik6. jyu4 gwo2 m4 hou2, zyun3 faan1 lei4.",
             "romanization": "Ngo⁵ bei² joek⁶ nei⁵, jat¹ jat⁶ sik⁶ saam¹ ci³, sik⁶ zo² faan⁶ sin¹ sik⁶. Jyu⁴ gwo² m⁴ hou², zyun³ faan¹ lei⁴.",
-            "english": "I'll give you medicine — three times a day, after meals. If you don't improve, come back.",
+            "english": "I'll give you medicine: three times a day, after meals. If you don't improve, come back.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2500
           },
@@ -1280,7 +1280,7 @@
             "chinese": "好，呢個咳藥，一日食三次，食完飯先食。",
             "jyutping": "hou2, ni1 go3 kat1 joek6, jat1 jat6 sik6 saam1 ci3, sik6 zo2 faan6 sin1 sik6.",
             "romanization": "Hou², ni¹ go³ kat¹ joek⁶, jat¹ jat⁶ sik⁶ saam¹ ci³, sik⁶ zo² faan⁶ sin¹ sik⁶.",
-            "english": "Okay, here's cough medicine — three times a day, after meals.",
+            "english": "Okay, here's cough medicine: three times a day, after meals.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1302,7 +1302,7 @@
             "chinese": "每次食兩粒。多喝水，好快好㗎。",
             "jyutping": "mui5 ci3 sik6 loeng5 nap1. do1 hot3 seoi2, hou2 faai3 hou2 gaa3.",
             "romanization": "Mui⁵ ci³ sik⁶ loeng⁵ nap¹. Do¹ hot³ seoi², hou² faai³ hou² gaa³.",
-            "english": "Two tablets each time. Drink plenty of water — you'll feel better soon.",
+            "english": "Two tablets each time. Drink plenty of water: you'll feel better soon.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1000
           }
@@ -1325,7 +1325,7 @@
         "jyutping": "m4 goi1, ... hai6 bin1 dou6",
         "chinese": "唔該，...喺邊度？",
         "english": "Excuse me, where is the...?",
-        "context": "Ask a staff member where to find an item — follow with the item name",
+        "context": "Ask a staff member where to find an item: follow with the item name",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me" },
@@ -1351,7 +1351,7 @@
         "jyutping": "ni1 go3 gei2 si4 dou3 kei4",
         "chinese": "呢個幾時到期？",
         "english": "When does this expire?",
-        "context": "Check the expiry date — important for fresh products",
+        "context": "Check the expiry date: important for fresh products",
         "difficulty": 2,
         "words": [
           { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
@@ -1364,7 +1364,7 @@
         "jyutping": "jau5 mou5 jau1 gei1 sou3 coi3",
         "chinese": "有冇有機蔬菜？",
         "english": "Do you have organic vegetables?",
-        "context": "Ask for organic produce — increasingly available in HK supermarkets",
+        "context": "Ask for organic produce: increasingly available in HK supermarkets",
         "difficulty": 3,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -1443,7 +1443,7 @@
         "jyutping": "jau5 mou5 zik1 fan1",
         "chinese": "有冇積分？",
         "english": "Can I earn points?",
-        "context": "Ask about loyalty points — most HK supermarkets have schemes",
+        "context": "Ask about loyalty points: most HK supermarkets have schemes",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "can I / is there" },
@@ -1456,7 +1456,7 @@
         "jyutping": "m4 sai2 doi2, do1 ze6",
         "chinese": "唔使袋，多謝",
         "english": "No bag needed, thanks",
-        "context": "Decline the plastic bag — HK charges for plastic bags",
+        "context": "Decline the plastic bag: HK charges for plastic bags",
         "difficulty": 1,
         "words": [
           { "chinese": "唔使袋", "jyutping": "m4 sai2 doi2", "english": "no bag needed" },
@@ -1469,7 +1469,7 @@
         "jyutping": "ngo5 soeng2 teoi3 ni1 go3",
         "chinese": "我想退呢個",
         "english": "I'd like to return this",
-        "context": "Ask to return an item — have your receipt ready",
+        "context": "Ask to return an item: have your receipt ready",
         "difficulty": 2,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },

@@ -219,7 +219,7 @@ export default function ToneGym({ onBack, onComplete }) {
         </div>
 
         <div className={styles.learnSection}>
-          <p className={styles.learnTitle}>Listen to both — hear the difference</p>
+          <p className={styles.learnTitle}>Listen to both, hear the difference</p>
 
           <div className={styles.learnPair}>
             {currentPair.tones.map((t, i) => (
@@ -234,7 +234,7 @@ export default function ToneGym({ onBack, onComplete }) {
           </div>
 
           <button className={styles.readyBtn} onClick={handleDoneLearn}>
-            I hear the difference — quiz me
+            I hear the difference, quiz me
           </button>
         </div>
       </div>

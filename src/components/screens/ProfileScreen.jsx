@@ -107,7 +107,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
       a.href = url; a.download = 'shadowspeak-data-export.json';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast?.('Your data is ready — check your downloads', 'success');
+      showToast?.('Your data is ready, check your downloads', 'success');
     } catch (_) {
       showToast?.('Export failed. Please try again.', 'error');
     } finally {

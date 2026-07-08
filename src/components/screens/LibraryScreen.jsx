@@ -300,7 +300,7 @@ export default function LibraryScreen({ onNavigate }) {
                       onClick={() => onNavigate('phrase', phrase.id)}
                       role="button"
                       tabIndex={0}
-                      title="Open this phrase for more detail — word by word, culture note, how to reply, review history"
+                      title="Open this phrase for more detail: word by word, culture note, how to reply, review history"
                     >
                       <PhraseThumb scene={scene} sceneId={sceneId} index={i} settings={settings} />
                       <div className={styles.phraseText}>

@@ -118,7 +118,7 @@
             "speaker": "you",
             "cjk": "走廊盞燈壞咗，黑晒。",
             "jyutping": "zau2 long4 zaan2 dang1 waai6 zo2, hak1 saai3.",
-            "english": "The corridor light is broken — it's completely dark.",
+            "english": "The corridor light is broken; it's completely dark.",
             "audioFile": "bldg-03.mp3",
             "words": [
                 {
@@ -426,7 +426,7 @@
                 {
                     "chinese": "𨋢",
                     "jyutping": "lip1",
-                    "english": "lift — HK slang borrowed from English"
+                    "english": "lift: HK slang borrowed from English"
                 },
                 {
                     "chinese": "漏水",

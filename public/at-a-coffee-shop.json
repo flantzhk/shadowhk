@@ -13,7 +13,7 @@
       "jyutping": "jat1 bui1 naap4 tit3",
       "chinese": "一杯拿鐵",
       "english": "A latte",
-      "context": "Order a latte — the most popular specialty coffee order in HK cafés",
+      "context": "Order a latte: the most popular specialty coffee order in HK cafés",
       "difficulty": 1,
       "words": [
         { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
@@ -26,7 +26,7 @@
       "jyutping": "jat1 bui1 kaa1 bu3 kei4 nuo4",
       "chinese": "一杯卡布奇諾",
       "english": "A cappuccino",
-      "context": "Order a cappuccino — lighter and foamier than a latte",
+      "context": "Order a cappuccino: lighter and foamier than a latte",
       "difficulty": 1,
       "words": [
         { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
@@ -39,7 +39,7 @@
       "jyutping": "jat1 bui1 mei5 sik1",
       "chinese": "一杯美式",
       "english": "An Americano",
-      "context": "Order an Americano — espresso with hot water, the classic black coffee option",
+      "context": "Order an Americano: espresso with hot water, the classic black coffee option",
       "difficulty": 1,
       "words": [
         { "chinese": "一杯", "jyutping": "jat1 bui1", "english": "one cup" },
@@ -52,7 +52,7 @@
       "jyutping": "dung3 mei5 sik1",
       "chinese": "凍美式",
       "english": "Iced Americano",
-      "context": "The most popular café order in HK — cold Americano over ice",
+      "context": "The most popular café order in HK: cold Americano over ice",
       "difficulty": 1,
       "words": [
         { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
@@ -65,7 +65,7 @@
       "jyutping": "laang5 cyut3",
       "chinese": "冷萃",
       "english": "Cold brew",
-      "context": "Cold brew coffee — slow-steeped overnight, smooth and strong",
+      "context": "Cold brew coffee: slow-steeped overnight, smooth and strong",
       "difficulty": 1,
       "words": [
         { "chinese": "冷", "jyutping": "laang5", "english": "cold" },
@@ -78,7 +78,7 @@
       "jyutping": "dung3 nong4 suk1",
       "chinese": "凍濃縮",
       "english": "Iced espresso",
-      "context": "A shot of espresso over ice — intense and quick",
+      "context": "A shot of espresso over ice: intense and quick",
       "difficulty": 2,
       "words": [
         { "chinese": "凍", "jyutping": "dung3", "english": "iced" },
@@ -91,7 +91,7 @@
       "jyutping": "jin3 mak6 naai5",
       "chinese": "燕麥奶",
       "english": "Oat milk",
-      "context": "The most popular milk alternative in HK cafés — ask to swap your milk",
+      "context": "The most popular milk alternative in HK cafés: ask to swap your milk",
       "difficulty": 1,
       "words": [
         { "chinese": "燕麥", "jyutping": "jin3 mak6", "english": "oats" },
@@ -104,7 +104,7 @@
       "jyutping": "dau6 naai5",
       "chinese": "豆奶",
       "english": "Soy milk",
-      "context": "Soy milk — widely available at HK cafés and cha chaan tengs",
+      "context": "Soy milk: widely available at HK cafés and cha chaan tengs",
       "difficulty": 1,
       "words": [
         { "chinese": "豆", "jyutping": "dau6", "english": "bean / soy" },
@@ -117,7 +117,7 @@
       "jyutping": "haang4 jan4 naai5",
       "chinese": "杏仁奶",
       "english": "Almond milk",
-      "context": "Almond milk — less common than oat but available at specialty cafés",
+      "context": "Almond milk: less common than oat but available at specialty cafés",
       "difficulty": 2,
       "words": [
         { "chinese": "杏仁", "jyutping": "haang4 jan4", "english": "almond" },
@@ -130,7 +130,7 @@
       "jyutping": "ho2 m4 ho2 ji3 wun6 jin3 mak6 naai5",
       "chinese": "可唔可以換燕麥奶？",
       "english": "Can I swap to oat milk?",
-      "context": "Ask to substitute regular milk with oat milk — usually adds $7-10",
+      "context": "Ask to substitute regular milk with oat milk: usually adds $7-10",
       "difficulty": 2,
       "words": [
         { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible" },
@@ -144,7 +144,7 @@
       "jyutping": "sai3 bui1 ding6 daai6 bui1",
       "chinese": "細杯定大杯？",
       "english": "Small or large?",
-      "context": "The size question — most HK cafés use small/large rather than Italian sizes",
+      "context": "The size question: most HK cafés use small/large rather than Italian sizes",
       "difficulty": 1,
       "words": [
         { "chinese": "細杯", "jyutping": "sai3 bui1", "english": "small cup" },
@@ -171,7 +171,7 @@
       "jyutping": "m4 goi1 siu2 tong4",
       "chinese": "唔該少糖",
       "english": "Less sugar please",
-      "context": "Reduce the syrup in your drink — relevant for lattes with flavoured syrup",
+      "context": "Reduce the syrup in your drink: relevant for lattes with flavoured syrup",
       "difficulty": 1,
       "words": [
         { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -197,7 +197,7 @@
       "jyutping": "ngo5 jiu3 zau2 bui1",
       "chinese": "我要走杯",
       "english": "I want a takeaway cup",
-      "context": "Ask for your coffee to go — 走杯 is the universal HK term for a to-go cup",
+      "context": "Ask for your coffee to go: 走杯 is the universal HK term for a to-go cup",
       "difficulty": 1,
       "words": [
         { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want" },
@@ -210,7 +210,7 @@
       "jyutping": "jau5 mou5 zi5 ji4 ngaa4 kaa1 fe1",
       "chinese": "有冇自家烘焙咖啡？",
       "english": "Do you have house-roasted coffee?",
-      "context": "Ask at specialty cafés whether they roast their own beans — a mark of quality",
+      "context": "Ask at specialty cafés whether they roast their own beans: a mark of quality",
       "difficulty": 3,
       "words": [
         { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -224,7 +224,7 @@
       "jyutping": "ni1 go3 jyut6 faan3 hai6 bin1 dou6 lei4 ge3",
       "chinese": "呢個月份係邊度嚟㗎？",
       "english": "Where is this month's coffee from?",
-      "context": "Ask about the origin of the single-origin coffee — specialty cafés love this question",
+      "context": "Ask about the origin of the single-origin coffee: specialty cafés love this question",
       "difficulty": 3,
       "words": [
         { "chinese": "呢個月份", "jyutping": "ni1 go3 jyut6 faan3", "english": "this month's (coffee)" },
@@ -237,7 +237,7 @@
       "jyutping": "jiu3 m4 jiu3 sik6 je5",
       "chinese": "要唔要食嘢？",
       "english": "Would you like anything to eat?",
-      "context": "What the barista asks after you order — say 唔使喇多謝 to decline",
+      "context": "What the barista asks after you order: say 唔使喇多謝 to decline",
       "difficulty": 1,
       "words": [
         { "chinese": "要唔要", "jyutping": "jiu3 m4 jiu3", "english": "would you like / do you want" },
@@ -386,7 +386,7 @@
           "chinese": "好，燕麥拿鐵少糖，等一等。",
           "jyutping": "hou2, jin3 mak6 naap4 tit3 siu2 tong4, dang2 jat1 dang2.",
           "romanization": "Hou², jin³ mak⁶ naap⁴ tit³ siu² tong⁴, dang² jat¹ dang².",
-          "english": "Oat milk latte less sugar — just a moment.",
+          "english": "Oat milk latte less sugar: just a moment.",
           "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
           "pauseAfterMs": 1000
         }

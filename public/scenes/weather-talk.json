@@ -5,12 +5,12 @@
     "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
     "tint": "#5AC8E8",
     "title": "Talking about the weather",
-    "description": "HK's most reliable small talk — heat, rain, typhoons, and survival tips",
+    "description": "HK's most reliable small talk: heat, rain, typhoons, and survival tips",
     "category": "social",
     "difficulty": "everyday",
     "estimatedMinutes": 5,
-    "location": "Office / street / lift — anywhere",
-    "context": "Hong Kong weather is extreme — blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
+    "location": "Office / street / lift, anywhere",
+    "context": "Hong Kong weather is extreme: blazing humid summers, sudden typhoons, and surprisingly cold winters. Weather is the #1 small-talk topic. Typhoon warnings (風球) are a cultural institution: when Signal 8 is hoisted, offices and schools close and everyone rushes to stock up.",
     "cultural_note": "The Hong Kong Observatory's typhoon signal system is one of the most-checked pieces of public information in the city. Signal 1 means a storm is nearby. Signal 3 means strong winds. Signal 8, the 八號風球 (baat3 hou6 fung1 kau4), closes schools, offices, and transport, and is greeted by the city's schoolchildren with an enthusiasm usually reserved for Christmas. The highest is Signal 10: hurricane-force winds, usually because the eye of the typhoon is passing close to Hong Kong.",
     "lines": [
         {
@@ -48,7 +48,7 @@
             "speaker": "you",
             "cjk": "係呀，熱到唔想出街。",
             "jyutping": "hai6 aa3, jit6 dou3 m4 soeng2 ceot1 gaai1.",
-            "english": "I know — so hot I don't even want to go outside.",
+            "english": "I know, so hot I don't even want to go outside.",
             "audioFile": "wx-02.mp3",
             "words": [
                 {
@@ -93,7 +93,7 @@
             "speaker": "colleague",
             "cjk": "聽日話落雨㗎，記得帶遮。",
             "jyutping": "ting1 jat6 waa6 lok6 jyu5 gaa3, gei3 dak1 daai3 ze1.",
-            "english": "They say it'll rain tomorrow — remember to bring an umbrella.",
+            "english": "They say it'll rain tomorrow, remember to bring an umbrella.",
             "audioFile": "wx-03.mp3",
             "words": [
                 {
@@ -358,7 +358,7 @@
             "speaker": "colleague",
             "cjk": "快啲呀，超市嘅嘢好快賣晒㗎！",
             "jyutping": "faai3 di1 aa3, ciu1 si5 ge3 je5 hou2 faai3 maai6 saai3 gaa3!",
-            "english": "Hurry up — supermarket shelves empty out fast!",
+            "english": "Hurry up, supermarket shelves empty out fast!",
             "audioFile": "wx-09.mp3",
             "words": [
                 {

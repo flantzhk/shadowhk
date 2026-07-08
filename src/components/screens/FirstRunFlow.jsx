@@ -200,7 +200,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           <div className={styles.step2}>
             <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>Cantonese has 6 tones</h2>
             <p className={styles.reminderSub}>
-              Jyutping spells each syllable with a number for its tone — same letters, different number, different word entirely. Tap to hear it.
+              Jyutping spells each syllable with a number for its tone: same letters, different number, different word entirely. Tap to hear it.
             </p>
             <div className={styles.toneList}>
               {SIX_TONES.map(t => (

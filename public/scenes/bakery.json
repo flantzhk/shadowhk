@@ -10,7 +10,7 @@
     "difficulty": "starter",
     "estimatedMinutes": 4,
     "location": "Tai Cheong Bakery, Central",
-    "context": "Hong Kong bakeries (餅店) are a blend of Chinese and Western influences. Pineapple buns (菠蘿包) are arguably HK's most iconic pastry — despite the name, there's no pineapple in them. Wife cakes (老婆餅) are a sweet flaky pastry with winter melon filling.",
+    "context": "Hong Kong bakeries (餅店) are a blend of Chinese and Western influences. Pineapple buns (菠蘿包) are arguably HK's most iconic pastry. Despite the name, there's no pineapple in them. Wife cakes (老婆餅) are a sweet flaky pastry with winter melon filling.",
     "cultural_note": "The pineapple bun (菠蘿包, bo1 lo4 baau1) has no pineapple in it. The cracked golden crust just happens to look like pineapple skin. Split while hot and stuffed with a thick slab of cold butter, its making technique was added to Hong Kong's first Intangible Cultural Heritage Inventory in 2014, alongside milk tea and the egg tart.",
     "lines": [
         {
@@ -311,7 +311,7 @@
                 {
                     "chinese": "菠蘿包",
                     "jyutping": "bo1 lo4 baau1",
-                    "english": "pineapple bun — no pineapple in it, just a cracked golden crust"
+                    "english": "pineapple bun: no pineapple in it, just a cracked golden crust"
                 },
                 {
                     "chinese": "叉燒包",
@@ -321,7 +321,7 @@
                 {
                     "chinese": "雞尾包",
                     "jyutping": "gai1 mei5 baau1",
-                    "english": "cocktail bun — sweet, coconut-filled"
+                    "english": "cocktail bun: sweet, coconut-filled"
                 },
                 {
                     "chinese": "腸仔包",
@@ -346,7 +346,7 @@
                 {
                     "chinese": "老婆餅",
                     "jyutping": "lou5 po4 beng2",
-                    "english": "wife cake — flaky pastry with winter melon filling"
+                    "english": "wife cake: flaky pastry with winter melon filling"
                 },
                 {
                     "chinese": "蛋卷",

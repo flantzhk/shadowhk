@@ -83,7 +83,7 @@ export default function SessionSummary({ summary, onDone }) {
           <span className={styles.completeLabel}>SESSION COMPLETE</span>
           <h1 className={styles.headline}>
             {avg !== null
-              ? <>You scored {avg}%{avg >= 85 ? ' — strong session.' : avg >= 65 ? ' — solid work.' : ' — keep pushing.'}</>
+              ? <>You scored {avg}%{avg >= 85 ? ', strong session.' : avg >= 65 ? ', solid work.' : ', keep pushing.'}</>
               : <>Session done, {firstName}.</>
             }
           </h1>

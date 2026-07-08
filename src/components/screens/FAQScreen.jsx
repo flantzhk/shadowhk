@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: 'How does the streak work?',
-    a: 'Complete at least one practice session per day to maintain your streak. A session is any practice mode — Shadow, Prompt, Speed Run, Tone Gym, or AI Chat.',
+    a: 'Complete at least one practice session per day to maintain your streak. A session is any practice mode: Shadow, Prompt, Speed Run, Tone Gym, or AI Chat.',
   },
   {
     q: 'What is Spaced Repetition (SRS)?',
@@ -43,8 +43,14 @@ export default function FAQScreen({ onBack }) {
 
   return (
     <div className={styles.screen}>
-      <button className={styles.backBtn} onClick={onBack}>‹ Back</button>
-      <h1 className={styles.title}>Frequently Asked Questions</h1>
+      <div className={styles.header}>
+        <button className={styles.backBtn} onClick={onBack} aria-label="Go back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <h1 className={styles.title}>Frequently Asked Questions</h1>
+      </div>
       <p className={styles.subtitle}>Quick answers to common questions.</p>
       <div className={styles.divider} />
 

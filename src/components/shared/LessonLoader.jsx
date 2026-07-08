@@ -4,7 +4,7 @@ import styles from './LessonLoader.module.css';
 
 const MODE_COPY = {
   'shadow-session': { label: 'Shadow Session', tip: 'Listen and repeat to improve pronunciation.' },
-  'prompt-drill': { label: 'Prompt Drill', tip: "You'll see English — say it in Cantonese." },
+  'prompt-drill': { label: 'Prompt Drill', tip: "You'll see English, say it in Cantonese." },
   'speed-run': { label: 'Speed Run', tip: 'Pick the right phrase before the timer runs out.' },
   'tone-gym': { label: 'Tone Gym', tip: 'Train your ear to distinguish Cantonese tones.' },
 };

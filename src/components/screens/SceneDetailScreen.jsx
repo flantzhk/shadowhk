@@ -360,7 +360,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
               await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
             }}
             aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
-            title={sceneSaved ? 'Saved — shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
+            title={sceneSaved ? 'Saved: shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
           >
             {sceneSaved ? '♥' : '♡'} <span className={styles.controlLabel}>{sceneSaved ? 'Scene saved' : 'Save scene'}</span>
           </button>
@@ -470,7 +470,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
                     <span className={styles.audioMissingText}>
                       {retryingAudioId === line.id
                         ? 'Downloading audio…'
-                        : '⚠ Audio not downloaded — needs a connection once to work offline'}
+                        : '⚠ Audio not downloaded, needs a connection once to work offline'}
                     </span>
                     {retryingAudioId !== line.id && (
                       <button className={styles.audioMissingRetry} onClick={() => retryAudioCache(line)}>
@@ -659,7 +659,7 @@ function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
                         <button
                           className={styles.vocabPlayBtn}
                           onClick={() => play(w)}
-                          aria-label={`Play ${w.chinese} — ${w.english}`}
+                          aria-label={`Play ${w.chinese}: ${w.english}`}
                         >
                           {playingWord === w.chinese
                             ? <svg width="9" height="9" viewBox="0 0 10 10" fill="currentColor"><rect x="1" y="1" width="3" height="8"/><rect x="6" y="1" width="3" height="8"/></svg>

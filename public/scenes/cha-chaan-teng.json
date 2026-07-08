@@ -20,7 +20,7 @@
             "jyutping": "m4 goi1, jau5 wai2 co5 mou5?",
             "english": "Excuse me, is there a seat available?",
             "audioFile": "cct-01.mp3",
-            "scenario": "You walk in, the place is packed. A waiter glances over. Before they turn away — 唔該，有位坐冇？ That's it. One line, and you're in.",
+            "scenario": "You walk in, the place is packed. A waiter glances over. Before they turn away: 唔該，有位坐冇？ That's it. One line, and you're in.",
             "usage": "Entering any busy HK diner, cooked food stall, or dai pai dong where seating isn't obvious.",
             "replies": [
                 {

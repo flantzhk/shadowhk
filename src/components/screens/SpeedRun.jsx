@@ -132,7 +132,7 @@ export default function SpeedRun({ onBack, onComplete }) {
     return (
       <div className={`${styles.screen} ${styles.emptyScreen}`}>
         <p className={styles.emptyTitle}>No phrases yet</p>
-        <p className={styles.emptyDesc}>Save at least 4 phrases to your library first — Speed Run only tests what you've learned.</p>
+        <p className={styles.emptyDesc}>Save at least 4 phrases to your library first, Speed Run only tests what you've learned.</p>
         <button onClick={onBack} className={styles.emptyBackBtn}>Go back</button>
       </div>
     );

@@ -29,7 +29,7 @@
         "jyutping": "dung3 naai5 caa4, siu2 tim4",
         "chinese": "凍奶茶，少甜",
         "english": "Iced milk tea, less sweet",
-        "context": "Specifying your drink preferences — this is a very common order",
+        "context": "Specifying your drink preferences: this is a very common order",
         "difficulty": 1,
         "words": [
           { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
@@ -43,7 +43,7 @@
         "jyutping": "jit6 naai5 caa4",
         "chinese": "熱奶茶",
         "english": "Hot milk tea",
-        "context": "Ordering a hot milk tea — preferred on rainy days",
+        "context": "Ordering a hot milk tea: preferred on rainy days",
         "difficulty": 1,
         "words": [
           { "chinese": "熱", "jyutping": "jit6", "english": "hot" },
@@ -56,7 +56,7 @@
         "jyutping": "dung3 ning4 caa4",
         "chinese": "凍檸茶",
         "english": "Iced lemon tea",
-        "context": "A classic HK drink — lemon tea over ice",
+        "context": "A classic HK drink: lemon tea over ice",
         "difficulty": 1,
         "words": [
           { "chinese": "凍", "jyutping": "dung3", "english": "iced / cold" },
@@ -70,10 +70,10 @@
         "jyutping": "jyun1 joeng1",
         "chinese": "鴛鴦",
         "english": "Yuanyang (coffee mixed with milk tea)",
-        "context": "A uniquely HK drink — half coffee, half milk tea. Always order this here.",
+        "context": "A uniquely HK drink: half coffee, half milk tea. Always order this here.",
         "difficulty": 1,
         "words": [
-          { "chinese": "鴛鴦", "jyutping": "jyun1 joeng1", "english": "yuanyang — mandarin duck (symbolises pairs)" }
+          { "chinese": "鴛鴦", "jyutping": "jyun1 joeng1", "english": "yuanyang: mandarin duck (symbolises pairs)" }
         ]
       },
       {
@@ -82,7 +82,7 @@
         "jyutping": "zaai1 fe1",
         "chinese": "齋啡",
         "english": "Black coffee",
-        "context": "Literally 'plain coffee' — no milk, no sugar",
+        "context": "Literally 'plain coffee': no milk, no sugar",
         "difficulty": 1,
         "words": [
           { "chinese": "齋", "jyutping": "zaai1", "english": "plain / without extras" },
@@ -95,7 +95,7 @@
         "jyutping": "siu2 tim4",
         "chinese": "少甜",
         "english": "Less sweet",
-        "context": "Reduce the sugar in your drink — say this with any order",
+        "context": "Reduce the sugar in your drink: say this with any order",
         "difficulty": 1,
         "words": [
           { "chinese": "少", "jyutping": "siu2", "english": "less / a little" },
@@ -108,7 +108,7 @@
         "jyutping": "zau2 tim4",
         "chinese": "走甜",
         "english": "No sugar",
-        "context": "走 in food orders means 'remove' — 走甜 = remove the sweetness",
+        "context": "走 in food orders means 'remove': 走甜 = remove the sweetness",
         "difficulty": 1,
         "words": [
           { "chinese": "走", "jyutping": "zau2", "english": "remove / go without (in food orders)" },
@@ -147,7 +147,7 @@
         "jyutping": "jat1 go3 bo1 lo4 baau1",
         "chinese": "一個菠蘿包",
         "english": "A pineapple bun",
-        "context": "The iconic HK bun — no pineapple inside, named for its crusty top",
+        "context": "The iconic HK bun: no pineapple inside, named for its crusty top",
         "difficulty": 1,
         "words": [
           { "chinese": "一個", "jyutping": "jat1 go3", "english": "one (of)" },
@@ -160,7 +160,7 @@
         "jyutping": "jat1 go3 daan6 taat3",
         "chinese": "一個蛋撻",
         "english": "An egg tart",
-        "context": "A HK classic — order fresh from the oven at any cha chaan teng",
+        "context": "A HK classic: order fresh from the oven at any cha chaan teng",
         "difficulty": 1,
         "words": [
           { "chinese": "一個", "jyutping": "jat1 go3", "english": "one (of)" },
@@ -173,7 +173,7 @@
         "jyutping": "sai1 do1 si2",
         "chinese": "西多士",
         "english": "French toast (HK style)",
-        "context": "Deep-fried French toast with butter and syrup — a HK cha chaan teng staple",
+        "context": "Deep-fried French toast with butter and syrup: a HK cha chaan teng staple",
         "difficulty": 1,
         "words": [
           { "chinese": "西多士", "jyutping": "sai1 do1 si2", "english": "French toast (from English 'toast')" }
@@ -211,7 +211,7 @@
         "jyutping": "maai4 daan1",
         "chinese": "埋單",
         "english": "The bill, please",
-        "context": "Ask for the bill — say this loudly across the room, it's normal",
+        "context": "Ask for the bill: say this loudly across the room, it's normal",
         "difficulty": 1,
         "words": [
           { "chinese": "埋", "jyutping": "maai4", "english": "to close / wrap up" },
@@ -224,7 +224,7 @@
         "jyutping": "ho2 m4 ho2 ji3 jung6 baat3 daat6 tung1",
         "chinese": "可唔可以用八達通？",
         "english": "Can I use my Octopus card?",
-        "context": "HK's tap-and-go payment card — accepted nearly everywhere",
+        "context": "HK's tap-and-go payment card: accepted nearly everywhere",
         "difficulty": 2,
         "words": [
           { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible to" },
@@ -336,7 +336,7 @@
         "jyutping": "dang2 jat1 dang2",
         "chinese": "等一等",
         "english": "Wait a moment",
-        "context": "Staff say this when they need a moment — or you can say it too",
+        "context": "Staff say this when they need a moment, or you can say it too",
         "difficulty": 1,
         "words": [
           { "chinese": "等", "jyutping": "dang2", "english": "to wait" },
@@ -349,7 +349,7 @@
         "jyutping": "hou2 lap6 hak1",
         "chinese": "好立克",
         "english": "Horlicks",
-        "context": "A classic HK drink — hot malted milk. Very popular at cha chaan tengs.",
+        "context": "A classic HK drink: hot malted milk. Very popular at cha chaan tengs.",
         "difficulty": 1,
         "words": [
           { "chinese": "好立克", "jyutping": "hou2 lap6 hak1", "english": "Horlicks (transliteration)" }
@@ -361,7 +361,7 @@
         "jyutping": "jit6 zyu1 gu1 lik1",
         "chinese": "熱朱古力",
         "english": "Hot chocolate",
-        "context": "Hot chocolate at a cha chaan teng — richer than you'd expect",
+        "context": "Hot chocolate at a cha chaan teng: richer than you'd expect",
         "difficulty": 1,
         "words": [
           { "chinese": "熱", "jyutping": "jit6", "english": "hot" },
@@ -374,7 +374,7 @@
         "jyutping": "gaa1 do1 jat1 bui1",
         "chinese": "加多一杯",
         "english": "One more cup",
-        "context": "Order another drink — common for refills of hot drinks",
+        "context": "Order another drink: common for refills of hot drinks",
         "difficulty": 1,
         "words": [
           { "chinese": "加多", "jyutping": "gaa1 do1", "english": "one more / add another" },
@@ -400,7 +400,7 @@
         "jyutping": "hou2 mei6",
         "chinese": "好味！",
         "english": "Delicious!",
-        "context": "Tell staff the food is delicious — they genuinely love to hear this",
+        "context": "Tell staff the food is delicious: they genuinely love to hear this",
         "difficulty": 1,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "good / very" },
@@ -732,7 +732,7 @@
         "jyutping": "jau5 mou5 caan1 paai4",
         "chinese": "有冇餐牌？",
         "english": "Do you have a menu?",
-        "context": "Ask for a physical menu — many places in HK use QR codes now",
+        "context": "Ask for a physical menu: many places in HK use QR codes now",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -745,7 +745,7 @@
         "jyutping": "ngo5 jiu3",
         "chinese": "我要...",
         "english": "I'll have...",
-        "context": "Start your order with this — follow with the dish name",
+        "context": "Start your order with this: follow with the dish name",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -758,7 +758,7 @@
         "jyutping": "jau5 mou5 teoi1 gaai3",
         "chinese": "有冇推介？",
         "english": "Any recommendations?",
-        "context": "Ask staff what they recommend — they always have an opinion",
+        "context": "Ask staff what they recommend: they always have an opinion",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have / is there" },
@@ -785,7 +785,7 @@
         "jyutping": "ngo5 m4 sik6 ngau4",
         "chinese": "我唔食牛",
         "english": "I don't eat beef",
-        "context": "Tell them your dietary restriction — swap 牛 for 豬 (pork), 雞 (chicken) etc.",
+        "context": "Tell them your dietary restriction: swap 牛 for 豬 (pork), 雞 (chicken) etc.",
         "difficulty": 2,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I" },
@@ -799,7 +799,7 @@
         "jyutping": "ngo5 sik6 sou3 sik6",
         "chinese": "我食素食",
         "english": "I'm vegetarian",
-        "context": "Tell them you eat vegetarian — be prepared for follow-up questions in HK",
+        "context": "Tell them you eat vegetarian: be prepared for follow-up questions in HK",
         "difficulty": 2,
         "words": [
           { "chinese": "我食", "jyutping": "ngo5 sik6", "english": "I eat" },
@@ -839,7 +839,7 @@
         "jyutping": "do1 di1 faan6",
         "chinese": "多啲飯",
         "english": "More rice please",
-        "context": "Ask for extra rice — usually free or very cheap",
+        "context": "Ask for extra rice: usually free or very cheap",
         "difficulty": 1,
         "words": [
           { "chinese": "多啲", "jyutping": "do1 di1", "english": "more / a bit more" },
@@ -866,7 +866,7 @@
         "jyutping": "hou2 mei6",
         "chinese": "好味！",
         "english": "Delicious!",
-        "context": "Compliment the food — this always gets a warm response",
+        "context": "Compliment the food: this always gets a warm response",
         "difficulty": 1,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "very / good" },
@@ -879,7 +879,7 @@
         "jyutping": "m4 goi1 maai4 daan1",
         "chinese": "唔該埋單",
         "english": "Excuse me, the bill please",
-        "context": "Catch a staff member's eye and say this — no need to wave",
+        "context": "Catch a staff member's eye and say this: no need to wave",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me / please" },
@@ -970,7 +970,7 @@
         "jyutping": "m4 goi1 wun6 jat1 go3",
         "chinese": "唔該換一個",
         "english": "Could I get a new one please",
-        "context": "Ask for a replacement — clean glass, new bowl, etc.",
+        "context": "Ask for a replacement: clean glass, new bowl, etc.",
         "difficulty": 2,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please / excuse me" },
@@ -984,7 +984,7 @@
         "jyutping": "ni1 go3 mou5 zyu2 suk6",
         "chinese": "呢個冇煮熟",
         "english": "This isn't cooked through",
-        "context": "Alert staff if food seems undercooked — important for safety",
+        "context": "Alert staff if food seems undercooked: important for safety",
         "difficulty": 3,
         "words": [
           { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
@@ -1133,7 +1133,7 @@
             "chinese": "我想問，呢個有冇蝦？",
             "jyutping": "ngo5 seung2 man6, ni1 go3 jau5 mou5 haa1?",
             "romanization": "Ngo⁵ seung² man⁶, ni¹ go³ jau⁵ mou⁵ haa¹?",
-            "english": "Can I ask — does this have shrimp?",
+            "english": "Can I ask: does this have shrimp?",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -1166,7 +1166,7 @@
             "chinese": "呢個雞煲冇海鮮，好推介。",
             "jyutping": "ni1 go3 gai1 bo1 mou5 hoi2 sin1, hou2 teoi1 gaai3.",
             "romanization": "Ni¹ go³ gai¹ bo¹ mou⁵ hoi² sin¹, hou² teoi¹ gaai³.",
-            "english": "This chicken hotpot has no seafood — highly recommended.",
+            "english": "This chicken hotpot has no seafood: highly recommended.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1200,7 +1200,7 @@
         "jyutping": "lou5 baan2",
         "chinese": "老闆！",
         "english": "Excuse me! (to get a vendor's attention)",
-        "context": "Call out 老闆 to address any market vendor — it's respectful and expected",
+        "context": "Call out 老闆 to address any market vendor: it's respectful and expected",
         "difficulty": 1,
         "words": [
           { "chinese": "老闆", "jyutping": "lou5 baan2", "english": "boss / owner" }
@@ -1212,7 +1212,7 @@
         "jyutping": "ni1 go3 gei2 do1 cin2 jat1 gan1",
         "chinese": "呢個幾多錢一斤？",
         "english": "How much per catty for this?",
-        "context": "A catty (斤) is 600g in HK — the standard unit at wet markets",
+        "context": "A catty (斤) is 600g in HK: the standard unit at wet markets",
         "difficulty": 1,
         "words": [
           { "chinese": "呢個", "jyutping": "ni1 go3", "english": "this" },
@@ -1226,7 +1226,7 @@
         "jyutping": "ngo5 jiu3 jat1 gan1",
         "chinese": "我要一斤",
         "english": "I'll take one catty",
-        "context": "Order by the catty — change the number to suit: 兩斤 (two catties)",
+        "context": "Order by the catty: change the number to suit: 兩斤 (two catties)",
         "difficulty": 1,
         "words": [
           { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want / I'll take" },
@@ -1239,7 +1239,7 @@
         "jyutping": "bun3 gan1",
         "chinese": "半斤",
         "english": "Half a catty (300g)",
-        "context": "Order half a catty — useful for expensive items or small households",
+        "context": "Order half a catty: useful for expensive items or small households",
         "difficulty": 1,
         "words": [
           { "chinese": "半", "jyutping": "bun3", "english": "half" },
@@ -1252,7 +1252,7 @@
         "jyutping": "san1 m4 san1 sin1",
         "chinese": "新唔新鮮？",
         "english": "Is it fresh?",
-        "context": "Always worth asking — the vendor will tell you proudly if it's just arrived",
+        "context": "Always worth asking: the vendor will tell you proudly if it's just arrived",
         "difficulty": 1,
         "words": [
           { "chinese": "新鮮", "jyutping": "san1 sin1", "english": "fresh" },
@@ -1265,7 +1265,7 @@
         "jyutping": "gam1 ziu1 faan1 ge3, hou2 san1 sin1",
         "chinese": "今朝返嘅，好新鮮",
         "english": "Came in this morning, very fresh",
-        "context": "Vendors say this all the time — listen for it",
+        "context": "Vendors say this all the time: listen for it",
         "difficulty": 2,
         "words": [
           { "chinese": "今朝", "jyutping": "gam1 ziu1", "english": "this morning" },
@@ -1279,7 +1279,7 @@
         "jyutping": "ngo5 jiu3 ni1 go3",
         "chinese": "我要呢個",
         "english": "I want this one",
-        "context": "Point and say this — useful when you can't name what you're pointing at",
+        "context": "Point and say this: useful when you can't name what you're pointing at",
         "difficulty": 1,
         "words": [
           { "chinese": "我要", "jyutping": "ngo5 jiu3", "english": "I want" },
@@ -1330,7 +1330,7 @@
         "jyutping": "peng4 di1 dak1 m4 dak1",
         "chinese": "平啲得唔得？",
         "english": "Can you go a bit cheaper?",
-        "context": "Negotiate at market stalls — especially effective when buying larger quantities",
+        "context": "Negotiate at market stalls: especially effective when buying larger quantities",
         "difficulty": 2,
         "words": [
           { "chinese": "平啲", "jyutping": "peng4 di1", "english": "a bit cheaper" },
@@ -1379,7 +1379,7 @@
         "jyutping": "juk6",
         "chinese": "肉",
         "english": "Meat",
-        "context": "The general word for meat — 豬肉 (pork), 雞肉 (chicken), 牛肉 (beef)",
+        "context": "The general word for meat: 豬肉 (pork), 雞肉 (chicken), 牛肉 (beef)",
         "difficulty": 1,
         "words": [
           { "chinese": "肉", "jyutping": "juk6", "english": "meat" }
@@ -1404,7 +1404,7 @@
         "jyutping": "zung6 jiu3 m4 jiu3",
         "chinese": "仲要唔要？",
         "english": "Anything else?",
-        "context": "Vendors will ask this — say 夠喇 if you're done",
+        "context": "Vendors will ask this: say 夠喇 if you're done",
         "difficulty": 1,
         "words": [
           { "chinese": "仲", "jyutping": "zung6", "english": "still / more" },
@@ -1417,7 +1417,7 @@
         "jyutping": "gau3 laa3",
         "chinese": "夠喇",
         "english": "That's enough",
-        "context": "Tell the vendor you're done — also works when they're piling up your bag",
+        "context": "Tell the vendor you're done: also works when they're piling up your bag",
         "difficulty": 1,
         "words": [
           { "chinese": "夠", "jyutping": "gau3", "english": "enough" },
@@ -1481,7 +1481,7 @@
       {
         "id": "market-scene-1",
         "title": "Buying fruit at a market stall",
-        "description": "You want apples and oranges — and a good deal",
+        "description": "You want apples and oranges, and a good deal",
         "turns": [
           {
             "speaker": "user",
@@ -1604,7 +1604,7 @@
         "jyutping": "pou2 nei5",
         "chinese": "普洱",
         "english": "Pu'er tea",
-        "context": "The most popular dim sum tea — dark, earthy, great with rich food",
+        "context": "The most popular dim sum tea: dark, earthy, great with rich food",
         "difficulty": 1,
         "words": [
           { "chinese": "普洱", "jyutping": "pou2 nei5", "english": "pu'er tea" }
@@ -1616,7 +1616,7 @@
         "jyutping": "hoeng1 pin3",
         "chinese": "香片",
         "english": "Jasmine tea",
-        "context": "Fragrant jasmine tea — lighter and more floral than pu'er",
+        "context": "Fragrant jasmine tea: lighter and more floral than pu'er",
         "difficulty": 1,
         "words": [
           { "chinese": "香片", "jyutping": "hoeng1 pin3", "english": "jasmine tea (lit. fragrant slices)" }
@@ -1628,7 +1628,7 @@
         "jyutping": "gaa1 seoi2",
         "chinese": "加水",
         "english": "More water (refill the teapot)",
-        "context": "Tap the table twice with two fingers to silently signal for a refill — very HK",
+        "context": "Tap the table twice with two fingers to silently signal for a refill: very HK",
         "difficulty": 1,
         "words": [
           { "chinese": "加", "jyutping": "gaa1", "english": "add / more" },
@@ -1641,7 +1641,7 @@
         "jyutping": "haa1 gaau2",
         "chinese": "蝦餃",
         "english": "Har gow (shrimp dumplings)",
-        "context": "The gold standard dim sum — how you judge a dim sum restaurant",
+        "context": "The gold standard dim sum: how you judge a dim sum restaurant",
         "difficulty": 1,
         "words": [
           { "chinese": "蝦", "jyutping": "haa1", "english": "shrimp / prawn" },
@@ -1654,7 +1654,7 @@
         "jyutping": "siu1 maai2",
         "chinese": "燒賣",
         "english": "Siu mai (pork and prawn dumplings)",
-        "context": "Open-topped dumplings — pork and prawn, often topped with orange roe",
+        "context": "Open-topped dumplings: pork and prawn, often topped with orange roe",
         "difficulty": 1,
         "words": [
           { "chinese": "燒賣", "jyutping": "siu1 maai2", "english": "siu mai dumplings" }
@@ -1666,7 +1666,7 @@
         "jyutping": "caa1 siu1 baau1",
         "chinese": "叉燒包",
         "english": "Char siu bao (BBQ pork bun)",
-        "context": "Fluffy steamed buns filled with sweet BBQ pork — a dim sum classic",
+        "context": "Fluffy steamed buns filled with sweet BBQ pork: a dim sum classic",
         "difficulty": 1,
         "words": [
           { "chinese": "叉燒", "jyutping": "caa1 siu1", "english": "char siu (BBQ pork)" },
@@ -1692,7 +1692,7 @@
         "jyutping": "lo4 baak6 gou1",
         "chinese": "蘿蔔糕",
         "english": "Turnip cake (radish cake)",
-        "context": "Pan-fried cake made with daikon radish — crispy outside, soft inside",
+        "context": "Pan-fried cake made with daikon radish: crispy outside, soft inside",
         "difficulty": 1,
         "words": [
           { "chinese": "蘿蔔", "jyutping": "lo4 baak6", "english": "daikon radish / turnip" },
@@ -1705,7 +1705,7 @@
         "jyutping": "jat1 lung4",
         "chinese": "一籠",
         "english": "One basket",
-        "context": "Dumplings come in bamboo steamers — order by the basket",
+        "context": "Dumplings come in bamboo steamers: order by the basket",
         "difficulty": 1,
         "words": [
           { "chinese": "一", "jyutping": "jat1", "english": "one" },
@@ -1718,7 +1718,7 @@
         "jyutping": "zoi3 lai4 jat1 lung4",
         "chinese": "再嚟一籠",
         "english": "One more basket please",
-        "context": "Order another round of your favourite — you'll definitely want to",
+        "context": "Order another round of your favourite: you'll definitely want to",
         "difficulty": 1,
         "words": [
           { "chinese": "再嚟", "jyutping": "zoi3 lai4", "english": "bring again / one more" },
@@ -1731,7 +1731,7 @@
         "jyutping": "gau3 laa3",
         "chinese": "夠喇",
         "english": "That's enough",
-        "context": "Stop ordering — you're full. Say this when the trolley lady comes around",
+        "context": "Stop ordering: you're full. Say this when the trolley lady comes around",
         "difficulty": 1,
         "words": [
           { "chinese": "夠", "jyutping": "gau3", "english": "enough" },
@@ -1769,7 +1769,7 @@
         "jyutping": "jau5 mou5 fung1 zaau2",
         "chinese": "有冇鳳爪？",
         "english": "Do you have chicken feet?",
-        "context": "Steamed chicken feet in black bean sauce — a dim sum must-try",
+        "context": "Steamed chicken feet in black bean sauce: a dim sum must-try",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -1782,7 +1782,7 @@
         "jyutping": "m4 goi1 maai4 daan1",
         "chinese": "唔該埋單",
         "english": "The bill please",
-        "context": "Ask for the bill — at dim sum they count your empty steamers to add it up",
+        "context": "Ask for the bill: at dim sum they count your empty steamers to add it up",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -1808,7 +1808,7 @@
         "jyutping": "hao2! hou2 mei6!",
         "chinese": "好！好味！",
         "english": "Great! So delicious!",
-        "context": "Dim sum staff love hearing this — say it with genuine enthusiasm",
+        "context": "Dim sum staff love hearing this: say it with genuine enthusiasm",
         "difficulty": 1,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "good / great" },
@@ -1820,7 +1820,7 @@
       {
         "id": "dimsum-scene-1",
         "title": "Ordering dim sum",
-        "description": "Sunday dim sum — the full experience",
+        "description": "Sunday dim sum: the full experience",
         "turns": [
           {
             "speaker": "other",

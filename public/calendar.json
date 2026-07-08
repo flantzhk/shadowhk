@@ -18,7 +18,7 @@
   {
     "id": "calendar-months",
     "name": "Months",
-    "description": "January through December — just numbers plus 月",
+    "description": "January through December: just numbers plus 月",
     "phraseCount": 13,
     "phrases": [
       { "id": "cal-month-word", "chinese": "月", "romanization": "jyut6", "jyutping": "jyut6", "english": "month / moon", "context": "Add a number before 月 to make any month: 一月 = January", "words": [{ "chinese": "月", "jyutping": "jyut6", "english": "month / moon" }] },

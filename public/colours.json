@@ -15,7 +15,7 @@
       { "id": "col-white", "chinese": "白色", "romanization": "baak6 sik1", "jyutping": "baak6 sik1", "english": "white", "words": [{ "chinese": "白", "jyutping": "baak6", "english": "white" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
       { "id": "col-black", "chinese": "黑色", "romanization": "hak1 sik1", "jyutping": "hak1 sik1", "english": "black", "words": [{ "chinese": "黑", "jyutping": "hak1", "english": "black" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
       { "id": "col-grey", "chinese": "灰色", "romanization": "fui1 sik1", "jyutping": "fui1 sik1", "english": "grey", "words": [{ "chinese": "灰", "jyutping": "fui1", "english": "ash / grey" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] },
-      { "id": "col-brown", "chinese": "啡色", "romanization": "fe1 sik1", "jyutping": "fe1 sik1", "english": "brown", "context": "啡 comes from 咖啡 (coffee) — the colour of coffee", "words": [{ "chinese": "啡", "jyutping": "fe1", "english": "coffee-coloured" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] }
+      { "id": "col-brown", "chinese": "啡色", "romanization": "fe1 sik1", "jyutping": "fe1 sik1", "english": "brown", "context": "啡 comes from 咖啡 (coffee): the colour of coffee", "words": [{ "chinese": "啡", "jyutping": "fe1", "english": "coffee-coloured" }, { "chinese": "色", "jyutping": "sik1", "english": "colour" }] }
     ]
   },
   {

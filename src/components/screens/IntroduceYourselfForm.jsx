@@ -205,7 +205,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           <p className={styles.introEyebrow}>PERSONALISED FOR YOU</p>
           <h2 className={styles.introTitle}>Build your personal Cantonese scene</h2>
           <p className={styles.introBody}>
-            Tell us a little about yourself — your name, job, neighbourhood, family — and we'll create a custom shadowing scene built around <em>your</em> actual life in Hong Kong.
+            Tell us a little about yourself: your name, job, neighbourhood, family, and we'll create a custom shadowing scene built around <em>your</em> actual life in Hong Kong.
           </p>
           <div className={styles.introSteps}>
             <div className={styles.introStep}>
@@ -218,7 +218,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
             </div>
             <div className={styles.introStep}>
               <span className={styles.introStepNum}>3</span>
-              <span className={styles.introStepText}>Shadow your own introduction — ready for real conversations</span>
+              <span className={styles.introStepText}>Shadow your own introduction, ready for real conversations</span>
             </div>
           </div>
         </div>
@@ -232,18 +232,19 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
             <ul className={styles.phraseList}>
               {existingPhrases.map((p, i) => (
                 <li key={i} className={styles.phraseItem}>
+                  <PersonalPhraseThumb settings={settings} />
+                  <div className={styles.phraseText}>
+                    <p className={styles.phraseRoman}>{splitSyllables(p.romanization)}</p>
+                    <p className={styles.phraseCjk}>{p.cjk}</p>
+                    <p className={styles.phraseEnglish}>{p.english}</p>
+                  </div>
                   <button
-                    className={styles.phrasePlay}
+                    className={`${styles.phrasePlay} ${playingIdx === i ? styles.phrasePlayActive : ''}`}
                     onClick={() => playPhrase(p, i)}
                     aria-label={playingIdx === i ? 'Stop' : 'Play'}
                   >
-                    {playingIdx === i ? '⏸' : '▶'}
+                    {playingIdx === i ? <StopIcon /> : <PlayIcon />}
                   </button>
-                  <div className={styles.phraseLeft}>
-                    <span className={styles.phraseCjk}>{p.cjk}</span>
-                    <span className={styles.phraseRoman}>{p.romanization}</span>
-                  </div>
-                  <span className={styles.phraseEnglish}>{p.english}</span>
                 </li>
               ))}
             </ul>
@@ -259,7 +260,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           </>
         ) : (
           <p className={styles.description}>
-            Fill in what feels right. We'll build you a personal Cantonese scene using your real life — the phrases people will actually ask you when you meet them. Everything is optional except your name.
+            Fill in what feels right. We'll build you a personal Cantonese scene using your real life: the phrases people will actually ask you when you meet them. Everything is optional except your name.
           </p>
         )}
 
@@ -474,3 +475,50 @@ function Field({ label, required, children }) {
 function Row({ children }) {
   return <div className={styles.row}>{children}</div>;
 }
+
+// Jyutping syllables are space-delimited in the data — splitting on whitespace
+// previews that each syllable is individually playable, matching the phrase
+// row treatment used on the Saved/Library screen.
+function splitSyllables(romanization) {
+  if (!romanization) return null;
+  const tokens = romanization.trim().split(/\s+/);
+  return tokens.map((tok, i) => (
+    <span key={i}>
+      {tok}
+      {i < tokens.length - 1 && <span className={styles.syllableSep}> · </span>}
+    </span>
+  ));
+}
+
+// Same treatment as the Saved/Library screen's personal-scene thumbnail:
+// the user's own photo (duotoned to match scene photography) or a monogram
+// plate if they haven't set one.
+function PersonalPhraseThumb({ settings }) {
+  const photoURL = settings?.photoURL;
+  if (photoURL) {
+    return (
+      <div
+        className={`${styles.phraseThumb} ${styles.phraseThumbDuotone}`}
+        style={{ backgroundImage: `url(${photoURL})` }}
+      />
+    );
+  }
+  const initial = (settings?.name || 'U')[0].toUpperCase();
+  return (
+    <div className={`${styles.phraseThumb} ${styles.phraseThumbMonogramPlate}`}>
+      <span className={styles.phraseThumbMonogram}>{initial}</span>
+    </div>
+  );
+}
+
+const PlayIcon = () => (
+  <svg width="18" height="21" viewBox="0 0 12 14" fill="currentColor">
+    <path d="M2 1l9 6-9 6V1z" />
+  </svg>
+);
+
+const StopIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 10 10" fill="currentColor">
+    <rect x="1" y="1" width="8" height="8" rx="1" />
+  </svg>
+);

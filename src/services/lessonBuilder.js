@@ -91,7 +91,7 @@ function buildReason(fadingPhrases, libraryEntries, sceneId) {
   const newCount = sceneEntries.filter((e) => !e.practiceCount || e.practiceCount === 0).length;
 
   if (fadingPhrases.length === 0 && sceneEntries.length === 0) {
-    return 'A great place to start — shadow this scene to begin.';
+    return 'A great place to start, shadow this scene to begin.';
   }
   if (fadingPhrases.length === 0 && newCount > 0) {
     const phr = newCount === 1 ? '1 new phrase' : `${newCount} new phrases`;

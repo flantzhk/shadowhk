@@ -4,7 +4,7 @@ import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
 import styles from './ForgotPasswordScreen.module.css';
 
-export default function ForgotPasswordScreen({ navigate }) {
+export default function ForgotPasswordScreen({ navigate, goBack }) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export default function ForgotPasswordScreen({ navigate }) {
   return (
     <div className={styles.screen}>
       <div className={styles.topBar}>
-        <button className={styles.backBtn} onClick={() => navigate(ROUTES.LOGIN)}>
+        <button className={styles.backBtn} onClick={goBack ?? (() => navigate(ROUTES.LOGIN))}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="15 18 9 12 15 6"/>
           </svg>
@@ -63,7 +63,7 @@ export default function ForgotPasswordScreen({ navigate }) {
 
           <h1 className={styles.title}>We'll send a magic link</h1>
           <p className={styles.body}>
-            Enter the email you signed up with. Check your inbox — it'll land in ~30 seconds.
+            Enter the email you signed up with. Check your inbox, it'll land in ~30 seconds.
           </p>
 
           <form onSubmit={handleSubmit}>

@@ -20,7 +20,7 @@ export function StorageFullModal({ onClose, onGoToLibrary }) {
 
         <h2 className={styles.title}>Library is full</h2>
         <p className={styles.body}>
-          You've saved {MAX_LIBRARY_SIZE} phrases — the maximum. Master or remove some
+          You've saved {MAX_LIBRARY_SIZE} phrases, the maximum. Master or remove some
           phrases to make room for new ones.
         </p>
 

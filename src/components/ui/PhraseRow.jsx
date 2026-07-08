@@ -159,7 +159,7 @@ export function PhraseRow({
               key={i}
               className={`${styles.wordCard} ${playingWordIdx === i ? styles.wordCardActive : ''}`}
               onClick={e => handleWordPlay(e, group.chars, i)}
-              aria-label={`Play ${group.chars} — ${group.meaning}`}
+              aria-label={`Play ${group.chars}: ${group.meaning}`}
             >
               <span className={styles.wordCjk}>{group.chars}</span>
               {group.jyutping && <span className={styles.wordJyutping}>{group.jyutping}</span>}

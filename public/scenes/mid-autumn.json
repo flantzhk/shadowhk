@@ -68,7 +68,7 @@
             "speaker": "you",
             "cjk": "中秋節快樂！係我自己整㗎，整得唔係好靚。",
             "jyutping": "zung1 cau1 zit3 faai3 lok6! hai6 ngo5 zi6 gei2 zing2 ga3, zing2 dak1 m4 hai6 hou2 leng3.",
-            "english": "Happy Mid-Autumn! I made it myself — it's not very good.",
+            "english": "Happy Mid-Autumn! I made it myself; it's not very good.",
             "audioFile": "midaut-02.mp3",
             "words": [
                 {
@@ -203,7 +203,7 @@
             "speaker": "you",
             "cjk": "仲未，你有冇帶？",
             "jyutping": "zung6 mei6, nei5 jau5 mou5 daai3?",
-            "english": "Not yet — have you brought some?",
+            "english": "Not yet, have you brought some?",
             "audioFile": "midaut-04.mp3",
             "words": [
                 {

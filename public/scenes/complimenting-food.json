@@ -5,12 +5,12 @@
     "imageUrl": "/shadowhk/images/scenes/complimenting-food.jpg",
     "tint": "#C5E85A",
     "title": "Complimenting food",
-    "description": "Dinner at a friend's home — warm up the host with genuine Cantonese compliments",
+    "description": "Dinner at a friend's home: warm up the host with genuine Cantonese compliments",
     "category": "social",
     "difficulty": "everyday",
     "estimatedMinutes": 5,
     "location": "A friend's home, Sham Shui Po",
-    "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full — 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
+    "context": "Being invited to a Hong Kong home for a meal is an honour. Hosts will insist you eat more even when you're full; 食多啲 is the default hospitality phrase. Complimenting the food directly and asking who cooked it shows real appreciation.",
     "cultural_note": "In Cantonese culture, food is the primary language of love. A grandmother may never say 我愛你 (I love you), but she will spend three hours making congee and insist you finish it. Complimenting the cooking, and specifically the effort (心機, sam1 gei1) that went into it, carries real emotional weight. A sincere 好好食 is not small talk.",
     "lines": [
         {
@@ -263,7 +263,7 @@
             "speaker": "you",
             "cjk": "真係，下次可唔可以教我煮？",
             "jyutping": "zan1 hai6, haa6 ci3 ho2 m4 ho2 ji5 gaau3 ngo5 zyu2?",
-            "english": "I mean it — could you teach me to cook it next time?",
+            "english": "I mean it, could you teach me to cook it next time?",
             "audioFile": "comp-06.mp3",
             "words": [
                 {
@@ -343,7 +343,7 @@
             "speaker": "you",
             "cjk": "今晚真係好開心，多謝你款待。",
             "jyutping": "gam1 maan5 zan1 hai6 hou2 hoi1 sam1, do1 ze6 nei5 fun2 doi6.",
-            "english": "Tonight has been really lovely — thank you for having me.",
+            "english": "Tonight has been really lovely, thank you for having me.",
             "audioFile": "comp-08.mp3",
             "words": [
                 {
@@ -406,7 +406,7 @@
                 {
                     "chinese": "鑊氣",
                     "jyutping": "wok6 hei3",
-                    "english": "wok hei — the smoky char of high-heat stir-frying"
+                    "english": "wok hei: the smoky char of high-heat stir-frying"
                 },
                 {
                     "chinese": "正",

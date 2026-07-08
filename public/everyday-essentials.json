@@ -14,7 +14,7 @@
         "jyutping": "ngo5 hai6 sap6 baat3 lau4 ge3 gei1 min4",
         "chinese": "我係十八樓嘅居民",
         "english": "I'm a resident on the 18th floor",
-        "context": "Identify yourself to the security guard — use your own floor number",
+        "context": "Identify yourself to the security guard: use your own floor number",
         "difficulty": 2,
         "words": [
           { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am" },
@@ -42,7 +42,7 @@
         "jyutping": "keoi5 giu3",
         "chinese": "佢叫...",
         "english": "His/her name is...",
-        "context": "Give the guard your visitor's name — follow with the name",
+        "context": "Give the guard your visitor's name: follow with the name",
         "difficulty": 1,
         "words": [
           { "chinese": "佢叫", "jyutping": "keoi5 giu3", "english": "his/her name is" }
@@ -96,7 +96,7 @@
         "jyutping": "m4 goi1 bong1 ngo5 da2 soeng6 heoi3",
         "chinese": "唔該幫我打上去",
         "english": "Could you call up to my flat?",
-        "context": "Ask the guard to buzz your flat — useful when your intercom is broken or you're expecting guests",
+        "context": "Ask the guard to buzz your flat: useful when your intercom is broken or you're expecting guests",
         "difficulty": 2,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -124,7 +124,7 @@
         "jyutping": "ho2 m4 ho2 ji3 bong1 ngo5 hoi1 mun4",
         "chinese": "可唔可以幫我開門？",
         "english": "Could you open the door for me?",
-        "context": "Ask the guard to let you in — they'll check your ID",
+        "context": "Ask the guard to let you in: they'll check your ID",
         "difficulty": 2,
         "words": [
           { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "could you / is it possible" },
@@ -152,7 +152,7 @@
         "jyutping": "gam1 jat6 jau5 fong2 haak3 lei4",
         "chinese": "今日有訪客嚟",
         "english": "I'm expecting a visitor today",
-        "context": "Inform the security desk in advance of a visitor — some buildings require pre-registration",
+        "context": "Inform the security desk in advance of a visitor: some buildings require pre-registration",
         "difficulty": 2,
         "words": [
           { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
@@ -180,7 +180,7 @@
         "jyutping": "fong3 hai2 dou3 dak1 laa3",
         "chinese": "放喺度得喇",
         "english": "Leave it here is fine",
-        "context": "Tell the guard where to put something — a package, a message, anything",
+        "context": "Tell the guard where to put something: a package, a message, anything",
         "difficulty": 1,
         "words": [
           { "chinese": "放喺度", "jyutping": "fong3 hai2 dou3", "english": "put / leave it here" },
@@ -206,7 +206,7 @@
         "jyutping": "do1 ze6 suk1 suk1",
         "chinese": "多謝叔叔",
         "english": "Thank you (to the security guard)",
-        "context": "叔叔 (uncle) is the respectful term for an older male security guard — auntie is 姐姐 or 阿姨",
+        "context": "叔叔 (uncle) is the respectful term for an older male security guard: auntie is 姐姐 or 阿姨",
         "difficulty": 1,
         "words": [
           { "chinese": "多謝", "jyutping": "do1 ze6", "english": "thank you" },
@@ -345,7 +345,7 @@
     "id": "convenience-store",
     "category": "everyday-essentials",
     "name": "Convenience Store",
-    "description": "7-Eleven, Circle K — heating food, Octopus top-up, and everyday essentials",
+    "description": "7-Eleven, Circle K: heating food, Octopus top-up, and everyday essentials",
     "phraseCount": 15,
     "imageGradient": "linear-gradient(135deg, #1A3A1A 0%, #2A6A2A 50%, #70C870 100%)",
     "imageUrl": null,
@@ -356,7 +356,7 @@
         "jyutping": "bong1 ngo5 ding1 jat1 ding1, m4 goi1",
         "chinese": "幫我叮一叮，唔該",
         "english": "Could you microwave this for me please",
-        "context": "叮 is the onomatopoeia for the microwave ping — the most uniquely HK convenience store phrase",
+        "context": "叮 is the onomatopoeia for the microwave ping: the most uniquely HK convenience store phrase",
         "difficulty": 1,
         "words": [
           { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me / help me" },
@@ -422,7 +422,7 @@
         "jyutping": "bong1 ngo5 baat3 daat6 tung1 jap6 ng5 sap6 man1",
         "chinese": "幫我八達通入五十蚊",
         "english": "Add $50 to my Octopus card",
-        "context": "Top up your Octopus at the convenience store counter — change the amount as needed",
+        "context": "Top up your Octopus at the convenience store counter: change the amount as needed",
         "difficulty": 2,
         "words": [
           { "chinese": "幫我", "jyutping": "bong1 ngo5", "english": "for me" },
@@ -436,7 +436,7 @@
         "jyutping": "ngo5 soeng2 gaau1 din6 fai3",
         "chinese": "我想交電費",
         "english": "I want to pay my electricity bill",
-        "context": "Pay utility bills at 7-Eleven — electricity (電費), water (水費), gas (煤氣費)",
+        "context": "Pay utility bills at 7-Eleven: electricity (電費), water (水費), gas (煤氣費)",
         "difficulty": 2,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I want to" },
@@ -450,7 +450,7 @@
         "jyutping": "ho2 m4 ho2 ji3 da2 jan3",
         "chinese": "可唔可以打印？",
         "english": "Can I print here?",
-        "context": "Many 7-Elevens have printing services — useful for boarding passes, documents",
+        "context": "Many 7-Elevens have printing services: useful for boarding passes, documents",
         "difficulty": 2,
         "words": [
           { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it possible" },
@@ -476,7 +476,7 @@
         "jyutping": "jau5 mou5 zo5 wai2",
         "chinese": "有冇座位？",
         "english": "Are there any seats?",
-        "context": "Some 7-Elevens have seating areas — ask before standing awkwardly with your noodles",
+        "context": "Some 7-Elevens have seating areas: ask before standing awkwardly with your noodles",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "are there / do you have" },
@@ -502,7 +502,7 @@
         "jyutping": "jat1 gung6 gei2 do1",
         "chinese": "一共幾多？",
         "english": "How much in total?",
-        "context": "Ask the total before paying — especially useful if the screen isn't facing you",
+        "context": "Ask the total before paying: especially useful if the screen isn't facing you",
         "difficulty": 1,
         "words": [
           { "chinese": "一共", "jyutping": "jat1 gung6", "english": "in total" },
@@ -515,7 +515,7 @@
         "jyutping": "m4 sai2 doi2, m4 goi1",
         "chinese": "唔使袋，唔該",
         "english": "No bag needed, thanks",
-        "context": "Decline the plastic bag — HK charges for them",
+        "context": "Decline the plastic bag: HK charges for them",
         "difficulty": 1,
         "words": [
           { "chinese": "唔使袋", "jyutping": "m4 sai2 doi2", "english": "no bag needed" },
@@ -528,7 +528,7 @@
         "jyutping": "jau5 mou5 zit3 kau3 aa3",
         "chinese": "有冇折扣呀？",
         "english": "Is there a discount on this?",
-        "context": "Ask if there's a promotion running — convenience stores often have buy-one-get-one deals",
+        "context": "Ask if there's a promotion running: convenience stores often have buy-one-get-one deals",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇折扣", "jyutping": "jau5 mou5 zit3 kau3", "english": "any discount / promotion" },
@@ -541,7 +541,7 @@
         "jyutping": "ni1 bui1 gaa1 jit6 m4 goi1",
         "chinese": "呢杯加熱唔該",
         "english": "Heat this cup up please",
-        "context": "Ask staff to heat a cup drink or soup — very common for soy milk or instant soup",
+        "context": "Ask staff to heat a cup drink or soup: very common for soy milk or instant soup",
         "difficulty": 2,
         "words": [
           { "chinese": "呢杯", "jyutping": "ni1 bui1", "english": "this cup" },
@@ -618,7 +618,7 @@
             "chinese": "喺度，自己攞。",
             "jyutping": "hai2 dou6, zi6 gei2 lo2.",
             "romanization": "Hai² dou⁶, zi⁶ gei² lo².",
-            "english": "Over there — help yourself.",
+            "english": "Over there: help yourself.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1000
           }
@@ -647,7 +647,7 @@
             "chinese": "好，嘟一嘟。入咗喇，係一百蚊。",
             "jyutping": "hou2, duk1 jat1 duk1. jap6 zo2 laa3, hai6 jat1 baak3 man1.",
             "romanization": "Hou², duk¹ jat¹ duk¹. Jap⁶ zo² laa³, hai⁶ jat¹ baak³ man¹.",
-            "english": "Okay, tap here. Done — that's $100.",
+            "english": "Okay, tap here. Done: that's $100.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -703,7 +703,7 @@
         "jyutping": "ngo5 soeng2 deng6 wai2",
         "chinese": "我想訂位",
         "english": "I'd like to make a reservation",
-        "context": "Start any booking call with this — for restaurants, salons, clinics",
+        "context": "Start any booking call with this: for restaurants, salons, clinics",
         "difficulty": 1,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
@@ -716,7 +716,7 @@
         "jyutping": "deng6 gei2 do1 wai2",
         "chinese": "訂幾多位？",
         "english": "How many people?",
-        "context": "The first question they'll ask you — have your number ready",
+        "context": "The first question they'll ask you: have your number ready",
         "difficulty": 1,
         "words": [
           { "chinese": "訂幾多", "jyutping": "deng6 gei2 do1", "english": "booking for how many" },
@@ -728,7 +728,7 @@
         "romanization": "Sei³ wai², gei² dim²?",
         "jyutping": "sei3 wai2, gei2 dim2",
         "chinese": "四位，幾點？",
-        "english": "Four people — what time?",
+        "english": "Four people: what time?",
         "context": "State your party size and ask what times are available",
         "difficulty": 1,
         "words": [
@@ -754,7 +754,7 @@
         "jyutping": "ngo5 sing3",
         "chinese": "我姓...",
         "english": "My surname is...",
-        "context": "Give your surname for the booking — in HK they usually use surnames",
+        "context": "Give your surname for the booking: in HK they usually use surnames",
         "difficulty": 1,
         "words": [
           { "chinese": "我姓", "jyutping": "ngo5 sing3", "english": "my surname is" }
@@ -766,7 +766,7 @@
         "jyutping": "jau5 mou5 hoi3 oi3 wai2",
         "chinese": "有冇戶外座位？",
         "english": "Do you have outdoor seating?",
-        "context": "Ask for al fresco seating — pleasant in HK's cooler months",
+        "context": "Ask for al fresco seating: pleasant in HK's cooler months",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -818,7 +818,7 @@
         "jyutping": "ngo5 soeng2 ceoi1 siu1 deng6 wai2",
         "chinese": "我想取消訂位",
         "english": "I'd like to cancel my reservation",
-        "context": "Cancel a booking — always do this in advance, it's considerate",
+        "context": "Cancel a booking: always do this in advance, it's considerate",
         "difficulty": 2,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
@@ -872,7 +872,7 @@
         "jyutping": "ngo5 soeng2 jyu6 joek3",
         "chinese": "我想預約...",
         "english": "I'd like to make an appointment for...",
-        "context": "Book a hair appointment, doctor, dentist — follow with the service",
+        "context": "Book a hair appointment, doctor, dentist: follow with the service",
         "difficulty": 2,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 soeng2", "english": "I'd like to" },
@@ -940,7 +940,7 @@
             "chinese": "七點半冇位，八點得唔得？",
             "jyutping": "cat1 dim2 bun3 mou5 wai2, baat3 dim2 dak1 m4 dak1?",
             "romanization": "Cat¹ dim² bun³ mou⁵ wai², baat³ dim² dak¹ m⁴ dak¹?",
-            "english": "7:30 is unavailable — would 8pm work?",
+            "english": "7:30 is unavailable: would 8pm work?",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -951,7 +951,7 @@
             "chinese": "得，八點好。我姓Smith。",
             "jyutping": "dak1, baat3 dim2 hou2. ngo5 sing3 Smith.",
             "romanization": "Dak¹, baat³ dim² hou². Ngo⁵ sing³ Smith.",
-            "english": "That works — 8pm is fine. My surname is Smith.",
+            "english": "That works: 8pm is fine. My surname is Smith.",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -962,7 +962,7 @@
             "chinese": "好，Smith四位，星期六晚八點。記落喇。",
             "jyutping": "hou2, Smith sei3 wai2, sing1 kei4 luk6 maan5 baat3 dim2. gei3 lok3 laa3.",
             "romanization": "Hou², Smith sei³ wai², sing¹ kei⁴ luk⁶ maan⁵ baat³ dim². Gei³ lok³ laa³.",
-            "english": "Got it — Smith, four people, Saturday evening at 8. All noted.",
+            "english": "Got it: Smith, four people, Saturday evening at 8. All noted.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1500
           },
@@ -1024,7 +1024,7 @@
             "chinese": "聽日下午，最快幾時有位？",
             "jyutping": "ting1 jat6 haa6 zau3, zeoi3 faai3 gei2 si4 jau5 wai2?",
             "romanization": "Ting¹ jat⁶ haa⁶ zau³, zeoi³ faai³ gei² si⁴ jau⁵ wai²?",
-            "english": "Tomorrow afternoon — what's the earliest available?",
+            "english": "Tomorrow afternoon: what's the earliest available?",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -1035,7 +1035,7 @@
             "chinese": "聽日下午三點有位，得唔得？",
             "jyutping": "ting1 jat6 haa6 zau3 saam1 dim2 jau5 wai2, dak1 m4 dak1?",
             "romanization": "Ting¹ jat⁶ haa⁶ zau³ saam¹ dim² jau⁵ wai², dak¹ m⁴ dak¹?",
-            "english": "Tomorrow at 3pm is available — does that work?",
+            "english": "Tomorrow at 3pm is available: does that work?",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1500
           },
@@ -1057,7 +1057,7 @@
             "chinese": "好，Jones，聽日三點見！",
             "jyutping": "hou2, Jones, ting1 jat6 saam1 dim2 gin3!",
             "romanization": "Hou², Jones, ting¹ jat⁶ saam¹ dim² gin³!",
-            "english": "Great, Jones — see you tomorrow at 3!",
+            "english": "Great, Jones: see you tomorrow at 3!",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1000
           }

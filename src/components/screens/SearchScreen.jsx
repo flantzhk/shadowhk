@@ -158,7 +158,7 @@ export default function SearchScreen({ onNavigate }) {
 
             <input
               className={styles.addInput}
-              placeholder="Type anything — English, characters, or romanisation"
+              placeholder="Type anything: English, characters, or romanisation"
               value={addText}
               onChange={e => { setAddText(e.target.value); setGenerated(null); }}
             />

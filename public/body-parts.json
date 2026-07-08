@@ -27,7 +27,7 @@
       { "id": "body-back", "chinese": "背脊", "romanization": "bui3 zek3", "jyutping": "bui3 zek3", "english": "back", "words": [{ "chinese": "背脊", "jyutping": "bui3 zek3", "english": "back" }] },
       { "id": "body-stomach", "chinese": "肚", "romanization": "tou5", "jyutping": "tou5", "english": "stomach; belly", "context": "肚 also shows up in 肚餓 (hungry) and 肚痛 (stomach ache)", "words": [{ "chinese": "肚", "jyutping": "tou5", "english": "stomach; belly" }] },
       { "id": "body-knee", "chinese": "膝頭", "romanization": "sat1 tau4", "jyutping": "sat1 tau4", "english": "knee", "words": [{ "chinese": "膝頭", "jyutping": "sat1 tau4", "english": "knee" }] },
-      { "id": "body-leg", "chinese": "腳", "romanization": "goek3", "jyutping": "goek3", "english": "leg; foot", "context": "Cantonese uses 腳 for both leg and foot — context makes it clear", "words": [{ "chinese": "腳", "jyutping": "goek3", "english": "leg; foot" }] }
+      { "id": "body-leg", "chinese": "腳", "romanization": "goek3", "jyutping": "goek3", "english": "leg; foot", "context": "Cantonese uses 腳 for both leg and foot: context makes it clear", "words": [{ "chinese": "腳", "jyutping": "goek3", "english": "leg; foot" }] }
     ]
   }
 ]

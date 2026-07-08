@@ -66,7 +66,7 @@
         "jyutping": "nei5 hou2 maa3",
         "chinese": "你好嗎？",
         "english": "How are you?",
-        "context": "A common greeting — expect 好好 in response",
+        "context": "A common greeting: expect 好好 in response",
         "difficulty": 1,
         "words": [
           { "chinese": "你", "jyutping": "nei5", "english": "you" },
@@ -80,7 +80,7 @@
         "jyutping": "do1 ze6",
         "chinese": "多謝",
         "english": "Thank you",
-        "context": "Use for gifts, compliments, and favours — more heartfelt than 唔該",
+        "context": "Use for gifts, compliments, and favours: more heartfelt than 唔該",
         "difficulty": 1,
         "words": [
           { "chinese": "多", "jyutping": "do1", "english": "many / much" },
@@ -93,7 +93,7 @@
         "jyutping": "baai1 baai3",
         "chinese": "拜拜",
         "english": "Bye bye",
-        "context": "The most common way to say goodbye — used by absolutely everyone",
+        "context": "The most common way to say goodbye: used by absolutely everyone",
         "difficulty": 1,
         "words": [
           { "chinese": "拜拜", "jyutping": "baai1 baai3", "english": "bye bye" }
@@ -131,7 +131,7 @@
         "jyutping": "hai6",
         "chinese": "係",
         "english": "Yes",
-        "context": "The Cantonese yes — sounds like 'hey' with a low falling tone",
+        "context": "The Cantonese yes: sounds like 'hey' with a low falling tone",
         "difficulty": 1,
         "words": [
           { "chinese": "係", "jyutping": "hai6", "english": "yes / is / am / are" }
@@ -143,7 +143,7 @@
         "jyutping": "m4 hai6",
         "chinese": "唔係",
         "english": "No / That's not right",
-        "context": "The Cantonese no — literally 'is not'",
+        "context": "The Cantonese no: literally 'is not'",
         "difficulty": 1,
         "words": [
           { "chinese": "唔", "jyutping": "m4", "english": "not" },
@@ -156,7 +156,7 @@
         "jyutping": "hou2",
         "chinese": "好",
         "english": "Okay / Good",
-        "context": "Means both 'good' and 'okay' — you'll use this dozens of times a day",
+        "context": "Means both 'good' and 'okay': you'll use this dozens of times a day",
         "difficulty": 1,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "good / okay" }
@@ -305,7 +305,7 @@
         "jyutping": "jat1",
         "chinese": "一",
         "english": "One",
-        "context": "The number one — used in counting, prices, and quantities",
+        "context": "The number one: used in counting, prices, and quantities",
         "difficulty": 1,
         "words": [
           { "chinese": "一", "jyutping": "jat1", "english": "one" }
@@ -317,7 +317,7 @@
         "jyutping": "ji6",
         "chinese": "二",
         "english": "Two",
-        "context": "Used in phone numbers and formal counting — say 兩 when ordering two of something",
+        "context": "Used in phone numbers and formal counting: say 兩 when ordering two of something",
         "difficulty": 1,
         "words": [
           { "chinese": "二", "jyutping": "ji6", "english": "two" }
@@ -341,7 +341,7 @@
         "jyutping": "sei3",
         "chinese": "四",
         "english": "Four",
-        "context": "The number four — considered unlucky as it sounds like 死 (to die)",
+        "context": "The number four: considered unlucky as it sounds like 死 (to die)",
         "difficulty": 1,
         "words": [
           { "chinese": "四", "jyutping": "sei3", "english": "four" }
@@ -365,7 +365,7 @@
         "jyutping": "luk6",
         "chinese": "六",
         "english": "Six",
-        "context": "The number six — considered lucky as it sounds like 祿 (prosperity)",
+        "context": "The number six: considered lucky as it sounds like 祿 (prosperity)",
         "difficulty": 1,
         "words": [
           { "chinese": "六", "jyutping": "luk6", "english": "six" }
@@ -389,7 +389,7 @@
         "jyutping": "baat3",
         "chinese": "八",
         "english": "Eight",
-        "context": "The number eight — very lucky, sounds like 發 (to prosper)",
+        "context": "The number eight: very lucky, sounds like 發 (to prosper)",
         "difficulty": 1,
         "words": [
           { "chinese": "八", "jyutping": "baat3", "english": "eight" }
@@ -401,7 +401,7 @@
         "jyutping": "gau2",
         "chinese": "九",
         "english": "Nine",
-        "context": "The number nine — sounds like 久 (long time), associated with longevity",
+        "context": "The number nine: sounds like 久 (long time), associated with longevity",
         "difficulty": 1,
         "words": [
           { "chinese": "九", "jyutping": "gau2", "english": "nine" }
@@ -413,7 +413,7 @@
         "jyutping": "sap6",
         "chinese": "十",
         "english": "Ten",
-        "context": "The number ten — combine with other numbers: 十一 (11), 二十 (20)",
+        "context": "The number ten: combine with other numbers: 十一 (11), 二十 (20)",
         "difficulty": 1,
         "words": [
           { "chinese": "十", "jyutping": "sap6", "english": "ten" }
@@ -438,7 +438,7 @@
         "jyutping": "taai3 gwai3 laa3",
         "chinese": "太貴喇！",
         "english": "That's too expensive!",
-        "context": "Say this at markets when negotiating — it's expected and not rude",
+        "context": "Say this at markets when negotiating: it's expected and not rude",
         "difficulty": 1,
         "words": [
           { "chinese": "太", "jyutping": "taai3", "english": "too / excessively" },
@@ -628,7 +628,7 @@
         "jyutping": "hai6 bin1 dou6",
         "chinese": "喺邊度？",
         "english": "Where is it?",
-        "context": "Ask where anything is — attach a noun before it: 廁所喺邊度?",
+        "context": "Ask where anything is: attach a noun before it: 廁所喺邊度?",
         "difficulty": 1,
         "words": [
           { "chinese": "喺", "jyutping": "hai6", "english": "at / is located at" },
@@ -654,7 +654,7 @@
         "jyutping": "ni1 dou6",
         "chinese": "呢度",
         "english": "Here",
-        "context": "Point to something nearby — also used as 'stop here' in a taxi",
+        "context": "Point to something nearby: also used as 'stop here' in a taxi",
         "difficulty": 1,
         "words": [
           { "chinese": "呢", "jyutping": "ni1", "english": "this" },
@@ -680,7 +680,7 @@
         "jyutping": "gei2 si4",
         "chinese": "幾時？",
         "english": "When?",
-        "context": "Ask when something happens — e.g. 幾時開始 (when does it start)",
+        "context": "Ask when something happens: e.g. 幾時開始 (when does it start)",
         "difficulty": 1,
         "words": [
           { "chinese": "幾時", "jyutping": "gei2 si4", "english": "when / what time" }
@@ -692,7 +692,7 @@
         "jyutping": "gei2 dim2",
         "chinese": "幾點？",
         "english": "What time?",
-        "context": "Ask for a specific time — e.g. 幾點開始 (what time does it start)",
+        "context": "Ask for a specific time: e.g. 幾點開始 (what time does it start)",
         "difficulty": 1,
         "words": [
           { "chinese": "幾", "jyutping": "gei2", "english": "how many / what" },
@@ -731,7 +731,7 @@
         "jyutping": "ting1 jat6",
         "chinese": "聽日",
         "english": "Tomorrow",
-        "context": "Used to plan ahead — 後日 (hau6 jat6) means the day after tomorrow",
+        "context": "Used to plan ahead: 後日 (hau6 jat6) means the day after tomorrow",
         "difficulty": 1,
         "words": [
           { "chinese": "聽", "jyutping": "ting1", "english": "tomorrow (Cantonese-specific)" },
@@ -768,7 +768,7 @@
         "jyutping": "dim2 syun3",
         "chinese": "點算？",
         "english": "What should we do?",
-        "context": "Said when you're stuck or something has gone wrong — a very Cantonese expression",
+        "context": "Said when you're stuck or something has gone wrong: a very Cantonese expression",
         "difficulty": 2,
         "words": [
           { "chinese": "點", "jyutping": "dim2", "english": "how" },
@@ -781,7 +781,7 @@
         "jyutping": "me1 je5",
         "chinese": "咩嘢？",
         "english": "What?",
-        "context": "Ask what something is — also used when you didn't hear something",
+        "context": "Ask what something is: also used when you didn't hear something",
         "difficulty": 1,
         "words": [
           { "chinese": "咩", "jyutping": "me1", "english": "what (Cantonese-specific)" },
@@ -820,7 +820,7 @@
         "jyutping": "jau5 mou5",
         "chinese": "有冇？",
         "english": "Do you have any?",
-        "context": "Ask if something is available — in shops, restaurants, everywhere",
+        "context": "Ask if something is available: in shops, restaurants, everywhere",
         "difficulty": 1,
         "words": [
           { "chinese": "有", "jyutping": "jau5", "english": "have / there is" },
@@ -985,7 +985,7 @@
         "jyutping": "hou2, mou5 man6 tai4",
         "chinese": "好，冇問題",
         "english": "Sure, no problem",
-        "context": "Say yes with confidence — the most reassuring thing you can hear in Cantonese",
+        "context": "Say yes with confidence: the most reassuring thing you can hear in Cantonese",
         "difficulty": 1,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "okay / good" },
@@ -1011,7 +1011,7 @@
         "jyutping": "dak1",
         "chinese": "得",
         "english": "Okay / Can do",
-        "context": "A quick, casual yes — means something is possible or you agree",
+        "context": "A quick, casual yes: means something is possible or you agree",
         "difficulty": 1,
         "words": [
           { "chinese": "得", "jyutping": "dak1", "english": "okay / can / possible" }
@@ -1023,7 +1023,7 @@
         "jyutping": "hai6 aa3",
         "chinese": "係呀",
         "english": "Yes, that's right",
-        "context": "Confirm that something is correct — 呀 makes it sound natural and friendly",
+        "context": "Confirm that something is correct: 呀 makes it sound natural and friendly",
         "difficulty": 1,
         "words": [
           { "chinese": "係", "jyutping": "hai6", "english": "yes / correct" },
@@ -1075,7 +1075,7 @@
         "jyutping": "m4 hou2",
         "chinese": "唔好",
         "english": "Don't / Please don't",
-        "context": "Stop someone from doing something — e.g. 唔好喺度食嘢 (don't eat here)",
+        "context": "Stop someone from doing something: e.g. 唔好喺度食嘢 (don't eat here)",
         "difficulty": 1,
         "words": [
           { "chinese": "唔", "jyutping": "m4", "english": "not" },
@@ -1100,7 +1100,7 @@
         "jyutping": "tai2 haa5 sin1",
         "chinese": "睇下先",
         "english": "Let me see / We'll see",
-        "context": "Buy yourself time — a very common Cantonese hedge that's softer than 可能",
+        "context": "Buy yourself time: a very common Cantonese hedge that's softer than 可能",
         "difficulty": 2,
         "words": [
           { "chinese": "睇下", "jyutping": "tai2 haa5", "english": "have a look / see how it goes" },
@@ -1216,7 +1216,7 @@
             "chinese": "唔使客氣，多人多熱鬧。",
             "jyutping": "m4 sai2 haak3 hei3, do1 jan4 do1 jit6 naau6.",
             "romanization": "M⁴ sai² haak³ hei³, do¹ jan⁴ do¹ jit⁶ naau⁶.",
-            "english": "Don't mention it — the more the merrier.",
+            "english": "Don't mention it: the more the merrier.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1000
           }

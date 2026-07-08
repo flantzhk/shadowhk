@@ -10,10 +10,10 @@ import { textToSpeech } from '../../services/api.js';
 import { SIX_TONES } from '../../utils/toneData.js';
 
 const GOTCHAS = [
-  { letters: 'z / c',  note: '"z" sounds like "ds", "c" like "ts" — not the English z/c.', jyutping: 'zi6 gei2', char: '自己', meaning: 'yourself' },
+  { letters: 'z / c',  note: '"z" sounds like "ds", "c" like "ts", not the English z/c.', jyutping: 'zi6 gei2', char: '自己', meaning: 'yourself' },
   { letters: 'j',      note: 'Always a "y" sound, never like the English "j".',            jyutping: 'jat1',     char: '一',   meaning: 'one' },
-  { letters: 'ng-',    note: 'A nasal onset with no English equivalent — hum before the vowel.', jyutping: 'ngo5', char: '我',   meaning: 'I / me' },
-  { letters: 'eo / oe', note: 'A rounded vowel between "u" and "eu" — nothing like it in English.', jyutping: 'seoi2', char: '水', meaning: 'water' },
+  { letters: 'ng-',    note: 'A nasal onset with no English equivalent, hum before the vowel.', jyutping: 'ngo5', char: '我',   meaning: 'I / me' },
+  { letters: 'eo / oe', note: 'A rounded vowel between "u" and "eu", nothing like it in English.', jyutping: 'seoi2', char: '水', meaning: 'water' },
 ];
 
 export default function JyutpingGuide({ onBack, onNavigate }) {
@@ -53,7 +53,7 @@ export default function JyutpingGuide({ onBack, onNavigate }) {
 
       <div className={styles.intro}>
         <p className={styles.introText}>
-          Jyutping spells Cantonese sounds with letters you already know, plus a number at the end of each syllable — that number is the <strong>tone</strong>. Same letters, different number, completely different word.
+          Jyutping spells Cantonese sounds with letters you already know, plus a number at the end of each syllable: that number is the <strong>tone</strong>. Same letters, different number, completely different word.
         </p>
       </div>
 

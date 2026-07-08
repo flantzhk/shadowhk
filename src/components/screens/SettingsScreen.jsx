@@ -22,7 +22,9 @@ import styles from './SettingsScreen.module.css';
 /**
  * @param {{ onBack: Function, onNavigate?: Function }} props
  */
-export default function SettingsScreen({ onBack, onNavigate, showToast }) {
+export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, showToast }) {
+  const back = onBack ?? goBack;
+  const nav = onNavigate ?? navigate;
   const { settings, updateSettings } = useAppContext();
   const languages = getAllLanguages();
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
@@ -140,7 +142,7 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      showToast?.('Your data is ready — check your downloads', 'success');
+      showToast?.('Your data is ready, check your downloads', 'success');
     } catch (err) {
       showToast?.('Export failed. Please try again.', 'error');
     } finally {
@@ -156,7 +158,7 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
   return (
     <div className={styles.screen}>
       <div className={styles.header}>
-        <button className={styles.backButton} onClick={onBack} aria-label="Go back">
+        <button className={styles.backButton} onClick={back} aria-label="Go back">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <polyline points="15 18 9 12 15 6" />
           </svg>
@@ -275,8 +277,8 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
           <span className={styles.accountLabel}>Email</span>
           <span className={styles.accountValue}>{getCurrentUser()?.email || settings.email || '—'}</span>
         </div>
-        {onNavigate && (
-          <button className={styles.navLink} onClick={() => onNavigate(ROUTES.PROFILE)}>View full profile</button>
+        {nav && (
+          <button className={styles.navLink} onClick={() => nav(ROUTES.PROFILE)}>View full profile</button>
         )}
         <button className={styles.signOutBtn} onClick={() => setShowSignOutConfirm(true)}>Sign out</button>
         <button className={styles.deleteAccountBtn} onClick={() => setShowDeleteWarning(true)}>
@@ -296,18 +298,18 @@ export default function SettingsScreen({ onBack, onNavigate, showToast }) {
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>App</h2>
-        {onNavigate && (
+        {nav && (
           <>
-            <button className={styles.appRow} onClick={() => onNavigate(ROUTES.ABOUT)}>
+            <button className={styles.appRow} onClick={() => nav(ROUTES.ABOUT)}>
               <span>About ShadowSpeak</span><span className={styles.appChevron}>›</span>
             </button>
-            <button className={styles.appRow} onClick={() => onNavigate(ROUTES.FAQ)}>
+            <button className={styles.appRow} onClick={() => nav(ROUTES.FAQ)}>
               <span>FAQ</span><span className={styles.appChevron}>›</span>
             </button>
-            <button className={styles.appRow} onClick={() => onNavigate(ROUTES.SUPPORT)}>
+            <button className={styles.appRow} onClick={() => nav(ROUTES.SUPPORT)}>
               <span>Help &amp; Support</span><span className={styles.appChevron}>›</span>
             </button>
-            <button className={styles.appRow} onClick={() => onNavigate(ROUTES.CONTACT)}>
+            <button className={styles.appRow} onClick={() => nav(ROUTES.CONTACT)}>
               <span>Contact / Support</span><span className={styles.appChevron}>›</span>
             </button>
           </>

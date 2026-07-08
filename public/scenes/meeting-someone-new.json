@@ -10,7 +10,7 @@
     "difficulty": "starter",
     "estimatedMinutes": 5,
     "location": "A social gathering, housewarming, or community event",
-    "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask — and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
+    "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask, and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
     "cultural_note": "A common casual greeting in Cantonese is 你食咗飯未 (nei5 sik6 zo2 faan6 mei6, \"have you eaten yet?\"). It's not a literal question about meals. The greeting is centuries old and shared across the Chinese-speaking world, born of eras when having eaten was never guaranteed, and expressing care through food still runs through how Hong Kong people show they value each other. The expected answer is always yes.",
     "lines": [
         {
@@ -65,8 +65,8 @@
             "jyutping": "hai6, ngo5 hai6 [nei5 ge3 meng2]. hou2 gou1 hing3 jing6 sik1 nei5!",
             "english": "Yes, I'm [your name]. Great to meet you!",
             "audioFile": "msn-02.mp3",
-            "scenario": "This is your opening. Swap [your name] for your own name — your personal intro scene will have this phrase built and ready for you.",
-            "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5) — 'great to meet you'. Warm and natural.",
+            "scenario": "This is your opening. Swap [your name] for your own name; your personal intro scene will have this phrase built and ready for you.",
+            "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5), meaning 'great to meet you'. Warm and natural.",
             "words": [
                 {
                     "chinese": "係",
@@ -172,7 +172,7 @@
             "speaker": "you",
             "cjk": "我係英國人，喺倫敦長大嘅。",
             "jyutping": "ngo5 hai6 jing1 gwok3 jan4, hai2 leon4 deon1 zoeng2 daai6 ge3.",
-            "english": "I'm British — I grew up in London.",
+            "english": "I'm British; I grew up in London.",
             "audioFile": "msn-04.mp3",
             "scenario": "The key pattern: 我係 [nationality] 人，喺 [hometown] 大嘅. Your personal intro scene will have your own version of this phrase ready to go.",
             "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy.",
@@ -256,7 +256,7 @@
             "jyutping": "ngo5 lai4 zo2 saam1 nin4 laa3. nei5 ne1?",
             "english": "I've been here three years. What about you?",
             "audioFile": "msn-06.mp3",
-            "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1) — 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
+            "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1), meaning 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
             "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years).",
             "words": [
                 {
@@ -306,7 +306,7 @@
             "speaker": "them",
             "cjk": "我係本地人，土生土長喺香港㗎。你住喺邊度？",
             "jyutping": "ngo5 hai6 bun2 dei6 jan4, tou2 saang1 tou2 zoeng2 hai2 hoeng1 gong2 gaa3. nei5 zyu6 hai2 bin1 dou6?",
-            "english": "I'm a local — born and raised in Hong Kong. Where do you live?",
+            "english": "I'm a local, born and raised in Hong Kong. Where do you live?",
             "audioFile": "msn-07.mp3",
             "words": [
                 {
@@ -376,7 +376,7 @@
             "speaker": "you",
             "cjk": "我住喺西環，好近地鐵站。",
             "jyutping": "ngo5 zyu6 hai2 sai1 waan4, hou2 kan5 dei6 tit3 zaam6.",
-            "english": "I live in Sai Wan — right near the MTR.",
+            "english": "I live in Sai Wan, right near the MTR.",
             "audioFile": "msn-08.mp3",
             "scenario": "Tell them your neighbourhood. Your personal intro scene will have your own district phrase built for you.",
             "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true.",

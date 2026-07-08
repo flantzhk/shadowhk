@@ -5,12 +5,12 @@
     "imageUrl": "/shadowhk/images/scenes/asking-for-directions.jpg",
     "tint": "#5AC8E8",
     "title": "Asking for directions",
-    "description": "Find your way around HK — ask a stranger for help getting to the MTR",
+    "description": "Find your way around HK: ask a stranger for help getting to the MTR",
     "category": "transport",
     "difficulty": "everyday",
     "estimatedMinutes": 5,
     "location": "Street, Mongkok",
-    "context": "Hong Kong streets can be confusing — overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
+    "context": "Hong Kong streets can be confusing: overpasses, underground malls, and MTR exits with letters A1 through E. Most locals are happy to help with directions, especially if you try in Cantonese. Saying 唔該 (m4 goi1) before asking is essential politeness.",
     "cultural_note": "Outside a few gridded pockets of Kowloon, Hong Kong refuses to behave like a street grid. The same address might sit on an elevated walkway, down a hillside staircase, or inside a shopping mall that passes straight through a building. Locals navigate by landmarks (opposite the 7-Eleven, up one floor), not compass points or street numbers.",
     "lines": [
         {
@@ -358,7 +358,7 @@
             "speaker": "stranger",
             "cjk": "唔使客氣，慢慢行！",
             "jyutping": "m4 sai2 haak3 hei3, maan6 maan2 haang4!",
-            "english": "No worries at all — take your time!",
+            "english": "No worries at all, take your time!",
             "audioFile": "dir-08.mp3",
             "words": [
                 {

@@ -14,7 +14,7 @@
         "jyutping": "heoi3 ..., m4 goi1",
         "chinese": "去...，唔該",
         "english": "To... please",
-        "context": "The most important taxi phrase — follow with your destination",
+        "context": "The most important taxi phrase: follow with your destination",
         "difficulty": 1,
         "words": [
           { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
@@ -27,7 +27,7 @@
         "jyutping": "heoi3 zung1 waan4, m4 goi1",
         "chinese": "去中環，唔該",
         "english": "To Central please",
-        "context": "Naming Central as your destination — swap for any HK district",
+        "context": "Naming Central as your destination: swap for any HK district",
         "difficulty": 1,
         "words": [
           { "chinese": "去", "jyutping": "heoi3", "english": "go to" },
@@ -41,7 +41,7 @@
         "jyutping": "ni1 dou6 lok6",
         "chinese": "呢度落",
         "english": "Stop here",
-        "context": "Tell the driver to pull over — they'll stop as soon as it's safe",
+        "context": "Tell the driver to pull over: they'll stop as soon as it's safe",
         "difficulty": 1,
         "words": [
           { "chinese": "呢度", "jyutping": "ni1 dou6", "english": "here" },
@@ -68,7 +68,7 @@
         "jyutping": "cin4 min6 zyun3 jau6",
         "chinese": "前面轉右",
         "english": "Turn right up ahead",
-        "context": "Direct the driver — use if they're about to miss a turn",
+        "context": "Direct the driver: use if they're about to miss a turn",
         "difficulty": 2,
         "words": [
           { "chinese": "前面", "jyutping": "cin4 min6", "english": "up ahead" },
@@ -94,7 +94,7 @@
         "jyutping": "m4 sai2 gwo3 hoi2",
         "chinese": "唔使過海",
         "english": "No need to cross the harbour",
-        "context": "Tell the driver not to take the tunnel — avoids extra tolls",
+        "context": "Tell the driver not to take the tunnel: avoids extra tolls",
         "difficulty": 2,
         "words": [
           { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need to" },
@@ -120,7 +120,7 @@
         "jyutping": "hoi1 haa5 laang5 hei3",
         "chinese": "開下冷氣",
         "english": "Could you turn on the AC?",
-        "context": "HK taxis can be hot — politely ask for the air con",
+        "context": "HK taxis can be hot: politely ask for the air con",
         "difficulty": 2,
         "words": [
           { "chinese": "開下", "jyutping": "hoi1 haa5", "english": "turn on / open a little" },
@@ -146,7 +146,7 @@
         "jyutping": "m4 goi1 faai3 di1",
         "chinese": "唔該快啲",
         "english": "Please hurry",
-        "context": "Use when you're running late — drivers will do their best",
+        "context": "Use when you're running late: drivers will do their best",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -172,7 +172,7 @@
         "jyutping": "m4 sai2 zaau2",
         "chinese": "唔使找",
         "english": "Keep the change",
-        "context": "Tell the driver to keep the change — rounding up is the norm",
+        "context": "Tell the driver to keep the change: rounding up is the norm",
         "difficulty": 1,
         "words": [
           { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need to" },
@@ -185,7 +185,7 @@
         "jyutping": "ho2 m4 ho2 ji3 jung6 kaat1",
         "chinese": "可唔可以用卡？",
         "english": "Can I pay by card?",
-        "context": "Most HK taxis are cash only — ask to be safe",
+        "context": "Most HK taxis are cash only: ask to be safe",
         "difficulty": 1,
         "words": [
           { "chinese": "可唔可以", "jyutping": "ho2 m4 ho2 ji3", "english": "can I / is it okay" },
@@ -198,7 +198,7 @@
         "jyutping": "daa2 zo2 biu1 mei6",
         "chinese": "打咗錶未？",
         "english": "Did you start the meter?",
-        "context": "Check if the driver started the meter — especially important at night",
+        "context": "Check if the driver started the meter: especially important at night",
         "difficulty": 3,
         "words": [
           { "chinese": "打咗", "jyutping": "daa2 zo2", "english": "already hit / started" },
@@ -212,7 +212,7 @@
         "jyutping": "dou3 zo2, do1 ze6",
         "chinese": "到咗，多謝",
         "english": "We're here, thank you",
-        "context": "Say this as you arrive — a polite farewell to the driver",
+        "context": "Say this as you arrive: a polite farewell to the driver",
         "difficulty": 1,
         "words": [
           { "chinese": "到咗", "jyutping": "dou3 zo2", "english": "arrived / we're here" },
@@ -360,7 +360,7 @@
       },
       {
         "id": "taxi-scene-2",
-        "title": "Taxi in the rain — running late",
+        "title": "Taxi in the rain: running late",
         "description": "You're late and need the driver to hurry",
         "turns": [
           {
@@ -370,7 +370,7 @@
             "chinese": "去尖沙咀，唔該。快啲，我遲到喇。",
             "jyutping": "heoi3 zim1 saa1 zeoi2, m4 goi1. faai3 di1, ngo5 ci4 dou3 laa3.",
             "romanization": "Heoi³ zim¹ saa¹ zeoi², m⁴ goi¹. Faai³ di¹, ngo⁵ ci⁴ dou³ laa³.",
-            "english": "To Tsim Sha Tsui please. Quickly — I'm late.",
+            "english": "To Tsim Sha Tsui please. Quickly: I'm late.",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -403,7 +403,7 @@
             "chinese": "好，到喇，係唔係呢度落？",
             "jyutping": "hou2, dou3 laa3, hai6 m4 hai6 ni1 dou6 lok6?",
             "romanization": "Hou², dou³ laa³, hai⁶ m⁴ hai⁶ ni¹ dou⁶ lok⁶?",
-            "english": "Okay, we're here — is this where you're getting off?",
+            "english": "Okay, we're here: is this where you're getting off?",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -477,7 +477,7 @@
         "jyutping": "ceot1 gei2 hou6 ceot1 hau2",
         "chinese": "出幾號出口？",
         "english": "Which exit?",
-        "context": "HK MTR exits are labeled A, B, C etc — knowing the right one saves time",
+        "context": "HK MTR exits are labeled A, B, C etc: knowing the right one saves time",
         "difficulty": 2,
         "words": [
           { "chinese": "出", "jyutping": "ceot1", "english": "exit / go out" },
@@ -491,7 +491,7 @@
         "jyutping": "A ceot1 hau2",
         "chinese": "A出口",
         "english": "Exit A",
-        "context": "The exit letter you need — MTR exits are labeled A1, A2, B, C etc.",
+        "context": "The exit letter you need: MTR exits are labeled A1, A2, B, C etc.",
         "difficulty": 1,
         "words": [
           { "chinese": "A", "jyutping": "A", "english": "A (letter)" },
@@ -530,7 +530,7 @@
         "jyutping": "m4 goi1 giu3 ngo5 lok6",
         "chinese": "唔該叫我落",
         "english": "Please tell me when to get off",
-        "context": "Ask a nearby passenger to alert you at your stop — people are very helpful",
+        "context": "Ask a nearby passenger to alert you at your stop: people are very helpful",
         "difficulty": 2,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "please" },
@@ -657,7 +657,7 @@
             "chinese": "搭港島線，唔使轉線。",
             "jyutping": "daap3 gong2 dou2 sin3, m4 sai2 zyun3 sin3.",
             "romanization": "Daap³ gong² dou² sin³, m⁴ sai² zyun³ sin³.",
-            "english": "Take the Island Line — no transfers needed.",
+            "english": "Take the Island Line: no transfers needed.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -777,7 +777,7 @@
         "jyutping": "jau5 mou5 daai6 maa5",
         "chinese": "有冇大碼？",
         "english": "Do you have a bigger size?",
-        "context": "Ask for a larger size — 大碼 (large), 細碼 (small), 中碼 (medium)",
+        "context": "Ask for a larger size: 大碼 (large), 細碼 (small), 中碼 (medium)",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -843,7 +843,7 @@
         "jyutping": "jau5 mou5 hak1 sik1",
         "chinese": "有冇黑色？",
         "english": "Do you have this in black?",
-        "context": "Ask for a specific colour — swap 黑色 for 白色 (white), 紅色 (red), 藍色 (blue)",
+        "context": "Ask for a specific colour: swap 黑色 for 白色 (white), 紅色 (red), 藍色 (blue)",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -856,7 +856,7 @@
         "jyutping": "daa2 gei2 zit3",
         "chinese": "打幾折？",
         "english": "What's the discount?",
-        "context": "Ask about any sale or discount — 打八折 means 20% off (paying 8/10)",
+        "context": "Ask about any sale or discount: 打八折 means 20% off (paying 8/10)",
         "difficulty": 2,
         "words": [
           { "chinese": "打", "jyutping": "daa2", "english": "to give (a discount)" },
@@ -934,7 +934,7 @@
         "jyutping": "m4 maai5 laa3, do1 ze6",
         "chinese": "唔買喇，多謝",
         "english": "I won't buy it, thanks",
-        "context": "Politely decline after looking — staff won't be offended",
+        "context": "Politely decline after looking: staff won't be offended",
         "difficulty": 1,
         "words": [
           { "chinese": "唔買喇", "jyutping": "m4 maai5 laa3", "english": "won't buy / decided not to" },
@@ -947,7 +947,7 @@
         "jyutping": "tai2 haa5 sin1",
         "chinese": "睇下先",
         "english": "Just browsing for now",
-        "context": "Tell staff you're just looking — they'll give you space",
+        "context": "Tell staff you're just looking: they'll give you space",
         "difficulty": 1,
         "words": [
           { "chinese": "睇下", "jyutping": "tai2 haa5", "english": "have a look / browse" },
@@ -960,7 +960,7 @@
         "jyutping": "jau5 mou5 sau1 geoi3",
         "chinese": "有冇收據？",
         "english": "Can I have a receipt?",
-        "context": "Ask for a receipt — useful for returns and expense claims",
+        "context": "Ask for a receipt: useful for returns and expense claims",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "can I have / do you have" },
@@ -973,7 +973,7 @@
         "jyutping": "jau5 mou5 doi2",
         "chinese": "有冇袋？",
         "english": "Do you have a bag?",
-        "context": "Ask for a shopping bag — some shops charge for them now",
+        "context": "Ask for a shopping bag: some shops charge for them now",
         "difficulty": 1,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -986,7 +986,7 @@
         "jyutping": "m4 sai2 doi2, do1 ze6",
         "chinese": "唔使袋，多謝",
         "english": "No bag needed, thanks",
-        "context": "Decline the bag — environmentally friendly and saves the plastic bag levy",
+        "context": "Decline the bag: environmentally friendly and saves the plastic bag levy",
         "difficulty": 1,
         "words": [
           { "chinese": "唔使", "jyutping": "m4 sai2", "english": "no need for" },
@@ -1027,7 +1027,7 @@
         "jyutping": "jau5 mou5 san1 fun2",
         "chinese": "有冇新款？",
         "english": "Do you have new styles?",
-        "context": "Ask if there are new arrivals — useful in fashion or electronics shops",
+        "context": "Ask if there are new arrivals: useful in fashion or electronics shops",
         "difficulty": 2,
         "words": [
           { "chinese": "有冇", "jyutping": "jau5 mou5", "english": "do you have" },
@@ -1052,7 +1052,7 @@
         "romanization": "Baau¹ zong¹ hou² di¹, sung³ jan⁴ ge³",
         "jyutping": "baau1 zong1 hou2 di1, sung3 jan4 ge3",
         "chinese": "包裝好啲，送人㗎",
-        "english": "Please wrap it nicely — it's a gift",
+        "english": "Please wrap it nicely: it's a gift",
         "context": "Ask for gift wrapping",
         "difficulty": 3,
         "words": [
@@ -1079,7 +1079,7 @@
         "jyutping": "ngo5 seung2 tai2 haa5",
         "chinese": "我想睇下...",
         "english": "I'd like to look at...",
-        "context": "Ask to see a specific item — follow with what you want to see",
+        "context": "Ask to see a specific item: follow with what you want to see",
         "difficulty": 1,
         "words": [
           { "chinese": "我想", "jyutping": "ngo5 seung2", "english": "I'd like to" },
@@ -1173,7 +1173,7 @@
             "chinese": "呢個太貴喇，平啲得唔得？",
             "jyutping": "ni1 go3 taai3 gwai3 laa3, peng4 di1 dak1 m4 dak1?",
             "romanization": "Ni¹ go³ taai³ gwai³ laa³, peng⁴ di¹ dak¹ m⁴ dak¹?",
-            "english": "This is too expensive — can you go cheaper?",
+            "english": "This is too expensive: can you go cheaper?",
             "voiceId": null,
             "pauseAfterMs": 2000
           },
@@ -1184,7 +1184,7 @@
             "chinese": "係靚嘢嚟㗎，平唔得㗎。",
             "jyutping": "hai6 leng3 je5 lai4 gaa3, peng4 m4 dak1 gaa3.",
             "romanization": "Hai⁶ leng³ je⁵ lai⁴ gaa³, peng⁴ m⁴ dak¹ gaa³.",
-            "english": "It's good quality — I can't go lower.",
+            "english": "It's good quality: I can't go lower.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1206,7 +1206,7 @@
             "chinese": "買兩件打九折，二百七十蚊。",
             "jyutping": "maai5 loeng5 gin6 daa2 gau2 zit3, ji6 baak3 cat1 sap6 man1.",
             "romanization": "Maai⁵ loeng⁵ gin⁶ daa² gau² zit³, ji⁶ baak³ cat¹ sap⁶ man¹.",
-            "english": "Buy two and get 10% off — two hundred and seventy dollars.",
+            "english": "Buy two and get 10% off: two hundred and seventy dollars.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1240,7 +1240,7 @@
         "jyutping": "m4 goi1, ... dim2 heoi3",
         "chinese": "唔該，...點去？",
         "english": "Excuse me, how do I get to...?",
-        "context": "Start any directions request with this — follow with your destination",
+        "context": "Start any directions request with this: follow with your destination",
         "difficulty": 1,
         "words": [
           { "chinese": "唔該", "jyutping": "m4 goi1", "english": "excuse me" },
@@ -1253,7 +1253,7 @@
         "jyutping": "zik6 haang4",
         "chinese": "直行",
         "english": "Go straight",
-        "context": "The most common direction — keep going straight ahead",
+        "context": "The most common direction: keep going straight ahead",
         "difficulty": 1,
         "words": [
           { "chinese": "直", "jyutping": "zik6", "english": "straight / direct" },
@@ -1331,7 +1331,7 @@
         "jyutping": "hai6 fu6 gan6",
         "chinese": "喺附近",
         "english": "It's nearby",
-        "context": "Reassurance that something is close — a very useful thing to hear",
+        "context": "Reassurance that something is close: a very useful thing to hear",
         "difficulty": 1,
         "words": [
           { "chinese": "喺", "jyutping": "hai6", "english": "is at" },
@@ -1344,7 +1344,7 @@
         "jyutping": "m4 hai6 hou2 jyun5",
         "chinese": "唔係好遠",
         "english": "It's not too far",
-        "context": "Expect to hear this a lot — HK people often underestimate walking distance",
+        "context": "Expect to hear this a lot: HK people often underestimate walking distance",
         "difficulty": 1,
         "words": [
           { "chinese": "唔係", "jyutping": "m4 hai6", "english": "not" },
@@ -1383,7 +1383,7 @@
         "jyutping": "gwo3 zo2 ... zau6 hai6",
         "chinese": "過咗...就係",
         "english": "Just past... you'll see it",
-        "context": "A landmark-based direction — very common in HK",
+        "context": "A landmark-based direction: very common in HK",
         "difficulty": 3,
         "words": [
           { "chinese": "過咗", "jyutping": "gwo3 zo2", "english": "past / after you pass" },
@@ -1415,7 +1415,7 @@
             "chinese": "有，喺前面轉左，唔係好遠。",
             "jyutping": "jau5, hai6 cin4 min6 zyun3 zo2, m4 hai6 hou2 jyun5.",
             "romanization": "Jau⁵, hai⁶ cin⁴ min⁶ zyun³ zo², m⁴ hai⁶ hou² jyun⁵.",
-            "english": "Yes — go straight, turn left, it's not far.",
+            "english": "Yes: go straight, turn left, it's not far.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1448,7 +1448,7 @@
             "chinese": "明白，直行轉左。多謝！",
             "jyutping": "ming4 baak6, zik6 haang4 zyun3 zo2. do1 ze6!",
             "romanization": "Ming⁴ baak⁶, zik⁶ haang⁴ zyun³ zo². Do¹ ze⁶!",
-            "english": "Got it — straight then turn left. Thanks!",
+            "english": "Got it: straight then turn left. Thanks!",
             "voiceId": null,
             "pauseAfterMs": 1000
           }
@@ -1477,7 +1477,7 @@
             "chinese": "直行，過咗那個超市就係。",
             "jyutping": "zik6 haang4, gwo3 zo2 go2 go3 ciu1 si5 zau6 hai6.",
             "romanization": "Zik⁶ haang⁴, gwo³ zo² go² go³ ciu¹ si⁵ zau⁶ hai⁶.",
-            "english": "Go straight — just past that supermarket you'll see it.",
+            "english": "Go straight: just past that supermarket you'll see it.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },
@@ -1499,7 +1499,7 @@
             "chinese": "喺附近㗎，行五分鐘。",
             "jyutping": "hai6 fu6 gan6 gaa3, haang4 ng5 fan1 jung1.",
             "romanization": "Hai⁶ fu⁶ gan⁶ gaa³, haang⁴ ng⁵ fan¹ jung¹.",
-            "english": "It's nearby — five minutes' walk.",
+            "english": "It's nearby: five minutes' walk.",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 1500
           },

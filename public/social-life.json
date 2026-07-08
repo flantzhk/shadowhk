@@ -14,7 +14,7 @@
         "jyutping": "ngo5 giu3",
         "chinese": "我叫...",
         "english": "My name is...",
-        "context": "Introduce yourself — follow with your first name",
+        "context": "Introduce yourself: follow with your first name",
         "difficulty": 1,
         "words": [
           { "chinese": "我", "jyutping": "ngo5", "english": "I / me" },
@@ -27,7 +27,7 @@
         "jyutping": "hang6 wui6, hang6 wui6",
         "chinese": "幸會，幸會",
         "english": "Pleased to meet you",
-        "context": "A formal and friendly way to say nice to meet you — repeating it sounds warm",
+        "context": "A formal and friendly way to say nice to meet you: repeating it sounds warm",
         "difficulty": 1,
         "words": [
           { "chinese": "幸會", "jyutping": "hang6 wui6", "english": "honoured to meet you" }
@@ -67,7 +67,7 @@
         "jyutping": "ngo5 hai6 jing1 gwok3 jan4",
         "chinese": "我係英國人",
         "english": "I'm British",
-        "context": "State your nationality — swap: 澳洲 (Australia), 美國 (USA), 加拿大 (Canada)",
+        "context": "State your nationality, swap: 澳洲 (Australia), 美國 (USA), 加拿大 (Canada)",
         "difficulty": 1,
         "words": [
           { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am" },
@@ -107,7 +107,7 @@
         "jyutping": "ngo5 zyu6 zo2 loeng5 nin4",
         "chinese": "我住咗兩年",
         "english": "I've been here two years",
-        "context": "Say how long you've lived in HK — swap in the number of years",
+        "context": "Say how long you've lived in HK: swap in the number of years",
         "difficulty": 2,
         "words": [
           { "chinese": "我住咗", "jyutping": "ngo5 zyu6 zo2", "english": "I have lived for" },
@@ -120,7 +120,7 @@
         "jyutping": "nei5 zung1 m4 zung1 ji3 hoeng1 gong2",
         "chinese": "你鍾唔鍾意香港？",
         "english": "Do you like Hong Kong?",
-        "context": "Locals love asking this — have a positive answer ready",
+        "context": "Locals love asking this: have a positive answer ready",
         "difficulty": 2,
         "words": [
           { "chinese": "你", "jyutping": "nei5", "english": "you" },
@@ -134,7 +134,7 @@
         "jyutping": "ngo5 hou2 zung1 ji3",
         "chinese": "我好鍾意",
         "english": "I love it",
-        "context": "Say this with genuine warmth — HK people appreciate it",
+        "context": "Say this with genuine warmth: HK people appreciate it",
         "difficulty": 1,
         "words": [
           { "chinese": "我好鍾意", "jyutping": "ngo5 hou2 zung1 ji3", "english": "I really like / love it" }
@@ -146,7 +146,7 @@
         "jyutping": "nei5 zou6 me1 je5 gaa3",
         "chinese": "你做咩嘢㗎？",
         "english": "What do you do?",
-        "context": "Ask about someone's job — 㗎 softens the question",
+        "context": "Ask about someone's job: 㗎 softens the question",
         "difficulty": 2,
         "words": [
           { "chinese": "你", "jyutping": "nei5", "english": "you" },
@@ -160,7 +160,7 @@
         "jyutping": "ngo5 hai6 lou5 si1",
         "chinese": "我係老師",
         "english": "I'm a teacher",
-        "context": "State your profession — swap: 醫生 (doctor), 律師 (lawyer), 商人 (businessman)",
+        "context": "State your profession, swap: 醫生 (doctor), 律師 (lawyer), 商人 (businessman)",
         "difficulty": 1,
         "words": [
           { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am" },
@@ -200,7 +200,7 @@
         "jyutping": "ngo5 jau5 loeng5 go3 siu2 pang4 jau5",
         "chinese": "我有兩個小朋友",
         "english": "I have two children",
-        "context": "Say how many children you have — swap the number as needed",
+        "context": "Say how many children you have: swap the number as needed",
         "difficulty": 2,
         "words": [
           { "chinese": "我有", "jyutping": "ngo5 jau5", "english": "I have" },
@@ -214,7 +214,7 @@
         "jyutping": "gei2 do1 seoi3",
         "chinese": "幾多歲？",
         "english": "How old?",
-        "context": "Ask a child's age — perfectly normal to ask in HK",
+        "context": "Ask a child's age: perfectly normal to ask in HK",
         "difficulty": 1,
         "words": [
           { "chinese": "幾多", "jyutping": "gei2 do1", "english": "how many" },
@@ -227,7 +227,7 @@
         "jyutping": "keoi5 duk6 bin1 gaan1 hok6 haau6",
         "chinese": "佢讀邊間學校？",
         "english": "Which school does he/she go to?",
-        "context": "School is a big topic for HK parents — a common early question",
+        "context": "School is a big topic for HK parents: a common early question",
         "difficulty": 2,
         "words": [
           { "chinese": "佢", "jyutping": "keoi5", "english": "he / she" },
@@ -255,7 +255,7 @@
         "jyutping": "ngo5 sik1 siu2 siu2",
         "chinese": "我識少少",
         "english": "I know a little",
-        "context": "The humble and accurate answer for most learners — locals will always encourage you",
+        "context": "The humble and accurate answer for most learners: locals will always encourage you",
         "difficulty": 1,
         "words": [
           { "chinese": "我識", "jyutping": "ngo5 sik1", "english": "I know / I can" },
@@ -283,7 +283,7 @@
         "jyutping": "nei5 gwong2 dung1 waa2 gong2 dak1 hou2 hou2",
         "chinese": "你廣東話講得好好",
         "english": "Your Cantonese is really good",
-        "context": "What locals will say — accept graciously!",
+        "context": "What locals will say: accept graciously!",
         "difficulty": 3,
         "words": [
           { "chinese": "你", "jyutping": "nei5", "english": "your" },
@@ -323,7 +323,7 @@
         "jyutping": "ngo5 zyu6 hai2 bun3 saan1",
         "chinese": "我住喺半山",
         "english": "I live in Mid-Levels",
-        "context": "Say your neighbourhood — popular expat areas: 跑馬地 (Happy Valley), 西貢 (Sai Kung), 太古 (Taikoo)",
+        "context": "Say your neighbourhood: popular expat areas: 跑馬地 (Happy Valley), 西貢 (Sai Kung), 太古 (Taikoo)",
         "difficulty": 2,
         "words": [
           { "chinese": "我住喺", "jyutping": "ngo5 zyu6 hai2", "english": "I live in / at" },
@@ -336,7 +336,7 @@
         "jyutping": "nei5 hai2 ni1 dou6 zou6 gei2 noi6",
         "chinese": "你喺呢度做幾耐？",
         "english": "How long will you be here?",
-        "context": "Ask about someone's plans — expat postings come and go",
+        "context": "Ask about someone's plans: expat postings come and go",
         "difficulty": 2,
         "words": [
           { "chinese": "你喺呢度", "jyutping": "nei5 hai2 ni1 dou6", "english": "you here" },
@@ -348,7 +348,7 @@
         "romanization": "M⁴ zi¹, tai² haa⁵ sin¹",
         "jyutping": "m4 zi1, tai2 haa5 sin1",
         "chinese": "唔知，睇下先",
-        "english": "Not sure yet — we'll see",
+        "english": "Not sure yet: we'll see",
         "context": "The typical expat answer about how long you'll be in HK",
         "difficulty": 1,
         "words": [
@@ -362,7 +362,7 @@
         "jyutping": "nei5 jau5 mou5 WhatsApp",
         "chinese": "你有冇WhatsApp？",
         "english": "Are you on WhatsApp?",
-        "context": "WhatsApp is universal in HK — the standard way to exchange contacts",
+        "context": "WhatsApp is universal in HK: the standard way to exchange contacts",
         "difficulty": 1,
         "words": [
           { "chinese": "你有冇", "jyutping": "nei5 jau5 mou5", "english": "do you have" },
@@ -389,7 +389,7 @@
         "jyutping": "haa6 ci3 jat1 cai4 sik6 faan6",
         "chinese": "下次一齊食飯",
         "english": "Let's have dinner together sometime",
-        "context": "A warm, open invitation to get together — follow through with a WhatsApp!",
+        "context": "A warm, open invitation to get together: follow through with a WhatsApp!",
         "difficulty": 2,
         "words": [
           { "chinese": "下次", "jyutping": "haa6 ci3", "english": "next time" },
@@ -403,7 +403,7 @@
         "jyutping": "ngo5 dei6 bou2 ci3 lyun4 lok3",
         "chinese": "我哋保持聯絡",
         "english": "Let's keep in touch",
-        "context": "Said at the end of meeting someone new — a genuine farewell sentiment",
+        "context": "Said at the end of meeting someone new: a genuine farewell sentiment",
         "difficulty": 3,
         "words": [
           { "chinese": "我哋", "jyutping": "ngo5 dei6", "english": "we / us" },
@@ -445,7 +445,7 @@
         "jyutping": "nei5 lou5 gung1 / lou5 po4 hai6 bin1 dou6 jan4",
         "chinese": "你老公/老婆係邊度人？",
         "english": "Where is your husband/wife from?",
-        "context": "A common question in multicultural HK — 老公 = husband, 老婆 = wife",
+        "context": "A common question in multicultural HK: 老公 = husband, 老婆 = wife",
         "difficulty": 2,
         "words": [
           { "chinese": "你老公", "jyutping": "nei5 lou5 gung1", "english": "your husband" },
@@ -459,7 +459,7 @@
         "jyutping": "ngo5 dei6 hai6 gwok3 zai3 gaa1 teng1",
         "chinese": "我哋係國際家庭",
         "english": "We're an international family",
-        "context": "Describe your multicultural family — very common in HK",
+        "context": "Describe your multicultural family: very common in HK",
         "difficulty": 3,
         "words": [
           { "chinese": "我哋", "jyutping": "ngo5 dei6", "english": "we" },
@@ -499,7 +499,7 @@
         "jyutping": "ngo5 hai6 duk6 sang1 jy4",
         "chinese": "我係獨生女",
         "english": "I'm an only child (female)",
-        "context": "Say you're an only child — 獨生子 (duk6 sang1 zi2) for male",
+        "context": "Say you're an only child: 獨生子 (duk6 sang1 zi2) for male",
         "difficulty": 3,
         "words": [
           { "chinese": "我係", "jyutping": "ngo5 hai6", "english": "I am" },
@@ -688,7 +688,7 @@
         "jyutping": "nei5 go3 zai2 hai6 gei2 nin4 kap1",
         "chinese": "你個仔係幾年級？",
         "english": "What year is your son in?",
-        "context": "Ask which year or class a child is in — 個仔 = son, 個女 = daughter",
+        "context": "Ask which year or class a child is in: 個仔 = son, 個女 = daughter",
         "difficulty": 2,
         "words": [
           { "chinese": "你個仔", "jyutping": "nei5 go3 zai2", "english": "your son" },
@@ -714,7 +714,7 @@
         "jyutping": "gam1 jat6 fong3 gei2 dim2",
         "chinese": "今日放幾點？",
         "english": "What time do they finish today?",
-        "context": "Ask about pick-up time — it can vary on different days",
+        "context": "Ask about pick-up time: it can vary on different days",
         "difficulty": 1,
         "words": [
           { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
@@ -753,7 +753,7 @@
         "jyutping": "nei5 go3 zai2 giu3 me1 meng2",
         "chinese": "你個仔叫咩名？",
         "english": "What's your son's name?",
-        "context": "Ask a child's name — swap 個仔 (son) for 個女 (daughter)",
+        "context": "Ask a child's name: swap 個仔 (son) for 個女 (daughter)",
         "difficulty": 1,
         "words": [
           { "chinese": "你個仔", "jyutping": "nei5 go3 zai2", "english": "your son" },
@@ -779,7 +779,7 @@
         "jyutping": "ngo5 dei6 ho2 m4 ho2 ji3 on1 paai4 playtime",
         "chinese": "我哋可唔可以安排playtime？",
         "english": "Can we arrange a playdate?",
-        "context": "The school gate classic — 'playtime' is the universal HK English term",
+        "context": "The school gate classic: 'playtime' is the universal HK English term",
         "difficulty": 2,
         "words": [
           { "chinese": "我哋", "jyutping": "ngo5 dei6", "english": "we" },
@@ -860,7 +860,7 @@
         "jyutping": "hou2 do1 gung1 fo3",
         "chinese": "好多功課！",
         "english": "So much homework!",
-        "context": "Commiserate with other parents — HK schools are known for heavy homework",
+        "context": "Commiserate with other parents: HK schools are known for heavy homework",
         "difficulty": 1,
         "words": [
           { "chinese": "好多", "jyutping": "hou2 do1", "english": "so much / a lot of" },
@@ -925,7 +925,7 @@
         "jyutping": "nei5 go3 zai2 hou2 leng3",
         "chinese": "你個仔好靚！",
         "english": "Your son is adorable!",
-        "context": "Compliment someone's child — 靚 for girls, 靚仔 for boys",
+        "context": "Compliment someone's child: 靚 for girls, 靚仔 for boys",
         "difficulty": 1,
         "words": [
           { "chinese": "你個仔", "jyutping": "nei5 go3 zai2", "english": "your son" },
@@ -964,7 +964,7 @@
         "jyutping": "nei5 dei6 jau5 mou5 heoi3 faan4 soeng3 wui2",
         "chinese": "你哋有冇去歡送會？",
         "english": "Are you going to the farewell party?",
-        "context": "Ask about end-of-year or leaving events — common in expat school communities",
+        "context": "Ask about end-of-year or leaving events: common in expat school communities",
         "difficulty": 3,
         "words": [
           { "chinese": "你哋", "jyutping": "nei5 dei6", "english": "you (plural)" },
@@ -1004,7 +1004,7 @@
         "jyutping": "hou2 se3 m4 dak1",
         "chinese": "好捨不得",
         "english": "I'll really miss it / That's so sad to hear",
-        "context": "Express that you'll miss someone or something — a genuine Cantonese sentiment",
+        "context": "Express that you'll miss someone or something: a genuine Cantonese sentiment",
         "difficulty": 2,
         "words": [
           { "chinese": "好", "jyutping": "hou2", "english": "very / so" },
@@ -1017,7 +1017,7 @@
         "jyutping": "gei3 dak1 bou2 ci3 lyun4 lok3",
         "chinese": "記得保持聯絡",
         "english": "Remember to keep in touch",
-        "context": "A heartfelt farewell — common in the transient expat community",
+        "context": "A heartfelt farewell: common in the transient expat community",
         "difficulty": 3,
         "words": [
           { "chinese": "記得", "jyutping": "gei3 dak1", "english": "remember to" },
@@ -1030,7 +1030,7 @@
         "jyutping": "toi1 ngo5 man6 hau6 nei5 lou5 gung1",
         "chinese": "替我問候你老公",
         "english": "Say hi to your husband for me",
-        "context": "A warm closing — swap 老公 (husband) for 老婆 (wife) as appropriate",
+        "context": "A warm closing: swap 老公 (husband) for 老婆 (wife) as appropriate",
         "difficulty": 3,
         "words": [
           { "chinese": "替我", "jyutping": "toi1 ngo5", "english": "on my behalf / for me" },
@@ -1205,7 +1205,7 @@
         "jyutping": "saang1 jat6 faai3 lok3",
         "chinese": "生日快樂！",
         "english": "Happy birthday!",
-        "context": "The universal birthday greeting — works for all ages",
+        "context": "The universal birthday greeting: works for all ages",
         "difficulty": 1,
         "words": [
           { "chinese": "生日", "jyutping": "saang1 jat6", "english": "birthday" },
@@ -1218,7 +1218,7 @@
         "jyutping": "zuk1 nei5 san1 tai2 gin6 hong1",
         "chinese": "祝你身體健康",
         "english": "Wishing you good health",
-        "context": "A warm birthday or New Year wish — health is deeply valued in HK culture",
+        "context": "A warm birthday or New Year wish: health is deeply valued in HK culture",
         "difficulty": 2,
         "words": [
           { "chinese": "祝你", "jyutping": "zuk1 nei5", "english": "wishing you" },
@@ -1231,7 +1231,7 @@
         "jyutping": "gung1 hei2 faat3 coi4",
         "chinese": "恭喜發財！",
         "english": "Wishing you prosperity! (Lunar New Year)",
-        "context": "THE Lunar New Year greeting — expect it from everyone from January onwards",
+        "context": "THE Lunar New Year greeting: expect it from everyone from January onwards",
         "difficulty": 2,
         "words": [
           { "chinese": "恭喜", "jyutping": "gung1 hei2", "english": "congratulations / wishing well" },
@@ -1257,7 +1257,7 @@
         "jyutping": "lai6 si6 dau3 lei4",
         "chinese": "利是逗嚟！",
         "english": "Lai see please! (red packet)",
-        "context": "Children say this to adults at CNY — it's expected and always gets a laugh",
+        "context": "Children say this to adults at CNY: it's expected and always gets a laugh",
         "difficulty": 2,
         "words": [
           { "chinese": "利是", "jyutping": "lai6 si6", "english": "lai see / red packet" },
@@ -1308,7 +1308,7 @@
         "jyutping": "zung1 cau1 zit3 faai3 lok3",
         "chinese": "中秋節快樂！",
         "english": "Happy Mid-Autumn Festival!",
-        "context": "Said around the Mid-Autumn Festival — celebrated with mooncakes and lanterns",
+        "context": "Said around the Mid-Autumn Festival: celebrated with mooncakes and lanterns",
         "difficulty": 2,
         "words": [
           { "chinese": "中秋節", "jyutping": "zung1 cau1 zit3", "english": "Mid-Autumn Festival" },
@@ -1334,7 +1334,7 @@
         "jyutping": "nei5 m4 sai2 gam3 haak3 hei3",
         "chinese": "你唔使咁客氣",
         "english": "You really didn't have to",
-        "context": "Gracious response when receiving a gift — always say this before opening it",
+        "context": "Gracious response when receiving a gift: always say this before opening it",
         "difficulty": 2,
         "words": [
           { "chinese": "你唔使", "jyutping": "nei5 m4 sai2", "english": "you don't need to" },
@@ -1347,7 +1347,7 @@
         "jyutping": "do1 ze6 saai3 nei5",
         "chinese": "多謝晒你！",
         "english": "Thank you so much!",
-        "context": "Express deep gratitude — more heartfelt than just 多謝",
+        "context": "Express deep gratitude: more heartfelt than just 多謝",
         "difficulty": 1,
         "words": [
           { "chinese": "多謝晒", "jyutping": "do1 ze6 saai3", "english": "thank you so much (完全感謝)" },
@@ -1360,7 +1360,7 @@
         "jyutping": "jam1 bui1",
         "chinese": "飲杯！",
         "english": "Drink up! / Cheers!",
-        "context": "Toast with everyone at the table — glasses clink, everyone drinks",
+        "context": "Toast with everyone at the table: glasses clink, everyone drinks",
         "difficulty": 1,
         "words": [
           { "chinese": "飲", "jyutping": "jam1", "english": "drink" },
@@ -1373,7 +1373,7 @@
         "jyutping": "gon1 bui1",
         "chinese": "乾杯！",
         "english": "Cheers! / Bottoms up!",
-        "context": "Literally 'dry the cup' — the formal toast at banquets and celebrations",
+        "context": "Literally 'dry the cup': the formal toast at banquets and celebrations",
         "difficulty": 1,
         "words": [
           { "chinese": "乾", "jyutping": "gon1", "english": "dry / empty" },
@@ -1412,7 +1412,7 @@
         "jyutping": "faai3 gou1 zoeng2 daai6",
         "chinese": "快高長大",
         "english": "Grow up healthy and tall",
-        "context": "Said to children — one of the most common blessings for kids in HK",
+        "context": "Said to children: one of the most common blessings for kids in HK",
         "difficulty": 2,
         "words": [
           { "chinese": "快高", "jyutping": "faai3 gou1", "english": "quickly grow tall" },
@@ -1425,7 +1425,7 @@
         "jyutping": "maan6 si6 jyu4 ji3",
         "chinese": "萬事如意",
         "english": "May all your wishes come true",
-        "context": "A powerful New Year blessing — literally 'ten thousand things go as you wish'",
+        "context": "A powerful New Year blessing: literally 'ten thousand things go as you wish'",
         "difficulty": 3,
         "words": [
           { "chinese": "萬事", "jyutping": "maan6 si6", "english": "all things / everything" },
@@ -1464,7 +1464,7 @@
         "jyutping": "ping4 on1 daai6 gat1",
         "chinese": "平安大吉",
         "english": "Stay safe and prosperous",
-        "context": "A versatile blessing — used for travel, life events, and general wellbeing",
+        "context": "A versatile blessing: used for travel, life events, and general wellbeing",
         "difficulty": 3,
         "words": [
           { "chinese": "平安", "jyutping": "ping4 on1", "english": "peace / safety" },
@@ -1617,7 +1617,7 @@
         "jyutping": "gam1 jat6 tin1 hei3 zan1 hai6 hou2 hou2",
         "chinese": "今日天氣真係好好",
         "english": "The weather is so nice today",
-        "context": "A universal conversation opener — especially meaningful after a typhoon",
+        "context": "A universal conversation opener: especially meaningful after a typhoon",
         "difficulty": 1,
         "words": [
           { "chinese": "今日", "jyutping": "gam1 jat6", "english": "today" },
@@ -1644,7 +1644,7 @@
         "jyutping": "lok6 jyu5 laa3",
         "chinese": "落雨喇",
         "english": "It's raining",
-        "context": "HK has sudden downpours — knowing this phrase is practical",
+        "context": "HK has sudden downpours: knowing this phrase is practical",
         "difficulty": 1,
         "words": [
           { "chinese": "落雨", "jyutping": "lok6 jyu5", "english": "raining" },
@@ -1657,7 +1657,7 @@
         "jyutping": "daa2 fung1 laa3",
         "chinese": "打風喇！",
         "english": "There's a typhoon!",
-        "context": "Typhoon season news spreads fast — this is a very common phrase",
+        "context": "Typhoon season news spreads fast: this is a very common phrase",
         "difficulty": 1,
         "words": [
           { "chinese": "打風", "jyutping": "daa2 fung1", "english": "typhoon / it's typhoon-ing" },
@@ -1670,7 +1670,7 @@
         "jyutping": "gei2 hou6 fung1 kau4",
         "chinese": "幾號風球？",
         "english": "What typhoon signal is it?",
-        "context": "Signal 8 means work and school close — a very important question in HK",
+        "context": "Signal 8 means work and school close: a very important question in HK",
         "difficulty": 2,
         "words": [
           { "chinese": "幾號", "jyutping": "gei2 hou6", "english": "what number" },
@@ -1683,7 +1683,7 @@
         "jyutping": "nei5 zau1 mut6 jau5 me1 ze6 muk6",
         "chinese": "你週末有咩節目？",
         "english": "What are your plans this weekend?",
-        "context": "A natural conversation starter — HK weekends are busy",
+        "context": "A natural conversation starter: HK weekends are busy",
         "difficulty": 2,
         "words": [
           { "chinese": "你週末", "jyutping": "nei5 zau1 mut6", "english": "your weekend" },
@@ -1696,7 +1696,7 @@
         "jyutping": "ngo5 heoi3 haang4 saan1",
         "chinese": "我去行山",
         "english": "I'm going hiking",
-        "context": "HK has amazing trails — hiking is a beloved local weekend activity",
+        "context": "HK has amazing trails: hiking is a beloved local weekend activity",
         "difficulty": 1,
         "words": [
           { "chinese": "我去", "jyutping": "ngo5 heoi3", "english": "I'm going" },
@@ -1709,7 +1709,7 @@
         "jyutping": "nei5 gam1 jat6 leng3 zo2 hou2 do1",
         "chinese": "你今日靚咗好多",
         "english": "You look so much nicer today",
-        "context": "Compliment someone's appearance — Cantonese people are direct with compliments",
+        "context": "Compliment someone's appearance: Cantonese people are direct with compliments",
         "difficulty": 2,
         "words": [
           { "chinese": "你今日", "jyutping": "nei5 gam1 jat6", "english": "you today" },
@@ -1722,7 +1722,7 @@
         "jyutping": "nei5 sou3 zo2 fei4 aa3",
         "chinese": "你瘦咗嘅？",
         "english": "Have you lost weight?",
-        "context": "Not considered rude in HK — it's a compliment! People will ask you directly",
+        "context": "Not considered rude in HK: it's a compliment! People will ask you directly",
         "difficulty": 2,
         "words": [
           { "chinese": "你", "jyutping": "nei5", "english": "you" },
@@ -1736,7 +1736,7 @@
         "jyutping": "nei5 dei6 gang1 gang1 haak3 faan1 lei4",
         "chinese": "你哋啱啱客返嚟？",
         "english": "Did you just get back from travelling?",
-        "context": "Ask someone if they've just returned from a trip — easy conversation starter",
+        "context": "Ask someone if they've just returned from a trip: easy conversation starter",
         "difficulty": 3,
         "words": [
           { "chinese": "你哋", "jyutping": "nei5 dei6", "english": "you (plural)" },
@@ -1776,7 +1776,7 @@
         "jyutping": "dou1 hai6 gam3",
         "chinese": "都係咁",
         "english": "Same as always / Not much has changed",
-        "context": "A very typical Cantonese response — genuine contentment with the status quo",
+        "context": "A very typical Cantonese response: genuine contentment with the status quo",
         "difficulty": 1,
         "words": [
           { "chinese": "都係咁", "jyutping": "dou1 hai6 gam3", "english": "still the same / as always" }
@@ -1814,7 +1814,7 @@
         "jyutping": "haa6 ci3 jat1 cai4 sik6 faan6 la1",
         "chinese": "下次一齊食飯啦",
         "english": "We should have dinner together soon",
-        "context": "A warm close to any chat — in HK, meals are how relationships are maintained",
+        "context": "A warm close to any chat: in HK, meals are how relationships are maintained",
         "difficulty": 2,
         "words": [
           { "chinese": "下次", "jyutping": "haa6 ci3", "english": "next time" },
@@ -1880,7 +1880,7 @@
             "chinese": "好嘢！今日天氣好好，有冇去行山？",
             "jyutping": "hou2 je5! gam1 jat6 tin1 hei3 hou2 hou2, jau5 mou5 heoi3 haang4 saan1?",
             "romanization": "Hou² je⁵! Gam¹ jat⁶ tin¹ hei³ hou² hou², jau⁵ mou⁵ heoi³ haang⁴ saan¹?",
-            "english": "Great! The weather is lovely today — going hiking?",
+            "english": "Great! The weather is lovely today: going hiking?",
             "voiceId": "99fb84cf-d081-4df6-8b8a-7165015a2f5d",
             "pauseAfterMs": 2000
           },

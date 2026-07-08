@@ -15,7 +15,7 @@ const FAQS = [
   },
   {
     q: 'How does pronunciation scoring work?',
-    a: 'When you record yourself, your audio is sent securely to our scoring API, which compares your pronunciation against native speaker patterns and returns a score from 0 to 100. Recordings are never stored — they are processed in real time and discarded immediately.',
+    a: 'When you record yourself, your audio is sent securely to our scoring API, which compares your pronunciation against native speaker patterns and returns a score from 0 to 100. Recordings are never stored; they are processed in real time and discarded immediately.',
   },
   {
     q: 'How do I delete my account and data?',

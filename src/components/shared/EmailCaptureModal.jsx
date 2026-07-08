@@ -131,7 +131,7 @@ export function EmailCaptureModal({ streakCount, onClose }) {
           {streakCount}-day streak!
         </h2>
         <p className={styles.subtitle}>
-          Get your weekly pronunciation report — drop your email and we will send you a breakdown of your progress.
+          Get your weekly pronunciation report: drop your email and we will send you a breakdown of your progress.
         </p>
 
         <form onSubmit={handleSubmit} noValidate>
