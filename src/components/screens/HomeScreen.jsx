@@ -11,14 +11,6 @@ function toDateStr(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-const PLAYLISTS = [
-  { id: 'arrival', label: 'Landing in HK', desc: 'First days sorted', sceneIds: ['taxi', 'mtr-station', 'convenience-store', 'building-management'] },
-  { id: 'foodie',  label: 'Foodie circuit', desc: 'Eat like a local',  sceneIds: ['cha-chaan-teng', 'dim-sum', 'wet-market', 'bakery'] },
-  { id: 'weekend', label: 'Weekend out',    desc: 'Get around the city', sceneIds: ['ferry', 'temple-visit', 'meeting-someone-new', 'hair-salon'] },
-  { id: 'tones',   label: 'Tone workout',   desc: 'Ear-training scenes',  sceneIds: ['school-gate', 'neighbour-lift', 'minibus', 'pharmacy'] },
-];
-
-
 export default function HomeScreen({ onNavigate }) {
   const { settings } = useAppContext();
   const [lesson, setLesson] = useState(null);
@@ -57,6 +49,11 @@ export default function HomeScreen({ onNavigate }) {
     }).catch(() => {});
     getDueEntries().then(entries => setDueCount(entries.length)).catch(() => {});
   }, [language]);
+
+  const hasRecentProgress = allScenes.some(s => sceneProgress[s.id]?.lastSessionAt);
+  const untriedScenes = allScenes.filter(s => !sceneProgress[s.id]);
+  let sectionIndex = 0;
+  const nextSectionNum = () => String(++sectionIndex).padStart(2, '0');
 
   return (
     <div className={styles.screen}>
@@ -97,10 +94,10 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      {allScenes.length > 0 && (
+      {hasRecentProgress && (
         <>
           <div className={styles.sectionBar}>
-            <span className={styles.sectionNum}>01</span>
+            <span className={styles.sectionNum}>{nextSectionNum()}</span>
             <span className={styles.sectionLabel}>Continue</span>
             <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>ALL →</button>
           </div>
@@ -108,14 +105,18 @@ export default function HomeScreen({ onNavigate }) {
         </>
       )}
 
-      <div className={styles.sectionBar}>
-        <span className={styles.sectionNum}>02</span>
-        <span className={styles.sectionLabel}>Playlists for you</span>
-      </div>
-      <PlaylistsRail scenes={allScenes} onNavigate={onNavigate} />
+      {allScenes.length > 0 && (
+        <>
+          <div className={styles.sectionBar}>
+            <span className={styles.sectionNum}>{nextSectionNum()}</span>
+            <span className={styles.sectionLabel}>Try next</span>
+          </div>
+          <TryNextRail scenes={untriedScenes} onNavigate={onNavigate} />
+        </>
+      )}
 
       <div className={styles.sectionBar}>
-        <span className={styles.sectionNum}>03</span>
+        <span className={styles.sectionNum}>{nextSectionNum()}</span>
         <span className={styles.sectionLabel}>Quick practice</span>
       </div>
       <PracticeGrid onNavigate={onNavigate} />
@@ -193,12 +194,10 @@ function ContinueGrid({ scenes, progress, onNavigate }) {
     .sort((a, b) => (progress[b.id]?.lastSessionAt ?? 0) - (progress[a.id]?.lastSessionAt ?? 0))
     .slice(0, 6);
 
-  const cards = recent.length > 0 ? recent : scenes.slice(0, 6);
-
   return (
     <section className={styles.continueSection}>
       <div className={styles.continueGrid}>
-        {cards.map(s => {
+        {recent.map(s => {
           const pct = progress[s.id]?.masteryPct ?? 0;
           return (
             <button key={s.id} className={styles.continueCard} onClick={() => onNavigate('scene', s.id)}>
@@ -225,37 +224,32 @@ function ContinueGrid({ scenes, progress, onNavigate }) {
   );
 }
 
-function PlaylistsRail({ scenes, onNavigate }) {
-  return (
-    <section className={styles.playlistsSection}>
-      <div className={styles.playlistsScroll}>
-        {PLAYLISTS.map(playlist => {
-          const playlistScenes = playlist.sceneIds
-            .map(id => scenes.find(s => s.id === id))
-            .filter(Boolean);
-          const first = playlistScenes[0];
+function TryNextRail({ scenes, onNavigate }) {
+  if (scenes.length === 0) {
+    return (
+      <section className={styles.tryNextSection}>
+        <p className={styles.tryNextEmpty}>You've tried every scene. Nice work.</p>
+      </section>
+    );
+  }
 
-          return (
-            <button
-              key={playlist.id}
-              className={styles.playlistCard}
-              onClick={() => first ? onNavigate('scene', first.id) : onNavigate('scenes')}
+  return (
+    <section className={styles.tryNextSection}>
+      <div className={styles.tryNextScroll}>
+        {scenes.slice(0, 8).map(s => (
+          <button key={s.id} className={styles.sceneCard} onClick={() => onNavigate('scene', s.id)}>
+            <div
+              className={styles.sceneCover}
+              style={{ backgroundImage: s.imageUrl ? `url(${s.imageUrl})` : undefined }}
             >
-              <div
-                className={`${styles.playlistCover} ${styles[`playlistFill_${playlist.id}`] ?? ''}`}
-                style={{ backgroundImage: first?.imageUrl ? `url(${first.imageUrl})` : undefined }}
-              >
-                <div className={styles.playlistCoverGrad} />
-                <span className={styles.playlistChip}>{playlist.sceneIds.length} scenes</span>
-                <p className={styles.playlistCoverTitle}>{playlist.label}</p>
-              </div>
-              <p className={styles.playlistSub}>{playlist.desc}</p>
-              {first && (
-                <p className={styles.playlistStarts}>Starts with <b>{first.title}</b></p>
-              )}
-            </button>
-          );
-        })}
+              {!s.imageUrl && <span className={styles.sceneCoverEmoji}>{s.emoji}</span>}
+              <div className={styles.sceneCoverGrad} />
+              {s.estimatedMinutes && <span className={styles.sceneChip}>{s.estimatedMinutes} min</span>}
+              <p className={styles.sceneCoverTitle}>{s.title}</p>
+            </div>
+            {s.description && <p className={styles.sceneSub}>{s.description}</p>}
+          </button>
+        ))}
       </div>
     </section>
   );
