@@ -190,7 +190,7 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
               ShadowHK is built on real conversations: the ones overheard at wet markets, in taxis, at cha chaan tengs at four in the morning. Not phrasebook-Cantonese. The Cantonese that works.
             </p>
             <p className={styles.stepProof}>
-              Order dim sum. Hail a taxi. Bargain at the wet market — in the Cantonese people actually speak.
+              Order dim sum. Hail a taxi. Bargain at the wet market. All in the Cantonese people actually speak.
             </p>
           </div>
         )}
