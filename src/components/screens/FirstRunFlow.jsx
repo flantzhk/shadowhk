@@ -11,7 +11,7 @@ import { staticWordAudio } from '../../services/staticAudio.js';
 import { textToSpeech } from '../../services/api.js';
 
 const TOTAL_STEPS = 7;
-const HARBOUR_URL = '/shadowhk/images/scenes/firstrun-harbour.jpg';
+const HARBOUR_URL = '/shadowhk/images/scenes/ferry.jpg';
 const DIMSUM_URL = '/shadowhk/images/scenes/firstrun-dimsum.jpg';
 
 const LEVELS = [
@@ -188,6 +188,9 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
             </h1>
             <p className={styles.stepBody}>
               ShadowHK is built on real conversations: the ones overheard at wet markets, in taxis, at cha chaan tengs at four in the morning. Not phrasebook-Cantonese. The Cantonese that works.
+            </p>
+            <p className={styles.stepProof}>
+              Order dim sum. Hail a taxi. Bargain at the wet market — in the Cantonese people actually speak.
             </p>
           </div>
         )}

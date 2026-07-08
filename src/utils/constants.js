@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.3.85';
+export const APP_VERSION = '2.3.86';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -35,7 +35,7 @@ export const VAPID_PUBLIC_KEY = 'BCmqvXWvZ-9ES9BJWC9fkC_RoZ16Fh3p3i5IB1uF_YpdM54
 export const AUDIO_CACHE_NAME = 'shadowhk-audio-v1';
 export const APP_CACHE_NAME = 'shadowhk-app-v1';
 export const DB_NAME = 'shadowhk';
-export const DB_VERSION = 2;
+export const DB_VERSION = 3;
 export const MAX_RETRIES = 2;
 export const RETRY_DELAY_MS = 1000;
 export const API_TIMEOUT_MS = 30000;
