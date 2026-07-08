@@ -6,7 +6,7 @@ import { NpcAvatar, UserAvatar } from '../ui/ConversationAvatars.jsx';
 import { getSceneById } from '../../services/sceneLoader.js';
 import {
   getLibraryEntry, saveLibraryEntry, removeLibraryEntry, getAllSceneProgress, saveSceneProgress,
-  getLibraryEntriesByScene, saveCachedAudio,
+  getLibraryEntriesByScene, saveCachedAudio, getCachedAudio,
 } from '../../services/storage.js';
 import { getCurrentUser } from '../../services/auth.js';
 import { phCapture } from '../../services/posthog.js';
@@ -57,6 +57,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const [generated, setGenerated] = useState(null);
   const [addError, setAddError] = useState(null);
   const [savingCustom, setSavingCustom] = useState(false);
+  const [retryingAudioId, setRetryingAudioId] = useState(null);
 
   useEffect(() => {
     if (!sceneId) return;
@@ -88,13 +89,21 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
       }
     }).catch(() => {});
 
-    getLibraryEntriesByScene(sceneId).then(entries => {
-      setCustomLines(
-        entries
-          .filter(e => e.is_custom)
-          .sort((a, b) => (a._createdAt ?? 0) - (b._createdAt ?? 0))
-          .map(e => ({ id: e.phraseId, cjk: e.cjk, romanization: e.romanization, english: e.english }))
-      );
+    getLibraryEntriesByScene(sceneId).then(async entries => {
+      const custom = entries
+        .filter(e => e.is_custom)
+        .sort((a, b) => (a._createdAt ?? 0) - (b._createdAt ?? 0));
+      // Check the actual cache rather than trusting a stored flag — the
+      // cache is the source of truth and can be cleared independently of
+      // the library entry (e.g. browser storage pressure).
+      const withAudioState = await Promise.all(custom.map(async e => ({
+        id: e.phraseId,
+        cjk: e.cjk,
+        romanization: e.romanization,
+        english: e.english,
+        audioCached: !!(await getCachedAudio(e.phraseId).catch(() => null)),
+      })));
+      setCustomLines(withAudioState);
     }).catch(() => {});
   }, [sceneId]);
 
@@ -203,13 +212,16 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     setSavingCustom(true);
     setAddError(null);
     const phraseId = `${sceneId}-custom-${crypto.randomUUID()}`;
+    let audioCached = false;
     try {
       // Generate + cache audio up front so it plays offline. Non-fatal if it
-      // fails — playback just falls back to live TTS the next time it's tapped.
+      // fails — the phrase still saves, and the row below shows a retry
+      // affordance instead of silently needing network again on next play.
       try {
         const blob = await textToSpeech(generated.cjk, { language });
         await saveCachedAudio(phraseId, blob);
-      } catch (_) { /* fall back to live TTS on playback */ }
+        audioCached = true;
+      } catch (_) { /* row will show "audio not downloaded" with a retry button */ }
 
       await saveLibraryEntry({
         phraseId,
@@ -232,7 +244,9 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         _updatedAt: Date.now(),
       });
 
-      setCustomLines(prev => [...prev, { id: phraseId, cjk: generated.cjk, romanization: generated.romanization, english: generated.english }]);
+      setCustomLines(prev => [...prev, {
+        id: phraseId, cjk: generated.cjk, romanization: generated.romanization, english: generated.english, audioCached,
+      }]);
       setAddText('');
       setGenerated(null);
       setShowAddPhrase(false);
@@ -246,6 +260,19 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   async function removeCustomPhrase(id) {
     await removeLibraryEntry(id).catch(() => {});
     setCustomLines(prev => prev.filter(l => l.id !== id));
+  }
+
+  async function retryAudioCache(line) {
+    setRetryingAudioId(line.id);
+    try {
+      const blob = await textToSpeech(line.cjk, { language });
+      await saveCachedAudio(line.id, blob);
+      setCustomLines(prev => prev.map(l => l.id === line.id ? { ...l, audioCached: true } : l));
+    } catch (_) {
+      // Leave audioCached false — the retry button stays put for another try.
+    } finally {
+      setRetryingAudioId(null);
+    }
   }
 
   if (loading) {
@@ -428,16 +455,31 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         {customLines.length > 0 && (
           <div className={styles.customPhraseList}>
             {customLines.map(line => (
-              <PhraseRow
-                key={line.id}
-                phraseId={line.id}
-                jyutping={line.romanization}
-                english={line.english}
-                chinese={line.cjk}
-                size="md"
-                saved={true}
-                onHeartToggle={() => removeCustomPhrase(line.id)}
-              />
+              <div key={line.id} className={styles.customPhraseItem}>
+                <PhraseRow
+                  phraseId={line.id}
+                  jyutping={line.romanization}
+                  english={line.english}
+                  chinese={line.cjk}
+                  size="md"
+                  saved={true}
+                  onHeartToggle={() => removeCustomPhrase(line.id)}
+                />
+                {!line.audioCached && (
+                  <div className={styles.audioMissingBar}>
+                    <span className={styles.audioMissingText}>
+                      {retryingAudioId === line.id
+                        ? 'Downloading audio…'
+                        : '⚠ Audio not downloaded — needs a connection once to work offline'}
+                    </span>
+                    {retryingAudioId !== line.id && (
+                      <button className={styles.audioMissingRetry} onClick={() => retryAudioCache(line)}>
+                        Retry
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         )}
