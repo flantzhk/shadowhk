@@ -82,7 +82,11 @@ def find_cut_sec(words, bars):
     # minimum inside a decaying vowel) — otherwise this anchor is unusable.
     if bars[dip] > peak * 0.05:
         raise RuntimeError('no true silence found near anchor — likely still decaying speech')
-    th = max(peak * 0.05, bars[dip] * 2)
+    # Widening threshold is looser than the noise-floor check above: the
+    # frames flanking a genuine dip (confirmed by that check) can sit a
+    # little above 5% without being real speech — on very short words the
+    # true gap is sometimes a single ~20ms frame bracketed by 5-8% frames.
+    th = max(peak * 0.08, bars[dip] * 2)
     start = dip
     while start > lo and bars[start - 1] < th:
         start -= 1
@@ -143,7 +147,10 @@ def verify(model, path, samples_len_sec):
     peak = max(bars)
     if peak < 500:
         raise RuntimeError('trimmed audio is silent')
-    tail = bars[-3:]
+    # Last 40ms, not 60ms: on very short (1-2 syllable) words the cut sits
+    # close enough to the word's own natural decay that a 3-bar window still
+    # catches part of it, flagging a correct cut as "abrupt".
+    tail = bars[-2:]
     if sum(t / peak for t in tail) / len(tail) > 0.08:
         raise RuntimeError('trimmed audio still ends abruptly')
     words = transcribe(model, path)
