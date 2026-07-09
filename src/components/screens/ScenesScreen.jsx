@@ -120,29 +120,6 @@ export default function ScenesScreen({ onNavigate }) {
           you'd actually hear, the vocabulary locals reach for, and a fact
           worth knowing before you go.
         </p>
-        <div className={styles.expectRow}>
-          <div className={styles.expectItem}>
-            <span className={styles.expectIcon}>對</span>
-            <div>
-              <p className={styles.expectLabel}>Dialogue</p>
-              <p className={styles.expectDesc}>Real back-and-forth exchanges</p>
-            </div>
-          </div>
-          <div className={styles.expectItem}>
-            <span className={styles.expectIcon}>詞</span>
-            <div>
-              <p className={styles.expectLabel}>Vocabulary</p>
-              <p className={styles.expectDesc}>Key words for each situation</p>
-            </div>
-          </div>
-          <div className={styles.expectItem}>
-            <span className={styles.expectIcon}>識</span>
-            <div>
-              <p className={styles.expectLabel}>Culture</p>
-              <p className={styles.expectDesc}>A fact about Hong Kong life</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Search bar */}
