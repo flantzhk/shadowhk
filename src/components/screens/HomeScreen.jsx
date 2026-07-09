@@ -135,6 +135,7 @@ function StreakPill({ count }) {
         <path d="M12 2c1 3-1 4-1 6.5 0 1.5 1 2.5 2 2.5s2-1 1.5-2.5c2 1.5 3 4 3 6.5a5.5 5.5 0 1 1-11 0c0-2 1-4 2.5-5.5C10.5 8 11 5 12 2z"/>
       </svg>
       <span className={styles.streakNum}>{count}</span>
+      <span className={styles.streakLabel}>day streak</span>
     </span>
   );
 }
@@ -145,36 +146,35 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
   const handleBegin = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
 
   return (
-    <div className={styles.todayCard}>
+    <button className={styles.todayStrip} onClick={handleBegin}>
       <div
-        className={styles.todayPhoto}
+        className={styles.todayThumb}
         style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
       >
         {!scene.imageUrl && <div className={styles.heroCinematicBg} />}
-        <div className={styles.todayPhotoGrad} />
-        <div className={styles.todayBadge}>
-          <span className={styles.todayBadgeDot} />
-          <span className={styles.todayBadgeText}>TODAY'S LESSON</span>
-        </div>
-        {dueCount > 0 && <div className={styles.todayDueBadge}>{dueCount} DUE</div>}
-        <h2 className={styles.todayPhotoTitle}>{scene.title}</h2>
+        {dueCount > 0 && <span className={styles.todayThumbDue}>{dueCount}</span>}
       </div>
 
-      {dueCount > 0 && (
-        <div className={styles.todayNote}>
-          Starts with <b>{dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} due for review</b> before today's new scene
-        </div>
-      )}
-
-      <button className={styles.todayBeginBtn} onClick={handleBegin}>
-        <span className={styles.todayBeginLeft}>
-          <span className={styles.todayBeginPlay}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
-          </span>
-          Start Today's Lesson
+      <div className={styles.todayStripBody}>
+        <span className={styles.todayStripEyebrow}>
+          <span className={styles.todayStripDot} />
+          TODAY'S LESSON
+          {dueCount > 0 && (
+            <span className={styles.todayStripDueText}>
+              · {dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} due first
+            </span>
+          )}
         </span>
-      </button>
-    </div>
+        <h2 className={styles.todayStripTitle}>{scene.title}</h2>
+      </div>
+
+      <span className={styles.todayStripCta}>
+        <span className={styles.todayStripPlay}>
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
+        </span>
+        Start
+      </span>
+    </button>
   );
 }
 
@@ -286,13 +286,18 @@ function PersonalSceneCard({ phraseCount, sample, name, photoURL, onNavigate }) 
     return (
       <section className={styles.personalSection}>
         <button className={styles.madeForYou} onClick={() => onNavigate('introduce-yourself')}>
-          {photoURL ? (
-            <img className={styles.madeForYouAvatarImg} src={photoURL} alt="" referrerPolicy="no-referrer" />
-          ) : (
-            <span className={styles.madeForYouAvatar}>{initial}</span>
-          )}
+          <span className={styles.madeForYouAvatarWrap}>
+            {photoURL ? (
+              <img className={styles.madeForYouAvatarImg} src={photoURL} alt="" referrerPolicy="no-referrer" />
+            ) : (
+              <span className={styles.madeForYouAvatar}>{initial}</span>
+            )}
+            <span className={styles.madeForYouCount} title={`${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`}>
+              {phraseCount}
+            </span>
+          </span>
           <div className={styles.madeForYouBody}>
-            <span className={styles.madeForYouEyebrow}>Made for you · {phraseCount} {phraseCount === 1 ? 'phrase' : 'phrases'}</span>
+            <span className={styles.madeForYouEyebrow}>Made for you</span>
             <p className={styles.madeForYouTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
             {sample && (
               <p className={styles.madeForYouSample}>"{sample.cjk}": {sample.english}</p>

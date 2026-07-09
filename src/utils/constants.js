@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.4.4';
+export const APP_VERSION = '2.4.5';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -18,6 +18,33 @@ export const FSRS_INITIAL_STABILITY = 1;    // days, baseline for a phrase's fir
 export const FSRS_GROWTH_BASE = 3;          // scales how much a successful review grows stability
 export const FSRS_TARGET_RETENTION = 0.9;   // stability is defined as "days for recall probability to decay to this"
 export const RECORDING_MAX_SECONDS = 10;
+
+// Scenes available to guests (no login) and free (non-subscribed) accounts.
+// Mirrors the "Order dim sum. Hail a taxi. Bargain at the wet market." pitch
+// on the FirstRunFlow welcome screen — the free tier is exactly what that
+// copy promises.
+export const FREE_SCENE_IDS = ['dim-sum', 'taxi', 'wet-market'];
+
+// Master switches for the guest and paywall gates described in FREE_SCENE_IDS.
+// Both default to false during testing so nothing blocks access — flip to
+// true when ready to actually enforce the free-tier limits.
+export const GATES = {
+  authWallEnabled: false,
+  paywallEnabled: false,
+  signupNudgeEnabled: false,
+};
+
+// Single source of truth for "would this scene be blocked?" — used by the
+// route gate in App.jsx and by the lock badge on scene cards, so both always
+// agree. `authed` should already fold in any DEV/gate-off bypass the caller
+// uses for real access control (see App.jsx's `authed`).
+export function isSceneLocked(sceneId, { authed, isPro }) {
+  if (FREE_SCENE_IDS.includes(sceneId)) return false;
+  if (GATES.authWallEnabled && !authed) return true;
+  if (GATES.paywallEnabled && authed && !isPro) return true;
+  return false;
+}
+
 export const API_BASE_URL = 'https://shadowspeak-api.faith-lantz-ee8.workers.dev';
 export const API_ENDPOINTS = {
   SCORE_PRONUNCIATION: '/score-pronunciation',
