@@ -67,37 +67,23 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      <header className={styles.greetingBar}>
-        <div className={styles.greetingRow}>
-          <StreakPill count={streakCount} />
-        </div>
-        <h1 className={styles.greetingTitle}>
-          Hello{userName && <>, <em>{userName}</em></>}.
-        </h1>
-      </header>
+      <TodayPanel
+        userName={userName}
+        streakCount={streakCount}
+        streakAtRisk={streakAtRisk}
+        loading={loading}
+        lesson={lesson}
+        dueCount={dueCount}
+        onNavigate={onNavigate}
+      />
 
-      {streakAtRisk && <StreakRiskBanner count={streakCount} onNavigate={onNavigate} />}
-
-      {!loading && lesson?.scene && (
-        <TodaySceneHero lesson={lesson} dueCount={dueCount} onNavigate={onNavigate} />
-      )}
-      {!loading && !lesson && (
-        <EmptyHero onNavigate={onNavigate} />
-      )}
-
-      {personalPhraseCount !== null && (
-        <PersonalSceneCard
-          phraseCount={personalPhraseCount}
-          sample={personalSample}
-          name={userName}
-          photoURL={settings?.photoURL}
-          onNavigate={onNavigate}
-        />
+      {personalPhraseCount === 0 && (
+        <PersonalSceneSetup onNavigate={onNavigate} />
       )}
 
       {hasRecentProgress && (
         <>
-          <div className={styles.sectionBar}>
+          <div className={`${styles.sectionBar} ${sectionIndex === 0 ? styles.sectionBarFlush : ''}`}>
             <span className={styles.sectionNum}>{nextSectionNum()}</span>
             <span className={styles.sectionLabel}>Continue</span>
             <button className={styles.sectionSeeAll} onClick={() => onNavigate('scenes')}>ALL →</button>
@@ -106,17 +92,26 @@ export default function HomeScreen({ onNavigate }) {
         </>
       )}
 
-      {allScenes.length > 0 && (
+      {(allScenes.length > 0 || personalPhraseCount > 0) && (
         <>
-          <div className={styles.sectionBar}>
+          <div className={`${styles.sectionBar} ${sectionIndex === 0 ? styles.sectionBarFlush : ''}`}>
             <span className={styles.sectionNum}>{nextSectionNum()}</span>
             <span className={styles.sectionLabel}>Try next</span>
           </div>
-          <TryNextRail scenes={untriedScenes} onNavigate={onNavigate} />
+          <TryNextRail
+            scenes={untriedScenes}
+            personal={personalPhraseCount > 0 ? {
+              phraseCount: personalPhraseCount,
+              sample: personalSample,
+              name: userName,
+              photoURL: settings?.photoURL,
+            } : null}
+            onNavigate={onNavigate}
+          />
         </>
       )}
 
-      <div className={styles.sectionBar}>
+      <div className={`${styles.sectionBar} ${sectionIndex === 0 ? styles.sectionBarFlush : ''}`}>
         <span className={styles.sectionNum}>{nextSectionNum()}</span>
         <span className={styles.sectionLabel}>Quick practice</span>
       </div>
@@ -140,36 +135,61 @@ function StreakPill({ count }) {
   );
 }
 
-function TodaySceneHero({ lesson, dueCount, onNavigate }) {
+// Greeting, streak-risk state, and today's lesson share one dark panel so
+// there's no seam between separately-styled cards for them to crowd against.
+function TodayPanel({ userName, streakCount, streakAtRisk, loading, lesson, dueCount, onNavigate }) {
+  return (
+    <div className={styles.todayPanel}>
+      <div className={styles.panelGreetRow}>
+        <StreakPill count={streakCount} />
+      </div>
+      <h1 className={styles.panelGreetTitle}>
+        Hello{userName && <>, <em>{userName}</em></>}.
+      </h1>
+
+      {streakAtRisk && (
+        <div className={styles.panelRibbon}>
+          <span className={styles.panelRibbonText}>🔥 Streak at risk — 3 phrases saves it</span>
+          <button className={styles.panelRibbonBtn} onClick={() => onNavigate('shadow')}>Save it →</button>
+        </div>
+      )}
+
+      {!loading && lesson?.scene && (
+        <PanelLesson lesson={lesson} dueCount={dueCount} onNavigate={onNavigate} />
+      )}
+      {!loading && !lesson && (
+        <PanelEmptyLesson onNavigate={onNavigate} />
+      )}
+    </div>
+  );
+}
+
+function PanelLesson({ lesson, dueCount, onNavigate }) {
   const { scene } = lesson;
 
   const handleBegin = () => dueCount > 0 ? onNavigate('shadow') : onNavigate('shadow', scene.id);
 
   return (
-    <button className={styles.todayStrip} onClick={handleBegin}>
+    <button className={styles.panelLesson} onClick={handleBegin}>
       <div
-        className={styles.todayThumb}
+        className={styles.panelThumb}
         style={{ backgroundImage: scene.imageUrl ? `url(${scene.imageUrl})` : undefined }}
       >
         {!scene.imageUrl && <div className={styles.heroCinematicBg} />}
-        {dueCount > 0 && <span className={styles.todayThumbDue}>{dueCount}</span>}
       </div>
 
-      <div className={styles.todayStripBody}>
-        <span className={styles.todayStripEyebrow}>
-          <span className={styles.todayStripDot} />
+      <div className={styles.panelLessonBody}>
+        <span className={styles.panelEyebrow}>
           TODAY'S LESSON
           {dueCount > 0 && (
-            <span className={styles.todayStripDueText}>
-              · {dueCount} {dueCount === 1 ? 'phrase' : 'phrases'} due first
-            </span>
+            <span className={styles.panelDuePill}>{dueCount} due</span>
           )}
         </span>
-        <h2 className={styles.todayStripTitle}>{scene.title}</h2>
+        <h2 className={styles.panelLessonTitle}>{scene.title}</h2>
       </div>
 
-      <span className={styles.todayStripCta}>
-        <span className={styles.todayStripPlay}>
+      <span className={styles.panelCta}>
+        <span className={styles.panelPlay}>
           <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>
         </span>
         Start
@@ -178,14 +198,12 @@ function TodaySceneHero({ lesson, dueCount, onNavigate }) {
   );
 }
 
-function EmptyHero({ onNavigate }) {
+function PanelEmptyLesson({ onNavigate }) {
   return (
-    <section className={styles.heroSection}>
-      <div className={styles.emptyHero}>
-        <p className={styles.emptyText}>Pick your first scenes to get started.</p>
-        <button className={styles.shadowBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
-      </div>
-    </section>
+    <div className={styles.panelEmptyLesson}>
+      <p className={styles.panelEmptyText}>Pick your first scenes to get started.</p>
+      <button className={styles.panelEmptyBtn} onClick={() => onNavigate('scenes')}>Browse scenes</button>
+    </div>
   );
 }
 
@@ -225,8 +243,8 @@ function ContinueGrid({ scenes, progress, onNavigate }) {
   );
 }
 
-function TryNextRail({ scenes, onNavigate }) {
-  if (scenes.length === 0) {
+function TryNextRail({ scenes, personal, onNavigate }) {
+  if (scenes.length === 0 && !personal) {
     return (
       <section className={styles.tryNextSection}>
         <p className={styles.tryNextEmpty}>You've tried every scene. Nice work.</p>
@@ -237,7 +255,28 @@ function TryNextRail({ scenes, onNavigate }) {
   return (
     <section className={styles.tryNextSection}>
       <div className={styles.tryNextScroll}>
-        {scenes.slice(0, 8).map(s => (
+        {personal && (
+          <button className={styles.sceneCard} onClick={() => onNavigate('introduce-yourself')}>
+            <div
+              className={styles.sceneCover}
+              style={{ backgroundImage: personal.photoURL ? `url(${personal.photoURL})` : undefined }}
+            >
+              {!personal.photoURL && <div className={styles.heroCinematicBg} />}
+              <span className={styles.sceneMadeForYouTag}>Made for you</span>
+              <div className={styles.sceneCoverGrad} />
+              <p className={styles.sceneCoverTitle}>
+                {personal.name ? `${personal.name}'s personal scene` : 'Your personal scene'}
+                <span className={styles.sceneCoverCount}>
+                  {personal.phraseCount} {personal.phraseCount === 1 ? 'phrase' : 'phrases'}
+                </span>
+              </p>
+            </div>
+            {personal.sample && (
+              <p className={styles.sceneSub}>"{personal.sample.cjk}": {personal.sample.english}</p>
+            )}
+          </button>
+        )}
+        {scenes.slice(0, personal ? 7 : 8).map(s => (
           <button key={s.id} className={styles.sceneCard} onClick={() => onNavigate('scene', s.id)}>
             <div
               className={styles.sceneCover}
@@ -280,35 +319,7 @@ function PracticeGrid({ onNavigate }) {
   );
 }
 
-function PersonalSceneCard({ phraseCount, sample, name, photoURL, onNavigate }) {
-  if (phraseCount > 0) {
-    const initial = name ? name.trim().charAt(0).toUpperCase() : 'U';
-    return (
-      <section className={styles.personalSection}>
-        <button className={styles.madeForYou} onClick={() => onNavigate('introduce-yourself')}>
-          <span className={styles.madeForYouAvatarWrap}>
-            {photoURL ? (
-              <img className={styles.madeForYouAvatarImg} src={photoURL} alt="" referrerPolicy="no-referrer" />
-            ) : (
-              <span className={styles.madeForYouAvatar}>{initial}</span>
-            )}
-            <span className={styles.madeForYouCount} title={`${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`}>
-              {phraseCount}
-            </span>
-          </span>
-          <div className={styles.madeForYouBody}>
-            <span className={styles.madeForYouEyebrow}>Made for you</span>
-            <p className={styles.madeForYouTitle}>{name ? `${name}'s personal scene` : 'Your personal scene'}</p>
-            {sample && (
-              <p className={styles.madeForYouSample}>"{sample.cjk}": {sample.english}</p>
-            )}
-          </div>
-          <span className={styles.madeForYouGo}>Shadow →</span>
-        </button>
-      </section>
-    );
-  }
-
+function PersonalSceneSetup({ onNavigate }) {
   return (
     <section className={styles.personalSection}>
       <button className={styles.personalEmpty} onClick={() => onNavigate('introduce-yourself')}>
@@ -322,22 +333,6 @@ function PersonalSceneCard({ phraseCount, sample, name, photoURL, onNavigate }) 
     </section>
   );
 }
-
-function StreakRiskBanner({ count, onNavigate }) {
-  return (
-    <div className={styles.riskBanner}>
-      <span className={styles.riskIcon}>🔥</span>
-      <div className={styles.riskText}>
-        <span className={styles.riskTitle}>Your {count}-day streak is at risk</span>
-        <span className={styles.riskSub}>3 phrases = streak saved</span>
-      </div>
-      <button className={styles.riskBtn} onClick={() => onNavigate('shadow')}>
-        Save it →
-      </button>
-    </div>
-  );
-}
-
 
 function StreakCelebration({ count, onDismiss }) {
   return (

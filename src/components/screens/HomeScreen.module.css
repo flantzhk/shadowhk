@@ -7,43 +7,14 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* ─── Greeting header ─────────────────── */
-.greetingBar {
-  padding: 16px 20px 14px;
-}
-
-.greetingRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--fg-2);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.eyebrowDot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--bg-3);
-  flex-shrink: 0;
-}
-
 .streakPill {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 2px 9px;
   border-radius: 999px;
-  background: var(--accent-muted, rgba(200,57,43,0.12));
-  color: var(--accent);
+  background: rgba(255,255,255,0.14);
+  color: #fff;
   flex-shrink: 0;
 }
 
@@ -61,21 +32,6 @@
   opacity: 0.85;
 }
 
-.greetingTitle {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 500;
-  font-style: italic;
-  color: var(--fg-0);
-  letter-spacing: -0.02em;
-  margin: 0;
-  line-height: 1.15;
-}
-
-.greetingTitle em {
-  font-style: italic;
-}
-
 /* ─── Editorial section bar ───────────── */
 .sectionBar {
   display: flex;
@@ -84,6 +40,15 @@
   padding: 10px 20px;
   border-top: 6px solid var(--fg-0);
   margin: 18px 20px 0;
+}
+
+/* The first section bar on the page sits right under the today panel, which
+   already reads as a strong break — a second heavy rule right after it is
+   redundant, so this variant drops the border and tightens the gap. */
+.sectionBarFlush {
+  border-top: none;
+  margin-top: 14px;
+  padding-top: 0;
 }
 
 .sectionNum {
@@ -121,38 +86,90 @@
   align-items: center;
 }
 
-/* ─── Today's Lesson strip ────────────── */
-/* Compact, but given the most visual weight on the page: the one dark,
-   gold-bordered, glowing card among light editorial cards, so the eye
-   lands here first even though it's short. */
-.todayStrip {
+/* ─── Today panel ──────────────────────── */
+/* Greeting, streak-risk state, and today's lesson share one dark, gold-bordered
+   panel — there's no seam between separately-styled cards for them to crowd
+   against, and it's the one strong visual anchor on the page. */
+.todayPanel {
+  margin: 0 20px;
+  background: linear-gradient(160deg, var(--ink) 0%, #12100e 85%);
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 26px rgba(11,20,23,0.32), 0 0 0 1px rgba(201,162,74,0.08);
+}
+
+.panelGreetRow {
   display: flex;
   align-items: center;
-  gap: 14px;
-  width: calc(100% - 40px);
-  margin: 0 20px;
-  background: linear-gradient(135deg, var(--ink) 0%, #12100e 80%);
-  border: 1.5px solid var(--gold);
-  border-radius: 16px;
-  padding: 12px 14px;
+  gap: 8px;
+  margin-bottom: 8px;
+  min-height: 20px;
+}
+
+.panelGreetTitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.panelGreetTitle em {
+  font-style: italic;
+}
+
+.panelRibbon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,162,74,0.14);
+  border: 1px solid rgba(201,162,74,0.35);
+  border-radius: 12px;
+  padding: 9px 10px 9px 12px;
+  margin-bottom: 14px;
+}
+
+.panelRibbonText {
+  flex: 1;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.panelRibbonBtn {
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.panelLesson {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
   text-align: left;
-  box-shadow: 0 10px 26px rgba(11,20,23,0.32), 0 0 0 1px rgba(201,162,74,0.08);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.todayStrip:hover {
-  box-shadow: 0 14px 32px rgba(11,20,23,0.4), 0 0 0 1px rgba(201,162,74,0.14);
-}
-
-.todayStrip:active {
-  transform: scale(0.98);
-}
-
-.todayThumb {
+.panelThumb {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: 11px;
   flex-shrink: 0;
   overflow: hidden;
@@ -170,30 +187,12 @@
     linear-gradient(135deg, #0e0a14 0%, #1a0e1a 50%, #16242a 100%);
 }
 
-.todayThumbDue {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 5px;
-  border-radius: 99px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--ink);
-}
-
-.todayStripBody {
+.panelLessonBody {
   flex: 1;
   min-width: 0;
 }
 
-.todayStripEyebrow {
+.panelEyebrow {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -203,27 +202,23 @@
   letter-spacing: 0.14em;
   color: var(--gold);
   margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.todayStripDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-
-.todayStripDueText {
-  color: rgba(255,255,255,0.55);
-  font-weight: 500;
-  letter-spacing: 0.02em;
+/* Due-count reads as an inline pill next to the label instead of a badge
+   overlapping the thumbnail's corner, so nothing gets clipped. */
+.panelDuePill {
+  background: rgba(200,57,43,0.85);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: none;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
 }
 
-.todayStripTitle {
+.panelLessonTitle {
   font-family: var(--font-serif);
   font-size: 15.5px;
   font-weight: 600;
@@ -237,7 +232,7 @@
   overflow: hidden;
 }
 
-.todayStripCta {
+.panelCta {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -251,7 +246,7 @@
   border-radius: var(--radius-pill);
 }
 
-.todayStripPlay {
+.panelPlay {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -261,29 +256,20 @@
   flex-shrink: 0;
 }
 
-/* ─── Empty hero ──────────────────────── */
-.emptyHero {
-  margin: 0 20px;
-  min-height: 200px;
-  background: var(--bg-1);
-  border: 1px dashed var(--bg-3);
-  border-radius: 20px;
+.panelEmptyLesson {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   gap: 12px;
-  padding: 24px;
 }
 
-.emptyText {
+.panelEmptyText {
   font-family: var(--font-ui);
   font-size: 14px;
-  color: var(--fg-2);
-  text-align: center;
+  color: rgba(255,255,255,0.72);
 }
 
-.shadowBtn {
+.panelEmptyBtn {
   background: var(--accent);
   color: #fff;
   border: none;
@@ -299,102 +285,6 @@
 /* ─── Personal intro card ─────────────── */
 .personalSection { padding: 12px 20px 0; }
 
-.madeForYou {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  background: linear-gradient(135deg, var(--ink) 0%, #12100e 75%);
-  border: none;
-  border-radius: 14px;
-  padding: 14px 16px;
-  cursor: pointer;
-  text-align: left;
-}
-.madeForYouAvatarWrap {
-  position: relative;
-  flex-shrink: 0;
-  display: block;
-}
-.madeForYouAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--accent), #8f251b);
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-}
-.madeForYouAvatarImg {
-  display: block;
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-.madeForYouCount {
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 5px;
-  border-radius: 99px;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--ink);
-}
-.madeForYouBody { flex: 1; min-width: 0; }
-.madeForYouEyebrow {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 3px;
-  white-space: nowrap;
-}
-.madeForYouTitle {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0 0 3px;
-  letter-spacing: -0.01em;
-}
-.madeForYouSample {
-  font-family: var(--font-ui);
-  font-style: italic;
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.72);
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.madeForYouGo {
-  flex-shrink: 0;
-  font-family: var(--font-ui);
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #fff;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.28);
-  border-radius: var(--radius-pill);
-  padding: 7px 14px;
-}
 .personalEmpty {
   display: flex;
   align-items: flex-start;
@@ -587,6 +477,37 @@
   z-index: 1;
 }
 
+/* Marks the personal scene as the lead card in the rail. Sits fully inside
+   the cover's own bounds (no negative offset) so .sceneCover's overflow:
+   hidden never clips it. */
+.sceneMadeForYouTag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 99px;
+  padding: 3px 8px;
+  z-index: 1;
+}
+
+/* Phrase count sits under the title instead of a second corner chip, so it
+   never competes with .sceneMadeForYouTag for the same corner. */
+.sceneCoverCount {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+}
+
 .sceneCoverTitle {
   position: relative;
   z-index: 1;
@@ -720,35 +641,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='68' font-size='64' text-anchor='middle' fill='white' font-family='serif'%3E%E9%9F%B3%3C/text%3E%3C/svg%3E");
 }
 
-/* ─── Streak banner (at-risk) ─────────── */
-.riskBanner {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 8px 20px 0;
-  background: var(--bg-1);
-  border: 1px solid var(--border-0);
-  padding: 12px 16px;
-  border-radius: 12px;
-}
-
-.riskIcon { font-size: 18px; flex-shrink: 0; }
-.riskText { flex: 1; display: flex; flex-direction: column; gap: 1px; }
-.riskTitle { font-family: var(--font-ui); font-size: 14px; font-weight: 700; color: var(--fg-0); }
-.riskSub { font-family: var(--font-ui); font-size: 13px; color: var(--fg-2); }
-.riskBtn {
-  background: none;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 7px 14px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
 /* ─── Streak celebration ──────────────── */
 .celebOverlay {
   position: fixed;
@@ -837,13 +729,8 @@
     max-width: 1064px;
     margin: 0 auto;
   }
-  .greetingTitle {
-    font-size: 38px;
-  }
-  .heroSection :global(h1),
-  .heroTitle {
-    font-size: 40px;
-    line-height: 1.08;
+  .panelGreetTitle {
+    font-size: 32px;
   }
   /* Continue: fewer than 4 cards stretch to fill the row instead of
      leaving empty trailing columns (see base rule for why auto-fit). */
@@ -876,22 +763,14 @@
   .practiceCell {
     min-height: 120px;
   }
-  .todayStrip {
-    padding: 16px 20px;
+  .todayPanel {
+    padding: 22px 24px 20px;
   }
-  .todayThumb {
+  .panelThumb {
     width: 76px;
     height: 76px;
   }
-  .todayStripTitle {
+  .panelLessonTitle {
     font-size: 21px;
-  }
-}
-
-
-@media (min-width: 900px) {
-  .heroSection {
-    max-height: 440px;
-    overflow: hidden;
   }
 }
