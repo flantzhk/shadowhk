@@ -9,7 +9,7 @@ import { Sidebar } from './components/layout/Sidebar';
 import { ROUTES, GATES, isSceneLocked } from './utils/constants';
 import { isAuthenticated, waitForAuth, updateLastActive, handleGoogleRedirectResult } from './services/auth';
 import { useSubscription } from './hooks/useSubscription';
-import { clearAllData } from './services/storage';
+import { clearAllData, getSettings } from './services/storage';
 import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify, phCapture } from './services/posthog';
@@ -320,7 +320,12 @@ function MainLayout() {
         if (name && name !== settings.name) updates.name = name;
         if (user.photoURL) updates.photoURL = user.photoURL;
         if (!settings.firstrunCompleted) updates.firstrunCompleted = true;
-        const placementUpdates = await resolvePendingPlacementCheck(settings).catch(() => null);
+        // Read settings fresh from storage rather than the `settings` closure —
+        // this effect runs once on mount and AppContext's own settings load is
+        // a separate async race, so the closure can still hold DEFAULT_USER_SETTINGS
+        // (losing any queued placement-check recordings) by the time auth resolves.
+        const freshSettings = await getSettings().catch(() => null);
+        const placementUpdates = await resolvePendingPlacementCheck(freshSettings ?? settings).catch(() => null);
         if (placementUpdates) Object.assign(updates, placementUpdates);
         if (Object.keys(updates).length > 0) updateSettings(updates);
         updateLastActive();

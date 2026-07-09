@@ -116,6 +116,14 @@
   padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
+.finishErrorText {
+  font-size: 13px;
+  color: var(--color-error);
+  text-align: center;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
 .nextBtn {
   width: 100%;
   padding: 16px;

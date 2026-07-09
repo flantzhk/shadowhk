@@ -44,6 +44,7 @@ export default function CharacterCheck({ onBack }) {
   const [chosen, setChosen] = useState(null);
   const [phase, setPhase] = useState('choose'); // choose | feedback | done
   const [sessionStart] = useState(Date.now());
+  const [finishError, setFinishError] = useState(false);
 
   useEffect(() => {
     getLibraryEntries(language)
@@ -66,20 +67,25 @@ export default function CharacterCheck({ onBack }) {
   }, [phase, roundData]);
 
   const finish = useCallback(async () => {
-    const dur = Math.round((Date.now() - sessionStart) / 1000);
-    const streakResult = await updateStreak().catch(() => null);
-    phCapture('session_completed', { mode: 'character-check', correct_answers: correct });
-    await updateSettings({
-      totalPracticeSeconds: (settings.totalPracticeSeconds || 0) + dur,
-      ...(streakResult ? { streakCount: streakResult.count } : {}),
-    }).catch(() => {});
-    await saveSession({
-      id: crypto.randomUUID(), date: getTodayString(),
-      startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-      mode: 'character-check', phrasesAttempted: sessionSet.length, phrasesMastered: 0,
-      averageScore: Math.round((correct / sessionSet.length) * 100), phraseResults: [],
-    }).catch(() => {});
-    setPhase('done');
+    setFinishError(false);
+    try {
+      const dur = Math.round((Date.now() - sessionStart) / 1000);
+      const streakResult = await updateStreak();
+      phCapture('session_completed', { mode: 'character-check', correct_answers: correct });
+      await updateSettings({
+        totalPracticeSeconds: (settings.totalPracticeSeconds || 0) + dur,
+        ...(streakResult ? { streakCount: streakResult.count } : {}),
+      });
+      await saveSession({
+        id: crypto.randomUUID(), date: getTodayString(),
+        startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
+        mode: 'character-check', phrasesAttempted: sessionSet.length, phrasesMastered: 0,
+        averageScore: Math.round((correct / sessionSet.length) * 100), phraseResults: [],
+      });
+      setPhase('done');
+    } catch (err) {
+      setFinishError(true);
+    }
   }, [sessionStart, correct, sessionSet, settings, updateSettings]);
 
   const handleNext = useCallback(() => {
@@ -161,8 +167,11 @@ export default function CharacterCheck({ onBack }) {
 
       {phase === 'feedback' && (
         <div className={styles.feedbackArea}>
+          {finishError && (
+            <p className={styles.finishErrorText}>Something went wrong saving that. Check your connection and try again.</p>
+          )}
           <button className={styles.nextBtn} onClick={handleNext}>
-            {round + 1 >= sessionSet.length ? 'See results' : 'Next'}
+            {round + 1 >= sessionSet.length ? (finishError ? 'Retry' : 'See results') : 'Next'}
           </button>
         </div>
       )}
