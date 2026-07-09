@@ -44,7 +44,6 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const [sceneSaved, setSceneSaved] = useState(false);
   const [masteryPct, setMasteryPct] = useState(0);
   const [headerVisible, setHeaderVisible] = useState(false);
-  const [allSaved, setAllSaved] = useState(false);
   const heroRef = useRef(null);
 
   // User-authored phrases added to this scene (see "Add your own phrase"
@@ -171,15 +170,11 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     };
   }
 
-  async function saveAllLines() {
-    for (const line of (scene.lines ?? [])) {
-      if (!savedIds.has(line.id)) {
-        await saveLibraryEntry(buildLineEntry(line)).catch(() => {});
-      }
-    }
-    setSavedIds(new Set((scene.lines ?? []).map(l => l.id)));
-    setAllSaved(true);
-    setTimeout(() => setAllSaved(false), 2000);
+  async function toggleSceneSaved() {
+    const next = !sceneSaved;
+    setSceneSaved(next);
+    const existing = await getAllSceneProgress().then(r => r.find(p => p.sceneId === sceneId)).catch(() => null);
+    await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
   }
 
   async function toggleSaveLine(line) {
@@ -300,6 +295,14 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           <BackArrow /> Back
         </button>
         <span className={styles.stickyTitle}>{scene.title}</span>
+        <button
+          className={`${styles.headerSaveBtn} ${sceneSaved ? styles.headerSaveBtnSaved : ''}`}
+          onClick={toggleSceneSaved}
+          aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
+          title={sceneSaved ? 'Saved: shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
+        >
+          {sceneSaved ? '♥' : '♡'}
+        </button>
       </div>
 
       {/* Hero */}
@@ -314,7 +317,17 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         />
         <div className={styles.heroDark} />
         <div className={styles.heroContent}>
-          <button className={styles.backBtnHero} onClick={onBack}><BackArrow /> Back</button>
+          <div className={styles.heroTopRow}>
+            <button className={styles.backBtnHero} onClick={onBack}><BackArrow /> Back</button>
+            <button
+              className={`${styles.heroSaveBtn} ${sceneSaved ? styles.heroSaveBtnSaved : ''}`}
+              onClick={toggleSceneSaved}
+              aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
+              title={sceneSaved ? 'Saved: shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
+            >
+              {sceneSaved ? '♥' : '♡'}
+            </button>
+          </div>
           <div className={styles.heroMeta}>
             <span className={styles.heroEyebrow}>{(scene.category ?? 'scene').toUpperCase()} SCENE</span>
             <h1 className={styles.heroTitle}>{scene.title}</h1>
@@ -337,80 +350,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         </section>
       )}
 
-      {/* Vocabulary — key HK-specific terms for this scene */}
-      {scene.vocabulary?.length > 0 && (
-        <VocabSection
-          groups={scene.vocabulary}
-          language={language}
-          sceneId={sceneId}
-          savedIds={savedIds}
-          onToggleSave={toggleSaveVocabWord}
-        />
-      )}
-
-      {/* Controls row — labelled chips so heart vs plus is self-explanatory */}
-      <div className={styles.controls}>
-        <div className={styles.controlsLeft}>
-          <button
-            className={`${styles.heartBtn} ${sceneSaved ? styles.heartSaved : ''}`}
-            onClick={async () => {
-              const next = !sceneSaved;
-              setSceneSaved(next);
-              const existing = await getAllSceneProgress().then(r => r.find(p => p.sceneId === sceneId)).catch(() => null);
-              await saveSceneProgress({ ...(existing ?? { sceneId, language, sessionCount: 0, masteryPct: 0 }), bookmarked: next }).catch(() => {});
-            }}
-            aria-label={sceneSaved ? 'Remove scene from saved' : 'Save scene'}
-            title={sceneSaved ? 'Saved: shows up in your Saved tab' : 'Bookmark this scene in your Saved tab'}
-          >
-            {sceneSaved ? '♥' : '♡'} <span className={styles.controlLabel}>{sceneSaved ? 'Scene saved' : 'Save scene'}</span>
-          </button>
-          <button
-            className={`${styles.controlBtn} ${allSaved ? styles.controlBtnSaved : ''}`}
-            onClick={saveAllLines}
-            aria-label="Add all phrases to your phrasebook"
-            title="Add every phrase in this scene to your Library for spaced-repetition review"
-          >
-            {allSaved ? '✓' : '+'} <span className={styles.controlLabel}>{allSaved ? 'Added' : 'Add all phrases'}</span>
-          </button>
-          {navigator.share && (
-            <button
-              className={styles.controlBtn}
-              onClick={() => navigator.share({
-                title: scene.title,
-                text: `Practice "${scene.title}" in ShadowHK`,
-                url: `${window.location.origin}${import.meta.env.BASE_URL}#scene/${sceneId}`,
-              }).catch(() => {})}
-              aria-label="Share scene"
-              title="Share a link to this scene"
-            >
-              ↗ <span className={styles.controlLabel}>Share</span>
-            </button>
-          )}
-          <button
-            className={styles.controlBtn}
-            onClick={() => onNavigate('dialogue', sceneId)}
-            title="Practice this scene as a scripted back-and-forth conversation instead of shadowing line by line"
-            aria-label="Practice as a scripted conversation"
-          >
-            💬 <span className={styles.controlLabel}>Dialogue mode</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Mastery bar */}
-      {masteryPct > 0 && (
-        <div className={styles.masterySection}>
-          <div className={styles.masteryBar}>
-            <div
-              className={styles.masteryFill}
-              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, var(--fg-1), var(--accent))` }}
-            />
-          </div>
-          <span className={styles.masteryLabel}>{Math.round(masteryPct)}% mastered</span>
-        </div>
-      )}
-
-      {/* Conversation thread */}
+      {/* Conversation thread — read the scene before drilling its vocabulary */}
       <div className={styles.chatThread}>
         {(scene.lines ?? []).map((line, i) => {
           const isYou = line.speaker === 'you';
@@ -444,6 +384,30 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           );
         })}
       </div>
+
+      {/* Vocabulary — recap of the words you just saw in context */}
+      {scene.vocabulary?.length > 0 && (
+        <VocabSection
+          groups={scene.vocabulary}
+          language={language}
+          sceneId={sceneId}
+          savedIds={savedIds}
+          onToggleSave={toggleSaveVocabWord}
+        />
+      )}
+
+      {/* Mastery bar */}
+      {masteryPct > 0 && (
+        <div className={styles.masterySection}>
+          <div className={styles.masteryBar}>
+            <div
+              className={styles.masteryFill}
+              style={{ width: `${masteryPct}%`, background: `linear-gradient(90deg, var(--fg-1), var(--accent))` }}
+            />
+          </div>
+          <span className={styles.masteryLabel}>{Math.round(masteryPct)}% mastered</span>
+        </div>
+      )}
 
       {/* Your own phrases — user-authored additions scoped to this scene */}
       <section className={styles.culturalSection}>
@@ -542,7 +506,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         )}
       </section>
 
-      {/* Sticky CTA bar — sublabels explain the two practice modes */}
+      {/* Sticky CTA bar — sublabels explain the three practice modes */}
       <div className={styles.ctaBar}>
         <button className={styles.ctaSecondary} onClick={() => onNavigate('listen', sceneId)}>
           <span>🔊 Listen</span>
@@ -551,6 +515,10 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         <button className={styles.ctaPrimary} onClick={() => onNavigate('shadow', sceneId)}>
           <span>▶ Shadow this</span>
           <span className={styles.ctaSub}>Speak each line, get scored</span>
+        </button>
+        <button className={styles.ctaTertiary} onClick={() => onNavigate('dialogue', sceneId)}>
+          <span>💬 Dialogue</span>
+          <span className={styles.ctaSub}>Scripted back-and-forth</span>
         </button>
       </div>
     </div>
