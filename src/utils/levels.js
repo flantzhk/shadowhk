@@ -24,9 +24,9 @@ export function getLevel(totalXP) {
   return { ...current, next, progress, totalXP };
 }
 
-/** XP: 10 per session + 5 per phrase practiced + 2 per mastered phrase */
-export function calcXP({ totalSessions, totalPhrasesPracticed, masteredCount }) {
-  return (totalSessions * 10) + (totalPhrasesPracticed * 5) + (masteredCount * 2);
+/** XP: 10 per session + 5 per phrase practiced + 2 per mastered phrase + 20 per phrase used in person */
+export function calcXP({ totalSessions, totalPhrasesPracticed, masteredCount, realWorldCount = 0 }) {
+  return (totalSessions * 10) + (totalPhrasesPracticed * 5) + (masteredCount * 2) + (realWorldCount * 20);
 }
 
 export { LEVELS };

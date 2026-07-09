@@ -20,6 +20,10 @@ const ACHIEVEMENTS = [
   { id: 'first-master', icon: '⭐', label: 'First Mastery', desc: 'Master your first phrase', how: 'Score 90+ on a phrase repeatedly', field: 'mastered', threshold: 1 },
   { id: '25-sessions', icon: '🎯', label: '25 Sessions', desc: 'Complete 25 practice sessions', how: 'Keep showing up to practice', field: 'sessions', threshold: 25 },
   { id: '10-mastered', icon: '🧠', label: 'Sharp Memory', desc: 'Master 10 different phrases', how: 'Review phrases until they stick', field: 'mastered', threshold: 10 },
+  { id: 'first-lived', label: 'First one out there', desc: 'Say one phrase in person', how: 'Mark "I did it" after any session', field: 'realWorldUses', threshold: 1 },
+  { id: '5-lived', label: 'Five in the wild', desc: 'Mark 5 phrases as used in person', how: 'Keep marking sessions you actually used', field: 'realWorldUses', threshold: 5 },
+  { id: '15-lived', label: 'Regular use', desc: 'Mark 15 phrases as used in person', how: 'Practice becomes real conversation', field: 'realWorldUses', threshold: 15 },
+  { id: '30-lived', label: 'Out there constantly', desc: 'Mark 30 phrases as used in person', how: 'The city is your classroom now', field: 'realWorldUses', threshold: 30 },
 ];
 
 const DAY_LABELS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -76,13 +80,15 @@ export default function StatsScreen() {
         bestStreak = Math.max(bestStreak, currentRun);
       }
 
+      const realWorldCount = entries.filter(e => e.lived_at).length;
+
       setStats({
         totalPhrases: entries.length, learningCount, masteredCount,
         totalSessions: sessions.length, avgScore, sessionDates,
         totalTime: settings.totalPracticeSeconds,
         streak: settings.streakCount,
         bestStreak, totalPhrasesPracticed, toneAccuracy,
-        todayPhrases, todayTime,
+        todayPhrases, todayTime, realWorldCount,
       });
     })();
   }, [settings]);
@@ -122,6 +128,7 @@ export default function StatsScreen() {
     if (field === 'phrases') return stats.totalPhrases;
     if (field === 'streak') return Math.max(stats.streak, stats.bestStreak);
     if (field === 'mastered') return stats.masteredCount;
+    if (field === 'realWorldUses') return stats.realWorldCount;
     return 0;
   };
   const unlocked = ACHIEVEMENTS.filter(a => getFieldVal(a.field) >= a.threshold);
@@ -133,191 +140,121 @@ export default function StatsScreen() {
   return (
     <div className={styles.panel}>
 
-      {/* ── Streak Hero ── */}
-      <div className={styles.streakHero}>
-        <div className={styles.streakLeft}>
-          <div className={styles.flame}>
-            <svg width="36" height="42" viewBox="0 0 40 48" fill="none">
-              <path d="M20 0C20 0 30 12 32 22C34 32 28 42 20 46C12 42 6 32 8 22C10 12 20 0 20 0Z" fill="#C8392B" />
-              <path d="M20 14C20 14 26 22 27 28C28 34 24 40 20 42C16 40 12 34 13 28C14 22 20 14 20 14Z" fill="#FFCC4D" />
-              <path d="M20 26C20 26 23 30 23 33C23 36 22 38 20 39C18 38 17 36 17 33C17 30 20 26 20 26Z" fill="#FFE8A0" />
-            </svg>
-          </div>
-          <div className={styles.streakNums}>
-            <span className={styles.streakNum}>{stats.streak}</span>
-            <span className={styles.streakUnit}>day streak</span>
-          </div>
+      {/* ── Number strip — said in person leads ── */}
+      <div className={styles.numberStrip}>
+        <div className={styles.stripStat}>
+          <span className={styles.stripNum}>{stats.realWorldCount}</span>
+          <span className={styles.stripLabel}>Said in person</span>
         </div>
-        <div className={styles.streakRight}>
-          <span className={styles.streakHeadline}>{msg.headline}</span>
-          <span className={styles.streakSub}>{msg.sub}</span>
-          {stats.bestStreak > stats.streak && stats.bestStreak > 1 && (
-            <span className={styles.bestStreak}>Best: {stats.bestStreak} days</span>
-          )}
+        <div className={styles.stripStat}>
+          <span className={styles.stripNum}>{stats.totalPhrases}</span>
+          <span className={styles.stripLabel}>Phrases saved</span>
         </div>
-      </div>
-
-      {/* ── Today + Week side by side ── */}
-      <div className={styles.todayWeekRow}>
-        {/* Today's goal */}
-        <div className={styles.todayCard}>
-          <span className={styles.cardLabel}>Today</span>
-          <div className={styles.ringWrap}>
-            <svg viewBox="0 0 60 60" className={styles.ringSvg}>
-              <circle cx="30" cy="30" r="24" className={styles.ringTrack} />
-              <circle cx="30" cy="30" r="24" className={styles.ringFill}
-                style={{ strokeDasharray: `${2 * Math.PI * 24}`, strokeDashoffset: `${2 * Math.PI * 24 * (1 - dailyProgress)}` }}
-              />
-            </svg>
-            <span className={styles.ringInner}>
-              {goalMet ? '✓' : stats.todayPhrases}
-            </span>
-          </div>
-          <span className={styles.todayGoalLabel}>
-            {goalMet ? 'Goal met!' : `${stats.todayPhrases}/${dailyGoal} phrases`}
-          </span>
-          {stats.todayTime > 0 && (
-            <span className={styles.todayTime}>{formatTime(stats.todayTime)}</span>
-          )}
+        <div className={styles.stripStat}>
+          <span className={`${styles.stripNum} ${styles.stripNumGreen}`}>{stats.masteredCount}</span>
+          <span className={styles.stripLabel}>Mastered</span>
         </div>
-
-        {/* This week */}
-        <div className={styles.weekCard}>
-          <div className={styles.weekTop}>
-            <span className={styles.cardLabel}>This week</span>
-            <span className={styles.weekCount}>{weekActive}/7</span>
-          </div>
-          <div className={styles.weekRow}>
-            {weekDays.map(d => (
-              <div key={d.date} className={styles.weekDay}>
-                <div className={`${styles.weekDot} ${d.active ? styles.weekDotActive : ''} ${d.isToday && !d.active ? styles.weekDotToday : ''}`}>
-                  {d.active && (
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  )}
-                </div>
-                <span className={`${styles.weekLabel} ${d.isToday ? styles.weekLabelToday : ''}`}>{d.label}</span>
-              </div>
-            ))}
-          </div>
+        <div className={styles.stripStat}>
+          <span className={styles.stripNum}>{stats.totalSessions}</span>
+          <span className={styles.stripLabel}>Sessions</span>
         </div>
-      </div>
-
-      {/* ── Lifetime Stats ── */}
-      <div className={styles.statsGrid}>
-        <div className={styles.statTile}>
-          <span className={styles.statNum}>{stats.totalSessions}</span>
-          <span className={styles.statLabel}>Sessions</span>
+        <div className={styles.stripStat}>
+          <span className={styles.stripNum}>{stats.totalTime > 0 ? formatTime(stats.totalTime) : '—'}</span>
+          <span className={styles.stripLabel}>Time practiced</span>
         </div>
-        <div className={styles.statTile}>
-          <span className={styles.statNum}>{stats.totalPhrases}</span>
-          <span className={styles.statLabel}>Phrases saved</span>
-        </div>
-        <div className={styles.statTile}>
-          <span className={`${styles.statNum} ${styles.statNumGreen}`}>{stats.masteredCount}</span>
-          <span className={styles.statLabel}>Mastered</span>
-        </div>
-        <div className={styles.statTile}>
-          <span className={styles.statNum}>{stats.totalTime > 0 ? formatTime(stats.totalTime) : '—'}</span>
-          <span className={styles.statLabel}>Time practiced</span>
-        </div>
-        <div className={styles.statTile}>
-          <span className={styles.statNum}>{stats.toneAccuracy != null ? `${stats.toneAccuracy}%` : '—'}</span>
-          <span className={styles.statLabel}>Tone accuracy</span>
+        <div className={styles.stripStat}>
+          <span className={styles.stripNum}>{stats.toneAccuracy != null ? `${stats.toneAccuracy}%` : '—'}</span>
+          <span className={styles.stripLabel}>Tone accuracy</span>
         </div>
         {sinceDay1 !== null && (
-          <div className={styles.statTile}>
-            <span className={`${styles.statNum} ${sinceDay1 >= 0 ? styles.statNumGreen : ''}`}>
+          <div className={styles.stripStat}>
+            <span className={`${styles.stripNum} ${sinceDay1 >= 0 ? styles.stripNumGreen : ''}`}>
               {sinceDay1 > 0 ? `+${sinceDay1}` : sinceDay1}
             </span>
-            <span className={styles.statLabel}>Since day 1</span>
+            <span className={styles.stripLabel}>Since day 1</span>
           </div>
         )}
       </div>
 
-      {/* ── Level ── */}
-      <div className={styles.levelCard}>
-        <div className={styles.levelTop}>
-          <div className={styles.levelBadgeLarge}>
-            <span className={styles.levelBadgeNum}>{level.level}</span>
-          </div>
-          <div className={styles.levelInfo}>
-            <span className={styles.levelTitle}>{level.title}</span>
-            <span className={styles.levelDesc}>{level.desc}</span>
-          </div>
-          <span className={styles.xpChip}>{xp} XP</span>
-        </div>
-
-        {level.next && (
-          <div className={styles.levelProgress}>
-            <div className={styles.xpBar}>
-              <div className={styles.xpFill} style={{ width: `${Math.round(level.progress * 100)}%` }} />
-            </div>
-            <div className={styles.levelProgressRow}>
-              <span className={styles.levelProgressLabel}>Level {level.next.level}: {level.next.title}</span>
-              <span className={styles.xpRemaining}>{level.next.xp - xp} XP away</span>
-            </div>
-          </div>
+      {/* ── Streak ── */}
+      <section className={styles.textSection}>
+        <p className={styles.sectionKicker}>Streak</p>
+        <p className={styles.sectionLine}><b>{msg.headline}</b> {msg.sub}</p>
+        {stats.bestStreak > stats.streak && stats.bestStreak > 1 && (
+          <p className={styles.sectionMeta}>Best: {stats.bestStreak} days</p>
         )}
+        <div className={styles.weekTicks}>
+          {weekDays.map(d => (
+            <div key={d.date} className={styles.weekTick}>
+              <span className={`${styles.tickDot} ${d.active ? styles.tickDotActive : ''}`} />
+              <span className={`${styles.tickLabel} ${d.isToday ? styles.tickLabelToday : ''}`}>{d.label}</span>
+            </div>
+          ))}
+        </div>
+        <p className={styles.sectionMeta}>
+          {weekActive}/7 this week · {goalMet ? 'today’s goal met' : `${stats.todayPhrases}/${dailyGoal} phrases today`}
+        </p>
+      </section>
 
+      {/* ── Level ── */}
+      <section className={styles.textSection}>
+        <p className={styles.sectionKicker}>Level</p>
+        <p className={styles.sectionLine}><b>Level {level.level}, {level.title}.</b> {level.desc}</p>
+        {level.next && (
+          <>
+            <div className={styles.thinTrack}>
+              <div className={styles.thinFill} style={{ width: `${Math.round(level.progress * 100)}%` }} />
+            </div>
+            <p className={styles.sectionMeta}>{xp} XP · {level.next.xp - xp} XP to Level {level.next.level}, {level.next.title}</p>
+          </>
+        )}
         <div className={styles.xpRules}>
-          <span className={styles.xpRulesTitle}>Earn XP by practising</span>
           <div className={styles.xpRuleRow}><span className={styles.xpAmount}>+10</span>Completing a session</div>
           <div className={styles.xpRuleRow}><span className={styles.xpAmount}>+5</span>Each phrase practiced</div>
           <div className={styles.xpRuleRow}><span className={styles.xpAmount}>+2</span>Each phrase mastered</div>
+          <div className={styles.xpRuleRow}><span className={styles.xpAmount}>+20</span>Each phrase used in person</div>
         </div>
-      </div>
+      </section>
 
       {/* ── Achievements ── */}
-      <section className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Achievements</h2>
-          <span className={styles.sectionCount}>{unlocked.length}/{ACHIEVEMENTS.length} earned</span>
+      <section className={styles.textSection}>
+        <div className={styles.sectionHeaderRow}>
+          <p className={styles.sectionKicker}>Achievements</p>
+          <span className={styles.sectionMeta}>{unlocked.length}/{ACHIEVEMENTS.length} earned</span>
         </div>
 
         {unlocked.length > 0 && (
-          <>
-            <p className={styles.achieveSub}>Earned</p>
-            <div className={styles.achieveGrid}>
-              {unlocked.map(a => (
-                <div key={a.id} className={`${styles.achieveCard} ${styles.achieveUnlocked}`}>
-                  <span className={styles.achieveEmoji}>{a.icon}</span>
-                  <span className={styles.achieveLabel}>{a.label}</span>
-                  <span className={styles.achieveDesc}>{a.desc}</span>
-                </div>
-              ))}
-            </div>
-          </>
+          <div className={styles.achieveFlatList}>
+            {unlocked.map(a => (
+              <div key={a.id} className={styles.achieveFlatRow}>
+                <span className={styles.achieveFlatLabel}>{a.label}</span>
+                <span className={styles.achieveFlatDone}>Earned</span>
+              </div>
+            ))}
+          </div>
         )}
 
         {nextToUnlock.length > 0 && (
-          <>
-            <p className={styles.achieveSub} style={{ marginTop: unlocked.length > 0 ? 16 : 0 }}>
-              {unlocked.length === 0 ? 'Closest to earning' : 'Up next'}
-            </p>
-            <div className={styles.achieveList}>
-              {nextToUnlock.map(a => {
-                const val = getFieldVal(a.field);
-                const progress = Math.min(val / a.threshold, 1);
-                return (
-                  <div key={a.id} className={styles.achieveRow}>
-                    <span className={styles.achieveRowEmoji}>{a.icon}</span>
-                    <div className={styles.achieveRowText}>
-                      <div className={styles.achieveRowTop}>
-                        <span className={styles.achieveRowLabel}>{a.label}</span>
-                        <span className={styles.achieveRowCount}>{val}/{a.threshold}</span>
-                      </div>
-                      <span className={styles.achieveRowDesc}>{a.how}</span>
-                      <div className={styles.achieveRowBar}>
-                        <div className={styles.achieveRowFill} style={{ width: `${Math.round(progress * 100)}%` }} />
-                      </div>
+          <div className={styles.achieveFlatList} style={{ marginTop: unlocked.length > 0 ? 10 : 0 }}>
+            {nextToUnlock.map(a => {
+              const val = getFieldVal(a.field);
+              const progress = Math.min(val / a.threshold, 1);
+              return (
+                <div key={a.id} className={styles.achieveFlatRow}>
+                  <div className={styles.achieveFlatText}>
+                    <div className={styles.achieveFlatTop}>
+                      <span className={styles.achieveFlatLabel}>{a.label}</span>
+                      <span className={styles.achieveFlatCount}>{val}/{a.threshold}</span>
+                    </div>
+                    <span className={styles.achieveFlatDesc}>{a.desc}</span>
+                    <div className={styles.thinTrackSmall}>
+                      <div className={styles.thinFillSmall} style={{ width: `${Math.round(progress * 100)}%` }} />
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </>
+                </div>
+              );
+            })}
+          </div>
         )}
 
         {locked.length > 3 && (

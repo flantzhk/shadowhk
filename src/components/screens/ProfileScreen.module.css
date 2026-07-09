@@ -44,6 +44,14 @@
   gap: 8px;
 }
 
+.name {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--fg-0);
+  letter-spacing: -0.01em;
+}
+
 .editBtn {
   background: none;
   border: none;
@@ -268,10 +276,10 @@
 }
 
 .heat0 { background: #E8E2D8; }
-.heat1 { background: rgba(200,57,43,0.15); }
-.heat2 { background: rgba(200,57,43,0.30); }
-.heat3 { background: rgba(200,57,43,0.55); }
-.heat4 { background: var(--accent); }
+.heat1 { background: var(--fg-3); }
+.heat2 { background: var(--fg-2); }
+.heat3 { background: var(--fg-1); }
+.heat4 { background: var(--fg-0); }
 
 /* === Section labels (editorial bar) === */
 .sectionLabel {

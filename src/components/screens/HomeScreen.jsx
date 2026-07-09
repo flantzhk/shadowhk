@@ -17,6 +17,7 @@ export default function HomeScreen({ onNavigate }) {
   const [loading, setLoading] = useState(true);
   const [personalPhraseCount, setPersonalPhraseCount] = useState(null);
   const [personalSample, setPersonalSample] = useState(null);
+  const [realWorldCount, setRealWorldCount] = useState(0);
   const [allScenes, setAllScenes] = useState([]);
   const [sceneProgress, setSceneProgress] = useState({});
   const [dueCount, setDueCount] = useState(0);
@@ -40,7 +41,8 @@ export default function HomeScreen({ onNavigate }) {
       const personal = entries.filter(e => e.scene_id === PERSONAL_SCENE_ID);
       setPersonalPhraseCount(personal.length);
       setPersonalSample(personal[0] ?? null);
-    }).catch(() => setPersonalPhraseCount(0));
+      setRealWorldCount(entries.filter(e => e.lived_at).length);
+    }).catch(() => { setPersonalPhraseCount(0); setRealWorldCount(0); });
     getAllScenes(language).then(setAllScenes).catch(() => {});
     getAllSceneProgress().then(records => {
       const map = {};
@@ -71,6 +73,7 @@ export default function HomeScreen({ onNavigate }) {
         userName={userName}
         streakCount={streakCount}
         streakAtRisk={streakAtRisk}
+        realWorldCount={realWorldCount}
         loading={loading}
         lesson={lesson}
         dueCount={dueCount}
@@ -137,10 +140,17 @@ function StreakPill({ count }) {
 
 // Greeting, streak-risk state, and today's lesson share one dark panel so
 // there's no seam between separately-styled cards for them to crowd against.
-function TodayPanel({ userName, streakCount, streakAtRisk, loading, lesson, dueCount, onNavigate }) {
+function TodayPanel({ userName, streakCount, streakAtRisk, realWorldCount, loading, lesson, dueCount, onNavigate }) {
   return (
     <div className={styles.todayPanel}>
-      <div className={styles.panelGreetRow}>
+      <div className={styles.panelLeadRow}>
+        <div className={styles.panelLeadStat}>
+          <span className={styles.panelLeadLabel}>Said in person</span>
+          {realWorldCount > 0
+            ? <span className={styles.panelLeadNum}>{realWorldCount}</span>
+            : <span className={styles.panelLeadEmpty}>Say your first phrase out loud, out there.</span>
+          }
+        </div>
         <StreakPill count={streakCount} />
       </div>
       <h1 className={styles.panelGreetTitle}>

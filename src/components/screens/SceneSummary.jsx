@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { formatTime } from '../../utils/formatters';
+import { getLibraryEntriesByScene, saveLibraryEntry } from '../../services/storage';
 import { BulkSaveModal } from '../shared/BulkSaveModal';
+import { RealLifeCelebration } from '../shared/RealLifeCelebration';
 import styles from './SceneSummary.module.css';
 
 function getScoreColor(score) {
@@ -19,6 +21,12 @@ function getScoreColor(score) {
 export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onReplay, showToast }) {
   const { settings } = useAppContext();
   const [showBulkSave, setShowBulkSave] = useState(false);
+  const sceneId = summary?.sceneId ?? null;
+  const [livedState, setLivedState] = useState(() => {
+    if (!sceneId) return 'hidden';
+    return localStorage.getItem(`lived_asked_${sceneId}`) ? 'hidden' : 'pending';
+  });
+  const [showRealLifeCelebration, setShowRealLifeCelebration] = useState(false);
   if (!summary) return null;
 
   // Collect user turns that have a phraseId for saving
@@ -29,6 +37,32 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
       chinese: t.chinese, romanization: t.romanization || '', english: t.english || '',
     })) || [];
 
+  // Best-scored turn, featured in the real-life celebration if the user confirms
+  const bestPhrase = (() => {
+    const scored = (chatLog ?? []).filter(t => t.speaker === 'user' && t.score != null);
+    if (!scored.length) return null;
+    const best = scored.reduce((a, b) => b.score > a.score ? b : a);
+    return { cjk: best.chinese ?? '', english: best.english ?? '' };
+  })();
+
+  async function handleLivedIt() {
+    if (!sceneId) return;
+    localStorage.setItem(`lived_asked_${sceneId}`, '1');
+    setShowRealLifeCelebration(true);
+    const now = Date.now();
+    try {
+      const entries = await getLibraryEntriesByScene(sceneId);
+      for (const e of entries) {
+        await saveLibraryEntry({ ...e, lived_at: now });
+      }
+    } catch {}
+  }
+
+  function handleNotYet() {
+    if (sceneId) localStorage.setItem(`lived_asked_${sceneId}`, '1');
+    setLivedState('hidden');
+  }
+
   const firstName = (settings.name || '').split(' ')[0] || 'there';
   const userTurns = chatLog?.filter(t => t.speaker === 'user') || [];
   const scoredTurns = userTurns.filter(t => t.score != null);
@@ -38,6 +72,12 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
 
   return (
     <div className={styles.screen}>
+      {showRealLifeCelebration && (
+        <RealLifeCelebration
+          phrase={bestPhrase}
+          onDone={() => { setShowRealLifeCelebration(false); setLivedState('confirmed'); }}
+        />
+      )}
       <div className={styles.scrollArea}>
         {/* Icon */}
         <div className={styles.iconWrap}>
@@ -71,6 +111,22 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
             <span className={styles.streakText}>
               {summary.streakCount} day streak
             </span>
+          </div>
+        )}
+
+        {/* Lived it prompt */}
+        {livedState === 'pending' && (
+          <div className={styles.livedSection}>
+            <p className={styles.livedQ}>Did you actually use any of these in the wild?</p>
+            <div className={styles.livedBtns}>
+              <button className={styles.livedNotYet} onClick={handleNotYet}>Not yet</button>
+              <button className={styles.livedIt} onClick={handleLivedIt}>📍 I did it</button>
+            </div>
+          </div>
+        )}
+        {livedState === 'confirmed' && (
+          <div className={styles.livedSection}>
+            <p className={styles.livedConfirm}>📍 Marked. That's the real thing.</p>
           </div>
         )}
 

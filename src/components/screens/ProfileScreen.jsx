@@ -136,7 +136,6 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
           </div>
           <span className={styles.heroBrow}>
             {joinMonths ? `${joinMonths} MO MEMBER` : 'NEW MEMBER'}
-            {' · '}DAY {settings.streakCount ?? 0} STREAK
             {' · '}{(settings.currentLanguage ?? 'cantonese').toUpperCase()}
           </span>
         </div>

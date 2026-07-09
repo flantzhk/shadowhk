@@ -116,6 +116,63 @@
   color: rgba(255,200,100,0.9);
 }
 
+/* === Lived it === */
+.livedSection {
+  width: 100%;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-0);
+  border-bottom: 1px solid var(--border-0);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.livedQ {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--fg-2);
+  margin: 0 0 10px;
+}
+
+.livedBtns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.livedNotYet {
+  background: transparent;
+  border: 1px solid var(--border-1);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg-2);
+  padding: 12px 20px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.livedIt {
+  background: var(--jade, #4A6B46);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: #FAFAF7;
+  padding: 12px 20px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.livedConfirm {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--jade, #4A6B46);
+  margin: 0;
+}
+
 /* === Chat Section === */
 .chatSection {
   width: 100%;
