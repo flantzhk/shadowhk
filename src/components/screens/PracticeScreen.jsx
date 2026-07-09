@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './PracticeScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { getDueByLanguage as getDueEntries } from '../../services/srs.js';
-import { getLibraryEntries } from '../../services/storage.js';
+import { recommendFocus } from '../../services/practiceRecommendation.js';
 
 const TIME_OPTIONS = [5, 10, 20];
 const FOCUS_OPTIONS = [
@@ -19,25 +18,21 @@ export default function PracticeScreen({ onNavigate }) {
   const [time, setTime] = useState(10);
   const [focus, setFocus] = useState('everything');
   const [recommendation, setRecommendation] = useState(null);
+  // What "Everything" actually starts — the mode the user needs most right
+  // now, not a hardcoded default. Set once on mount alongside the card above.
+  const [recommendedFocus, setRecommendedFocus] = useState('speaking');
 
   useEffect(() => {
     (async () => {
       try {
-        const library = await getLibraryEntries(language);
-        const due = await getDueEntries(language);
-        if (due.length > 0) {
+        const rec = await recommendFocus(language);
+        setRecommendedFocus(rec.focus);
+        if (rec.reason) {
           setRecommendation({
-            type: 'shadow',
-            label: `${due.length} phrase${due.length !== 1 ? 's' : ''} need review`,
-            detail: 'Shadow a scene to catch up.',
-            action: () => onNavigate('home'),
-          });
-        } else if (library.length > 0) {
-          setRecommendation({
-            type: 'tone',
-            label: 'Work on your tones',
-            detail: 'Tone Gym targets your real library.',
-            action: () => onNavigate('drill-tone'),
+            type: rec.focus,
+            label: rec.focus === 'tones' ? "You're mixing up tones" : `${rec.count} phrase${rec.count !== 1 ? 's' : ''} need review`,
+            detail: rec.reason,
+            action: () => onNavigate(rec.focus === 'tones' ? 'drill-tone' : 'home'),
           });
         }
       } catch (_) {}
@@ -49,7 +44,7 @@ export default function PracticeScreen({ onNavigate }) {
       case 'tones':    return onNavigate('drill-tone');
       case 'speaking': return onNavigate('shadow', null);
       case 'recall':   return onNavigate('prompt');
-      default:         return onNavigate('shadow', null);
+      default:         return onNavigate(recommendedFocus === 'tones' ? 'drill-tone' : 'shadow', null);
     }
   }
 
@@ -65,7 +60,7 @@ export default function PracticeScreen({ onNavigate }) {
         {recommendation && (
           <button className={styles.recommendCard} onClick={recommendation.action}>
             <div className={styles.recommendIcon}>
-              {recommendation.type === 'tone' ? '🎯' : '📅'}
+              {recommendation.type === 'tones' ? '🎯' : '📅'}
             </div>
             <div className={styles.recommendText}>
               <p className={styles.recommendLabel}>{recommendation.label}</p>
@@ -119,6 +114,7 @@ export default function PracticeScreen({ onNavigate }) {
           <ModeRow emoji="⚡" label="Speed run"         desc="60 seconds, as many phrases as possible"    onClick={() => onNavigate('speedrun')} />
           <ModeRow emoji="🎯" label="Tone Gym"          desc="10 reps on your hardest tones"              onClick={() => onNavigate('drill-tone')} />
           <ModeRow emoji="🧠" label="Prompt drill"      desc="Hear English, produce Cantonese"            onClick={() => onNavigate('prompt')} />
+          <ModeRow emoji="📖" label="Character check"   desc="Characters only, no audio. Can you read it?" onClick={() => onNavigate('character-check')} />
         </div>
       </div>
     </div>

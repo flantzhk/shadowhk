@@ -17,7 +17,8 @@ import { buildLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { phCapture } from '../../services/posthog.js';
-import { ToneTrack } from '../ui/ToneTrack.jsx';
+import { SyllableDiagnostic } from '../ui/SyllableDiagnostic.jsx';
+import { diffJyutping } from '../../utils/jyutpingDiff.js';
 import { PhrasebookToast } from '../shared/PhrasebookToast.jsx';
 import { SCORE_THRESHOLDS } from '../../utils/constants.js';
 import styles from './ShadowSession.module.css';
@@ -220,7 +221,10 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         setCurrentScore(result.score);
         setToneResult(result);
         if (result.score >= 90) setTimeout(() => setShowCelebration(true), 350);
-        await updateAfterPractice(currentYouLine.id, result.score);
+        await updateAfterPractice(currentYouLine.id, result.score, {
+          expectedJyutping: result.expectedJyutping,
+          transcribedJyutping: result.transcribedJyutping,
+        });
         setResults(prev => [...prev, { phraseId: currentYouLine.id, score: result.score, romanization: currentYouLine.romanization, english: currentYouLine.english }]);
       } catch (_) {
         setCurrentScore(null);
@@ -472,12 +476,11 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
                       <p className={styles.heardLine}><span className={styles.heardLabel}>WE HEARD</span> {toneResult.transcribedJyutping}</p>
                     </div>
                   )}
-                  {toneResult?.toneContours && (
-                    <div className={styles.toneTrackWrap}>
-                      <ToneTrack
-                        target={toneResult.toneContours.expected ?? []}
-                        user={toneResult.toneContours.actual ?? []}
-                        labels={currentYouLine?.romanization?.split(' ') ?? []}
+                  {toneResult?.expectedJyutping && toneResult?.transcribedJyutping && currentScore !== null && currentScore < 90 && (
+                    <div className={styles.syllableDiagnosticWrap}>
+                      <SyllableDiagnostic
+                        diff={diffJyutping(toneResult.expectedJyutping, toneResult.transcribedJyutping)}
+                        variant="dark"
                       />
                     </div>
                   )}

@@ -14,6 +14,7 @@ import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
 import { initPostHog, phIdentify, phCapture } from './services/posthog';
 import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sync';
+import { resolvePendingPlacementCheck } from './services/placementCheck';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
 import { useToast } from './components/shared/Toast';
 import { logger } from './utils/logger';
@@ -44,6 +45,7 @@ const PromptDrill        = lazy(() => import('./components/screens/PromptDrill')
 const SpeedRun           = lazy(() => import('./components/screens/SpeedRun'));
 const ToneGym            = lazy(() => import('./components/screens/ToneGym'));
 const ToneGymResults     = lazy(() => import('./components/screens/ToneGymResults'));
+const CharacterCheck     = lazy(() => import('./components/screens/CharacterCheck'));
 const DialogueSceneLoader = lazy(() => import('./components/screens/DialogueSceneLoader'));
 const SceneSummary       = lazy(() => import('./components/screens/SceneSummary'));
 const AIConversation     = lazy(() => import('./components/screens/AIConversation'));
@@ -148,7 +150,7 @@ const AUTH_ENTRY_ROUTES = new Set([
 const CHROME_HIDDEN_ROUTES = new Set([
   ROUTES.SHADOW, ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN,
   ROUTES.TONE_GYM, ROUTES.TONE_GYM_RESULTS, ROUTES.DRILL_TONE, ROUTES.DIALOGUE,
-  ROUTES.LISTEN, ROUTES.FIRSTRUN,
+  ROUTES.LISTEN, ROUTES.FIRSTRUN, ROUTES.CHARACTER_CHECK,
   ROUTES.SESSION_END, ROUTES.SCENE_END,
 ]);
 
@@ -181,6 +183,7 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings, authed
     case ROUTES.LIBRARY:         return <LibraryScreen onNavigate={navigate} />;
     case ROUTES.PRACTICE:        return <PracticeScreen onNavigate={navigate} onBack={goBack} />;
     case ROUTES.DRILL_TONE:      return <ToneTrainer onNavigate={navigate} onBack={goBack} />;
+    case ROUTES.CHARACTER_CHECK: return <CharacterCheck onBack={goBack} />;
     case ROUTES.PHRASE_DETAIL:   return <PhraseDetailScreen phraseId={id} onNavigate={navigate} onBack={goBack} />;
     case ROUTES.SEARCH:          return <SearchScreen onNavigate={navigate} onBack={goBack} />;
     case ROUTES.SHADOW:          return <ShadowSession sceneId={id} onNavigate={navigate} onBack={goBack} onComplete={(s) => { if (!authed) phCapture('guest_scene_completed', { sceneId: id }); try { sessionStorage.setItem('shadowSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.SESSION_END); }} />;
@@ -317,6 +320,8 @@ function MainLayout() {
         if (name && name !== settings.name) updates.name = name;
         if (user.photoURL) updates.photoURL = user.photoURL;
         if (!settings.firstrunCompleted) updates.firstrunCompleted = true;
+        const placementUpdates = await resolvePendingPlacementCheck(settings).catch(() => null);
+        if (placementUpdates) Object.assign(updates, placementUpdates);
         if (Object.keys(updates).length > 0) updateSettings(updates);
         updateLastActive();
         pullLibraryFromFirestore().catch(err => logger.warn('[App] library sync failed', err?.message));

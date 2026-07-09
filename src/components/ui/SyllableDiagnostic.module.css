@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 340px;
+}
+
+.syllable {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Light variant (default) — used on light-background screens like ToneTrainer */
+.correct { color: var(--color-text-tertiary); }
+.tone    { color: var(--color-warning); background: rgba(200, 124, 32, 0.1); }
+.sound,
+.missing {
+  color: var(--color-error);
+  background: rgba(176, 48, 32, 0.08);
+}
+.missing { text-decoration: line-through; opacity: 0.7; }
+.extra {
+  color: var(--color-text-muted);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Dark variant — used on the immersive dark shadowing screen */
+.dark .correct { color: rgba(247, 244, 236, 0.7); }
+.dark .tone    { color: #E8A33D; background: rgba(232, 163, 61, 0.12); }
+.dark .sound,
+.dark .missing {
+  color: #E8776B;
+  background: rgba(232, 119, 107, 0.12);
+}
+.dark .extra { color: rgba(247, 244, 236, 0.45); }

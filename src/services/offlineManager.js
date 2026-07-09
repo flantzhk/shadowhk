@@ -46,7 +46,10 @@ async function executeQueuedAction(item) {
       // offline session scored the user's speech and then threw it away.
       if (phraseId && typeof result?.score === 'number') {
         const { updateAfterPractice } = await import('./srs');
-        await updateAfterPractice(phraseId, result.score).catch((e) =>
+        await updateAfterPractice(phraseId, result.score, {
+          expectedJyutping: result.expectedJyutping,
+          transcribedJyutping: result.transcribedJyutping,
+        }).catch((e) =>
           logger.warn(`Queued score for ${phraseId} not applied`, e?.message));
       }
       logger.info(`Scored queued phrase ${phraseId}:`, result.score);
@@ -197,4 +200,4 @@ async function downloadAllAudio(language, onProgress, cancelRef = { cancelled: f
   }
 }
 
-export { processOfflineQueue, initOfflineQueueListener, blobToBase64, downloadAllAudio };
+export { processOfflineQueue, initOfflineQueueListener, blobToBase64, base64ToBlob, downloadAllAudio };

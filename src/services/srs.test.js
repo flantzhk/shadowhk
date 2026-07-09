@@ -1,7 +1,7 @@
 // Tests for the SRS scheduling math — FSRS-lite continuous difficulty/stability model.
 import { describe, it, expect } from 'vitest';
 import { calculateNextReview } from './srs';
-import { SRS_MASTERED_THRESHOLD } from '../utils/constants';
+import { SRS_MASTERED_THRESHOLD, WEAK_TONE_MAX_INTERVAL } from '../utils/constants';
 
 const DAY = 86400000;
 const fresh = { interval: 0, stability: 0, difficulty: 5, practiceCount: 0 };
@@ -85,5 +85,24 @@ describe('calculateNextReview', () => {
     const r = calculateNextReview(entry, 'correct', 98);
     expect(r.interval).toBeGreaterThanOrEqual(SRS_MASTERED_THRESHOLD);
     expect(r.status).toBe('mastered');
+  });
+
+  it('caps the interval when the phrase touches a currently-weak tone, even on a high score', () => {
+    const entry = {
+      interval: 20,
+      stability: 20,
+      difficulty: 2,
+      practiceCount: 8,
+      lastPracticedAt: Date.now() - 20 * DAY,
+    };
+    const withoutBias = calculateNextReview(entry, 'correct', 98, false);
+    const withBias = calculateNextReview(entry, 'correct', 98, true);
+    expect(withoutBias.interval).toBeGreaterThan(WEAK_TONE_MAX_INTERVAL);
+    expect(withBias.interval).toBeLessThanOrEqual(WEAK_TONE_MAX_INTERVAL);
+  });
+
+  it('does not weaken a lapse further — hasWeakTone only caps growth, never un-resets a lapse to 0', () => {
+    const r = calculateNextReview(fresh, 'forgot', 40, true);
+    expect(r.interval).toBe(0);
   });
 });

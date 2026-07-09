@@ -112,7 +112,10 @@ export default function PromptDrill({ onBack, onComplete }) {
         setTranscription(sttResult.text || '');
         const s = scoreResult.score;
         setScore(s);
-        await updateAfterPractice(phrase.id, s);
+        await updateAfterPractice(phrase.id, s, {
+          expectedJyutping: scoreResult.expectedJyutping,
+          transcribedJyutping: scoreResult.transcribedJyutping,
+        });
         setResults(prev => [...prev, { phraseId: phrase.id, romanization: phrase.romanization || '', english: phrase.english || '', score: s }]);
 
         // Track streak for level progression

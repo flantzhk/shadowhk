@@ -110,6 +110,12 @@ export default function StatsScreen() {
   const dailyProgress = Math.min(stats.todayPhrases / dailyGoal, 1);
   const goalMet = dailyProgress >= 1;
 
+  // Onboarding placement-check baseline vs. current average — only shown for
+  // users who actually did the check and have scored sessions since.
+  const sinceDay1 = (settings.baselineScore != null && stats.avgScore != null)
+    ? Math.round(stats.avgScore - settings.baselineScore)
+    : null;
+
   // Achievements
   const getFieldVal = (field) => {
     if (field === 'sessions') return stats.totalSessions;
@@ -220,6 +226,14 @@ export default function StatsScreen() {
           <span className={styles.statNum}>{stats.toneAccuracy != null ? `${stats.toneAccuracy}%` : '—'}</span>
           <span className={styles.statLabel}>Tone accuracy</span>
         </div>
+        {sinceDay1 !== null && (
+          <div className={styles.statTile}>
+            <span className={`${styles.statNum} ${sinceDay1 >= 0 ? styles.statNumGreen : ''}`}>
+              {sinceDay1 > 0 ? `+${sinceDay1}` : sinceDay1}
+            </span>
+            <span className={styles.statLabel}>Since day 1</span>
+          </div>
+        )}
       </div>
 
       {/* ── Level ── */}

@@ -143,7 +143,10 @@ export default function DialogueScene({ sceneData, onBack, onComplete }) {
       try {
         const result = await scorePronunciation(blob, turn.chinese, 'cantonese');
         scoreVal = result.score;
-        if (turn.phraseId) await updateAfterPractice(turn.phraseId, scoreVal);
+        if (turn.phraseId) await updateAfterPractice(turn.phraseId, scoreVal, {
+          expectedJyutping: result.expectedJyutping,
+          transcribedJyutping: result.transcribedJyutping,
+        });
       } catch { /* non-fatal */ }
     }
     setScore(scoreVal);

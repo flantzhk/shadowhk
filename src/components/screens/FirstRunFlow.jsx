@@ -9,10 +9,21 @@ import { SOURCE_TAGS, GROWTH_STATE, ROUTES } from '../../utils/constants.js';
 import { SIX_TONES } from '../../utils/toneData.js';
 import { staticWordAudio } from '../../services/staticAudio.js';
 import { textToSpeech } from '../../services/api.js';
+import { useRecorder } from '../../hooks/useRecorder.js';
+import { blobIsAudible } from '../../utils/audioSignal.js';
+import { submitPlacementAttempt } from '../../services/placementCheck.js';
 
-const TOTAL_STEPS = 7;
+const TOTAL_STEPS = 8;
 const HARBOUR_URL = '/shadowhk/images/scenes/ferry.jpg';
 const DIMSUM_URL = '/shadowhk/images/scenes/firstrun-dimsum.jpg';
+
+// The listen-and-repeat check (step 6) always uses these two dim-sum lines —
+// real scene audio already exists for them, and they preview the scene the
+// user is about to start regardless of which free scene ends up chosen.
+const PLACEMENT_PHRASES = [
+  { id: 'dim-sum-01', cjk: '唔該，有冇位呀？', jyutping: 'm4 goi1, jau5 mou5 wai2 aa3?', english: 'Excuse me, do you have a table?', audioFile: 'dim-sum-01.mp3' },
+  { id: 'dim-sum-03', cjk: '四位，麻煩晒。', jyutping: 'sei3 wai2, maa4 faan4 saai3.', english: 'Four people, thank you.', audioFile: 'dim-sum-03.mp3' },
+];
 
 const LEVELS = [
   { id: 'zero',       label: 'I know zero Cantonese',  sub: 'Start with the first 10 phrases' },
@@ -38,11 +49,19 @@ const GOALS = [
 ];
 
 
+// Picks among the 3 free scenes using the already-collected "what brought
+// you here" answer instead of always defaulting to dim-sum.
+function pickSceneId(reasons) {
+  if (reasons.has('food')) return 'dim-sum';
+  if (reasons.has('transport')) return 'taxi';
+  return 'wet-market';
+}
+
 export default function FirstRunFlow({ onComplete, onNavigate }) {
   const { settings, updateSettings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
 
-  const [step, setStep] = useState(0);   // 0–5
+  const [step, setStep] = useState(0);   // 0–7
   const [level, setLevel] = useState('');
   const [reasons, setReasons] = useState(new Set());
   const [goal, setGoal] = useState(5);
@@ -50,6 +69,12 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   const [firstScene, setFirstScene] = useState(null);
   const audioElRef = useRef(null);
   const [playingChar, setPlayingChar] = useState(null);
+
+  // Step 6 — listen-and-repeat placement check
+  const [placementIndex, setPlacementIndex] = useState(0);
+  const [placementDone, setPlacementDone] = useState(new Set());
+  const [placementScoring, setPlacementScoring] = useState(false);
+  const { isRecording: placementRecording, startRecording, stopRecording, error: micError } = useRecorder();
 
   useEffect(() => {
     phCapture('firstrun_step_viewed', { step: step + 1 });
@@ -74,14 +99,33 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
   const goForward = async () => {
     if (step === 5) {
-      // Save goal + load first scene before showing the final step
+      // Save goal before the placement check
       await updateSettings({ dailyGoalMinutes: goal, reminderTime }).catch(err => logger.warn('[FirstRunFlow] settings save failed', err?.message));
-      const scenes = await getAllScenes(language).catch(() => []);
-      setFirstScene(scenes.find(s => s.id === 'dim-sum') ?? scenes[0] ?? null);
     }
-    if (step === 6) { finish(); return; }
+    if (step === 6) {
+      // Placement check done (or skipped) — pick + load the first scene
+      const scenes = await getAllScenes(language).catch(() => []);
+      const sceneId = pickSceneId(reasons);
+      setFirstScene(scenes.find(s => s.id === sceneId) ?? scenes.find(s => s.id === 'dim-sum') ?? scenes[0] ?? null);
+    }
     setStep(s => s + 1);
   };
+
+  const handlePlacementRecord = useCallback(async () => {
+    await startRecording();
+  }, [startRecording]);
+
+  const handlePlacementStop = useCallback(async () => {
+    const blob = await stopRecording();
+    const phrase = PLACEMENT_PHRASES[placementIndex];
+    if (!blob || !phrase || !(await blobIsAudible(blob))) return;
+    setPlacementScoring(true);
+    const { settingsUpdate } = await submitPlacementAttempt(phrase.id, phrase.cjk, blob, settings);
+    if (settingsUpdate) await updateSettings(settingsUpdate).catch(() => {});
+    setPlacementDone(prev => new Set(prev).add(phrase.id));
+    setPlacementScoring(false);
+    if (placementIndex < PLACEMENT_PHRASES.length - 1) setPlacementIndex(i => i + 1);
+  }, [stopRecording, placementIndex, settings, updateSettings]);
 
   const finish = () => {
     phCapture('firstrun_completed');
@@ -107,10 +151,12 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
 
 
   const showBack = step > 0;
-  const showSkip = step > 0 && step < 6;
+  const showSkip = step > 0 && step < 7;
+  const placementPhrase = PLACEMENT_PHRASES[placementIndex];
+  const placementPhraseDone = placementDone.has(placementPhrase.id);
 
   // Final step is a full-screen override
-  if (step === 6) {
+  if (step === 7) {
     const scene = firstScene;
     return (
       <div className={styles.finalScreen} style={{ backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : `url(${DIMSUM_URL})` }}>
@@ -298,6 +344,41 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
             </div>
           </div>
         )}
+
+        {/* Step 7 — Listen-and-repeat placement check */}
+        {step === 6 && (
+          <div className={styles.step2}>
+            <h2 className={`${styles.stepHeading} ${styles.pageTitle}`}>Say it back</h2>
+            <p className={styles.reminderSub}>Two phrases, so we know where you're actually starting from.</p>
+            <div className={styles.placementCard}>
+              <p className={styles.placementCounter}>{placementIndex + 1} of {PLACEMENT_PHRASES.length}</p>
+              <p className={styles.toneJyut}>{placementPhrase.jyutping}</p>
+              <p className={styles.placementChar} lang="yue">{placementPhrase.cjk}</p>
+              <p className={styles.stepFootnote}>{placementPhrase.english}</p>
+              <div className={styles.placementActions}>
+                <button
+                  type="button"
+                  className={styles.placementPlayBtn}
+                  onClick={() => { new Audio(`/shadowhk/audio/cantonese/${placementPhrase.audioFile}`).play().catch(() => {}); }}
+                >
+                  ▶ Listen
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.placementRecordBtn} ${placementRecording ? styles.placementRecordBtnActive : ''}`}
+                  onClick={placementRecording ? handlePlacementStop : handlePlacementRecord}
+                  disabled={placementScoring}
+                >
+                  {placementRecording ? 'Stop' : placementPhraseDone ? 'Say it again' : 'Say it'}
+                </button>
+              </div>
+              {placementPhraseDone && !placementRecording && !placementScoring && (
+                <p className={styles.placementDoneBadge}>Got it</p>
+              )}
+              {micError && <p className={styles.placementError}>{micError}</p>}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* CTA */}
@@ -307,10 +388,13 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
           onClick={goForward}
           disabled={step === 2 && !level || step === 3 && reasons.size === 0}
         >
-          {step === 0 ? 'Get started' : step === 5 ? 'Turn on reminders' : 'Next'}
+          {step === 0 ? 'Get started' : step === 5 ? 'Turn on reminders' : step === 6 ? 'Continue' : 'Next'}
         </button>
         {step === 5 && (
           <button className={styles.ghostLink} onClick={goForward}>Skip for now</button>
+        )}
+        {step === 6 && (
+          <button className={styles.ghostLink} onClick={goForward}>Skip this check</button>
         )}
       </div>
     </div>

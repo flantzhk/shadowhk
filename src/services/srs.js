@@ -1,10 +1,12 @@
 // src/services/srs.js — FSRS-lite: continuous, mean-reverting difficulty/stability model
 
 import { getDueEntries, getAllLibraryEntries, saveLibraryEntry } from './storage';
+import { recordToneDiff, getWeakTones, phraseHasWeakTone } from './toneWeakness';
+import { diffJyutping } from '../utils/jyutpingDiff';
 import {
   SRS_MIN_EASE, SRS_MAX_EASE, SRS_MAX_INTERVAL, SRS_MASTERED_THRESHOLD,
   FSRS_INITIAL_DIFFICULTY, FSRS_MIN_DIFFICULTY, FSRS_MAX_DIFFICULTY, FSRS_REVERSION_RATE,
-  FSRS_INITIAL_STABILITY, FSRS_GROWTH_BASE, FSRS_TARGET_RETENTION,
+  FSRS_INITIAL_STABILITY, FSRS_GROWTH_BASE, FSRS_TARGET_RETENTION, WEAK_TONE_MAX_INTERVAL,
 } from '../utils/constants';
 
 /**
@@ -12,9 +14,10 @@ import {
  * @param {Object} entry - Current library entry
  * @param {'correct'|'hard'|'forgot'} quality
  * @param {number|null} [pronunciationScore=null] - Score 0-100
+ * @param {boolean} [hasWeakTone=false] - Phrase contains a tone the user is currently weak on
  * @returns {Object} Updated SRS fields to merge into entry
  */
-function calculateNextReview(entry, quality, pronunciationScore = null) {
+function calculateNextReview(entry, quality, pronunciationScore = null, hasWeakTone = false) {
   const now = Date.now();
   let { stability, difficulty, practiceCount = 0, lastPracticedAt } = entry;
   stability = stability ?? (entry.interval || 0);
@@ -52,6 +55,10 @@ function calculateNextReview(entry, quality, pronunciationScore = null) {
     newStability = stability * growth;
   }
   newStability = Math.min(newStability, SRS_MAX_INTERVAL);
+  // A phrase that touches a tone the user is currently weak on gets
+  // resurfaced sooner regardless of score, instead of drifting to a long
+  // interval on a lucky read.
+  if (hasWeakTone) newStability = Math.min(newStability, WEAK_TONE_MAX_INTERVAL);
 
   practiceCount += 1;
   const interval = isLapse ? 0 : Math.max(1, Math.round(newStability));
@@ -80,14 +87,24 @@ function calculateNextReview(entry, quality, pronunciationScore = null) {
  * Update a library entry after practice with a score.
  * @param {string} phraseId
  * @param {number|null} score - Pronunciation score 0-100
- * @param {'correct'|'hard'|'forgot'} [quality='correct']
+ * @param {Object} [options]
+ * @param {'correct'|'hard'|'forgot'} [options.quality='correct']
+ * @param {string} [options.expectedJyutping] - From the scorer response, if this attempt was scored
+ * @param {string} [options.transcribedJyutping] - From the scorer response, if this attempt was scored
  */
-async function updateAfterPractice(phraseId, score, quality = 'correct') {
+async function updateAfterPractice(phraseId, score, { quality = 'correct', expectedJyutping, transcribedJyutping } = {}) {
   const entries = await getAllLibraryEntries();
   const entry = entries.find(e => e.phraseId === phraseId);
   if (!entry) return null;
 
-  const updates = calculateNextReview(entry, quality, score);
+  if (expectedJyutping && transcribedJyutping) {
+    // Fire-and-forget: this feeds the tone-weakness profile, not this review's own scheduling.
+    recordToneDiff(diffJyutping(expectedJyutping, transcribedJyutping)).catch(() => {});
+  }
+  const weakTones = await getWeakTones();
+  const hasWeakTone = phraseHasWeakTone(entry.romanization, weakTones);
+
+  const updates = calculateNextReview(entry, quality, score, hasWeakTone);
   const scoreEntry = score !== null ? { score, at: Date.now() } : null;
 
   const updated = {

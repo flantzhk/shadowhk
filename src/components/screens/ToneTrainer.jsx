@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import styles from './ToneTrainer.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
-import { ToneTrack } from '../ui/ToneTrack.jsx';
+import { SyllableDiagnostic } from '../ui/SyllableDiagnostic.jsx';
+import { diffJyutping } from '../../utils/jyutpingDiff.js';
 import { Wave } from '../ui/Wave.jsx';
 import { useRecorder } from '../../hooks/useRecorder.js';
 import { scorePronunciation } from '../../services/api.js';
 import { getLibraryEntries } from '../../services/storage.js';
 import { updateAfterPractice } from '../../services/srs.js';
+import { getWeakTones, phraseHasWeakTone } from '../../services/toneWeakness.js';
 import { blobIsAudible } from '../../utils/audioSignal.js';
 
 const REPS = 10;
@@ -28,10 +30,16 @@ export default function ToneTrainer({ onBack }) {
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
 
   useEffect(() => {
-    getLibraryEntries(language)
-      .then(entries => {
-        // Pick an entry with the lowest recent score (hardest)
-        const sorted = [...entries].sort((a, b) => (a.lastScore ?? 100) - (b.lastScore ?? 100));
+    Promise.all([getLibraryEntries(language), getWeakTones()])
+      .then(([entries, weakTones]) => {
+        // Phrases touching a tone the user is currently weak on come first;
+        // within each group, lowest recent score (hardest) first.
+        const sorted = [...entries].sort((a, b) => {
+          const aWeak = phraseHasWeakTone(a.romanization, weakTones) ? 0 : 1;
+          const bWeak = phraseHasWeakTone(b.romanization, weakTones) ? 0 : 1;
+          if (aWeak !== bWeak) return aWeak - bWeak;
+          return (a.lastScore ?? 100) - (b.lastScore ?? 100);
+        });
         setPhrase(sorted[0] ?? null);
       })
       .catch(() => {})
@@ -61,7 +69,10 @@ export default function ToneTrainer({ onBack }) {
       setCurrentScore(result.score);
       setToneResult(result);
       // Library entries key on phraseId (storage keyPath), not id
-      await updateAfterPractice(phrase.phraseId ?? phrase.id, result.score);
+      await updateAfterPractice(phrase.phraseId ?? phrase.id, result.score, {
+        expectedJyutping: result.expectedJyutping,
+        transcribedJyutping: result.transcribedJyutping,
+      });
       setScores(prev => [...prev, result.score]);
     } catch (_) {
       setScores(prev => [...prev, null]);
@@ -168,11 +179,9 @@ export default function ToneTrainer({ onBack }) {
             >
               {currentScore !== null ? currentScore : '--'}
             </span>
-            {toneResult?.toneContours && (
-              <ToneTrack
-                target={toneResult.toneContours.expected ?? []}
-                user={toneResult.toneContours.actual ?? []}
-                labels={phrase.romanization?.split(' ') ?? []}
+            {toneResult?.expectedJyutping && toneResult?.transcribedJyutping && (
+              <SyllableDiagnostic
+                diff={diffJyutping(toneResult.expectedJyutping, toneResult.transcribedJyutping)}
               />
             )}
           </div>

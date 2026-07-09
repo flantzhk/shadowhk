@@ -184,7 +184,7 @@
   letter-spacing: -0.03em;
 }
 
-.toneTrackWrap { width: 100%; max-width: 280px; margin-top: 8px; }
+.syllableDiagnosticWrap { width: 100%; max-width: 340px; margin-top: 8px; }
 
 /* === Orbital mic — in-flow flex child === */
 .micOrbit {

@@ -65,6 +65,12 @@ async function getDB() {
       if (!db.objectStoreNames.contains('audioCache')) {
         db.createObjectStore('audioCache', { keyPath: 'phraseId' });
       }
+
+      // Per-tone pronunciation accuracy (v4) — powers the tone-weakness
+      // profile that biases SRS scheduling toward tones the user gets wrong.
+      if (!db.objectStoreNames.contains('toneStats')) {
+        db.createObjectStore('toneStats', { keyPath: 'tone' });
+      }
     },
   });
 
@@ -245,7 +251,7 @@ async function cacheTopic(topic) {
  * @returns {Promise<void>}
  */
 async function clearAllData() {
-  const STORES = ['settings', 'library', 'scenes', 'sessions', 'queue', 'phrases', 'topics', 'audioCache'];
+  const STORES = ['settings', 'library', 'scenes', 'sessions', 'queue', 'phrases', 'topics', 'audioCache', 'toneStats'];
   const db = await getDB();
   await Promise.all(STORES.map((store) => db.clear(store)));
   dbInstance = null;
@@ -321,6 +327,23 @@ async function saveCachedAudio(phraseId, blob) {
   return dbOp('Failed to cache audio', (db) => db.put('audioCache', { phraseId, blob, _createdAt: Date.now() }));
 }
 
+// === Tone weakness stats ===
+
+/** @param {string} tone - '1'..'6' @returns {Promise<Object|undefined>} */
+async function getToneStat(tone) {
+  return dbOp('Failed to get tone stat', (db) => db.get('toneStats', tone), undefined);
+}
+
+/** @param {Object} stat - { tone, correct, total } */
+async function saveToneStat(stat) {
+  return dbOp('Failed to save tone stat', (db) => db.put('toneStats', stat));
+}
+
+/** @returns {Promise<Array>} */
+async function getAllToneStats() {
+  return dbOp('Failed to get tone stats', (db) => db.getAll('toneStats'), []);
+}
+
 async function searchLibrary(query, language) {
   const entries = await getLibraryEntriesByLanguage(language);
   const q = query.toLowerCase();
@@ -359,4 +382,7 @@ export {
   searchLibrary,
   getCachedAudio,
   saveCachedAudio,
+  getToneStat,
+  saveToneStat,
+  getAllToneStats,
 };
