@@ -570,7 +570,7 @@
   flex: 1;
   background: none;
   border: 1px solid var(--border-1);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xl);
   color: var(--fg-1);
   font-family: var(--font-ui);
   font-size: 16px;
@@ -589,7 +589,7 @@
   flex: 2;
   background: var(--fg-0);
   border: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xl);
   color: var(--bg-0);
   font-family: var(--font-ui);
   font-size: 16px;
@@ -608,7 +608,7 @@
   flex: 1;
   background: none;
   border: 1px solid var(--border-1);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-xl);
   color: var(--fg-1);
   font-family: var(--font-ui);
   font-size: 14px;
