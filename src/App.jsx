@@ -6,8 +6,9 @@ import { AudioProvider } from './contexts/AudioContext';
 import { TopBar } from './components/layout/TopBar';
 import { BottomTabBar } from './components/layout/BottomTabBar';
 import { Sidebar } from './components/layout/Sidebar';
-import { ROUTES } from './utils/constants';
+import { ROUTES, GATES, isSceneLocked } from './utils/constants';
 import { isAuthenticated, waitForAuth, updateLastActive, handleGoogleRedirectResult } from './services/auth';
+import { useSubscription } from './hooks/useSubscription';
 import { clearAllData } from './services/storage';
 import { initOfflineQueueListener } from './services/offlineManager';
 import { hasAnalyticsConsent } from './services/consent';
@@ -114,7 +115,25 @@ const PUBLIC_ROUTES = new Set([
   ROUTES.LOGIN, ROUTES.REGISTER, ROUTES.FORGOT_PASSWORD,
   ROUTES.NEW_PASSWORD, ROUTES.EMAIL_VERIFY,
   ROUTES.PRIVACY, ROUTES.TERMS, ROUTES.SUPPORT, ROUTES.FIRSTRUN,
+  // Guests can browse the scene list and scene detail pages freely — only
+  // actually starting a scene (ROUTES.SHADOW) is gated by FREE_SCENE_IDS.
+  ROUTES.SCENES, ROUTES.SCENE_DETAIL,
+  // A guest can only land here after finishing a scene that was already
+  // let through (i.e. a free one) — the end screens themselves gate nothing
+  // further, so blocking them here would just bounce a guest straight from
+  // "just finished a free scene" into a login wall before they see the
+  // summary (and the signup nudge on it).
+  ROUTES.SESSION_END, ROUTES.SCENE_END,
 ]);
+
+// True for any route a guest (no login) may reach: PUBLIC_ROUTES, plus
+// ROUTES.SHADOW when the scene being started is in the free tier. Only ever
+// called where authed is already known false, so isPro can't matter here.
+function isPublicRoute(route) {
+  if (PUBLIC_ROUTES.has(route.path)) return true;
+  if (route.path === ROUTES.SHADOW && !isSceneLocked(route.id, { authed: false, isPro: false })) return true;
+  return false;
+}
 
 // Sign-in-only screens. A Google/Apple redirect sign-in returns the browser
 // to whatever hash it left from (e.g. #/login) on a full page reload — with
@@ -152,7 +171,7 @@ const Loader = () => (
 
 // ── Screen renderer ────────────────────────────────────────────────────────
 
-function renderScreen(route, navigate, goBack, showToast, updateSettings) {
+function renderScreen(route, navigate, goBack, showToast, updateSettings, authed) {
   const { path, id } = route;
   switch (path) {
     case ROUTES.HOME:            return <HomeScreen onNavigate={navigate} />;
@@ -164,8 +183,8 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings) {
     case ROUTES.DRILL_TONE:      return <ToneTrainer onNavigate={navigate} onBack={goBack} />;
     case ROUTES.PHRASE_DETAIL:   return <PhraseDetailScreen phraseId={id} onNavigate={navigate} onBack={goBack} />;
     case ROUTES.SEARCH:          return <SearchScreen onNavigate={navigate} onBack={goBack} />;
-    case ROUTES.SHADOW:          return <ShadowSession sceneId={id} onNavigate={navigate} onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('shadowSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.SESSION_END); }} />;
-    case ROUTES.SESSION_END:     return <SessionSummary summary={(() => { try { return JSON.parse(sessionStorage.getItem('shadowSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} />;
+    case ROUTES.SHADOW:          return <ShadowSession sceneId={id} onNavigate={navigate} onBack={goBack} onComplete={(s) => { if (!authed) phCapture('guest_scene_completed', { sceneId: id }); try { sessionStorage.setItem('shadowSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.SESSION_END); }} />;
+    case ROUTES.SESSION_END:     return <SessionSummary summary={(() => { try { return JSON.parse(sessionStorage.getItem('shadowSummary') || 'null'); } catch { return null; } })()} onDone={() => navigate(ROUTES.HOME)} onNavigate={navigate} authed={authed} />;
     case ROUTES.PROFILE:         return <ProfileScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.SETTINGS:        return <SettingsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.DAY_DETAIL:      return <DayDetailScreen date={id} navigate={navigate} goBack={goBack} />;
@@ -220,10 +239,11 @@ function MainLayout() {
   const { showToast, ToastComponent } = useToast();
   const [authReady, setAuthReady] = useState(false);
   const [authError, setAuthError] = useState(null);
+  const { isPro } = useSubscription();
   // Dev-only bypass so the app is reachable without Firebase sign-in while
-  // it's still being built. import.meta.env.DEV is false in a production
-  // build, so this never reaches real users.
-  const authed = isAuthenticated() || import.meta.env.DEV;
+  // it's still being built, plus GATES.authWallEnabled — while that's false
+  // (testing) the login wall is suspended for everyone, same as DEV.
+  const authed = isAuthenticated() || import.meta.env.DEV || !GATES.authWallEnabled;
 
   const [checkoutResult] = useState(() => {
     const p = new URLSearchParams(window.location.search);
@@ -336,10 +356,10 @@ function MainLayout() {
 
   // First-run: unauthenticated + not completed first-run
   if (!authed && !settings.firstrunCompleted) {
-    if (PUBLIC_ROUTES.has(route.path)) {
+    if (isPublicRoute(route)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack, showToast, updateSettings)}
+          {renderScreen(route, navigate, goBack, showToast, updateSettings, authed)}
         </Suspense>
       );
     }
@@ -352,13 +372,14 @@ function MainLayout() {
 
   // Returning unauthenticated user
   if (!authed) {
-    if (PUBLIC_ROUTES.has(route.path)) {
+    if (isPublicRoute(route)) {
       return (
         <Suspense fallback={<Loader />}>
-          {renderScreen(route, navigate, goBack, showToast, updateSettings)}
+          {renderScreen(route, navigate, goBack, showToast, updateSettings, authed)}
         </Suspense>
       );
     }
+    phCapture('login_wall_shown', { fromRoute: route.path });
     navigate(ROUTES.LOGIN);
     return null;
   }
@@ -368,6 +389,13 @@ function MainLayout() {
   // of re-rendering the login form.
   if (AUTH_ENTRY_ROUTES.has(route.path)) {
     navigate(ROUTES.HOME);
+    return null;
+  }
+
+  // Signed-in but on the free tier, trying to start a scene beyond it.
+  if (route.path === ROUTES.SHADOW && isSceneLocked(route.id, { authed: true, isPro })) {
+    phCapture('paywall_shown', { sceneId: route.id });
+    navigate(ROUTES.PAYWALL);
     return null;
   }
 
@@ -383,7 +411,7 @@ function MainLayout() {
         <div className={isDesktop ? (hideChrome ? 'immersive-column' : 'desktop-content') : 'mobile-content'}>
           <ErrorBoundary resetKey={route.path}>
             <Suspense fallback={<Loader />}>
-              {renderScreen(route, navigate, goBack, showToast, updateSettings)}
+              {renderScreen(route, navigate, goBack, showToast, updateSettings, authed)}
             </Suspense>
           </ErrorBoundary>
         </div>

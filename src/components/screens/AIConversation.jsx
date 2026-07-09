@@ -9,7 +9,8 @@ import { speechToText } from '../../services/api';
 import { isAuthenticated } from '../../services/auth';
 import { getScenarios, sendMessage, generateResponseAudio } from '../../services/aiChat';
 import { saveLibraryEntry } from '../../services/storage';
-import { SRS_INITIAL_EASE, ROUTES } from '../../utils/constants';
+import { phCapture } from '../../services/posthog';
+import { SRS_INITIAL_EASE, ROUTES, GATES } from '../../utils/constants';
 import { ScoreBadge } from '../cards/ScoreBadge';
 import { RecordButton } from '../shared/RecordButton';
 import { AudioStateIndicator } from '../shared/AudioStateIndicator.jsx';
@@ -32,6 +33,11 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
     return () => clearTimeout(t);
   }, [subLoadingRaw]);
   const subLoading = subLoadingRaw && !subTimedOut;
+  useEffect(() => {
+    if (GATES.paywallEnabled && !isPro && !subLoading) {
+      phCapture('paywall_shown', { feature: 'ai_conversation' });
+    }
+  }, [isPro, subLoading]);
   const [scenario, setScenario] = useState(null);
   const [messages, setMessages] = useState([]);
   const [phase, setPhase] = useState('select'); // select|chat|recording|review
@@ -81,8 +87,9 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
     return () => { cancelled = true; };
   }, []);
 
-  // Soft paywall gate — shown while resolving subscription status for free users
-  if (!isPro) {
+  // Soft paywall gate — shown while resolving subscription status for free users.
+  // Suspended while GATES.paywallEnabled is false, same as the scene gate in App.jsx.
+  if (GATES.paywallEnabled && !isPro) {
     if (subLoading) {
       return (
         <div className={styles.screen}>

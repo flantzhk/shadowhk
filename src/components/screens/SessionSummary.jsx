@@ -1,10 +1,11 @@
 // src/components/screens/SessionSummary.jsx — End-of-session summary
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
-import { ROUTES } from '../../utils/constants';
+import { ROUTES, GATES } from '../../utils/constants';
 import { getLibraryEntriesByScene, saveLibraryEntry } from '../../services/storage';
 import { RealLifeCelebration } from '../shared/RealLifeCelebration';
+import { phCapture } from '../../services/posthog';
 import styles from './SessionSummary.module.css';
 
 function getScoreColor(score) {
@@ -16,9 +17,9 @@ function getScoreColor(score) {
 
 /**
  * Session completion summary screen.
- * @param {{ summary: Object, onDone: () => void }} props
+ * @param {{ summary: Object, onDone: () => void, onNavigate?: Function, authed?: boolean }} props
  */
-export default function SessionSummary({ summary, onDone }) {
+export default function SessionSummary({ summary, onDone, onNavigate, authed = true }) {
   const { settings } = useAppContext();
   const sceneId = summary?.sceneId ?? null;
 
@@ -27,6 +28,12 @@ export default function SessionSummary({ summary, onDone }) {
     return localStorage.getItem(`lived_asked_${sceneId}`) ? 'hidden' : 'pending';
   });
   const [showRealLifeCelebration, setShowRealLifeCelebration] = useState(false);
+  const [nudgeDismissed, setNudgeDismissed] = useState(false);
+  const showNudge = GATES.signupNudgeEnabled && !authed && !nudgeDismissed;
+
+  useEffect(() => {
+    if (showNudge) phCapture('signup_nudge_shown', { sceneId });
+  }, [showNudge, sceneId]);
 
   // Pick the best-scored phrase to feature in the celebration
   const bestPhrase = (() => {
@@ -87,6 +94,27 @@ export default function SessionSummary({ summary, onDone }) {
               : <>Session done, {firstName}.</>
             }
           </h1>
+
+          {/* Signup nudge — guests only, dismissible */}
+          {showNudge && (
+            <div className={styles.nudgeSection}>
+              <p className={styles.nudgeQ}>Save this progress with a free account?</p>
+              <div className={styles.livedBtns}>
+                <button
+                  className={styles.livedNotYet}
+                  onClick={() => { phCapture('signup_nudge_dismissed', { sceneId }); setNudgeDismissed(true); }}
+                >
+                  Not now
+                </button>
+                <button
+                  className={styles.livedIt}
+                  onClick={() => { phCapture('signup_nudge_accepted', { sceneId }); onNavigate?.(ROUTES.REGISTER); }}
+                >
+                  Save my progress
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Lived it prompt */}
           {livedState === 'pending' && (

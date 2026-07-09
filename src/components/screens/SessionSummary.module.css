@@ -67,6 +67,23 @@
   color: rgba(237,231,223,0.55);
 }
 
+/* ─── Signup nudge (guests only) ────── */
+.nudgeSection {
+  padding: 14px;
+  border: 1px solid rgba(201,162,74,0.35);
+  background: rgba(201,162,74,0.08);
+  border-radius: 12px;
+  margin-top: 18px;
+}
+
+.nudgeQ {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(237,231,223,0.85);
+  margin: 0 0 10px;
+}
+
 /* ─── Lived it section ─────────────── */
 .livedSection {
   padding: 14px 0;
