@@ -6,31 +6,121 @@
   padding: 20px 0 40px;
 }
 
-.eyebrow {
+.heroSaidCount { color: var(--jade-soft, #D8E8E0); }
+
+/* ─── Hero — matches HomeScreen's todayPanel exactly ──── */
+.hero {
+  background: linear-gradient(160deg, var(--ink) 0%, #12100e 85%);
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  padding: 20px 22px 18px;
+  margin: 0 20px 16px;
+  box-shadow: 0 10px 26px rgba(11,20,23,0.32), 0 0 0 1px rgba(201,162,74,0.08);
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--fg-2);
-  margin: 0 0 6px;
-  padding: 0 20px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  margin-bottom: 12px;
 }
 
-.saidCount { color: var(--jade, #3F8F73); }
-
-.title {
+.heroTitle {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-style: normal;
   font-weight: 500;
-  color: var(--fg-0);
+  font-size: 28px;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 8px;
   letter-spacing: -0.02em;
-  line-height: 1.05;
-  margin: 0 0 18px;
-  padding: 0 20px;
+}
+.heroTitle em { font-style: italic; }
+
+.heroSub {
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 14px;
+  max-width: 32em;
 }
 
-.titleItalic { font-style: italic; }
+.heroLesson {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.heroLessonBody { flex: 1; min-width: 0; }
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.heroDuePill {
+  background: rgba(200,57,43,0.85);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.heroLessonTitle {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.heroCta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+.heroCta svg { width: 9px; height: 10px; }
+
+/* Below ~380px the eyebrow + due pill + CTA button can't share one row —
+   stack the button under the label instead of letting "TODAY'S REVIEW"
+   wrap mid-word against the pill. */
+@media (max-width: 420px) {
+  .heroLesson { flex-direction: column; align-items: stretch; }
+  .heroCta { width: 100%; }
+}
 
 /* Search bar */
 .searchBarWrap {
@@ -70,6 +160,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.dueTag {
+  flex-shrink: 0;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-pill);
+  padding: 2px 6px;
 }
 
 /* ─── Editorial section bar (matches Home screen) ──── */
@@ -151,14 +255,22 @@
   flex-shrink: 0;
 }
 
-/* Quick Lookup teaser — the full grid only mounts once tapped, so this
-   screen's default weight favours phrases/scenes (things actually saved)
-   over reference content (things just browsed). */
+/* Chevron toggle shared by the Quick Words teaser and each phrase group's
+   accordion header — rotates 90° when its parent carries the *Open modifier. */
+.chev {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--fg-3);
+  transition: transform 0.15s ease;
+}
+
+/* Quick Words teaser — the full grid only mounts once tapped. Framed as
+   general reference ("good to know") rather than personal saved content,
+   so it doesn't compete with My Phrasebook for the same kind of attention. */
 .lookupTeaser {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 10px;
   width: calc(100% - 40px);
   margin: 10px 20px 20px;
   background: var(--bg-1);
@@ -169,85 +281,166 @@
   text-align: left;
 }
 
-.lookupTeaserText {
+.lookupTexts {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lookupTeaserTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-ui);
-  font-size: 13px;
-  color: var(--fg-1);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--fg-0);
+}
+
+.lookupBadge {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2c6b54;
+  background: var(--jade-soft, #D8E8E0);
+  border: 1px solid var(--jade, #3F8F73);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.lookupCaption {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-2);
   line-height: 1.4;
 }
 
 .lookupTeaserLink {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--fg-2);
   white-space: nowrap;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* Saved (hearted) scenes */
-.savedSceneList {
-  margin: 10px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.savedSceneRow {
+/* ─── My Favourite Scenes — matches HomeScreen's sceneCover exactly ──── */
+.favHint {
   display: flex;
   align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--fg-3);
+  margin: 8px 20px 8px;
+}
+.favHint svg { width: 8px; height: 9px; }
+
+.favWrap { position: relative; }
+
+.favShelf {
+  display: flex;
   gap: 12px;
-  background: var(--bg-1);
-  border: 1px solid var(--border-0);
-  border-radius: 12px;
-  padding: 10px 14px 10px 10px;
+  overflow-x: auto;
+  padding: 0 20px 6px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.favShelf::-webkit-scrollbar { display: none; }
+
+.favCard {
+  flex: 0 0 148px;
+  width: 148px;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
   text-align: left;
-  transition: background 0.15s;
+  scroll-snap-align: start;
 }
-.savedSceneRow:hover { background: var(--bg-2); }
 
-.sceneThumb {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
+.favCover {
+  width: 148px;
+  height: 148px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
   background-size: cover;
   background-position: center;
-  flex-shrink: 0;
-}
-
-.savedSceneBody {
-  flex: 1;
-  min-width: 0;
+  background-color: var(--ink);
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: flex-end;
+  padding: 10px;
 }
 
-.savedSceneTitle {
+.favCoverGrad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,20,23,0.05) 40%, rgba(11,20,23,0.78) 100%);
+}
+
+.favCoverTitle {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-serif);
   font-size: 16px;
-  font-weight: 500;
-  color: var(--fg-0);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
 }
 
-.savedSceneMeta {
+.favCoverCount {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--fg-3);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.68);
+  margin-top: 4px;
 }
 
-.chevron {
-  font-size: 22px;
-  color: var(--fg-3);
+.favSub {
   font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--fg-1);
+  margin: 8px 2px 0;
+}
+
+.favFade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 148px;
+  width: 40px;
+  background: linear-gradient(90deg, rgba(244,241,236,0), var(--bg-0) 75%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+}
+
+.favArrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(26,26,26,0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
   line-height: 1;
-  flex-shrink: 0;
 }
 
 /* ─── Phrase feed ───────────────────── */
@@ -264,47 +457,138 @@
   color: var(--fg-2);
 }
 
-/* One label per scene/category — phrases are grouped underneath instead of
-   scattered through a single continuous feed, so the same category never
-   reads as split across the list. */
-.groupHeader {
+/* One row per scene/category — each is its own accordion so the full
+   35-phrase list stays scannable at a glance instead of a long unbroken
+   scroll, while the header's count + mastery % keep the summary visible
+   even collapsed. */
+.groupHeaderRow {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  margin: 16px -14px 0;
+  width: calc(100% + 28px);
+}
+.groupHeaderRow:first-child { margin-top: 2px; }
+
+.groupHeader {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
   gap: 8px;
   padding: 14px 14px;
-  margin: 16px -14px 6px;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
-  width: calc(100% + 28px);
   border: none;
   background: none;
   text-align: left;
-}
-.groupHeader:first-child { margin-top: 2px; }
-
-/* A real scene's header opens that scene — the chevron is the same
-   affordance used for saved scenes below, so it reads as "more inside"
-   rather than a plain label. */
-.groupHeaderClickable {
   cursor: pointer;
 }
-.groupHeaderClickable:active { opacity: 0.7; }
+
+.groupHeaderOpen .chev { transform: rotate(90deg); }
 
 .groupHeaderRight {
   display: flex;
-  align-items: baseline;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
 }
 
-.groupChevron {
-  font-size: 15px;
-  font-family: var(--font-ui);
+.groupDuePill {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #fff;
+  background: var(--amber);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.groupPct {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--jade);
+}
+
+.addPersonalBtn, .openSceneBtn {
+  flex-shrink: 0;
+  margin: 0 14px 0 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.addPersonalBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+.addPersonalBtnOpen { transform: rotate(45deg); }
+
+.openSceneBtn {
+  width: 26px;
+  height: 26px;
+  color: var(--fg-3);
+  font-size: 19px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupBody { padding-bottom: 4px; }
+
+.personalAddRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.personalAddInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border-1);
+  background: var(--bg-1);
+  padding: 9px 11px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  border-radius: 8px;
+  color: var(--fg-0);
+  outline: none;
+}
+.personalAddInput:focus { border-color: var(--accent); }
+
+.personalAddBtn {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.personalAddBtn:disabled { opacity: 0.5; cursor: default; }
+
+.personalAddError {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0 0 8px;
 }
 
 .groupCount {
@@ -388,6 +672,15 @@
   margin: 3px 0 0;
   letter-spacing: 0.02em;
   line-height: 1.2;
+}
+
+.phraseEnglish {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--fg-2);
+  margin: 4px 0 0;
+  line-height: 1.35;
 }
 
 /* Growth meter — three ticks fill left to right with the stage, backed by
@@ -492,6 +785,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0 24px;
   }
-  .groupHeader { grid-column: 1 / -1; }
+  .groupHeaderRow { grid-column: 1 / -1; }
+  .groupBody {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 24px;
+  }
   .phraseRow { border-bottom: 1px solid var(--border-0); }
 }
