@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.4.7';
+export const APP_VERSION = '2.4.8';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -17,6 +17,9 @@ export const FSRS_REVERSION_RATE = 0.1;     // fraction pulled back toward FSRS_
 export const FSRS_INITIAL_STABILITY = 1;    // days, baseline for a phrase's first successful review
 export const FSRS_GROWTH_BASE = 3;          // scales how much a successful review grows stability
 export const FSRS_TARGET_RETENTION = 0.9;   // stability is defined as "days for recall probability to decay to this"
+export const WEAK_TONE_MAX_INTERVAL = 3;    // days — caps the review interval when a phrase contains a tone the user is currently weak on
+export const TONE_WEAKNESS_MIN_ATTEMPTS = 5; // minimum scored attempts for a tone before it can be flagged weak
+export const TONE_WEAKNESS_ERROR_RATE = 0.4; // error rate (0-1) at/above which a tone counts as weak
 export const RECORDING_MAX_SECONDS = 10;
 
 // Scenes available to guests (no login) and free (non-subscribed) accounts.
@@ -62,7 +65,7 @@ export const VAPID_PUBLIC_KEY = 'BCmqvXWvZ-9ES9BJWC9fkC_RoZ16Fh3p3i5IB1uF_YpdM54
 export const AUDIO_CACHE_NAME = 'shadowhk-audio-v1';
 export const APP_CACHE_NAME = 'shadowhk-app-v1';
 export const DB_NAME = 'shadowhk';
-export const DB_VERSION = 3;
+export const DB_VERSION = 4;
 export const MAX_RETRIES = 2;
 export const RETRY_DELAY_MS = 1000;
 export const API_TIMEOUT_MS = 30000;
@@ -119,6 +122,7 @@ export const ROUTES = {
   PROMPT_DRILL: 'prompt',
   SPEED_RUN: 'speedrun',
   TONE_GYM: 'tonegym',
+  CHARACTER_CHECK: 'character-check',
   JYUTPING_GUIDE: 'jyutping-guide',
   DIALOGUE: 'dialogue',
   PRIVACY: 'privacy',
