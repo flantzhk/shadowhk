@@ -5,8 +5,7 @@
   padding: 0 20px;
   height: 56px;
   background: var(--bg-0);
-  border-top: 4px solid var(--fg-0);
-  border-bottom: 1px solid var(--fg-0);
+  border-bottom: 2px solid var(--fg-0);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -16,12 +15,21 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.logoGlyph {
+  font-family: var(--font-cjk);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .logoText {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: 18px;
   font-weight: 500;
   color: var(--fg-0);
@@ -38,19 +46,32 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-bg-page);
-  border: 1.5px solid var(--color-border);
+  background: var(--accent-dark);
+  border: none;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
   cursor: pointer;
-  transition: background 0.15s;
+  transition: opacity 0.15s;
 }
 
 .avatar:hover {
-  background: var(--color-brand-lime-muted);
-  color: var(--color-brand-dark);
+  opacity: 0.8;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .signIn {
