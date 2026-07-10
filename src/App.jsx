@@ -149,6 +149,10 @@ const AUTH_ENTRY_ROUTES = new Set([
 
 // Routes that hide the app chrome (tabs/topbar/sidebar) for immersive experience
 const CHROME_HIDDEN_ROUTES = new Set([
+  // Auth screens are standalone full-page layouts; with the auth wall off
+  // they render through the main shell, so hide the chrome explicitly
+  // (a topbar with its own "Sign in" button on top of the login form).
+  ...AUTH_ENTRY_ROUTES,
   ROUTES.SHADOW, ROUTES.PROMPT_DRILL, ROUTES.SPEED_RUN,
   ROUTES.TONE_GYM, ROUTES.TONE_GYM_RESULTS, ROUTES.DRILL_TONE, ROUTES.DIALOGUE,
   ROUTES.LISTEN, ROUTES.FIRSTRUN, ROUTES.CHARACTER_CHECK,
@@ -213,7 +217,7 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings, authed
       );
     }
     case ROUTES.PAYWALL:         return <Paywall onComplete={() => navigate(ROUTES.HOME)} updateSettings={updateSettings} />;
-    case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} />;
+    case ROUTES.LOGIN:           return <LoginScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.REGISTER:        return <RegisterScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.FORGOT_PASSWORD: return <ForgotPasswordScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.EMAIL_VERIFY:    return <EmailVerification onVerified={() => navigate(ROUTES.HOME)} onBack={goBack} />;
@@ -397,8 +401,10 @@ function MainLayout() {
 
   // Authenticated but sitting on a sign-in screen (e.g. bounced back to
   // #/login after a redirect-based Google/Apple sign-in) — go home instead
-  // of re-rendering the login form.
-  if (AUTH_ENTRY_ROUTES.has(route.path)) {
+  // of re-rendering the login form. Must check real auth, not `authed`:
+  // with the auth wall off, `authed` is true for guests too, and this
+  // bounce made the sign-in screens unreachable for them.
+  if (isAuthenticated() && AUTH_ENTRY_ROUTES.has(route.path)) {
     navigate(ROUTES.HOME);
     return null;
   }
