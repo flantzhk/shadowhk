@@ -21,6 +21,7 @@ const vocabWordId = (sceneId, chinese) => `${sceneId}-vocab-${chinese}`;
 // "type anything" invite gets ignored; naming what people actually come to
 // this scene wanting to say gets used.
 const ADD_PHRASE_PROMPTS = {
+  basics: 'Want to introduce yourself or ask something in particular? Type it below.',
   transport: 'Need to say something specific to get around? Type it below.',
   food: 'Want to order or ask for something specific here? Type it below.',
   services: 'Need to explain something specific for this errand? Type it below.',

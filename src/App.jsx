@@ -17,6 +17,7 @@ import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sy
 import { resolvePendingPlacementCheck } from './services/placementCheck';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
 import { OfflineBanner } from './components/shared/OfflineBanner';
+import { DownloadPill } from './components/shared/DownloadPill';
 import { useToast } from './components/shared/Toast';
 import { logger } from './utils/logger';
 import './styles/global.css';
@@ -435,6 +436,7 @@ function MainLayout() {
       </main>
       {ToastComponent}
       <OfflineBanner />
+      <DownloadPill />
       {!isDesktop && !hideChrome && (
         <BottomTabBar activeTab={route.path} onNavigate={navigate} />
       )}

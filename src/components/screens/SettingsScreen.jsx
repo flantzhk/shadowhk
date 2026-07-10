@@ -38,7 +38,6 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
   const [showReminderPicker, setShowReminderPicker] = useState(false);
   const [reminderTime, setReminderTime] = useState(settings.reminderTime || '09:00');
   const [showDownloadModal, setShowDownloadModal] = useState(false);
-  const [downloadInBackground, setDownloadInBackground] = useState(false);
   const [pushSubscribed, setPushSubscribed] = useState(false);
   const [pushLoading, setPushLoading] = useState(false);
   const [pushStatus, setPushStatus] = useState(''); // feedback message
@@ -150,10 +149,7 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
     }
   };
 
-  const handleDownloadClose = (mode) => {
-    if (mode === 'background') setDownloadInBackground(true);
-    setShowDownloadModal(false);
-  };
+  const handleDownloadClose = () => setShowDownloadModal(false);
 
   return (
     <div className={styles.screen}>
@@ -255,9 +251,6 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Offline</h2>
         <p className={styles.hint}>Download every recording so the whole app works offline, plane included. Roughly 70 MB, best on Wi-Fi.</p>
-        {downloadInBackground && (
-          <p className={styles.hint} style={{ color: 'var(--accent)', fontWeight: 600 }}>Downloading in background…</p>
-        )}
         <button className={styles.downloadBtn} onClick={() => setShowDownloadModal(true)}>
           Download everything
         </button>

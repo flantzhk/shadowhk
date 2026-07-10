@@ -141,8 +141,8 @@ export const ROUTES = {
 };
 
 export const SCENE_CATEGORIES = {
-  cantonese: ['food', 'transport', 'social', 'services', 'festivals'],
-  mandarin: ['food', 'transport', 'social', 'services', 'festivals'],
+  cantonese: ['basics', 'food', 'transport', 'social', 'services', 'festivals'],
+  mandarin: ['basics', 'food', 'transport', 'social', 'services', 'festivals'],
 };
 
 export const STREAK_MILESTONES = [7, 14, 30, 60, 100];

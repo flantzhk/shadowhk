@@ -5,7 +5,7 @@
   padding: 0 20px;
   height: 56px;
   background: var(--bg-0);
-  border-bottom: 2px solid var(--fg-0);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;

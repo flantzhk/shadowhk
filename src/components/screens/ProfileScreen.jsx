@@ -53,7 +53,6 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const [showReminderPicker, setShowReminderPicker] = useState(false);
   const [reminderTime, setReminderTime] = useState(settings.reminderTime || '09:00');
   const [showDownloadModal, setShowDownloadModal] = useState(false);
-  const [downloadInBackground, setDownloadInBackground] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
 
   useEffect(() => {
@@ -239,9 +238,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
         </button>
         <button className={styles.settingsRow} onClick={() => setShowDownloadModal(true)}>
           <span className={styles.rowLabel}>Offline downloads</span>
-          <span className={styles.rowValue}>
-            {downloadInBackground ? 'Downloading…' : 'Download all'} ›
-          </span>
+          <span className={styles.rowValue}>Download all ›</span>
         </button>
       </div>
 
@@ -340,7 +337,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
       )}
 
       {showDownloadModal && (
-        <DownloadAllModal language={settings.currentLanguage} onClose={mode => { if (mode === 'background') setDownloadInBackground(true); setShowDownloadModal(false); }} />
+        <DownloadAllModal language={settings.currentLanguage} onClose={() => setShowDownloadModal(false)} />
       )}
     </div>
   );
