@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { signIn, signInWithGoogle, signInWithApple } from '../../services/auth';
+import { preloadGoogleIdentity } from '../../services/googleIdentity';
 import { ROUTES } from '../../utils/constants';
 import { LoadingSpinner } from '../shared/LoadingSpinner';
 import { phCapture } from '../../services/posthog';
@@ -14,6 +15,10 @@ export default function LoginScreen({ navigate, goBack }) {
   const [error, setError] = useState('');
   const [shaking, setShaking] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // GIS must be loaded before the Google button is tapped: the token popup
+  // has to open synchronously inside the tap gesture or Safari blocks it.
+  useEffect(() => { preloadGoogleIdentity().catch(() => {}); }, []);
 
   const shake = () => {
     setShaking(true);

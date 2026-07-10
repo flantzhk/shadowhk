@@ -1,6 +1,7 @@
 // src/services/auth.js — Authentication service (Firebase)
 
 import { firebase, fbAuth, fbDb } from './firebase';
+import { requestGoogleAccessToken } from './googleIdentity';
 import { logger } from '../utils/logger';
 import { clearAllData } from './storage';
 import { phCapture, phReset } from './posthog';
@@ -155,13 +156,38 @@ async function signInWithOAuthProvider(provider, languageChoice) {
 }
 
 /**
- * Start Google sign-in (popup first, redirect fallback — see
- * signInWithOAuthProvider for why).
+ * Start Google sign-in. GIS token flow first (see googleIdentity.js for
+ * why neither of Firebase's own flows survives Safari on this hosting
+ * setup), falling back to the Firebase popup/redirect flows only when GIS
+ * itself is unavailable (script blocked or offline).
  * @param {string} [languageChoice]
  * @returns {Promise<{user: Object|null, error: string|null}>}
  */
 async function signInWithGoogle(languageChoice = 'cantonese') {
-  return signInWithOAuthProvider(new firebase.auth.GoogleAuthProvider(), languageChoice);
+  try {
+    const accessToken = await requestGoogleAccessToken();
+    const credential = firebase.auth.GoogleAuthProvider.credential(null, accessToken);
+    const result = await fbAuth.signInWithCredential(credential);
+    await completeOAuthSignIn(result, languageChoice);
+    return { user: result.user, error: null };
+  } catch (error) {
+    switch (error.message) {
+      case 'popup_closed':
+      case 'access_denied':
+        return { user: null, error: 'Sign-in was cancelled.' };
+      case 'popup_failed_to_open':
+        return { user: null, error: 'Your browser blocked the sign-in window. Please allow pop-ups for this site and try again.' };
+      case 'gsi-unavailable':
+        // GIS script never loaded — offline or the domain is blocked.
+        // Firebase's own flows are the only remaining option.
+        logger.warn('GIS unavailable, falling back to Firebase popup flow');
+        return signInWithOAuthProvider(new firebase.auth.GoogleAuthProvider(), languageChoice);
+      default:
+        // Google consent errors or a failed signInWithCredential exchange.
+        logger.error('Google sign-in failed', error);
+        return { user: null, error: firebaseErrorMessage(error) };
+    }
+  }
 }
 
 /**
