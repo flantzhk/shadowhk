@@ -103,10 +103,13 @@
   margin-bottom: 28px;
 }
 
-.catBand {
-  background: var(--accent-dark);
-  padding: 16px 20px 14px;
-  margin-bottom: 14px;
+.catBar {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-top: 6px solid var(--fg-0);
+  margin: 0 20px 14px;
+  padding-top: 10px;
 }
 
 .catTitle {
@@ -119,12 +122,14 @@
   margin: 0;
 }
 
-.catDesc {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  color: var(--fg-1);
-  line-height: 1.4;
-  margin: 4px 0 0;
+.catCount {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--fg-2);
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .catScroll {
@@ -382,8 +387,5 @@
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
-  }
-  .catBand {
-    border-radius: 12px;
   }
 }

@@ -11,13 +11,13 @@ import { useSubscription } from '../../hooks/useSubscription.js';
 // is off, nothing shows as locked here either.
 const authed = () => isAuthenticated() || import.meta.env.DEV || !GATES.authWallEnabled;
 
-const CATEGORY_META = {
-  basics:    { label: 'First Words',        desc: 'Say hello, introduce yourself, break the ice.' },
-  food:      { label: 'Food & Drink',       desc: 'Order like a local, compliment the chef, settle the bill.' },
-  transport: { label: 'Getting Around',     desc: 'MTR, minibuses, taxis, ferries, and finding your way.' },
-  social:    { label: 'Social Life',        desc: 'Everyday chat in lifts, parks, salons, and temples.' },
-  services:  { label: 'Shopping & Errands', desc: 'Markets, clothes, the post office, the bank, the doctor.' },
-  festivals: { label: 'Festivals',          desc: 'Greetings and traditions for the big days of the year.' },
+const CATEGORY_LABELS = {
+  basics:    'First Words',
+  food:      'Food & Drink',
+  transport: 'Getting Around',
+  social:    'Social Life',
+  services:  'Shopping & Errands',
+  festivals: 'Festivals',
 };
 
 export default function ScenesScreen({ onNavigate }) {
@@ -159,9 +159,11 @@ export default function ScenesScreen({ onNavigate }) {
             if (!inProgress.length) return null;
             return (
               <section className={styles.catSection}>
-                <div className={styles.catBand}>
+                <div className={styles.catBar}>
                   <h2 className={styles.catTitle}>Continue</h2>
-                  <p className={styles.catDesc}>Pick up where you left off.</p>
+                  <span className={styles.catCount}>
+                    {inProgress.length} {inProgress.length === 1 ? 'SCENE' : 'SCENES'}
+                  </span>
                 </div>
                 <div className={styles.catScroll}>
                   {inProgress.map(scene => (
@@ -175,12 +177,16 @@ export default function ScenesScreen({ onNavigate }) {
           {/* One row per category */}
           {categories.map(cat => {
             const catScenes = scenes.filter(s => s.category === cat);
-            const meta = CATEGORY_META[cat];
+            if (!loading && catScenes.length === 0) return null;
             return (
               <section key={cat} className={styles.catSection}>
-                <div className={styles.catBand}>
-                  <h2 className={styles.catTitle}>{meta?.label ?? cat}</h2>
-                  {meta?.desc && <p className={styles.catDesc}>{meta.desc}</p>}
+                <div className={styles.catBar}>
+                  <h2 className={styles.catTitle}>{CATEGORY_LABELS[cat] ?? cat}</h2>
+                  {!loading && (
+                    <span className={styles.catCount}>
+                      {catScenes.length} {catScenes.length === 1 ? 'SCENE' : 'SCENES'}
+                    </span>
+                  )}
                 </div>
                 <div className={styles.catScroll}>
                   {loading
