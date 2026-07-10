@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './HomeScreen.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
 import { buildSceneLesson } from '../../services/lessonBuilder.js';
 import { getLibraryEntries, getAllSceneProgress, getDueEntries } from '../../services/storage.js';
+import { isAuthenticated } from '../../services/auth.js';
+import { staticWordAudio } from '../../services/staticAudio.js';
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { STREAK_MILESTONES } from '../../utils/constants.js';
@@ -70,6 +72,9 @@ export default function HomeScreen({ onNavigate }) {
 
   const hasRecentProgress = allScenes.some(s => sceneProgress[s.id]?.lastSessionAt);
   const untriedScenes = allScenes.filter(s => !sceneProgress[s.id]);
+  // Signed-out visitors get a pitch, not an empty dashboard: hear the real
+  // voice first, then one strong step into a first scene.
+  const isGuest = !isAuthenticated();
   let sectionIndex = 0;
   const nextSectionNum = () => String(++sectionIndex).padStart(2, '0');
 
@@ -100,18 +105,22 @@ export default function HomeScreen({ onNavigate }) {
         <DownloadAllModal language={language} onClose={() => setShowDownloadModal(false)} />
       )}
 
-      <TodayPanel
-        userName={userName}
-        streakCount={streakCount}
-        streakAtRisk={streakAtRisk}
-        realWorldCount={realWorldCount}
-        loading={loading}
-        lesson={lesson}
-        dueCount={dueCount}
-        onNavigate={onNavigate}
-      />
+      {isGuest ? (
+        <GuestHero onNavigate={onNavigate} />
+      ) : (
+        <TodayPanel
+          userName={userName}
+          streakCount={streakCount}
+          streakAtRisk={streakAtRisk}
+          realWorldCount={realWorldCount}
+          loading={loading}
+          lesson={lesson}
+          dueCount={dueCount}
+          onNavigate={onNavigate}
+        />
+      )}
 
-      {personalPhraseCount === 0 && (
+      {!isGuest && personalPhraseCount === 0 && (
         <PersonalSceneSetup onNavigate={onNavigate} />
       )}
 
@@ -151,7 +160,77 @@ export default function HomeScreen({ onNavigate }) {
       </div>
       <PracticeGrid onNavigate={onNavigate} />
 
+      {isGuest && personalPhraseCount === 0 && (
+        <PersonalSceneSetup onNavigate={onNavigate} />
+      )}
+
       <div className={styles.bottomPad} />
+    </div>
+  );
+}
+
+// Demo phrases for the guest hero. Jyutping matches the reference-set data;
+// each has a pre-recorded word audio file in public/audio/cantonese-words/.
+const DEMO_PHRASES = [
+  { cjk: '唔該', jyutping: 'm4 goi1', gloss: '"Thanks". The most useful word in Hong Kong.' },
+  { cjk: '早晨', jyutping: 'zou2 san4', gloss: '"Good morning". How the city greets before noon.' },
+  { cjk: '幾多錢', jyutping: 'gei2 do1 cin2', gloss: '"How much?" For the wet market.' },
+];
+
+function GuestHero({ onNavigate }) {
+  const [idx, setIdx] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const phrase = DEMO_PHRASES[idx];
+
+  useEffect(() => () => audioRef.current?.pause(), []);
+
+  const handlePlay = async () => {
+    if (playing) return;
+    setPlaying(true);
+    try {
+      const blob = await staticWordAudio(phrase.cjk);
+      if (!blob) throw new Error('no audio');
+      if (!audioRef.current) audioRef.current = new Audio();
+      const audio = audioRef.current;
+      const url = URL.createObjectURL(blob);
+      audio.src = url;
+      const finish = () => { URL.revokeObjectURL(url); setPlaying(false); };
+      audio.onended = finish;
+      audio.onerror = finish;
+      await audio.play();
+    } catch {
+      setPlaying(false);
+    }
+  };
+
+  return (
+    <div className={styles.todayPanel}>
+      <p className={styles.guestEyebrow}>THIS IS WHAT YOU'LL SOUND LIKE</p>
+      <p className={styles.guestCjk} lang="yue">{phrase.cjk}</p>
+      <p className={styles.guestJyut}>{phrase.jyutping}</p>
+      <p className={styles.guestGloss}>{phrase.gloss}</p>
+      <button
+        className={`${styles.guestPlay} ${playing ? styles.guestPlaying : ''}`}
+        onClick={handlePlay}
+        aria-label={`Play ${phrase.cjk}`}
+      >
+        <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor" /></svg>
+      </button>
+      <p className={styles.guestHint}>Tap play. That's a real Hong Kong voice.</p>
+      <div className={styles.guestDots}>
+        {DEMO_PHRASES.map((p, i) => (
+          <button
+            key={p.cjk}
+            className={`${styles.guestDot} ${i === idx ? styles.guestDotOn : ''}`}
+            onClick={() => setIdx(i)}
+            aria-label={`Show ${p.cjk}`}
+          />
+        ))}
+      </div>
+      <button className={styles.guestCta} onClick={() => onNavigate('shadow', 'basic-greetings')}>
+        Start your first scene · 4 min
+      </button>
     </div>
   );
 }
@@ -174,16 +253,17 @@ function StreakPill({ count }) {
 function TodayPanel({ userName, streakCount, streakAtRisk, realWorldCount, loading, lesson, dueCount, onNavigate }) {
   return (
     <div className={styles.todayPanel}>
-      <div className={styles.panelLeadRow}>
-        <div className={styles.panelLeadStat}>
-          <span className={styles.panelLeadLabel}>Said in person</span>
-          {realWorldCount > 0
-            ? <span className={styles.panelLeadNum}>{realWorldCount}</span>
-            : <span className={styles.panelLeadEmpty}>Say your first phrase out loud, out there.</span>
-          }
+      {(realWorldCount > 0 || streakCount > 0) && (
+        <div className={styles.panelLeadRow}>
+          {realWorldCount > 0 && (
+            <div className={styles.panelLeadStat}>
+              <span className={styles.panelLeadLabel}>Said in person</span>
+              <span className={styles.panelLeadNum}>{realWorldCount}</span>
+            </div>
+          )}
+          <StreakPill count={streakCount} />
         </div>
-        <StreakPill count={streakCount} />
-      </div>
+      )}
       <h1 className={styles.panelGreetTitle}>
         Hello{userName && <>, <em>{userName}</em></>}.
       </h1>
