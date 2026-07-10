@@ -55,7 +55,7 @@
 
 .confirmBtn {
   background: var(--color-brand-lime);
-  color: var(--color-brand-dark-text);
+  color: var(--color-text-inverse);
   border-radius: 12px;
   padding: 14px;
   font-size: 0.9375rem;

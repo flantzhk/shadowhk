@@ -15,7 +15,7 @@
   height: 64px;
   border-radius: var(--radius-circle);
   background: var(--color-brand-lime);
-  color: var(--color-brand-dark);
+  color: var(--color-text-inverse);
   border: 2px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-fast);

@@ -213,7 +213,7 @@ body {
   height: auto;
   padding: var(--space-sm) var(--space-md);
   background: var(--color-brand-dark);
-  color: var(--color-brand-lime);
+  color: var(--color-text-inverse);
   z-index: 9999;
   border-radius: var(--radius-sm);
 }
