@@ -10,6 +10,7 @@ import { getSettings, getAllLibraryEntries, getAllSessions } from '../../service
 import { ConfirmModal } from '../shared/ConfirmModal';
 import { BottomSheet } from '../shared/BottomSheet';
 import DownloadAllModal from '../shared/DownloadAllModal';
+import { getOfflineAudioStatus, subscribeAudioDownload } from '../../services/audioDownload';
 import StatsPanel from './StatsScreen';
 import styles from './ProfileScreen.module.css';
 
@@ -54,9 +55,20 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   const [reminderTime, setReminderTime] = useState(settings.reminderTime || '09:00');
   const [showDownloadModal, setShowDownloadModal] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
+  const [offlineStatus, setOfflineStatus] = useState(null);
+
+  const isGuest = !user;
 
   useEffect(() => {
     getAllSessions().catch(() => []).then(sessions => setLast90(getLast90Days(sessions)));
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    const refresh = () => getOfflineAudioStatus().then(s => { if (mounted) setOfflineStatus(s); });
+    const unsubscribe = subscribeAudioDownload(s => { if (s.status === 'complete') refresh(); });
+    refresh();
+    return () => { mounted = false; unsubscribe(); };
   }, []);
 
   const initial = (settings.name || user?.displayName || user?.email || 'U')[0].toUpperCase();
@@ -117,7 +129,19 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
   return (
     <div className={styles.screen}>
 
-      {/* Avatar + name row */}
+      {/* Guest hero: no fake identity, just the one thing an account adds */}
+      {isGuest ? (
+        <div className={styles.guestHero}>
+          <p className={styles.guestHeroTitle}>Keep your progress</p>
+          <p className={styles.guestHeroBody}>
+            Practice works without an account and stays on this device. Sign in to
+            back it up, sync across devices, and keep your streak safe.
+          </p>
+          <button className={styles.guestSignInBtn} onClick={() => nav?.(ROUTES.LOGIN)}>
+            Sign in or create account
+          </button>
+        </div>
+      ) : (
       <div className={styles.profileRow}>
         <div className={styles.avatar}>
           {(settings.photoURL || user?.photoURL) ? (
@@ -139,8 +163,11 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
           </span>
         </div>
       </div>
+      )}
 
-      {/* Tabs — Progress folded into You: one continuous scroll, no dead page */}
+      {/* Tabs — Progress folded into You: one continuous scroll, no dead page.
+          Guests skip straight to settings; there are no stats to show. */}
+      {!isGuest && (
       <div className={styles.tabs}>
         {[['you', 'You'], ['settings', 'Settings']].map(([id, label]) => (
           <button
@@ -152,9 +179,10 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
           </button>
         ))}
       </div>
+      )}
 
       {/* You tab: streak, today/week, lifetime stats, level, achievements, heatmap */}
-      {activeTab === 'you' && (
+      {!isGuest && activeTab === 'you' && (
         <div className={styles.tabContent}>
           <StatsPanel />
 
@@ -175,8 +203,8 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
         </div>
       )}
 
-      {/* Settings tab */}
-      {activeTab === 'settings' && (
+      {/* Settings tab (guests always see it; it's their whole page) */}
+      {(isGuest || activeTab === 'settings') && (
       <div className={styles.tabContent}>
       {/* Learning */}
       <p className={styles.sectionLabel}>LEARNING</p>
@@ -232,13 +260,20 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
           <span className={styles.rowLabel}>Default speed</span>
           <span className={styles.rowValue}>{settings.defaultSpeed === 'slower' ? 'Slower' : 'Natural'} ›</span>
         </button>
-        <button className={styles.settingsRow} onClick={() => setShowReminderPicker(true)}>
-          <span className={styles.rowLabel}>Daily reminder</span>
-          <span className={styles.rowValue}>{settings.reminderTime || 'Off'} ›</span>
-        </button>
+        {!isGuest && (
+          <button className={styles.settingsRow} onClick={() => setShowReminderPicker(true)}>
+            <span className={styles.rowLabel}>Daily reminder</span>
+            <span className={styles.rowValue}>{settings.reminderTime || 'Off'} ›</span>
+          </button>
+        )}
         <button className={styles.settingsRow} onClick={() => setShowDownloadModal(true)}>
-          <span className={styles.rowLabel}>Offline downloads</span>
-          <span className={styles.rowValue}>Download all ›</span>
+          <span className={styles.rowLabel}>Offline audio</span>
+          <span className={styles.rowValue}>
+            {offlineStatus === null ? '›'
+              : offlineStatus.ready ? 'Ready ✓ ›'
+              : offlineStatus.cachedCount > 0 ? 'Incomplete ›'
+              : 'Download all ›'}
+          </span>
         </button>
       </div>
 
@@ -265,7 +300,8 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
         </>
       )}
 
-      {/* Danger zone */}
+      {/* Danger zone (account actions; nothing here applies to guests) */}
+      {!isGuest && (
       <div className={styles.dangerZone}>
         <button className={styles.signOutBtn} onClick={() => setShowSignOutConfirm(true)}>Sign out</button>
         <button className={styles.deleteBtn} onClick={() => setShowDeleteConfirm(true)}>Delete account</button>
@@ -273,6 +309,7 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
           {exportLoading ? 'Preparing export...' : 'Download my data'}
         </button>
       </div>
+      )}
 
       <p className={styles.versionLabel}>ShadowSpeak v{APP_VERSION}</p>
       </div>

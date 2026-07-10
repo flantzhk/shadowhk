@@ -200,4 +200,4 @@ async function downloadAllAudio(language, onProgress, cancelRef = { cancelled: f
   }
 }
 
-export { processOfflineQueue, initOfflineQueueListener, blobToBase64, base64ToBlob, downloadAllAudio };
+export { processOfflineQueue, initOfflineQueueListener, blobToBase64, base64ToBlob, downloadAllAudio, STATIC_AUDIO_CACHE };

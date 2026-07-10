@@ -3,7 +3,11 @@
 // closes the modal), so a module-level singleton owns the cancelRef and
 // progress. Components subscribe for updates.
 
-import { downloadAllAudio } from './offlineManager';
+import { downloadAllAudio, STATIC_AUDIO_CACHE } from './offlineManager';
+
+// Stamped when a download run completes so screens can answer "is everything
+// on this device?" without re-walking the whole file list.
+const VERIFIED_KEY = 'shadowhk_offline_verified';
 
 let state = { status: 'idle', done: 0, total: 0, currentTopic: '', startedAt: 0, updatedAt: 0 };
 let cancelRef = null;
@@ -41,6 +45,9 @@ function startAudioDownload(language) {
   ).then(() => {
     if (ref.cancelled) return;
     state = { ...state, status: 'complete' };
+    try {
+      localStorage.setItem(VERIFIED_KEY, JSON.stringify({ at: Date.now(), total: state.total }));
+    } catch { /* storage full or blocked; status just shows not verified */ }
     notify();
   }).catch(() => {
     if (ref.cancelled) return;
@@ -55,4 +62,22 @@ function cancelAudioDownload() {
   notify();
 }
 
-export { startAudioDownload, cancelAudioDownload, subscribeAudioDownload, getAudioDownloadState };
+/**
+ * Whether the full audio library is on this device. Ready means a download
+ * run completed at some point AND the cache still holds the bulk of the files
+ * (browsers can evict storage under pressure).
+ * @returns {Promise<{ready: boolean, cachedCount: number, verifiedAt: number|null}>}
+ */
+async function getOfflineAudioStatus() {
+  let verified = null;
+  try { verified = JSON.parse(localStorage.getItem(VERIFIED_KEY)); } catch { /* malformed */ }
+  let cachedCount = 0;
+  try {
+    const cache = await caches.open(STATIC_AUDIO_CACHE);
+    cachedCount = (await cache.keys()).length;
+  } catch { /* Cache API unavailable */ }
+  const ready = !!verified?.total && cachedCount >= verified.total * 0.9;
+  return { ready, cachedCount, verifiedAt: verified?.at ?? null };
+}
+
+export { startAudioDownload, cancelAudioDownload, subscribeAudioDownload, getAudioDownloadState, getOfflineAudioStatus };

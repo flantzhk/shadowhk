@@ -6,6 +6,42 @@
   padding-bottom: 32px;
 }
 
+/* ─── Guest hero ─────────────────────── */
+.guestHero {
+  margin: 8px 20px 20px;
+  background: var(--ink);
+  border: 1.5px solid var(--gold);
+  border-radius: 20px;
+  padding: 20px 18px;
+}
+
+.guestHeroTitle {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: #F7F4EC;
+  margin: 0 0 8px;
+}
+
+.guestHeroBody {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 16px;
+}
+
+.guestSignInBtn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border-radius: 13px;
+  background: var(--color-brand-lime);
+  color: var(--color-text-inverse);
+  font-size: 14.5px;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+}
+
 /* ─── Profile header ─────────────────── */
 .profileRow {
   padding: 4px 20px 0;

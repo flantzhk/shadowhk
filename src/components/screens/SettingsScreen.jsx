@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { getAllLanguages } from '../../services/languageManager';
+import { getOfflineAudioStatus, subscribeAudioDownload } from '../../services/audioDownload';
 import { getCurrentUser, signOut, deleteAccount } from '../../services/auth';
 import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, CANTONESE_VOICES } from '../../utils/constants';
 import { fbDb, fbAuth } from '../../services/firebase';
@@ -38,12 +39,21 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
   const [showReminderPicker, setShowReminderPicker] = useState(false);
   const [reminderTime, setReminderTime] = useState(settings.reminderTime || '09:00');
   const [showDownloadModal, setShowDownloadModal] = useState(false);
+  const [offlineStatus, setOfflineStatus] = useState(null);
   const [pushSubscribed, setPushSubscribed] = useState(false);
   const [pushLoading, setPushLoading] = useState(false);
   const [pushStatus, setPushStatus] = useState(''); // feedback message
 
   useEffect(() => {
     isPushSubscribed().then(setPushSubscribed);
+  }, []);
+
+  useEffect(() => {
+    let mounted = true;
+    const refresh = () => getOfflineAudioStatus().then(s => { if (mounted) setOfflineStatus(s); });
+    const unsubscribe = subscribeAudioDownload(s => { if (s.status === 'complete') refresh(); });
+    refresh();
+    return () => { mounted = false; unsubscribe(); };
   }, []);
 
   const handleTogglePush = async () => {
@@ -251,8 +261,19 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Offline</h2>
         <p className={styles.hint}>Download every recording so the whole app works offline, plane included. Roughly 70 MB, best on Wi-Fi.</p>
+        {offlineStatus?.ready && (
+          <p className={styles.hint} style={{ color: 'var(--accent)', fontWeight: 600 }}>
+            Ready for airplane mode: {offlineStatus.cachedCount.toLocaleString()} recordings on this device,
+            checked {new Date(offlineStatus.verifiedAt).toLocaleDateString()}.
+          </p>
+        )}
+        {offlineStatus && !offlineStatus.ready && offlineStatus.cachedCount > 0 && (
+          <p className={styles.hint} style={{ fontWeight: 600 }}>
+            Partially downloaded ({offlineStatus.cachedCount.toLocaleString()} recordings). Run the download to finish.
+          </p>
+        )}
         <button className={styles.downloadBtn} onClick={() => setShowDownloadModal(true)}>
-          Download everything
+          {offlineStatus?.ready ? 'Check for new recordings' : 'Download everything'}
         </button>
       </div>
 
