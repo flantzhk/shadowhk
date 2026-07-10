@@ -1,398 +1,398 @@
 {
-    "id": "basic-greetings",
-    "language": "cantonese",
-    "emoji": "👋",
-    "imageUrl": "/shadowhk/images/scenes/basic-greetings.jpg",
-    "tint": "#C5E85A",
-    "title": "Basic Greetings",
-    "description": "The survival kit: hello, how are you, please, thank you, sorry, and goodbye",
-    "category": "social",
-    "difficulty": "starter",
-    "estimatedMinutes": 4,
-    "location": "A street food stall or bakery counter, anywhere in Hong Kong",
-    "context": "This is the toolkit scene: the handful of phrases you'll reach for in almost any first encounter, whether that's a stallholder, a neighbour, or someone you've just bumped into on the street. Shadow this one first, before anything location-specific.",
-    "cultural_note": "Cantonese has two words for \"thank you\" and mixing them up is the single most common beginner slip. 唔該 (m4 goi1) is for services and small favours: someone hands you something, holds a door, gives you your change. 多謝 (do1 ze6) is for gifts and genuine kindness: a present, a compliment, someone going out of their way for you. Locals notice the swap even when the sentence is otherwise perfect.",
-    "lines": [
+  "id": "basic-greetings",
+  "language": "cantonese",
+  "emoji": "👋",
+  "imageUrl": "/shadowhk/images/scenes/basic-greetings.jpg",
+  "tint": "#C5E85A",
+  "title": "Basic Greetings",
+  "description": "The survival kit: hello, how are you, please, thank you, sorry, and goodbye",
+  "category": "basics",
+  "difficulty": "starter",
+  "estimatedMinutes": 4,
+  "location": "A street food stall or bakery counter, anywhere in Hong Kong",
+  "context": "This is the toolkit scene: the handful of phrases you'll reach for in almost any first encounter, whether that's a stallholder, a neighbour, or someone you've just bumped into on the street. Shadow this one first, before anything location-specific.",
+  "cultural_note": "Cantonese has two words for \"thank you\" and mixing them up is the single most common beginner slip. 唔該 (m4 goi1) is for services and small favours: someone hands you something, holds a door, gives you your change. 多謝 (do1 ze6) is for gifts and genuine kindness: a present, a compliment, someone going out of their way for you. Locals notice the swap even when the sentence is otherwise perfect.",
+  "lines": [
+    {
+      "id": "bg-01",
+      "speaker": "you",
+      "cjk": "唔好意思！",
+      "jyutping": "m4 hou2 ji3 si1!",
+      "english": "Sorry! (Excuse me!)",
+      "audioFile": "bg-01.mp3",
+      "scenario": "You've just bumped into someone, or you're stepping into their space to get their attention.",
+      "words": [
         {
-            "id": "bg-01",
-            "speaker": "you",
-            "cjk": "唔好意思！",
-            "jyutping": "m4 hou2 ji3 si1!",
-            "english": "Sorry! (Excuse me!)",
-            "audioFile": "bg-01.mp3",
-            "scenario": "You've just bumped into someone, or you're stepping into their space to get their attention.",
-            "words": [
-                {
-                    "chinese": "唔好意思",
-                    "jyutping": "m4 hou2 ji3 si1",
-                    "english": "sorry; excuse me"
-                }
-            ]
-        },
-        {
-            "id": "bg-02",
-            "speaker": "them",
-            "cjk": "冇事，你好！",
-            "jyutping": "mou5 si6, nei5 hou2!",
-            "english": "No worries, hi!",
-            "audioFile": "bg-02.mp3",
-            "words": [
-                {
-                    "chinese": "冇事",
-                    "jyutping": "mou5 si6",
-                    "english": "no worries; it's nothing"
-                },
-                {
-                    "chinese": "你好",
-                    "jyutping": "nei5 hou2",
-                    "english": "hello"
-                }
-            ]
-        },
-        {
-            "id": "bg-03",
-            "speaker": "them",
-            "cjk": "你好嗎？",
-            "jyutping": "nei5 hou2 maa3?",
-            "english": "How are you?",
-            "audioFile": "bg-03.mp3",
-            "words": [
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "好嗎",
-                    "jyutping": "hou2 maa3",
-                    "english": "(are you) well?"
-                }
-            ]
-        },
-        {
-            "id": "bg-04",
-            "speaker": "you",
-            "cjk": "幾好，多謝。你呢？",
-            "jyutping": "gei2 hou2, do1 ze6. nei5 ne1?",
-            "english": "Pretty good, thank you. And you?",
-            "audioFile": "bg-04.mp3",
-            "usage": "多謝 here because they're being kind by asking after you, not doing you a service. Flip it back with 你呢 (nei5 ne1) to keep things moving.",
-            "words": [
-                {
-                    "chinese": "幾好",
-                    "jyutping": "gei2 hou2",
-                    "english": "pretty good"
-                },
-                {
-                    "chinese": "多謝",
-                    "jyutping": "do1 ze6",
-                    "english": "thank you"
-                },
-                {
-                    "chinese": "你呢",
-                    "jyutping": "nei5 ne1",
-                    "english": "and you?"
-                }
-            ]
-        },
-        {
-            "id": "bg-05",
-            "speaker": "them",
-            "cjk": "都幾好。嚟，試吓呢個。",
-            "jyutping": "dou1 gei2 hou2. lei4, si3 haa5 ni1 go3.",
-            "english": "Also good. Here, try this.",
-            "audioFile": "bg-05.mp3",
-            "words": [
-                {
-                    "chinese": "都幾好",
-                    "jyutping": "dou1 gei2 hou2",
-                    "english": "also pretty good"
-                },
-                {
-                    "chinese": "嚟",
-                    "jyutping": "lei4",
-                    "english": "here; come"
-                },
-                {
-                    "chinese": "試吓",
-                    "jyutping": "si3 haa5",
-                    "english": "give it a try"
-                },
-                {
-                    "chinese": "呢個",
-                    "jyutping": "ni1 go3",
-                    "english": "this one"
-                }
-            ]
-        },
-        {
-            "id": "bg-06",
-            "speaker": "you",
-            "cjk": "唔該！好好食呀！",
-            "jyutping": "m4 goi1! hou2 hou2 sik6 aa3!",
-            "english": "Please (thanks)! This is delicious!",
-            "audioFile": "bg-06.mp3",
-            "usage": "唔該 here because they're doing you a small service by handing something over. See the cultural note for the 唔該 vs 多謝 split.",
-            "words": [
-                {
-                    "chinese": "唔該",
-                    "jyutping": "m4 goi1",
-                    "english": "please; thanks (for a service)"
-                },
-                {
-                    "chinese": "好好食",
-                    "jyutping": "hou2 hou2 sik6",
-                    "english": "so delicious"
-                },
-                {
-                    "chinese": "呀",
-                    "jyutping": "aa3",
-                    "english": "(softener)"
-                }
-            ]
-        },
-        {
-            "id": "bg-07",
-            "speaker": "them",
-            "cjk": "係新鮮出爐㗎，仲有好多口味添。",
-            "jyutping": "hai6 san1 sin1 ceot1 lou4 gaa3, zung6 jau5 hou2 do1 hau2 mei6 tim1.",
-            "english": "It's fresh out of the oven, and there are lots more flavours too.",
-            "audioFile": "bg-07.mp3",
-            "words": [
-                {
-                    "chinese": "新鮮",
-                    "jyutping": "san1 sin1",
-                    "english": "fresh"
-                },
-                {
-                    "chinese": "出爐",
-                    "jyutping": "ceot1 lou4",
-                    "english": "out of the oven"
-                },
-                {
-                    "chinese": "㗎",
-                    "jyutping": "gaa3",
-                    "english": "(emphasis particle)"
-                },
-                {
-                    "chinese": "仲有",
-                    "jyutping": "zung6 jau5",
-                    "english": "there's also"
-                },
-                {
-                    "chinese": "口味",
-                    "jyutping": "hau2 mei6",
-                    "english": "flavour"
-                },
-                {
-                    "chinese": "添",
-                    "jyutping": "tim1",
-                    "english": "(as well, particle)"
-                }
-            ]
-        },
-        {
-            "id": "bg-08",
-            "speaker": "you",
-            "cjk": "唔好意思，我聽唔明。你識唔識講英文呀？",
-            "jyutping": "m4 hou2 ji3 si1, ngo5 teng1 m4 ming4. nei5 sik1 m4 sik1 gong2 jing1 man2 aa3?",
-            "english": "Sorry, I don't understand. Do you speak English?",
-            "audioFile": "bg-08.mp3",
-            "scenario": "The two phrases every survival kit needs for when things move too fast to follow.",
-            "words": [
-                {
-                    "chinese": "唔好意思",
-                    "jyutping": "m4 hou2 ji3 si1",
-                    "english": "sorry; excuse me"
-                },
-                {
-                    "chinese": "聽唔明",
-                    "jyutping": "teng1 m4 ming4",
-                    "english": "don't understand (by ear)"
-                },
-                {
-                    "chinese": "識唔識",
-                    "jyutping": "sik1 m4 sik1",
-                    "english": "do you know how to"
-                },
-                {
-                    "chinese": "講",
-                    "jyutping": "gong2",
-                    "english": "speak"
-                },
-                {
-                    "chinese": "英文",
-                    "jyutping": "jing1 man2",
-                    "english": "English"
-                }
-            ]
-        },
-        {
-            "id": "bg-09",
-            "speaker": "them",
-            "cjk": "識少少。",
-            "jyutping": "sik1 siu2 siu2.",
-            "english": "A little.",
-            "audioFile": "bg-09.mp3",
-            "words": [
-                {
-                    "chinese": "識",
-                    "jyutping": "sik1",
-                    "english": "know (how to)"
-                },
-                {
-                    "chinese": "少少",
-                    "jyutping": "siu2 siu2",
-                    "english": "a little"
-                }
-            ]
-        },
-        {
-            "id": "bg-10",
-            "speaker": "you",
-            "cjk": "冇問題，唔該晒！拜拜！",
-            "jyutping": "mou5 man6 tai4, m4 goi1 saai3! baai1 baai3!",
-            "english": "No problem, thanks so much! Bye!",
-            "audioFile": "bg-10.mp3",
-            "words": [
-                {
-                    "chinese": "冇問題",
-                    "jyutping": "mou5 man6 tai4",
-                    "english": "no problem"
-                },
-                {
-                    "chinese": "唔該晒",
-                    "jyutping": "m4 goi1 saai3",
-                    "english": "thanks so much"
-                },
-                {
-                    "chinese": "拜拜",
-                    "jyutping": "baai1 baai3",
-                    "english": "bye bye"
-                }
-            ]
-        },
-        {
-            "id": "bg-11",
-            "speaker": "them",
-            "cjk": "拜拜，慢慢行！",
-            "jyutping": "baai1 baai3, maan6 maan2 haang4!",
-            "english": "Bye, take care!",
-            "audioFile": "bg-11.mp3",
-            "words": [
-                {
-                    "chinese": "拜拜",
-                    "jyutping": "baai1 baai3",
-                    "english": "bye bye"
-                },
-                {
-                    "chinese": "慢慢行",
-                    "jyutping": "maan6 maan2 haang4",
-                    "english": "take care (lit. walk slowly)"
-                }
-            ]
+          "chinese": "唔好意思",
+          "jyutping": "m4 hou2 ji3 si1",
+          "english": "sorry; excuse me"
         }
-    ],
-    "vocabulary": [
+      ]
+    },
+    {
+      "id": "bg-02",
+      "speaker": "them",
+      "cjk": "冇事，你好！",
+      "jyutping": "mou5 si6, nei5 hou2!",
+      "english": "No worries, hi!",
+      "audioFile": "bg-02.mp3",
+      "words": [
         {
-            "category": "Greetings",
-            "words": [
-                {
-                    "chinese": "你好",
-                    "jyutping": "nei5 hou2",
-                    "english": "hello"
-                },
-                {
-                    "chinese": "喂",
-                    "jyutping": "wai3",
-                    "english": "hey (informal)"
-                },
-                {
-                    "chinese": "你好嗎",
-                    "jyutping": "nei5 hou2 maa3",
-                    "english": "how are you"
-                },
-                {
-                    "chinese": "幾好",
-                    "jyutping": "gei2 hou2",
-                    "english": "pretty good"
-                }
-            ]
+          "chinese": "冇事",
+          "jyutping": "mou5 si6",
+          "english": "no worries; it's nothing"
         },
         {
-            "category": "Please & Thank You",
-            "words": [
-                {
-                    "chinese": "唔該",
-                    "jyutping": "m4 goi1",
-                    "english": "please; thanks (for a service)"
-                },
-                {
-                    "chinese": "多謝",
-                    "jyutping": "do1 ze6",
-                    "english": "thank you (for a gift or kindness)"
-                },
-                {
-                    "chinese": "唔該晒",
-                    "jyutping": "m4 goi1 saai3",
-                    "english": "thanks so much"
-                },
-                {
-                    "chinese": "唔使客氣",
-                    "jyutping": "m4 sai2 haak3 hei3",
-                    "english": "you're welcome"
-                }
-            ]
-        },
-        {
-            "category": "Sorry & When You're Lost",
-            "words": [
-                {
-                    "chinese": "唔好意思",
-                    "jyutping": "m4 hou2 ji3 si1",
-                    "english": "sorry; excuse me"
-                },
-                {
-                    "chinese": "對唔住",
-                    "jyutping": "deoi3 m4 zyu6",
-                    "english": "I'm sorry (more sincere apology)"
-                },
-                {
-                    "chinese": "聽唔明",
-                    "jyutping": "teng1 m4 ming4",
-                    "english": "I don't understand"
-                },
-                {
-                    "chinese": "可唔可以講慢啲",
-                    "jyutping": "ho2 m4 ho2 ji5 gong2 maan6 di1",
-                    "english": "can you speak more slowly"
-                }
-            ]
-        },
-        {
-            "category": "Saying Goodbye",
-            "words": [
-                {
-                    "chinese": "拜拜",
-                    "jyutping": "baai1 baai3",
-                    "english": "bye bye"
-                },
-                {
-                    "chinese": "再見",
-                    "jyutping": "zoi3 gin3",
-                    "english": "goodbye (more formal)"
-                },
-                {
-                    "chinese": "慢慢行",
-                    "jyutping": "maan6 maan2 haang4",
-                    "english": "take care (lit. walk slowly)"
-                },
-                {
-                    "chinese": "遲啲見",
-                    "jyutping": "ci4 di1 gin3",
-                    "english": "see you later"
-                }
-            ]
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
         }
-    ]
+      ]
+    },
+    {
+      "id": "bg-03",
+      "speaker": "them",
+      "cjk": "你好嗎？",
+      "jyutping": "nei5 hou2 maa3?",
+      "english": "How are you?",
+      "audioFile": "bg-03.mp3",
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "好嗎",
+          "jyutping": "hou2 maa3",
+          "english": "(are you) well?"
+        }
+      ]
+    },
+    {
+      "id": "bg-04",
+      "speaker": "you",
+      "cjk": "幾好，多謝。你呢？",
+      "jyutping": "gei2 hou2, do1 ze6. nei5 ne1?",
+      "english": "Pretty good, thank you. And you?",
+      "audioFile": "bg-04.mp3",
+      "usage": "多謝 here because they're being kind by asking after you, not doing you a service. Flip it back with 你呢 (nei5 ne1) to keep things moving.",
+      "words": [
+        {
+          "chinese": "幾好",
+          "jyutping": "gei2 hou2",
+          "english": "pretty good"
+        },
+        {
+          "chinese": "多謝",
+          "jyutping": "do1 ze6",
+          "english": "thank you"
+        },
+        {
+          "chinese": "你呢",
+          "jyutping": "nei5 ne1",
+          "english": "and you?"
+        }
+      ]
+    },
+    {
+      "id": "bg-05",
+      "speaker": "them",
+      "cjk": "都幾好。嚟，試吓呢個。",
+      "jyutping": "dou1 gei2 hou2. lei4, si3 haa5 ni1 go3.",
+      "english": "Also good. Here, try this.",
+      "audioFile": "bg-05.mp3",
+      "words": [
+        {
+          "chinese": "都幾好",
+          "jyutping": "dou1 gei2 hou2",
+          "english": "also pretty good"
+        },
+        {
+          "chinese": "嚟",
+          "jyutping": "lei4",
+          "english": "here; come"
+        },
+        {
+          "chinese": "試吓",
+          "jyutping": "si3 haa5",
+          "english": "give it a try"
+        },
+        {
+          "chinese": "呢個",
+          "jyutping": "ni1 go3",
+          "english": "this one"
+        }
+      ]
+    },
+    {
+      "id": "bg-06",
+      "speaker": "you",
+      "cjk": "唔該！好好食呀！",
+      "jyutping": "m4 goi1! hou2 hou2 sik6 aa3!",
+      "english": "Please (thanks)! This is delicious!",
+      "audioFile": "bg-06.mp3",
+      "usage": "唔該 here because they're doing you a small service by handing something over. See the cultural note for the 唔該 vs 多謝 split.",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thanks (for a service)"
+        },
+        {
+          "chinese": "好好食",
+          "jyutping": "hou2 hou2 sik6",
+          "english": "so delicious"
+        },
+        {
+          "chinese": "呀",
+          "jyutping": "aa3",
+          "english": "(softener)"
+        }
+      ]
+    },
+    {
+      "id": "bg-07",
+      "speaker": "them",
+      "cjk": "係新鮮出爐㗎，仲有好多口味添。",
+      "jyutping": "hai6 san1 sin1 ceot1 lou4 gaa3, zung6 jau5 hou2 do1 hau2 mei6 tim1.",
+      "english": "It's fresh out of the oven, and there are lots more flavours too.",
+      "audioFile": "bg-07.mp3",
+      "words": [
+        {
+          "chinese": "新鮮",
+          "jyutping": "san1 sin1",
+          "english": "fresh"
+        },
+        {
+          "chinese": "出爐",
+          "jyutping": "ceot1 lou4",
+          "english": "out of the oven"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "仲有",
+          "jyutping": "zung6 jau5",
+          "english": "there's also"
+        },
+        {
+          "chinese": "口味",
+          "jyutping": "hau2 mei6",
+          "english": "flavour"
+        },
+        {
+          "chinese": "添",
+          "jyutping": "tim1",
+          "english": "(as well, particle)"
+        }
+      ]
+    },
+    {
+      "id": "bg-08",
+      "speaker": "you",
+      "cjk": "唔好意思，我聽唔明。你識唔識講英文呀？",
+      "jyutping": "m4 hou2 ji3 si1, ngo5 teng1 m4 ming4. nei5 sik1 m4 sik1 gong2 jing1 man2 aa3?",
+      "english": "Sorry, I don't understand. Do you speak English?",
+      "audioFile": "bg-08.mp3",
+      "scenario": "The two phrases every survival kit needs for when things move too fast to follow.",
+      "words": [
+        {
+          "chinese": "唔好意思",
+          "jyutping": "m4 hou2 ji3 si1",
+          "english": "sorry; excuse me"
+        },
+        {
+          "chinese": "聽唔明",
+          "jyutping": "teng1 m4 ming4",
+          "english": "don't understand (by ear)"
+        },
+        {
+          "chinese": "識唔識",
+          "jyutping": "sik1 m4 sik1",
+          "english": "do you know how to"
+        },
+        {
+          "chinese": "講",
+          "jyutping": "gong2",
+          "english": "speak"
+        },
+        {
+          "chinese": "英文",
+          "jyutping": "jing1 man2",
+          "english": "English"
+        }
+      ]
+    },
+    {
+      "id": "bg-09",
+      "speaker": "them",
+      "cjk": "識少少。",
+      "jyutping": "sik1 siu2 siu2.",
+      "english": "A little.",
+      "audioFile": "bg-09.mp3",
+      "words": [
+        {
+          "chinese": "識",
+          "jyutping": "sik1",
+          "english": "know (how to)"
+        },
+        {
+          "chinese": "少少",
+          "jyutping": "siu2 siu2",
+          "english": "a little"
+        }
+      ]
+    },
+    {
+      "id": "bg-10",
+      "speaker": "you",
+      "cjk": "冇問題，唔該晒！拜拜！",
+      "jyutping": "mou5 man6 tai4, m4 goi1 saai3! baai1 baai3!",
+      "english": "No problem, thanks so much! Bye!",
+      "audioFile": "bg-10.mp3",
+      "words": [
+        {
+          "chinese": "冇問題",
+          "jyutping": "mou5 man6 tai4",
+          "english": "no problem"
+        },
+        {
+          "chinese": "唔該晒",
+          "jyutping": "m4 goi1 saai3",
+          "english": "thanks so much"
+        },
+        {
+          "chinese": "拜拜",
+          "jyutping": "baai1 baai3",
+          "english": "bye bye"
+        }
+      ]
+    },
+    {
+      "id": "bg-11",
+      "speaker": "them",
+      "cjk": "拜拜，慢慢行！",
+      "jyutping": "baai1 baai3, maan6 maan2 haang4!",
+      "english": "Bye, take care!",
+      "audioFile": "bg-11.mp3",
+      "words": [
+        {
+          "chinese": "拜拜",
+          "jyutping": "baai1 baai3",
+          "english": "bye bye"
+        },
+        {
+          "chinese": "慢慢行",
+          "jyutping": "maan6 maan2 haang4",
+          "english": "take care (lit. walk slowly)"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "category": "Greetings",
+      "words": [
+        {
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
+        },
+        {
+          "chinese": "喂",
+          "jyutping": "wai3",
+          "english": "hey (informal)"
+        },
+        {
+          "chinese": "你好嗎",
+          "jyutping": "nei5 hou2 maa3",
+          "english": "how are you"
+        },
+        {
+          "chinese": "幾好",
+          "jyutping": "gei2 hou2",
+          "english": "pretty good"
+        }
+      ]
+    },
+    {
+      "category": "Please & Thank You",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thanks (for a service)"
+        },
+        {
+          "chinese": "多謝",
+          "jyutping": "do1 ze6",
+          "english": "thank you (for a gift or kindness)"
+        },
+        {
+          "chinese": "唔該晒",
+          "jyutping": "m4 goi1 saai3",
+          "english": "thanks so much"
+        },
+        {
+          "chinese": "唔使客氣",
+          "jyutping": "m4 sai2 haak3 hei3",
+          "english": "you're welcome"
+        }
+      ]
+    },
+    {
+      "category": "Sorry & When You're Lost",
+      "words": [
+        {
+          "chinese": "唔好意思",
+          "jyutping": "m4 hou2 ji3 si1",
+          "english": "sorry; excuse me"
+        },
+        {
+          "chinese": "對唔住",
+          "jyutping": "deoi3 m4 zyu6",
+          "english": "I'm sorry (more sincere apology)"
+        },
+        {
+          "chinese": "聽唔明",
+          "jyutping": "teng1 m4 ming4",
+          "english": "I don't understand"
+        },
+        {
+          "chinese": "可唔可以講慢啲",
+          "jyutping": "ho2 m4 ho2 ji5 gong2 maan6 di1",
+          "english": "can you speak more slowly"
+        }
+      ]
+    },
+    {
+      "category": "Saying Goodbye",
+      "words": [
+        {
+          "chinese": "拜拜",
+          "jyutping": "baai1 baai3",
+          "english": "bye bye"
+        },
+        {
+          "chinese": "再見",
+          "jyutping": "zoi3 gin3",
+          "english": "goodbye (more formal)"
+        },
+        {
+          "chinese": "慢慢行",
+          "jyutping": "maan6 maan2 haang4",
+          "english": "take care (lit. walk slowly)"
+        },
+        {
+          "chinese": "遲啲見",
+          "jyutping": "ci4 di1 gin3",
+          "english": "see you later"
+        }
+      ]
+    }
+  ]
 }

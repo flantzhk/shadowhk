@@ -1,17 +1,45 @@
 [
   {
+    "id": "basic-greetings",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/basic-greetings.jpg",
+    "tint": "#C5E85A",
+    "emoji": "👋"
+  },
+  {
+    "id": "meeting-someone-new",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/meeting-someone-new.jpg",
+    "tint": "#C5E85A",
+    "emoji": "🤝"
+  },
+  {
+    "id": "getting-to-know-you",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/getting-to-know-you.jpg",
+    "tint": "#C5E85A",
+    "emoji": "💬"
+  },
+  {
+    "id": "weather-talk",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
+    "tint": "#5AC8E8",
+    "emoji": "🌧️"
+  },
+  {
+    "id": "complimenting-food",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/complimenting-food.jpg",
+    "tint": "#C5E85A",
+    "emoji": "😋"
+  },
+  {
     "id": "cha-chaan-teng",
     "language": "cantonese",
     "imageUrl": "/shadowhk/images/scenes/cha-chaan-teng.jpg",
     "tint": "#E8703A",
     "emoji": "🍜"
-  },
-  {
-    "id": "wet-market",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/wet-market.jpg",
-    "tint": "#C5E85A",
-    "emoji": "🥬"
   },
   {
     "id": "dim-sum",
@@ -21,6 +49,34 @@
     "emoji": "🥟"
   },
   {
+    "id": "bakery",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/bakery.jpg",
+    "tint": "#E8A030",
+    "emoji": "🍞"
+  },
+  {
+    "id": "booking-a-table",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/booking-a-table.jpg",
+    "tint": "#E8703A",
+    "emoji": "📞"
+  },
+  {
+    "id": "paying-the-bill",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/paying-the-bill.jpg",
+    "tint": "#3A8FE8",
+    "emoji": "💳"
+  },
+  {
+    "id": "wet-market",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/wet-market.jpg",
+    "tint": "#C5E85A",
+    "emoji": "🥬"
+  },
+  {
     "id": "convenience-store",
     "language": "cantonese",
     "imageUrl": "/shadowhk/images/scenes/convenience-store.jpg",
@@ -28,18 +84,11 @@
     "emoji": "🏪"
   },
   {
-    "id": "pharmacy",
+    "id": "asking-for-directions",
     "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/pharmacy.jpg",
-    "tint": "#8F6AE8",
-    "emoji": "💊"
-  },
-  {
-    "id": "bakery",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/bakery.jpg",
-    "tint": "#E8A030",
-    "emoji": "🍞"
+    "imageUrl": "/shadowhk/images/scenes/asking-for-directions.jpg",
+    "tint": "#5AC8E8",
+    "emoji": "🗺️"
   },
   {
     "id": "mtr-station",
@@ -98,11 +147,46 @@
     "emoji": "🛕"
   },
   {
+    "id": "tai-chi-park",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/tai-chi-park.jpg",
+    "tint": "#7AA874",
+    "emoji": "🌳"
+  },
+  {
+    "id": "yoga-class",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/yoga-class.jpg",
+    "tint": "#C5E85A",
+    "emoji": "🧘"
+  },
+  {
+    "id": "shopping-clothes",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/shopping-clothes.jpg",
+    "tint": "#8F6AE8",
+    "emoji": "👕"
+  },
+  {
+    "id": "market-bargaining",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/market-bargaining.jpg",
+    "tint": "#E8703A",
+    "emoji": "🛍️"
+  },
+  {
     "id": "post-office",
     "language": "cantonese",
     "imageUrl": "/shadowhk/images/scenes/post-office.jpg",
     "tint": "#E84040",
     "emoji": "📦"
+  },
+  {
+    "id": "pharmacy",
+    "language": "cantonese",
+    "imageUrl": "/shadowhk/images/scenes/pharmacy.jpg",
+    "tint": "#8F6AE8",
+    "emoji": "💊"
   },
   {
     "id": "doctor-clinic",
@@ -138,89 +222,5 @@
     "imageUrl": "/shadowhk/images/scenes/mid-autumn.jpg",
     "tint": "#E8A030",
     "emoji": "🥮"
-  },
-  {
-    "id": "basic-greetings",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/basic-greetings.jpg",
-    "tint": "#C5E85A",
-    "emoji": "👋"
-  },
-  {
-    "id": "meeting-someone-new",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/meeting-someone-new.jpg",
-    "tint": "#C5E85A",
-    "emoji": "🤝"
-  },
-  {
-    "id": "getting-to-know-you",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/getting-to-know-you.jpg",
-    "tint": "#C5E85A",
-    "emoji": "💬"
-  },
-  {
-    "id": "booking-a-table",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/booking-a-table.jpg",
-    "tint": "#E8703A",
-    "emoji": "📞"
-  },
-  {
-    "id": "asking-for-directions",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/asking-for-directions.jpg",
-    "tint": "#5AC8E8",
-    "emoji": "🗺️"
-  },
-  {
-    "id": "complimenting-food",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/complimenting-food.jpg",
-    "tint": "#C5E85A",
-    "emoji": "😋"
-  },
-  {
-    "id": "shopping-clothes",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/shopping-clothes.jpg",
-    "tint": "#8F6AE8",
-    "emoji": "👕"
-  },
-  {
-    "id": "market-bargaining",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/market-bargaining.jpg",
-    "tint": "#E8703A",
-    "emoji": "🛍️"
-  },
-  {
-    "id": "paying-the-bill",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/paying-the-bill.jpg",
-    "tint": "#3A8FE8",
-    "emoji": "💳"
-  },
-  {
-    "id": "weather-talk",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/weather-talk.jpg",
-    "tint": "#5AC8E8",
-    "emoji": "🌧️"
-  },
-  {
-    "id": "yoga-class",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/yoga-class.jpg",
-    "tint": "#C5E85A",
-    "emoji": "🧘"
-  },
-  {
-    "id": "tai-chi-park",
-    "language": "cantonese",
-    "imageUrl": "/shadowhk/images/scenes/tai-chi-park.jpg",
-    "tint": "#7AA874",
-    "emoji": "🌳"
   }
 ]

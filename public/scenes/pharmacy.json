@@ -1,494 +1,494 @@
 {
-    "id": "pharmacy",
-    "language": "cantonese",
-    "emoji": "💊",
-    "imageUrl": "/shadowhk/images/scenes/pharmacy.jpg",
-    "tint": "#8F6AE8",
-    "title": "Asking about medicine at a pharmacy",
-    "description": "Describe symptoms and ask a pharmacist for something to help",
-    "category": "food",
-    "difficulty": "everyday",
-    "estimatedMinutes": 5,
-    "location": "Watsons pharmacy, Mong Kok",
-    "context": "Watsons and Manning's are the two big pharmacy chains in HK. Pharmacists here are trained and happy to recommend over-the-counter medicines; you don't always need a doctor for minor ailments. Describe your symptoms clearly.",
-    "cultural_note": "The invisible framework behind most self-medication in Hong Kong is 熱氣 (jit6 hei3, \"hot energy\"): fried food, alcohol, chillies, and late nights are understood to cause internal heat that shows up as sore throats, mouth ulcers, and restlessness. The antidote is 涼 (leong4, \"cooling\") food and drink, chrysanthemum tea, winter melon juice, or the bitter herbal teas sold from open-front shops on almost every street.",
-    "lines": [
+  "id": "pharmacy",
+  "language": "cantonese",
+  "emoji": "💊",
+  "imageUrl": "/shadowhk/images/scenes/pharmacy.jpg",
+  "tint": "#8F6AE8",
+  "title": "Asking about medicine at a pharmacy",
+  "description": "Describe symptoms and ask a pharmacist for something to help",
+  "category": "services",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "Watsons pharmacy, Mong Kok",
+  "context": "Watsons and Manning's are the two big pharmacy chains in HK. Pharmacists here are trained and happy to recommend over-the-counter medicines; you don't always need a doctor for minor ailments. Describe your symptoms clearly.",
+  "cultural_note": "The invisible framework behind most self-medication in Hong Kong is 熱氣 (jit6 hei3, \"hot energy\"): fried food, alcohol, chillies, and late nights are understood to cause internal heat that shows up as sore throats, mouth ulcers, and restlessness. The antidote is 涼 (leong4, \"cooling\") food and drink, chrysanthemum tea, winter melon juice, or the bitter herbal teas sold from open-front shops on almost every street.",
+  "lines": [
+    {
+      "id": "pharm-01",
+      "speaker": "you",
+      "cjk": "唔該，我喉嚨痛，有冇藥可以食？",
+      "jyutping": "m4 goi1, ngo5 hau4 lung4 tung3, jau5 mou5 joek6 ho2 ji5 sik6?",
+      "english": "Excuse me, I have a sore throat. Is there something I can take?",
+      "audioFile": "pharm-01.mp3",
+      "words": [
         {
-            "id": "pharm-01",
-            "speaker": "you",
-            "cjk": "唔該，我喉嚨痛，有冇藥可以食？",
-            "jyutping": "m4 goi1, ngo5 hau4 lung4 tung3, jau5 mou5 joek6 ho2 ji5 sik6?",
-            "english": "Excuse me, I have a sore throat. Is there something I can take?",
-            "audioFile": "pharm-01.mp3",
-            "words": [
-                {
-                    "chinese": "唔該",
-                    "jyutping": "m4 goi1",
-                    "english": "please; thank you"
-                },
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "喉嚨",
-                    "jyutping": "hau4 lung4",
-                    "english": "throat"
-                },
-                {
-                    "chinese": "痛",
-                    "jyutping": "tung3",
-                    "english": "hurts"
-                },
-                {
-                    "chinese": "有冇",
-                    "jyutping": "jau5 mou5",
-                    "english": "have any?"
-                },
-                {
-                    "chinese": "藥",
-                    "jyutping": "joek6",
-                    "english": "medicine"
-                },
-                {
-                    "chinese": "可以",
-                    "jyutping": "ho2 ji5",
-                    "english": "can"
-                },
-                {
-                    "chinese": "食",
-                    "jyutping": "sik6",
-                    "english": "take"
-                }
-            ]
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
         },
         {
-            "id": "pharm-02",
-            "speaker": "pharmacist",
-            "cjk": "有，呢款喉糖效果好好。係咪有痰？",
-            "jyutping": "jau5, ni1 fun2 hau4 tong2 haau6 gwo2 hou2 hou2. hai6 mai6 jau5 taam4?",
-            "english": "Yes, these throat lozenges work well. Do you also have phlegm?",
-            "audioFile": "pharm-02.mp3",
-            "words": [
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "呢款",
-                    "jyutping": "ni1 fun2",
-                    "english": "this one"
-                },
-                {
-                    "chinese": "喉糖",
-                    "jyutping": "hau4 tong2",
-                    "english": "throat lozenge"
-                },
-                {
-                    "chinese": "效果",
-                    "jyutping": "haau6 gwo2",
-                    "english": "effect"
-                },
-                {
-                    "chinese": "好",
-                    "jyutping": "hou2",
-                    "english": "really"
-                },
-                {
-                    "chinese": "好",
-                    "jyutping": "hou2",
-                    "english": "good"
-                },
-                {
-                    "chinese": "係咪",
-                    "jyutping": "hai6 mai6",
-                    "english": "is it?"
-                },
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "痰",
-                    "jyutping": "taam4",
-                    "english": "phlegm"
-                }
-            ]
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
         },
         {
-            "id": "pharm-03",
-            "speaker": "you",
-            "cjk": "係，有少少。同埋有啲流鼻水。",
-            "jyutping": "hai6, jau5 siu2 siu2. tung4 maai4 jau5 di1 lau4 bei6 seoi2.",
-            "english": "Yes, a little. And I have a bit of a runny nose too.",
-            "audioFile": "pharm-03.mp3",
-            "words": [
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "yes"
-                },
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "少少",
-                    "jyutping": "siu2 siu2",
-                    "english": "a little"
-                },
-                {
-                    "chinese": "同埋",
-                    "jyutping": "tung4 maai4",
-                    "english": "and also"
-                },
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "啲",
-                    "jyutping": "di1",
-                    "english": "(a bit)"
-                },
-                {
-                    "chinese": "流鼻水",
-                    "jyutping": "lau4 bei6 seoi2",
-                    "english": "runny nose"
-                }
-            ]
+          "chinese": "喉嚨",
+          "jyutping": "hau4 lung4",
+          "english": "throat"
         },
         {
-            "id": "pharm-04",
-            "speaker": "pharmacist",
-            "cjk": "噉我建議你買呢隻傷風藥，朝早食兩粒，夜晚食兩粒。",
-            "jyutping": "gam2 ngo5 gin3 ji5 nei5 maai5 ni1 zek3 soeng1 fung1 joek6, ziu1 zou2 sik6 loeng5 nap1, je6 maan5 sik6 loeng5 nap1.",
-            "english": "In that case I'd suggest this cold medicine. Two tablets in the morning, two at night.",
-            "audioFile": "pharm-04.mp3",
-            "words": [
-                {
-                    "chinese": "噉",
-                    "jyutping": "gam2",
-                    "english": "then"
-                },
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "建議",
-                    "jyutping": "gin3 ji5",
-                    "english": "suggest"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "買",
-                    "jyutping": "maai5",
-                    "english": "buy"
-                },
-                {
-                    "chinese": "呢隻",
-                    "jyutping": "ni1 zek3",
-                    "english": "this (kind)"
-                },
-                {
-                    "chinese": "傷風藥",
-                    "jyutping": "soeng1 fung1 joek6",
-                    "english": "cold medicine"
-                },
-                {
-                    "chinese": "朝早",
-                    "jyutping": "ziu1 zou2",
-                    "english": "morning"
-                },
-                {
-                    "chinese": "食",
-                    "jyutping": "sik6",
-                    "english": "take"
-                },
-                {
-                    "chinese": "兩",
-                    "jyutping": "loeng5",
-                    "english": "two"
-                },
-                {
-                    "chinese": "粒",
-                    "jyutping": "nap1",
-                    "english": "(classifier for pills)"
-                },
-                {
-                    "chinese": "夜晚",
-                    "jyutping": "je6 maan5",
-                    "english": "evening"
-                },
-                {
-                    "chinese": "食",
-                    "jyutping": "sik6",
-                    "english": "take"
-                },
-                {
-                    "chinese": "兩",
-                    "jyutping": "loeng5",
-                    "english": "two"
-                },
-                {
-                    "chinese": "粒",
-                    "jyutping": "nap1",
-                    "english": "(classifier for pills)"
-                }
-            ]
+          "chinese": "痛",
+          "jyutping": "tung3",
+          "english": "hurts"
         },
         {
-            "id": "pharm-05",
-            "speaker": "you",
-            "cjk": "食完有冇副作用？",
-            "jyutping": "sik6 jyun4 jau5 mou5 fu3 zok3 jung6?",
-            "english": "Are there any side effects?",
-            "audioFile": "pharm-05.mp3",
-            "words": [
-                {
-                    "chinese": "食",
-                    "jyutping": "sik6",
-                    "english": "take"
-                },
-                {
-                    "chinese": "完",
-                    "jyutping": "jyun4",
-                    "english": "finish"
-                },
-                {
-                    "chinese": "有冇",
-                    "jyutping": "jau5 mou5",
-                    "english": "have any?"
-                },
-                {
-                    "chinese": "副作用",
-                    "jyutping": "fu3 zok3 jung6",
-                    "english": "side effects"
-                }
-            ]
+          "chinese": "有冇",
+          "jyutping": "jau5 mou5",
+          "english": "have any?"
         },
         {
-            "id": "pharm-06",
-            "speaker": "pharmacist",
-            "cjk": "有啲人食完會眼瞓，最好唔好揸車。",
-            "jyutping": "jau5 di1 jan4 sik6 jyun4 wui5 ngaan5 fan3, zeoi3 hou2 m4 hou2 zaa1 ce1.",
-            "english": "Some people feel drowsy after taking it. Best not to drive.",
-            "audioFile": "pharm-06.mp3",
-            "words": [
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "啲",
-                    "jyutping": "di1",
-                    "english": "(some)"
-                },
-                {
-                    "chinese": "人",
-                    "jyutping": "jan4",
-                    "english": "person"
-                },
-                {
-                    "chinese": "食",
-                    "jyutping": "sik6",
-                    "english": "take"
-                },
-                {
-                    "chinese": "完",
-                    "jyutping": "jyun4",
-                    "english": "finish"
-                },
-                {
-                    "chinese": "會",
-                    "jyutping": "wui5",
-                    "english": "will"
-                },
-                {
-                    "chinese": "眼瞓",
-                    "jyutping": "ngaan5 fan3",
-                    "english": "sleepy"
-                },
-                {
-                    "chinese": "最好",
-                    "jyutping": "zeoi3 hou2",
-                    "english": "best"
-                },
-                {
-                    "chinese": "唔好",
-                    "jyutping": "m4 hou2",
-                    "english": "don't"
-                },
-                {
-                    "chinese": "揸車",
-                    "jyutping": "zaa1 ce1",
-                    "english": "drive"
-                }
-            ]
+          "chinese": "藥",
+          "jyutping": "joek6",
+          "english": "medicine"
         },
         {
-            "id": "pharm-07",
-            "speaker": "you",
-            "cjk": "明白，唔該晒。",
-            "jyutping": "ming4 baak6, m4 goi1 saai3.",
-            "english": "Understood, thank you very much.",
-            "audioFile": "pharm-07.mp3",
-            "words": [
-                {
-                    "chinese": "明白",
-                    "jyutping": "ming4 baak6",
-                    "english": "understand"
-                },
-                {
-                    "chinese": "唔該",
-                    "jyutping": "m4 goi1",
-                    "english": "please; thank you"
-                },
-                {
-                    "chinese": "晒",
-                    "jyutping": "saai3",
-                    "english": "(completely)"
-                }
-            ]
+          "chinese": "可以",
+          "jyutping": "ho2 ji5",
+          "english": "can"
+        },
+        {
+          "chinese": "食",
+          "jyutping": "sik6",
+          "english": "take"
         }
-    ],
-    "vocabulary": [
+      ]
+    },
+    {
+      "id": "pharm-02",
+      "speaker": "pharmacist",
+      "cjk": "有，呢款喉糖效果好好。係咪有痰？",
+      "jyutping": "jau5, ni1 fun2 hau4 tong2 haau6 gwo2 hou2 hou2. hai6 mai6 jau5 taam4?",
+      "english": "Yes, these throat lozenges work well. Do you also have phlegm?",
+      "audioFile": "pharm-02.mp3",
+      "words": [
         {
-            "category": "Common Ailments",
-            "words": [
-                {
-                    "chinese": "感冒",
-                    "jyutping": "gam2 mou6",
-                    "english": "cold / flu"
-                },
-                {
-                    "chinese": "頭痛",
-                    "jyutping": "tau4 tung3",
-                    "english": "headache"
-                },
-                {
-                    "chinese": "咳",
-                    "jyutping": "kat1",
-                    "english": "cough"
-                },
-                {
-                    "chinese": "肚屙",
-                    "jyutping": "tou5 o1",
-                    "english": "diarrhea"
-                },
-                {
-                    "chinese": "敏感",
-                    "jyutping": "man5 gam2",
-                    "english": "allergy"
-                }
-            ]
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
         },
         {
-            "category": "Medicine",
-            "words": [
-                {
-                    "chinese": "藥房",
-                    "jyutping": "joek6 fong4",
-                    "english": "pharmacy"
-                },
-                {
-                    "chinese": "頭痛藥",
-                    "jyutping": "tau4 tung3 joek6",
-                    "english": "headache medicine"
-                },
-                {
-                    "chinese": "退燒藥",
-                    "jyutping": "teoi3 siu1 joek6",
-                    "english": "fever reducer"
-                },
-                {
-                    "chinese": "咳水",
-                    "jyutping": "kat1 seoi2",
-                    "english": "cough syrup"
-                },
-                {
-                    "chinese": "藥膏",
-                    "jyutping": "joek6 gou1",
-                    "english": "ointment"
-                }
-            ]
+          "chinese": "呢款",
+          "jyutping": "ni1 fun2",
+          "english": "this one"
         },
         {
-            "category": "Useful Phrases",
-            "words": [
-                {
-                    "chinese": "有冇處方",
-                    "jyutping": "jau5 mou5 cyu3 fong1",
-                    "english": "do I need a prescription"
-                },
-                {
-                    "chinese": "食幾多次",
-                    "jyutping": "sik6 gei2 do1 ci3",
-                    "english": "how many times a day should I take it"
-                }
-            ]
+          "chinese": "喉糖",
+          "jyutping": "hau4 tong2",
+          "english": "throat lozenge"
         },
         {
-            "category": "More Ailments",
-            "words": [
-                {
-                    "chinese": "皮膚敏感",
-                    "jyutping": "pei4 fu1 man5 gam2",
-                    "english": "skin allergy"
-                },
-                {
-                    "chinese": "胃痛",
-                    "jyutping": "wai6 tung3",
-                    "english": "stomach ache"
-                },
-                {
-                    "chinese": "失眠",
-                    "jyutping": "sat1 min4",
-                    "english": "insomnia"
-                },
-                {
-                    "chinese": "鼻塞",
-                    "jyutping": "bei6 sak1",
-                    "english": "stuffy nose"
-                }
-            ]
+          "chinese": "效果",
+          "jyutping": "haau6 gwo2",
+          "english": "effect"
         },
         {
-            "category": "More Medicine",
-            "words": [
-                {
-                    "chinese": "眼藥水",
-                    "jyutping": "ngaan5 joek6 seoi2",
-                    "english": "eye drops"
-                },
-                {
-                    "chinese": "維他命",
-                    "jyutping": "wai4 taa1 ming6",
-                    "english": "vitamins"
-                },
-                {
-                    "chinese": "口罩",
-                    "jyutping": "hau2 zaau3",
-                    "english": "face mask"
-                },
-                {
-                    "chinese": "綳帶",
-                    "jyutping": "baang1 daai2",
-                    "english": "bandage"
-                }
-            ]
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "really"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "good"
+        },
+        {
+          "chinese": "係咪",
+          "jyutping": "hai6 mai6",
+          "english": "is it?"
+        },
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "痰",
+          "jyutping": "taam4",
+          "english": "phlegm"
         }
-    ]
+      ]
+    },
+    {
+      "id": "pharm-03",
+      "speaker": "you",
+      "cjk": "係，有少少。同埋有啲流鼻水。",
+      "jyutping": "hai6, jau5 siu2 siu2. tung4 maai4 jau5 di1 lau4 bei6 seoi2.",
+      "english": "Yes, a little. And I have a bit of a runny nose too.",
+      "audioFile": "pharm-03.mp3",
+      "words": [
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "yes"
+        },
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "少少",
+          "jyutping": "siu2 siu2",
+          "english": "a little"
+        },
+        {
+          "chinese": "同埋",
+          "jyutping": "tung4 maai4",
+          "english": "and also"
+        },
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(a bit)"
+        },
+        {
+          "chinese": "流鼻水",
+          "jyutping": "lau4 bei6 seoi2",
+          "english": "runny nose"
+        }
+      ]
+    },
+    {
+      "id": "pharm-04",
+      "speaker": "pharmacist",
+      "cjk": "噉我建議你買呢隻傷風藥，朝早食兩粒，夜晚食兩粒。",
+      "jyutping": "gam2 ngo5 gin3 ji5 nei5 maai5 ni1 zek3 soeng1 fung1 joek6, ziu1 zou2 sik6 loeng5 nap1, je6 maan5 sik6 loeng5 nap1.",
+      "english": "In that case I'd suggest this cold medicine. Two tablets in the morning, two at night.",
+      "audioFile": "pharm-04.mp3",
+      "words": [
+        {
+          "chinese": "噉",
+          "jyutping": "gam2",
+          "english": "then"
+        },
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "建議",
+          "jyutping": "gin3 ji5",
+          "english": "suggest"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "買",
+          "jyutping": "maai5",
+          "english": "buy"
+        },
+        {
+          "chinese": "呢隻",
+          "jyutping": "ni1 zek3",
+          "english": "this (kind)"
+        },
+        {
+          "chinese": "傷風藥",
+          "jyutping": "soeng1 fung1 joek6",
+          "english": "cold medicine"
+        },
+        {
+          "chinese": "朝早",
+          "jyutping": "ziu1 zou2",
+          "english": "morning"
+        },
+        {
+          "chinese": "食",
+          "jyutping": "sik6",
+          "english": "take"
+        },
+        {
+          "chinese": "兩",
+          "jyutping": "loeng5",
+          "english": "two"
+        },
+        {
+          "chinese": "粒",
+          "jyutping": "nap1",
+          "english": "(classifier for pills)"
+        },
+        {
+          "chinese": "夜晚",
+          "jyutping": "je6 maan5",
+          "english": "evening"
+        },
+        {
+          "chinese": "食",
+          "jyutping": "sik6",
+          "english": "take"
+        },
+        {
+          "chinese": "兩",
+          "jyutping": "loeng5",
+          "english": "two"
+        },
+        {
+          "chinese": "粒",
+          "jyutping": "nap1",
+          "english": "(classifier for pills)"
+        }
+      ]
+    },
+    {
+      "id": "pharm-05",
+      "speaker": "you",
+      "cjk": "食完有冇副作用？",
+      "jyutping": "sik6 jyun4 jau5 mou5 fu3 zok3 jung6?",
+      "english": "Are there any side effects?",
+      "audioFile": "pharm-05.mp3",
+      "words": [
+        {
+          "chinese": "食",
+          "jyutping": "sik6",
+          "english": "take"
+        },
+        {
+          "chinese": "完",
+          "jyutping": "jyun4",
+          "english": "finish"
+        },
+        {
+          "chinese": "有冇",
+          "jyutping": "jau5 mou5",
+          "english": "have any?"
+        },
+        {
+          "chinese": "副作用",
+          "jyutping": "fu3 zok3 jung6",
+          "english": "side effects"
+        }
+      ]
+    },
+    {
+      "id": "pharm-06",
+      "speaker": "pharmacist",
+      "cjk": "有啲人食完會眼瞓，最好唔好揸車。",
+      "jyutping": "jau5 di1 jan4 sik6 jyun4 wui5 ngaan5 fan3, zeoi3 hou2 m4 hou2 zaa1 ce1.",
+      "english": "Some people feel drowsy after taking it. Best not to drive.",
+      "audioFile": "pharm-06.mp3",
+      "words": [
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "啲",
+          "jyutping": "di1",
+          "english": "(some)"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "食",
+          "jyutping": "sik6",
+          "english": "take"
+        },
+        {
+          "chinese": "完",
+          "jyutping": "jyun4",
+          "english": "finish"
+        },
+        {
+          "chinese": "會",
+          "jyutping": "wui5",
+          "english": "will"
+        },
+        {
+          "chinese": "眼瞓",
+          "jyutping": "ngaan5 fan3",
+          "english": "sleepy"
+        },
+        {
+          "chinese": "最好",
+          "jyutping": "zeoi3 hou2",
+          "english": "best"
+        },
+        {
+          "chinese": "唔好",
+          "jyutping": "m4 hou2",
+          "english": "don't"
+        },
+        {
+          "chinese": "揸車",
+          "jyutping": "zaa1 ce1",
+          "english": "drive"
+        }
+      ]
+    },
+    {
+      "id": "pharm-07",
+      "speaker": "you",
+      "cjk": "明白，唔該晒。",
+      "jyutping": "ming4 baak6, m4 goi1 saai3.",
+      "english": "Understood, thank you very much.",
+      "audioFile": "pharm-07.mp3",
+      "words": [
+        {
+          "chinese": "明白",
+          "jyutping": "ming4 baak6",
+          "english": "understand"
+        },
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "category": "Common Ailments",
+      "words": [
+        {
+          "chinese": "感冒",
+          "jyutping": "gam2 mou6",
+          "english": "cold / flu"
+        },
+        {
+          "chinese": "頭痛",
+          "jyutping": "tau4 tung3",
+          "english": "headache"
+        },
+        {
+          "chinese": "咳",
+          "jyutping": "kat1",
+          "english": "cough"
+        },
+        {
+          "chinese": "肚屙",
+          "jyutping": "tou5 o1",
+          "english": "diarrhea"
+        },
+        {
+          "chinese": "敏感",
+          "jyutping": "man5 gam2",
+          "english": "allergy"
+        }
+      ]
+    },
+    {
+      "category": "Medicine",
+      "words": [
+        {
+          "chinese": "藥房",
+          "jyutping": "joek6 fong4",
+          "english": "pharmacy"
+        },
+        {
+          "chinese": "頭痛藥",
+          "jyutping": "tau4 tung3 joek6",
+          "english": "headache medicine"
+        },
+        {
+          "chinese": "退燒藥",
+          "jyutping": "teoi3 siu1 joek6",
+          "english": "fever reducer"
+        },
+        {
+          "chinese": "咳水",
+          "jyutping": "kat1 seoi2",
+          "english": "cough syrup"
+        },
+        {
+          "chinese": "藥膏",
+          "jyutping": "joek6 gou1",
+          "english": "ointment"
+        }
+      ]
+    },
+    {
+      "category": "Useful Phrases",
+      "words": [
+        {
+          "chinese": "有冇處方",
+          "jyutping": "jau5 mou5 cyu3 fong1",
+          "english": "do I need a prescription"
+        },
+        {
+          "chinese": "食幾多次",
+          "jyutping": "sik6 gei2 do1 ci3",
+          "english": "how many times a day should I take it"
+        }
+      ]
+    },
+    {
+      "category": "More Ailments",
+      "words": [
+        {
+          "chinese": "皮膚敏感",
+          "jyutping": "pei4 fu1 man5 gam2",
+          "english": "skin allergy"
+        },
+        {
+          "chinese": "胃痛",
+          "jyutping": "wai6 tung3",
+          "english": "stomach ache"
+        },
+        {
+          "chinese": "失眠",
+          "jyutping": "sat1 min4",
+          "english": "insomnia"
+        },
+        {
+          "chinese": "鼻塞",
+          "jyutping": "bei6 sak1",
+          "english": "stuffy nose"
+        }
+      ]
+    },
+    {
+      "category": "More Medicine",
+      "words": [
+        {
+          "chinese": "眼藥水",
+          "jyutping": "ngaan5 joek6 seoi2",
+          "english": "eye drops"
+        },
+        {
+          "chinese": "維他命",
+          "jyutping": "wai4 taa1 ming6",
+          "english": "vitamins"
+        },
+        {
+          "chinese": "口罩",
+          "jyutping": "hau2 zaau3",
+          "english": "face mask"
+        },
+        {
+          "chinese": "綳帶",
+          "jyutping": "baang1 daai2",
+          "english": "bandage"
+        }
+      ]
+    }
+  ]
 }

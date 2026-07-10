@@ -1,549 +1,549 @@
 {
-    "id": "meeting-someone-new",
-    "language": "cantonese",
-    "emoji": "🤝",
-    "imageUrl": "/shadowhk/images/scenes/meeting-someone-new.jpg",
-    "tint": "#C5E85A",
-    "title": "Meeting Someone New",
-    "description": "The first minute with someone new: greetings, where you are from, how long in HK",
-    "category": "social",
-    "difficulty": "starter",
-    "estimatedMinutes": 5,
-    "location": "A social gathering, housewarming, or community event",
-    "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask, and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
-    "cultural_note": "A common casual greeting in Cantonese is 你食咗飯未 (nei5 sik6 zo2 faan6 mei6, \"have you eaten yet?\"). It's not a literal question about meals. The greeting is centuries old and shared across the Chinese-speaking world, born of eras when having eaten was never guaranteed, and expressing care through food still runs through how Hong Kong people show they value each other. The expected answer is always yes.",
-    "lines": [
+  "id": "meeting-someone-new",
+  "language": "cantonese",
+  "emoji": "🤝",
+  "imageUrl": "/shadowhk/images/scenes/meeting-someone-new.jpg",
+  "tint": "#C5E85A",
+  "title": "Meeting Someone New",
+  "description": "The first minute with someone new: greetings, where you are from, how long in HK",
+  "category": "basics",
+  "difficulty": "starter",
+  "estimatedMinutes": 5,
+  "location": "A social gathering, housewarming, or community event",
+  "context": "You're at a friend's party, a neighbourhood get-together, or any casual social event. Someone new comes over to chat. These are exactly the questions they'll ask, and your answers from your personal intro scene are the replies you'll need. Shadow this scene and your intro scene together for the best results.",
+  "cultural_note": "A common casual greeting in Cantonese is 你食咗飯未 (nei5 sik6 zo2 faan6 mei6, \"have you eaten yet?\"). It's not a literal question about meals. The greeting is centuries old and shared across the Chinese-speaking world, born of eras when having eaten was never guaranteed, and expressing care through food still runs through how Hong Kong people show they value each other. The expected answer is always yes.",
+  "lines": [
+    {
+      "id": "msn-01",
+      "speaker": "them",
+      "cjk": "喂，你好！你係新嚟嘅？",
+      "jyutping": "wai3, nei5 hou2! nei5 hai6 san1 lai4 ge3?",
+      "english": "Hey, hi! Are you new here?",
+      "audioFile": "msn-01.mp3",
+      "words": [
         {
-            "id": "msn-01",
-            "speaker": "them",
-            "cjk": "喂，你好！你係新嚟嘅？",
-            "jyutping": "wai3, nei5 hou2! nei5 hai6 san1 lai4 ge3?",
-            "english": "Hey, hi! Are you new here?",
-            "audioFile": "msn-01.mp3",
-            "words": [
-                {
-                    "chinese": "喂",
-                    "jyutping": "wai3",
-                    "english": "hello"
-                },
-                {
-                    "chinese": "你好",
-                    "jyutping": "nei5 hou2",
-                    "english": "hello"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "is"
-                },
-                {
-                    "chinese": "新",
-                    "jyutping": "san1",
-                    "english": "newly"
-                },
-                {
-                    "chinese": "嚟",
-                    "jyutping": "lai4",
-                    "english": "come"
-                },
-                {
-                    "chinese": "嘅",
-                    "jyutping": "ge3",
-                    "english": "(linking particle)"
-                }
-            ]
+          "chinese": "喂",
+          "jyutping": "wai3",
+          "english": "hello"
         },
         {
-            "id": "msn-02",
-            "speaker": "you",
-            "cjk": "係，我係 [你的名字]。好高興認識你！",
-            "jyutping": "hai6, ngo5 hai6 [nei5 ge3 meng2]. hou2 gou1 hing3 jing6 sik1 nei5!",
-            "english": "Yes, I'm [your name]. Great to meet you!",
-            "audioFile": "msn-02.mp3",
-            "scenario": "This is your opening. Swap [your name] for your own name; your personal intro scene will have this phrase built and ready for you.",
-            "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5), meaning 'great to meet you'. Warm and natural.",
-            "words": [
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "yes"
-                },
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "is"
-                },
-                {
-                    "chinese": "你的名字",
-                    "jyutping": "nei5 ge3 meng2",
-                    "english": "(your name)"
-                },
-                {
-                    "chinese": "好",
-                    "jyutping": "hou2",
-                    "english": "very; good"
-                },
-                {
-                    "chinese": "高興",
-                    "jyutping": "gou1 hing3",
-                    "english": "glad"
-                },
-                {
-                    "chinese": "認識",
-                    "jyutping": "jing6 sik1",
-                    "english": "meet"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                }
-            ]
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
         },
         {
-            "id": "msn-03",
-            "speaker": "them",
-            "cjk": "你係邊度人㗎？",
-            "jyutping": "nei5 hai6 bin1 dou6 jan4 gaa3?",
-            "english": "Where are you from?",
-            "audioFile": "msn-03.mp3",
-            "replies": [
-                {
-                    "cjk": "我係英國人。",
-                    "romanization": "ngo5 hai6 jing1 gwok3 jan4.",
-                    "english": "I'm British."
-                },
-                {
-                    "cjk": "我係澳洲人。",
-                    "romanization": "ngo5 hai6 ou3 zau1 jan4.",
-                    "english": "I'm Australian."
-                },
-                {
-                    "cjk": "我係美國人。",
-                    "romanization": "ngo5 hai6 mei5 gwok3 jan4.",
-                    "english": "I'm American."
-                },
-                {
-                    "cjk": "我係加拿大人。",
-                    "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.",
-                    "english": "I'm Canadian."
-                }
-            ],
-            "words": [
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "is"
-                },
-                {
-                    "chinese": "邊度",
-                    "jyutping": "bin1 dou6",
-                    "english": "where"
-                },
-                {
-                    "chinese": "人",
-                    "jyutping": "jan4",
-                    "english": "person"
-                },
-                {
-                    "chinese": "㗎",
-                    "jyutping": "gaa3",
-                    "english": "(emphasis particle)"
-                }
-            ]
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
         },
         {
-            "id": "msn-04",
-            "speaker": "you",
-            "cjk": "我係英國人，喺倫敦長大嘅。",
-            "jyutping": "ngo5 hai6 jing1 gwok3 jan4, hai2 leon4 deon1 zoeng2 daai6 ge3.",
-            "english": "I'm British; I grew up in London.",
-            "audioFile": "msn-04.mp3",
-            "scenario": "The key pattern: 我係 [nationality] 人，喺 [hometown] 大嘅. Your personal intro scene will have your own version of this phrase ready to go.",
-            "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy.",
-            "words": [
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "is"
-                },
-                {
-                    "chinese": "英國",
-                    "jyutping": "jing1 gwok3",
-                    "english": "Britain"
-                },
-                {
-                    "chinese": "人",
-                    "jyutping": "jan4",
-                    "english": "person"
-                },
-                {
-                    "chinese": "喺",
-                    "jyutping": "hai2",
-                    "english": "at"
-                },
-                {
-                    "chinese": "倫敦",
-                    "jyutping": "leon4 deon1",
-                    "english": "London"
-                },
-                {
-                    "chinese": "長大",
-                    "jyutping": "zoeng2 daai6",
-                    "english": "grow up"
-                },
-                {
-                    "chinese": "嘅",
-                    "jyutping": "ge3",
-                    "english": "(linking particle)"
-                }
-            ]
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
         },
         {
-            "id": "msn-05",
-            "speaker": "them",
-            "cjk": "嚟香港幾耐喇？",
-            "jyutping": "lai4 hoeng1 gong2 gei2 noi6 laa3?",
-            "english": "How long have you been in Hong Kong?",
-            "audioFile": "msn-05.mp3",
-            "words": [
-                {
-                    "chinese": "嚟",
-                    "jyutping": "lai4",
-                    "english": "come"
-                },
-                {
-                    "chinese": "香港",
-                    "jyutping": "hoeng1 gong2",
-                    "english": "Hong Kong"
-                },
-                {
-                    "chinese": "幾耐",
-                    "jyutping": "gei2 noi6",
-                    "english": "how long"
-                },
-                {
-                    "chinese": "喇",
-                    "jyutping": "laa3",
-                    "english": "(final particle)"
-                }
-            ]
+          "chinese": "新",
+          "jyutping": "san1",
+          "english": "newly"
         },
         {
-            "id": "msn-06",
-            "speaker": "you",
-            "cjk": "我嚟咗三年喇。你呢？",
-            "jyutping": "ngo5 lai4 zo2 saam1 nin4 laa3. nei5 ne1?",
-            "english": "I've been here three years. What about you?",
-            "audioFile": "msn-06.mp3",
-            "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1), meaning 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
-            "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years).",
-            "words": [
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "嚟",
-                    "jyutping": "lai4",
-                    "english": "come"
-                },
-                {
-                    "chinese": "咗",
-                    "jyutping": "zo2",
-                    "english": "(completed action)"
-                },
-                {
-                    "chinese": "三",
-                    "jyutping": "saam1",
-                    "english": "three"
-                },
-                {
-                    "chinese": "年",
-                    "jyutping": "nin4",
-                    "english": "year"
-                },
-                {
-                    "chinese": "喇",
-                    "jyutping": "laa3",
-                    "english": "(final particle)"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "呢",
-                    "jyutping": "ne1",
-                    "english": "(and you?)"
-                }
-            ]
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
         },
         {
-            "id": "msn-07",
-            "speaker": "them",
-            "cjk": "我係本地人，土生土長喺香港㗎。你住喺邊度？",
-            "jyutping": "ngo5 hai6 bun2 dei6 jan4, tou2 saang1 tou2 zoeng2 hai2 hoeng1 gong2 gaa3. nei5 zyu6 hai2 bin1 dou6?",
-            "english": "I'm a local, born and raised in Hong Kong. Where do you live?",
-            "audioFile": "msn-07.mp3",
-            "words": [
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "係",
-                    "jyutping": "hai6",
-                    "english": "is"
-                },
-                {
-                    "chinese": "本地",
-                    "jyutping": "bun2 dei6",
-                    "english": "local"
-                },
-                {
-                    "chinese": "人",
-                    "jyutping": "jan4",
-                    "english": "person"
-                },
-                {
-                    "chinese": "土生土長",
-                    "jyutping": "tou2 saang1 tou2 zoeng2",
-                    "english": "born and raised"
-                },
-                {
-                    "chinese": "喺",
-                    "jyutping": "hai2",
-                    "english": "at"
-                },
-                {
-                    "chinese": "香港",
-                    "jyutping": "hoeng1 gong2",
-                    "english": "Hong Kong"
-                },
-                {
-                    "chinese": "㗎",
-                    "jyutping": "gaa3",
-                    "english": "(emphasis particle)"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "住",
-                    "jyutping": "zyu6",
-                    "english": "live"
-                },
-                {
-                    "chinese": "喺",
-                    "jyutping": "hai2",
-                    "english": "at"
-                },
-                {
-                    "chinese": "邊度",
-                    "jyutping": "bin1 dou6",
-                    "english": "where"
-                }
-            ]
-        },
-        {
-            "id": "msn-08",
-            "speaker": "you",
-            "cjk": "我住喺西環，好近地鐵站。",
-            "jyutping": "ngo5 zyu6 hai2 sai1 waan4, hou2 kan5 dei6 tit3 zaam6.",
-            "english": "I live in Sai Wan, right near the MTR.",
-            "audioFile": "msn-08.mp3",
-            "scenario": "Tell them your neighbourhood. Your personal intro scene will have your own district phrase built for you.",
-            "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true.",
-            "words": [
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "住",
-                    "jyutping": "zyu6",
-                    "english": "live"
-                },
-                {
-                    "chinese": "喺",
-                    "jyutping": "hai2",
-                    "english": "at"
-                },
-                {
-                    "chinese": "西環",
-                    "jyutping": "sai1 waan4",
-                    "english": "Sai Wan"
-                },
-                {
-                    "chinese": "好",
-                    "jyutping": "hou2",
-                    "english": "very; good"
-                },
-                {
-                    "chinese": "近",
-                    "jyutping": "kan5",
-                    "english": "near"
-                },
-                {
-                    "chinese": "地鐵站",
-                    "jyutping": "dei6 tit3 zaam6",
-                    "english": "MTR station"
-                }
-            ]
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
         }
-    ],
-    "vocabulary": [
+      ]
+    },
+    {
+      "id": "msn-02",
+      "speaker": "you",
+      "cjk": "係，我係 [你的名字]。好高興認識你！",
+      "jyutping": "hai6, ngo5 hai6 [nei5 ge3 meng2]. hou2 gou1 hing3 jing6 sik1 nei5!",
+      "english": "Yes, I'm [your name]. Great to meet you!",
+      "audioFile": "msn-02.mp3",
+      "scenario": "This is your opening. Swap [your name] for your own name; your personal intro scene will have this phrase built and ready for you.",
+      "usage": "Start with 我係 [name] (ngo5 hai6...) then add 好高興認識你 (hou2 gou1 hing3 jing6 sik1 nei5), meaning 'great to meet you'. Warm and natural.",
+      "words": [
         {
-            "category": "Greetings",
-            "words": [
-                {
-                    "chinese": "幸會",
-                    "jyutping": "hang6 wui6",
-                    "english": "pleased to meet you"
-                },
-                {
-                    "chinese": "邊度嚟",
-                    "jyutping": "bin1 dou6 lei4",
-                    "english": "where are you from"
-                },
-                {
-                    "chinese": "你好嗎",
-                    "jyutping": "nei5 hou2 maa3",
-                    "english": "how are you"
-                },
-                {
-                    "chinese": "好耐冇見",
-                    "jyutping": "hou2 noi6 mou5 gin3",
-                    "english": "long time no see"
-                }
-            ]
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "yes"
         },
         {
-            "category": "Introductions",
-            "words": [
-                {
-                    "chinese": "我叫",
-                    "jyutping": "ngo5 giu3",
-                    "english": "my name is"
-                },
-                {
-                    "chinese": "識咗幾耐",
-                    "jyutping": "sik1 zo2 gei2 noi6",
-                    "english": "how long have you known each other"
-                },
-                {
-                    "chinese": "介紹",
-                    "jyutping": "gaai3 siu6",
-                    "english": "to introduce"
-                },
-                {
-                    "chinese": "朋友",
-                    "jyutping": "pang4 jau5",
-                    "english": "friend"
-                }
-            ]
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
         },
         {
-            "category": "Where You're From",
-            "words": [
-                {
-                    "chinese": "香港人",
-                    "jyutping": "hoeng1 gong2 jan4",
-                    "english": "Hongkonger"
-                },
-                {
-                    "chinese": "外國人",
-                    "jyutping": "ngoi6 gwok3 jan4",
-                    "english": "foreigner"
-                },
-                {
-                    "chinese": "邊個國家",
-                    "jyutping": "bin1 go3 gwok3 gaa1",
-                    "english": "which country"
-                },
-                {
-                    "chinese": "嚟咗幾耐",
-                    "jyutping": "lai4 zo2 gei2 noi6",
-                    "english": "how long have you been here"
-                },
-                {
-                    "chinese": "住喺邊",
-                    "jyutping": "zyu6 hai2 bin1",
-                    "english": "where do you live"
-                }
-            ]
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
         },
         {
-            "category": "Continuing the Conversation",
-            "words": [
-                {
-                    "chinese": "有冇興趣",
-                    "jyutping": "jau5 mou5 hing3 ceoi3",
-                    "english": "are you interested in"
-                },
-                {
-                    "chinese": "得閒出嚟",
-                    "jyutping": "dak1 haan4 ceot1 lai4",
-                    "english": "free to meet up"
-                },
-                {
-                    "chinese": "遲啲見",
-                    "jyutping": "ci4 di1 gin3",
-                    "english": "see you later"
-                },
-                {
-                    "chinese": "好開心識到你",
-                    "jyutping": "hou2 hoi1 sam1 sik1 dou3 nei5",
-                    "english": "nice to have met you"
-                }
-            ]
+          "chinese": "你的名字",
+          "jyutping": "nei5 ge3 meng2",
+          "english": "(your name)"
         },
         {
-            "category": "More Useful Words",
-            "words": [
-                {
-                    "chinese": "加返個friend",
-                    "jyutping": "gaa1 faan1 go3 friend",
-                    "english": "let's add each other as friends"
-                },
-                {
-                    "chinese": "交換WhatsApp",
-                    "jyutping": "gaau1 wun6 WhatsApp",
-                    "english": "exchange WhatsApp"
-                },
-                {
-                    "chinese": "第一次嚟",
-                    "jyutping": "dai6 jat1 ci3 lai4",
-                    "english": "first time here"
-                }
-            ]
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "高興",
+          "jyutping": "gou1 hing3",
+          "english": "glad"
+        },
+        {
+          "chinese": "認識",
+          "jyutping": "jing6 sik1",
+          "english": "meet"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
         }
-    ]
+      ]
+    },
+    {
+      "id": "msn-03",
+      "speaker": "them",
+      "cjk": "你係邊度人㗎？",
+      "jyutping": "nei5 hai6 bin1 dou6 jan4 gaa3?",
+      "english": "Where are you from?",
+      "audioFile": "msn-03.mp3",
+      "replies": [
+        {
+          "cjk": "我係英國人。",
+          "romanization": "ngo5 hai6 jing1 gwok3 jan4.",
+          "english": "I'm British."
+        },
+        {
+          "cjk": "我係澳洲人。",
+          "romanization": "ngo5 hai6 ou3 zau1 jan4.",
+          "english": "I'm Australian."
+        },
+        {
+          "cjk": "我係美國人。",
+          "romanization": "ngo5 hai6 mei5 gwok3 jan4.",
+          "english": "I'm American."
+        },
+        {
+          "cjk": "我係加拿大人。",
+          "romanization": "ngo5 hai6 gaa1 naa4 daai6 jan4.",
+          "english": "I'm Canadian."
+        }
+      ],
+      "words": [
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "邊度",
+          "jyutping": "bin1 dou6",
+          "english": "where"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        }
+      ]
+    },
+    {
+      "id": "msn-04",
+      "speaker": "you",
+      "cjk": "我係英國人，喺倫敦長大嘅。",
+      "jyutping": "ngo5 hai6 jing1 gwok3 jan4, hai2 leon4 deon1 zoeng2 daai6 ge3.",
+      "english": "I'm British; I grew up in London.",
+      "audioFile": "msn-04.mp3",
+      "scenario": "The key pattern: 我係 [nationality] 人，喺 [hometown] 大嘅. Your personal intro scene will have your own version of this phrase ready to go.",
+      "usage": "Swap 英國 (jing1 gwok3) for your nationality and 倫敦 (leon4 deon1) for your hometown. Short, clear, easy.",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "英國",
+          "jyutping": "jing1 gwok3",
+          "english": "Britain"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "倫敦",
+          "jyutping": "leon4 deon1",
+          "english": "London"
+        },
+        {
+          "chinese": "長大",
+          "jyutping": "zoeng2 daai6",
+          "english": "grow up"
+        },
+        {
+          "chinese": "嘅",
+          "jyutping": "ge3",
+          "english": "(linking particle)"
+        }
+      ]
+    },
+    {
+      "id": "msn-05",
+      "speaker": "them",
+      "cjk": "嚟香港幾耐喇？",
+      "jyutping": "lai4 hoeng1 gong2 gei2 noi6 laa3?",
+      "english": "How long have you been in Hong Kong?",
+      "audioFile": "msn-05.mp3",
+      "words": [
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "香港",
+          "jyutping": "hoeng1 gong2",
+          "english": "Hong Kong"
+        },
+        {
+          "chinese": "幾耐",
+          "jyutping": "gei2 noi6",
+          "english": "how long"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        }
+      ]
+    },
+    {
+      "id": "msn-06",
+      "speaker": "you",
+      "cjk": "我嚟咗三年喇。你呢？",
+      "jyutping": "ngo5 lai4 zo2 saam1 nin4 laa3. nei5 ne1?",
+      "english": "I've been here three years. What about you?",
+      "audioFile": "msn-06.mp3",
+      "scenario": "Answer with your time in HK, then flip it back with 你呢 (nei5 ne1), meaning 'what about you?' This is a great habit in Cantonese conversation. It keeps things going naturally.",
+      "usage": "Swap 三年 (saam1 nin4, three years) for your own time: 半年 (bun3 nin4, six months), 五年 (ng5 nin4, five years), 十年 (sap6 nin4, ten years).",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "嚟",
+          "jyutping": "lai4",
+          "english": "come"
+        },
+        {
+          "chinese": "咗",
+          "jyutping": "zo2",
+          "english": "(completed action)"
+        },
+        {
+          "chinese": "三",
+          "jyutping": "saam1",
+          "english": "three"
+        },
+        {
+          "chinese": "年",
+          "jyutping": "nin4",
+          "english": "year"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "呢",
+          "jyutping": "ne1",
+          "english": "(and you?)"
+        }
+      ]
+    },
+    {
+      "id": "msn-07",
+      "speaker": "them",
+      "cjk": "我係本地人，土生土長喺香港㗎。你住喺邊度？",
+      "jyutping": "ngo5 hai6 bun2 dei6 jan4, tou2 saang1 tou2 zoeng2 hai2 hoeng1 gong2 gaa3. nei5 zyu6 hai2 bin1 dou6?",
+      "english": "I'm a local, born and raised in Hong Kong. Where do you live?",
+      "audioFile": "msn-07.mp3",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "係",
+          "jyutping": "hai6",
+          "english": "is"
+        },
+        {
+          "chinese": "本地",
+          "jyutping": "bun2 dei6",
+          "english": "local"
+        },
+        {
+          "chinese": "人",
+          "jyutping": "jan4",
+          "english": "person"
+        },
+        {
+          "chinese": "土生土長",
+          "jyutping": "tou2 saang1 tou2 zoeng2",
+          "english": "born and raised"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "香港",
+          "jyutping": "hoeng1 gong2",
+          "english": "Hong Kong"
+        },
+        {
+          "chinese": "㗎",
+          "jyutping": "gaa3",
+          "english": "(emphasis particle)"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "住",
+          "jyutping": "zyu6",
+          "english": "live"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "邊度",
+          "jyutping": "bin1 dou6",
+          "english": "where"
+        }
+      ]
+    },
+    {
+      "id": "msn-08",
+      "speaker": "you",
+      "cjk": "我住喺西環，好近地鐵站。",
+      "jyutping": "ngo5 zyu6 hai2 sai1 waan4, hou2 kan5 dei6 tit3 zaam6.",
+      "english": "I live in Sai Wan, right near the MTR.",
+      "audioFile": "msn-08.mp3",
+      "scenario": "Tell them your neighbourhood. Your personal intro scene will have your own district phrase built for you.",
+      "usage": "The pattern: 我住喺 [district] (ngo5 zyu6 hai2...). Add 好近地鐵 (near the MTR) or 行路去得 (haang4 lou6 heoi3 dak1, walkable) if it's true.",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "住",
+          "jyutping": "zyu6",
+          "english": "live"
+        },
+        {
+          "chinese": "喺",
+          "jyutping": "hai2",
+          "english": "at"
+        },
+        {
+          "chinese": "西環",
+          "jyutping": "sai1 waan4",
+          "english": "Sai Wan"
+        },
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "very; good"
+        },
+        {
+          "chinese": "近",
+          "jyutping": "kan5",
+          "english": "near"
+        },
+        {
+          "chinese": "地鐵站",
+          "jyutping": "dei6 tit3 zaam6",
+          "english": "MTR station"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "category": "Greetings",
+      "words": [
+        {
+          "chinese": "幸會",
+          "jyutping": "hang6 wui6",
+          "english": "pleased to meet you"
+        },
+        {
+          "chinese": "邊度嚟",
+          "jyutping": "bin1 dou6 lei4",
+          "english": "where are you from"
+        },
+        {
+          "chinese": "你好嗎",
+          "jyutping": "nei5 hou2 maa3",
+          "english": "how are you"
+        },
+        {
+          "chinese": "好耐冇見",
+          "jyutping": "hou2 noi6 mou5 gin3",
+          "english": "long time no see"
+        }
+      ]
+    },
+    {
+      "category": "Introductions",
+      "words": [
+        {
+          "chinese": "我叫",
+          "jyutping": "ngo5 giu3",
+          "english": "my name is"
+        },
+        {
+          "chinese": "識咗幾耐",
+          "jyutping": "sik1 zo2 gei2 noi6",
+          "english": "how long have you known each other"
+        },
+        {
+          "chinese": "介紹",
+          "jyutping": "gaai3 siu6",
+          "english": "to introduce"
+        },
+        {
+          "chinese": "朋友",
+          "jyutping": "pang4 jau5",
+          "english": "friend"
+        }
+      ]
+    },
+    {
+      "category": "Where You're From",
+      "words": [
+        {
+          "chinese": "香港人",
+          "jyutping": "hoeng1 gong2 jan4",
+          "english": "Hongkonger"
+        },
+        {
+          "chinese": "外國人",
+          "jyutping": "ngoi6 gwok3 jan4",
+          "english": "foreigner"
+        },
+        {
+          "chinese": "邊個國家",
+          "jyutping": "bin1 go3 gwok3 gaa1",
+          "english": "which country"
+        },
+        {
+          "chinese": "嚟咗幾耐",
+          "jyutping": "lai4 zo2 gei2 noi6",
+          "english": "how long have you been here"
+        },
+        {
+          "chinese": "住喺邊",
+          "jyutping": "zyu6 hai2 bin1",
+          "english": "where do you live"
+        }
+      ]
+    },
+    {
+      "category": "Continuing the Conversation",
+      "words": [
+        {
+          "chinese": "有冇興趣",
+          "jyutping": "jau5 mou5 hing3 ceoi3",
+          "english": "are you interested in"
+        },
+        {
+          "chinese": "得閒出嚟",
+          "jyutping": "dak1 haan4 ceot1 lai4",
+          "english": "free to meet up"
+        },
+        {
+          "chinese": "遲啲見",
+          "jyutping": "ci4 di1 gin3",
+          "english": "see you later"
+        },
+        {
+          "chinese": "好開心識到你",
+          "jyutping": "hou2 hoi1 sam1 sik1 dou3 nei5",
+          "english": "nice to have met you"
+        }
+      ]
+    },
+    {
+      "category": "More Useful Words",
+      "words": [
+        {
+          "chinese": "加返個friend",
+          "jyutping": "gaa1 faan1 go3 friend",
+          "english": "let's add each other as friends"
+        },
+        {
+          "chinese": "交換WhatsApp",
+          "jyutping": "gaau1 wun6 WhatsApp",
+          "english": "exchange WhatsApp"
+        },
+        {
+          "chinese": "第一次嚟",
+          "jyutping": "dai6 jat1 ci3 lai4",
+          "english": "first time here"
+        }
+      ]
+    }
+  ]
 }

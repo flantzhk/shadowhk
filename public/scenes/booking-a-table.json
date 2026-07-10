@@ -1,449 +1,449 @@
 {
-    "id": "booking-a-table",
-    "language": "cantonese",
-    "emoji": "📞",
-    "imageUrl": "/shadowhk/images/scenes/booking-a-table.jpg",
-    "tint": "#E8703A",
-    "title": "Booking a table by phone",
-    "description": "Call ahead to reserve a table: get the date, time and party size sorted",
-    "category": "social",
-    "difficulty": "everyday",
-    "estimatedMinutes": 5,
-    "location": "On the phone, anywhere in HK",
-    "context": "Most HK restaurants take phone bookings, especially for groups of four or more. You'll need to give your name, party size, time, and sometimes a phone number. Polite phone Cantonese is slightly more formal than face-to-face.",
-    "cultural_note": "In Hong Kong, the person who booked the table is understood to be hosting, which means they pay. Attempting to pay the bill when you're a guest triggers the ritual of 搶埋單 (coeng2 maai4 daan1): a competitive scramble to grab the bill folder first. It reads as generosity, not aggression.",
-    "lines": [
+  "id": "booking-a-table",
+  "language": "cantonese",
+  "emoji": "📞",
+  "imageUrl": "/shadowhk/images/scenes/booking-a-table.jpg",
+  "tint": "#E8703A",
+  "title": "Booking a table by phone",
+  "description": "Call ahead to reserve a table: get the date, time and party size sorted",
+  "category": "food",
+  "difficulty": "everyday",
+  "estimatedMinutes": 5,
+  "location": "On the phone, anywhere in HK",
+  "context": "Most HK restaurants take phone bookings, especially for groups of four or more. You'll need to give your name, party size, time, and sometimes a phone number. Polite phone Cantonese is slightly more formal than face-to-face.",
+  "cultural_note": "In Hong Kong, the person who booked the table is understood to be hosting, which means they pay. Attempting to pay the bill when you're a guest triggers the ritual of 搶埋單 (coeng2 maai4 daan1): a competitive scramble to grab the bill folder first. It reads as generosity, not aggression.",
+  "lines": [
+    {
+      "id": "book-01",
+      "speaker": "staff",
+      "cjk": "喂，好運酒樓，你好。",
+      "jyutping": "wai2, hou2 wan6 zau2 lau4, nei5 hou2.",
+      "english": "Hello, Good Fortune Restaurant, how can I help you?",
+      "audioFile": "book-01.mp3",
+      "words": [
         {
-            "id": "book-01",
-            "speaker": "staff",
-            "cjk": "喂，好運酒樓，你好。",
-            "jyutping": "wai2, hou2 wan6 zau2 lau4, nei5 hou2.",
-            "english": "Hello, Good Fortune Restaurant, how can I help you?",
-            "audioFile": "book-01.mp3",
-            "words": [
-                {
-                    "chinese": "喂",
-                    "jyutping": "wai2",
-                    "english": "hello"
-                },
-                {
-                    "chinese": "好運酒樓",
-                    "jyutping": "hou2 wan6 zau2 lau4",
-                    "english": "Good Luck Restaurant"
-                },
-                {
-                    "chinese": "你好",
-                    "jyutping": "nei5 hou2",
-                    "english": "hello"
-                }
-            ]
+          "chinese": "喂",
+          "jyutping": "wai2",
+          "english": "hello"
         },
         {
-            "id": "book-02",
-            "speaker": "you",
-            "cjk": "你好，我想訂枱，聽晚七點，三位。",
-            "jyutping": "nei5 hou2, ngo5 soeng2 deng6 toi2, ting1 maan5 cat1 dim2, saam1 wai2.",
-            "english": "Hi, I'd like to book a table for tomorrow evening at seven, three people.",
-            "audioFile": "book-02.mp3",
-            "words": [
-                {
-                    "chinese": "你好",
-                    "jyutping": "nei5 hou2",
-                    "english": "hello"
-                },
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "想",
-                    "jyutping": "soeng2",
-                    "english": "want to"
-                },
-                {
-                    "chinese": "訂枱",
-                    "jyutping": "deng6 toi2",
-                    "english": "book a table"
-                },
-                {
-                    "chinese": "聽晚",
-                    "jyutping": "ting1 maan5",
-                    "english": "tomorrow evening"
-                },
-                {
-                    "chinese": "七點",
-                    "jyutping": "cat1 dim2",
-                    "english": "seven o'clock"
-                },
-                {
-                    "chinese": "三",
-                    "jyutping": "saam1",
-                    "english": "three"
-                },
-                {
-                    "chinese": "位",
-                    "jyutping": "wai2",
-                    "english": "(people)"
-                }
-            ]
+          "chinese": "好運酒樓",
+          "jyutping": "hou2 wan6 zau2 lau4",
+          "english": "Good Luck Restaurant"
         },
         {
-            "id": "book-03",
-            "speaker": "staff",
-            "cjk": "好，請問大名？",
-            "jyutping": "hou2, cing2 man6 daai6 ming4?",
-            "english": "Sure, may I have your name?",
-            "audioFile": "book-03.mp3",
-            "words": [
-                {
-                    "chinese": "好",
-                    "jyutping": "hou2",
-                    "english": "OK"
-                },
-                {
-                    "chinese": "請問",
-                    "jyutping": "cing2 man6",
-                    "english": "may I ask"
-                },
-                {
-                    "chinese": "大名",
-                    "jyutping": "daai6 ming4",
-                    "english": "your name"
-                }
-            ]
-        },
-        {
-            "id": "book-04",
-            "speaker": "you",
-            "cjk": "我姓陳。",
-            "jyutping": "ngo5 sing3 can4.",
-            "english": "My surname is Chan.",
-            "audioFile": "book-04.mp3",
-            "words": [
-                {
-                    "chinese": "我",
-                    "jyutping": "ngo5",
-                    "english": "I; me"
-                },
-                {
-                    "chinese": "姓",
-                    "jyutping": "sing3",
-                    "english": "surname is"
-                },
-                {
-                    "chinese": "陳",
-                    "jyutping": "can4",
-                    "english": "Chan"
-                }
-            ]
-        },
-        {
-            "id": "book-05",
-            "speaker": "staff",
-            "cjk": "陳生，聽晚七點，三位，幫你記低喇。有冇特別要求？",
-            "jyutping": "can4 saang1, ting1 maan5 cat1 dim2, saam1 wai2, bong1 nei5 gei3 dai1 laa3. jau5 mou5 dak6 bit6 jiu1 kau4?",
-            "english": "Mr Chan, tomorrow at seven, table for three, noted. Any special requests?",
-            "audioFile": "book-05.mp3",
-            "words": [
-                {
-                    "chinese": "陳生",
-                    "jyutping": "can4 saang1",
-                    "english": "Mr Chan"
-                },
-                {
-                    "chinese": "聽晚",
-                    "jyutping": "ting1 maan5",
-                    "english": "tomorrow evening"
-                },
-                {
-                    "chinese": "七點",
-                    "jyutping": "cat1 dim2",
-                    "english": "seven o'clock"
-                },
-                {
-                    "chinese": "三",
-                    "jyutping": "saam1",
-                    "english": "three"
-                },
-                {
-                    "chinese": "位",
-                    "jyutping": "wai2",
-                    "english": "(people)"
-                },
-                {
-                    "chinese": "幫",
-                    "jyutping": "bong1",
-                    "english": "help"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "記低",
-                    "jyutping": "gei3 dai1",
-                    "english": "note down"
-                },
-                {
-                    "chinese": "喇",
-                    "jyutping": "laa3",
-                    "english": "(final particle)"
-                },
-                {
-                    "chinese": "有冇",
-                    "jyutping": "jau5 mou5",
-                    "english": "have any?"
-                },
-                {
-                    "chinese": "特別",
-                    "jyutping": "dak6 bit6",
-                    "english": "special"
-                },
-                {
-                    "chinese": "要求",
-                    "jyutping": "jiu1 kau4",
-                    "english": "request"
-                }
-            ]
-        },
-        {
-            "id": "book-06",
-            "speaker": "you",
-            "cjk": "有個細路仔，可唔可以整張BB凳？",
-            "jyutping": "jau5 go3 sai3 lou6 zai2, ho2 m4 ho2 ji5 zing2 zoeng1 bi4 bi1 dang3?",
-            "english": "We have a small child. Could we get a high chair?",
-            "audioFile": "book-06.mp3",
-            "words": [
-                {
-                    "chinese": "有",
-                    "jyutping": "jau5",
-                    "english": "have"
-                },
-                {
-                    "chinese": "個",
-                    "jyutping": "go3",
-                    "english": "(classifier)"
-                },
-                {
-                    "chinese": "細路仔",
-                    "jyutping": "sai3 lou6 zai2",
-                    "english": "little kid"
-                },
-                {
-                    "chinese": "可唔可以",
-                    "jyutping": "ho2 m4 ho2 ji5",
-                    "english": "can you?"
-                },
-                {
-                    "chinese": "整",
-                    "jyutping": "zing2",
-                    "english": "make; fix"
-                },
-                {
-                    "chinese": "張",
-                    "jyutping": "zoeng1",
-                    "english": "(classifier)"
-                },
-                {
-                    "chinese": "BB凳",
-                    "jyutping": "bi4 bi1 dang3",
-                    "english": "highchair"
-                }
-            ]
-        },
-        {
-            "id": "book-07",
-            "speaker": "staff",
-            "cjk": "冇問題，我哋幫你安排。",
-            "jyutping": "mou5 man6 tai4, ngo5 dei6 bong1 nei5 on1 paai4.",
-            "english": "No problem, we'll arrange that for you.",
-            "audioFile": "book-07.mp3",
-            "words": [
-                {
-                    "chinese": "冇",
-                    "jyutping": "mou5",
-                    "english": "not have"
-                },
-                {
-                    "chinese": "問題",
-                    "jyutping": "man6 tai4",
-                    "english": "problem"
-                },
-                {
-                    "chinese": "我哋",
-                    "jyutping": "ngo5 dei6",
-                    "english": "we"
-                },
-                {
-                    "chinese": "幫",
-                    "jyutping": "bong1",
-                    "english": "help"
-                },
-                {
-                    "chinese": "你",
-                    "jyutping": "nei5",
-                    "english": "you"
-                },
-                {
-                    "chinese": "安排",
-                    "jyutping": "on1 paai4",
-                    "english": "arrange"
-                }
-            ]
-        },
-        {
-            "id": "book-08",
-            "speaker": "you",
-            "cjk": "唔該晒！聽晚見。",
-            "jyutping": "m4 goi1 saai3! ting1 maan5 gin3.",
-            "english": "Thank you so much! See you tomorrow evening.",
-            "audioFile": "book-08.mp3",
-            "words": [
-                {
-                    "chinese": "唔該",
-                    "jyutping": "m4 goi1",
-                    "english": "please; thank you"
-                },
-                {
-                    "chinese": "晒",
-                    "jyutping": "saai3",
-                    "english": "(completely)"
-                },
-                {
-                    "chinese": "聽晚",
-                    "jyutping": "ting1 maan5",
-                    "english": "tomorrow evening"
-                },
-                {
-                    "chinese": "見",
-                    "jyutping": "gin3",
-                    "english": "see you"
-                }
-            ]
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
         }
-    ],
-    "vocabulary": [
+      ]
+    },
+    {
+      "id": "book-02",
+      "speaker": "you",
+      "cjk": "你好，我想訂枱，聽晚七點，三位。",
+      "jyutping": "nei5 hou2, ngo5 soeng2 deng6 toi2, ting1 maan5 cat1 dim2, saam1 wai2.",
+      "english": "Hi, I'd like to book a table for tomorrow evening at seven, three people.",
+      "audioFile": "book-02.mp3",
+      "words": [
         {
-            "category": "Reservations",
-            "words": [
-                {
-                    "chinese": "訂枱",
-                    "jyutping": "deng6 toi2",
-                    "english": "book a table"
-                },
-                {
-                    "chinese": "幾多位",
-                    "jyutping": "gei2 do1 wai2",
-                    "english": "how many people"
-                },
-                {
-                    "chinese": "雅座",
-                    "jyutping": "ngaa5 zo6",
-                    "english": "private dining room"
-                },
-                {
-                    "chinese": "電話號碼",
-                    "jyutping": "din6 waa2 hou6 maa5",
-                    "english": "phone number"
-                },
-                {
-                    "chinese": "卡位",
-                    "jyutping": "kaat1 wai2",
-                    "english": "booth seating"
-                }
-            ]
+          "chinese": "你好",
+          "jyutping": "nei5 hou2",
+          "english": "hello"
         },
         {
-            "category": "Time & Party",
-            "words": [
-                {
-                    "chinese": "今晚",
-                    "jyutping": "gam1 maan5",
-                    "english": "tonight"
-                },
-                {
-                    "chinese": "聽日",
-                    "jyutping": "ting1 jat6",
-                    "english": "tomorrow"
-                },
-                {
-                    "chinese": "幾點",
-                    "jyutping": "gei2 dim2",
-                    "english": "what time"
-                },
-                {
-                    "chinese": "遲到",
-                    "jyutping": "ci4 dou3",
-                    "english": "to be late"
-                },
-                {
-                    "chinese": "取消",
-                    "jyutping": "ceoi2 siu1",
-                    "english": "to cancel"
-                }
-            ]
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
         },
         {
-            "category": "Useful Phrases",
-            "words": [
-                {
-                    "chinese": "有冇位",
-                    "jyutping": "jau5 mou5 wai2",
-                    "english": "do you have a table available"
-                },
-                {
-                    "chinese": "要等幾耐",
-                    "jyutping": "jiu3 dang2 gei2 noi6",
-                    "english": "how long is the wait"
-                },
-                {
-                    "chinese": "窗邊",
-                    "jyutping": "coeng1 bin1",
-                    "english": "by the window"
-                },
-                {
-                    "chinese": "大枱",
-                    "jyutping": "daai6 toi2",
-                    "english": "big table"
-                }
-            ]
+          "chinese": "想",
+          "jyutping": "soeng2",
+          "english": "want to"
         },
         {
-            "category": "Special Requests",
-            "words": [
-                {
-                    "chinese": "有冇兒童椅",
-                    "jyutping": "jau5 mou5 ji4 tung4 ji2",
-                    "english": "is there a high chair"
-                },
-                {
-                    "chinese": "過敏",
-                    "jyutping": "man5 gam2",
-                    "english": "(food) allergy"
-                },
-                {
-                    "chinese": "生日",
-                    "jyutping": "saang1 jat6",
-                    "english": "birthday"
-                },
-                {
-                    "chinese": "慶祝",
-                    "jyutping": "hing3 zuk1",
-                    "english": "celebrate"
-                },
-                {
-                    "chinese": "靠窗",
-                    "jyutping": "kaau3 coeng1",
-                    "english": "by the window"
-                },
-                {
-                    "chinese": "唔該早到",
-                    "jyutping": "m4 goi1 zou2 dou3",
-                    "english": "please arrive early"
-                }
-            ]
+          "chinese": "訂枱",
+          "jyutping": "deng6 toi2",
+          "english": "book a table"
+        },
+        {
+          "chinese": "聽晚",
+          "jyutping": "ting1 maan5",
+          "english": "tomorrow evening"
+        },
+        {
+          "chinese": "七點",
+          "jyutping": "cat1 dim2",
+          "english": "seven o'clock"
+        },
+        {
+          "chinese": "三",
+          "jyutping": "saam1",
+          "english": "three"
+        },
+        {
+          "chinese": "位",
+          "jyutping": "wai2",
+          "english": "(people)"
         }
-    ]
+      ]
+    },
+    {
+      "id": "book-03",
+      "speaker": "staff",
+      "cjk": "好，請問大名？",
+      "jyutping": "hou2, cing2 man6 daai6 ming4?",
+      "english": "Sure, may I have your name?",
+      "audioFile": "book-03.mp3",
+      "words": [
+        {
+          "chinese": "好",
+          "jyutping": "hou2",
+          "english": "OK"
+        },
+        {
+          "chinese": "請問",
+          "jyutping": "cing2 man6",
+          "english": "may I ask"
+        },
+        {
+          "chinese": "大名",
+          "jyutping": "daai6 ming4",
+          "english": "your name"
+        }
+      ]
+    },
+    {
+      "id": "book-04",
+      "speaker": "you",
+      "cjk": "我姓陳。",
+      "jyutping": "ngo5 sing3 can4.",
+      "english": "My surname is Chan.",
+      "audioFile": "book-04.mp3",
+      "words": [
+        {
+          "chinese": "我",
+          "jyutping": "ngo5",
+          "english": "I; me"
+        },
+        {
+          "chinese": "姓",
+          "jyutping": "sing3",
+          "english": "surname is"
+        },
+        {
+          "chinese": "陳",
+          "jyutping": "can4",
+          "english": "Chan"
+        }
+      ]
+    },
+    {
+      "id": "book-05",
+      "speaker": "staff",
+      "cjk": "陳生，聽晚七點，三位，幫你記低喇。有冇特別要求？",
+      "jyutping": "can4 saang1, ting1 maan5 cat1 dim2, saam1 wai2, bong1 nei5 gei3 dai1 laa3. jau5 mou5 dak6 bit6 jiu1 kau4?",
+      "english": "Mr Chan, tomorrow at seven, table for three, noted. Any special requests?",
+      "audioFile": "book-05.mp3",
+      "words": [
+        {
+          "chinese": "陳生",
+          "jyutping": "can4 saang1",
+          "english": "Mr Chan"
+        },
+        {
+          "chinese": "聽晚",
+          "jyutping": "ting1 maan5",
+          "english": "tomorrow evening"
+        },
+        {
+          "chinese": "七點",
+          "jyutping": "cat1 dim2",
+          "english": "seven o'clock"
+        },
+        {
+          "chinese": "三",
+          "jyutping": "saam1",
+          "english": "three"
+        },
+        {
+          "chinese": "位",
+          "jyutping": "wai2",
+          "english": "(people)"
+        },
+        {
+          "chinese": "幫",
+          "jyutping": "bong1",
+          "english": "help"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "記低",
+          "jyutping": "gei3 dai1",
+          "english": "note down"
+        },
+        {
+          "chinese": "喇",
+          "jyutping": "laa3",
+          "english": "(final particle)"
+        },
+        {
+          "chinese": "有冇",
+          "jyutping": "jau5 mou5",
+          "english": "have any?"
+        },
+        {
+          "chinese": "特別",
+          "jyutping": "dak6 bit6",
+          "english": "special"
+        },
+        {
+          "chinese": "要求",
+          "jyutping": "jiu1 kau4",
+          "english": "request"
+        }
+      ]
+    },
+    {
+      "id": "book-06",
+      "speaker": "you",
+      "cjk": "有個細路仔，可唔可以整張BB凳？",
+      "jyutping": "jau5 go3 sai3 lou6 zai2, ho2 m4 ho2 ji5 zing2 zoeng1 bi4 bi1 dang3?",
+      "english": "We have a small child. Could we get a high chair?",
+      "audioFile": "book-06.mp3",
+      "words": [
+        {
+          "chinese": "有",
+          "jyutping": "jau5",
+          "english": "have"
+        },
+        {
+          "chinese": "個",
+          "jyutping": "go3",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "細路仔",
+          "jyutping": "sai3 lou6 zai2",
+          "english": "little kid"
+        },
+        {
+          "chinese": "可唔可以",
+          "jyutping": "ho2 m4 ho2 ji5",
+          "english": "can you?"
+        },
+        {
+          "chinese": "整",
+          "jyutping": "zing2",
+          "english": "make; fix"
+        },
+        {
+          "chinese": "張",
+          "jyutping": "zoeng1",
+          "english": "(classifier)"
+        },
+        {
+          "chinese": "BB凳",
+          "jyutping": "bi4 bi1 dang3",
+          "english": "highchair"
+        }
+      ]
+    },
+    {
+      "id": "book-07",
+      "speaker": "staff",
+      "cjk": "冇問題，我哋幫你安排。",
+      "jyutping": "mou5 man6 tai4, ngo5 dei6 bong1 nei5 on1 paai4.",
+      "english": "No problem, we'll arrange that for you.",
+      "audioFile": "book-07.mp3",
+      "words": [
+        {
+          "chinese": "冇",
+          "jyutping": "mou5",
+          "english": "not have"
+        },
+        {
+          "chinese": "問題",
+          "jyutping": "man6 tai4",
+          "english": "problem"
+        },
+        {
+          "chinese": "我哋",
+          "jyutping": "ngo5 dei6",
+          "english": "we"
+        },
+        {
+          "chinese": "幫",
+          "jyutping": "bong1",
+          "english": "help"
+        },
+        {
+          "chinese": "你",
+          "jyutping": "nei5",
+          "english": "you"
+        },
+        {
+          "chinese": "安排",
+          "jyutping": "on1 paai4",
+          "english": "arrange"
+        }
+      ]
+    },
+    {
+      "id": "book-08",
+      "speaker": "you",
+      "cjk": "唔該晒！聽晚見。",
+      "jyutping": "m4 goi1 saai3! ting1 maan5 gin3.",
+      "english": "Thank you so much! See you tomorrow evening.",
+      "audioFile": "book-08.mp3",
+      "words": [
+        {
+          "chinese": "唔該",
+          "jyutping": "m4 goi1",
+          "english": "please; thank you"
+        },
+        {
+          "chinese": "晒",
+          "jyutping": "saai3",
+          "english": "(completely)"
+        },
+        {
+          "chinese": "聽晚",
+          "jyutping": "ting1 maan5",
+          "english": "tomorrow evening"
+        },
+        {
+          "chinese": "見",
+          "jyutping": "gin3",
+          "english": "see you"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "category": "Reservations",
+      "words": [
+        {
+          "chinese": "訂枱",
+          "jyutping": "deng6 toi2",
+          "english": "book a table"
+        },
+        {
+          "chinese": "幾多位",
+          "jyutping": "gei2 do1 wai2",
+          "english": "how many people"
+        },
+        {
+          "chinese": "雅座",
+          "jyutping": "ngaa5 zo6",
+          "english": "private dining room"
+        },
+        {
+          "chinese": "電話號碼",
+          "jyutping": "din6 waa2 hou6 maa5",
+          "english": "phone number"
+        },
+        {
+          "chinese": "卡位",
+          "jyutping": "kaat1 wai2",
+          "english": "booth seating"
+        }
+      ]
+    },
+    {
+      "category": "Time & Party",
+      "words": [
+        {
+          "chinese": "今晚",
+          "jyutping": "gam1 maan5",
+          "english": "tonight"
+        },
+        {
+          "chinese": "聽日",
+          "jyutping": "ting1 jat6",
+          "english": "tomorrow"
+        },
+        {
+          "chinese": "幾點",
+          "jyutping": "gei2 dim2",
+          "english": "what time"
+        },
+        {
+          "chinese": "遲到",
+          "jyutping": "ci4 dou3",
+          "english": "to be late"
+        },
+        {
+          "chinese": "取消",
+          "jyutping": "ceoi2 siu1",
+          "english": "to cancel"
+        }
+      ]
+    },
+    {
+      "category": "Useful Phrases",
+      "words": [
+        {
+          "chinese": "有冇位",
+          "jyutping": "jau5 mou5 wai2",
+          "english": "do you have a table available"
+        },
+        {
+          "chinese": "要等幾耐",
+          "jyutping": "jiu3 dang2 gei2 noi6",
+          "english": "how long is the wait"
+        },
+        {
+          "chinese": "窗邊",
+          "jyutping": "coeng1 bin1",
+          "english": "by the window"
+        },
+        {
+          "chinese": "大枱",
+          "jyutping": "daai6 toi2",
+          "english": "big table"
+        }
+      ]
+    },
+    {
+      "category": "Special Requests",
+      "words": [
+        {
+          "chinese": "有冇兒童椅",
+          "jyutping": "jau5 mou5 ji4 tung4 ji2",
+          "english": "is there a high chair"
+        },
+        {
+          "chinese": "過敏",
+          "jyutping": "man5 gam2",
+          "english": "(food) allergy"
+        },
+        {
+          "chinese": "生日",
+          "jyutping": "saang1 jat6",
+          "english": "birthday"
+        },
+        {
+          "chinese": "慶祝",
+          "jyutping": "hing3 zuk1",
+          "english": "celebrate"
+        },
+        {
+          "chinese": "靠窗",
+          "jyutping": "kaau3 coeng1",
+          "english": "by the window"
+        },
+        {
+          "chinese": "唔該早到",
+          "jyutping": "m4 goi1 zou2 dou3",
+          "english": "please arrive early"
+        }
+      ]
+    }
+  ]
 }
