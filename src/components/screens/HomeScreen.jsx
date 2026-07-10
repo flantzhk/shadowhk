@@ -6,6 +6,10 @@ import { getLibraryEntries, getAllSceneProgress, getDueEntries } from '../../ser
 import { getAllScenes } from '../../services/sceneLoader.js';
 import { PERSONAL_SCENE_ID } from '../../services/personalSceneBuilder.js';
 import { STREAK_MILESTONES } from '../../utils/constants.js';
+import { ConfirmModal } from '../shared/ConfirmModal.jsx';
+import DownloadAllModal from '../shared/DownloadAllModal';
+
+const OFFLINE_PROMPT_KEY = 'shadowhk_offline_prompt_done';
 
 function toDateStr(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -22,6 +26,12 @@ export default function HomeScreen({ onNavigate }) {
   const [sceneProgress, setSceneProgress] = useState({});
   const [dueCount, setDueCount] = useState(0);
   const [showMilestone, setShowMilestone] = useState(false);
+  // One-time offer to cache all audio for offline use. Skipped while offline
+  // (the download can't run) so it re-offers on the next online visit.
+  const [showOfflinePrompt, setShowOfflinePrompt] = useState(
+    () => navigator.onLine && !localStorage.getItem(OFFLINE_PROMPT_KEY)
+  );
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   const language = settings?.currentLanguage ?? 'cantonese';
   const userName = settings?.name ?? '';
@@ -34,6 +44,12 @@ export default function HomeScreen({ onNavigate }) {
     if (!streakCount || !STREAK_MILESTONES.includes(streakCount)) return;
     if (!localStorage.getItem(`celebratedStreak_${streakCount}`)) setShowMilestone(true);
   }, [streakCount]);
+
+  const dismissOfflinePrompt = (startDownload) => {
+    localStorage.setItem(OFFLINE_PROMPT_KEY, '1');
+    setShowOfflinePrompt(false);
+    if (startDownload) setShowDownloadModal(true);
+  };
 
   useEffect(() => {
     buildSceneLesson(language).then(setLesson).catch(() => setLesson(null)).finally(() => setLoading(false));
@@ -67,6 +83,21 @@ export default function HomeScreen({ onNavigate }) {
             setShowMilestone(false);
           }}
         />
+      )}
+
+      {showOfflinePrompt && !showMilestone && (
+        <ConfirmModal
+          title="Practice anywhere, even offline"
+          body="Download every recording so the whole app works with no signal, plane included. About 80 MB, best on Wi-Fi. You can always do this later from Settings."
+          confirmLabel="Download now"
+          cancelLabel="Not now"
+          onConfirm={() => dismissOfflinePrompt(true)}
+          onCancel={() => dismissOfflinePrompt(false)}
+        />
+      )}
+
+      {showDownloadModal && (
+        <DownloadAllModal language={language} onClose={() => setShowDownloadModal(false)} />
       )}
 
       <TodayPanel

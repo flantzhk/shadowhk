@@ -25,7 +25,7 @@ export default defineConfig({
       injectRegister: null, // registration lives in main.jsx (adds reload-on-update)
       includeAssets: ['icons/*.png'],
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,json,png,svg,jpg}'],
+        globPatterns: ['**/*.{js,css,html,json,png,svg,jpg,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {

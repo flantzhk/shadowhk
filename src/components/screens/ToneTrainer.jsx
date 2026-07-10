@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './ToneTrainer.module.css';
 import { useAppContext } from '../../contexts/AppContext.jsx';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 import { SyllableDiagnostic } from '../ui/SyllableDiagnostic.jsx';
 import { diffJyutping } from '../../utils/jyutpingDiff.js';
 import { Wave } from '../ui/Wave.jsx';
@@ -28,6 +29,7 @@ export default function ToneTrainer({ onBack }) {
   const [phase, setPhase] = useState('ready'); // ready | record | scored | done
 
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
+  const isOnline = useOnlineStatus();
 
   useEffect(() => {
     Promise.all([getLibraryEntries(language), getWeakTones()])
@@ -191,12 +193,20 @@ export default function ToneTrainer({ onBack }) {
       </div>
 
       <div className={styles.controls}>
-        {(phase === 'ready') && (
+        {(phase === 'ready') && (isOnline ? (
           <button className={styles.micBtn} onMouseDown={handleRecord} onTouchStart={handleRecord}>
             <MicIcon />
             Hold to record
           </button>
-        )}
+        ) : (
+          <div className={styles.recordControls}>
+            <button className={`${styles.micBtn} ${styles.micBtnDisabled}`} disabled>
+              <MicIcon />
+              Hold to record
+            </button>
+            <p className={styles.offlineHint}>Recording needs internet. You can still listen and repeat aloud.</p>
+          </div>
+        ))}
 
         {phase === 'record' && (
           <div className={styles.recordControls}>

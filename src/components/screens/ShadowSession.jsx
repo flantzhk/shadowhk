@@ -493,8 +493,9 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
         {/* Orbital mic */}
         <div className={styles.micOrbit}>
           <button
-            className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''}`}
-            onClick={phase === 'record' ? handleStopRecording : handleRecord}
+            className={`${styles.micBtn} ${phase === 'record' ? styles.micBtnActive : ''} ${!isOnline && phase !== 'record' ? styles.micBtnDisabled : ''}`}
+            onClick={phase === 'record' ? handleStopRecording : (isOnline ? handleRecord : undefined)}
+            aria-disabled={!isOnline && phase !== 'record'}
             aria-label="Record"
           >
             {phase === 'scoring' ? (
@@ -528,7 +529,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               <ArrowLeftIcon />
             </button>
             <p className={`${styles.holdLabel} ${silentTake ? styles.holdLabelWarn : ''}`}>
-              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : silentTake ? "⚠ COULDN'T HEAR YOU · CHECK YOUR MIC AND TRY AGAIN" : heard ? 'YOUR TURN · TAP THE MIC' : '1 · HEAR IT   2 · SAY IT   3 · GET SCORED'}
+              {phase === 'record' ? 'SPEAK NOW · TAP ⏹ WHEN DONE' : phase === 'scoring' ? 'SCORING…' : phase === 'scored' ? 'TAP → FOR NEXT' : !isOnline ? 'OFFLINE · LISTEN AND REPEAT ALOUD' : silentTake ? "⚠ COULDN'T HEAR YOU · CHECK YOUR MIC AND TRY AGAIN" : heard ? 'YOUR TURN · TAP THE MIC' : '1 · HEAR IT   2 · SAY IT   3 · GET SCORED'}
             </p>
             <button className={styles.skipBtn} onClick={handleNext} aria-label="Next">
               <ArrowRightIcon />

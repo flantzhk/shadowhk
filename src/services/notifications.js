@@ -114,8 +114,8 @@ async function showTestNotification() {
     const reg = await navigator.serviceWorker.ready;
     await reg.showNotification('ShadowSpeak', {
       body: "This is what your daily reminder will look like!",
-      icon: '/shadowspeaklaunch/icons/icon-192.png',
-      badge: '/shadowspeaklaunch/icons/icon-192.png',
+      icon: '/shadowhk/icons/icon-192.png',
+      badge: '/shadowhk/icons/icon-192.png',
       tag: 'shadowspeak-test',
     });
   } catch (err) {

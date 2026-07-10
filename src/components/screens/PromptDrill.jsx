@@ -283,11 +283,13 @@ export default function PromptDrill({ onBack, onComplete }) {
       </div>
 
       {phase === 'prompt' && (
-        <button className={styles.readyBtn} onClick={handleReady}>I&apos;m ready</button>
+        isOnline
+          ? <button className={styles.readyBtn} onClick={handleReady}>I&apos;m ready</button>
+          : <RecordButton isRecording={false} onStart={handleReady} onStop={handleDone} error={micError} disabled />
       )}
 
       {phase === 'recording' && (
-        <RecordButton isRecording={isRecording} onStart={handleReady} onStop={handleDone} error={micError} />
+        <RecordButton isRecording={isRecording} onStart={handleReady} onStop={handleDone} error={micError} disabled={!isOnline && !isRecording} />
       )}
 
       {phase === 'result' && (

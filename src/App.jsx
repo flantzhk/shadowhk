@@ -16,6 +16,7 @@ import { initPostHog, phIdentify, phCapture } from './services/posthog';
 import { pullLibraryFromFirestore, pullStreakFromFirestore } from './services/sync';
 import { resolvePendingPlacementCheck } from './services/placementCheck';
 import { ErrorBoundary } from './components/shared/ErrorBoundary';
+import { OfflineBanner } from './components/shared/OfflineBanner';
 import { useToast } from './components/shared/Toast';
 import { logger } from './utils/logger';
 import './styles/global.css';
@@ -427,6 +428,7 @@ function MainLayout() {
         </div>
       </main>
       {ToastComponent}
+      <OfflineBanner />
       {!isDesktop && !hideChrome && (
         <BottomTabBar activeTab={route.path} onNavigate={navigate} />
       )}

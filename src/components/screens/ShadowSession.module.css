@@ -217,6 +217,13 @@
 
 .micBtn:active { transform: scale(0.96); }
 
+.micBtnDisabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.micBtnDisabled:active { transform: none; }
+
 .micBtnActive {
   background: rgba(200,57,43,0.1);
   animation: micPulse 1.4s ease-in-out infinite;

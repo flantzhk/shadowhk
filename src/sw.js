@@ -1,8 +1,8 @@
 // src/sw.js — Custom service worker (processed by vite-plugin-pwa injectManifest)
 
-import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
+import { precacheAndRoute, cleanupOutdatedCaches, createHandlerBoundToURL } from 'workbox-precaching';
 import { clientsClaim } from 'workbox-core';
-import { registerRoute } from 'workbox-routing';
+import { registerRoute, NavigationRoute } from 'workbox-routing';
 import { CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
@@ -14,6 +14,10 @@ clientsClaim();
 // Inject precache manifest (replaced by vite-plugin-pwa at build time)
 precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();
+
+// SPA navigation fallback: serve the precached shell for all navigations,
+// including ones with query params (e.g. ?checkout=success) while offline
+registerRoute(new NavigationRoute(createHandlerBoundToURL('/shadowhk/index.html')));
 
 // Runtime cache: pre-generated static audio (scenes, reference sets, English,
 // words). Cache-first and long-lived — these files never change once
@@ -61,18 +65,18 @@ self.addEventListener('push', (event) => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: '/shadowspeaklaunch/icons/icon-192.png',
-      badge: '/shadowspeaklaunch/icons/icon-192.png',
+      icon: '/shadowhk/icons/icon-192.png',
+      badge: '/shadowhk/icons/icon-192.png',
       tag: 'shadowspeak-reminder',
       renotify: false,
-      data: { url: '/shadowspeaklaunch/' },
+      data: { url: '/shadowhk/' },
     })
   );
 });
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const targetUrl = event.notification.data?.url || '/shadowspeaklaunch/';
+  const targetUrl = event.notification.data?.url || '/shadowhk/';
 
   event.waitUntil(
     clients
@@ -80,7 +84,7 @@ self.addEventListener('notificationclick', (event) => {
       .then((clientList) => {
         // Focus an existing window if one is open
         for (const client of clientList) {
-          if (client.url.includes('/shadowspeaklaunch/') && 'focus' in client) {
+          if (client.url.includes('/shadowhk/') && 'focus' in client) {
             return client.focus();
           }
         }

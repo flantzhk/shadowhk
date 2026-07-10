@@ -163,6 +163,17 @@
   margin: 0;
 }
 
+.micBtnDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.offlineHint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
 .scoredActions {
   display: flex;
   gap: 12px;

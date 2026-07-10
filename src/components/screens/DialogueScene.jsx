@@ -284,10 +284,10 @@ export default function DialogueScene({ sceneData, onBack, onComplete }) {
           </div>
         )}
         {phase === 'playing' && turn?.speaker === 'user' && (
-          <RecordButton isRecording={false} onStart={handleRecord} onStop={() => {}} error={micError} />
+          <RecordButton isRecording={false} onStart={handleRecord} onStop={() => {}} error={micError} disabled={!isOnline} />
         )}
         {phase === 'recording' && (
-          <RecordButton isRecording={isRecording} onStart={handleRecord} onStop={handleStopRecord} error={micError} />
+          <RecordButton isRecording={isRecording} onStart={handleRecord} onStop={handleStopRecord} error={micError} disabled={!isOnline && !isRecording} />
         )}
 
         {/* Scored */}

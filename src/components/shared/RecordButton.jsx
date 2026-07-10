@@ -6,9 +6,9 @@ import styles from './RecordButton.module.css';
 
 /**
  * Recording button with pulsing animation and countdown.
- * @param {{ isRecording: boolean, onStart: () => void, onStop: () => void, error: string|null }} props
+ * @param {{ isRecording: boolean, onStart: () => void, onStop: () => void, error: string|null, disabled?: boolean }} props
  */
-function RecordButton({ isRecording, onStart, onStop, error }) {
+function RecordButton({ isRecording, onStart, onStop, error, disabled = false }) {
   const [countdown, setCountdown] = useState(RECORDING_MAX_SECONDS);
   const intervalRef = useRef(null);
 
@@ -33,8 +33,9 @@ function RecordButton({ isRecording, onStart, onStop, error }) {
   return (
     <div className={styles.container}>
       <button
-        className={`${styles.button} ${isRecording ? styles.recording : ''}`}
-        onClick={isRecording ? onStop : onStart}
+        className={`${styles.button} ${isRecording ? styles.recording : ''} ${disabled ? styles.disabled : ''}`}
+        onClick={disabled ? undefined : (isRecording ? onStop : onStart)}
+        aria-disabled={disabled}
         aria-label={isRecording ? 'Stop recording' : 'Start recording'}
       >
         <MicIcon />
@@ -47,6 +48,7 @@ function RecordButton({ isRecording, onStart, onStop, error }) {
         </div>
       )}
 
+      {disabled && <p className={styles.hint}>Recording needs internet. You can still listen and repeat aloud.</p>}
       {error && <p className={styles.error}>{error}</p>}
     </div>
   );
