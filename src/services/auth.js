@@ -88,23 +88,80 @@ async function signIn(email, password) {
 }
 
 /**
- * Start Google sign-in via redirect (popup is blocked on mobile/PWA).
- * Stores languageChoice in sessionStorage so handleGoogleRedirectResult()
- * can pick it up after the browser returns from Google.
+ * Shared tail of an OAuth sign-in (popup or redirect result): create the
+ * Firestore user doc on first sign-up and emit analytics.
+ */
+async function completeOAuthSignIn(result, languageChoice) {
+  const method = result.additionalUserInfo?.providerId === 'apple.com' ? 'apple' : 'google';
+  if (result.additionalUserInfo?.isNewUser) {
+    await createUserDocument(result.user.uid, result.user.email || '', languageChoice);
+    phCapture('signup_succeeded', { method });
+  } else {
+    phCapture('login_succeeded', { method });
+  }
+}
+
+// Popup errors that mean "this environment can't do popups at all"
+// (installed PWA standalone mode, some in-app browsers) — worth retrying
+// with the redirect flow. Anything else is a real failure to surface.
+const POPUP_UNAVAILABLE_CODES = new Set([
+  'auth/popup-blocked',
+  'auth/operation-not-supported-in-this-environment',
+]);
+
+/**
+ * OAuth sign-in, popup first with redirect fallback.
+ *
+ * Popup, not redirect: the app (github.io) and the Firebase authDomain
+ * (firebaseapp.com) are different origins, and signInWithRedirect parks the
+ * result in storage on the authDomain. Browsers that partition third-party
+ * storage (Safari always, iOS especially) make that stash unreadable when
+ * the browser returns to the app, so getRedirectResult() came back empty
+ * and users landed on the login screen still signed out. The popup flow
+ * hands the result between windows via postMessage — no shared storage —
+ * so it survives. Redirect remains only as a fallback where popups can't
+ * open at all.
+ * @param {firebase.auth.AuthProvider} provider
+ * @param {string} languageChoice - stored for the Firestore doc on first sign-up
+ * @returns {Promise<{user: Object|null, error: string|null}>}
+ */
+async function signInWithOAuthProvider(provider, languageChoice) {
+  try {
+    const result = await fbAuth.signInWithPopup(provider);
+    await completeOAuthSignIn(result, languageChoice);
+    return { user: result.user, error: null };
+  } catch (error) {
+    if (error.code === 'auth/popup-closed-by-user' || error.code === 'auth/cancelled-popup-request') {
+      // Deliberate cancel. Still an "error" to callers so they don't treat
+      // it as success and navigate home unauthenticated.
+      return { user: null, error: 'Sign-in was cancelled.' };
+    }
+    if (!POPUP_UNAVAILABLE_CODES.has(error.code)) {
+      logger.error('OAuth popup sign-in failed', error);
+      return { user: null, error: firebaseErrorMessage(error), code: error.code };
+    }
+    // Popups unavailable here — fall back to redirect. Stash languageChoice
+    // so handleGoogleRedirectResult() can pick it up after the round-trip.
+    sessionStorage.setItem('pendingOAuthLang', languageChoice);
+    try {
+      await fbAuth.signInWithRedirect(provider);
+      return { user: null, error: null }; // unreachable — browser navigates away
+    } catch (redirectError) {
+      sessionStorage.removeItem('pendingOAuthLang');
+      logger.error('OAuth redirect sign-in failed', redirectError);
+      return { user: null, error: firebaseErrorMessage(redirectError), code: redirectError.code };
+    }
+  }
+}
+
+/**
+ * Start Google sign-in (popup first, redirect fallback — see
+ * signInWithOAuthProvider for why).
  * @param {string} [languageChoice]
- * @returns {Promise<{user: null, error: string|null}>}
+ * @returns {Promise<{user: Object|null, error: string|null}>}
  */
 async function signInWithGoogle(languageChoice = 'cantonese') {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  sessionStorage.setItem('pendingOAuthLang', languageChoice);
-  try {
-    await fbAuth.signInWithRedirect(provider);
-    return { user: null, error: null }; // unreachable — browser navigates away
-  } catch (error) {
-    sessionStorage.removeItem('pendingOAuthLang');
-    logger.error('Google sign-in redirect failed', error);
-    return { user: null, error: firebaseErrorMessage(error) };
-  }
+  return signInWithOAuthProvider(new firebase.auth.GoogleAuthProvider(), languageChoice);
 }
 
 /**
@@ -116,18 +173,21 @@ async function signInWithGoogle(languageChoice = 'cantonese') {
 async function handleGoogleRedirectResult() {
   try {
     const result = await fbAuth.getRedirectResult();
-    if (!result || !result.user) return { user: null, error: null };
+    if (!result || !result.user) {
+      // A pending flag with no result means we started a redirect sign-in
+      // and the result was lost on the way back (third-party storage
+      // partitioning, see signInWithOAuthProvider). Surface it instead of
+      // silently landing the user back on the login screen.
+      if (sessionStorage.getItem('pendingOAuthLang')) {
+        sessionStorage.removeItem('pendingOAuthLang');
+        return { user: null, error: 'Sign-in did not complete. Please try again.' };
+      }
+      return { user: null, error: null };
+    }
 
     const languageChoice = sessionStorage.getItem('pendingOAuthLang') || 'cantonese';
     sessionStorage.removeItem('pendingOAuthLang');
-
-    const method = result.additionalUserInfo?.providerId === 'apple.com' ? 'apple' : 'google';
-    if (result.additionalUserInfo?.isNewUser) {
-      await createUserDocument(result.user.uid, result.user.email || '', languageChoice);
-      phCapture('signup_succeeded', { method });
-    } else {
-      phCapture('login_succeeded', { method });
-    }
+    await completeOAuthSignIn(result, languageChoice);
     return { user: result.user, error: null };
   } catch (error) {
     logger.error('Google redirect result failed', error);
@@ -136,7 +196,8 @@ async function handleGoogleRedirectResult() {
 }
 
 /**
- * Sign in with Apple popup via Firebase OAuthProvider.
+ * Sign in with Apple via Firebase OAuthProvider (popup first, redirect
+ * fallback — see signInWithOAuthProvider for why).
  * Requires Apple Sign In configured in the Firebase console:
  *   Authentication > Sign-in method > Apple > Enable
  *   (Needs Apple Developer account + Service ID + OAuth redirect domain)
@@ -144,24 +205,14 @@ async function handleGoogleRedirectResult() {
  * @returns {Promise<{user: Object|null, error: string|null}>}
  */
 async function signInWithApple(languageChoice = 'cantonese') {
-  // Redirect, not popup: popups are blocked on mobile Safari and in installed
-  // PWAs — the exact environments where Apple sign-in matters most (this is
-  // the same failure Google sign-in had before it moved to redirect).
   const provider = new firebase.auth.OAuthProvider('apple.com');
   provider.addScope('email');
   provider.addScope('name');
-  sessionStorage.setItem('pendingOAuthLang', languageChoice);
-  try {
-    await fbAuth.signInWithRedirect(provider);
-    return { user: null, error: null }; // unreachable — browser navigates away
-  } catch (error) {
-    sessionStorage.removeItem('pendingOAuthLang');
-    logger.error('Apple sign-in redirect failed', error);
-    if (error.code === 'auth/operation-not-allowed') {
-      return { user: null, error: 'Apple Sign In is not enabled yet. Please use email or Google.' };
-    }
-    return { user: null, error: firebaseErrorMessage(error) };
+  const result = await signInWithOAuthProvider(provider, languageChoice);
+  if (result.code === 'auth/operation-not-allowed') {
+    return { user: null, error: 'Apple Sign In is not enabled yet. Please use email or Google.' };
   }
+  return result;
 }
 
 /**
