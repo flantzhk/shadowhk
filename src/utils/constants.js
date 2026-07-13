@@ -113,7 +113,6 @@ export const ROUTES = {
   STATS: 'stats',
   DAY_DETAIL: 'day-detail',
   AI_CHAT: 'ai',
-  AI_SCENARIO: 'ai-scenario',
   LOGIN: 'login',
   REGISTER: 'register',
   FORGOT_PASSWORD: 'forgot-password',

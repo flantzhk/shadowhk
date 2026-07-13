@@ -51,7 +51,6 @@ const CharacterCheck     = lazy(() => import('./components/screens/CharacterChec
 const DialogueSceneLoader = lazy(() => import('./components/screens/DialogueSceneLoader'));
 const SceneSummary       = lazy(() => import('./components/screens/SceneSummary'));
 const AIConversation     = lazy(() => import('./components/screens/AIConversation'));
-const AIScenarioPicker   = lazy(() => import('./components/screens/AIScenarioPicker'));
 const AdminDashboard     = lazy(() => import('./components/screens/AdminDashboard'));
 const SupportScreen      = lazy(() => import('./components/screens/SupportScreen'));
 const FAQScreen          = lazy(() => import('./components/screens/FAQScreen'));
@@ -198,7 +197,6 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings, authed
     case ROUTES.SETTINGS:        return <SettingsScreen navigate={navigate} goBack={goBack} />;
     case ROUTES.DAY_DETAIL:      return <DayDetailScreen date={id} navigate={navigate} goBack={goBack} />;
     case ROUTES.AI_CHAT:         return <AIConversation onBack={goBack} onNavigate={navigate} />;
-    case ROUTES.AI_SCENARIO:     return <AIScenarioPicker onBack={goBack} onNavigate={navigate} onSelectScenario={(s) => { try { sessionStorage.setItem('aiScenario', JSON.stringify(s)); } catch {} navigate(ROUTES.AI_CHAT); }} />;
     case ROUTES.PROMPT_DRILL:    return <PromptDrill onBack={goBack} onComplete={() => navigate(ROUTES.HOME)} />;
     case ROUTES.SPEED_RUN:       return <SpeedRun onBack={goBack} onComplete={() => navigate(ROUTES.HOME)} />;
     case ROUTES.TONE_GYM:        return <ToneGym onBack={goBack} onComplete={(s) => { try { sessionStorage.setItem('toneGymSummary', JSON.stringify(s)); } catch {} navigate(ROUTES.TONE_GYM_RESULTS); }} />;

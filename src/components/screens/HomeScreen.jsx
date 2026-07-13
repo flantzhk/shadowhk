@@ -419,7 +419,7 @@ function TryNextRail({ scenes, personal, onNavigate }) {
 function PracticeGrid({ onNavigate, language }) {
   const modes = [
     { label: 'TONE GYM',        sub: 'Ear training',        route: 'tonegym',        fill: 'tonegym' },
-    { label: 'FREE CHAT',       sub: 'Open conversation',   route: 'ai-scenario',    fill: 'freechat' },
+    { label: 'FREE CHAT',       sub: 'Open conversation',   route: 'ai',             fill: 'freechat' },
     { label: 'SPEED RUN',       sub: 'Drills',               route: 'speedrun',       fill: 'speedrun' },
     { label: language === 'mandarin' ? 'READ PINYIN' : 'READ JYUTPING', sub: 'Tones & sounds', route: 'jyutping-guide', fill: 'jyutping', star: true },
   ];
