@@ -3,7 +3,7 @@
 // closes the modal), so a module-level singleton owns the cancelRef and
 // progress. Components subscribe for updates.
 
-import { downloadAllAudio, STATIC_AUDIO_CACHE } from './offlineManager';
+import { downloadAllAudio, collectAudioUrls, STATIC_AUDIO_CACHE } from './offlineManager';
 
 // Stamped when a download run completes so screens can answer "is everything
 // on this device?" without re-walking the whole file list.
@@ -63,9 +63,13 @@ function cancelAudioDownload() {
 }
 
 /**
- * Whether the full audio library is on this device. Ready means a download
- * run completed at some point AND the cache still holds the bulk of the files
- * (browsers can evict storage under pressure).
+ * Whether the full audio library is on this device. Compares what's actually
+ * in the cache against a freshly-computed expected file list, rather than
+ * trusting the "download finished" flag alone — that flag lives in
+ * localStorage, which iOS/Safari can evict independently of Cache Storage,
+ * which would otherwise make a device with every file cached report
+ * "Incomplete" forever. Falls back to the stamped total only if the file
+ * list can't be computed (e.g. first-ever offline visit, nothing precached).
  * @returns {Promise<{ready: boolean, cachedCount: number, verifiedAt: number|null}>}
  */
 async function getOfflineAudioStatus() {
@@ -76,7 +80,15 @@ async function getOfflineAudioStatus() {
     const cache = await caches.open(STATIC_AUDIO_CACHE);
     cachedCount = (await cache.keys()).length;
   } catch { /* Cache API unavailable */ }
-  const ready = !!verified?.total && cachedCount >= verified.total * 0.9;
+
+  let expectedTotal = null;
+  try {
+    const items = await collectAudioUrls();
+    if (items.length > 0) expectedTotal = items.length;
+  } catch { /* leave null, fall back below */ }
+
+  const total = expectedTotal ?? verified?.total ?? 0;
+  const ready = total > 0 && cachedCount >= total * 0.9;
   return { ready, cachedCount, verifiedAt: verified?.at ?? null };
 }
 

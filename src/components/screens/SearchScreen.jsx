@@ -7,6 +7,7 @@ import { SourceTag } from '../ui/SourceTag.jsx';
 import { searchLibrary, saveLibraryEntry } from '../../services/storage.js';
 import { generatePhrase } from '../../services/api.js';
 import { GROWTH_STATE, SOURCE_TAGS, SEARCH_DEBOUNCE_MS } from '../../utils/constants.js';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 
 const SOURCE_OPTIONS = [
   { id: SOURCE_TAGS.HEARD_IT, label: '👂 Heard it' },
@@ -18,6 +19,7 @@ const SOURCE_OPTIONS = [
 export default function SearchScreen({ onNavigate }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
+  const isOnline = useOnlineStatus();
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -139,16 +141,24 @@ export default function SearchScreen({ onNavigate }) {
         {!searching && query.trim() && results.length === 0 && (
           <div className={styles.noResults}>
             <p>No match in your library.</p>
-            <button className={styles.addOwnBtn} onClick={() => { setShowAdd(true); setAddText(query); }}>
-              Add "{query}" as your own phrase
-            </button>
+            {isOnline ? (
+              <button className={styles.addOwnBtn} onClick={() => { setShowAdd(true); setAddText(query); }}>
+                Add "{query}" as your own phrase
+              </button>
+            ) : (
+              <p className={styles.offlineNote}>Adding new phrases needs a connection.</p>
+            )}
           </div>
         )}
 
         {!searching && !query.trim() && !showAdd && (
-          <button className={styles.addOwnTrigger} onClick={() => setShowAdd(true)}>
+          <button
+            className={styles.addOwnTrigger}
+            onClick={() => setShowAdd(true)}
+            disabled={!isOnline}
+          >
             <span className={styles.addIcon}>+</span>
-            Add your own phrase
+            {isOnline ? 'Add your own phrase' : "Add your own phrase (needs a connection)"}
           </button>
         )}
 
@@ -179,9 +189,9 @@ export default function SearchScreen({ onNavigate }) {
               <button
                 className={styles.generateBtn}
                 onClick={handleGenerate}
-                disabled={!addText.trim() || generating}
+                disabled={!addText.trim() || generating || !isOnline}
               >
-                {generating ? 'Generating...' : 'Generate phrase'}
+                {!isOnline ? 'Needs a connection' : generating ? 'Generating...' : 'Generate phrase'}
               </button>
             )}
 

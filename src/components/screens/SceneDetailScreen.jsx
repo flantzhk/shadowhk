@@ -14,6 +14,7 @@ import { textToSpeech, generatePhrase } from '../../services/api.js';
 import { staticWordAudio, prefetchWordAudio } from '../../services/staticAudio.js';
 import { SOURCE_TAGS, GROWTH_STATE } from '../../utils/constants.js';
 import { logger } from '../../utils/logger.js';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 
 const vocabWordId = (sceneId, chinese) => `${sceneId}-vocab-${chinese}`;
 
@@ -35,6 +36,7 @@ function addPhrasePrompt(category) {
 export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
   const { settings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
+  const isOnline = useOnlineStatus();
   const authUser = getCurrentUser();
   const userPhoto = authUser?.photoURL ?? null;
   const userName = authUser?.name ?? settings?.name ?? 'You';
@@ -450,11 +452,17 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
         )}
 
         {!showAddPhrase ? (
-          <button className={styles.addPhraseTrigger} onClick={() => setShowAddPhrase(true)}>
+          <button
+            className={styles.addPhraseTrigger}
+            onClick={() => setShowAddPhrase(true)}
+            disabled={!isOnline}
+          >
             <span className={styles.addPhraseIcon}>+</span>
             <span className={styles.addPhraseTriggerText}>
               <span className={styles.addPhraseTitle}>Add your own phrase</span>
-              <span className={styles.addPhraseHint}>{addPhrasePrompt(scene.category)}</span>
+              <span className={styles.addPhraseHint}>
+                {isOnline ? addPhrasePrompt(scene.category) : 'Needs a connection to generate new phrases. Try again once you\'re back online.'}
+              </span>
             </span>
           </button>
         ) : (

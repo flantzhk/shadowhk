@@ -8,6 +8,7 @@ import { countPhrases, buildGenerationPrompt, savePersonalScene, buildPersonalSc
 import { getLibraryEntries } from '../../services/storage.js';
 import { fetchWithAuth } from '../../services/api.js';
 import { API_BASE_URL } from '../../utils/constants.js';
+import { useOnlineStatus } from '../../hooks/useOnlineStatus.js';
 
 const EMPTY_FORM = {
   name: '',
@@ -45,6 +46,7 @@ const EMPTY_FORM = {
 export default function IntroduceYourselfForm({ onComplete, onBack }) {
   const { settings, updateSettings } = useAppContext();
   const language = settings?.currentLanguage ?? 'cantonese';
+  const isOnline = useOnlineStatus();
 
   const [form, setForm] = useState({ ...EMPTY_FORM, kids: [] });
   const [openSections, setOpenSections] = useState({ about: true, family: false, daily: false, personality: false, learning: false });
@@ -423,24 +425,27 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
         </Section>
 
         {error && <p className={styles.error}>{error}</p>}
+        {!isOnline && <p className={styles.error}>Building a scene needs a connection. Your answers are saved, so you can build once you're back online.</p>}
       </div>
 
       <div className={styles.stickyBar}>
         <button
           className={styles.generateBtn}
           onClick={handleGenerate}
-          disabled={!form.name.trim() || generating}
-          title={!form.name.trim() ? 'Add your name in the first section' : undefined}
+          disabled={!form.name.trim() || generating || !isOnline}
+          title={!form.name.trim() ? 'Add your name in the first section' : !isOnline ? 'Needs a connection' : undefined}
         >
-          {generating
-            ? 'Building your scene...'
-            : !form.name.trim()
-              ? 'Add your name (first section) to build'
-              : phraseCount > 0
-                ? existingPhrases.length > 0
-                  ? `Rebuild scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
-                  : `Build scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
-                : 'Fill in a field or two to start'}
+          {!isOnline
+            ? 'Needs a connection'
+            : generating
+              ? 'Building your scene...'
+              : !form.name.trim()
+                ? 'Add your name (first section) to build'
+                : phraseCount > 0
+                  ? existingPhrases.length > 0
+                    ? `Rebuild scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
+                    : `Build scene · ${phraseCount} ${phraseCount === 1 ? 'phrase' : 'phrases'}`
+                  : 'Fill in a field or two to start'}
         </button>
       </div>
     </div>

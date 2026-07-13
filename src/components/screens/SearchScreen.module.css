@@ -112,6 +112,22 @@
   color: var(--accent);
 }
 
+.addOwnTrigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.addOwnTrigger:disabled:hover {
+  background: var(--bg-1);
+  color: var(--fg-1);
+}
+
+.offlineNote {
+  font-size: 13px;
+  color: var(--fg-2);
+  font-style: italic;
+}
+
 .addIcon {
   font-size: 20px;
   color: var(--accent);

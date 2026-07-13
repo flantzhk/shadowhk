@@ -347,7 +347,7 @@ export default function LibraryScreen({ onNavigate }) {
                 <span className={styles.lookupTeaserTitle}>
                   Quick words <span className={styles.lookupBadge}>Good to know</span>
                 </span>
-                <span className={styles.lookupCaption}>Numbers, colours, dates &amp; more — useful for every learner, not just you</span>
+                <span className={styles.lookupCaption}>Numbers, colours, dates and more, useful for every learner, not just you</span>
               </span>
               <span className={styles.lookupTeaserLink}>{REFERENCE_SETS.length} sets</span>
             </button>
