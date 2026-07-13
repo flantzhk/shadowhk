@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
-import { getAllLanguages } from '../../services/languageManager';
 import { getOfflineAudioStatus, subscribeAudioDownload } from '../../services/audioDownload';
 import { getCurrentUser, signOut, deleteAccount } from '../../services/auth';
 import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, CANTONESE_VOICES } from '../../utils/constants';
@@ -27,7 +26,6 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
   const back = onBack ?? goBack;
   const nav = onNavigate ?? navigate;
   const { settings, updateSettings } = useAppContext();
-  const languages = getAllLanguages();
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
   const [showDeleteWarning, setShowDeleteWarning] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -171,20 +169,6 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
         </button>
         <h1 className={styles.title}>Settings</h1>
       </div>
-
-      {languages.length > 0 && <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Language</h2>
-        <div className={styles.langRow}>
-          {languages.map(lang => (
-            <button key={lang.id}
-              className={`${styles.langPill} ${settings.currentLanguage === lang.id ? styles.langActive : ''}`}
-              onClick={() => updateSettings({ currentLanguage: lang.id })}>
-              <span className={styles.langName}>{lang.name}</span>
-              <span className={styles.langNative}>{lang.nativeName}</span>
-            </button>
-          ))}
-        </div>
-      </div>}
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Profile</h2>
