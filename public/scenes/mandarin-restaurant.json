@@ -1,0 +1,160 @@
+{
+    "id": "mandarin-restaurant",
+    "language": "mandarin",
+    "emoji": "🍜",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-restaurant.jpg",
+    "tint": "#E8703A",
+    "title": "Ordering at a restaurant",
+    "description": "Get a table, ask for a recommendation, and order a meal",
+    "category": "food",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Restaurant, Mainland China",
+    "context": "Most restaurants seat you first and bring a menu, sometimes a QR code to order from your phone instead of paper. Asking staff for a recommendation (推荐) is completely normal and often gets you the best dish on the menu.",
+    "cultural_note": "You call a server over by saying 服务员 (fú wù yuán) — it's not rude, it's just how it's done; there's rarely table service without being flagged down. Asking to pay is \"买单\" (mǎi dān), and the bill is almost always settled at the table, not a register near the door.",
+    "lines": [
+        {
+            "id": "mandarin-restaurant-01",
+            "speaker": "you",
+            "cjk": "你好，两位。",
+            "pinyin": "nǐ hǎo, liǎng wèi.",
+            "english": "Hello, table for two.",
+            "audioFile": "mandarin-restaurant-01.mp3",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "两位", "pinyin": "liǎng wèi", "english": "two people" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-02",
+            "speaker": "staff",
+            "cjk": "好的，这边请。这是菜单。",
+            "pinyin": "hǎo de, zhè biān qǐng. zhè shì cài dān.",
+            "english": "OK, this way please. Here's the menu.",
+            "audioFile": "mandarin-restaurant-02.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "这边请", "pinyin": "zhè biān qǐng", "english": "this way please" },
+                { "chinese": "这是", "pinyin": "zhè shì", "english": "this is" },
+                { "chinese": "菜单", "pinyin": "cài dān", "english": "menu" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-03",
+            "speaker": "you",
+            "cjk": "请问，有什么推荐吗？",
+            "pinyin": "qǐng wèn, yǒu shén me tuī jiàn ma?",
+            "english": "Excuse me, any recommendations?",
+            "audioFile": "mandarin-restaurant-03.mp3",
+            "words": [
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "excuse me" },
+                { "chinese": "有什么", "pinyin": "yǒu shén me", "english": "what is there" },
+                { "chinese": "推荐", "pinyin": "tuī jiàn", "english": "recommend" },
+                { "chinese": "吗", "pinyin": "ma", "english": "(question particle)" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-04",
+            "speaker": "staff",
+            "cjk": "我们的宫保鸡丁很有名。",
+            "pinyin": "wǒ men de gōng bǎo jī dīng hěn yǒu míng.",
+            "english": "Our Kung Pao chicken is famous.",
+            "audioFile": "mandarin-restaurant-04.mp3",
+            "words": [
+                { "chinese": "我们的", "pinyin": "wǒ men de", "english": "our" },
+                { "chinese": "宫保鸡丁", "pinyin": "gōng bǎo jī dīng", "english": "Kung Pao chicken" },
+                { "chinese": "很有名", "pinyin": "hěn yǒu míng", "english": "is famous" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-05",
+            "speaker": "you",
+            "cjk": "好，那来一份宫保鸡丁，还有一碗米饭。",
+            "pinyin": "hǎo, nà lái yí fèn gōng bǎo jī dīng, hái yǒu yì wǎn mǐ fàn.",
+            "english": "OK, one Kung Pao chicken, and a bowl of rice.",
+            "audioFile": "mandarin-restaurant-05.mp3",
+            "words": [
+                { "chinese": "好", "pinyin": "hǎo", "english": "OK" },
+                { "chinese": "来一份", "pinyin": "lái yí fèn", "english": "bring one order" },
+                { "chinese": "宫保鸡丁", "pinyin": "gōng bǎo jī dīng", "english": "Kung Pao chicken" },
+                { "chinese": "还有", "pinyin": "hái yǒu", "english": "also" },
+                { "chinese": "一碗米饭", "pinyin": "yì wǎn mǐ fàn", "english": "a bowl of rice" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-06",
+            "speaker": "you",
+            "cjk": "不要太辣，谢谢。",
+            "pinyin": "bú yào tài là, xiè xiè.",
+            "english": "Not too spicy, thanks.",
+            "audioFile": "mandarin-restaurant-06.mp3",
+            "words": [
+                { "chinese": "不要", "pinyin": "bú yào", "english": "don't" },
+                { "chinese": "太辣", "pinyin": "tài là", "english": "too spicy" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-07",
+            "speaker": "staff",
+            "cjk": "好的，还需要点什么？",
+            "pinyin": "hǎo de, hái xū yào diǎn shén me?",
+            "english": "OK, anything else?",
+            "audioFile": "mandarin-restaurant-07.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "还需要", "pinyin": "hái xū yào", "english": "still need" },
+                { "chinese": "点什么", "pinyin": "diǎn shén me", "english": "order what" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-08",
+            "speaker": "you",
+            "cjk": "一瓶水就可以了。",
+            "pinyin": "yì píng shuǐ jiù kě yǐ le.",
+            "english": "Just a bottle of water is fine.",
+            "audioFile": "mandarin-restaurant-08.mp3",
+            "words": [
+                { "chinese": "一瓶水", "pinyin": "yì píng shuǐ", "english": "a bottle of water" },
+                { "chinese": "就可以了", "pinyin": "jiù kě yǐ le", "english": "that's fine" }
+            ]
+        },
+        {
+            "id": "mandarin-restaurant-09",
+            "speaker": "you",
+            "cjk": "服务员，买单，谢谢。",
+            "pinyin": "fú wù yuán, mǎi dān, xiè xiè.",
+            "english": "Waiter, the bill please, thanks.",
+            "audioFile": "mandarin-restaurant-09.mp3",
+            "words": [
+                { "chinese": "服务员", "pinyin": "fú wù yuán", "english": "waiter / waitress" },
+                { "chinese": "买单", "pinyin": "mǎi dān", "english": "the bill" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Ordering",
+            "words": [
+                { "chinese": "菜单", "pinyin": "cài dān", "english": "menu" },
+                { "chinese": "推荐", "pinyin": "tuī jiàn", "english": "recommend" },
+                { "chinese": "辣", "pinyin": "là", "english": "spicy" },
+                { "chinese": "米饭", "pinyin": "mǐ fàn", "english": "rice" },
+                { "chinese": "买单", "pinyin": "mǎi dān", "english": "pay the bill" },
+                { "chinese": "服务员", "pinyin": "fú wù yuán", "english": "waiter / waitress" }
+            ]
+        },
+        {
+            "category": "Food & Drink",
+            "words": [
+                { "chinese": "鸡肉", "pinyin": "jī ròu", "english": "chicken" },
+                { "chinese": "牛肉", "pinyin": "niú ròu", "english": "beef" },
+                { "chinese": "蔬菜", "pinyin": "shū cài", "english": "vegetables" },
+                { "chinese": "汤", "pinyin": "tāng", "english": "soup" },
+                { "chinese": "水", "pinyin": "shuǐ", "english": "water" },
+                { "chinese": "茶", "pinyin": "chá", "english": "tea" }
+            ]
+        }
+    ]
+}

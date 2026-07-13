@@ -159,7 +159,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     wordAudioRef.current?.pause();
     setPlayingWordIndex(i);
     try {
-      const blob = (await staticWordAudio(w.chinese)) ?? await textToSpeech(w.chinese, { language, turbo: true });
+      const blob = (await staticWordAudio(w.chinese, language)) ?? await textToSpeech(w.chinese, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       const wordAudio = new Audio(url);
       wordAudioRef.current = wordAudio;
@@ -390,7 +390,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               {breakdown.length > 0
                 ? breakdown.map((w, i) => (
                     <span key={i} className={`${styles.focusSyll} ${playingWordIndex === i ? styles.focusWordPlaying : ''}`}>
-                      {w.jyutping}{i < breakdown.length - 1 ? ' ' : ''}
+                      {w.romanization ?? w.jyutping}{i < breakdown.length - 1 ? ' ' : ''}
                     </span>
                   ))
                 : (currentYouLine?.romanization ?? '—')}
@@ -417,7 +417,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               than opening to a "no breakdown yet" dead end */}
           {breakdown.length > 0 && (
             <div className={styles.focusActions}>
-              <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words); return !v; }); }} aria-label="Word-by-word breakdown">
+              <button className={styles.breakdownBtn} onClick={() => { setShowBreakdown(v => { if (!v) prefetchWordAudio(currentYouLine?.words, language); return !v; }); }} aria-label="Word-by-word breakdown">
                 📖 Breakdown
               </button>
             </div>
@@ -434,7 +434,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
                   aria-label={`Play ${w.chinese}`}
                 >
                   <span className={styles.bdCjk}>{w.chinese}</span>
-                  <span className={styles.bdJyut}>{w.jyutping}</span>
+                  <span className={styles.bdJyut}>{w.romanization ?? w.jyutping}</span>
                   <span className={styles.bdGloss}>{w.english}</span>
                 </button>
               ))}
@@ -515,7 +515,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
               className={`${styles.eyeToggle} ${showJyutping ? styles.eyeToggleOn : ''}`}
               onClick={() => updateSettings({ showRomanization: !showJyutping })}
             >
-              <EyeIcon /> JYUTPING
+              <EyeIcon /> {language === 'mandarin' ? 'PINYIN' : 'JYUTPING'}
             </button>
             <button
               className={`${styles.eyeToggle} ${showEnglishToggle ? styles.eyeToggleOn : ''}`}

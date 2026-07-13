@@ -53,7 +53,7 @@ export function PhraseRow({
       // Pre-recorded file first (works offline, no API dependency);
       // live TTS only as a fallback for rows without a known phrase id.
       const staticBlob = isWord
-        ? await staticWordAudio(text)
+        ? await staticWordAudio(text, language)
         : await staticPhraseAudio(phraseId, language);
       const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
@@ -94,8 +94,8 @@ export function PhraseRow({
   async function fetchWordGroups() {
     // Precomputed breakdown shipped with the data: no network, works offline
     if (Array.isArray(words) && words.length > 0) {
-      setWordGroups(words.map(w => ({ chars: w.chinese, meaning: w.english, jyutping: w.jyutping })));
-      prefetchWordAudio(words);
+      setWordGroups(words.map(w => ({ chars: w.chinese, meaning: w.english, jyutping: w.romanization ?? w.jyutping })));
+      prefetchWordAudio(words, language);
       return;
     }
     if (!chinese) return;
@@ -110,7 +110,7 @@ export function PhraseRow({
         ? data.groups.filter(g => g.chars && g.meaning)
         : [];
       setWordGroups(groups.length ? groups : false);
-      if (groups.length) prefetchWordAudio(groups.map(g => g.chars));
+      if (groups.length) prefetchWordAudio(groups.map(g => g.chars), language);
     } catch (err) {
       logger.error('[PhraseRow] word breakdown failed', err?.message ?? err);
       setWordGroups(false);

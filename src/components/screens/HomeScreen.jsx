@@ -121,7 +121,7 @@ export default function HomeScreen({ onNavigate }) {
       )}
 
       {!isGuest && personalPhraseCount === 0 && (
-        <PersonalSceneSetup onNavigate={onNavigate} />
+        <PersonalSceneSetup onNavigate={onNavigate} language={language} />
       )}
 
       {hasRecentProgress && (
@@ -158,10 +158,10 @@ export default function HomeScreen({ onNavigate }) {
         <span className={styles.sectionNum}>{nextSectionNum()}</span>
         <span className={styles.sectionLabel}>Quick practice</span>
       </div>
-      <PracticeGrid onNavigate={onNavigate} />
+      <PracticeGrid onNavigate={onNavigate} language={language} />
 
       {isGuest && personalPhraseCount === 0 && (
-        <PersonalSceneSetup onNavigate={onNavigate} />
+        <PersonalSceneSetup onNavigate={onNavigate} language={language} />
       )}
 
       <div className={styles.bottomPad} />
@@ -416,12 +416,12 @@ function TryNextRail({ scenes, personal, onNavigate }) {
   );
 }
 
-function PracticeGrid({ onNavigate }) {
+function PracticeGrid({ onNavigate, language }) {
   const modes = [
     { label: 'TONE GYM',        sub: 'Ear training',        route: 'tonegym',        fill: 'tonegym' },
     { label: 'FREE CHAT',       sub: 'Open conversation',   route: 'ai-scenario',    fill: 'freechat' },
     { label: 'SPEED RUN',       sub: 'Drills',               route: 'speedrun',       fill: 'speedrun' },
-    { label: 'READ JYUTPING',   sub: 'Tones & sounds',       route: 'jyutping-guide', fill: 'jyutping', star: true },
+    { label: language === 'mandarin' ? 'READ PINYIN' : 'READ JYUTPING', sub: 'Tones & sounds', route: 'jyutping-guide', fill: 'jyutping', star: true },
   ];
   return (
     <div className={styles.practiceGrid}>
@@ -440,13 +440,13 @@ function PracticeGrid({ onNavigate }) {
   );
 }
 
-function PersonalSceneSetup({ onNavigate }) {
+function PersonalSceneSetup({ onNavigate, language }) {
   return (
     <section className={styles.personalSection}>
       <button className={styles.personalEmpty} onClick={() => onNavigate('introduce-yourself')}>
         <span className={styles.personalEmptyEmoji}>👋</span>
         <div className={styles.personalEmptyText}>
-          <p className={styles.personalEmptyTitle}>Introduce yourself in Cantonese</p>
+          <p className={styles.personalEmptyTitle}>Introduce yourself in {language === 'mandarin' ? 'Mandarin' : 'Cantonese'}</p>
           <p className={styles.personalEmptyDesc}>Tell us your name, job, and a bit about your life, we'll build you a custom scene to shadow.</p>
         </div>
         <span className={styles.personalEmptyArrow}>Set it up →</span>

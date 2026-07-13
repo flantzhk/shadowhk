@@ -1,0 +1,151 @@
+{
+    "id": "mandarin-hotel",
+    "language": "mandarin",
+    "emoji": "🏨",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-hotel.jpg",
+    "tint": "#8F6AE8",
+    "title": "Checking into a hotel",
+    "description": "Check in, ask about check-out time, and find breakfast",
+    "category": "services",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Hotel front desk, Mainland China",
+    "context": "Front desk staff will ask for your passport at check-in — this is standard practice everywhere in China, so have it ready rather than a photo of it.",
+    "cultural_note": "Hotels almost always require a cash or card deposit (押金, yā jīn) at check-in on top of the room rate, refunded when you check out with nothing missing from the minibar. Don't be alarmed when they ask.",
+    "lines": [
+        {
+            "id": "mandarin-hotel-01",
+            "speaker": "you",
+            "cjk": "你好，我要办理入住，我姓王。",
+            "pinyin": "nǐ hǎo, wǒ yào bàn lǐ rù zhù, wǒ xìng wáng.",
+            "english": "Hello, I'd like to check in, my surname is Wang.",
+            "audioFile": "mandarin-hotel-01.mp3",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "我要", "pinyin": "wǒ yào", "english": "I want to" },
+                { "chinese": "办理入住", "pinyin": "bàn lǐ rù zhù", "english": "check in" },
+                { "chinese": "我姓王", "pinyin": "wǒ xìng wáng", "english": "my surname is Wang" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-02",
+            "speaker": "staff",
+            "cjk": "好的，请给我您的护照。",
+            "pinyin": "hǎo de, qǐng gěi wǒ nín de hù zhào.",
+            "english": "OK, please give me your passport.",
+            "audioFile": "mandarin-hotel-02.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "请给我", "pinyin": "qǐng gěi wǒ", "english": "please give me" },
+                { "chinese": "您的", "pinyin": "nín de", "english": "your (polite)" },
+                { "chinese": "护照", "pinyin": "hù zhào", "english": "passport" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-03",
+            "speaker": "you",
+            "cjk": "给你。我订了一个双人房。",
+            "pinyin": "gěi nǐ. wǒ dìng le yí gè shuāng rén fáng.",
+            "english": "Here you go. I booked a double room.",
+            "audioFile": "mandarin-hotel-03.mp3",
+            "words": [
+                { "chinese": "给你", "pinyin": "gěi nǐ", "english": "here you go" },
+                { "chinese": "我订了", "pinyin": "wǒ dìng le", "english": "I booked" },
+                { "chinese": "一个", "pinyin": "yí gè", "english": "one / a" },
+                { "chinese": "双人房", "pinyin": "shuāng rén fáng", "english": "double room" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-04",
+            "speaker": "staff",
+            "cjk": "好，一共住三晚，对吗？",
+            "pinyin": "hǎo, yí gòng zhù sān wǎn, duì ma?",
+            "english": "OK, three nights total, correct?",
+            "audioFile": "mandarin-hotel-04.mp3",
+            "words": [
+                { "chinese": "好", "pinyin": "hǎo", "english": "OK" },
+                { "chinese": "一共", "pinyin": "yí gòng", "english": "altogether" },
+                { "chinese": "住三晚", "pinyin": "zhù sān wǎn", "english": "stay three nights" },
+                { "chinese": "对吗", "pinyin": "duì ma", "english": "is that right" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-05",
+            "speaker": "you",
+            "cjk": "对。请问几点可以退房？",
+            "pinyin": "duì. qǐng wèn jǐ diǎn kě yǐ tuì fáng?",
+            "english": "Yes. What time is check-out?",
+            "audioFile": "mandarin-hotel-05.mp3",
+            "words": [
+                { "chinese": "对", "pinyin": "duì", "english": "correct" },
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "may I ask" },
+                { "chinese": "几点", "pinyin": "jǐ diǎn", "english": "what time" },
+                { "chinese": "可以退房", "pinyin": "kě yǐ tuì fáng", "english": "can check out" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-06",
+            "speaker": "staff",
+            "cjk": "中午十二点前退房就可以。",
+            "pinyin": "zhōng wǔ shí èr diǎn qián tuì fáng jiù kě yǐ.",
+            "english": "Check-out is before noon.",
+            "audioFile": "mandarin-hotel-06.mp3",
+            "words": [
+                { "chinese": "中午十二点", "pinyin": "zhōng wǔ shí èr diǎn", "english": "noon, 12pm" },
+                { "chinese": "前", "pinyin": "qián", "english": "before" },
+                { "chinese": "退房", "pinyin": "tuì fáng", "english": "check out" },
+                { "chinese": "就可以", "pinyin": "jiù kě yǐ", "english": "is fine" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-07",
+            "speaker": "you",
+            "cjk": "谢谢。早餐在哪里吃？",
+            "pinyin": "xiè xiè. zǎo cān zài nǎ lǐ chī?",
+            "english": "Thanks. Where do we eat breakfast?",
+            "audioFile": "mandarin-hotel-07.mp3",
+            "words": [
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" },
+                { "chinese": "早餐", "pinyin": "zǎo cān", "english": "breakfast" },
+                { "chinese": "在哪里吃", "pinyin": "zài nǎ lǐ chī", "english": "where to eat" }
+            ]
+        },
+        {
+            "id": "mandarin-hotel-08",
+            "speaker": "staff",
+            "cjk": "一楼餐厅，早上七点开始。",
+            "pinyin": "yī lóu cān tīng, zǎo shàng qī diǎn kāi shǐ.",
+            "english": "The first-floor restaurant, starts at 7am.",
+            "audioFile": "mandarin-hotel-08.mp3",
+            "words": [
+                { "chinese": "一楼", "pinyin": "yī lóu", "english": "first floor" },
+                { "chinese": "餐厅", "pinyin": "cān tīng", "english": "restaurant" },
+                { "chinese": "早上七点", "pinyin": "zǎo shàng qī diǎn", "english": "7am" },
+                { "chinese": "开始", "pinyin": "kāi shǐ", "english": "starts" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Hotel Words",
+            "words": [
+                { "chinese": "入住", "pinyin": "rù zhù", "english": "check in" },
+                { "chinese": "退房", "pinyin": "tuì fáng", "english": "check out" },
+                { "chinese": "房间", "pinyin": "fáng jiān", "english": "room" },
+                { "chinese": "双人房", "pinyin": "shuāng rén fáng", "english": "double room" },
+                { "chinese": "单人房", "pinyin": "dān rén fáng", "english": "single room" },
+                { "chinese": "前台", "pinyin": "qián tái", "english": "front desk" }
+            ]
+        },
+        {
+            "category": "Around the Hotel",
+            "words": [
+                { "chinese": "早餐", "pinyin": "zǎo cān", "english": "breakfast" },
+                { "chinese": "电梯", "pinyin": "diàn tī", "english": "elevator" },
+                { "chinese": "钥匙", "pinyin": "yào shi", "english": "key" },
+                { "chinese": "房卡", "pinyin": "fáng kǎ", "english": "room key card" },
+                { "chinese": "一楼", "pinyin": "yī lóu", "english": "first floor" }
+            ]
+        }
+    ]
+}

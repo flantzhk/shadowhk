@@ -160,7 +160,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
       if (!phrases.length) throw new Error('No phrases generated. Try adding more details.');
 
       const savedEntries = await savePersonalScene(phrases, language);
-      const scene = buildPersonalSceneObject(phrases, form.name);
+      const scene = buildPersonalSceneObject(phrases, form.name, language);
 
       // Warm the audio cache in the background so playback is instant
       // once the user reaches the phrase list — don't block on it.

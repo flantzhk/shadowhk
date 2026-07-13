@@ -25,3 +25,22 @@ Always apply `/karpathy-guidelines` when writing or reviewing code in this proje
 - **Go slow.** cantonese.ai rate-limits hard: 3000ms between requests is safe; the script backs off 30s on 429 and aborts after 5 consecutive failures.
 - If every request 400s ("Invalid voice or you don't have access"), the account plan/credits have lapsed — fix billing at cantonese.ai first.
 - Key lives in `.env` (gitignored) as `CANTONESE_AI_KEY`. The Cloudflare Worker holds its own copy as a secret — rotate both together.
+
+## Audio Generation (Mandarin — ElevenLabs)
+
+- Script: `scripts/generate-mandarin-audio.mjs` — only processes scene files with `"language": "mandarin"`; writes `public/audio/mandarin/{id}.mp3` and `public/audio/mandarin-words/{word}.mp3` directly (no raw/trim step).
+- **No truncation bug.** Unlike cantonese.ai, ElevenLabs does not chop short phrases — verified with a 2-character phrase coming back as a complete clip. No sacrificial-tail workaround needed.
+- Run: `set -a && source .env && set +a && node scripts/generate-mandarin-audio.mjs`
+- **Voice: `bhJUNIXWQQ94l8eI2VUf`** (Faith's chosen native Mandarin voice, Jul 2026), model `eleven_multilingual_v2`. Override with `MANDARIN_VOICE` env var.
+- Key lives in `.env` (gitignored) as `ELEVENLABS_KEY`. This key only has `text_to_speech` permission (not `voices_read`/`user_read`) — can't list/browse voices via API, only generate with a known voice_id.
+- Pinyin (with diacritic tone marks, not tone numbers) is generated via the `pinyin-pro` npm package — deterministic and local, no API call needed (unlike Cantonese jyutping, which requires cantonese.ai's `/text-to-jyutping` endpoint).
+
+## Open mystery: live worker backend vs. this repo
+
+The deployed Cloudflare Worker at `shadowspeak-api.faith-lantz-ee8.workers.dev` answers
+`/score-pronunciation` and `/tts` with `401 Unauthorized` (confirmed via direct probe —
+not `404`, so the routes are real). But `worker/src/index.js` in this repo only
+implements Stripe/RevenueCat/Firestore webhooks — zero TTS/STT/scoring logic, and no
+uncommitted or gitignored worker file exists locally either. **The deployed worker runs
+code that isn't in this git history.** Until located, don't assume the live scoring/STT
+backend supports Mandarin (or anything else) — check with Faith first.

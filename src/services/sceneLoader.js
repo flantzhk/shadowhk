@@ -26,20 +26,40 @@ function detectRomKey(lines) {
 }
 
 /**
- * Normalise a raw scene object: rename jyutping/pinyin → romanization on every line.
+ * Rename jyutping/pinyin → romanization on a single word object, if present.
+ * @param {Object} word
+ * @returns {Object}
+ */
+function normaliseWord(word) {
+  if (!word || 'romanization' in word) return word;
+  if ('jyutping' in word) { const { jyutping, ...rest } = word; return { ...rest, romanization: jyutping }; }
+  if ('pinyin' in word) { const { pinyin, ...rest } = word; return { ...rest, romanization: pinyin }; }
+  return word;
+}
+
+/**
+ * Normalise a raw scene object: rename jyutping/pinyin → romanization on every
+ * line, every line's word breakdown, and every vocabulary word.
  * @param {Object} raw
  * @returns {Object}
  */
 function normalise(raw) {
   const romKey = detectRomKey(raw.lines);
-  if (romKey === 'romanization') return raw;
-  return {
-    ...raw,
-    lines: raw.lines.map((line) => {
+  const lines = raw.lines?.map((line) => {
+    let next = line;
+    if (romKey !== 'romanization') {
       const { [romKey]: rom, ...rest } = line;
-      return { ...rest, romanization: rom };
-    }),
-  };
+      next = { ...rest, romanization: rom };
+    }
+    if (Array.isArray(next.words)) next = { ...next, words: next.words.map(normaliseWord) };
+    return next;
+  });
+  const vocabulary = raw.vocabulary?.map((group) => ({
+    ...group,
+    words: (group.words ?? []).map(normaliseWord),
+  }));
+  if (!lines && !vocabulary) return raw;
+  return { ...raw, ...(lines && { lines }), ...(vocabulary && { vocabulary }) };
 }
 
 /**

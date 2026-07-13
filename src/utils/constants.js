@@ -1,6 +1,6 @@
 // src/utils/constants.js
 
-export const APP_VERSION = '2.8.4';
+export const APP_VERSION = '2.9.0';
 export const MAX_LIBRARY_SIZE = 200;
 export const SECONDS_PER_PHRASE = 40;
 export const PRONUNCIATION_PASS_THRESHOLD = { cantonese: 90, mandarin: 70, english: 70 };
@@ -144,6 +144,11 @@ export const SCENE_CATEGORIES = {
   cantonese: ['basics', 'food', 'transport', 'social', 'services', 'festivals'],
   mandarin: ['basics', 'food', 'transport', 'social', 'services', 'festivals'],
 };
+
+export const SUPPORTED_LANGUAGES = [
+  { id: 'cantonese', name: 'Cantonese', nativeName: '廣東話' },
+  { id: 'mandarin', name: 'Mandarin', nativeName: '普通话' },
+];
 
 export const STREAK_MILESTONES = [7, 14, 30, 60, 100];
 

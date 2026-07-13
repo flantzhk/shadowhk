@@ -6,7 +6,7 @@ import styles from './FAQScreen.module.css';
 const FAQS = [
   {
     q: 'What is ShadowSpeak?',
-    a: 'ShadowSpeak is an audio-first app for learning to speak Cantonese. You listen to native speakers, shadow their pronunciation, and get real-time scoring.',
+    a: 'ShadowSpeak is an audio-first app for learning to speak Cantonese or Mandarin. You listen to native speakers, shadow their pronunciation, and get real-time scoring.',
   },
   {
     q: 'How does pronunciation scoring work?',
@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: 'What languages are supported?',
-    a: 'Cantonese (廣東話) and Mandarin (普通話). Both are fully supported with real-time pronunciation scoring and complete lesson plans.',
+    a: 'Cantonese (廣東話) and Mandarin (普通話). Cantonese has real-time pronunciation scoring and complete lesson plans. Mandarin currently offers scene-based lessons, TTS audio, tone training, and an AI conversation partner, with pronunciation scoring being rolled out.',
   },
   {
     q: 'How does the streak work?',

@@ -1,0 +1,119 @@
+{
+    "id": "mandarin-numbers-money",
+    "language": "mandarin",
+    "emoji": "💰",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-numbers-money.jpg",
+    "tint": "#E8A030",
+    "title": "Numbers and money",
+    "description": "Count to ten and handle everyday small purchases",
+    "category": "basics",
+    "difficulty": "beginner",
+    "estimatedMinutes": 4,
+    "location": "Market stall, Mainland China",
+    "context": "Numbers come up constantly while traveling — prices, quantities, room numbers, phone numbers. This scene drills 1-10 alongside a real small purchase.",
+    "cultural_note": "块 (kuài) is the everyday spoken word for yuan, the way people say \"bucks\" instead of \"dollars.\" 元 (yuán) is the formal written form you'll see printed on price tags and receipts, but almost nobody says it out loud.",
+    "lines": [
+        {
+            "id": "mandarin-numbers-money-01",
+            "speaker": "you",
+            "cjk": "这个多少钱一斤？",
+            "pinyin": "zhè ge duō shǎo qián yì jīn?",
+            "english": "How much per catty for this?",
+            "audioFile": "mandarin-numbers-money-01.mp3",
+            "words": [
+                { "chinese": "这个", "pinyin": "zhè ge", "english": "this" },
+                { "chinese": "多少钱", "pinyin": "duō shǎo qián", "english": "how much" },
+                { "chinese": "一斤", "pinyin": "yì jīn", "english": "per catty" }
+            ]
+        },
+        {
+            "id": "mandarin-numbers-money-02",
+            "speaker": "vendor",
+            "cjk": "十块钱一斤。",
+            "pinyin": "shí kuài qián yì jīn.",
+            "english": "Ten yuan per catty.",
+            "audioFile": "mandarin-numbers-money-02.mp3",
+            "words": [
+                { "chinese": "十块钱", "pinyin": "shí kuài qián", "english": "ten yuan" },
+                { "chinese": "一斤", "pinyin": "yì jīn", "english": "per catty" }
+            ]
+        },
+        {
+            "id": "mandarin-numbers-money-03",
+            "speaker": "you",
+            "cjk": "我要两斤，一共多少钱？",
+            "pinyin": "wǒ yào liǎng jīn, yí gòng duō shǎo qián?",
+            "english": "I want two catties, how much total?",
+            "audioFile": "mandarin-numbers-money-03.mp3",
+            "words": [
+                { "chinese": "我要", "pinyin": "wǒ yào", "english": "I want" },
+                { "chinese": "两斤", "pinyin": "liǎng jīn", "english": "two catties" },
+                { "chinese": "一共多少钱", "pinyin": "yí gòng duō shǎo qián", "english": "how much altogether" }
+            ]
+        },
+        {
+            "id": "mandarin-numbers-money-04",
+            "speaker": "vendor",
+            "cjk": "一共二十块。",
+            "pinyin": "yí gòng èr shí kuài.",
+            "english": "Twenty yuan total.",
+            "audioFile": "mandarin-numbers-money-04.mp3",
+            "words": [
+                { "chinese": "一共", "pinyin": "yí gòng", "english": "altogether" },
+                { "chinese": "二十块", "pinyin": "èr shí kuài", "english": "twenty yuan" }
+            ]
+        },
+        {
+            "id": "mandarin-numbers-money-05",
+            "speaker": "you",
+            "cjk": "给你五十，找我三十，谢谢。",
+            "pinyin": "gěi nǐ wǔ shí, zhǎo wǒ sān shí, xiè xiè.",
+            "english": "Here's fifty, give me thirty back, thanks.",
+            "audioFile": "mandarin-numbers-money-05.mp3",
+            "words": [
+                { "chinese": "给你五十", "pinyin": "gěi nǐ wǔ shí", "english": "here's fifty" },
+                { "chinese": "找我三十", "pinyin": "zhǎo wǒ sān shí", "english": "give me thirty back" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" }
+            ]
+        },
+        {
+            "id": "mandarin-numbers-money-06",
+            "speaker": "vendor",
+            "cjk": "好的，谢谢惠顾。",
+            "pinyin": "hǎo de, xiè xiè huì gù.",
+            "english": "OK, thanks for shopping with us.",
+            "audioFile": "mandarin-numbers-money-06.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "谢谢惠顾", "pinyin": "xiè xiè huì gù", "english": "thanks for your patronage" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Numbers 1-10",
+            "words": [
+                { "chinese": "一", "pinyin": "yī", "english": "one" },
+                { "chinese": "二", "pinyin": "èr", "english": "two" },
+                { "chinese": "三", "pinyin": "sān", "english": "three" },
+                { "chinese": "四", "pinyin": "sì", "english": "four" },
+                { "chinese": "五", "pinyin": "wǔ", "english": "five" },
+                { "chinese": "六", "pinyin": "liù", "english": "six" },
+                { "chinese": "七", "pinyin": "qī", "english": "seven" },
+                { "chinese": "八", "pinyin": "bā", "english": "eight" },
+                { "chinese": "九", "pinyin": "jiǔ", "english": "nine" },
+                { "chinese": "十", "pinyin": "shí", "english": "ten" }
+            ]
+        },
+        {
+            "category": "Money Words",
+            "words": [
+                { "chinese": "钱", "pinyin": "qián", "english": "money" },
+                { "chinese": "块", "pinyin": "kuài", "english": "yuan (colloquial)" },
+                { "chinese": "元", "pinyin": "yuán", "english": "yuan (formal)" },
+                { "chinese": "找钱", "pinyin": "zhǎo qián", "english": "give change" },
+                { "chinese": "一共", "pinyin": "yí gòng", "english": "altogether" }
+            ]
+        }
+    ]
+}

@@ -21,7 +21,7 @@ export function PrivacyPolicy({ onBack }) {
       <ul className={styles.list}>
         <li>Your email address and name</li>
         <li>Your learning progress and streak</li>
-        <li>Voice recordings (sent to cantonese.ai for scoring, never stored)</li>
+        <li>Voice recordings (sent to our pronunciation-scoring provider, never stored)</li>
         <li>Anonymous usage analytics</li>
       </ul>
 
@@ -34,9 +34,9 @@ export function PrivacyPolicy({ onBack }) {
 
       <h2 className={styles.sectionTitle}>3. Who we share it with</h2>
       <p className={styles.body}>
-        We share pronunciation audio with cantonese.ai solely for scoring purposes.
-        We do not sell your data to third parties. Anonymous analytics may be processed
-        by standard analytics providers.
+        We share pronunciation audio with our scoring and text-to-speech providers
+        solely for those purposes. We do not sell your data to third parties.
+        Anonymous analytics may be processed by standard analytics providers.
       </p>
 
       <h2 className={styles.sectionTitle}>4. Your rights</h2>
@@ -79,8 +79,9 @@ export function TermsOfService({ onBack }) {
 
       <h2 className={styles.sectionTitle}>2. The service</h2>
       <p className={styles.body}>
-        ShadowSpeak is a language learning app focused on speaking Cantonese. We provide
-        audio lessons, pronunciation scoring, and spaced repetition practice.
+        ShadowSpeak is a language learning app focused on speaking Cantonese and
+        Mandarin. We provide audio lessons, pronunciation scoring, and spaced
+        repetition practice.
       </p>
 
       <h2 className={styles.sectionTitle}>3. Your account</h2>
@@ -104,7 +105,7 @@ export function TermsOfService({ onBack }) {
       <h2 className={styles.sectionTitle}>6. Limitation of liability</h2>
       <p className={styles.body}>
         ShadowSpeak is provided as-is. We're not liable for any damages arising from
-        use of the app. We don't guarantee fluency in Cantonese.
+        use of the app. We don't guarantee fluency in Cantonese or Mandarin.
       </p>
 
       <div className={styles.divider} />

@@ -1,0 +1,141 @@
+{
+    "id": "mandarin-kids-classroom",
+    "language": "mandarin",
+    "emoji": "🏫",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-kids-classroom.jpg",
+    "tint": "#3A8FE8",
+    "title": "Classroom phrases for kids",
+    "description": "Simple phrases for a classroom visit, plus colors",
+    "category": "basics",
+    "difficulty": "beginner",
+    "estimatedMinutes": 4,
+    "location": "A classroom, Mainland China",
+    "context": "Handy for a school visit or just talking with a teacher during the trip — asking to go to the restroom and reading along with the teacher are two of the most useful classroom phrases for a young beginner.",
+    "cultural_note": "Chinese classrooms often start the day with the whole class greeting the teacher together, so 老师好 (hello teacher, said as a group) is a common ritual kids will hear before anything else.",
+    "lines": [
+        {
+            "id": "mandarin-kids-classroom-01",
+            "speaker": "you",
+            "cjk": "老师，早上好！",
+            "pinyin": "lǎo shī, zǎo shàng hǎo!",
+            "english": "Good morning, teacher!",
+            "audioFile": "mandarin-kids-classroom-01.mp3",
+            "words": [
+                { "chinese": "老师", "pinyin": "lǎo shī", "english": "teacher" },
+                { "chinese": "早上好", "pinyin": "zǎo shàng hǎo", "english": "good morning" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-02",
+            "speaker": "teacher",
+            "cjk": "早上好，同学们！",
+            "pinyin": "zǎo shàng hǎo, tóng xué men!",
+            "english": "Good morning, students!",
+            "audioFile": "mandarin-kids-classroom-02.mp3",
+            "words": [
+                { "chinese": "早上好", "pinyin": "zǎo shàng hǎo", "english": "good morning" },
+                { "chinese": "同学们", "pinyin": "tóng xué men", "english": "students / classmates" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-03",
+            "speaker": "teacher",
+            "cjk": "请打开课本，第十页。",
+            "pinyin": "qǐng dǎ kāi kè běn, dì shí yè.",
+            "english": "Please open your books to page 10.",
+            "audioFile": "mandarin-kids-classroom-03.mp3",
+            "words": [
+                { "chinese": "请打开", "pinyin": "qǐng dǎ kāi", "english": "please open" },
+                { "chinese": "课本", "pinyin": "kè běn", "english": "textbook" },
+                { "chinese": "第十页", "pinyin": "dì shí yè", "english": "page ten" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-04",
+            "speaker": "you",
+            "cjk": "老师，这个字怎么读？",
+            "pinyin": "lǎo shī, zhè ge zì zěn me dú?",
+            "english": "Teacher, how do you read this character?",
+            "audioFile": "mandarin-kids-classroom-04.mp3",
+            "words": [
+                { "chinese": "老师", "pinyin": "lǎo shī", "english": "teacher" },
+                { "chinese": "这个字", "pinyin": "zhè ge zì", "english": "this character" },
+                { "chinese": "怎么读", "pinyin": "zěn me dú", "english": "how to read" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-05",
+            "speaker": "teacher",
+            "cjk": "跟我读一遍。",
+            "pinyin": "gēn wǒ dú yí biàn.",
+            "english": "Read it after me.",
+            "audioFile": "mandarin-kids-classroom-05.mp3",
+            "words": [
+                { "chinese": "跟我读", "pinyin": "gēn wǒ dú", "english": "read with me" },
+                { "chinese": "一遍", "pinyin": "yí biàn", "english": "once" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-06",
+            "speaker": "you",
+            "cjk": "老师，我可以上厕所吗？",
+            "pinyin": "lǎo shī, wǒ kě yǐ shàng cè suǒ ma?",
+            "english": "Teacher, may I go to the restroom?",
+            "audioFile": "mandarin-kids-classroom-06.mp3",
+            "words": [
+                { "chinese": "老师", "pinyin": "lǎo shī", "english": "teacher" },
+                { "chinese": "我可以", "pinyin": "wǒ kě yǐ", "english": "may I" },
+                { "chinese": "上厕所", "pinyin": "shàng cè suǒ", "english": "go to the restroom" },
+                { "chinese": "吗", "pinyin": "ma", "english": "(question particle)" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-07",
+            "speaker": "teacher",
+            "cjk": "可以，快去快回。",
+            "pinyin": "kě yǐ, kuài qù kuài huí.",
+            "english": "Yes, go quickly and come back.",
+            "audioFile": "mandarin-kids-classroom-07.mp3",
+            "words": [
+                { "chinese": "可以", "pinyin": "kě yǐ", "english": "yes" },
+                { "chinese": "快去快回", "pinyin": "kuài qù kuài huí", "english": "go quickly and come back" }
+            ]
+        },
+        {
+            "id": "mandarin-kids-classroom-08",
+            "speaker": "you",
+            "cjk": "谢谢老师！",
+            "pinyin": "xiè xiè lǎo shī!",
+            "english": "Thank you, teacher!",
+            "audioFile": "mandarin-kids-classroom-08.mp3",
+            "words": [
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" },
+                { "chinese": "老师", "pinyin": "lǎo shī", "english": "teacher" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Classroom",
+            "words": [
+                { "chinese": "老师", "pinyin": "lǎo shī", "english": "teacher" },
+                { "chinese": "同学", "pinyin": "tóng xué", "english": "classmate" },
+                { "chinese": "课本", "pinyin": "kè běn", "english": "textbook" },
+                { "chinese": "铅笔", "pinyin": "qiān bǐ", "english": "pencil" },
+                { "chinese": "本子", "pinyin": "běn zi", "english": "notebook" },
+                { "chinese": "黑板", "pinyin": "hēi bǎn", "english": "blackboard" }
+            ]
+        },
+        {
+            "category": "Colors",
+            "words": [
+                { "chinese": "红色", "pinyin": "hóng sè", "english": "red" },
+                { "chinese": "蓝色", "pinyin": "lán sè", "english": "blue" },
+                { "chinese": "黄色", "pinyin": "huáng sè", "english": "yellow" },
+                { "chinese": "绿色", "pinyin": "lǜ sè", "english": "green" },
+                { "chinese": "黑色", "pinyin": "hēi sè", "english": "black" },
+                { "chinese": "白色", "pinyin": "bái sè", "english": "white" }
+            ]
+        }
+    ]
+}

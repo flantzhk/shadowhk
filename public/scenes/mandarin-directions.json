@@ -1,0 +1,141 @@
+{
+    "id": "mandarin-directions",
+    "language": "mandarin",
+    "emoji": "🧭",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-directions.jpg",
+    "tint": "#5AC8E8",
+    "title": "Asking for directions",
+    "description": "Find the subway station and the nearest restroom",
+    "category": "transport",
+    "difficulty": "everyday",
+    "estimatedMinutes": 4,
+    "location": "On the street, Mainland China",
+    "context": "Locals are generally happy to help with directions, and phrasing it as 打扰一下 (sorry to bother you) before asking is a polite, natural opener.",
+    "cultural_note": "Street signage varies a lot by city, and a subway station entrance can be a small, easy-to-miss staircase rather than a big obvious building — asking a shopkeeper or a passerby is often faster than guessing from a map.",
+    "lines": [
+        {
+            "id": "mandarin-directions-01",
+            "speaker": "you",
+            "cjk": "打扰一下，请问地铁站怎么走？",
+            "pinyin": "dǎ rǎo yí xià, qǐng wèn dì tiě zhàn zěn me zǒu?",
+            "english": "Excuse me, how do I get to the subway station?",
+            "audioFile": "mandarin-directions-01.mp3",
+            "words": [
+                { "chinese": "打扰一下", "pinyin": "dǎ rǎo yí xià", "english": "excuse me / sorry to bother you" },
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "may I ask" },
+                { "chinese": "地铁站", "pinyin": "dì tiě zhàn", "english": "subway station" },
+                { "chinese": "怎么走", "pinyin": "zěn me zǒu", "english": "how to get there" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-02",
+            "speaker": "local",
+            "cjk": "一直走，到红绿灯左转就到了。",
+            "pinyin": "yì zhí zǒu, dào hóng lǜ dēng zuǒ zhuǎn jiù dào le.",
+            "english": "Go straight, turn left at the traffic light.",
+            "audioFile": "mandarin-directions-02.mp3",
+            "words": [
+                { "chinese": "一直走", "pinyin": "yì zhí zǒu", "english": "go straight" },
+                { "chinese": "到", "pinyin": "dào", "english": "arrive at" },
+                { "chinese": "红绿灯", "pinyin": "hóng lǜ dēng", "english": "traffic light" },
+                { "chinese": "左转", "pinyin": "zuǒ zhuǎn", "english": "turn left" },
+                { "chinese": "就到了", "pinyin": "jiù dào le", "english": "you'll be there" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-03",
+            "speaker": "you",
+            "cjk": "走路要多久？",
+            "pinyin": "zǒu lù yào duō jiǔ?",
+            "english": "How long is the walk?",
+            "audioFile": "mandarin-directions-03.mp3",
+            "words": [
+                { "chinese": "走路", "pinyin": "zǒu lù", "english": "walking" },
+                { "chinese": "要多久", "pinyin": "yào duō jiǔ", "english": "how long" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-04",
+            "speaker": "local",
+            "cjk": "大概五分钟。",
+            "pinyin": "dà gài wǔ fēn zhōng.",
+            "english": "About five minutes.",
+            "audioFile": "mandarin-directions-04.mp3",
+            "words": [
+                { "chinese": "大概", "pinyin": "dà gài", "english": "about" },
+                { "chinese": "五分钟", "pinyin": "wǔ fēn zhōng", "english": "five minutes" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-05",
+            "speaker": "you",
+            "cjk": "谢谢你！",
+            "pinyin": "xiè xiè nǐ!",
+            "english": "Thank you!",
+            "audioFile": "mandarin-directions-05.mp3",
+            "words": [
+                { "chinese": "谢谢你", "pinyin": "xiè xiè nǐ", "english": "thank you" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-06",
+            "speaker": "you",
+            "cjk": "请问，这附近有洗手间吗？",
+            "pinyin": "qǐng wèn, zhè fù jìn yǒu xǐ shǒu jiān ma?",
+            "english": "Is there a restroom nearby?",
+            "audioFile": "mandarin-directions-06.mp3",
+            "words": [
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "excuse me" },
+                { "chinese": "这附近", "pinyin": "zhè fù jìn", "english": "nearby" },
+                { "chinese": "有洗手间吗", "pinyin": "yǒu xǐ shǒu jiān ma", "english": "is there a restroom" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-07",
+            "speaker": "local",
+            "cjk": "有，商场里面就有。",
+            "pinyin": "yǒu, shāng chǎng lǐ miàn jiù yǒu.",
+            "english": "Yes, inside the mall.",
+            "audioFile": "mandarin-directions-07.mp3",
+            "words": [
+                { "chinese": "有", "pinyin": "yǒu", "english": "yes there is" },
+                { "chinese": "商场里面", "pinyin": "shāng chǎng lǐ miàn", "english": "inside the mall" },
+                { "chinese": "就有", "pinyin": "jiù yǒu", "english": "there is" }
+            ]
+        },
+        {
+            "id": "mandarin-directions-08",
+            "speaker": "you",
+            "cjk": "太好了，谢谢。",
+            "pinyin": "tài hǎo le, xiè xiè.",
+            "english": "Great, thanks.",
+            "audioFile": "mandarin-directions-08.mp3",
+            "words": [
+                { "chinese": "太好了", "pinyin": "tài hǎo le", "english": "great" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Directions",
+            "words": [
+                { "chinese": "一直走", "pinyin": "yì zhí zǒu", "english": "go straight" },
+                { "chinese": "左转", "pinyin": "zuǒ zhuǎn", "english": "turn left" },
+                { "chinese": "右转", "pinyin": "yòu zhuǎn", "english": "turn right" },
+                { "chinese": "红绿灯", "pinyin": "hóng lǜ dēng", "english": "traffic light" },
+                { "chinese": "附近", "pinyin": "fù jìn", "english": "nearby" }
+            ]
+        },
+        {
+            "category": "Places",
+            "words": [
+                { "chinese": "地铁站", "pinyin": "dì tiě zhàn", "english": "subway station" },
+                { "chinese": "商场", "pinyin": "shāng chǎng", "english": "mall" },
+                { "chinese": "洗手间", "pinyin": "xǐ shǒu jiān", "english": "restroom" },
+                { "chinese": "银行", "pinyin": "yín háng", "english": "bank" },
+                { "chinese": "医院", "pinyin": "yī yuàn", "english": "hospital" }
+            ]
+        }
+    ]
+}

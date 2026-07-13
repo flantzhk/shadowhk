@@ -1,0 +1,141 @@
+{
+    "id": "mandarin-emergency",
+    "language": "mandarin",
+    "emoji": "🆘",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-emergency.jpg",
+    "tint": "#E84040",
+    "title": "Asking for help",
+    "description": "Get help when you're lost or need something urgently",
+    "category": "services",
+    "difficulty": "everyday",
+    "estimatedMinutes": 4,
+    "location": "On the street, Mainland China",
+    "context": "Most strangers will stop and help if you look lost or say you need help — a short, clear ask works better than a long explanation.",
+    "cultural_note": "China's emergency numbers are split by service: 110 for police, 120 for ambulance, 119 for fire — unlike a single unified number in some countries. It's worth saving these in your phone before you need them.",
+    "lines": [
+        {
+            "id": "mandarin-emergency-01",
+            "speaker": "you",
+            "cjk": "救命！请帮帮我！",
+            "pinyin": "jiù mìng! qǐng bāng bāng wǒ!",
+            "english": "Help! Please help me!",
+            "audioFile": "mandarin-emergency-01.mp3",
+            "words": [
+                { "chinese": "救命", "pinyin": "jiù mìng", "english": "help! (emergency)" },
+                { "chinese": "请帮帮我", "pinyin": "qǐng bāng bāng wǒ", "english": "please help me" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-02",
+            "speaker": "stranger",
+            "cjk": "怎么了？发生什么事了？",
+            "pinyin": "zěn me le? fā shēng shén me shì le?",
+            "english": "What's wrong? What happened?",
+            "audioFile": "mandarin-emergency-02.mp3",
+            "words": [
+                { "chinese": "怎么了", "pinyin": "zěn me le", "english": "what's wrong" },
+                { "chinese": "发生什么事了", "pinyin": "fā shēng shén me shì le", "english": "what happened" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-03",
+            "speaker": "you",
+            "cjk": "我迷路了，找不到我的酒店。",
+            "pinyin": "wǒ mí lù le, zhǎo bú dào wǒ de jiǔ diàn.",
+            "english": "I'm lost, I can't find my hotel.",
+            "audioFile": "mandarin-emergency-03.mp3",
+            "words": [
+                { "chinese": "我迷路了", "pinyin": "wǒ mí lù le", "english": "I'm lost" },
+                { "chinese": "找不到", "pinyin": "zhǎo bú dào", "english": "can't find" },
+                { "chinese": "我的酒店", "pinyin": "wǒ de jiǔ diàn", "english": "my hotel" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-04",
+            "speaker": "stranger",
+            "cjk": "别担心，我帮你打电话。",
+            "pinyin": "bié dān xīn, wǒ bāng nǐ dǎ diàn huà.",
+            "english": "Don't worry, I'll help you make a call.",
+            "audioFile": "mandarin-emergency-04.mp3",
+            "words": [
+                { "chinese": "别担心", "pinyin": "bié dān xīn", "english": "don't worry" },
+                { "chinese": "我帮你", "pinyin": "wǒ bāng nǐ", "english": "I'll help you" },
+                { "chinese": "打电话", "pinyin": "dǎ diàn huà", "english": "make a phone call" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-05",
+            "speaker": "you",
+            "cjk": "谢谢你！我需要打给警察吗？",
+            "pinyin": "xiè xiè nǐ! wǒ xū yào dǎ gěi jǐng chá ma?",
+            "english": "Thank you! Do I need to call the police?",
+            "audioFile": "mandarin-emergency-05.mp3",
+            "words": [
+                { "chinese": "谢谢你", "pinyin": "xiè xiè nǐ", "english": "thank you" },
+                { "chinese": "我需要", "pinyin": "wǒ xū yào", "english": "do I need" },
+                { "chinese": "打给警察", "pinyin": "dǎ gěi jǐng chá", "english": "call the police" },
+                { "chinese": "吗", "pinyin": "ma", "english": "(question particle)" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-06",
+            "speaker": "stranger",
+            "cjk": "不用，你先给酒店打电话。",
+            "pinyin": "bú yòng, nǐ xiān gěi jiǔ diàn dǎ diàn huà.",
+            "english": "No need, call the hotel first.",
+            "audioFile": "mandarin-emergency-06.mp3",
+            "words": [
+                { "chinese": "不用", "pinyin": "bú yòng", "english": "no need" },
+                { "chinese": "你先", "pinyin": "nǐ xiān", "english": "you first" },
+                { "chinese": "给酒店打电话", "pinyin": "gěi jiǔ diàn dǎ diàn huà", "english": "call the hotel" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-07",
+            "speaker": "you",
+            "cjk": "请问，最近的医院在哪里？",
+            "pinyin": "qǐng wèn, zuì jìn de yī yuàn zài nǎ lǐ?",
+            "english": "Where's the nearest hospital?",
+            "audioFile": "mandarin-emergency-07.mp3",
+            "words": [
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "excuse me" },
+                { "chinese": "最近的医院", "pinyin": "zuì jìn de yī yuàn", "english": "nearest hospital" },
+                { "chinese": "在哪里", "pinyin": "zài nǎ lǐ", "english": "where is" }
+            ]
+        },
+        {
+            "id": "mandarin-emergency-08",
+            "speaker": "stranger",
+            "cjk": "往前走五百米就是。",
+            "pinyin": "wǎng qián zǒu wǔ bǎi mǐ jiù shì.",
+            "english": "Straight ahead, 500 meters.",
+            "audioFile": "mandarin-emergency-08.mp3",
+            "words": [
+                { "chinese": "往前走", "pinyin": "wǎng qián zǒu", "english": "go forward" },
+                { "chinese": "五百米", "pinyin": "wǔ bǎi mǐ", "english": "500 meters" },
+                { "chinese": "就是", "pinyin": "jiù shì", "english": "that's it" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Emergency",
+            "words": [
+                { "chinese": "救命", "pinyin": "jiù mìng", "english": "help (emergency)" },
+                { "chinese": "警察", "pinyin": "jǐng chá", "english": "police" },
+                { "chinese": "医院", "pinyin": "yī yuàn", "english": "hospital" },
+                { "chinese": "迷路了", "pinyin": "mí lù le", "english": "(I'm) lost" },
+                { "chinese": "打电话", "pinyin": "dǎ diàn huà", "english": "make a phone call" }
+            ]
+        },
+        {
+            "category": "Useful Help Phrases",
+            "words": [
+                { "chinese": "请帮帮我", "pinyin": "qǐng bāng bāng wǒ", "english": "please help me" },
+                { "chinese": "我不会说中文", "pinyin": "wǒ bú huì shuō zhōng wén", "english": "I can't speak Chinese" },
+                { "chinese": "我需要帮助", "pinyin": "wǒ xū yào bāng zhù", "english": "I need help" },
+                { "chinese": "谢谢你", "pinyin": "xiè xiè nǐ", "english": "thank you" }
+            ]
+        }
+    ]
+}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { getCurrentUser, signOut, deleteAccount } from '../../services/auth';
-import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION } from '../../utils/constants';
+import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, SUPPORTED_LANGUAGES } from '../../utils/constants';
 import { fbDb, fbAuth } from '../../services/firebase';
 import { getSettings, getAllLibraryEntries, getAllSessions } from '../../services/storage';
 import { ConfirmModal } from '../shared/ConfirmModal';
@@ -204,9 +204,21 @@ export default function ProfileScreen({ onBack, onNavigate, navigate, goBack, sh
       {/* Settings tab (guests always see it; it's their whole page) */}
       {(isGuest || activeTab === 'settings') && (
       <div className={styles.tabContent}>
-      {/* Learning. The app is Cantonese only, so there is no language picker. */}
+      {/* Learning */}
       <p className={styles.sectionLabel}>LEARNING</p>
       <div className={styles.card}>
+        <p className={styles.cardInnerLabel}>Language</p>
+        <div className={styles.langRow}>
+          {SUPPORTED_LANGUAGES.map(lang => (
+            <button key={lang.id}
+              className={`${styles.langPill} ${settings.currentLanguage === lang.id ? styles.langActive : ''}`}
+              onClick={() => updateSettings({ currentLanguage: lang.id })}>
+              <span className={styles.langName}>{lang.name}</span>
+              <span className={styles.langNative}>{lang.nativeName}</span>
+            </button>
+          ))}
+        </div>
+        <div className={styles.cardDivider} />
         <p className={styles.cardInnerLabel}>Daily goal</p>
         <div className={styles.goalRow}>
           {DAILY_GOAL_OPTIONS.map(mins => (

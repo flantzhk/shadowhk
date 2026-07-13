@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
 import { getOfflineAudioStatus, subscribeAudioDownload } from '../../services/audioDownload';
 import { getCurrentUser, signOut, deleteAccount } from '../../services/auth';
-import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, CANTONESE_VOICES } from '../../utils/constants';
+import { DAILY_GOAL_OPTIONS, ROUTES, APP_VERSION, CANTONESE_VOICES, SUPPORTED_LANGUAGES } from '../../utils/constants';
 import { fbDb, fbAuth } from '../../services/firebase';
 import { getSettings, getAllLibraryEntries } from '../../services/storage';
 import {
@@ -168,6 +168,20 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
           </svg>
         </button>
         <h1 className={styles.title}>Settings</h1>
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Language</h2>
+        <div className={styles.langRow}>
+          {SUPPORTED_LANGUAGES.map(lang => (
+            <button key={lang.id}
+              className={`${styles.langPill} ${settings.currentLanguage === lang.id ? styles.langActive : ''}`}
+              onClick={() => updateSettings({ currentLanguage: lang.id })}>
+              <span className={styles.langName}>{lang.name}</span>
+              <span className={styles.langNative}>{lang.nativeName}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={styles.section}>

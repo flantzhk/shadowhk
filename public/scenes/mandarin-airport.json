@@ -1,0 +1,148 @@
+{
+    "id": "mandarin-airport",
+    "language": "mandarin",
+    "emoji": "✈️",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-airport.jpg",
+    "tint": "#3A8FE8",
+    "title": "Getting through the airport",
+    "description": "Clear immigration, collect your bags, and find your way out",
+    "category": "transport",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Airport arrivals, Mainland China",
+    "context": "Immigration officers ask short, direct questions about your purpose and length of stay. Have your passport, visa (if required), and arrival card ready before you reach the counter.",
+    "cultural_note": "China's arrival cards ask for your flight number and the address you're staying at, so it helps to have your first hotel's address written down before you land. Officers are brisk but not unfriendly — short, direct answers move the line fastest.",
+    "lines": [
+        {
+            "id": "mandarin-airport-01",
+            "speaker": "you",
+            "cjk": "请问，入境检查在哪里？",
+            "pinyin": "qǐng wèn, rù jìng jiǎn chá zài nǎ lǐ?",
+            "english": "Excuse me, where is immigration?",
+            "audioFile": "mandarin-airport-01.mp3",
+            "words": [
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "excuse me" },
+                { "chinese": "入境检查", "pinyin": "rù jìng jiǎn chá", "english": "immigration / entry check" },
+                { "chinese": "在哪里", "pinyin": "zài nǎ lǐ", "english": "where is" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-02",
+            "speaker": "staff",
+            "cjk": "往前走，安检口右边就是。",
+            "pinyin": "wǎng qián zǒu, ān jiǎn kǒu yòu biān jiù shì.",
+            "english": "Go straight ahead, it's to the right of the security checkpoint.",
+            "audioFile": "mandarin-airport-02.mp3",
+            "words": [
+                { "chinese": "往前走", "pinyin": "wǎng qián zǒu", "english": "go straight ahead" },
+                { "chinese": "安检口", "pinyin": "ān jiǎn kǒu", "english": "security checkpoint" },
+                { "chinese": "右边", "pinyin": "yòu biān", "english": "right side" },
+                { "chinese": "就是", "pinyin": "jiù shì", "english": "is right there" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-03",
+            "speaker": "you",
+            "cjk": "谢谢。这是我的护照和入境卡。",
+            "pinyin": "xiè xiè. zhè shì wǒ de hù zhào hé rù jìng kǎ.",
+            "english": "Thanks. Here's my passport and arrival card.",
+            "audioFile": "mandarin-airport-03.mp3",
+            "words": [
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thank you" },
+                { "chinese": "这是", "pinyin": "zhè shì", "english": "this is" },
+                { "chinese": "我的", "pinyin": "wǒ de", "english": "my" },
+                { "chinese": "护照", "pinyin": "hù zhào", "english": "passport" },
+                { "chinese": "和", "pinyin": "hé", "english": "and" },
+                { "chinese": "入境卡", "pinyin": "rù jìng kǎ", "english": "arrival card" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-04",
+            "speaker": "officer",
+            "cjk": "你来中国做什么？",
+            "pinyin": "nǐ lái zhōng guó zuò shén me?",
+            "english": "What are you here in China for?",
+            "audioFile": "mandarin-airport-04.mp3",
+            "words": [
+                { "chinese": "你来", "pinyin": "nǐ lái", "english": "you come" },
+                { "chinese": "中国", "pinyin": "zhōng guó", "english": "China" },
+                { "chinese": "做什么", "pinyin": "zuò shén me", "english": "do what" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-05",
+            "speaker": "you",
+            "cjk": "我来旅游，待十天。",
+            "pinyin": "wǒ lái lǚ yóu, dài shí tiān.",
+            "english": "I'm here for tourism, staying ten days.",
+            "audioFile": "mandarin-airport-05.mp3",
+            "words": [
+                { "chinese": "我来", "pinyin": "wǒ lái", "english": "I come" },
+                { "chinese": "旅游", "pinyin": "lǚ yóu", "english": "travel / tourism" },
+                { "chinese": "待", "pinyin": "dài", "english": "stay" },
+                { "chinese": "十天", "pinyin": "shí tiān", "english": "ten days" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-06",
+            "speaker": "officer",
+            "cjk": "好的，欢迎来中国。",
+            "pinyin": "hǎo de, huān yíng lái zhōng guó.",
+            "english": "Great, welcome to China.",
+            "audioFile": "mandarin-airport-06.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "欢迎", "pinyin": "huān yíng", "english": "welcome" },
+                { "chinese": "来中国", "pinyin": "lái zhōng guó", "english": "come to China" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-07",
+            "speaker": "you",
+            "cjk": "请问，行李在哪里拿？",
+            "pinyin": "qǐng wèn, xíng li zài nǎ lǐ ná?",
+            "english": "Excuse me, where do I pick up my luggage?",
+            "audioFile": "mandarin-airport-07.mp3",
+            "words": [
+                { "chinese": "请问", "pinyin": "qǐng wèn", "english": "excuse me" },
+                { "chinese": "行李", "pinyin": "xíng li", "english": "luggage" },
+                { "chinese": "在哪里拿", "pinyin": "zài nǎ lǐ ná", "english": "where to pick up" }
+            ]
+        },
+        {
+            "id": "mandarin-airport-08",
+            "speaker": "staff",
+            "cjk": "一号提取处，往那边走。",
+            "pinyin": "yī hào tí qǔ chù, wǎng nà biān zǒu.",
+            "english": "Baggage claim one, that way.",
+            "audioFile": "mandarin-airport-08.mp3",
+            "words": [
+                { "chinese": "一号", "pinyin": "yī hào", "english": "number one" },
+                { "chinese": "提取处", "pinyin": "tí qǔ chù", "english": "baggage claim area" },
+                { "chinese": "往那边走", "pinyin": "wǎng nà biān zǒu", "english": "go that way" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Documents",
+            "words": [
+                { "chinese": "护照", "pinyin": "hù zhào", "english": "passport" },
+                { "chinese": "入境卡", "pinyin": "rù jìng kǎ", "english": "arrival card" },
+                { "chinese": "签证", "pinyin": "qiān zhèng", "english": "visa" },
+                { "chinese": "登机牌", "pinyin": "dēng jī pái", "english": "boarding pass" },
+                { "chinese": "行李", "pinyin": "xíng li", "english": "luggage" }
+            ]
+        },
+        {
+            "category": "Airport Words",
+            "words": [
+                { "chinese": "入境检查", "pinyin": "rù jìng jiǎn chá", "english": "immigration / entry check" },
+                { "chinese": "安检", "pinyin": "ān jiǎn", "english": "security check" },
+                { "chinese": "提取处", "pinyin": "tí qǔ chù", "english": "baggage claim" },
+                { "chinese": "旅游", "pinyin": "lǚ yóu", "english": "travel / tourism" },
+                { "chinese": "出差", "pinyin": "chū chāi", "english": "business trip" }
+            ]
+        }
+    ]
+}

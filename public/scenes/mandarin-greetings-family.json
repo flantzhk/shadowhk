@@ -1,0 +1,142 @@
+{
+    "id": "mandarin-greetings-family",
+    "language": "mandarin",
+    "emoji": "👋",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-greetings-family.jpg",
+    "tint": "#7AA874",
+    "title": "Greetings and family",
+    "description": "Meet someone new and introduce your family",
+    "category": "basics",
+    "difficulty": "beginner",
+    "estimatedMinutes": 4,
+    "location": "Meeting someone new, Mainland China",
+    "context": "A friendly, kid-friendly scene for meeting new people and introducing family members — useful for both parents and children on a trip.",
+    "cultural_note": "Chinese has separate words for older vs. younger siblings (哥哥 vs 弟弟, 姐姐 vs 妹妹) and for paternal vs. maternal grandparents — there's no single generic word for \"brother\" or \"grandma.\" It feels like a lot at first, but kids often pick these up fast since each word maps to one specific person.",
+    "lines": [
+        {
+            "id": "mandarin-greetings-family-01",
+            "speaker": "you",
+            "cjk": "你好！我叫汤姆。",
+            "pinyin": "nǐ hǎo! wǒ jiào tāng mǔ.",
+            "english": "Hello! My name is Tom.",
+            "audioFile": "mandarin-greetings-family-01.mp3",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "我叫", "pinyin": "wǒ jiào", "english": "my name is" },
+                { "chinese": "汤姆", "pinyin": "tāng mǔ", "english": "Tom" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-02",
+            "speaker": "friend",
+            "cjk": "你好，汤姆！很高兴认识你。",
+            "pinyin": "nǐ hǎo, tāng mǔ! hěn gāo xìng rèn shi nǐ.",
+            "english": "Hello Tom! Nice to meet you.",
+            "audioFile": "mandarin-greetings-family-02.mp3",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "汤姆", "pinyin": "tāng mǔ", "english": "Tom" },
+                { "chinese": "很高兴认识你", "pinyin": "hěn gāo xìng rèn shi nǐ", "english": "nice to meet you" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-03",
+            "speaker": "you",
+            "cjk": "我很高兴认识你。你叫什么名字？",
+            "pinyin": "wǒ hěn gāo xìng rèn shi nǐ. nǐ jiào shén me míng zì?",
+            "english": "Nice to meet you too. What's your name?",
+            "audioFile": "mandarin-greetings-family-03.mp3",
+            "words": [
+                { "chinese": "我很高兴认识你", "pinyin": "wǒ hěn gāo xìng rèn shi nǐ", "english": "nice to meet you too" },
+                { "chinese": "你叫什么名字", "pinyin": "nǐ jiào shén me míng zì", "english": "what's your name" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-04",
+            "speaker": "friend",
+            "cjk": "我叫小明。",
+            "pinyin": "wǒ jiào xiǎo míng.",
+            "english": "My name is Xiao Ming.",
+            "audioFile": "mandarin-greetings-family-04.mp3",
+            "words": [
+                { "chinese": "我叫", "pinyin": "wǒ jiào", "english": "my name is" },
+                { "chinese": "小明", "pinyin": "xiǎo míng", "english": "Xiao Ming" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-05",
+            "speaker": "you",
+            "cjk": "这是我爸爸，这是我妈妈。",
+            "pinyin": "zhè shì wǒ bà ba, zhè shì wǒ mā ma.",
+            "english": "This is my dad, this is my mom.",
+            "audioFile": "mandarin-greetings-family-05.mp3",
+            "words": [
+                { "chinese": "这是", "pinyin": "zhè shì", "english": "this is" },
+                { "chinese": "我爸爸", "pinyin": "wǒ bà ba", "english": "my dad" },
+                { "chinese": "我妈妈", "pinyin": "wǒ mā ma", "english": "my mom" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-06",
+            "speaker": "friend",
+            "cjk": "你好！",
+            "pinyin": "nǐ hǎo!",
+            "english": "Hello!",
+            "audioFile": "mandarin-greetings-family-06.mp3",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-07",
+            "speaker": "you",
+            "cjk": "我还有一个哥哥和一个妹妹。",
+            "pinyin": "wǒ hái yǒu yí gè gē ge hé yí gè mèi mei.",
+            "english": "I also have an older brother and a younger sister.",
+            "audioFile": "mandarin-greetings-family-07.mp3",
+            "words": [
+                { "chinese": "我还有", "pinyin": "wǒ hái yǒu", "english": "I also have" },
+                { "chinese": "一个哥哥", "pinyin": "yí gè gē ge", "english": "an older brother" },
+                { "chinese": "和", "pinyin": "hé", "english": "and" },
+                { "chinese": "一个妹妹", "pinyin": "yí gè mèi mei", "english": "a younger sister" }
+            ]
+        },
+        {
+            "id": "mandarin-greetings-family-08",
+            "speaker": "friend",
+            "cjk": "你的家人真多！",
+            "pinyin": "nǐ de jiā rén zhēn duō!",
+            "english": "Your family is big!",
+            "audioFile": "mandarin-greetings-family-08.mp3",
+            "words": [
+                { "chinese": "你的家人", "pinyin": "nǐ de jiā rén", "english": "your family" },
+                { "chinese": "真多", "pinyin": "zhēn duō", "english": "really a lot" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Family",
+            "words": [
+                { "chinese": "爸爸", "pinyin": "bà ba", "english": "dad" },
+                { "chinese": "妈妈", "pinyin": "mā ma", "english": "mom" },
+                { "chinese": "哥哥", "pinyin": "gē ge", "english": "older brother" },
+                { "chinese": "姐姐", "pinyin": "jiě jie", "english": "older sister" },
+                { "chinese": "弟弟", "pinyin": "dì di", "english": "younger brother" },
+                { "chinese": "妹妹", "pinyin": "mèi mei", "english": "younger sister" },
+                { "chinese": "爷爷", "pinyin": "yé ye", "english": "grandpa (paternal)" },
+                { "chinese": "奶奶", "pinyin": "nǎi nai", "english": "grandma (paternal)" }
+            ]
+        },
+        {
+            "category": "Greetings",
+            "words": [
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "再见", "pinyin": "zài jiàn", "english": "goodbye" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thank you" },
+                { "chinese": "很高兴认识你", "pinyin": "hěn gāo xìng rèn shi nǐ", "english": "nice to meet you" },
+                { "chinese": "我叫", "pinyin": "wǒ jiào", "english": "my name is..." }
+            ]
+        }
+    ]
+}

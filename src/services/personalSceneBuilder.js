@@ -85,12 +85,12 @@ export async function savePersonalScene(phrases, language) {
 /**
  * Build a fake scene object from the personal phrases (for ShadowSession compatibility).
  */
-export function buildPersonalSceneObject(phrases, name) {
+export function buildPersonalSceneObject(phrases, name, language = 'cantonese') {
   return {
     id: PERSONAL_SCENE_ID,
     emoji: '👋',
     title: `Introducing ${name || 'yourself'}`,
-    description: 'Your personal self-introduction in Cantonese',
+    description: `Your personal self-introduction in ${language === 'mandarin' ? 'Mandarin' : 'Cantonese'}`,
     category: 'social',
     difficulty: 'personal',
     estimatedMinutes: Math.ceil(phrases.length * 0.75),

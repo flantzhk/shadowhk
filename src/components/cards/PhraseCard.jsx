@@ -184,7 +184,7 @@ export default function PhraseCard({ phrase, libraryEntry, language = 'cantonese
     e?.stopPropagation();
     if (isAuthenticated()) {
       try {
-        let blob = await staticWordAudio(wordChinese);
+        let blob = await staticWordAudio(wordChinese, language);
         if (!blob) blob = await textToSpeech(wordChinese, { language, speed: 1.0, outputExtension: 'mp3' });
         if (blob && blob.size > 0) {
           blob = await padAudioBlob(blob);

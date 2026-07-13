@@ -1,0 +1,155 @@
+{
+    "id": "mandarin-taxi",
+    "language": "mandarin",
+    "emoji": "🚕",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-taxi.jpg",
+    "tint": "#E8A030",
+    "title": "Taking a taxi",
+    "description": "Tell the driver where you're going and pay at the end",
+    "category": "transport",
+    "difficulty": "everyday",
+    "estimatedMinutes": 5,
+    "location": "Taxi, Mainland China",
+    "context": "Most mainland taxis run on a meter, and ride-hailing apps like Didi are just as common as hailing on the street. Cash still works almost everywhere, though drivers increasingly prefer mobile payment.",
+    "cultural_note": "Addressing a taxi driver as 师傅 (shī fu — literally \"master,\" a respectful term for a skilled worker) is standard and friendly. It's used for drivers, chefs, and tradespeople alike, regardless of age.",
+    "lines": [
+        {
+            "id": "mandarin-taxi-01",
+            "speaker": "you",
+            "cjk": "师傅，你好，我要去北京饭店。",
+            "pinyin": "shī fu, nǐ hǎo, wǒ yào qù běi jīng fàn diàn.",
+            "english": "Hi driver, I need to go to the Beijing Hotel.",
+            "audioFile": "mandarin-taxi-01.mp3",
+            "words": [
+                { "chinese": "师傅", "pinyin": "shī fu", "english": "driver (polite address)" },
+                { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello" },
+                { "chinese": "我要去", "pinyin": "wǒ yào qù", "english": "I need to go to" },
+                { "chinese": "北京饭店", "pinyin": "běi jīng fàn diàn", "english": "Beijing Hotel" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-02",
+            "speaker": "driver",
+            "cjk": "好的，请上车。",
+            "pinyin": "hǎo de, qǐng shàng chē.",
+            "english": "OK, please get in.",
+            "audioFile": "mandarin-taxi-02.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "请", "pinyin": "qǐng", "english": "please" },
+                { "chinese": "上车", "pinyin": "shàng chē", "english": "get in the car" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-03",
+            "speaker": "you",
+            "cjk": "大概要多久？",
+            "pinyin": "dà gài yào duō jiǔ?",
+            "english": "About how long will it take?",
+            "audioFile": "mandarin-taxi-03.mp3",
+            "words": [
+                { "chinese": "大概", "pinyin": "dà gài", "english": "approximately" },
+                { "chinese": "要多久", "pinyin": "yào duō jiǔ", "english": "how long will it take" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-04",
+            "speaker": "driver",
+            "cjk": "大概二十分钟，看路上堵不堵车。",
+            "pinyin": "dà gài èr shí fēn zhōng, kàn lù shang dǔ bu dǔ chē.",
+            "english": "About twenty minutes, depends on traffic.",
+            "audioFile": "mandarin-taxi-04.mp3",
+            "words": [
+                { "chinese": "大概", "pinyin": "dà gài", "english": "approximately" },
+                { "chinese": "二十分钟", "pinyin": "èr shí fēn zhōng", "english": "twenty minutes" },
+                { "chinese": "看", "pinyin": "kàn", "english": "depends on" },
+                { "chinese": "路上", "pinyin": "lù shang", "english": "on the road" },
+                { "chinese": "堵不堵车", "pinyin": "dǔ bu dǔ chē", "english": "whether there's traffic" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-05",
+            "speaker": "you",
+            "cjk": "可以开空调吗？有点热。",
+            "pinyin": "kě yǐ kāi kōng tiáo ma? yǒu diǎn rè.",
+            "english": "Can you turn on the AC? It's a bit hot.",
+            "audioFile": "mandarin-taxi-05.mp3",
+            "words": [
+                { "chinese": "可以", "pinyin": "kě yǐ", "english": "can" },
+                { "chinese": "开空调", "pinyin": "kāi kōng tiáo", "english": "turn on the AC" },
+                { "chinese": "吗", "pinyin": "ma", "english": "(question particle)" },
+                { "chinese": "有点热", "pinyin": "yǒu diǎn rè", "english": "a bit hot" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-06",
+            "speaker": "driver",
+            "cjk": "没问题。",
+            "pinyin": "méi wèn tí.",
+            "english": "No problem.",
+            "audioFile": "mandarin-taxi-06.mp3",
+            "words": [
+                { "chinese": "没问题", "pinyin": "méi wèn tí", "english": "no problem" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-07",
+            "speaker": "you",
+            "cjk": "师傅，到了，谢谢。多少钱？",
+            "pinyin": "shī fu, dào le, xiè xiè. duō shǎo qián?",
+            "english": "Driver, we're here, thanks. How much?",
+            "audioFile": "mandarin-taxi-07.mp3",
+            "words": [
+                { "chinese": "师傅", "pinyin": "shī fu", "english": "driver" },
+                { "chinese": "到了", "pinyin": "dào le", "english": "arrived" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" },
+                { "chinese": "多少钱", "pinyin": "duō shǎo qián", "english": "how much money" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-08",
+            "speaker": "driver",
+            "cjk": "三十五块。",
+            "pinyin": "sān shí wǔ kuài.",
+            "english": "Thirty-five yuan.",
+            "audioFile": "mandarin-taxi-08.mp3",
+            "words": [
+                { "chinese": "三十五", "pinyin": "sān shí wǔ", "english": "thirty-five" },
+                { "chinese": "块", "pinyin": "kuài", "english": "yuan (colloquial)" }
+            ]
+        },
+        {
+            "id": "mandarin-taxi-09",
+            "speaker": "you",
+            "cjk": "给你，不用找了。",
+            "pinyin": "gěi nǐ, bú yòng zhǎo le.",
+            "english": "Here you go, keep the change.",
+            "audioFile": "mandarin-taxi-09.mp3",
+            "words": [
+                { "chinese": "给你", "pinyin": "gěi nǐ", "english": "here you go" },
+                { "chinese": "不用找了", "pinyin": "bú yòng zhǎo le", "english": "keep the change" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "In the Taxi",
+            "words": [
+                { "chinese": "师傅", "pinyin": "shī fu", "english": "driver (polite address)" },
+                { "chinese": "上车", "pinyin": "shàng chē", "english": "get in the car" },
+                { "chinese": "空调", "pinyin": "kōng tiáo", "english": "air conditioning" },
+                { "chinese": "堵车", "pinyin": "dǔ chē", "english": "traffic jam" },
+                { "chinese": "多少钱", "pinyin": "duō shǎo qián", "english": "how much money" }
+            ]
+        },
+        {
+            "category": "Places",
+            "words": [
+                { "chinese": "饭店", "pinyin": "fàn diàn", "english": "hotel" },
+                { "chinese": "机场", "pinyin": "jī chǎng", "english": "airport" },
+                { "chinese": "车站", "pinyin": "chē zhàn", "english": "train / bus station" },
+                { "chinese": "医院", "pinyin": "yī yuàn", "english": "hospital" }
+            ]
+        }
+    ]
+}

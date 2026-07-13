@@ -222,5 +222,75 @@
     "imageUrl": "/shadowhk/images/scenes/mid-autumn.jpg",
     "tint": "#E8A030",
     "emoji": "🥮"
+  },
+  {
+    "id": "mandarin-airport",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-airport.jpg",
+    "tint": "#3A8FE8",
+    "emoji": "✈️"
+  },
+  {
+    "id": "mandarin-taxi",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-taxi.jpg",
+    "tint": "#E8A030",
+    "emoji": "🚕"
+  },
+  {
+    "id": "mandarin-hotel",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-hotel.jpg",
+    "tint": "#8F6AE8",
+    "emoji": "🏨"
+  },
+  {
+    "id": "mandarin-restaurant",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-restaurant.jpg",
+    "tint": "#E8703A",
+    "emoji": "🍜"
+  },
+  {
+    "id": "mandarin-directions",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-directions.jpg",
+    "tint": "#5AC8E8",
+    "emoji": "🧭"
+  },
+  {
+    "id": "mandarin-shopping",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-shopping.jpg",
+    "tint": "#C5E85A",
+    "emoji": "🛍️"
+  },
+  {
+    "id": "mandarin-numbers-money",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-numbers-money.jpg",
+    "tint": "#E8A030",
+    "emoji": "💰"
+  },
+  {
+    "id": "mandarin-greetings-family",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-greetings-family.jpg",
+    "tint": "#7AA874",
+    "emoji": "👋"
+  },
+  {
+    "id": "mandarin-kids-classroom",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-kids-classroom.jpg",
+    "tint": "#3A8FE8",
+    "emoji": "🏫"
+  },
+  {
+    "id": "mandarin-emergency",
+    "language": "mandarin",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-emergency.jpg",
+    "tint": "#E84040",
+    "emoji": "🆘"
   }
 ]

@@ -1,0 +1,150 @@
+{
+    "id": "mandarin-shopping",
+    "language": "mandarin",
+    "emoji": "🛍️",
+    "imageUrl": "/shadowhk/images/scenes/mandarin-shopping.jpg",
+    "tint": "#C5E85A",
+    "title": "Shopping and bargaining",
+    "description": "Ask the price, haggle a little, and pay",
+    "category": "services",
+    "difficulty": "everyday",
+    "estimatedMinutes": 4,
+    "location": "Street market, Mainland China",
+    "context": "Bargaining is expected at markets and small independent stalls, but not at chain stores, malls, or supermarkets with fixed price tags — read the room before you try.",
+    "cultural_note": "Mobile payment (手机支付, usually WeChat Pay or Alipay) is now the default almost everywhere, even at tiny street stalls — cash still works, but a vendor may need to make change from a passerby if you pay with a large bill.",
+    "lines": [
+        {
+            "id": "mandarin-shopping-01",
+            "speaker": "you",
+            "cjk": "老板，这个多少钱？",
+            "pinyin": "lǎo bǎn, zhè ge duō shǎo qián?",
+            "english": "Boss, how much is this?",
+            "audioFile": "mandarin-shopping-01.mp3",
+            "words": [
+                { "chinese": "老板", "pinyin": "lǎo bǎn", "english": "boss / shopkeeper" },
+                { "chinese": "这个", "pinyin": "zhè ge", "english": "this" },
+                { "chinese": "多少钱", "pinyin": "duō shǎo qián", "english": "how much" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-02",
+            "speaker": "vendor",
+            "cjk": "这个八十块。",
+            "pinyin": "zhè ge bā shí kuài.",
+            "english": "This one is 80 yuan.",
+            "audioFile": "mandarin-shopping-02.mp3",
+            "words": [
+                { "chinese": "这个", "pinyin": "zhè ge", "english": "this" },
+                { "chinese": "八十块", "pinyin": "bā shí kuài", "english": "eighty yuan" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-03",
+            "speaker": "you",
+            "cjk": "太贵了，便宜一点吧。",
+            "pinyin": "tài guì le, pián yi yì diǎn ba.",
+            "english": "Too expensive, cheaper please.",
+            "audioFile": "mandarin-shopping-03.mp3",
+            "words": [
+                { "chinese": "太贵了", "pinyin": "tài guì le", "english": "too expensive" },
+                { "chinese": "便宜一点", "pinyin": "pián yi yì diǎn", "english": "a bit cheaper" },
+                { "chinese": "吧", "pinyin": "ba", "english": "(suggestion particle)" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-04",
+            "speaker": "vendor",
+            "cjk": "好吧，六十块，不能再便宜了。",
+            "pinyin": "hǎo ba, liù shí kuài, bù néng zài pián yi le.",
+            "english": "OK, sixty, can't go lower.",
+            "audioFile": "mandarin-shopping-04.mp3",
+            "words": [
+                { "chinese": "好吧", "pinyin": "hǎo ba", "english": "alright" },
+                { "chinese": "六十块", "pinyin": "liù shí kuài", "english": "sixty yuan" },
+                { "chinese": "不能再便宜了", "pinyin": "bù néng zài pián yi le", "english": "can't go any cheaper" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-05",
+            "speaker": "you",
+            "cjk": "五十块，可以吗？",
+            "pinyin": "wǔ shí kuài, kě yǐ ma?",
+            "english": "Fifty, is that OK?",
+            "audioFile": "mandarin-shopping-05.mp3",
+            "words": [
+                { "chinese": "五十块", "pinyin": "wǔ shí kuài", "english": "fifty yuan" },
+                { "chinese": "可以吗", "pinyin": "kě yǐ ma", "english": "is that OK" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-06",
+            "speaker": "vendor",
+            "cjk": "好啦好啦，五十就五十。",
+            "pinyin": "hǎo lā hǎo lā, wǔ shí jiù wǔ shí.",
+            "english": "Fine fine, fifty it is.",
+            "audioFile": "mandarin-shopping-06.mp3",
+            "words": [
+                { "chinese": "好啦好啦", "pinyin": "hǎo lā hǎo lā", "english": "fine fine" },
+                { "chinese": "五十就五十", "pinyin": "wǔ shí jiù wǔ shí", "english": "fifty then, deal" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-07",
+            "speaker": "you",
+            "cjk": "可以刷卡吗？",
+            "pinyin": "kě yǐ shuā kǎ ma?",
+            "english": "Can I pay by card?",
+            "audioFile": "mandarin-shopping-07.mp3",
+            "words": [
+                { "chinese": "可以", "pinyin": "kě yǐ", "english": "can" },
+                { "chinese": "刷卡", "pinyin": "shuā kǎ", "english": "pay by card" },
+                { "chinese": "吗", "pinyin": "ma", "english": "(question particle)" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-08",
+            "speaker": "vendor",
+            "cjk": "可以，也可以用手机支付。",
+            "pinyin": "kě yǐ, yě kě yǐ yòng shǒu jī zhī fù.",
+            "english": "Yes, or you can pay by phone.",
+            "audioFile": "mandarin-shopping-08.mp3",
+            "words": [
+                { "chinese": "可以", "pinyin": "kě yǐ", "english": "yes" },
+                { "chinese": "也可以", "pinyin": "yě kě yǐ", "english": "also can" },
+                { "chinese": "用手机支付", "pinyin": "yòng shǒu jī zhī fù", "english": "pay by phone" }
+            ]
+        },
+        {
+            "id": "mandarin-shopping-09",
+            "speaker": "you",
+            "cjk": "好的，谢谢！",
+            "pinyin": "hǎo de, xiè xiè!",
+            "english": "Great, thanks!",
+            "audioFile": "mandarin-shopping-09.mp3",
+            "words": [
+                { "chinese": "好的", "pinyin": "hǎo de", "english": "OK" },
+                { "chinese": "谢谢", "pinyin": "xiè xiè", "english": "thanks" }
+            ]
+        }
+    ],
+    "vocabulary": [
+        {
+            "category": "Bargaining",
+            "words": [
+                { "chinese": "多少钱", "pinyin": "duō shǎo qián", "english": "how much" },
+                { "chinese": "太贵了", "pinyin": "tài guì le", "english": "too expensive" },
+                { "chinese": "便宜一点", "pinyin": "pián yi yì diǎn", "english": "a bit cheaper" },
+                { "chinese": "打折", "pinyin": "dǎ zhé", "english": "discount" }
+            ]
+        },
+        {
+            "category": "Paying",
+            "words": [
+                { "chinese": "刷卡", "pinyin": "shuā kǎ", "english": "pay by card" },
+                { "chinese": "现金", "pinyin": "xiàn jīn", "english": "cash" },
+                { "chinese": "手机支付", "pinyin": "shǒu jī zhī fù", "english": "mobile payment" },
+                { "chinese": "收据", "pinyin": "shōu jù", "english": "receipt" }
+            ]
+        }
+    ]
+}

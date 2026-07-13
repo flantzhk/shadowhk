@@ -23,16 +23,24 @@ describe('submitPlacementAttempt', () => {
     const r = await submitPlacementAttempt('dim-sum-01', '唔該', { __id: 'a' }, {});
     expect(r.score).toBeNull();
     expect(r.settingsUpdate.pendingPlacementCheck).toEqual([
-      { phraseId: 'dim-sum-01', expectedText: '唔該', audioBase64: 'b64:a' },
+      { phraseId: 'dim-sum-01', expectedText: '唔該', audioBase64: 'b64:a', language: 'cantonese' },
     ]);
   });
 
   it('appends to existing pending attempts rather than overwriting them', async () => {
     state.authed = false;
-    const existing = { pendingPlacementCheck: [{ phraseId: 'dim-sum-01', expectedText: '唔該', audioBase64: 'b64:a' }] };
+    const existing = { pendingPlacementCheck: [{ phraseId: 'dim-sum-01', expectedText: '唔該', audioBase64: 'b64:a', language: 'cantonese' }] };
     const r = await submitPlacementAttempt('dim-sum-03', '四位', { __id: 'b' }, existing);
     expect(r.settingsUpdate.pendingPlacementCheck).toHaveLength(2);
-    expect(r.settingsUpdate.pendingPlacementCheck[1]).toEqual({ phraseId: 'dim-sum-03', expectedText: '四位', audioBase64: 'b64:b' });
+    expect(r.settingsUpdate.pendingPlacementCheck[1]).toEqual({ phraseId: 'dim-sum-03', expectedText: '四位', audioBase64: 'b64:b', language: 'cantonese' });
+  });
+
+  it('queues the recording with the given language when not authenticated', async () => {
+    state.authed = false;
+    const r = await submitPlacementAttempt('mandarin-restaurant-01', '你好', { __id: 'c' }, {}, 'mandarin');
+    expect(r.settingsUpdate.pendingPlacementCheck).toEqual([
+      { phraseId: 'mandarin-restaurant-01', expectedText: '你好', audioBase64: 'b64:c', language: 'mandarin' },
+    ]);
   });
 });
 

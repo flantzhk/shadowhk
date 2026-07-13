@@ -1,5 +1,6 @@
 // src/services/aiChat.js — AI conversation partner service
 
+import { pinyin } from 'pinyin-pro';
 import { textToSpeech, textToJyutping, fetchWithAuth } from './api';
 import { isAuthenticated } from './auth';
 import { API_BASE_URL, API_ENDPOINTS } from '../utils/constants';
@@ -13,6 +14,7 @@ const SCENARIOS = [
     chineseTitle: '茶餐廳',
     persona: 'Busy waiter',
     emoji: '☕',
+    language: 'cantonese',
     backgroundUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80',
     fallbackGradient: 'linear-gradient(135deg, #8B5A2B 0%, #3A2416 100%)',
     systemContext: 'You are 阿明, a busy, slightly impatient waiter (伙記) at a packed Hong Kong cha chaan teng during lunchtime rush. You are warm but hurried — you tap your notepad and remind customers you are busy. You ask what they want to eat and drink, suggest the daily special, and nudge them to order quickly. You speak in casual, authentic Hong Kong Cantonese.',
@@ -23,6 +25,7 @@ const SCENARIOS = [
     chineseTitle: '的士',
     persona: 'Chatty driver',
     emoji: '🚕',
+    language: 'cantonese',
     backgroundUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
     fallbackGradient: 'linear-gradient(135deg, #A02020 0%, #4A0F0F 100%)',
     systemContext: 'You are Uncle Wai (韋叔), a chatty, opinionated Hong Kong taxi driver (的士大佬) who has driven a cab for 25 years. You have strong opinions about traffic, the MTR, weather, and local politics. You ask the passenger where they are going and make friendly small talk about anything on your mind. You speak in lively, colloquial Cantonese with the warmth of someone who loves a good chat.',
@@ -33,6 +36,7 @@ const SCENARIOS = [
     chineseTitle: '大廈大堂',
     persona: 'Security guard',
     emoji: '🏢',
+    language: 'cantonese',
     backgroundUrl: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
     fallbackGradient: 'linear-gradient(135deg, #4A5568 0%, #1A202C 100%)',
     systemContext: 'You are 保安叔叔 (Uncle Security), a familiar, gossipy security guard who has worked in this residential building lobby for 12 years. You know all the residents by name, always have something to say about the weather or building gossip, and love helping people. You ask how they are doing, comment on their groceries, and mention anything interesting that happened today. You speak in friendly, warm Cantonese.',
@@ -43,18 +47,64 @@ const SCENARIOS = [
     chineseTitle: '便利店',
     persona: 'Tired cashier',
     emoji: '🏪',
+    language: 'cantonese',
     backgroundUrl: 'https://images.unsplash.com/photo-1604719312566-8912e9c8a213?auto=format&fit=crop&w=800&q=80',
     fallbackGradient: 'linear-gradient(135deg, #2D7A3E 0%, #0F3D1E 100%)',
     systemContext: 'You are a tired but polite young 7-Eleven cashier (便利店店員) near the end of a long shift. You are professional and helpful — you help customers find items, top up Octopus cards (八達通), heat up food in the microwave, and handle plastic bag requests. You speak in efficient, polite Cantonese, occasionally yawning but always courteous.',
   },
+  {
+    id: 'mandarin_restaurant',
+    title: 'Restaurant',
+    chineseTitle: '餐厅',
+    persona: 'Friendly waiter',
+    emoji: '🍜',
+    language: 'mandarin',
+    backgroundUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80',
+    fallbackGradient: 'linear-gradient(135deg, #C0392B 0%, #4A1410 100%)',
+    systemContext: 'You are 小李, a friendly waiter at a busy local restaurant in mainland China during the lunch rush. You are warm and efficient — you greet guests, suggest today\'s dishes, and check if they need anything else. You speak in simple, clear Mandarin (Putonghua) appropriate for a beginner learner.',
+  },
+  {
+    id: 'mandarin_taxi',
+    title: 'Taxi',
+    chineseTitle: '出租车',
+    persona: 'Chatty driver',
+    emoji: '🚖',
+    language: 'mandarin',
+    backgroundUrl: 'https://images.unsplash.com/photo-1512988403255-8b3563fdd58d?auto=format&fit=crop&w=800&q=80',
+    fallbackGradient: 'linear-gradient(135deg, #D4AC0D 0%, #4A3C0F 100%)',
+    systemContext: 'You are 王师傅, a chatty, friendly taxi driver in a Chinese city who has been driving for many years. You ask the passenger where they are going, make small talk about traffic and the weather, and are patient with beginners. You speak in simple, clear Mandarin.',
+  },
+  {
+    id: 'mandarin_hotel',
+    title: 'Hotel Front Desk',
+    chineseTitle: '酒店前台',
+    persona: 'Front desk clerk',
+    emoji: '🏨',
+    language: 'mandarin',
+    backgroundUrl: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80',
+    fallbackGradient: 'linear-gradient(135deg, #34495E 0%, #12181F 100%)',
+    systemContext: 'You are 小张, a professional and helpful hotel front-desk clerk in China. You help guests check in, answer questions about breakfast times and checkout, and are patient and clear with non-native speakers. You speak in simple, polite Mandarin.',
+  },
+  {
+    id: 'mandarin_shop',
+    title: 'Convenience Store',
+    chineseTitle: '小卖部',
+    persona: 'Shop clerk',
+    emoji: '🏪',
+    language: 'mandarin',
+    backgroundUrl: 'https://images.unsplash.com/photo-1604719312566-8912e9c8a213?auto=format&fit=crop&w=800&q=80',
+    fallbackGradient: 'linear-gradient(135deg, #2D7A3E 0%, #0F3D1E 100%)',
+    systemContext: 'You are a friendly convenience store clerk in China. You help customers find items, ring up purchases, and mention if they need a bag. You speak in simple, everyday Mandarin, patient with beginners.',
+  },
 ];
 
 /**
- * Get all available conversation scenarios.
+ * Get all available conversation scenarios for a language.
+ * @param {string} [language='cantonese']
  * @returns {Object[]}
  */
-function getScenarios() {
-  return SCENARIOS;
+function getScenarios(language = 'cantonese') {
+  return SCENARIOS.filter(s => s.language === language);
 }
 
 /**
@@ -63,10 +113,13 @@ function getScenarios() {
  * @returns {string}
  */
 function buildSystemPrompt(scenario) {
+  const languageRule = scenario.language === 'mandarin'
+    ? '- Respond ONLY in colloquial Mandarin (simplified Chinese, not Cantonese).'
+    : '- Respond ONLY in colloquial Cantonese (written Cantonese, not Mandarin).';
   return [
     scenario.systemContext,
     'RULES:',
-    '- Respond ONLY in colloquial Cantonese (written Cantonese, not Mandarin).',
+    languageRule,
     '- Keep each response to 1-2 short sentences maximum.',
     '- Use common everyday vocabulary appropriate for a beginner learner.',
     '- Be natural, warm, and encouraging.',
@@ -101,17 +154,27 @@ async function sendMessage(messages, scenario) {
     response = generateLocalResponse(messages, scenario);
   }
 
-  // Generate Jyutping for the response
+  // Generate romanization for the response — Mandarin pinyin is a local,
+  // deterministic conversion (no API call needed); Cantonese jyutping
+  // requires cantonese.ai's endpoint.
   if (response.chinese) {
-    try {
-      const jpResult = await textToJyutping(response.chinese);
-      if (jpResult.success && jpResult.result) {
-        const jp = jpResult.result.map(r => r.jyutping).join(' ');
-        response.jyutping = jp;
-        response.romanization = jyutpingToDisplay(jp);
+    if (scenario.language === 'mandarin') {
+      try {
+        response.romanization = pinyin(response.chinese, { toneType: 'symbol', type: 'string' });
+      } catch (err) {
+        logger.warn('Failed to get pinyin for AI response', err);
       }
-    } catch (err) {
-      logger.warn('Failed to get jyutping for AI response', err);
+    } else {
+      try {
+        const jpResult = await textToJyutping(response.chinese);
+        if (jpResult.success && jpResult.result) {
+          const jp = jpResult.result.map(r => r.jyutping).join(' ');
+          response.jyutping = jp;
+          response.romanization = jyutpingToDisplay(jp);
+        }
+      } catch (err) {
+        logger.warn('Failed to get jyutping for AI response', err);
+      }
     }
   }
 
@@ -121,14 +184,16 @@ async function sendMessage(messages, scenario) {
 /**
  * Generate TTS audio for an AI response.
  * @param {string} chinese
+ * @param {Object} scenario
  * @returns {Promise<Blob|null>}
  */
-async function generateResponseAudio(chinese) {
+async function generateResponseAudio(chinese, scenario) {
   if (!isAuthenticated()) return null;
+  const language = scenario?.language ?? 'cantonese';
   try {
     return await textToSpeech(chinese, {
-      language: 'cantonese', speed: 0.9, outputExtension: 'mp3',
-      voiceId: '99fb84cf-d081-4df6-8b8a-7165015a2f5d',
+      language, speed: 0.9, outputExtension: 'mp3',
+      ...(language === 'cantonese' && { voiceId: '99fb84cf-d081-4df6-8b8a-7165015a2f5d' }),
     });
   } catch (err) {
     logger.warn('Failed to generate AI response audio', err);
@@ -144,7 +209,8 @@ async function generateResponseAudio(chinese) {
  */
 function generateLocalResponse(messages, scenario) {
   const turnCount = messages.filter(m => m.role === 'assistant').length;
-  const responses = SCENARIO_RESPONSES[scenario.id] || SCENARIO_RESPONSES.restaurant;
+  const fallbackKey = scenario.language === 'mandarin' ? 'mandarin_restaurant' : 'restaurant';
+  const responses = SCENARIO_RESPONSES[scenario.id] || SCENARIO_RESPONSES[fallbackKey];
   const idx = Math.min(turnCount, responses.length - 1);
   return { ...responses[idx] };
 }
@@ -226,6 +292,34 @@ const SCENARIO_RESPONSES = {
     { chinese: '有大碼同細碼。你著咩碼？', jyutping: '', romanization: '', english: 'We have large and small. What size do you wear?' },
     { chinese: '好啱你！今日打八折。', jyutping: '', romanization: '', english: 'Looks great on you! 20% off today.' },
     { chinese: '好，幫你包起佢。多謝！', jyutping: '', romanization: '', english: "Okay, I'll wrap it up for you. Thanks!" },
+  ],
+  mandarin_restaurant: [
+    { chinese: '你好！几位？', jyutping: '', romanization: '', english: 'Hello! How many people?' },
+    { chinese: '想喝点什么？我们有绿茶和可乐。', jyutping: '', romanization: '', english: 'What would you like to drink? We have green tea and cola.' },
+    { chinese: '想吃点什么？今天的招牌菜是红烧肉。', jyutping: '', romanization: '', english: "What would you like to eat? Today's special is braised pork." },
+    { chinese: '好的，请稍等，很快就好。', jyutping: '', romanization: '', english: "OK, please wait a moment, it'll be ready soon." },
+    { chinese: '慢慢吃！有需要叫我。', jyutping: '', romanization: '', english: 'Enjoy your meal! Call me if you need anything.' },
+  ],
+  mandarin_taxi: [
+    { chinese: '你好！去哪儿？', jyutping: '', romanization: '', english: 'Hello! Where to?' },
+    { chinese: '好的，知道了。今天路上有点堵。', jyutping: '', romanization: '', english: "Got it. Traffic's a bit heavy today." },
+    { chinese: '你看今天天气真不错！', jyutping: '', romanization: '', english: "Look, the weather's really nice today!" },
+    { chinese: '到了！一共三十五块。', jyutping: '', romanization: '', english: "We're here! That's 35 yuan total." },
+    { chinese: '谢谢，慢走！', jyutping: '', romanization: '', english: 'Thanks, take care!' },
+  ],
+  mandarin_hotel: [
+    { chinese: '您好！欢迎光临，请问有预订吗？', jyutping: '', romanization: '', english: 'Hello! Welcome, do you have a reservation?' },
+    { chinese: '好的，请给我您的护照。', jyutping: '', romanization: '', english: 'OK, please give me your passport.' },
+    { chinese: '您的房间在三楼，早餐是早上七点到十点。', jyutping: '', romanization: '', english: "Your room is on the 3rd floor, breakfast is 7-10am." },
+    { chinese: '这是您的房卡，祝您入住愉快。', jyutping: '', romanization: '', english: 'Here is your room key, enjoy your stay.' },
+    { chinese: '好的，有其他需要请随时联系我们。', jyutping: '', romanization: '', english: 'OK, let us know if you need anything else.' },
+  ],
+  mandarin_shop: [
+    { chinese: '你好，需要点什么？', jyutping: '', romanization: '', english: 'Hi, what do you need?' },
+    { chinese: '要不要袋子？一个袋子一块钱。', jyutping: '', romanization: '', english: 'Need a bag? One yuan per bag.' },
+    { chinese: '一共十五块，可以扫码支付。', jyutping: '', romanization: '', english: "That's 15 yuan total, you can pay by scanning the code." },
+    { chinese: '好的，谢谢惠顾！', jyutping: '', romanization: '', english: 'OK, thanks for shopping with us!' },
+    { chinese: '欢迎再来！', jyutping: '', romanization: '', english: 'Come again!' },
   ],
 };
 

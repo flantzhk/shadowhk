@@ -37,6 +37,7 @@
     "globals": "^17.4.0",
     "happy-dom": "^20.9.0",
     "jsdom": "^29.0.2",
+    "pinyin-pro": "^3.28.1",
     "vite": "^8.0.4",
     "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.1.4"

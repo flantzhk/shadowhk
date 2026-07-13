@@ -78,7 +78,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
           if (entry) ids.add(vocabWordId(sceneId, w.chinese));
         }
         setSavedIds(ids);
-        if (vocabWords.length) prefetchWordAudio(vocabWords);
+        if (vocabWords.length) prefetchWordAudio(vocabWords, language);
       })
       .catch(err => logger.error('[SceneDetail] scene load failed', err?.message))
       .finally(() => setLoading(false));
@@ -124,7 +124,7 @@ export default function SceneDetailScreen({ sceneId, onNavigate, onBack }) {
     return {
       phraseId: vocabWordId(sceneId, word.chinese),
       cjk: word.chinese,
-      romanization: word.jyutping,
+      romanization: word.romanization ?? word.jyutping,
       english: word.english,
       language,
       scene_id: sceneId,
@@ -554,7 +554,7 @@ function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
       audioRef.current?.pause();
       setPlayingWord(word.chinese);
       try {
-        const blob = (await staticWordAudio(word.chinese)) ?? await textToSpeech(word.chinese, { language, turbo: true });
+        const blob = (await staticWordAudio(word.chinese, language)) ?? await textToSpeech(word.chinese, { language, turbo: true });
         const url = URL.createObjectURL(blob);
         const audio = new Audio(url);
         audioRef.current = audio;
@@ -645,7 +645,7 @@ function VocabSection({ groups, language, sceneId, savedIds, onToggleSave }) {
                         </button>
                         <span className={styles.vocabBody}>
                           <span className={styles.vocabCjk}>{w.chinese}</span>
-                          <span className={styles.vocabJyutping}>{w.jyutping}</span>
+                          <span className={styles.vocabJyutping}>{w.romanization ?? w.jyutping}</span>
                           <span className={styles.vocabEnglish}>{w.english}</span>
                         </span>
                         {onToggleSave && (

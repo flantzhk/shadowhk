@@ -74,7 +74,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
       if (charIdx !== null) setPlayingCharIdx(charIdx); else setPlaying(true);
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       const staticBlob = charIdx !== null
-        ? await staticWordAudio(text)
+        ? await staticWordAudio(text, language)
         : await staticPhraseAudio(phrase?.id, language);
       const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
@@ -98,7 +98,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
     try {
       if (charKey !== null) setPlayingReplyCharKey(charKey); else setPlayingReplyIdx(replyIdx);
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-      const staticBlob = charIdx !== null ? await staticWordAudio(text) : null;
+      const staticBlob = charIdx !== null ? await staticWordAudio(text, language) : null;
       const blob = staticBlob ?? await textToSpeech(text, { language, turbo: true });
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);

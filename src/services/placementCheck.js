@@ -17,12 +17,13 @@ import { logger } from '../utils/logger';
  * @param {string} expectedText
  * @param {Blob} blob
  * @param {Object} settings - current settings (read for pendingPlacementCheck)
+ * @param {string} [language='cantonese']
  * @returns {Promise<{ score: number|null, settingsUpdate: Object|null }>}
  */
-async function submitPlacementAttempt(phraseId, expectedText, blob, settings) {
+async function submitPlacementAttempt(phraseId, expectedText, blob, settings, language = 'cantonese') {
   if (isAuthenticated()) {
     try {
-      const result = await scorePronunciation(blob, expectedText, 'cantonese');
+      const result = await scorePronunciation(blob, expectedText, language);
       return { score: typeof result?.score === 'number' ? result.score : null, settingsUpdate: null };
     } catch (err) {
       logger.warn('Placement check score failed', err?.message);
@@ -32,7 +33,7 @@ async function submitPlacementAttempt(phraseId, expectedText, blob, settings) {
 
   try {
     const audioBase64 = await blobToBase64(blob);
-    const pending = [...(settings?.pendingPlacementCheck || []), { phraseId, expectedText, audioBase64 }];
+    const pending = [...(settings?.pendingPlacementCheck || []), { phraseId, expectedText, audioBase64, language }];
     return { score: null, settingsUpdate: { pendingPlacementCheck: pending } };
   } catch (err) {
     logger.warn('Placement check queue failed', err?.message);
@@ -56,7 +57,7 @@ async function resolvePendingPlacementCheck(settings) {
   for (const attempt of pending) {
     try {
       const blob = base64ToBlob(attempt.audioBase64, 'audio/ogg');
-      const result = await scorePronunciation(blob, attempt.expectedText, 'cantonese');
+      const result = await scorePronunciation(blob, attempt.expectedText, attempt.language || 'cantonese');
       if (typeof result?.score === 'number') scores.push(result.score);
     } catch (err) {
       logger.warn('Deferred placement scoring failed', err?.message);

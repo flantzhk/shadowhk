@@ -32,15 +32,15 @@ export async function staticPhraseAudio(id, language = 'cantonese') {
 
 /** Warm the cache for a set of breakdown words so taps play instantly.
  * Fire-and-forget: the service worker's cache-first route stores each hit. */
-export function prefetchWordAudio(words) {
+export function prefetchWordAudio(words, language = 'cantonese') {
   for (const w of words || []) {
     const text = typeof w === 'string' ? w : w?.chinese;
-    if (text) fetch(`${base()}audio/cantonese-words/${encodeURIComponent(text)}.mp3`).catch(() => {});
+    if (text) fetch(`${base()}audio/${language}-words/${encodeURIComponent(text)}.mp3`).catch(() => {});
   }
 }
 
-/** Pre-recorded single word/character audio: audio/cantonese-words/{word}.mp3 */
-export function staticWordAudio(word) {
+/** Pre-recorded single word/character audio: audio/{language}-words/{word}.mp3 */
+export function staticWordAudio(word, language = 'cantonese') {
   if (!word) return Promise.resolve(null);
-  return fetchAudioBlob(`${base()}audio/cantonese-words/${encodeURIComponent(word)}.mp3`);
+  return fetchAudioBlob(`${base()}audio/${language}-words/${encodeURIComponent(word)}.mp3`);
 }

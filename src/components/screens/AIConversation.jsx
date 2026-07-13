@@ -21,6 +21,7 @@ import styles from './AIConversation.module.css';
  */
 export default function AIConversation({ onBack, showToast, onNavigate }) {
   const { settings } = useAppContext();
+  const language = settings?.currentLanguage ?? 'cantonese';
   const { isRecording, startRecording, stopRecording, error: micError } = useRecorder();
   const isOnline = useOnlineStatus();
   const { isPro, isLoading: subLoadingRaw } = useSubscription();
@@ -74,7 +75,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
   // mark it 'failed' so we can render the gradient fallback instead of a flat square.
   useEffect(() => {
     let cancelled = false;
-    getScenarios().forEach((s) => {
+    getScenarios(language).forEach((s) => {
       const img = new Image();
       img.onload = () => {
         if (!cancelled) setImageLoadState((prev) => ({ ...prev, [s.id]: 'loaded' }));
@@ -85,7 +86,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
       img.src = `${s.backgroundUrl}?w=600&auto=format&fit=crop`;
     });
     return () => { cancelled = true; };
-  }, []);
+  }, [language]);
 
   // Soft paywall gate — shown while resolving subscription status for free users.
   // Suspended while GATES.paywallEnabled is false, same as the scene gate in App.jsx.
@@ -172,7 +173,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
       // TTS is non-fatal — message already shown, audio failure shouldn't block UX
       setReplyAudioState('loading');
       try {
-        const blob = await generateResponseAudio(reply.chinese);
+        const blob = await generateResponseAudio(reply.chinese, s);
         if (blob) playAudio(blob);
         else setReplyAudioState('idle');
       } catch { setReplyAudioState('idle'); /* audio unavailable — silently skip */ }
@@ -206,7 +207,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         setIsThinking(false);
         setReplyAudioState('loading');
         try {
-          const audioBlob = await generateResponseAudio(reply.chinese);
+          const audioBlob = await generateResponseAudio(reply.chinese, scenario);
           if (audioBlob) playAudio(audioBlob);
           else setReplyAudioState('idle');
         } catch { setReplyAudioState('idle'); /* TTS non-fatal */ }
@@ -248,7 +249,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
       setIsThinking(false);
       setReplyAudioState('loading');
       try {
-        const audioBlob = await generateResponseAudio(reply.chinese);
+        const audioBlob = await generateResponseAudio(reply.chinese, scenario);
         if (audioBlob) playAudio(audioBlob);
         else setReplyAudioState('idle');
       } catch { setReplyAudioState('idle'); /* TTS non-fatal */ }
@@ -272,7 +273,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         </div>
         <p className={styles.subtitle}>Choose a scene to practise</p>
         <div className={styles.sceneGrid}>
-          {getScenarios().map(s => (
+          {getScenarios(language).map(s => (
             <button
               key={s.id}
               className={styles.sceneCard}
@@ -338,7 +339,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
               <span className={styles.reviewSpeaker}>{msg.role === 'user' ? 'You' : 'AI'}</span>
               {msg.romanization && msg.role === 'user' && <p className={styles.reviewRoman}>{msg.romanization}</p>}
               {msg.english && <p className={styles.reviewEnglish}>{msg.english}</p>}
-              {msg.chinese && <p className={styles.reviewChinese} lang="yue">{msg.chinese}</p>}
+              {msg.chinese && <p className={styles.reviewChinese} lang={scenario?.language === 'mandarin' ? 'zh-CN' : 'yue'}>{msg.chinese}</p>}
               {msg.role === 'user' && !savedMsgIds.has(i) && (
                 <button className={styles.saveMsgBtn} onClick={() => handleSavePhrase(msg, i)}>
                   + Save
@@ -419,7 +420,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
                 className={`${styles.bubble} ${msg.role === 'user' ? styles.userBubble : styles.aiBubble}`}
               >
                 {msg.romanization && <p className={styles.bubbleRoman}>{msg.romanization}</p>}
-                {msg.chinese && <p className={styles.bubbleChinese} lang="yue">{msg.chinese}</p>}
+                {msg.chinese && <p className={styles.bubbleChinese} lang={scenario?.language === 'mandarin' ? 'zh-CN' : 'yue'}>{msg.chinese}</p>}
                 {msg.english && <p className={styles.bubbleEnglish}>{msg.english}</p>}
                 {showAudioState && (
                   <div style={{ marginTop: 6, display: 'flex', alignItems: 'center', gap: 6, opacity: 0.85 }}>
@@ -434,7 +435,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
               <div className={styles.speakingWaveform}>
                 <span /><span /><span /><span /><span />
               </div>
-              <p className={styles.speakingLabel}>SPEAKING CANTONESE…</p>
+              <p className={styles.speakingLabel}>{scenario?.language === 'mandarin' ? 'SPEAKING MANDARIN…' : 'SPEAKING CANTONESE…'}</p>
             </div>
           )}
         </div>
