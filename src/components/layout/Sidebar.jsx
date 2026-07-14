@@ -1,5 +1,6 @@
 import styles from './Sidebar.module.css';
 import { isAuthenticated } from '../../services/auth.js';
+import { LanguageSwitcher } from './LanguageSwitcher.jsx';
 
 const TABS = [
   {
@@ -52,6 +53,10 @@ export function Sidebar({ activeTab, onNavigate }) {
       <div className={styles.logo} onClick={() => onNavigate('home')}>
         <span className={styles.logoGlyph}>影</span>
         <span className={styles.logoText}>ShadowHK</span>
+      </div>
+
+      <div className={styles.langRow}>
+        <LanguageSwitcher />
       </div>
 
       <nav className={styles.nav}>

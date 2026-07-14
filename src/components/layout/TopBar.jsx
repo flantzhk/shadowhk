@@ -1,6 +1,7 @@
 import styles from './TopBar.module.css';
 import { isAuthenticated, getCurrentUser } from '../../services/auth.js';
 import { useAppContext } from '../../contexts/AppContext';
+import { LanguageSwitcher } from './LanguageSwitcher.jsx';
 
 export function TopBar({ onNavigate }) {
   const authed = isAuthenticated();
@@ -16,6 +17,7 @@ export function TopBar({ onNavigate }) {
         <span className={styles.logoText}>ShadowHK</span>
       </div>
       <div className={styles.actions}>
+        <LanguageSwitcher className={styles.langSwitcher} />
         {authed ? (
           <button
             className={styles.avatar}

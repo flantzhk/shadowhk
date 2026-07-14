@@ -1,0 +1,32 @@
+.switcher {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--bg-2);
+  border-radius: 999px;
+}
+
+.pill {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-family: var(--font-cjk);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-2);
+  line-height: 1.2;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  color: var(--fg-0);
+}
+
+.pill.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}

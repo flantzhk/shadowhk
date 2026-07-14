@@ -42,6 +42,10 @@
   gap: 8px;
 }
 
+.langSwitcher {
+  flex-shrink: 0;
+}
+
 .avatar {
   width: 36px;
   height: 36px;
