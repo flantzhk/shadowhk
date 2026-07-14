@@ -63,14 +63,14 @@
 
 /* === Text === */
 .title {
-  font-size: 1.75rem;
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-dark-text);
   text-align: center;
 }
 
 .body {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   text-align: center;
   line-height: 1.6;
@@ -92,7 +92,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
@@ -108,7 +108,7 @@
 
 /* === Steps (denied state) === */
 .sectionLabel {
-  font-size: 0.6875rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-muted);
   letter-spacing: 1.2px;
@@ -129,7 +129,7 @@
   border: 0.5px solid var(--color-border);
   border-radius: 12px;
   padding: 14px 18px;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-primary);
 }
 
@@ -141,7 +141,7 @@
   color: var(--color-text-inverse);
   border-radius: 14px;
   padding: 16px;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   text-align: center;
   min-height: 52px;
@@ -155,7 +155,7 @@
   background: transparent;
   color: var(--color-text-muted);
   padding: 12px;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   text-align: center;
 }

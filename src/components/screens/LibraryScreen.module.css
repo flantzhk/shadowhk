@@ -22,7 +22,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.06em;
   padding: 3px 11px;
   border-radius: 999px;
@@ -35,7 +35,7 @@
   font-family: var(--font-serif);
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   color: #fff;
   line-height: 1.1;
   margin: 0 0 8px;
@@ -45,7 +45,7 @@
 
 .heroSub {
   font-family: var(--font-ui);
-  font-size: 13.5px;
+  font-size: var(--font-size-sm);
   line-height: 1.5;
   color: rgba(255,255,255,0.7);
   margin: 0 0 14px;
@@ -72,7 +72,7 @@
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--gold);
@@ -83,7 +83,7 @@
   background: rgba(200,57,43,0.85);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0;
   text-transform: none;
@@ -93,7 +93,7 @@
 
 .heroLessonTitle {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: #fff;
 }
@@ -107,7 +107,7 @@
   background: var(--accent);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   padding: 10px 16px;
   border-radius: 999px;
@@ -139,7 +139,7 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
   color: var(--fg-0);
   outline: none;
@@ -152,7 +152,7 @@
   border: none;
   cursor: pointer;
   color: var(--fg-2);
-  font-size: 20px;
+  font-size: var(--font-size-md);
   line-height: 1;
   padding: 8px;
   min-width: 44px;
@@ -166,7 +166,7 @@
   flex-shrink: 0;
   align-self: center;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -191,13 +191,13 @@
 .sectionNum {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--accent);
 }
 
 .sectionLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -207,13 +207,13 @@
 
 .sectionMeta {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
 }
 
 /* Reference sets */
 .refIcon {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   flex-shrink: 0;
 }
 
@@ -242,7 +242,7 @@
 .refTitle {
   flex: 1;
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.01em;
@@ -250,7 +250,7 @@
 
 .refArrow {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-3);
   flex-shrink: 0;
 }
@@ -294,14 +294,14 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-ui);
-  font-size: 13.5px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
 }
 
 .lookupBadge {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -314,14 +314,14 @@
 
 .lookupCaption {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   line-height: 1.4;
 }
 
 .lookupTeaserLink {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.06em;
   color: var(--fg-3);
   margin: 8px 20px 8px;
@@ -392,7 +392,7 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: #fff;
   margin: 0;
@@ -402,7 +402,7 @@
 .favCoverCount {
   display: block;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: rgba(255,255,255,0.68);
@@ -411,7 +411,7 @@
 
 .favSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-1);
   margin: 8px 2px 0;
 }
@@ -439,7 +439,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   line-height: 1;
 }
 
@@ -452,7 +452,7 @@
 .noResults {
   margin: 10px 20px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-style: italic;
   color: var(--fg-2);
 }
@@ -477,7 +477,7 @@
   gap: 8px;
   padding: 14px 14px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -499,7 +499,7 @@
 
 .groupDuePill {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -511,7 +511,7 @@
 
 .groupPct {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   color: var(--jade);
 }
 
@@ -540,7 +540,7 @@
   width: 26px;
   height: 26px;
   color: var(--fg-3);
-  font-size: 19px;
+  font-size: var(--font-size-md);
   line-height: 1;
   display: flex;
   align-items: center;
@@ -563,7 +563,7 @@
   background: var(--bg-1);
   padding: 9px 11px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   border-radius: 8px;
   color: var(--fg-0);
   outline: none;
@@ -576,7 +576,7 @@
   color: #fff;
   border: none;
   font-family: var(--font-ui);
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   padding: 9px 14px;
   border-radius: 999px;
@@ -586,7 +586,7 @@
 
 .personalAddError {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--accent);
   margin: 0 0 8px;
 }
@@ -637,7 +637,7 @@
 
 .phraseThumbMonogram {
   font-family: 'DM Serif Display', var(--font-serif), Georgia, serif;
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   color: var(--bg-1);
 }
 
@@ -650,7 +650,7 @@
    secondary gloss underneath, the inverse of the old hierarchy. */
 .phraseRoman {
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0;
@@ -666,7 +666,7 @@
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 400;
   color: var(--fg-2);
   margin: 3px 0 0;
@@ -676,7 +676,7 @@
 
 .phraseEnglish {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-style: italic;
   color: var(--fg-2);
   margin: 4px 0 0;
@@ -708,7 +708,7 @@
 
 .growthLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -759,7 +759,7 @@
   padding: 40px 20px;
   gap: 14px;
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-style: italic;
   color: var(--fg-2);
 }
@@ -769,7 +769,7 @@
   border: 1px solid var(--border-1);
   color: var(--fg-0);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   padding: 10px 24px;
   cursor: pointer;

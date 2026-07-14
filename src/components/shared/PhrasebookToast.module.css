@@ -73,7 +73,7 @@
 
 .label {
   font-family: var(--sans, 'Inter', sans-serif);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: #fff;
   margin: 0;
@@ -82,7 +82,7 @@
 
 .phrase {
   font-family: var(--hk, 'Noto Serif HK', serif);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;

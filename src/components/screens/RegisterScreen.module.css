@@ -60,14 +60,14 @@
 .eyebrow {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--accent);
   margin: 0 0 4px;
 }
 
 .title {
   font-family: var(--font-serif);
-  font-size: 30px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -80,7 +80,7 @@
 .subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   margin: 0;
   max-width: 340px;
@@ -97,7 +97,7 @@
   border-radius: 10px;
   color: var(--fg-0);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   padding: 0 14px;
   outline: none;
   box-sizing: border-box;
@@ -153,7 +153,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--fg-3);
   transition: color 0.2s;
@@ -169,7 +169,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
+  font-size: var(--font-size-2xs);
   flex-shrink: 0;
   transition: all 0.2s;
 }
@@ -201,7 +201,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.15s;
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--accent-dark);
   margin-top: 1px;
 }
@@ -213,7 +213,7 @@
 
 .checkText {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--fg-1);
   line-height: 1.5;
@@ -231,7 +231,7 @@
   align-items: center;
   gap: 5px;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: #E85A5A;
   margin-bottom: 12px;
@@ -243,7 +243,7 @@
   border-radius: 50%;
   background: #E85A5A;
   color: #fff;
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@
   background: var(--accent);
   color: var(--accent-dark);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   border: none;
   border-radius: 10px;
@@ -280,7 +280,7 @@
 
 .footer {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   text-align: center;
   padding-bottom: 8px;

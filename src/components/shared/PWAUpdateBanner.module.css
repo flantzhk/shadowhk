@@ -13,7 +13,7 @@
   padding: 10px 20px;
   background: var(--color-brand-dark);
   color: #fff;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   animation: slideDown 0.25s ease;
 }
@@ -32,7 +32,7 @@
   border-radius: 8px;
   background: var(--color-brand-lime);
   color: var(--color-brand-dark);
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   border: none;
   cursor: pointer;

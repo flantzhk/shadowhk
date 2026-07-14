@@ -29,13 +29,13 @@
 
 .score {
   flex: 1;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-secondary);
 }
 
 .roundCount {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
 }
 
@@ -63,7 +63,7 @@
 }
 
 .label {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--color-text-muted);
   text-transform: uppercase;
@@ -71,7 +71,7 @@
 }
 
 .char {
-  font-size: 48px;
+  font-size: var(--font-size-display);
   font-weight: 600;
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
   color: var(--color-text-primary);
@@ -90,7 +90,7 @@
   background: var(--color-surface);
   border: 1.5px solid var(--color-border);
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--color-text-primary);
   cursor: pointer;
@@ -117,7 +117,7 @@
 }
 
 .finishErrorText {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--color-error);
   text-align: center;
   margin: 0 0 8px;
@@ -131,7 +131,7 @@
   color: #fff;
   border: none;
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -152,14 +152,14 @@
 }
 
 .doneTitle {
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--color-brand-dark);
   margin: 0;
 }
 
 .doneSub {
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin: 0;
   max-width: 320px;
@@ -171,7 +171,7 @@
   color: #fff;
   border: none;
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -190,14 +190,14 @@
 }
 
 .emptyTitle {
-  font-size: 20px;
+  font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0;
 }
 
 .emptyBody {
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin: 0;
   max-width: 320px;

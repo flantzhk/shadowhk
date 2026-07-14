@@ -21,15 +21,15 @@
 }
 
 .compact .score {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 
 .full .score {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
 }
 
 .label {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);

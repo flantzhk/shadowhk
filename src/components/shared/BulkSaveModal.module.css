@@ -39,13 +39,13 @@
 }
 
 .title {
-  font-size: 1.125rem;
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-dark-text);
 }
 
 .closeBtn {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
   width: 32px;
   height: 32px;
@@ -61,7 +61,7 @@
 }
 
 .subtext {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   margin-bottom: 12px;
 }
@@ -91,7 +91,7 @@
 .phraseSelected { background: var(--color-brand-lime-muted); }
 
 .check {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   flex-shrink: 0;
   margin-top: 1px;
@@ -106,13 +106,13 @@
 }
 
 .phraseChinese {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-primary);
   font-weight: var(--font-weight-medium);
 }
 
 .phraseEnglish {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
 }
 
@@ -120,7 +120,7 @@
 .countBar {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
   padding: 10px 0;
   border-top: 0.5px solid var(--color-border);
@@ -144,7 +144,7 @@
   border-radius: 12px;
   background: var(--color-brand-lime);
   color: var(--color-text-inverse);
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   text-align: center;
 }
@@ -159,7 +159,7 @@
   border-radius: 12px;
   border: 1.5px solid var(--color-border);
   color: var(--color-text-secondary);
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   text-align: center;
 }

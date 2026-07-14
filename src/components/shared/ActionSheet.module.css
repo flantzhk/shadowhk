@@ -25,13 +25,13 @@
 }
 
 .title {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
 }
 
 .body {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
   margin-top: 4px;
 }
@@ -47,7 +47,7 @@
   width: 100%;
   padding: 18px;
   text-align: center;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--color-brand-dark-text);
   display: block;
@@ -64,7 +64,7 @@
   border-radius: 14px;
   padding: 18px;
   text-align: center;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-dark-text);
   margin-bottom: 8px;

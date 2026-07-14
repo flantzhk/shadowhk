@@ -25,13 +25,13 @@
 }
 
 .title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
 }
 
 .intro {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   padding: 0 22px;
   margin-bottom: 24px;
@@ -56,18 +56,18 @@
 }
 
 .libName {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
 }
 
 .libVersion {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
 }
 
 .libLicense {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
   background: var(--color-surface);

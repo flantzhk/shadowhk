@@ -72,14 +72,14 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-cjk);
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   color: var(--accent-dark);
   margin-bottom: 8px;
 }
 
 .wordmark {
   font-family: var(--font-ui);
-  font-size: 20px;
+  font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -96,14 +96,14 @@
 .eyebrow {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--accent);
   margin: 0 0 4px;
 }
 
 .title {
   font-family: var(--font-serif);
-  font-size: 30px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -124,7 +124,7 @@
   border-radius: 10px;
   color: var(--fg-0);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   padding: 0 44px 0 14px;
   outline: none;
   box-sizing: border-box;
@@ -157,7 +157,7 @@
 
 .forgotLink {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--accent);
   text-decoration: underline;
@@ -171,7 +171,7 @@
   align-items: center;
   gap: 5px;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: #E85A5A;
   margin-top: 5px;
@@ -183,7 +183,7 @@
   border-radius: 50%;
   background: #E85A5A;
   color: #fff;
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -208,7 +208,7 @@
   background: var(--accent);
   color: var(--accent-dark);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   border: none;
   border-radius: 10px;
@@ -238,7 +238,7 @@
 
 .dividerText {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -260,7 +260,7 @@
   border-radius: 10px;
   color: var(--fg-0);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -273,18 +273,18 @@
 .socialBtn:active { background: var(--surface-2); }
 
 .socialIcon {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 700;
 }
 
 .socialG { color: #4285F4; }
 .socialA { color: var(--fg-0); }
-.socialMail { font-size: 18px; }
+.socialMail { font-size: var(--font-size-md); }
 
 /* Footer */
 .footer {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   text-align: center;
   padding-bottom: 8px;

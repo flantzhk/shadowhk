@@ -66,7 +66,7 @@
   border: none;
   color: rgba(237,231,223,0.55);
   cursor: pointer;
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   line-height: 1;
   padding: 0;
   width: 44px;
@@ -79,7 +79,7 @@
 
 .topCount {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: rgba(237,231,223,0.7);
   letter-spacing: 0.04em;
@@ -106,7 +106,7 @@
 
 .focusJyutping {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: rgba(237,231,223,0.5);
   letter-spacing: 0.04em;
@@ -118,7 +118,7 @@
 
 .focusCjk {
   font-family: var(--font-cjk);
-  font-size: 40px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   letter-spacing: 0.01em;
   color: #FAFAF7;
@@ -132,7 +132,7 @@
 .focusEnglish {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: rgba(237,231,223,0.7);
   letter-spacing: -0.1px;
   margin: 0;
@@ -151,7 +151,7 @@
   border: 1px solid rgba(237,231,223,0.18);
   border-radius: 999px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: rgba(237,231,223,0.7);
   padding: 8px 14px;
@@ -170,7 +170,7 @@
 
 .scoringText {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -178,7 +178,7 @@
 
 .scoreNum {
   font-family: var(--font-serif);
-  font-size: 56px;
+  font-size: var(--font-size-hero);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -271,7 +271,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -310,7 +310,7 @@
 
 .holdLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -327,7 +327,7 @@
 
 .micError {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: rgba(200,57,43,0.8);
   margin: 0;
 }
@@ -338,7 +338,7 @@
   background: rgba(237,231,223,0.08);
   border: 1px solid rgba(237,231,223,0.15);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: rgba(237,231,223,0.7);
   cursor: pointer;
@@ -457,7 +457,7 @@
 
 .celebScoreNum {
   font-family: var(--font-serif);
-  font-size: 72px; font-weight: 500;
+  font-size: var(--font-size-hero); font-weight: 500;
   line-height: 1; letter-spacing: -4px;
   color: var(--accent);
   text-shadow: 0 0 40px rgba(200,57,43,0.4);
@@ -471,14 +471,14 @@
 
 .celebScoreSub {
   font-family: var(--font-mono);
-  font-size: 12px; font-weight: 500;
+  font-size: var(--font-size-2xs); font-weight: 500;
   color: rgba(200,57,43,0.6);
   letter-spacing: 0.08em;
 }
 
 .celebHeadline {
   font-family: var(--font-serif);
-  font-size: 26px; font-weight: 500;
+  font-size: var(--font-size-xl); font-weight: 500;
   color: #fff;
   letter-spacing: -0.03em; line-height: 1.1;
   text-align: center;
@@ -488,7 +488,7 @@
 
 .celebSub {
   font-family: var(--font-serif);
-  font-size: 14px; color: rgba(255,255,255,0.5);
+  font-size: var(--font-size-sm); color: rgba(255,255,255,0.5);
   font-style: italic;
   text-align: center; margin: 0 0 18px; flex-shrink: 0;
   animation: celebFadeUp 0.4s ease 0.45s both;
@@ -513,7 +513,7 @@
   border-radius: var(--radius-pill);
   padding: 6px 14px;
   font-family: var(--font-ui);
-  font-size: 12px; font-weight: 600;
+  font-size: var(--font-size-2xs); font-weight: 600;
   color: rgba(255,255,255,0.8);
 }
 
@@ -531,7 +531,7 @@
 
 .celebSocial {
   font-family: var(--font-ui);
-  font-size: 12px; font-weight: 500;
+  font-size: var(--font-size-2xs); font-weight: 500;
   color: rgba(255,255,255,0.4);
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.07);
@@ -554,20 +554,20 @@
 
 .celebPhraseCjk {
   font-family: var(--font-cjk);
-  font-size: 20px; color: rgba(255,255,255,0.9);
+  font-size: var(--font-size-md); color: rgba(255,255,255,0.9);
   letter-spacing: 0.04em; margin: 0 0 4px;
 }
 
 .celebPhraseRoman {
   font-family: var(--font-mono);
-  font-size: 13px; font-weight: 500;
+  font-size: var(--font-size-xs); font-weight: 500;
   color: var(--accent); margin: 0 0 4px;
   letter-spacing: 0.04em;
 }
 
 .celebPhraseEn {
   font-family: var(--font-serif);
-  font-size: 12px; font-style: italic;
+  font-size: var(--font-size-2xs); font-style: italic;
   color: rgba(255,255,255,0.45); margin: 0;
 }
 
@@ -584,7 +584,7 @@
   border-radius: var(--radius-pill);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 16px; font-weight: 500;
+  font-size: var(--font-size-base); font-weight: 500;
   padding: 16px; cursor: pointer;
   box-shadow: 0 8px 32px rgba(200,57,43,0.3);
   letter-spacing: -0.01em;
@@ -599,7 +599,7 @@
   border-radius: var(--radius-pill);
   color: rgba(255,255,255,0.65);
   font-family: var(--font-ui);
-  font-size: 13px; font-weight: 600;
+  font-size: var(--font-size-xs); font-weight: 600;
   padding: 12px; cursor: pointer;
 }
 
@@ -641,7 +641,7 @@
   padding: 24px;
   text-align: center;
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-style: italic;
   color: rgba(237,231,223,0.5);
 }
@@ -665,7 +665,7 @@
 .heardLine {
   margin: 0;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   line-height: 1.5;
   color: rgba(247, 244, 236, 0.85);
   max-width: 340px;
@@ -673,7 +673,7 @@
 }
 .heardLabel {
   display: inline-block;
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.08em;
   color: rgba(247, 244, 236, 0.45);
   margin-right: 6px;
@@ -699,7 +699,7 @@
   background: var(--accent);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
@@ -719,7 +719,7 @@
   background: rgba(237,231,223,0.08);
   color: rgba(237,231,223,0.7);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.12s ease;
@@ -757,7 +757,7 @@
 .bdTilePlaying {
   background: rgba(200, 57, 43, 0.22);
 }
-.bdCjk { font-size: 20px; color: #F4F1EC; }
-.bdJyut { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); }
-.bdGloss { font-size: 11px; color: rgba(244, 241, 236, 0.6); }
-.bdEmpty { margin-top: 14px; font-size: 13px; color: rgba(244, 241, 236, 0.5); }
+.bdCjk { font-size: var(--font-size-md); color: #F4F1EC; }
+.bdJyut { font-family: 'JetBrains Mono', monospace; font-size: var(--font-size-2xs); color: var(--accent); }
+.bdGloss { font-size: var(--font-size-2xs); color: rgba(244, 241, 236, 0.6); }
+.bdEmpty { margin-top: 14px; font-size: var(--font-size-xs); color: rgba(244, 241, 236, 0.5); }

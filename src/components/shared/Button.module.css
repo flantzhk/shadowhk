@@ -42,17 +42,17 @@
 /* Sizes */
 .small {
   padding: var(--space-sm) var(--space-md);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
 
 .medium {
   padding: var(--space-md) var(--space-lg);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
 }
 
 .large {
   padding: var(--space-base) var(--space-xl);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
 }
 
 .fullWidth {

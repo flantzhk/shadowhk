@@ -16,12 +16,12 @@
   color: var(--accent);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .culturalDividerLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 
 .culturalEyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
 
 .culturalText {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 400;
   color: var(--fg-1);
   line-height: 1.5;
@@ -110,14 +110,14 @@
 .vocabCategoryName {
   flex: 1;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
 }
 
 .vocabCategoryCount {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   background: var(--bg-2);
   border-radius: 99px;
@@ -176,7 +176,7 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   line-height: 1;
 }
 .vocabSaveBtnSaved {
@@ -188,7 +188,7 @@
 .vocabCjk {
   display: block;
   font-family: var(--font-cjk);
-  font-size: 17px;
+  font-size: var(--font-size-base);
   color: var(--fg-0);
   line-height: 1.2;
 }
@@ -196,7 +196,7 @@
 .vocabJyutping {
   display: block;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--accent);
   margin-top: 1px;
 }
@@ -204,7 +204,7 @@
 .vocabEnglish {
   display: block;
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   line-height: 1.3;
   margin-top: 2px;
@@ -289,7 +289,7 @@
   border-radius: var(--radius-pill);
   color: var(--fg-1);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   padding: 5px 12px 5px 8px;
   cursor: pointer;
@@ -297,7 +297,7 @@
 
 .stickyTitle {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--fg-0);
   overflow: hidden;
@@ -312,7 +312,7 @@
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 8px;
   color: var(--fg-2);
-  font-size: 18px;
+  font-size: var(--font-size-md);
   cursor: pointer;
   padding: 6px 10px;
   min-height: 36px;
@@ -323,7 +323,7 @@
   border: 1px solid var(--border-1);
   border-radius: 8px;
   color: var(--fg-2);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   line-height: 1;
   cursor: pointer;
   padding: 6px 10px;
@@ -386,7 +386,7 @@
   border-radius: var(--radius-pill);
   color: rgba(255,255,255,0.9);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   padding: 6px 12px 6px 8px;
   cursor: pointer;
@@ -402,7 +402,7 @@
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 50%;
   color: rgba(255,255,255,0.9);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   width: 36px;
   height: 36px;
   cursor: pointer;
@@ -419,7 +419,7 @@
 
 .heroEyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -430,7 +430,7 @@
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: #fff;
   margin: 0 0 6px;
@@ -440,7 +440,7 @@
 
 .heroDesc {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
@@ -474,7 +474,7 @@
 
 .masteryLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -559,7 +559,7 @@
 .ctaSub {
   display: block;
   font-family: var(--font-ui);
-  font-size: 10.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   letter-spacing: 0.02em;
   opacity: 0.72;
@@ -573,7 +573,7 @@
   border-radius: var(--radius-xl);
   color: var(--fg-1);
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   padding: 10px 14px;
   min-height: 56px;
@@ -592,7 +592,7 @@
   border-radius: var(--radius-xl);
   color: var(--bg-0);
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   padding: 10px 14px;
   min-height: 56px;
@@ -611,7 +611,7 @@
   border-radius: var(--radius-xl);
   color: var(--fg-1);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   padding: 10px 10px;
   min-height: 56px;
@@ -640,7 +640,7 @@
     height: 340px;
   }
   .heroTitle {
-    font-size: 36px;
+    font-size: var(--font-size-display);
   }
 }
 
@@ -673,7 +673,7 @@
 
 .audioMissingText {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   line-height: 1.4;
 }
@@ -684,7 +684,7 @@
   border: 1px solid var(--border-1);
   color: var(--accent);
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 99px;
@@ -717,7 +717,7 @@
   border-radius: 50%;
   background: var(--accent-muted);
   color: var(--accent);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   display: grid;
   place-items: center;
@@ -732,14 +732,14 @@
 
 .addPhraseTitle {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
 }
 
 .addPhraseHint {
   font-family: var(--font-ui);
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   line-height: 1.4;
 }
@@ -758,7 +758,7 @@
   border-radius: 10px;
   padding: 12px 14px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-0);
   outline: none;
 }
@@ -766,7 +766,7 @@
 
 .addPhraseError {
   font-family: var(--font-ui);
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   color: var(--accent);
   margin: 10px 0 0;
 }
@@ -783,7 +783,7 @@
   border: 1px solid var(--border-1);
   color: var(--fg-1);
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   padding: 9px 16px;
   border-radius: 99px;
@@ -797,7 +797,7 @@
   color: #fff;
   border: none;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   padding: 9px 18px;
   border-radius: 99px;
@@ -818,14 +818,14 @@
 
 .addPhrasePreviewRoman {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--accent);
   margin: 0 0 4px;
 }
 
 .addPhrasePreviewCjk {
   font-family: var(--font-cjk);
-  font-size: 24px;
+  font-size: var(--font-size-lg);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 6px;
@@ -833,7 +833,7 @@
 
 .addPhrasePreviewEnglish {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-style: italic;
   color: var(--fg-1);
   margin: 0;
@@ -841,7 +841,7 @@
 
 .addPhrasePreviewNote {
   font-family: var(--font-ui);
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   line-height: 1.5;
   margin: 10px 0 0;

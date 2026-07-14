@@ -24,7 +24,7 @@
 }
 
 .title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--fg-0);
 }
@@ -34,7 +34,7 @@
 }
 
 .sectionTitle {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--fg-2);
   text-transform: uppercase;
@@ -53,7 +53,7 @@
   align-items: center;
   width: 100%;
   padding: var(--space-md) 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--fg-0);
   text-align: left;
@@ -62,7 +62,7 @@
 }
 
 .chevron {
-  font-size: 1.125rem;
+  font-size: var(--font-size-md);
   color: var(--fg-2);
   flex-shrink: 0;
   transition: transform var(--transition-fast);
@@ -74,7 +74,7 @@
 }
 
 .answer {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--fg-1);
   line-height: 1.6;
   padding-bottom: var(--space-md);
@@ -92,7 +92,7 @@
 }
 
 .contactText {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--fg-1);
   line-height: 1.5;
 }
@@ -103,7 +103,7 @@
   background: var(--accent);
   color: var(--accent-dark);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   text-align: center;
   min-height: 44px;
@@ -114,7 +114,7 @@
 }
 
 .sla {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
 }
 

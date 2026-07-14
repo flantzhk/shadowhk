@@ -54,7 +54,7 @@
 
 /* Error: a muted accent warning glyph */
 .error {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   line-height: 14px;
   color: var(--accent);
 }

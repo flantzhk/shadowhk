@@ -66,20 +66,20 @@
 }
 
 .text {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   font-weight: var(--font-weight-medium);
 }
 
 .error {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-error);
   text-align: center;
   max-width: 280px;
 }
 
 .hint {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   text-align: center;
   max-width: 280px;

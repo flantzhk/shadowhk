@@ -20,7 +20,7 @@
   background: none;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: var(--fg-0);
   font-family: var(--font-ui);
 }
@@ -48,14 +48,14 @@
 }
 
 .searchingNote {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
 }
 
 .section {}
 
 .sectionTitle {
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: var(--fg-2);
   text-transform: uppercase;
@@ -71,7 +71,7 @@
 }
 
 .noResults p {
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   margin: 0;
 }
@@ -83,7 +83,7 @@
   background: var(--accent-muted);
   border: 1.5px solid rgba(197, 232, 90, 0.4);
   border-radius: 12px;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--accent);
   cursor: pointer;
@@ -99,7 +99,7 @@
   background: var(--bg-1);
   border: 1.5px dashed var(--border-0);
   border-radius: 14px;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--fg-1);
   cursor: pointer;
@@ -123,13 +123,13 @@
 }
 
 .offlineNote {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   font-style: italic;
 }
 
 .addIcon {
-  font-size: 20px;
+  font-size: var(--font-size-md);
   color: var(--accent);
   font-weight: 300;
 }
@@ -146,7 +146,7 @@
   background: var(--surface-1);
   border: 1.5px solid var(--border-0);
   border-radius: 12px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: var(--fg-0);
   font-family: var(--font-ui);
   outline: none;
@@ -168,7 +168,7 @@
   background: var(--bg-1);
   border: 1.5px solid var(--border-0);
   border-radius: 20px;
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-1);
   cursor: pointer;
@@ -189,7 +189,7 @@
   color: var(--accent-dark);
   border: none;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 52px;
@@ -202,7 +202,7 @@
 }
 
 .error {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: #E85A5A;
   margin: 0;
 }
@@ -218,14 +218,14 @@
 }
 
 .previewRomanization {
-  font-size: 20px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--accent);
   margin: 0;
 }
 
 .previewCjk {
-  font-size: 24px;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   font-family: var(--font-cjk);
   color: var(--fg-0);
@@ -233,13 +233,13 @@
 }
 
 .previewEnglish {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   margin: 0;
 }
 
 .previewNote {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   margin: 0;
   font-style: italic;
@@ -259,7 +259,7 @@
   background: none;
   border: 1.5px solid var(--border-0);
   border-radius: 10px;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
   color: var(--fg-1);
@@ -273,7 +273,7 @@
   color: var(--accent-dark);
   border: none;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
   min-height: 48px;

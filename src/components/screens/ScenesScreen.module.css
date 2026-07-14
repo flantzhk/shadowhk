@@ -12,7 +12,7 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--fg-0);
   margin: 0 0 4px;
@@ -27,7 +27,7 @@
 
 .subtitle {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--fg-2);
   letter-spacing: 0.12em;
@@ -36,7 +36,7 @@
 
 .lede {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 400;
   color: var(--fg-1);
   line-height: 1.5;
@@ -65,7 +65,7 @@
   background: none;
   border: none;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
   color: var(--fg-0);
   outline: none;
@@ -74,7 +74,7 @@
 .searchInput::placeholder {
   color: var(--fg-3);
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
 }
 
@@ -84,7 +84,7 @@
   border-radius: 8px;
   cursor: pointer;
   color: var(--fg-2);
-  font-size: 20px;
+  font-size: var(--font-size-md);
   line-height: 1;
   padding: 8px;
   min-width: 44px;
@@ -114,7 +114,7 @@
 
 .catTitle {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--fg-0);
   letter-spacing: -0.3px;
@@ -124,7 +124,7 @@
 
 .catCount {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   letter-spacing: 0.16em;
   color: var(--fg-2);
@@ -169,7 +169,7 @@
 }
 
 .hEmoji {
-  font-size: 32px;
+  font-size: var(--font-size-display);
   position: relative;
   z-index: 1;
 }
@@ -193,7 +193,7 @@
 
 .hBadgeText {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: #fff;
   letter-spacing: 0.08em;
 }
@@ -204,7 +204,7 @@
   left: 10px;
   right: 10px;
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.2px;
@@ -225,7 +225,7 @@
 
 .hSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-1);
   margin: 8px 0 0;
   line-height: 1.4;
@@ -272,7 +272,7 @@
 }
 
 .tileEmoji {
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   position: relative;
   z-index: 1;
 }
@@ -296,7 +296,7 @@
 
 .tileBadgeText {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: #fff;
   letter-spacing: 0.08em;
 }
@@ -307,7 +307,7 @@
   left: 12px;
   right: 12px;
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.2px;
@@ -328,7 +328,7 @@
 
 .tileSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-1);
   margin: 8px 0 0;
   line-height: 1.4;
@@ -351,7 +351,7 @@
   grid-column: 1 / -1;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   padding: 24px 0;
   text-align: center;

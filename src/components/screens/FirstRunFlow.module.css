@@ -10,7 +10,7 @@
 .pageHeader { padding: 18px 20px 12px; }
 .pageEyebrow {
   display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  font-family: var(--font-mono); font-size: var(--font-size-2xs); font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 8px;
 }
@@ -18,7 +18,7 @@
   width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
 }
 .pageTitle {
-  font-family: var(--font-serif); font-size: 24px; font-weight: 600;
+  font-family: var(--font-serif); font-size: var(--font-size-lg); font-weight: 600;
   color: var(--fg-0); margin: 0; letter-spacing: -0.02em; line-height: 1.15;
 }
 
@@ -73,7 +73,7 @@
   background: none;
   border: none;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-2);
   cursor: pointer;
@@ -125,7 +125,7 @@
   background: var(--accent);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   border: none;
   border-radius: 999px;
@@ -151,7 +151,7 @@
   display: block;
   text-align: center;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-2);
   background: none;
@@ -187,14 +187,14 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-cjk);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: #fff;
 }
 
 .brandName {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: #fff;
   letter-spacing: -0.01em;
@@ -202,7 +202,7 @@
 
 .welcomeEyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -212,7 +212,7 @@
 
 .stepTitle {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   color: #fff;
   letter-spacing: -0.02em;
@@ -225,7 +225,7 @@
 .stepBody {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: rgba(255,255,255,0.75);
   line-height: 1.55;
   margin: 0;
@@ -235,7 +235,7 @@
 .stepProof {
   font-family: var(--font-ui);
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: #fff;
   line-height: 1.5;
   margin: 18px 0 0;
@@ -250,7 +250,7 @@
 
 .stepHeading {
   font-family: var(--font-ui);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -276,7 +276,7 @@
 
 .toneNum {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: #fff;
   background: var(--accent);
@@ -290,32 +290,32 @@
 
 .toneJyut {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--fg-1);
 }
 
 .toneChar {
   font-family: var(--font-cjk);
-  font-size: 18px;
+  font-size: var(--font-size-md);
   color: var(--fg-0);
 }
 
 .toneDesc {
   font-family: var(--font-ui);
   font-style: italic;
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
 }
 
 .toneMeaning {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
   text-align: right;
 }
 
-.tonePlay { font-size: 10px; color: var(--fg-3); }
+.tonePlay { font-size: var(--font-size-2xs); color: var(--fg-3); }
 .tonePlaying { color: var(--accent); }
 
 /* ── Step 7: Placement check ── */
@@ -329,7 +329,7 @@
 
 .placementCounter {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--fg-3);
@@ -338,7 +338,7 @@
 
 .placementChar {
   font-family: var(--font-cjk);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   color: var(--fg-0);
   margin: 4px 0;
 }
@@ -353,7 +353,7 @@
 .placementPlayBtn,
 .placementRecordBtn {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   border-radius: 999px;
   padding: 10px 20px;
@@ -369,7 +369,7 @@
 
 .placementDoneBadge {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--accent);
   margin: 12px 0 0;
@@ -377,14 +377,14 @@
 
 .placementError {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--color-error, #B03020);
   margin: 12px 0 0;
 }
 
 .stepFootnote {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
   margin: 0;
 }
@@ -413,7 +413,7 @@
 
 .levelCardTitle {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
   margin: 0 0 3px;
@@ -424,13 +424,13 @@
 
 .levelCardSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--fg-2);
   margin: 0;
 }
 
-.radioIcon { font-size: 16px; color: var(--accent); }
+.radioIcon { font-size: var(--font-size-base); color: var(--accent); }
 
 /* ── Step 3: Reasons grid ── */
 .reasonGrid {
@@ -459,11 +459,11 @@
   background: var(--accent-muted);
 }
 
-.reasonEmoji { font-size: 28px; }
+.reasonEmoji { font-size: var(--font-size-xl); }
 
 .reasonLabel {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--fg-0);
   text-align: center;
@@ -496,7 +496,7 @@
 
 .goalLabel {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
   flex: 1;
@@ -519,7 +519,7 @@
 
 .goalActiveSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--accent);
   margin-top: 10px;
@@ -529,7 +529,7 @@
 /* ── Step 5: Reminders ── */
 .reminderSub {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--fg-2);
   margin: 0 0 24px;
@@ -549,7 +549,7 @@
   border: none;
   color: var(--fg-0);
   font-family: var(--font-ui);
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 700;
   text-align: center;
   padding: 20px;
@@ -571,7 +571,7 @@
   background: var(--surface-2);
   border: 1px solid var(--border-1);
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--fg-2);
   cursor: pointer;
@@ -614,7 +614,7 @@
 
 .finalEyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -624,7 +624,7 @@
 
 .finalTitle {
   font-family: var(--font-serif);
-  font-size: 30px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   color: #fff;
   letter-spacing: -0.02em;
@@ -634,7 +634,7 @@
 
 .finalMeta {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: rgba(255,255,255,0.7);
   margin: 0 0 28px;
@@ -644,7 +644,7 @@
   display: block;
   text-align: center;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: rgba(255,255,255,0.5);
   background: none;

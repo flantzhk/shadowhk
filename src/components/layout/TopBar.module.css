@@ -21,7 +21,7 @@
 
 .logoGlyph {
   font-family: var(--font-cjk);
-  font-size: 19px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--accent);
   line-height: 1;
@@ -30,7 +30,7 @@
 
 .logoText {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: var(--font-size-md);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.01em;
@@ -73,14 +73,14 @@
 
 .avatarInitial {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--accent);
 }
 
 .signIn {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: #fff;
   background: var(--accent);

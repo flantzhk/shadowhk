@@ -29,7 +29,7 @@
 
 /* === "I know this" labeled button in status row === */
 .knowBtn {
-  font-size: 0.6875rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
   padding: 3px 10px;
@@ -79,23 +79,23 @@
 }
 
 .romanization {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-dark-text);
 }
 
 .chinese {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
 }
 
 .english {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
 }
 
 .missingText {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   font-style: italic;
 }
@@ -116,7 +116,7 @@
 }
 
 .badge {
-  font-size: 0.625rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   padding: 2px 8px;
   border-radius: 10px;
@@ -134,7 +134,7 @@
 }
 
 .score {
-  font-size: 0.625rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-green);
 }
@@ -173,13 +173,13 @@
   cursor: pointer;
 }
 
-.wordChinese { font-size: 1.125rem; color: var(--color-text-primary); }
-.wordJyutping { font-size: 0.6875rem; color: var(--color-jyutping, #6b8f5e); }
-.wordEnglish { font-size: 0.6875rem; color: var(--color-text-muted); }
-.wordSpeaker { font-size: 0.625rem; color: var(--color-text-muted); }
+.wordChinese { font-size: var(--font-size-md); color: var(--color-text-primary); }
+.wordJyutping { font-size: var(--font-size-2xs); color: var(--color-jyutping, #6b8f5e); }
+.wordEnglish { font-size: var(--font-size-2xs); color: var(--color-text-muted); }
+.wordSpeaker { font-size: var(--font-size-2xs); color: var(--color-text-muted); }
 
 .wordSave {
-  font-size: 0.625rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-dark-text);
   padding: 4px 8px;
@@ -193,7 +193,7 @@
 .wordSave:active { background: rgba(0,0,0,0.03); }
 
 .context {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
   font-style: italic;
   margin: 4px 0 10px;
@@ -209,7 +209,7 @@
 .actionBtn {
   padding: 8px 14px;
   border-radius: 10px;
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   background: var(--color-surface);
   border: 1.5px solid rgba(0, 0, 0, 0.18);
@@ -227,7 +227,7 @@
 .actionBtnPrimary {
   padding: 8px 14px;
   border-radius: 10px;
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   background: var(--color-brand-lime);
   border: none;
@@ -249,7 +249,7 @@
 }
 
 .masteredBadgeInline {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-mastered-text, #5a7a2a);
   background: var(--color-mastered-bg, rgba(139, 184, 43, 0.12));

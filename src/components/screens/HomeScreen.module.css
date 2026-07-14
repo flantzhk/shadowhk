@@ -20,14 +20,14 @@
 
 .streakNum {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .streakLabel {
   font-family: var(--font-ui);
-  font-size: 11.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   opacity: 0.85;
 }
@@ -54,14 +54,14 @@
 .sectionNum {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--accent);
   margin-right: 8px;
 }
 
 .sectionLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 8px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -112,7 +112,7 @@
 
 .guestEyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.16em;
   color: rgba(255,255,255,0.55);
@@ -122,7 +122,7 @@
 
 .guestCjk {
   font-family: var(--font-cjk);
-  font-size: 46px;
+  font-size: var(--font-size-display);
   line-height: 1.15;
   color: #F7F4EC;
   text-align: center;
@@ -131,14 +131,14 @@
 
 .guestJyut {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--gold);
   text-align: center;
   margin: 4px 0 6px;
 }
 
 .guestGloss {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: rgba(255,255,255,0.65);
   text-align: center;
   line-height: 1.45;
@@ -172,7 +172,7 @@
 }
 
 .guestHint {
-  font-size: 11.5px;
+  font-size: var(--font-size-2xs);
   color: rgba(255,255,255,0.5);
   text-align: center;
   margin: 10px 0 0;
@@ -202,7 +202,7 @@
   border-radius: 13px;
   background: var(--color-brand-lime);
   color: var(--color-text-inverse);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   text-align: center;
 }
@@ -216,7 +216,7 @@
 
 .panelLeadLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -225,7 +225,7 @@
 
 .panelLeadNum {
   font-family: var(--font-serif);
-  font-size: 40px;
+  font-size: var(--font-size-display);
   font-weight: 600;
   color: #fff;
   letter-spacing: -0.02em;
@@ -235,7 +235,7 @@
 .panelLeadEmpty {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: rgba(255,255,255,0.75);
   line-height: 1.3;
@@ -244,7 +244,7 @@
 
 .panelGreetTitle {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: var(--font-size-lg);
   font-weight: 500;
   font-style: italic;
   color: #fff;
@@ -271,7 +271,7 @@
 .panelRibbonText {
   flex: 1;
   font-family: var(--font-ui);
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--gold);
 }
@@ -283,7 +283,7 @@
   border-radius: var(--radius-pill);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 11.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   padding: 6px 12px;
   cursor: pointer;
@@ -332,7 +332,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.14em;
   color: var(--gold);
@@ -345,7 +345,7 @@
   background: rgba(200,57,43,0.85);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0;
   text-transform: none;
@@ -355,7 +355,7 @@
 
 .panelLessonTitle {
   font-family: var(--font-serif);
-  font-size: 15.5px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: #fff;
   margin: 0;
@@ -375,7 +375,7 @@
   background: var(--accent);
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   padding: 10px 16px;
   border-radius: var(--radius-pill);
@@ -400,7 +400,7 @@
 
 .panelEmptyText {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: rgba(255,255,255,0.72);
 }
 
@@ -410,7 +410,7 @@
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   padding: 10px 22px;
   cursor: pointer;
@@ -432,11 +432,11 @@
   text-align: left;
   cursor: pointer;
 }
-.personalEmptyEmoji { font-size: 22px; flex-shrink: 0; }
+.personalEmptyEmoji { font-size: var(--font-size-lg); flex-shrink: 0; }
 .personalEmptyText { flex: 1; }
 .personalEmptyTitle {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 3px;
@@ -444,14 +444,14 @@
 }
 .personalEmptyDesc {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   margin: 0;
   line-height: 1.4;
 }
 .personalEmptyArrow {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--accent);
   flex-shrink: 0;
   align-self: center;
@@ -495,13 +495,13 @@
   place-items: center;
 }
 
-.continueEmoji { font-size: 22px; }
+.continueEmoji { font-size: var(--font-size-lg); }
 
 .continueBody { flex: 1; min-width: 0; }
 
 .continueTitle {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--fg-0);
   margin: 0 0 5px;
@@ -533,7 +533,7 @@
 
 .continuePct {
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   flex-shrink: 0;
   white-space: nowrap;
@@ -545,7 +545,7 @@
 .tryNextEmpty {
   margin: 0 20px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
 }
 
@@ -588,7 +588,7 @@
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: 32px;
+  font-size: var(--font-size-display);
 }
 
 .sceneCoverGrad {
@@ -605,7 +605,7 @@
   backdrop-filter: blur(6px);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.06em;
   border-radius: 99px;
   padding: 3px 8px;
@@ -622,7 +622,7 @@
   background: var(--gold);
   color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -636,7 +636,7 @@
 .sceneCoverCount {
   display: block;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: rgba(255,255,255,0.65);
@@ -647,7 +647,7 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: #fff;
   margin: 0;
@@ -656,7 +656,7 @@
 
 .sceneSub {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-1);
   margin: 8px 0 0;
   line-height: 1.4;
@@ -717,7 +717,7 @@
   backdrop-filter: blur(4px);
   color: var(--gold);
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   border-radius: 99px;
@@ -729,7 +729,7 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #fff;
@@ -739,7 +739,7 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-ui);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: rgba(255,255,255,0.78);
 }
 
@@ -807,11 +807,11 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-.celebEmoji { font-size: 42px; margin-bottom: 6px; display: block; }
+.celebEmoji { font-size: var(--font-size-display); margin-bottom: 6px; display: block; }
 
 .celebNum {
   font-family: var(--font-serif);
-  font-size: 80px;
+  font-size: var(--font-size-hero);
   font-weight: 500;
   color: var(--accent);
   line-height: 1;
@@ -821,7 +821,7 @@
 
 .celebTitle {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0 0 6px;
@@ -831,7 +831,7 @@
 .celebSub {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   margin: 0 0 24px;
 }
@@ -843,7 +843,7 @@
   border: none;
   border-radius: var(--radius-pill);
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   padding: 14px;
   cursor: pointer;
@@ -865,7 +865,7 @@
     margin: 0 auto;
   }
   .panelGreetTitle {
-    font-size: 32px;
+    font-size: var(--font-size-display);
   }
   /* Continue: fewer than 4 cards stretch to fill the row instead of
      leaving empty trailing columns (see base rule for why auto-fit). */
@@ -906,6 +906,6 @@
     height: 76px;
   }
   .panelLessonTitle {
-    font-size: 21px;
+    font-size: var(--font-size-lg);
   }
 }

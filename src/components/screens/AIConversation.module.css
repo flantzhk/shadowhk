@@ -26,13 +26,13 @@
 }
 
 .title {
-  font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md); font-weight: var(--font-weight-semibold);
   color: var(--fg-0);
 }
 
 .onlineIndicator {
   display: flex; align-items: center; gap: 4px;
-  font-size: 0.8125rem; color: var(--fg-2);
+  font-size: var(--font-size-xs); color: var(--fg-2);
 }
 
 .onlineDot {
@@ -41,23 +41,23 @@
 }
 
 .subtitle {
-  font-size: var(--font-size-base); color: var(--fg-2);
+  font-size: var(--font-size-sm); color: var(--fg-2);
   padding: 0 var(--content-padding); margin-bottom: var(--space-lg);
 }
 
 .scenarioBar {
   background: rgba(255,255,255,0.03); padding: 10px var(--content-padding);
-  font-size: 0.75rem; color: var(--fg-1);
+  font-size: var(--font-size-2xs); color: var(--fg-1);
 }
 
 .scenarioLabel {
-  font-size: var(--font-size-md); font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base); font-weight: var(--font-weight-medium);
   color: var(--fg-1);
 }
 
 .endBtn {
   padding: var(--space-sm) var(--space-md); border: 1px solid var(--border-1);
-  border-radius: var(--radius-pill); color: var(--fg-1); font-size: var(--font-size-sm);
+  border-radius: var(--radius-pill); color: var(--fg-1); font-size: var(--font-size-xs);
   min-height: 44px; display: flex; align-items: center;
 }
 
@@ -102,25 +102,25 @@
 }
 
 .sceneEmoji {
-  font-size: 1.375rem;
+  font-size: var(--font-size-lg);
   line-height: 1;
   margin-bottom: 4px;
 }
 
 .sceneCardTitle {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: white;
   line-height: 1.2;
 }
 
 .sceneCardChinese {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: rgba(255,255,255,0.75);
 }
 
 .sceneCardPersona {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: rgba(255,255,255,0.55);
   margin-top: 2px;
 }
@@ -179,19 +179,19 @@
 }
 
 .chatSceneEmoji {
-  font-size: 1.125rem;
+  font-size: var(--font-size-md);
   line-height: 1;
 }
 
 .chatSceneTitle {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: white;
   line-height: 1.2;
 }
 
 .chatSceneChinese {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: rgba(255,255,255,0.6);
 }
 
@@ -201,7 +201,7 @@
   background: rgba(255,255,255,0.15);
   border-radius: 20px;
   color: white;
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   min-height: 44px;
 }
@@ -218,7 +218,7 @@
 }
 
 .chatErrorText {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: white;
   margin-bottom: 10px;
   line-height: 1.5;
@@ -230,7 +230,7 @@
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.2);
   color: white;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
 }
 
@@ -266,9 +266,9 @@
   border-radius: 18px 18px 18px 4px;
 }
 
-.bubbleRoman { font-size: 0.875rem; font-weight: var(--font-weight-semibold); color: white; }
-.bubbleChinese { font-size: 0.8125rem; color: rgba(255,255,255,0.8); margin-top: 2px; }
-.bubbleEnglish { font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+.bubbleRoman { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: white; }
+.bubbleChinese { font-size: var(--font-size-xs); color: rgba(255,255,255,0.8); margin-top: 2px; }
+.bubbleEnglish { font-size: var(--font-size-xs); color: rgba(255,255,255,0.75); margin-top: 2px; }
 
 /* Glassmorphism thinking bubble */
 .thinkingBubble {
@@ -318,7 +318,7 @@
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 22px;
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   color: white;
   outline: none;
 }
@@ -340,7 +340,7 @@
 }
 
 .chatSwitchModeBtn {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: rgba(255,255,255,0.7);
   text-align: center;
@@ -349,7 +349,7 @@
 }
 
 .chatWaitingText {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: rgba(255,255,255,0.7);
   text-align: center;
   padding: 14px;
@@ -372,13 +372,13 @@
 }
 
 .reviewText { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.reviewRoman { font-size: var(--font-size-sm); color: var(--fg-0); font-weight: var(--font-weight-bold); font-style: italic; }
-.reviewEnglish { font-size: var(--font-size-xs); color: var(--fg-1); }
-.reviewChinese { font-size: var(--font-size-xs); color: var(--fg-2); font-family: var(--font-cjk); }
+.reviewRoman { font-size: var(--font-size-xs); color: var(--fg-0); font-weight: var(--font-weight-bold); font-style: italic; }
+.reviewEnglish { font-size: var(--font-size-2xs); color: var(--fg-1); }
+.reviewChinese { font-size: var(--font-size-2xs); color: var(--fg-2); font-family: var(--font-cjk); }
 
 .saveBtn {
   display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;
-  font-size: var(--font-size-xl); color: var(--accent); font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg); color: var(--accent); font-weight: var(--font-weight-bold);
 }
 
 .doneBtn {
@@ -401,7 +401,7 @@
   background: var(--bg-0);
   border: 0.5px solid var(--border-0);
   border-radius: 22px;
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-0);
   outline: none;
 }
@@ -426,7 +426,7 @@
 }
 
 .switchModeBtn {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--fg-2);
   text-align: center;
@@ -452,7 +452,7 @@
 }
 
 .reviewTitle {
-  font-size: 1.375rem;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--fg-0);
   text-align: center;
@@ -460,7 +460,7 @@
 }
 
 .reviewScenario {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   text-align: center;
   font-style: italic;
@@ -487,18 +487,18 @@
 }
 
 .reviewStatNum {
-  font-size: 1.375rem;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--accent);
 }
 
 .reviewStatLabel {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
 }
 
 .reviewSectionLabel {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--fg-2);
   letter-spacing: 0.05em;
@@ -524,7 +524,7 @@
 }
 
 .reviewSpeaker {
-  font-size: 0.625rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--fg-2);
   text-transform: uppercase;
@@ -534,7 +534,7 @@
 }
 
 .saveMsgBtn {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   font-weight: var(--font-weight-semibold);
   color: var(--accent);
   margin-top: 8px;
@@ -546,7 +546,7 @@
 }
 
 .savedLabel {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--accent);
   margin-top: 8px;
   display: block;
@@ -566,7 +566,7 @@
   border-radius: 14px;
   background: var(--accent-dark);
   color: white;
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -576,7 +576,7 @@
   border-radius: 14px;
   border: 0.5px solid var(--border-0);
   color: var(--fg-1);
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
 }
 
@@ -605,7 +605,7 @@
 }
 
 .gateTitle {
-  font-size: 1.375rem;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--fg-0);
   margin-bottom: 10px;
@@ -613,7 +613,7 @@
 }
 
 .gateSubtitle {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   line-height: 1.5;
   max-width: 280px;
@@ -627,14 +627,14 @@
   border-radius: 14px;
   background: var(--accent);
   color: var(--accent-dark);
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   min-height: 56px;
   margin-bottom: 12px;
 }
 
 .gateBackBtn {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   min-height: 44px;
   padding: 8px 16px;
@@ -685,7 +685,7 @@
 }
 .speakingLabel {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;

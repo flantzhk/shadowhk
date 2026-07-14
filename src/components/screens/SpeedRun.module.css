@@ -33,7 +33,7 @@
   border-radius: 999px;
   padding: 8px 14px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   cursor: pointer;
   min-height: 38px;
@@ -46,14 +46,14 @@
 
 .score {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--accent);
 }
 
 .roundCount {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-2);
 }
@@ -87,7 +87,7 @@
 
 .label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -130,14 +130,14 @@
 
 .feedbackAnswer {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--fg-0);
 }
 
 .feedbackCjk {
   font-family: var(--font-cjk);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: var(--fg-2);
 }
 
@@ -162,7 +162,7 @@
   width: 100%;
   text-align: left;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--fg-0);
   transition: all 0.15s;
@@ -174,7 +174,7 @@
 
 .optRoman {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--accent);
   font-style: italic;
@@ -183,7 +183,7 @@
 
 .optChinese {
   font-family: var(--font-cjk);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   text-align: center;
 }
@@ -197,7 +197,7 @@
   border-radius: 0;
   font-family: var(--font-ui);
   font-weight: 800;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   min-height: 44px;
   cursor: pointer;
   transition: opacity 0.15s;
@@ -216,7 +216,7 @@
 
 .emptyTitle {
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0;
@@ -224,7 +224,7 @@
 
 .emptyDesc {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-style: italic;
   color: var(--fg-2);
   margin: 0;
@@ -240,7 +240,7 @@
   color: var(--fg-0);
   font-family: var(--font-ui);
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   cursor: pointer;
   min-height: 44px;
   transition: background 0.15s;

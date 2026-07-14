@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   background: var(--accent);
   color: var(--accent-dark);

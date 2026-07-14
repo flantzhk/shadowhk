@@ -27,7 +27,7 @@
   border-radius: 999px;
   padding: 8px 14px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   cursor: pointer;
   min-height: 38px;
@@ -40,14 +40,14 @@
 
 .score {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--accent);
 }
 
 .roundCount {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-2);
 }
@@ -79,7 +79,7 @@
 
 .label {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   text-align: center;
 }
@@ -123,14 +123,14 @@
 
 .choiceChar {
   font-family: var(--font-cjk);
-  font-size: 24px;
+  font-size: var(--font-size-lg);
   color: var(--fg-0);
   margin-top: 4px;
 }
 
 .choiceJyutping {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--accent);
   font-style: italic;
@@ -138,14 +138,14 @@
 
 .choiceDesc {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   font-style: italic;
 }
 
 .choicePlayHint {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-3);
   font-weight: 500;
 }
@@ -162,7 +162,7 @@
   border-radius: 999px;
   font-family: var(--font-ui);
   font-weight: 800;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   min-height: 52px;
   cursor: pointer;
   box-shadow: 0 6px 20px var(--accent-glow);
@@ -181,7 +181,7 @@
   border-radius: 0;
   font-family: var(--font-ui);
   font-weight: 800;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   min-height: 48px;
   margin-bottom: 32px;
   cursor: pointer;
@@ -202,7 +202,7 @@
 
 .feedbackText {
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--fg-0);
   text-align: center;
@@ -222,7 +222,7 @@
 
 .introTitle {
   font-family: var(--font-ui);
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 800;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -230,7 +230,7 @@
 
 .introDesc {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   line-height: 1.5;
   max-width: 320px;
@@ -245,7 +245,7 @@
 
 .introVs {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-3);
   font-weight: 700;
 }
@@ -271,13 +271,13 @@
 
 .introChar {
   font-family: var(--font-cjk);
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   color: var(--fg-0);
 }
 
 .introJyut {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   color: var(--accent);
   font-style: italic;
@@ -285,13 +285,13 @@
 
 .introMeaning {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
 }
 
 .introToneLabel {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   font-weight: 600;
   margin-top: 4px;
@@ -299,7 +299,7 @@
 
 .introHint {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
 }
 
@@ -310,7 +310,7 @@
   border: none;
   border-radius: 0;
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 800;
   margin-top: 12px;
   cursor: pointer;
@@ -333,7 +333,7 @@
 
 .learnTitle {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-1);
   text-align: center;
@@ -368,13 +368,13 @@
 
 .learnChar {
   font-family: var(--font-cjk);
-  font-size: 32px;
+  font-size: var(--font-size-display);
   color: var(--fg-0);
 }
 
 .learnJyut {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--accent);
   font-style: italic;
@@ -382,14 +382,14 @@
 
 .learnDesc {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   font-style: italic;
 }
 
 .learnMeaning {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--fg-1);
   font-style: italic;
@@ -397,7 +397,7 @@
 
 .learnPlay {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-3);
   font-weight: 600;
   margin-top: 4px;
@@ -410,7 +410,7 @@
   border: none;
   border-radius: 0;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 4px 16px var(--accent-glow);

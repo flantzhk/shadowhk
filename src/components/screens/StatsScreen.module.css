@@ -25,7 +25,7 @@
 
 .stripNum {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--fg-0);
   line-height: 1;
@@ -37,7 +37,7 @@
 
 .stripLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -55,7 +55,7 @@
 
 .sectionKicker {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
 
 .sectionLine {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   line-height: 1.5;
   margin: 0;
@@ -84,7 +84,7 @@
 
 .sectionMeta {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
   margin: 8px 0 0;
 }
@@ -114,7 +114,7 @@
 
 .tickLabel {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
 }
 
@@ -158,7 +158,7 @@
 
 .xpRuleRow {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-1);
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@
 
 .xpAmount {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   color: var(--accent);
   min-width: 30px;
@@ -193,14 +193,14 @@
 
 .achieveFlatLabel {
   font-family: var(--font-ui);
-  font-size: 13.5px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--fg-0);
 }
 
 .achieveFlatDone {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
@@ -222,13 +222,13 @@
 
 .achieveFlatCount {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
 }
 
 .achieveFlatDesc {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
 }
 
@@ -238,7 +238,7 @@
   margin-top: 10px;
   padding: 10px 0;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;

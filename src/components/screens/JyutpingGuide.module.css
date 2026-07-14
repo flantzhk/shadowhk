@@ -32,7 +32,7 @@
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -57,7 +57,7 @@
 
 .introText {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   line-height: 1.5;
   color: var(--fg-1);
   margin: 0;
@@ -70,7 +70,7 @@
 
 .sectionTitle {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--fg-0);
   margin: 0 0 4px;
@@ -78,7 +78,7 @@
 
 .sectionSub {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   margin: 0 0 14px;
 }
@@ -107,7 +107,7 @@
 
 .toneNum {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   color: #fff;
   background: var(--accent);
@@ -121,33 +121,33 @@
 
 .toneJyut {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--fg-1);
 }
 
 .toneChar {
   font-family: var(--font-cjk);
-  font-size: 20px;
+  font-size: var(--font-size-md);
   color: var(--fg-0);
 }
 
 .toneDesc {
   font-family: var(--font-ui);
   font-style: italic;
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-2);
 }
 
 .toneMeaning {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
   text-align: right;
 }
 
 .tonePlay {
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   color: var(--fg-3);
   transition: color 0.15s;
 }
@@ -175,7 +175,7 @@
 
 .gotchaLetters {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.02em;
@@ -183,7 +183,7 @@
 
 .gotchaNote {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   line-height: 1.4;
   margin: 4px 0 0;
@@ -201,14 +201,14 @@
 
 .gotchaJyut {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--fg-1);
 }
 
 .gotchaChar {
   font-family: var(--font-cjk);
-  font-size: 18px;
+  font-size: var(--font-size-md);
   color: var(--fg-0);
 }
 
@@ -223,7 +223,7 @@
 
 .ctaText {
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   margin: 0 0 10px;
 }
@@ -235,7 +235,7 @@
   border-radius: 999px;
   padding: 12px 24px;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
 }

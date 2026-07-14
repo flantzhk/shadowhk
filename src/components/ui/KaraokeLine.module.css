@@ -12,7 +12,7 @@
 
 /* Jyutping — primary: what you're learning */
 .romanization {
-  font-size: 1.0625rem;
+  font-size: var(--font-size-base);
   font-weight: 700;
   font-style: italic;
   color: var(--accent);
@@ -21,7 +21,7 @@
 
 /* English — secondary: meaning */
 .english {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 400;
   color: rgba(255,255,255,0.75);
   line-height: 1.35;
@@ -29,7 +29,7 @@
 
 /* CJK — tertiary: reference only */
 .cjk {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   font-weight: 400;
   color: rgba(255,255,255,0.3);
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;

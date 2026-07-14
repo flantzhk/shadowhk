@@ -73,7 +73,7 @@
   align-items: center;
   gap: 4px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -91,7 +91,7 @@
 }
 
 .chevron {
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
 }
 
 /* === Word breakdown panel === */
@@ -108,7 +108,7 @@
 }
 
 .loadingText {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   font-family: var(--font-mono);
   padding: 4px 8px;
@@ -139,7 +139,7 @@
 
 .wordCjk {
   font-family: var(--font-cjk);
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   color: var(--fg-0);
   line-height: 1.2;
@@ -147,7 +147,7 @@
 
 .wordJyutping {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   font-style: italic;
   color: var(--accent);
@@ -156,7 +156,7 @@
 
 .wordMeaning {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   color: var(--fg-1);
   text-align: center;
@@ -200,7 +200,7 @@
 .scorePill {
   font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   padding: 2px 7px;
   border-radius: var(--radius-pill);
   letter-spacing: 0.02em;
@@ -272,24 +272,24 @@
 
 .saveBtnLabel {
   font-family: var(--font-ui);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1;
 }
 
 /* === Size variants === */
-.sm .jyutping    { font-size: 14px; }
-.sm .english     { font-size: 11px; }
-.sm .chineseText { font-size: 12px; }
+.sm .jyutping    { font-size: var(--font-size-sm); }
+.sm .english     { font-size: var(--font-size-2xs); }
+.sm .chineseText { font-size: var(--font-size-2xs); }
 
-.md .jyutping    { font-size: 17px; }
-.md .english     { font-size: 13px; }
-.md .chineseText { font-size: 14px; }
+.md .jyutping    { font-size: var(--font-size-base); }
+.md .english     { font-size: var(--font-size-xs); }
+.md .chineseText { font-size: var(--font-size-sm); }
 
-.lg .jyutping    { font-size: 24px; }
-.lg .english     { font-size: 16px; }
-.lg .chineseText { font-size: 18px; }
+.lg .jyutping    { font-size: var(--font-size-lg); }
+.lg .english     { font-size: var(--font-size-base); }
+.lg .chineseText { font-size: var(--font-size-md); }
 
 /* Breakdown trigger: a real touch target, not a 27px text sliver */
 .chineseBtn { min-height: 40px; display: inline-flex; align-items: center; }

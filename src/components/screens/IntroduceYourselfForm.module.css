@@ -40,14 +40,14 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--fg-0);
   margin: 0;
 }
 
 .phraseCounter {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-muted);
@@ -69,7 +69,7 @@
 }
 
 .description {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   margin: 0;
   line-height: 1.6;
@@ -83,7 +83,7 @@
   color: var(--accent);
   border: none;
   border-radius: 16px;
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -132,7 +132,7 @@
 
 .phraseThumbMonogram {
   font-family: 'DM Serif Display', var(--font-serif), Georgia, serif;
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   color: var(--bg-1);
 }
 
@@ -143,7 +143,7 @@
 
 .phraseRoman {
   font-family: var(--font-serif);
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 500;
   color: var(--fg-0);
   margin: 0;
@@ -159,7 +159,7 @@
 
 .phraseCjk {
   font-family: var(--font-cjk);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 400;
   color: var(--fg-2);
   margin: 3px 0 0;
@@ -168,7 +168,7 @@
 }
 
 .phraseEnglish {
-  font-size: 12.5px;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   font-style: italic;
   margin: 4px 0 0;
@@ -191,7 +191,7 @@
 }
 
 .dividerLabel {
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--fg-2);
@@ -219,7 +219,7 @@
 }
 
 .sectionTitle {
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--fg-0);
 }
@@ -251,7 +251,7 @@
 }
 
 .label {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   font-weight: 600;
   color: var(--fg-1);
 }
@@ -266,7 +266,7 @@
   background: var(--bg-1);
   border: 1.5px solid var(--border-1);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--fg-0);
   font-family: var(--font-ui);
   outline: none;
@@ -288,7 +288,7 @@
   background: var(--bg-1);
   border: 1.5px solid var(--border-1);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--fg-0);
   font-family: var(--font-ui);
   outline: none;
@@ -311,7 +311,7 @@
 }
 
 .kidLabel {
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: var(--fg-2);
   text-transform: uppercase;
@@ -320,7 +320,7 @@
 }
 
 .error {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--color-error);
   padding: 12px 14px;
   background: rgba(208, 64, 64, 0.06);
@@ -347,7 +347,7 @@
   color: var(--accent);
   border: none;
   border-radius: 16px;
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -370,7 +370,7 @@
 
 .introEyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -380,7 +380,7 @@
 
 .introTitle {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 500;
   font-style: italic;
   color: var(--fg-0);
@@ -391,7 +391,7 @@
 
 .introBody {
   font-family: var(--font-ui);
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   line-height: 1.65;
   margin: 0 0 20px;
@@ -422,7 +422,7 @@
   background: var(--fg-0);
   color: var(--bg-0);
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -433,7 +433,7 @@
 
 .introStepText {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   line-height: 1.45;
   padding-top: 3px;

@@ -26,7 +26,7 @@
 
 .title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: var(--fg-0);
   letter-spacing: -0.02em;
@@ -37,7 +37,7 @@
 }
 
 .sectionTitle {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--fg-2);
   text-transform: uppercase;
@@ -52,7 +52,7 @@
 }
 
 .fieldLabel {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
 }
 
@@ -61,7 +61,7 @@
   background: var(--surface-1);
   border: 0.5px solid var(--border-1);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   color: var(--fg-0);
 }
 
@@ -71,7 +71,7 @@
 }
 
 .hint {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   margin-top: var(--space-sm);
 }
@@ -84,9 +84,9 @@
   min-height: 44px;
 }
 .langActive { background: var(--accent-dark); border-color: var(--accent); }
-.langName { font-size: var(--font-size-base); font-weight: var(--font-weight-semibold); color: var(--fg-0); }
+.langName { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--fg-0); }
 .langActive .langName { color: var(--accent); }
-.langNative { font-size: var(--font-size-sm); color: var(--fg-2); }
+.langNative { font-size: var(--font-size-xs); color: var(--fg-2); }
 
 .goalRow {
   display: flex;
@@ -97,7 +97,7 @@
 .goalPill {
   padding: var(--space-sm) var(--space-base);
   border-radius: var(--radius-pill);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   background: var(--surface-1);
   border: 0.5px solid var(--border-1);
@@ -121,7 +121,7 @@
 }
 
 .toggleLabel {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   color: var(--fg-0);
 }
 
@@ -164,12 +164,12 @@
 }
 
 .accountLabel {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   color: var(--fg-1);
 }
 
 .accountValue {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   color: var(--fg-0);
   font-weight: var(--font-weight-medium);
 }
@@ -181,7 +181,7 @@
   border: 1.5px solid var(--border-1);
   border-radius: var(--radius-md);
   background: transparent;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: #E85A5A;
   min-height: 44px;
@@ -200,7 +200,7 @@
   border: none;
   border-radius: var(--radius-md);
   background: transparent;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--fg-2);
   min-height: 44px;
@@ -220,7 +220,7 @@
   border: none;
   border-radius: var(--radius-md);
   background: transparent;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--fg-2);
   min-height: 44px;
@@ -233,7 +233,7 @@
 }
 
 .deleteError {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: #E85A5A;
   text-align: center;
   margin-top: var(--space-sm);
@@ -245,7 +245,7 @@
   width: 100%;
   text-align: left;
   padding: var(--space-md) 12px;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--accent);
   background: rgba(0,0,0,0.02);
@@ -263,7 +263,7 @@
   align-items: center;
   width: 100%;
   padding: var(--space-md) 12px;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   color: var(--fg-0);
   background: rgba(0,0,0,0.02);
   border: 1px solid rgba(0,0,0,0.15);
@@ -276,7 +276,7 @@
 
 .appChevron {
   color: var(--fg-2);
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
 }
 
 /* Download section */
@@ -298,7 +298,7 @@
 }
 
 .downloadLabel {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   display: block;
   margin-bottom: var(--space-sm);
@@ -310,7 +310,7 @@
   border: 1.5px solid var(--border-1);
   border-radius: var(--radius-md);
   background: transparent;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: var(--accent);
   min-height: 44px;
@@ -322,7 +322,7 @@
   padding: var(--space-md);
   border-radius: var(--radius-md);
   background: var(--accent);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--accent-dark);
   min-height: 44px;
@@ -344,18 +344,18 @@
 .settingsRow:last-child { border-bottom: none; }
 
 .rowLabel {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-0);
 }
 
 .rowValue {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
 }
 
 /* === Picker Bottom Sheet === */
 .pickerHint {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-2);
   margin-bottom: 16px;
   line-height: 1.5;
@@ -376,7 +376,7 @@
 .pickerSelected { border-color: var(--accent); background: var(--accent-muted); }
 
 .pickerRadio {
-  font-size: 1.125rem;
+  font-size: var(--font-size-md);
   color: var(--fg-2);
   flex-shrink: 0;
   margin-top: 2px;
@@ -387,13 +387,13 @@
 .pickerText { display: flex; flex-direction: column; gap: 4px; }
 
 .pickerLabel {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--fg-0);
 }
 
 .pickerDesc {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--fg-1);
   line-height: 1.5;
 }
@@ -405,7 +405,7 @@
   background: var(--bg-0);
   border: 1.5px solid var(--border-0);
   border-radius: 14px;
-  font-size: 1.375rem;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--accent);
   text-align: center;
@@ -413,13 +413,13 @@
 }
 
 .reminderPreview {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--fg-1);
   text-align: center;
 }
 
 .versionLabel {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--fg-2);
   text-align: center;
   padding: 12px 0 0;

@@ -26,7 +26,7 @@
 }
 
 .text {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   line-height: 1.5;
   margin-bottom: 14px;
@@ -50,7 +50,7 @@
   border-radius: 12px;
   background: transparent;
   color: var(--color-text-secondary);
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
   min-height: 44px;
@@ -66,7 +66,7 @@
   border-radius: 12px;
   background: var(--color-brand-dark);
   color: #fff;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   cursor: pointer;
   min-height: 44px;
@@ -85,7 +85,7 @@
 }
 
 .prefsTitle {
-  font-size: 0.9375rem;
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--color-text-primary);
 }
@@ -99,20 +99,20 @@
 
 .toggleLabel {
   display: block;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-primary);
 }
 
 .toggleSub {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-muted);
   margin-top: 2px;
 }
 
 .alwaysOn {
-  font-size: 0.75rem;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--color-brand-green);
   white-space: nowrap;
@@ -168,7 +168,7 @@
   border-radius: 12px;
   background: transparent;
   color: var(--color-text-secondary);
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
   min-height: 44px;

@@ -127,7 +127,7 @@
 /* ── Typography ── */
 .eyebrow {
   font-family: var(--mono, 'JetBrains Mono', monospace);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -138,7 +138,7 @@
 
 .headline {
   font-family: var(--serif, 'Source Serif 4', Georgia, serif);
-  font-size: 38px;
+  font-size: var(--font-size-display);
   font-weight: 500;
   color: #fff;
   letter-spacing: -0.02em;
@@ -150,7 +150,7 @@
 .sub {
   font-family: var(--serif, 'Source Serif 4', Georgia, serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.5;
   margin: 0 0 28px;
@@ -171,7 +171,7 @@
 
 .phraseCjk {
   font-family: var(--hk, 'Noto Serif HK', serif);
-  font-size: 26px;
+  font-size: var(--font-size-xl);
   font-weight: 500;
   color: #fff;
   margin: 0 0 6px;
@@ -181,14 +181,14 @@
 .phraseEn {
   font-family: var(--serif, 'Source Serif 4', Georgia, serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: rgba(255, 255, 255, 0.55);
   margin: 0;
 }
 
 .tapHint {
   font-family: var(--mono, 'JetBrains Mono', monospace);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.28);

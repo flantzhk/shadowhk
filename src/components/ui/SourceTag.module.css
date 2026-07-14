@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: var(--font-size-2xs);
   color: var(--color-text-secondary);
   background: var(--color-bg-page);
   border-radius: 20px;
@@ -11,7 +11,7 @@
 }
 
 .icon {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   line-height: 1;
 }
 

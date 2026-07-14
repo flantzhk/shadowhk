@@ -60,7 +60,7 @@
   background: #E84040;
   color: #fff;
   font-family: var(--font-ui);
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   font-weight: 800;
   border-radius: 10px;
   min-width: 16px;
@@ -75,7 +75,7 @@
 
 .label {
   font-family: var(--font-ui);
-  font-size: 10px;
+  font-size: var(--font-size-2xs);
   font-weight: 500;
   letter-spacing: 0.03em;
   white-space: nowrap;

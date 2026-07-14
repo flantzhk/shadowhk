@@ -89,14 +89,17 @@
   --font-family-mono: var(--font-mono);
   --font-family-serif: var(--font-serif);
 
-  --font-size-xs:   0.625rem;
-  --font-size-sm:   0.75rem;
-  --font-size-base: 0.875rem;
-  --font-size-md:   1rem;
-  --font-size-lg:   1.125rem;
-  --font-size-xl:   1.375rem;
-  --font-size-2xl:  1.5rem;
-  --font-size-3xl:  2rem;
+  /* Mobile type scale — 12px floor (DESIGN.md), body sized to iOS's own
+     17pt default so text reads like a native app, not a shrunk desktop site. */
+  --font-size-2xs:    0.75rem;    /* 12px — jyutping tags, timestamps, tiny meta */
+  --font-size-xs:     0.8125rem; /* 13px — captions, secondary meta */
+  --font-size-sm:     0.9375rem; /* 15px — supporting/secondary body text */
+  --font-size-base:   1.0625rem; /* 17px — default body text */
+  --font-size-md:     1.25rem;   /* 20px — emphasized text, list/card titles */
+  --font-size-lg:     1.5rem;    /* 24px — subheadings */
+  --font-size-xl:     1.75rem;   /* 28px — section/screen headings */
+  --font-size-display: 3rem;     /* 48px — score numbers, big characters */
+  --font-size-hero:    4.5rem;   /* 72px — celebration/confetti big numbers */
 
   --font-weight-normal:   400;
   --font-weight-medium:   500;

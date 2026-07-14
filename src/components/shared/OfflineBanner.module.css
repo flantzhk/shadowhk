@@ -13,7 +13,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   z-index: 400;
   animation: slideDown 200ms ease;
@@ -42,7 +42,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   z-index: 400;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .updateBtn {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: white;
   text-decoration: underline;
@@ -60,7 +60,7 @@
 }
 
 .dismissBtn {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   color: rgba(255, 255, 255, 0.7);
   padding: 4px 8px;
 }

@@ -29,7 +29,7 @@
 
 .repCounter {
   flex: 1;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-secondary);
 }
@@ -59,7 +59,7 @@
 }
 
 .romanizationLabel {
-  font-size: 11px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--color-text-muted);
   text-transform: uppercase;
@@ -67,14 +67,14 @@
 }
 
 .romanization {
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   color: var(--color-jyutping);
   margin: 0;
 }
 
 .cjk {
-  font-size: 20px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   color: var(--color-text-primary);
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
@@ -82,7 +82,7 @@
 }
 
 .english {
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin: 0;
 }
@@ -98,7 +98,7 @@
 }
 
 .scoreNum {
-  font-size: 52px;
+  font-size: var(--font-size-hero);
   font-weight: 800;
   line-height: 1;
 }
@@ -129,7 +129,7 @@
   color: var(--color-brand-lime);
   border: none;
   border-radius: 16px;
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -151,14 +151,14 @@
   color: #fff;
   border: none;
   border-radius: 16px;
-  font-size: 17px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
 }
 
 .micError {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--color-error);
   margin: 0;
 }
@@ -169,7 +169,7 @@
 }
 
 .offlineHint {
-  font-size: 13px;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   margin: 0;
 }
@@ -185,7 +185,7 @@
   background: var(--color-bg-page);
   border: 1.5px solid var(--color-border);
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   color: var(--color-text-primary);
@@ -199,7 +199,7 @@
   color: var(--color-brand-lime);
   border: none;
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -220,14 +220,14 @@
 }
 
 .doneTitle {
-  font-size: 24px;
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--color-brand-dark);
   margin: 0;
 }
 
 .donePhrase {
-  font-size: 32px;
+  font-size: var(--font-size-display);
   font-family: 'Noto Sans HK', 'Noto Sans SC', sans-serif;
   font-weight: 700;
   color: var(--color-text-primary);
@@ -235,7 +235,7 @@
 }
 
 .avgScore {
-  font-size: 40px;
+  font-size: var(--font-size-display);
   font-weight: 800;
   margin: 0;
 }
@@ -246,7 +246,7 @@
   color: var(--color-brand-lime);
   border: none;
   border-radius: 14px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   font-weight: 600;
   cursor: pointer;
   min-height: 56px;
@@ -270,7 +270,7 @@
   gap: 16px;
   padding: 24px;
   color: var(--color-text-secondary);
-  font-size: 16px;
+  font-size: var(--font-size-base);
 }
 
 .backBtn {
@@ -278,7 +278,7 @@
   background: var(--color-bg-page);
   border: 1.5px solid var(--color-border);
   border-radius: 12px;
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   cursor: pointer;
   color: var(--color-text-primary);
