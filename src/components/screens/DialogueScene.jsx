@@ -51,7 +51,7 @@ export default function DialogueScene({ sceneData, onBack, onComplete }) {
     const rec = {
       id: crypto.randomUUID(), date: getTodayString(), sceneId: scene.id ?? null,
       startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-      mode: 'dialogue', phrasesAttempted: scene.turns.filter(t => t.speaker === 'user').length,
+      mode: 'dialogue', language: settings.currentLanguage, phrasesAttempted: scene.turns.filter(t => t.speaker === 'user').length,
       phrasesMastered: 0, averageScore: null, phraseResults: [],
     };
     await saveSession(rec);
@@ -121,11 +121,7 @@ export default function DialogueScene({ sceneData, onBack, onComplete }) {
 
   const handleStartScene = useCallback(() => {
     setPhase('playing');
-    const firstTurn = scene?.turns[0];
-    if (firstTurn?.speaker === 'other') {
-      playOtherTurn(firstTurn);
-    }
-  }, [scene, playOtherTurn]);
+  }, []);
 
   const handleRecord = useCallback(async () => {
     audioRef.current.pause();

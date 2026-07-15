@@ -1,14 +1,24 @@
 // Pre-generate single word/character MP3s via cantonese.ai TTS so word taps
 // work offline. Collects every words[] entry plus every CJK character used in
-// any scene line or phrase (the character-split fallback in word breakdowns).
+// any scene line or phrase (the character-split fallback PhraseDetailScreen
+// uses to tap-play syllables when a phrase/line has no words[] breakdown).
 // Usage: CANTONESE_AI_KEY=... [CANTONESE_AI_VOICE=...] [TTS_DELAY_MS=3000] node scripts/generate-word-audio.mjs [--dry-run]
 // Writes public/audio/cantonese-words/{word}.mp3 (raw CJK filename; the app
 // fetches encodeURIComponent(word), which the web server decodes back).
+//
+// Same truncation bug as generate-scene-audio.mjs: cantonese.ai truncates
+// audio to a duration budget of ~0.235s/input-char, so single/double
+// character words come back as near/pure silence without help. This script
+// appends the same sacrificial tail, saves {word}.raw.mp3, and requires
+// scripts/trim-tts-tail.py (which already covers this OUT_DIR) to produce
+// the final {word}.mp3 — do not skip that step.
 
 import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const API_URL = 'https://cantonese.ai/api/tts';
+// See scripts/generate-scene-audio.mjs for why this specific tail phrase.
+const SACRIFICIAL_TAIL = '。蘋果蘋果蘋果';
 const OUT_DIR = 'public/audio/cantonese-words';
 const DELAY_MS = Number(process.env.TTS_DELAY_MS) || 3000;
 const CJK = /[一-鿿]/;
@@ -44,7 +54,8 @@ for (const f of readdirSync('public').filter((f) => f.endsWith('.json'))) {
   }
 }
 
-const todo = [...words].filter((w) => !existsSync(join(OUT_DIR, `${w}.mp3`)));
+const todo = [...words].filter((w) =>
+  !(existsSync(join(OUT_DIR, `${w}.mp3`)) || existsSync(join(OUT_DIR, `${w}.raw.mp3`))));
 console.log(`${words.size} unique words/characters, ${todo.length} to generate.`);
 if (dryRun) process.exit(0);
 
@@ -54,7 +65,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function generate(word, attempt = 1) {
   const payload = {
     api_key: apiKey,
-    text: word,
+    text: word + SACRIFICIAL_TAIL,
     language: 'cantonese',
     speed: 1.0,
     output_extension: 'mp3',
@@ -82,7 +93,7 @@ async function generate(word, attempt = 1) {
   }
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 1000) throw new Error(`suspiciously small file (${buf.length} bytes)`);
-  writeFileSync(join(OUT_DIR, `${word}.mp3`), buf);
+  writeFileSync(join(OUT_DIR, `${word}.raw.mp3`), buf);
 }
 
 const failed = [];
@@ -105,4 +116,5 @@ for (const [i, word] of todo.entries()) {
 }
 
 console.log(`\nDone. ${todo.length - failed.length} generated, ${failed.length} failed.`);
+if (todo.length - failed.length > 0) console.log('Now run: python3.12 scripts/trim-tts-tail.py');
 if (failed.length) process.exit(1);

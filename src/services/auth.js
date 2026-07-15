@@ -247,6 +247,11 @@ async function signInWithApple(languageChoice = 'cantonese') {
 async function signOut() {
   phCapture('logout');
   phReset();
+  try {
+    await clearAllData();
+  } catch (error) {
+    logger.error('Failed to clear IndexedDB on sign out (non-fatal)', error);
+  }
   await fbAuth.signOut();
   window.location.hash = '#/login';
 }
@@ -348,10 +353,15 @@ function firebaseErrorMessage(error) {
 /**
  * Permanently delete the current user's account and all associated data.
  * Order of operations:
- *   1. Delete Firestore user document (best-effort)
- *   2. Clear all IndexedDB stores
- *   3. Delete Firebase Auth user
+ *   1. Delete Firebase Auth user (the step that can fail, e.g. requires-recent-login)
+ *   2. Delete Firestore user document (best-effort)
+ *   3. Clear all IndexedDB stores (best-effort)
  *   4. Sign out (clears local auth state)
+ *
+ * The auth deletion runs first so a failure there (most commonly
+ * auth/requires-recent-login) aborts before any Firestore or local data is
+ * touched — otherwise the user's cloud/local data would be wiped while their
+ * account (and subscription) stayed live.
  *
  * Required for Apple App Store compliance (guideline 5.1.1).
  * @returns {Promise<{ success: boolean, error: string|null }>}
@@ -361,41 +371,8 @@ async function deleteAccount() {
   if (!user) return { success: false, error: 'Not signed in.' };
 
   try {
-    // 1. Delete Firestore data (best-effort — don't abort if this fails).
-    // Firestore never cascade-deletes: the library subcollection must be
-    // removed explicitly or the user's phrases outlive their account.
-    try {
-      const libSnap = await fbDb.collection('users').doc(user.uid).collection('library').get();
-      const refs = [];
-      libSnap.forEach((d) => refs.push(d.ref));
-      for (let i = 0; i < refs.length; i += 400) {
-        const batch = fbDb.batch();
-        refs.slice(i, i + 400).forEach((ref) => batch.delete(ref));
-        await batch.commit();
-      }
-      await fbDb.collection('users').doc(user.uid).delete();
-    } catch (dbErr) {
-      logger.error('Failed to delete Firestore user data (non-fatal)', dbErr);
-    }
-
-    // 2. Wipe all local IndexedDB data
-    try {
-      await clearAllData();
-    } catch (storageErr) {
-      logger.error('Failed to clear IndexedDB (non-fatal)', storageErr);
-    }
-
-    // 3. Delete the Firebase Auth user — this is the critical step
+    // 1. Delete the Firebase Auth user first — this is the step that can throw
     await user.delete();
-
-    // 4. Sign out to clear any remaining local auth state
-    try {
-      await fbAuth.signOut();
-    } catch (_) {
-      // Auth user is already deleted; sign-out failure is safe to ignore
-    }
-
-    return { success: true, error: null };
   } catch (error) {
     logger.error('Account deletion failed', error);
     if (error.code === 'auth/requires-recent-login') {
@@ -406,6 +383,39 @@ async function deleteAccount() {
     }
     return { success: false, error: error.message || 'Failed to delete account. Please try again.' };
   }
+
+  // 2. Auth user is gone — clean up Firestore data (best-effort).
+  // Firestore never cascade-deletes: the library subcollection must be
+  // removed explicitly or the user's phrases outlive their account.
+  try {
+    const libSnap = await fbDb.collection('users').doc(user.uid).collection('library').get();
+    const refs = [];
+    libSnap.forEach((d) => refs.push(d.ref));
+    for (let i = 0; i < refs.length; i += 400) {
+      const batch = fbDb.batch();
+      refs.slice(i, i + 400).forEach((ref) => batch.delete(ref));
+      await batch.commit();
+    }
+    await fbDb.collection('users').doc(user.uid).delete();
+  } catch (dbErr) {
+    logger.error('Failed to delete Firestore user data (non-fatal)', dbErr);
+  }
+
+  // 3. Wipe all local IndexedDB data
+  try {
+    await clearAllData();
+  } catch (storageErr) {
+    logger.error('Failed to clear IndexedDB (non-fatal)', storageErr);
+  }
+
+  // 4. Sign out to clear any remaining local auth state
+  try {
+    await fbAuth.signOut();
+  } catch (_) {
+    // Auth user is already deleted; sign-out failure is safe to ignore
+  }
+
+  return { success: true, error: null };
 }
 
 /**

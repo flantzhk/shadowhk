@@ -88,7 +88,7 @@ const wordLines = [...wordTexts]
 const lines = [
   ...sceneLines.map((l) => ({ ...l, outDir: OUT_DIR })),
   ...wordLines,
-];
+].filter((l) => l.text && l.text.trim());
 
 const todo = lines.filter((l) => force || !existsSync(join(l.outDir, `${l.id}.mp3`)));
 console.log(`${mandarinSceneFiles.length} Mandarin scenes, ${lines.length} lines/words, ${todo.length} to generate.`);

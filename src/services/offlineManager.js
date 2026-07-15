@@ -124,24 +124,28 @@ async function fetchJson(url) {
 
 /**
  * Collect the URL of every pre-generated audio file the app can play:
- * Cantonese + English per scene line and phrase, plus every word/character.
+ * Cantonese/Mandarin + English per scene line and phrase, plus every
+ * word/character, routed to the right language's directory.
  */
 async function collectAudioUrls() {
   const base = import.meta.env.BASE_URL || '/';
   const ids = [];
+  const mandarinIds = [];
   const words = new Set();
+  const mandarinWords = new Set();
 
-  const addWords = (list, text) => {
-    for (const w of list || []) if (w.chinese?.trim()) words.add(w.chinese.trim());
-    for (const c of text || '') if (CJK.test(c)) words.add(c);
+  const addWords = (set, list, text) => {
+    for (const w of list || []) if (w.chinese?.trim()) set.add(w.chinese.trim());
+    for (const c of text || '') if (CJK.test(c)) set.add(c);
   };
 
   const index = (await fetchJson(`${base}scenes/index.json`)) || [];
   for (const entry of index) {
     const scene = await fetchJson(`${base}scenes/${entry.id}.json`);
+    const isMandarin = scene?.language === 'mandarin';
     for (const l of scene?.lines || []) {
-      ids.push(l.id);
-      addWords(l.words, l.cjk);
+      (isMandarin ? mandarinIds : ids).push(l.id);
+      addWords(isMandarin ? mandarinWords : words, l.words, l.cjk);
     }
   }
 
@@ -151,15 +155,17 @@ async function collectAudioUrls() {
     for (const s of sets) {
       for (const p of s.phrases || []) {
         ids.push(p.id);
-        addWords(p.words, p.chinese);
+        addWords(words, p.words, p.chinese);
       }
     }
   }
 
   return [
     ...ids.map((id) => ({ url: `${base}audio/cantonese/${id}.mp3`, section: 'Cantonese recordings' })),
-    ...ids.map((id) => ({ url: `${base}audio/english/${id}.mp3`, section: 'English narration' })),
+    ...mandarinIds.map((id) => ({ url: `${base}audio/mandarin/${id}.mp3`, section: 'Mandarin recordings' })),
+    ...[...ids, ...mandarinIds].map((id) => ({ url: `${base}audio/english/${id}.mp3`, section: 'English narration' })),
     ...[...words].map((w) => ({ url: `${base}audio/cantonese-words/${encodeURIComponent(w)}.mp3`, section: 'Word-by-word audio' })),
+    ...[...mandarinWords].map((w) => ({ url: `${base}audio/mandarin-words/${encodeURIComponent(w)}.mp3`, section: 'Mandarin word-by-word audio' })),
   ];
 }
 
