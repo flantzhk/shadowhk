@@ -120,8 +120,8 @@ export default function HomeScreen({ onNavigate }) {
         />
       )}
 
-      {!isGuest && personalPhraseCount === 0 && (
-        <PersonalSceneSetup onNavigate={onNavigate} language={language} />
+      {!isGuest && (personalPhraseCount === null || personalPhraseCount === 0) && (
+        <PersonalSceneSetup onNavigate={onNavigate} language={language} pending={personalPhraseCount === null} />
       )}
 
       {hasRecentProgress && (
@@ -160,8 +160,8 @@ export default function HomeScreen({ onNavigate }) {
       </div>
       <PracticeGrid onNavigate={onNavigate} language={language} />
 
-      {isGuest && personalPhraseCount === 0 && (
-        <PersonalSceneSetup onNavigate={onNavigate} language={language} />
+      {isGuest && (personalPhraseCount === null || personalPhraseCount === 0) && (
+        <PersonalSceneSetup onNavigate={onNavigate} language={language} pending={personalPhraseCount === null} />
       )}
 
       <div className={styles.bottomPad} />
@@ -174,7 +174,7 @@ export default function HomeScreen({ onNavigate }) {
 const DEMO_PHRASES = [
   { cjk: '唔該', jyutping: 'm4 goi1', gloss: '"Thanks". The most useful word in Hong Kong.' },
   { cjk: '早晨', jyutping: 'zou2 san4', gloss: '"Good morning". How the city greets before noon.' },
-  { cjk: '幾多錢', jyutping: 'gei2 do1 cin2', gloss: '"How much?" For the wet market.' },
+  { cjk: '幾多錢', jyutping: 'gei2 do1 cin2', gloss: '"How much?" Ask it anywhere: markets, taxis, shops.' },
 ];
 
 function GuestHero({ onNavigate }) {
@@ -440,10 +440,19 @@ function PracticeGrid({ onNavigate, language }) {
   );
 }
 
-function PersonalSceneSetup({ onNavigate, language }) {
+// `pending` (personalPhraseCount still loading) renders the exact same
+// markup, just inert and dimmed — so if the answer turns out to be "0" the
+// card is already the right height and nothing below it jumps. It only
+// jumps for the (rarer) "already has one" case, where the card unmounts.
+function PersonalSceneSetup({ onNavigate, language, pending = false }) {
   return (
     <section className={styles.personalSection}>
-      <button className={styles.personalEmpty} onClick={() => onNavigate('introduce-yourself')}>
+      <button
+        className={`${styles.personalEmpty} ${pending ? styles.personalEmptyPending : ''}`}
+        onClick={pending ? undefined : () => onNavigate('introduce-yourself')}
+        disabled={pending}
+        aria-hidden={pending || undefined}
+      >
         <span className={styles.personalEmptyEmoji}>👋</span>
         <div className={styles.personalEmptyText}>
           <p className={styles.personalEmptyTitle}>Introduce yourself in {language === 'mandarin' ? 'Mandarin' : 'Cantonese'}</p>

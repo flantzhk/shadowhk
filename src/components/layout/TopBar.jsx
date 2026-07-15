@@ -12,9 +12,8 @@ export function TopBar({ onNavigate }) {
 
   return (
     <header className={styles.topbar}>
-      <div className={styles.logo} onClick={() => onNavigate('home')}>
+      <div className={styles.logo} onClick={() => onNavigate('home')} aria-label="ShadowHK home">
         <span className={styles.logoGlyph}>影</span>
-        <span className={styles.logoText}>ShadowHK</span>
       </div>
       <div className={styles.actions}>
         <LanguageSwitcher className={styles.langSwitcher} />

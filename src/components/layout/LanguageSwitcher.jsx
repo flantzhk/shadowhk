@@ -16,9 +16,9 @@ export function LanguageSwitcher({ className = '' }) {
           className={`${styles.pill} ${current === lang.id ? styles.active : ''}`}
           onClick={() => updateSettings({ currentLanguage: lang.id })}
           aria-pressed={current === lang.id}
-          title={lang.name}
         >
-          {lang.nativeName}
+          <span className={styles.pillNative}>{lang.nativeName}</span>
+          <span className={styles.pillName}>{lang.name}</span>
         </button>
       ))}
     </div>

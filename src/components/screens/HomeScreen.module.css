@@ -452,9 +452,23 @@
 .personalEmptyArrow {
   font-family: var(--font-ui);
   font-size: var(--font-size-2xs);
+  font-weight: 600;
   color: var(--accent);
+  background: var(--accent-muted);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 6px 12px;
   flex-shrink: 0;
   align-self: center;
+  white-space: nowrap;
+}
+
+/* Shown while we don't yet know whether the user has a personal scene —
+   same markup and height as the real card, just dimmed and inert, so if
+   the answer turns out to be "no" nothing below it jumps when it resolves. */
+.personalEmptyPending {
+  opacity: 0.5;
+  cursor: default;
 }
 
 /* ─── Continue (mastery progress) ─────── */

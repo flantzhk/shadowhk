@@ -12,10 +12,17 @@
   flex-shrink: 0;
 }
 
+/* TopBar only ever renders inside the mobile shell, whose content column
+   (#root) is capped at 428px all the way up to the 900px Sidebar breakpoint
+   (the "tablet: show phone frame" rule in global.css) — so there's never
+   more than 428px of real width here, regardless of viewport. That's not
+   enough room for the wordmark alongside the bilingual language pills and
+   sign-in button, so the glyph mark alone carries the logo; the click
+   target still goes home. Full "ShadowHK" wordmark lives in the desktop
+   Sidebar instead, where there's actual room for it. */
 .logo {
   display: flex;
   align-items: center;
-  gap: 7px;
   cursor: pointer;
 }
 
@@ -26,28 +33,6 @@
   color: var(--accent);
   line-height: 1;
   flex-shrink: 0;
-}
-
-.logoText {
-  font-family: var(--font-serif);
-  font-size: var(--font-size-md);
-  font-weight: 500;
-  color: var(--fg-0);
-  letter-spacing: -0.01em;
-}
-
-/* Below 375px (iPhone's own width, where this already fits) the wordmark +
-   language pills + sign-in button don't fit on one row (flex items refuse to
-   shrink past their text's intrinsic width). Drop to the glyph mark alone;
-   the click target still goes home. */
-@media (max-width: 374px) {
-  .logo {
-    gap: 0;
-  }
-
-  .logoText {
-    display: none;
-  }
 }
 
 .actions {
@@ -104,6 +89,8 @@
   cursor: pointer;
   transition: opacity 0.15s;
   letter-spacing: -0.01em;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .signIn:hover {
