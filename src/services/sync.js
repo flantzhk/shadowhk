@@ -15,7 +15,6 @@ import {
   getAllLibraryEntries,
   getLibraryEntry,
   saveLibraryEntry as idbSaveLibraryEntry,
-  deleteLibraryEntry as idbDeleteLibraryEntry,
   getSettings,
   saveSettings,
 } from './storage';
@@ -241,20 +240,6 @@ async function syncOnAuthReady() {
   }
 }
 
-// Re-export a wrapped saveLibraryEntry that stamps + pushes. Callers that want
-// sync go through here; storage.js stays purely local (no Firebase coupling).
-async function saveLibraryEntryAndSync(entry) {
-  const stamped = { ...entry, _updatedAt: Date.now() };
-  await idbSaveLibraryEntry(stamped);
-  pushLibraryEntry(stamped); // fire-and-forget
-  return stamped;
-}
-
-async function deleteLibraryEntryAndSync(phraseId) {
-  await idbDeleteLibraryEntry(phraseId);
-  deleteLibraryEntryRemote(phraseId); // fire-and-forget
-}
-
 export {
   pushLibraryEntry,
   deleteLibraryEntryRemote,
@@ -263,6 +248,4 @@ export {
   pushStreak,
   pullStreakFromFirestore,
   syncOnAuthReady,
-  saveLibraryEntryAndSync,
-  deleteLibraryEntryAndSync,
 };
