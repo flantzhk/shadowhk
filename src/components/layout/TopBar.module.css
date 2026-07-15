@@ -36,6 +36,20 @@
   letter-spacing: -0.01em;
 }
 
+/* Below 375px (iPhone's own width, where this already fits) the wordmark +
+   language pills + sign-in button don't fit on one row (flex items refuse to
+   shrink past their text's intrinsic width). Drop to the glyph mark alone;
+   the click target still goes home. */
+@media (max-width: 374px) {
+  .logo {
+    gap: 0;
+  }
+
+  .logoText {
+    display: none;
+  }
+}
+
 .actions {
   display: flex;
   align-items: center;
