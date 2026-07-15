@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 import styles from './PhrasebookToast.module.css';
 
 /**
- * @param {{ phrase?: { cjk: string, english: string }, onDone: Function }} props
+ * @param {{ phrase?: { cjk: string, english: string }, language?: string, onDone: Function }} props
  */
-export function PhrasebookToast({ phrase, onDone }) {
+export function PhrasebookToast({ phrase, language = 'cantonese', onDone }) {
   useEffect(() => {
     const t = setTimeout(onDone, 2800);
     return () => clearTimeout(t);
@@ -21,7 +21,7 @@ export function PhrasebookToast({ phrase, onDone }) {
       </div>
       <div className={styles.text}>
         <p className={styles.label}>Saved to your phrasebook</p>
-        {phrase?.cjk && <p className={styles.phrase} lang="yue">{phrase.cjk}</p>}
+        {phrase?.cjk && <p className={styles.phrase} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>{phrase.cjk}</p>}
       </div>
       <div className={styles.sparkles} aria-hidden="true">
         <span className={styles.spark} />

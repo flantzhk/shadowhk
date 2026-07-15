@@ -6,7 +6,8 @@ Cloudflare Worker that handles Stripe webhooks and writes
 ## Routes
 
 - `POST /stripe-webhook` — Stripe events (signature verified)
-- `POST /create-checkout-session` — TODO (existing endpoint, not yet ported)
+- `POST /create-checkout-session` — creates a Stripe Checkout session (Firebase-authenticated)
+- `POST /revenuecat-webhook` — RevenueCat IAP events (Apple IAP), auth header checked against `REVENUECAT_WEBHOOK_AUTH_HEADER`
 
 Stripe events handled:
 

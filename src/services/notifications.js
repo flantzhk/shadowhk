@@ -100,7 +100,8 @@ async function isPushSubscribed() {
     const registration = await navigator.serviceWorker.ready;
     const sub = await registration.pushManager.getSubscription();
     return !!sub;
-  } catch {
+  } catch (err) {
+    logger.error('Push subscription check failed', err);
     return false;
   }
 }

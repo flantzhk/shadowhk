@@ -32,8 +32,10 @@ export default function ToneTrainer({ onBack }) {
   const isOnline = useOnlineStatus();
 
   useEffect(() => {
+    let stale = false;
     Promise.all([getLibraryEntries(language), getWeakTones()])
       .then(([entries, weakTones]) => {
+        if (stale) return;
         // Phrases touching a tone the user is currently weak on come first;
         // within each group, lowest recent score (hardest) first.
         const sorted = [...entries].sort((a, b) => {
@@ -45,7 +47,8 @@ export default function ToneTrainer({ onBack }) {
         setPhrase(sorted[0] ?? null);
       })
       .catch(() => {})
-      .finally(() => setLoading(false));
+      .finally(() => { if (!stale) setLoading(false); });
+    return () => { stale = true; };
   }, [language]);
 
   async function handleRecord() {

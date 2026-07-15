@@ -174,11 +174,11 @@ export default function FirstRunFlow({ onComplete, onNavigate }) {
   if (step === 7) {
     const scene = firstScene;
     return (
-      <div className={styles.finalScreen} style={{ backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : `url(${DIMSUM_URL})` }}>
+      <div className={styles.finalScreen} style={{ backgroundImage: scene?.imageUrl ? `url(${scene.imageUrl})` : `url(${language === 'mandarin' ? HARBOUR_URL : DIMSUM_URL})` }}>
         <div className={styles.finalOverlay} />
         <div className={styles.finalContent}>
           <p className={styles.finalEyebrow}>YOUR FIRST SCENE</p>
-          <h1 className={styles.finalTitle}>{scene?.title ?? 'Ordering dim sum'}</h1>
+          <h1 className={styles.finalTitle}>{scene?.title ?? (language === 'mandarin' ? 'Greetings and family' : 'Ordering dim sum')}</h1>
           <p className={styles.finalMeta}>
             {scene?.lines?.filter(l => l.speaker === 'you').length ?? 12} phrases
             {scene?.estimatedMinutes ? ` · ${scene.estimatedMinutes} min` : ' · 7 min'}. You can finish before your tea cools.

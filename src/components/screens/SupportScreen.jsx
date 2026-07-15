@@ -11,7 +11,7 @@ const FAQS = [
   },
   {
     q: 'Which languages does ShadowSpeak support?',
-    a: 'ShadowSpeak currently supports Cantonese (廣東話) and Mandarin (普通話). Cantonese has full pronunciation scoring, native TTS, and structured lesson plans. Mandarin currently offers scene-based lessons, native TTS audio, tone training, and an AI conversation partner, with pronunciation scoring being rolled out. No other languages are planned right now.',
+    a: 'ShadowSpeak currently supports Cantonese (廣東話) and Mandarin (普通話). Cantonese has full pronunciation scoring, native TTS, and structured lesson plans. Mandarin currently offers scene-based lessons, native TTS audio, tone training, and an AI conversation partner; pronunciation scoring is not yet available for Mandarin. No other languages are planned right now.',
   },
   {
     q: 'How does pronunciation scoring work?',

@@ -75,6 +75,7 @@ export default function SessionSummary({ summary, onDone, onNavigate, authed = t
       {showRealLifeCelebration && (
         <RealLifeCelebration
           phrase={bestPhrase}
+          language={settings?.currentLanguage ?? 'cantonese'}
           onDone={() => { setShowRealLifeCelebration(false); setLivedState('confirmed'); }}
         />
       )}

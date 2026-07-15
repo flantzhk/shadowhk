@@ -2,13 +2,20 @@
 
 import styles from './ToneGymResults.module.css';
 
-const TONE_NAMES = {
+const CANTONESE_TONE_NAMES = {
   1: 'High level',
   2: 'Mid rising',
   3: 'Mid level',
   4: 'Low falling',
   5: 'Low rising',
   6: 'Low level',
+};
+
+const MANDARIN_TONE_NAMES = {
+  1: 'High level',
+  2: 'Rising',
+  3: 'Dipping',
+  4: 'Sharp falling',
 };
 
 function getToneColor(pct) {
@@ -25,13 +32,15 @@ function getToneColor(pct) {
 export default function ToneGymResults({ summary, onDone, onPlayAgain }) {
   if (!summary) return null;
 
-  const { correct = 0, total = 10, toneResults = [], streakCount = 0 } = summary;
+  const { correct = 0, total = 10, toneResults = [], streakCount = 0, language = 'cantonese' } = summary;
   const accuracy = Math.round((correct / total) * 100);
+  const TONE_NAMES = language === 'mandarin' ? MANDARIN_TONE_NAMES : CANTONESE_TONE_NAMES;
+  const TONE_COUNT = language === 'mandarin' ? 4 : 6;
 
   // Build per-tone accuracy map from toneResults array
   // toneResults: [{ tone: number, isCorrect: boolean }]
   const toneMap = {};
-  for (let t = 1; t <= 6; t++) toneMap[t] = { correct: 0, total: 0 };
+  for (let t = 1; t <= TONE_COUNT; t++) toneMap[t] = { correct: 0, total: 0 };
   for (const r of toneResults) {
     if (!toneMap[r.tone]) toneMap[r.tone] = { correct: 0, total: 0 };
     toneMap[r.tone].total++;
@@ -83,7 +92,7 @@ export default function ToneGymResults({ summary, onDone, onPlayAgain }) {
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>TONE ACCURACY</h2>
             <div className={styles.toneList}>
-              {[1, 2, 3, 4, 5, 6].map(t => {
+              {Array.from({ length: TONE_COUNT }, (_, i) => i + 1).map(t => {
                 const data = toneMap[t];
                 if (!data || data.total === 0) return null;
                 const pct = Math.round((data.correct / data.total) * 100);

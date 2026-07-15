@@ -139,7 +139,7 @@ export default function PhraseDetailScreen({ phraseId, onBack, onNavigate }) {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [phraseId]);
+  }, [phraseId, language]);
 
   if (loading) return <div className={styles.screen}><div className={styles.loading} /></div>;
   if (!phrase) return (

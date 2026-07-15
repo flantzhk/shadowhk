@@ -19,6 +19,11 @@ export function needsTtsPadding(text) {
  * Decodes the blob, finds the last silence gap that still has speech after it
  * (the tail), and returns a WAV blob cut at that gap. Returns the original
  * blob if anything fails or no boundary is found.
+ *
+ * Only ever called on text that passed `needsTtsPadding` (<=12 CJK chars),
+ * so the reachable risk is a short phrase with an atypical internal pause
+ * being mistaken for the tail boundary — not a long scene line, since those
+ * never get padded and never reach this function.
  * @param {Blob} blob - audio response for `text + TTS_SACRIFICIAL_TAIL`
  * @returns {Promise<Blob>}
  */

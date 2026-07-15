@@ -9,6 +9,12 @@ import { downloadAllAudio, collectAudioUrls, STATIC_AUDIO_CACHE } from './offlin
 // on this device?" without re-walking the whole file list.
 const VERIFIED_KEY = 'shadowhk_offline_verified';
 
+// A device is considered "ready" once this fraction of expected files is
+// cached, not 100%. A handful of files are expected to be occasionally
+// missing (e.g. mid-download when new scenes ship), and demanding every
+// last file would make "ready" unreachable in practice.
+const READY_THRESHOLD = 0.9;
+
 let state = { status: 'idle', done: 0, total: 0, currentTopic: '', startedAt: 0, updatedAt: 0 };
 let cancelRef = null;
 const listeners = new Set();
@@ -88,7 +94,7 @@ async function getOfflineAudioStatus() {
   } catch { /* leave null, fall back below */ }
 
   const total = expectedTotal ?? verified?.total ?? 0;
-  const ready = total > 0 && cachedCount >= total * 0.9;
+  const ready = total > 0 && cachedCount >= total * READY_THRESHOLD;
   return { ready, cachedCount, verifiedAt: verified?.at ?? null };
 }
 

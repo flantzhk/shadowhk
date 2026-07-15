@@ -20,6 +20,7 @@ const GOOGLE_CLIENT_ID = '332784610142-qfp25144kj7fnqvvebnr0qj9tjl6a2pk.apps.goo
 const GSI_SRC = 'https://accounts.google.com/gsi/client';
 
 let loadPromise = null;
+let scriptEl = null;
 
 /**
  * Load the GIS script. Call on login screen mount, not in the click handler:
@@ -31,6 +32,7 @@ function preloadGoogleIdentity() {
   if (loadPromise) return loadPromise;
   loadPromise = new Promise((resolve, reject) => {
     if (window.google?.accounts?.oauth2) { resolve(); return; }
+    if (scriptEl) scriptEl.remove(); // drop the previous failed tag before retrying
     const script = document.createElement('script');
     script.src = GSI_SRC;
     script.async = true;
@@ -40,6 +42,7 @@ function preloadGoogleIdentity() {
       logger.warn('GIS script failed to load');
       reject(new Error('gsi-load-failed'));
     };
+    scriptEl = script;
     document.head.appendChild(script);
   });
   return loadPromise;

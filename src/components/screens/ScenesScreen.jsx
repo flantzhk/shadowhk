@@ -113,10 +113,10 @@ export default function ScenesScreen({ onNavigate }) {
           Browse <em className={styles.titleAccent}>scenes</em>.
         </h1>
         <span className={styles.subtitle}>
-          香港 {language === 'cantonese' ? 'CANTONESE' : 'MANDARIN'} · {scenes.length || ''} SCENES
+          {language === 'cantonese' ? '香港 CANTONESE' : 'MAINLAND CHINA MANDARIN'} · {scenes.length || ''} SCENES
         </span>
         <p className={styles.lede}>
-          Each scene drops you into a real Hong Kong moment: the back-and-forth
+          Each scene drops you into a real {language === 'cantonese' ? 'Hong Kong' : 'Mainland China'} moment: the back-and-forth
           you'd actually hear, the vocabulary locals reach for, and a fact
           worth knowing before you go.
         </p>

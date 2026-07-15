@@ -27,9 +27,9 @@ const PARTICLES = [
 ];
 
 /**
- * @param {{ phrase?: { cjk: string, english: string }, onDone: Function }} props
+ * @param {{ phrase?: { cjk: string, english: string }, language?: string, onDone: Function }} props
  */
-export function RealLifeCelebration({ phrase, onDone }) {
+export function RealLifeCelebration({ phrase, language = 'cantonese', onDone }) {
   useEffect(() => {
     const t = setTimeout(onDone, 4500);
     return () => clearTimeout(t);
@@ -77,7 +77,7 @@ export function RealLifeCelebration({ phrase, onDone }) {
 
         {phrase && (
           <div className={styles.phraseCard}>
-            <p className={styles.phraseCjk} lang="yue">{phrase.cjk}</p>
+            <p className={styles.phraseCjk} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>{phrase.cjk}</p>
             {phrase.english && <p className={styles.phraseEn}>{phrase.english}</p>}
           </div>
         )}

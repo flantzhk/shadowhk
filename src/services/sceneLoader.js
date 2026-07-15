@@ -19,9 +19,14 @@ const cache = {};
  */
 function detectRomKey(lines) {
   if (!lines?.length) return 'romanization';
-  const first = lines[0];
-  if ('jyutping' in first) return 'jyutping';
-  if ('pinyin' in first) return 'pinyin';
+  // Scan every line rather than trusting lines[0] alone, in case the first
+  // line is missing the key (e.g. a malformed or key-less entry) while a
+  // later line has it. Scenes are single-language, so the first key found
+  // anywhere in the array is taken as the scene's key.
+  for (const line of lines) {
+    if ('jyutping' in line) return 'jyutping';
+    if ('pinyin' in line) return 'pinyin';
+  }
   return 'romanization';
 }
 
