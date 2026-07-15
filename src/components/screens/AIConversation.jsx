@@ -88,6 +88,23 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
     return () => { cancelled = true; };
   }, [language]);
 
+  // Scenarios are language-specific content, so if the app-shell language
+  // switcher changes the language mid-conversation, the active scenario no
+  // longer matches — end the conversation instead of leaving a stale
+  // scenario behind (which showed a mismatched language pill in the header).
+  const prevLanguageRef = useRef(language);
+  useEffect(() => {
+    if (prevLanguageRef.current !== language) {
+      prevLanguageRef.current = language;
+      if (scenario) {
+        audioRef.current?.pause();
+        setPhase('select'); setScenario(null); setMessages([]); setSavedMsgIds(new Set());
+        setApiError(null);
+        setReplyAudioState('idle');
+      }
+    }
+  }, [language, scenario]);
+
   // Soft paywall gate — shown while resolving subscription status for free users.
   // Suspended while GATES.paywallEnabled is false, same as the scene gate in App.jsx.
   if (GATES.paywallEnabled && !isPro) {
@@ -195,7 +212,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
 
     if (isAuthenticated()) {
       try {
-        const stt = await speechToText(blob);
+        const stt = await speechToText(blob, language);
         setUserTranscript(stt.text || '');
         const userMsg = { role: 'user', chinese: stt.text || '', jyutping: '', romanization: '', english: '' };
         const newMsgs = [...messages, userMsg];
@@ -216,7 +233,7 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         setIsThinking(false);
       }
     }
-  }, [stopRecording, messages, scenario, playAudio, showToast]);
+  }, [stopRecording, messages, scenario, playAudio, showToast, language]);
 
   const handleEndChat = useCallback(() => { setPhase('review'); }, []);
 
@@ -229,11 +246,12 @@ export default function AIConversation({ onBack, showToast, onNavigate }) {
         interval: 0, easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
         lastPracticedAt: null, practiceCount: 0, status: 'learning',
         bestScore: null, lastScore: null, scoreHistory: [],
+        language,
       });
       if (idx != null) setSavedMsgIds(prev => new Set([...prev, idx]));
       showToast?.('Saved to library', 'success');
     } catch (err) { showToast?.('Failed to save', 'error'); }
-  }, [showToast]);
+  }, [showToast, language]);
 
   const handleTextSend = useCallback(async () => {
     const text = textInput.trim();

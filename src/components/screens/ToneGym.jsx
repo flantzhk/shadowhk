@@ -165,18 +165,18 @@ export default function ToneGym({ onBack, onComplete }) {
       const rec = {
         id: crypto.randomUUID(), date: getTodayString(),
         startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-        mode: 'tone-gym', phrasesAttempted: TOTAL_ROUNDS, phrasesMastered: 0,
+        mode: 'tone-gym', language, phrasesAttempted: TOTAL_ROUNDS, phrasesMastered: 0,
         averageScore: avgScore, phraseResults: [],
       };
       await saveSession(rec);
       const percentile = calculatePersonalPercentile(avgScore, pastScores);
       logEvent('score_achieved', { score: avgScore, mode: 'tone_gym', language: settings.currentLanguage || 'cantonese' });
       phCapture('score_achieved', { score: avgScore, mode: 'tone_gym', language: settings.currentLanguage || 'cantonese', percentile });
-      onComplete?.({ ...rec, streakCount, freezeUsed: streakResult.freezeUsed, freezeNotAvailable: streakResult.freezeNotAvailable, correct, total: TOTAL_ROUNDS, toneResults });
+      onComplete?.({ ...rec, language, streakCount, freezeUsed: streakResult.freezeUsed, freezeNotAvailable: streakResult.freezeNotAvailable, correct, total: TOTAL_ROUNDS, toneResults });
     } catch (err) {
       setFinishError(true);
     }
-  }, [sessionStart, correct, toneResults, updateSettings, settings, onComplete]);
+  }, [sessionStart, correct, toneResults, updateSettings, settings, onComplete, language]);
 
   // === INTRO SCREEN ===
   if (phase === 'intro') {

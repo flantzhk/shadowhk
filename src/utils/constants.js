@@ -65,7 +65,7 @@ export const VAPID_PUBLIC_KEY = 'BCmqvXWvZ-9ES9BJWC9fkC_RoZ16Fh3p3i5IB1uF_YpdM54
 export const AUDIO_CACHE_NAME = 'shadowhk-audio-v1';
 export const APP_CACHE_NAME = 'shadowhk-app-v1';
 export const DB_NAME = 'shadowhk';
-export const DB_VERSION = 5;
+export const DB_VERSION = 6;
 export const MAX_RETRIES = 2;
 export const RETRY_DELAY_MS = 1000;
 export const API_TIMEOUT_MS = 30000;
@@ -160,6 +160,11 @@ export const CANTONESE_VOICES = [
   { id: '50a9a698-1f99-437c-a07d-9cad435c5f8a', label: 'Female', desc: 'Hear tapped words and your own phrases in a female voice.' },
   { id: 'f8b4470f-2321-4b59-a5b8-3877990b2881', label: 'Male', desc: 'Hear tapped words and your own phrases in a male voice.' },
 ];
+
+// Mandarin TTS voice (ElevenLabs voice id, see scripts/generate-mandarin-audio.mjs).
+// Live/on-demand Mandarin TTS (AI chat replies, fallback phrase playback) must pass
+// this explicitly — the app-wide preferred voice defaults to a Cantonese voice id.
+export const MANDARIN_VOICE_ID = 'bhJUNIXWQQ94l8eI2VUf';
 
 export const DEFAULT_USER_SETTINGS = {
   name: '',

@@ -222,10 +222,13 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
           <span className={styles.rowLabel}>Default speed</span>
           <span className={styles.rowValue}>{settings.defaultSpeed === 'slower' ? 'Slower' : 'Natural'} ›</span>
         </button>
-        <button className={styles.settingsRow} onClick={() => setShowVoicePicker(true)}>
-          <span className={styles.rowLabel}>Cantonese voice</span>
-          <span className={styles.rowValue}>{(CANTONESE_VOICES.find(v => v.id === settings.voiceId) ?? CANTONESE_VOICES[0]).label} ›</span>
-        </button>
+        {settings.currentLanguage === 'cantonese' && (
+          // No Mandarin voice picker exists yet — hide rather than show the wrong control.
+          <button className={styles.settingsRow} onClick={() => setShowVoicePicker(true)}>
+            <span className={styles.rowLabel}>Cantonese voice</span>
+            <span className={styles.rowValue}>{(CANTONESE_VOICES.find(v => v.id === settings.voiceId) ?? CANTONESE_VOICES[0]).label} ›</span>
+          </button>
+        )}
         <button className={styles.settingsRow} onClick={() => setShowReminderPicker(true)}>
           <span className={styles.rowLabel}>Daily reminder time</span>
           <span className={styles.rowValue}>{settings.reminderTime ? settings.reminderTime : 'Off'} ›</span>
@@ -386,7 +389,7 @@ export default function SettingsScreen({ onBack, onNavigate, navigate, goBack, s
         </BottomSheet>
       )}
 
-      {showVoicePicker && (
+      {showVoicePicker && settings.currentLanguage === 'cantonese' && (
         <BottomSheet title="Cantonese voice" onClose={() => setShowVoicePicker(false)}>
           <p className={styles.pickerHint}>Scenes keep their original recordings. Tapped words, your own phrases, and anything generated live use this voice.</p>
           {CANTONESE_VOICES.map(opt => (

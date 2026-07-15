@@ -33,20 +33,26 @@ function useRecorder() {
         },
       });
 
-      const mimeType = MediaRecorder.isTypeSupported('audio/ogg;codecs=opus')
-        ? 'audio/ogg;codecs=opus'
-        : MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
-          ? 'audio/webm;codecs=opus'
-          : 'audio/webm';
+      let recorder;
+      try {
+        const mimeType = MediaRecorder.isTypeSupported('audio/ogg;codecs=opus')
+          ? 'audio/ogg;codecs=opus'
+          : MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+            ? 'audio/webm;codecs=opus'
+            : 'audio/webm';
 
-      const recorder = new MediaRecorder(stream, { mimeType });
+        recorder = new MediaRecorder(stream, { mimeType });
 
-      recorder.ondataavailable = (e) => {
-        if (e.data.size > 0) chunksRef.current.push(e.data);
-      };
+        recorder.ondataavailable = (e) => {
+          if (e.data.size > 0) chunksRef.current.push(e.data);
+        };
 
-      mediaRecorderRef.current = recorder;
-      recorder.start();
+        mediaRecorderRef.current = recorder;
+        recorder.start();
+      } catch (setupErr) {
+        stream.getTracks().forEach(track => track.stop());
+        throw setupErr;
+      }
       setIsRecording(true);
 
       timerRef.current = setTimeout(() => {
@@ -89,8 +95,8 @@ function useRecorder() {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       const recorder = mediaRecorderRef.current;
-      if (recorder && recorder.state !== 'inactive') {
-        recorder.stop();
+      if (recorder) {
+        if (recorder.state !== 'inactive') recorder.stop();
         recorder.stream?.getTracks().forEach(track => track.stop());
       }
     };

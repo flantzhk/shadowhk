@@ -25,7 +25,8 @@ export function buildGenerationPrompt(formData, language) {
 
   const langLabel = language === 'mandarin' ? 'Mandarin (Simplified Chinese + Pīnyīn)' : 'Cantonese (Traditional Chinese + Jyutping)';
 
-  const lines = filled.map(([key, value]) => `- ${FIELD_LABELS[key] ?? key}: ${value}`).join('\n');
+  const fieldLabels = getFieldLabels(language);
+  const lines = filled.map(([key, value]) => `- ${fieldLabels[key] ?? key}: ${value}`).join('\n');
 
   return `You are generating self-introduction phrases for a ${langLabel} learner living in Hong Kong.
 
@@ -50,8 +51,13 @@ Rules:
 
 /**
  * Save the generated phrases as a personal scene in IndexedDB library.
+ * Validates the AI response shape and script/romanization before writing
+ * anything — throws (matching the rest of the codebase's error convention,
+ * e.g. api.js's ApiError) rather than saving malformed entries.
  */
 export async function savePersonalScene(phrases, language) {
+  validateGeneratedPhrases(phrases, language);
+
   const { saveLibraryEntry } = await import('./storage.js');
   const { GROWTH_STATE, SOURCE_TAGS } = await import('../utils/constants.js');
 
@@ -160,6 +166,16 @@ function flattenFormData(f) {
   return flat;
 }
 
+// FIELD_LABELS.parentsLocal describes a Cantonese/HK-local family background;
+// Mandarin scenes are framed around Mainland China (see public/scenes/mandarin-*.json
+// "location" fields), so the label needs to match that context instead.
+function getFieldLabels(language) {
+  if (language === 'mandarin') {
+    return { ...FIELD_LABELS, parentsLocal: 'Parents are Mainland China locals who speak Mandarin' };
+  }
+  return FIELD_LABELS;
+}
+
 const FIELD_LABELS = {
   name: 'Name',
   age: 'Age',
@@ -200,3 +216,58 @@ const FIELD_LABELS = {
   learningReason: 'Why learning Cantonese/Mandarin',
   learningDuration: 'How long they have been learning',
 };
+
+// A handful of very common characters that differ between Simplified and
+// Traditional forms — enough to catch the AI writing in the wrong script,
+// not a full Simplified/Traditional classifier.
+const SIMPLIFIED_TRADITIONAL_PAIRS = [
+  ['国', '國'], ['说', '說'], ['对', '對'], ['们', '們'], ['时', '時'],
+  ['么', '麼'], ['没', '沒'], ['这', '這'], ['学', '學'], ['见', '見'],
+  ['语', '語'], ['开', '開'], ['关', '關'], ['个', '個'], ['现', '現'],
+];
+
+// Jyutping romanization always ends each syllable in a tone digit 1-6.
+// Pinyin-with-tone-marks (what we ask for) uses diacritics, never digits.
+const JYUTPING_TONE_RE = /[a-z]+[1-6]/i;
+const PINYIN_DIACRITIC_RE = /[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/i;
+
+/**
+ * Cheap sanity check that one generated phrase has the required fields and
+ * is in the expected script/romanization for the language — catches the AI
+ * ignoring the Simplified/Pinyin vs Traditional/Jyutping instruction. This is
+ * a heuristic, not a linguistic classifier.
+ */
+function isWellFormedPhrase(phrase, language) {
+  if (!phrase || typeof phrase !== 'object') return false;
+  if (!String(phrase.cjk ?? '').trim()) return false;
+  if (!String(phrase.romanization ?? '').trim()) return false;
+  if (!String(phrase.english ?? '').trim()) return false;
+
+  const cjk = String(phrase.cjk);
+  const romanization = String(phrase.romanization);
+
+  if (language === 'mandarin') {
+    if (SIMPLIFIED_TRADITIONAL_PAIRS.some(([, traditional]) => cjk.includes(traditional))) return false;
+    if (!PINYIN_DIACRITIC_RE.test(romanization)) return false;
+  } else {
+    if (SIMPLIFIED_TRADITIONAL_PAIRS.some(([simplified]) => cjk.includes(simplified))) return false;
+    if (!JYUTPING_TONE_RE.test(romanization)) return false;
+  }
+  return true;
+}
+
+/**
+ * Validate the AI's phrase-generation response before it's written to the
+ * library. Throws a plain Error with a user-facing message (the convention
+ * used by api.js/ApiError and surfaced as-is by IntroduceYourselfForm's
+ * catch block) if the response is malformed or ignored the language/script
+ * instruction, instead of silently saving garbage.
+ */
+function validateGeneratedPhrases(phrases, language) {
+  if (!Array.isArray(phrases) || phrases.length === 0) {
+    throw new Error('No phrases generated. Try adding more details.');
+  }
+  if (!phrases.every(p => isWellFormedPhrase(p, language))) {
+    throw new Error('The generated phrases came back in an unexpected format. Please try again.');
+  }
+}

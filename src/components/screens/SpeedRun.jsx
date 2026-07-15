@@ -119,7 +119,7 @@ export default function SpeedRun({ onBack, onComplete }) {
     const rec = {
       id: crypto.randomUUID(), date: getTodayString(),
       startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-      mode: 'speed-run', phrasesAttempted: round + 1, phrasesMastered: 0,
+      mode: 'speed-run', language: settings.currentLanguage, phrasesAttempted: round + 1, phrasesMastered: 0,
       averageScore: null, phraseResults: [],
     };
     await saveSession(rec);

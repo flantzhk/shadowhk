@@ -11,7 +11,7 @@ import { getDueByLanguage } from './srs';
  * @returns {Promise<{ focus: 'tones'|'speaking', reason: string, count: number }>}
  */
 async function recommendFocus(language) {
-  const weakTones = await getWeakTones();
+  const weakTones = await getWeakTones(language);
   if (weakTones.size > 0) {
     return {
       focus: 'tones',

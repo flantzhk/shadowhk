@@ -5,6 +5,7 @@ import { getSettings, saveSettings } from '../services/storage';
 import { setPreferredVoice } from '../services/api';
 import { DEFAULT_USER_SETTINGS } from '../utils/constants';
 import { logger } from '../utils/logger';
+import { useToast } from '../components/shared/Toast';
 
 const AppContext = createContext(null);
 
@@ -47,6 +48,7 @@ const initialState = {
 function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
   const settingsRef = useRef(state.settings);
+  const { showToast, ToastComponent } = useToast();
 
   // Keep ref in sync with latest state
   useEffect(() => {
@@ -77,15 +79,20 @@ function AppProvider({ children }) {
   }, []);
 
   const updateSettings = useCallback(async (updates) => {
-    // Read latest settings from ref to avoid stale closure
+    // Merge onto the latest settings and update the ref synchronously (not via
+    // the useEffect above, which only runs after the next render commits).
+    // This guarantees a second updateSettings call arriving before that render
+    // still merges onto this call's result instead of a stale snapshot.
     const newSettings = { ...settingsRef.current, ...updates };
+    settingsRef.current = newSettings;
     dispatch({ type: ACTION_TYPES.UPDATE_SETTING, payload: updates });
     try {
       await saveSettings(newSettings);
     } catch (error) {
       logger.error('Failed to persist settings', error);
+      showToast('Could not save your changes. Please check your device storage.', 'error');
     }
-  }, []);
+  }, [showToast]);
 
   const value = {
     settings: state.settings,
@@ -96,6 +103,7 @@ function AppProvider({ children }) {
   return (
     <AppContext.Provider value={value}>
       {children}
+      {ToastComponent}
     </AppContext.Provider>
   );
 }

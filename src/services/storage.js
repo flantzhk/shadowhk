@@ -8,6 +8,32 @@ import { logger } from '../utils/logger';
 let dbInstance = null;
 
 /**
+ * v6 migration: rewrite legacy bare-digit toneStats records ('1'-'6', from
+ * before tone stats were split per-language) to the composite
+ * `${language}-${toneDigit}` key. Mandarin tone tracking didn't exist yet
+ * when any bare-digit record could have been written, so every one of them
+ * is unambiguously Cantonese data — no guessing needed. Records already in
+ * the composite format are left untouched.
+ * Exported standalone (rather than inlined in `upgrade`) so it's testable
+ * against a plain mock store, since IndexedDB itself isn't available in
+ * this project's test environment.
+ * @param {{getAll: () => Promise<Array>, delete: (key: string) => Promise<void>, put: (record: Object) => Promise<any>}} store
+ */
+async function migrateLegacyToneStats(store) {
+  const legacyRecords = (await store.getAll()).filter((r) => /^[1-6]$/.test(r.tone));
+  for (const record of legacyRecords) {
+    const toneDigit = record.tone;
+    await store.delete(toneDigit);
+    await store.put({
+      ...record,
+      tone: `cantonese-${toneDigit}`,
+      language: record.language ?? 'cantonese',
+      toneDigit: record.toneDigit ?? toneDigit,
+    });
+  }
+}
+
+/**
  * Get or create the IndexedDB database.
  * @returns {Promise<import('idb').IDBPDatabase>}
  */
@@ -15,7 +41,14 @@ async function getDB() {
   if (dbInstance) return dbInstance;
 
   dbInstance = await openDB(DB_NAME, DB_VERSION, {
-    upgrade(db, oldVersion) {
+    async upgrade(db, oldVersion, newVersion, transaction) {
+      // Capture this before any createObjectStore call below — it's the only
+      // way to tell "fresh install, store about to be created" apart from
+      // "existing install, store already there" once we're inside this
+      // function, since both cases reach the migration check below with
+      // oldVersion < 6.
+      const hadToneStats = db.objectStoreNames.contains('toneStats');
+
       // Settings store (single row keyed 'user')
       if (!db.objectStoreNames.contains('settings')) {
         db.createObjectStore('settings', { keyPath: 'id' });
@@ -68,8 +101,17 @@ async function getDB() {
 
       // Per-tone pronunciation accuracy (v4) — powers the tone-weakness
       // profile that biases SRS scheduling toward tones the user gets wrong.
-      if (!db.objectStoreNames.contains('toneStats')) {
+      // Keyed `${language}-${toneDigit}` (e.g. "cantonese-3") so the two
+      // languages' tone systems never share a bucket.
+      if (!hadToneStats) {
         db.createObjectStore('toneStats', { keyPath: 'tone' });
+      }
+
+      // Only runs for an existing db that already had the store (a brand
+      // new install has nothing to migrate, and the store was just created
+      // above in that case, so there'd be nothing to read anyway).
+      if (hadToneStats && oldVersion < 6) {
+        await migrateLegacyToneStats(transaction.objectStore('toneStats'));
       }
     },
   });
@@ -205,6 +247,24 @@ async function getAllSessions() {
   return dbOp('Failed to get sessions', (db) => db.getAll('sessions'), []);
 }
 
+/**
+ * Get session records filtered by language. Sessions saved before this field
+ * existed (pre-Mandarin) have no `language` at all — treat those as Cantonese,
+ * the same "missing language defaults to cantonese" convention used elsewhere
+ * (e.g. PhrasebookToast's `language = 'cantonese'` default), so old practice
+ * history doesn't vanish from stats. Plain JS filter over getAll rather than
+ * a new IndexedDB index — matches getRecentScoredSessions' existing pattern
+ * for this store and avoids a schema/DB_VERSION bump.
+ * @param {string} language - 'cantonese' | 'mandarin'
+ * @returns {Promise<Array>}
+ */
+async function getSessionsByLanguage(language) {
+  return dbOp('Failed to get sessions by language', async (db) => {
+    const all = await db.getAll('sessions');
+    return all.filter(s => (s.language ?? 'cantonese') === language);
+  }, []);
+}
+
 // === Offline Queue ===
 
 /** @param {string} action @param {Object} data */
@@ -329,14 +389,22 @@ async function saveCachedAudio(phraseId, blob) {
 
 // === Tone weakness stats ===
 
-/** @param {string} tone - '1'..'6' @returns {Promise<Object|undefined>} */
-async function getToneStat(tone) {
-  return dbOp('Failed to get tone stat', (db) => db.get('toneStats', tone), undefined);
+/**
+ * Tone stats are keyed per-language: a Cantonese tone-3 error rate and a
+ * Mandarin tone-3 error rate are unrelated and must not share a bucket.
+ * @param {string} language - 'cantonese' | 'mandarin'
+ * @param {string} toneDigit - '1'..'6'
+ * @returns {Promise<Object|undefined>}
+ */
+async function getToneStat(language, toneDigit) {
+  return dbOp('Failed to get tone stat', (db) => db.get('toneStats', `${language}-${toneDigit}`), undefined);
 }
 
-/** @param {Object} stat - { tone, correct, total } */
+/** @param {Object} stat - { language, toneDigit, correct, total } */
 async function saveToneStat(stat) {
-  return dbOp('Failed to save tone stat', (db) => db.put('toneStats', stat));
+  return dbOp('Failed to save tone stat', (db) =>
+    db.put('toneStats', { ...stat, tone: `${stat.language}-${stat.toneDigit}` })
+  );
 }
 
 /** @returns {Promise<Array>} */
@@ -367,6 +435,7 @@ export {
   saveSession,
   getSessionsByDate,
   getAllSessions,
+  getSessionsByLanguage,
   getRecentScoredSessions,
   addToQueue,
   getQueueItems,
@@ -385,4 +454,5 @@ export {
   getToneStat,
   saveToneStat,
   getAllToneStats,
+  migrateLegacyToneStats,
 };

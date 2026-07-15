@@ -56,6 +56,10 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   const [playingIdx, setPlayingIdx] = useState(null);
   const playerRef = useRef(null);
   const touchedRef = useRef(false);
+  // Mirrors the live language so the in-flight AI generation below can tell,
+  // after its await resolves, whether the user has since switched language.
+  const languageRef = useRef(language);
+  useEffect(() => { languageRef.current = language; }, [language]);
 
   // Remember previous answers — a returning user should never retype
   useEffect(() => {
@@ -126,6 +130,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
   async function handleGenerate() {
     if (!form.name.trim()) return;
     const isRebuild = existingPhrases.length > 0;
+    const requestLanguage = language;
     setGenerating(true);
     setError(null);
 
@@ -167,6 +172,10 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
       Promise.allSettled(
         savedEntries.map(entry => cacheAudioForPhrase({ id: entry.phraseId, cjk: entry.cjk }, language))
       ).catch(() => {});
+
+      // The user may have switched language while this request was in flight —
+      // don't apply a result that no longer matches the active language.
+      if (languageRef.current !== requestLanguage) return;
 
       if (isRebuild) {
         // Rebuilding an existing scene: refresh the phrase list in place
@@ -352,7 +361,7 @@ export default function IntroduceYourselfForm({ onComplete, onBack }) {
           <Field label="Pets">
             <input className={styles.input} placeholder="e.g. a beagle named Siu Mai, two cats" value={form.pets} onChange={e => setField('pets', e.target.value)} />
           </Field>
-          <Field label="Are your parents Cantonese-speaking HK locals?">
+          <Field label={language === 'mandarin' ? 'Are your parents Mandarin-speaking Mainland China locals?' : 'Are your parents Cantonese-speaking HK locals?'}>
             <select className={styles.select} value={form.parentsLocal} onChange={e => setField('parentsLocal', e.target.value)}>
               <option value="">Skip</option>
               <option value="yes">Yes</option>

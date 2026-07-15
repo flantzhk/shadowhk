@@ -151,7 +151,7 @@ async function createStripeCheckoutSession(planConfig, uid, stripeApiKey) {
 async function handleRevenueCatWebhook(request, env) {
   // RevenueCat sends a configurable Authorization header for security.
   const authHeader = request.headers.get('Authorization') ?? '';
-  if (!env.REVENUECAT_WEBHOOK_AUTH_HEADER || authHeader !== env.REVENUECAT_WEBHOOK_AUTH_HEADER) {
+  if (!env.REVENUECAT_WEBHOOK_AUTH_HEADER || !constantTimeEqual(authHeader, env.REVENUECAT_WEBHOOK_AUTH_HEADER)) {
     return new Response('Unauthorized', { status: 401 });
   }
 
@@ -165,6 +165,17 @@ async function handleRevenueCatWebhook(request, env) {
   const event = body?.event;
   if (!event) {
     return new Response('Missing event', { status: 400 });
+  }
+
+  // TRANSFER reassigns entitlement from one app_user_id to another (account
+  // merge / multi-device restore). Handled separately because it carries two
+  // uids (transferred_from/transferred_to) instead of a single app_user_id.
+  // Defensive only: no account-transfer/merge flow exists in this app today
+  // (no RevenueCat SDK is even wired up yet — Screen16_Paywall blocks native
+  // IAP), so this path is untested against a real RevenueCat payload and
+  // needs product confirmation before being relied on.
+  if (event.type === 'TRANSFER') {
+    return handleRevenueCatTransfer(event, env);
   }
 
   // app_user_id is set to the Firebase UID when the app calls Purchases.logIn(uid).
@@ -200,6 +211,7 @@ async function handleRevenueCatWebhook(request, env) {
 
 // Maps RevenueCat event types to our two-state model.
 // Returns null for events that require no Firestore change.
+// (TRANSFER is handled separately in handleRevenueCatTransfer — it never reaches here.)
 function mapRevenueCatStatus(eventType) {
   switch (eventType) {
     case 'INITIAL_PURCHASE':
@@ -210,16 +222,56 @@ function mapRevenueCatStatus(eventType) {
     case 'EXPIRATION':
       return 'free';
     // Cancellation = user canceled but still has access until period ends.
-    // Billing issues = Stripe handles the final downgrade via subscription events.
+    // Billing issues = Apple/RevenueCat retries the charge during a grace period;
+    // these are Apple IAP purchases and never touch Stripe. If retries are
+    // exhausted, RevenueCat sends a separate EXPIRATION event (handled above),
+    // which is what actually downgrades the user.
     // These should NOT immediately downgrade — leave status as-is.
     case 'CANCELLATION':
     case 'BILLING_ISSUE':
     case 'PRODUCT_CHANGE':
     case 'SUBSCRIBER_ALIAS':
-    case 'TRANSFER':
     default:
       return null;
   }
+}
+
+// Handles RevenueCat's TRANSFER event: entitlement is reassigned from one
+// app_user_id to another. The payload carries both ends of the transfer
+// instead of a single app_user_id, so it needs its own Firestore writes
+// following the same pattern as handleRevenueCatWebhook above.
+async function handleRevenueCatTransfer(event, env) {
+  const fromUids = event.transferred_from ?? [];
+  const toUids = event.transferred_to ?? [];
+  if (fromUids.length === 0 || toUids.length === 0) {
+    console.warn('[RevenueCat] TRANSFER event missing transferred_from/transferred_to', event);
+    return new Response(JSON.stringify({ received: true }), { status: 200 });
+  }
+
+  try {
+    const firestore = getFirestore(env);
+    for (const uid of fromUids) {
+      await firestore.updateDoc('users', uid, {
+        subscription_status: 'free',
+        subscription_platform: 'apple',
+      });
+    }
+    for (const uid of toUids) {
+      await firestore.updateDoc('users', uid, {
+        subscription_status: 'pro',
+        subscription_platform: 'apple',
+      });
+    }
+    console.log(`[RevenueCat] TRANSFER ${fromUids.join(',')} → ${toUids.join(',')}`);
+  } catch (err) {
+    console.error('[RevenueCat] Firestore update failed:', err);
+    return new Response('Internal error', { status: 500 });
+  }
+
+  return new Response(JSON.stringify({ received: true }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
 // ── /stripe-webhook ───────────────────────────────────────────────────────────
@@ -270,8 +322,11 @@ async function handleStripeWebhook(request, env) {
         const status = mapStripeStatus(sub.status);
         const uid = await findUidByCustomerId(firestore, customerId);
         if (!uid) {
-          console.warn('No user found for customer', customerId);
-          break;
+          // checkout.session.completed (which writes stripe_customer_id) may not
+          // have landed yet — Stripe doesn't guarantee event order. Return non-200
+          // so Stripe retries with backoff instead of silently dropping this update.
+          console.warn('No user found for customer, will retry', customerId);
+          return new Response('User not found for customer yet', { status: 409 });
         }
         await firestore.updateDoc('users', uid, { subscription_status: status });
         break;
@@ -282,8 +337,9 @@ async function handleStripeWebhook(request, env) {
         const customerId = sub.customer;
         const uid = await findUidByCustomerId(firestore, customerId);
         if (!uid) {
-          console.warn('No user found for customer', customerId);
-          break;
+          // Same ordering issue as subscription.updated above — force a Stripe retry.
+          console.warn('No user found for customer, will retry', customerId);
+          return new Response('User not found for customer yet', { status: 409 });
         }
         await firestore.updateDoc('users', uid, { subscription_status: 'free' });
         break;
@@ -321,7 +377,9 @@ async function findUidByCustomerId(firestore, customerId) {
 // at Google's well-known endpoint. We cache them for the lifetime of the isolate.
 
 const FIREBASE_JWK_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
+const JWKS_CACHE_TTL_MS = 6 * 60 * 60 * 1000; // fallback if the response has no Cache-Control max-age
 let cachedJwks = null;
+let cachedJwksExpiresAt = 0;
 
 async function verifyFirebaseToken(idToken, projectId) {
   if (!projectId) throw new Error('FIREBASE_PROJECT_ID secret is not set');
@@ -340,11 +398,15 @@ async function verifyFirebaseToken(idToken, projectId) {
   if (payload.iss !== `https://securetoken.google.com/${projectId}`) throw new Error('Invalid issuer');
   if (!payload.sub) throw new Error('Missing sub claim');
 
-  // Fetch JWKs (cached in module scope across requests in same isolate).
-  if (!cachedJwks) {
+  // Fetch JWKs (cached in module scope across requests in same isolate, with a TTL
+  // so a rotated key isn't rejected until the isolate happens to recycle).
+  if (!cachedJwks || Date.now() > cachedJwksExpiresAt) {
     const res = await fetch(FIREBASE_JWK_URL);
     if (!res.ok) throw new Error('Failed to fetch Firebase JWKs');
     cachedJwks = await res.json();
+    const maxAgeMatch = (res.headers.get('Cache-Control') ?? '').match(/max-age=(\d+)/);
+    const ttlMs = maxAgeMatch ? parseInt(maxAgeMatch[1], 10) * 1000 : JWKS_CACHE_TTL_MS;
+    cachedJwksExpiresAt = Date.now() + ttlMs;
   }
 
   const jwk = cachedJwks.keys?.find((k) => k.kid === header.kid);

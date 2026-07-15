@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../contexts/AppContext';
-import { getAllLibraryEntries, getAllSessions } from '../../services/storage';
+import { getLibraryEntriesByLanguage, getSessionsByLanguage } from '../../services/storage';
 import { formatTime } from '../../utils/formatters';
 import { getLevel, calcXP } from '../../utils/levels';
 import styles from './StatsScreen.module.css';
@@ -42,13 +42,20 @@ function streakMessage(streak) {
 // own, since it lives inside Profile's existing screen chrome and tab bar.
 export default function StatsScreen() {
   const { settings } = useAppContext();
+  const language = settings?.currentLanguage ?? 'cantonese';
   const [stats, setStats] = useState(null);
   const [showAllAchievements, setShowAllAchievements] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const entries = await getAllLibraryEntries();
-      const sessions = await getAllSessions();
+      const entries = await getLibraryEntriesByLanguage(language);
+      // Every saveSession() call site now stamps a `language` field, so
+      // session-derived numbers (sessions, avg score, tone accuracy, best
+      // streak, today's progress) can be scoped to the active language too.
+      // Sessions saved before that field existed have no `language` at all —
+      // getSessionsByLanguage treats those as Cantonese so old history
+      // doesn't just disappear from a user's stats.
+      const sessions = await getSessionsByLanguage(language);
       const learningCount = entries.filter(e => e.status === 'learning').length;
       const masteredCount = entries.filter(e => e.status === 'mastered').length;
       const totalPhrasesPracticed = sessions.reduce((sum, s) => sum + (s.phrasesAttempted || 0), 0);
@@ -91,7 +98,7 @@ export default function StatsScreen() {
         todayPhrases, todayTime, realWorldCount,
       });
     })();
-  }, [settings]);
+  }, [settings, language]);
 
   if (!stats) return null;
 
@@ -111,9 +118,11 @@ export default function StatsScreen() {
   }
   const weekActive = weekDays.filter(d => d.active).length;
 
-  // Daily goal
+  // Daily goal — dailyGoalMinutes is a minutes target (set in Settings), so
+  // progress toward it has to be measured in minutes too, not phrase count.
   const dailyGoal = Math.max(5, settings.dailyGoalMinutes || 5);
-  const dailyProgress = Math.min(stats.todayPhrases / dailyGoal, 1);
+  const todayMinutes = Math.round(stats.todayTime / 60);
+  const dailyProgress = Math.min(todayMinutes / dailyGoal, 1);
   const goalMet = dailyProgress >= 1;
 
   // Onboarding placement-check baseline vs. current average — only shown for
@@ -192,7 +201,7 @@ export default function StatsScreen() {
           ))}
         </div>
         <p className={styles.sectionMeta}>
-          {weekActive}/7 this week · {goalMet ? 'today’s goal met' : `${stats.todayPhrases}/${dailyGoal} phrases today`}
+          {weekActive}/7 this week · {goalMet ? 'today’s goal met' : `${todayMinutes}/${dailyGoal} min today`}
         </p>
       </section>
 

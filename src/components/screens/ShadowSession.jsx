@@ -180,6 +180,40 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     }
   }, [currentLineIndex]);
 
+  const finishSession = useCallback(async () => {
+    audio.setAutoAdvance(true);
+    audio.pause();
+    try {
+      const dur = Math.round((Date.now() - sessionStart) / 1000);
+      const streakResult = await updateStreak();
+      const scores = results.filter(r => r.score !== null).map(r => r.score);
+      const avg = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : null;
+      await saveSession({
+        id: crypto.randomUUID(),
+        date: getTodayString(),
+        startedAt: sessionStart,
+        completedAt: Date.now(),
+        durationSeconds: dur,
+        mode: 'shadow',
+        language,
+        sceneId: sceneId ?? null,
+        phrasesAttempted: results.length,
+        phrasesMastered: results.filter(r => r.score !== null && r.score >= SCORE_THRESHOLDS.EXCELLENT).length,
+        averageScore: avg,
+        phraseResults: results,
+      });
+      phCapture('scene_completed', {
+        mode: 'shadow',
+        scene_id: sceneId ?? null,
+        phrases_practiced: results.length,
+        average_score: avg,
+      });
+      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: dur, averageScore: avg, streakCount: streakResult?.count ?? 0 });
+    } catch (_) {
+      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: 0, averageScore: null, streakCount: 0 });
+    }
+  }, [audio, sessionStart, results, sceneId, onComplete, language]);
+
   const handleNext = useCallback(async () => {
     const nextIndex = currentLineIndex + 1;
     if (nextIndex < totalYou) {
@@ -191,7 +225,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     } else {
       await finishSession();
     }
-  }, [currentLineIndex, totalYou]);
+  }, [currentLineIndex, totalYou, finishSession]);
 
   const handleRecord = useCallback(async () => {
     audio.pause();
@@ -280,39 +314,6 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
     } catch (_) {}
   }, [currentYouLine, scene, language, savedLines]);
 
-  const finishSession = useCallback(async () => {
-    audio.setAutoAdvance(true);
-    audio.pause();
-    try {
-      const dur = Math.round((Date.now() - sessionStart) / 1000);
-      const streakResult = await updateStreak();
-      const scores = results.filter(r => r.score !== null).map(r => r.score);
-      const avg = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : null;
-      await saveSession({
-        id: crypto.randomUUID(),
-        date: getTodayString(),
-        startedAt: sessionStart,
-        completedAt: Date.now(),
-        durationSeconds: dur,
-        mode: 'shadow',
-        sceneId: sceneId ?? null,
-        phrasesAttempted: results.length,
-        phrasesMastered: results.filter(r => r.score !== null && r.score >= SCORE_THRESHOLDS.EXCELLENT).length,
-        averageScore: avg,
-        phraseResults: results,
-      });
-      phCapture('scene_completed', {
-        mode: 'shadow',
-        scene_id: sceneId ?? null,
-        phrases_practiced: results.length,
-        average_score: avg,
-      });
-      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: dur, averageScore: avg, streakCount: streakResult?.count ?? 0 });
-    } catch (_) {
-      onComplete?.({ sceneId, phrasesAttempted: results.length, phraseResults: results, durationSeconds: 0, averageScore: null, streakCount: 0 });
-    }
-  }, [audio, sessionStart, results, sceneId, onComplete]);
-
   if (loading) return <div className={styles.screen}><div className={styles.loadingPulse} /></div>;
 
   if (!scene || youLines.length === 0) {
@@ -344,6 +345,7 @@ export default function ShadowSession({ sceneId, onBack, onComplete }) {
       {showPhrasebookToast && currentYouLine && (
         <PhrasebookToast
           phrase={{ cjk: currentYouLine.cjk, english: currentYouLine.english }}
+          language={language}
           onDone={() => setShowPhrasebookToast(false)}
         />
       )}

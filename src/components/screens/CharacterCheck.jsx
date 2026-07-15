@@ -79,14 +79,14 @@ export default function CharacterCheck({ onBack }) {
       await saveSession({
         id: crypto.randomUUID(), date: getTodayString(),
         startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-        mode: 'character-check', phrasesAttempted: sessionSet.length, phrasesMastered: 0,
+        mode: 'character-check', language, phrasesAttempted: sessionSet.length, phrasesMastered: 0,
         averageScore: Math.round((correct / sessionSet.length) * 100), phraseResults: [],
       });
       setPhase('done');
     } catch (err) {
       setFinishError(true);
     }
-  }, [sessionStart, correct, sessionSet, settings, updateSettings]);
+  }, [sessionStart, correct, sessionSet, settings, updateSettings, language]);
 
   const handleNext = useCallback(() => {
     const next = round + 1;

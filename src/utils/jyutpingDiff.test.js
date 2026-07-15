@@ -59,4 +59,26 @@ describe('diffJyutping', () => {
       { expected: 'hou2', actual: null, status: 'missing' },
     ]);
   });
+
+  it('flags a same-sound wrong-tone Mandarin Pinyin syllable as "tone", not "sound"', () => {
+    const r = diffJyutping('nǐ hǎo', 'nǐ hào');
+    expect(r).toEqual([
+      { expected: 'nǐ', actual: 'nǐ', status: 'correct' },
+      { expected: 'hǎo', actual: 'hào', status: 'tone' },
+    ]);
+  });
+
+  it('flags a different base sound in Pinyin as "sound"', () => {
+    const r = diffJyutping('qǐng wèn', 'xíng wèn');
+    expect(r).toEqual([
+      { expected: 'qǐng', actual: 'xíng', status: 'sound' },
+      { expected: 'wèn', actual: 'wèn', status: 'correct' },
+    ]);
+  });
+
+  it('matches a perfect Pinyin transcription as all correct, diacritics preserved in output', () => {
+    const r = diffJyutping('huān yíng lái zhōng guó', 'huān yíng lái zhōng guó');
+    expect(r.every(s => s.status === 'correct')).toBe(true);
+    expect(r.map(s => s.expected)).toEqual(['huān', 'yíng', 'lái', 'zhōng', 'guó']);
+  });
 });

@@ -1,6 +1,6 @@
 // src/services/lessonBuilder.js — Scene-aware lesson generation
 
-import { getDueForReview } from './srs';
+import { getDueByLanguage } from './srs';
 import { getAllLibraryEntries } from './storage';
 import { getAllScenes, getYouLines } from './sceneLoader';
 import { logger } from '../utils/logger';
@@ -17,7 +17,7 @@ import { logger } from '../utils/logger';
  */
 async function buildSceneLesson(language) {
   const [dueEntries, libraryEntries] = await Promise.all([
-    getDueForReview(),
+    getDueByLanguage(language),
     getAllLibraryEntries(),
   ]);
 
@@ -141,9 +141,9 @@ function normaliseEntry(e) {
 }
 
 async function buildLesson(goalMinutes, language) {
-  const { getDueEntries, getAllLibraryEntries } = await import('./storage.js');
-  // Explicit sort avoids depending on IDB's implicit index-iteration guarantee.
-  const due = (await getDueEntries()).filter(e => e.cjk).sort((a, b) => a.nextReviewAt - b.nextReviewAt);
+  const { getAllLibraryEntries } = await import('./storage.js');
+  // getDueByLanguage already sorts by nextReviewAt (most overdue first).
+  const due = (await getDueByLanguage(language)).filter(e => e.cjk);
   const all = await getAllLibraryEntries();
   const pool = due.length > 0 ? due : all.filter(e => e.cjk && (!e.language || e.language === language));
   const maxPhrases = Math.max(5, Math.floor((goalMinutes || 10) * 1.5));

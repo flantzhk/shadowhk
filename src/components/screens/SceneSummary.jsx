@@ -75,6 +75,7 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
       {showRealLifeCelebration && (
         <RealLifeCelebration
           phrase={bestPhrase}
+          language={settings?.currentLanguage ?? 'cantonese'}
           onDone={() => { setShowRealLifeCelebration(false); setLivedState('confirmed'); }}
         />
       )}
@@ -183,6 +184,7 @@ export default function SceneSummary({ summary, chatLog, sceneTitle, onDone, onR
         <BulkSaveModal
           phrases={savablePhrases}
           sceneName={sceneTitle || 'Scene'}
+          language={settings?.currentLanguage ?? 'cantonese'}
           onClose={() => setShowBulkSave(false)}
           onSaved={(count) => {
             setShowBulkSave(false);

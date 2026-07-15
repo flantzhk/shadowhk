@@ -99,9 +99,9 @@ async function updateAfterPractice(phraseId, score, { quality = 'correct', expec
 
   if (expectedJyutping && transcribedJyutping) {
     // Fire-and-forget: this feeds the tone-weakness profile, not this review's own scheduling.
-    recordToneDiff(diffJyutping(expectedJyutping, transcribedJyutping)).catch(() => {});
+    recordToneDiff(diffJyutping(expectedJyutping, transcribedJyutping), entry.language).catch(() => {});
   }
-  const weakTones = await getWeakTones();
+  const weakTones = await getWeakTones(entry.language);
   const hasWeakTone = phraseHasWeakTone(entry.romanization, weakTones);
 
   const updates = calculateNextReview(entry, quality, score, hasWeakTone);

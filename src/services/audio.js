@@ -2,8 +2,13 @@
 
 import { textToSpeech, englishTTS } from './api';
 import { isAuthenticated } from './auth';
-import { AUDIO_CACHE_NAME, AUTO_ADVANCE_DELAY_MS } from '../utils/constants';
+import { AUDIO_CACHE_NAME, AUTO_ADVANCE_DELAY_MS, MANDARIN_VOICE_ID } from '../utils/constants';
 import { logger } from '../utils/logger';
+
+/** Explicit voice id for a language, or undefined to fall back to the user's preferred voice. */
+function voiceIdFor(language) {
+  return language === 'mandarin' ? MANDARIN_VOICE_ID : undefined;
+}
 
 /**
  * Audio engine with queue management.
@@ -30,11 +35,14 @@ class AudioEngine {
     this._autoAdvance = true;
     this._advanceTimer = null;
     this._currentBlobUrl = null;
+    this._loadGeneration = 0;        // Bumped on every _loadCurrentPhrase() call to cancel stale loads
     this._shadowMode = false;        // When true: English → pause → Chinese → long gap
+    this._inEnglishPhase = false;    // True while the English TTS phase of shadow mode is active
     this._englishUtterance = null;   // Track current SpeechSynthesis utterance
     this._englishAudio = new Audio(); // Separate element for English TTS (primed once)
     this._englishAudio.src = SILENT_AUDIO_URI; // Needs valid src so iOS priming succeeds
     this._englishBlobUrl = null;      // Blob URL for current English clip
+    this._englishAudioResolve = null; // Pending resolve() for the current _playEnglishBlob() promise
 
     /** @type {((phrase: Object, index: number) => void)|null} */
     this._onPhraseChange = null;
@@ -77,9 +85,18 @@ class AudioEngine {
     }
   }
 
+  /** True if a load started before the given generation, or the engine is destroyed. */
+  _isStale(gen) {
+    return this._destroyed || gen !== this._loadGeneration;
+  }
+
   async _loadCurrentPhrase() {
     const phrase = this._queue[this._currentIndex];
     if (!phrase) return;
+
+    // Cancellation token: a newer _loadCurrentPhrase() call (from rapid next()/
+    // previous()/setSpeed()) bumps this, so a stale call's post-await work is a no-op.
+    const gen = ++this._loadGeneration;
 
     this._revokeBlobUrl();
     this._clearAdvanceTimer();
@@ -94,10 +111,13 @@ class AudioEngine {
 
       try {
         const resp = await fetch(staticUrl);
+        if (this._isStale(gen)) return;
         if (resp.ok) {
           let blob = await resp.blob();
           if (blob.size > 500) {
             blob = await padAudioBlob(blob);
+            if (this._isStale(gen)) return;
+            this._revokeBlobUrl();
             this._currentBlobUrl = URL.createObjectURL(blob);
             this._audio.src = this._currentBlobUrl;
             this._audio.playbackRate = speedNum < 1 ? speedNum : 1.0;
@@ -113,8 +133,11 @@ class AudioEngine {
 
       // Fallback: try browser cache
       const cached = await getCachedAudio(phrase.id, this._language, speedNum);
+      if (this._isStale(gen)) return;
       if (cached) {
         const paddedCached = await padAudioBlob(cached);
+        if (this._isStale(gen)) return;
+        this._revokeBlobUrl();
         this._currentBlobUrl = URL.createObjectURL(paddedCached);
         this._audio.src = this._currentBlobUrl;
       } else if (isAuthenticated()) {
@@ -123,7 +146,9 @@ class AudioEngine {
           language: this._language,
           speed: speedNum,
           outputExtension: 'mp3',
+          voiceId: voiceIdFor(this._language),
         });
+        if (this._isStale(gen)) return;
         if (!blob || blob.size === 0) {
           logger.error('TTS returned empty blob for', phrase.id);
           this._audio.removeAttribute('src'); // don't leave the previous phrase's audio playable
@@ -133,6 +158,8 @@ class AudioEngine {
         }
         cacheAudioBlob(phrase.id, this._language, speedNum, blob).catch(() => {});
         blob = await padAudioBlob(blob);
+        if (this._isStale(gen)) return;
+        this._revokeBlobUrl();
         this._currentBlobUrl = URL.createObjectURL(blob);
         this._audio.src = this._currentBlobUrl;
       } else {
@@ -149,6 +176,7 @@ class AudioEngine {
       // Silently prefetch upcoming phrases into cache so they load instantly
       this._prefetchUpcoming(speedNum);
     } catch (error) {
+      if (this._isStale(gen)) return;
       logger.error('Failed to load audio for phrase', phrase.id, ':', error?.message || error);
       this._audio.removeAttribute('src'); // don't leave the previous phrase's audio playable
       this._onStateChange?.('error');
@@ -159,31 +187,32 @@ class AudioEngine {
   /** Silently pre-fetch and cache the next N phrases. Fire-and-forget. */
   _prefetchUpcoming(speed) {
     const AHEAD = 3;
+    const language = this._language; // capture now — a language switch mid-prefetch must not relabel these
     for (let i = 1; i <= AHEAD; i++) {
       const idx = this._currentIndex + i;
       if (idx >= this._queue.length) break;
-      this._prefetchPhrase(this._queue[idx], speed); // no await — silent
+      this._prefetchPhrase(this._queue[idx], speed, language); // no await — silent
     }
   }
 
   /** Best-effort: check static → cache → TTS. Caches result if fetched. */
-  async _prefetchPhrase(phrase, speed) {
+  async _prefetchPhrase(phrase, speed, language) {
     if (!phrase?.id) return;
     try {
       // Skip if already in browser cache
-      const cached = await getCachedAudio(phrase.id, this._language, speed);
+      const cached = await getCachedAudio(phrase.id, language, speed);
       if (cached) return;
 
       // Try static pre-generated file first (no API cost)
       const basePath = import.meta.env.BASE_URL || '/';
-      const staticUrl = `${basePath}audio/${this._language}/${phrase.id}.mp3`;
+      const staticUrl = `${basePath}audio/${language}/${phrase.id}.mp3`;
       try {
         const resp = await fetch(staticUrl);
         if (resp.ok) {
           const blob = await resp.blob();
           if (blob.size > 500) {
             // Cache the static file so future plays skip the network fetch
-            await cacheAudioBlob(phrase.id, this._language, speed, blob);
+            await cacheAudioBlob(phrase.id, language, speed, blob);
             return;
           }
         }
@@ -192,12 +221,13 @@ class AudioEngine {
       // Fetch from TTS API and cache
       if (!isAuthenticated()) return;
       const blob = await textToSpeech(phrase.cjk ?? phrase.chinese, {
-        language: this._language,
+        language,
         speed,
         outputExtension: 'mp3',
+        voiceId: voiceIdFor(language),
       });
       if (blob && blob.size > 0) {
-        await cacheAudioBlob(phrase.id, this._language, speed, blob);
+        await cacheAudioBlob(phrase.id, language, speed, blob);
       }
     } catch (e) {
       // Prefetch is best-effort — silent fail
@@ -245,7 +275,9 @@ class AudioEngine {
 
     // 1. Speak English translation via Web Speech API
     if (phrase.english) {
+      this._inEnglishPhase = true;
       await this._speakEnglish(phrase.english, phrase.id);
+      this._inEnglishPhase = false;
       if (this._destroyed) return;
       await this._sleep(SHADOW_ENGLISH_GAP_MS);
     }
@@ -310,10 +342,14 @@ class AudioEngine {
           URL.revokeObjectURL(this._englishBlobUrl);
           this._englishBlobUrl = null;
         }
+        this._englishAudioResolve = null;
       };
-      this._englishAudio.onended = () => { cleanup(); resolve(); };
-      this._englishAudio.onerror = () => { cleanup(); resolve(); };
-      this._englishAudio.play().catch(() => { cleanup(); resolve(); });
+      // Stored so pause() can settle this promise directly — pausing this element
+      // never fires 'ended'/'error', so without this the promise hangs forever.
+      this._englishAudioResolve = () => { cleanup(); resolve(); };
+      this._englishAudio.onended = this._englishAudioResolve;
+      this._englishAudio.onerror = this._englishAudioResolve;
+      this._englishAudio.play().catch(() => this._englishAudioResolve?.());
     });
   }
 
@@ -344,6 +380,9 @@ class AudioEngine {
     if (this._shadowMode) {
       this._englishAudio.pause();
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      // Pausing this._englishAudio never fires 'ended'/'error', so settle the
+      // pending _playEnglishBlob() promise directly instead of hanging forever.
+      this._englishAudioResolve?.();
     }
   }
 
@@ -368,7 +407,10 @@ class AudioEngine {
 
   async setSpeed(speed) {
     this._speed = speed;
-    const wasPlaying = !this._audio.paused;
+    // In shadow mode's English phase, the main phrase audio is idle — check whichever
+    // element is actually playing, not always the main one.
+    const activeAudio = this._shadowMode && this._inEnglishPhase ? this._englishAudio : this._audio;
+    const wasPlaying = !activeAudio.paused;
     await this._loadCurrentPhrase();
     if (wasPlaying) await this.play();
   }
@@ -469,6 +511,7 @@ class AudioEngine {
     this._audio.removeAttribute('src');
     this._revokeBlobUrl();
     this._englishAudio.pause();
+    this._englishAudioResolve?.(); // settle a pending _playEnglishBlob() promise, same as pause()
     if (this._englishBlobUrl) {
       URL.revokeObjectURL(this._englishBlobUrl);
       this._englishBlobUrl = null;
@@ -491,6 +534,7 @@ class AudioEngine {
     this._audio.removeAttribute('src');
     this._revokeBlobUrl();
     this._englishAudio.pause();
+    this._englishAudioResolve?.(); // settle a pending _playEnglishBlob() promise, same as pause()
     if (this._englishBlobUrl) {
       URL.revokeObjectURL(this._englishBlobUrl);
       this._englishBlobUrl = null;
@@ -555,6 +599,7 @@ async function cacheAudioForPhrase(phrase, language) {
         language,
         speed,
         outputExtension: 'mp3',
+        voiceId: voiceIdFor(language),
       });
       await cacheAudioBlob(phrase.id, language, speed, audioBlob);
     } catch (error) {

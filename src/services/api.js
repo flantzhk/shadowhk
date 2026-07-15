@@ -2,7 +2,6 @@
 
 import { API_BASE_URL, API_ENDPOINTS, MAX_RETRIES, API_TIMEOUT_MS } from '../utils/constants';
 import { ApiError } from '../utils/errors';
-import { logger } from '../utils/logger';
 import { getAuthToken, refreshTokenIfNeeded, signOut } from './auth';
 import { TTS_SACRIFICIAL_TAIL, needsTtsPadding, trimTtsTail } from '../utils/trimTtsAudio';
 
@@ -49,7 +48,7 @@ async function fetchWithRetry(url, options, maxRetries = MAX_RETRIES) {
     }
   }
 
-  throw lastError;
+  throw lastError || new ApiError(`Request failed after ${maxRetries} retries`, 429, url);
 }
 
 /**
@@ -157,11 +156,13 @@ async function textToSpeech(text, options = {}) {
 /**
  * Transcribe speech to text.
  * @param {Blob} audioBlob
+ * @param {'cantonese'|'english'|'mandarin'} [language='cantonese']
  * @returns {Promise<{text: string, duration: string}>}
  */
-async function speechToText(audioBlob) {
+async function speechToText(audioBlob, language = 'cantonese') {
   const formData = new FormData();
   formData.append('data', audioBlob, 'recording.ogg');
+  formData.append('language', language);
 
   const response = await fetchWithAuth(
     `${API_BASE_URL}${API_ENDPOINTS.STT}`,

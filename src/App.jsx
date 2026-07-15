@@ -184,7 +184,10 @@ function renderScreen(route, navigate, goBack, showToast, updateSettings, authed
     case ROUTES.HOME:            return <HomeScreen onNavigate={navigate} />;
     case ROUTES.SCENES:          return <ScenesScreen onNavigate={navigate} />;
     case ROUTES.SCENE_DETAIL:    return <SceneDetailScreen sceneId={id} onNavigate={navigate} onBack={goBack} />;
-    case ROUTES.LISTEN:          return <ListenMode sceneId={id} onNavigate={navigate} onBack={goBack} />;
+    // key={id} forces a remount on scene switch — ListenMode's playback
+    // index/timers live in refs that a same-instance prop update wouldn't
+    // reset on its own.
+    case ROUTES.LISTEN:          return <ListenMode key={id} sceneId={id} onNavigate={navigate} onBack={goBack} />;
     case ROUTES.LIBRARY:         return <LibraryScreen onNavigate={navigate} />;
     case ROUTES.PRACTICE:        return <PracticeScreen onNavigate={navigate} onBack={goBack} />;
     case ROUTES.DRILL_TONE:      return <ToneTrainer onNavigate={navigate} onBack={goBack} />;

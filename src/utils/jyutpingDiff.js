@@ -1,18 +1,42 @@
 // src/utils/jyutpingDiff.js — syllable-level diagnostic diff between the
-// expected Jyutping for a phrase and what the recognizer transcribed.
+// expected Jyutping/Pinyin for a phrase and what the recognizer transcribed.
 //
 // cantonese.ai's /score-pronunciation response has no per-syllable pitch
 // data, but it does return expectedJyutping/transcribedJyutping, and Jyutping
 // already encodes tone as a trailing digit (e.g. "aa3" vs "aa4"). Diffing the
 // two syllable-by-syllable turns a bare score into "which syllable, which
 // tone" feedback without needing any audio signal processing.
+//
+// Mandarin romanization (Pinyin) marks tone with a diacritic on the vowel
+// instead of a trailing digit (e.g. "nǐ" vs Jyutping's "nei5"), so a second
+// parse path normalizes those marks to a base letter + tone digit. Which
+// path applies is sniffed per syllable from the token itself (presence of a
+// tone-mark character) rather than a language flag threaded through every
+// call site — a syllable is unambiguously one format or the other.
+
+import { PINYIN_TONE_MARKS, PINYIN_DIACRITIC_RE } from './pinyinTones';
 
 const SYLLABLE_RE = /^([a-z]+)([1-6])?$/i;
 
 function parseSyllable(token) {
+  const lower = token.toLowerCase();
+  if (PINYIN_DIACRITIC_RE.test(lower)) {
+    let tone = null;
+    let letters = '';
+    for (const ch of lower) {
+      const marked = PINYIN_TONE_MARKS[ch];
+      if (marked) {
+        tone = tone ?? marked[1];
+        letters += marked[0];
+      } else {
+        letters += ch;
+      }
+    }
+    return { letters, tone, raw: lower };
+  }
   const match = SYLLABLE_RE.exec(token);
-  if (!match) return { letters: token.toLowerCase(), tone: null };
-  return { letters: match[1].toLowerCase(), tone: match[2] ?? null };
+  if (!match) return { letters: lower, tone: null, raw: lower };
+  return { letters: match[1].toLowerCase(), tone: match[2] ?? null, raw: lower };
 }
 
 function tokenize(jyutping) {
@@ -44,7 +68,7 @@ function diffJyutping(expectedJyutping, transcribedJyutping) {
     }
   }
 
-  const toToken = s => s.letters + (s.tone ?? '');
+  const toToken = s => s.raw;
   const result = [];
   let i = n;
   let j = m;

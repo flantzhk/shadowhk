@@ -48,6 +48,8 @@ export default function PromptDrill({ onBack, onComplete }) {
 
   useEffect(() => {
     (async () => {
+      setPhase('loading');
+      setIndex(0);
       const lesson = await buildLesson(settings.dailyGoalMinutes, settings.currentLanguage);
       setPhrases(lesson);
       if (lesson.length > 0) {
@@ -59,7 +61,7 @@ export default function PromptDrill({ onBack, onComplete }) {
       }
     })();
     return () => { audioRef.current.pause(); };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [settings.currentLanguage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const phrase = phrases[index];
 
@@ -106,7 +108,7 @@ export default function PromptDrill({ onBack, onComplete }) {
     if (isOnline && isAuthenticated()) {
       try {
         const [sttResult, scoreResult] = await Promise.all([
-          speechToText(blob),
+          speechToText(blob, settings.currentLanguage),
           scorePronunciation(blob, phrase.cjk, settings.currentLanguage),
         ]);
         setTranscription(sttResult.text || '');
@@ -177,7 +179,7 @@ export default function PromptDrill({ onBack, onComplete }) {
     const rec = {
       id: crypto.randomUUID(), date: getTodayString(),
       startedAt: sessionStart, completedAt: Date.now(), durationSeconds: dur,
-      mode: 'prompt', phrasesAttempted: results.length, phrasesMastered: 0,
+      mode: 'prompt', language: settings.currentLanguage, phrasesAttempted: results.length, phrasesMastered: 0,
       averageScore: avg,
       phraseResults: results.map(r => ({ phraseId: r.phraseId, romanization: r.romanization, english: r.english, score: r.score, replays: 0, markedKnown: false })),
     };
@@ -271,7 +273,7 @@ export default function PromptDrill({ onBack, onComplete }) {
           </>
         ) : (
           <>
-            <span className={styles.label}>Say this in Cantonese:</span>
+            <span className={styles.label}>{settings.currentLanguage === 'mandarin' ? 'Say this in Mandarin:' : 'Say this in Cantonese:'}</span>
             <p className={styles.english}>{phrase.english}</p>
             {level === 1 && phrase.romanization && (
               <p style={{ fontSize: '14px', fontFamily: 'var(--font-mono)', color: 'var(--accent)', marginTop: '4px', fontWeight: 600, fontStyle: 'italic' }}>
@@ -298,11 +300,11 @@ export default function PromptDrill({ onBack, onComplete }) {
             <div className={styles.expected}>
               <span className={styles.compLabel}>Expected</span>
               <span className={styles.compJyutping}>{phrase.romanization}</span>
-              <span className={styles.compText} lang="yue">{phrase.cjk}</span>
+              <span className={styles.compText} lang={settings.currentLanguage === 'mandarin' ? 'zh-CN' : 'yue'}>{phrase.cjk}</span>
             </div>
             <div className={styles.actual}>
               <span className={styles.compLabel}>You said</span>
-              <span className={styles.compText} lang="yue">{transcription || '...'}</span>
+              <span className={styles.compText} lang={settings.currentLanguage === 'mandarin' ? 'zh-CN' : 'yue'}>{transcription || '...'}</span>
             </div>
           </div>
           <ScoreBadge score={score} variant="full" />

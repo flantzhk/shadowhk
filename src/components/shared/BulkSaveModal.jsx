@@ -6,9 +6,9 @@ import { MAX_LIBRARY_SIZE, SRS_INITIAL_EASE } from '../../utils/constants';
 import styles from './BulkSaveModal.module.css';
 
 /**
- * @param {{ phrases: Array, sceneName: string, onClose: Function, onSaved: (count: number) => void }} props
+ * @param {{ phrases: Array, sceneName: string, language: string, onClose: Function, onSaved: (count: number) => void }} props
  */
-export function BulkSaveModal({ phrases, sceneName, onClose, onSaved }) {
+export function BulkSaveModal({ phrases, sceneName, language = 'cantonese', onClose, onSaved }) {
   const [selected, setSelected] = useState(new Set(phrases.map((_, i) => i)));
   const [libraryCount, setLibraryCount] = useState(0);
   const [saving, setSaving] = useState(false);
@@ -43,6 +43,7 @@ export function BulkSaveModal({ phrases, sceneName, onClose, onSaved }) {
           interval: 0, easeFactor: SRS_INITIAL_EASE, nextReviewAt: Date.now(),
           lastPracticedAt: null, practiceCount: 0, status: 'learning',
           bestScore: null, lastScore: null, scoreHistory: [],
+          language,
         });
         saved++;
       } catch { /* skip already-saved */ }
@@ -76,7 +77,7 @@ export function BulkSaveModal({ phrases, sceneName, onClose, onSaved }) {
                 {selected.has(i) ? '✓' : '○'}
               </span>
               <div className={styles.phraseText}>
-                <span className={styles.phraseChinese} lang="yue">{p.chinese}</span>
+                <span className={styles.phraseChinese} lang={language === 'mandarin' ? 'zh-CN' : 'yue'}>{p.chinese}</span>
                 <span className={styles.phraseEnglish}>{p.english}</span>
               </div>
             </button>
